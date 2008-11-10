@@ -20,7 +20,8 @@ remapTags = {"duplicates" : "notNull"}
 tableFields = ["engine",  "description"]
 
 # Fields for columns in the metadata.
-columnFields = ["description", "type", "notNull", "default", "unit", "ucd"]
+columnFields = ["description", "type", "notNull", "defaultValue",
+    "unit", "ucd"]
 
 # Fields with numeric contents.
 numericFields = ["notNull"]
@@ -40,7 +41,7 @@ CREATE TABLE md_Column (
 	description VARCHAR(255),
 	type VARCHAR(255),
 	notNull INTEGER DEFAULT 0,
-	default VARCHAR(255),
+	defaultValue VARCHAR(255),
 	unit VARCHAR(255),
 	ucd VARCHAR(255),
 	INDEX md_Column_idx (tableId, name)
@@ -112,7 +113,7 @@ while line != "":
             else:
                 m = expr.search(line)
                 if m is not None:
-                    in_attr["default"] = m.group(1)
+                    in_attr["defaultValue"] = m.group(1)
 
     line = sys.stdin.readline()
 
