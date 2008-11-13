@@ -21,10 +21,10 @@ tableFields = ["engine",  "description"]
 
 # Fields for columns in the metadata.
 columnFields = ["description", "type", "notNull", "defaultValue",
-    "unit", "ucd"]
+    "unit", "ucd", "displayOrder"]
 
 # Fields with numeric contents.
-numericFields = ["notNull"]
+numericFields = ["notNull", "displayOrder"]
 
 schema = """
 CREATE TABLE md_Table (
@@ -44,6 +44,7 @@ CREATE TABLE md_Column (
 	defaultValue VARCHAR(255),
 	unit VARCHAR(255),
 	ucd VARCHAR(255),
+        displayOrder INTEGER NOT NULL,
 	INDEX md_Column_idx (tableId, name)
 );
 
@@ -66,6 +67,7 @@ expr = re.compile(r'<UML:Expression body="(.+?)"')
 engineTag = re.compile(
   r'<UML:TaggedValue tag="(Type|ENGINE)" .* value="(.+?)" modelElement="(\w+)"')
 
+colNum = 1
 line = sys.stdin.readline()
 
 while line != "":
@@ -75,6 +77,7 @@ while line != "":
         if m.group(2) not in table:
             table[m.group(2)] = {}
         table[m.group(2)]["name"] = m.group(1)
+        colNum = 1
         in_class = table[m.group(2)]
     elif classEnd.search(line):
         in_class = None
@@ -90,6 +93,8 @@ while line != "":
         m = attrStart.search(line)
         if m is not None:
             in_attr = {"name" : m.group(1)}
+            in_attr["displayOrder"] = str(colNum)
+            colNum += 1
             if "columns" not in in_class:
                 in_class["columns"] = []
             in_class["columns"].append(in_attr)
