@@ -134,6 +134,14 @@ def handleField(ptr, field, indent):
     sys.stdout.write("".join(["\t" for i in xrange(indent)]))
     sys.stdout.write(field + " = " + q + ptr[field] + q)
 
+dbN = "lsst_schema_browser"
+
+sys.stdout.write("".join(["-- " for i in xrange(25)]) + "\n")
+sys.stdout.write("-- Reset database\n")
+sys.stdout.write("DROP DATABASE IF EXISTS " + dbN + ";\n")
+sys.stdout.write("CREATE DATABASE " + dbN + ";\n")
+sys.stdout.write("USE " + dbN + ";\n\n")
+
 sys.stdout.write("".join(["-- " for i in xrange(25)]) + "\n")
 sys.stdout.write("-- Create metadata tables\n" + schema)
 
