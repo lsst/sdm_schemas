@@ -8,6 +8,7 @@
   <meta name="description" content="Large Synoptic Survey Telescope - Schema Browser">
   <meta name="keywords" content="LSST, schema, database">
   <link rel="stylesheet" type="text/css" href="includes/css/lsst.css">
+  <script type="text/javascript" src="sortable.js"></script>
 </head>
 
 <body>
@@ -45,7 +46,8 @@ if ( array_key_exists('t', $_GET) ) {
     $data4t2d ="
 <p>$tDescr</p>
 
-<table class='columns' cellpadding='0' cellspacing='0'>
+
+<table id='ttable' class='sortable' cellpadding='0' cellspacing='0'>
 <tr>
   <th>name</th>
   <th>type</th>
