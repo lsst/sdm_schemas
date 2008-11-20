@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
+import optparse
+import os
 import re
+import subprocess
 import sys
 
-usage = """%prog < EA_export.xml > metadata.sql
-
-The XML on stdin is translated into SQL on stdout for creating and loading
-the catalog metadata tables with descriptions of each table and column in
-the catalog.
-"""
+###############################################################################
+# Configuration information
+###############################################################################
 
 # Tagged values for columns in EA that map directly to fields in the metadata.
 columnTags = ["description", "type", "ucd", "unit"]
@@ -19,24 +19,39 @@ remapTags = {"duplicates" : "notNull"}
 # Fields for tables in the metadata (values obtained with custom code).
 tableFields = ["engine",  "description"]
 
-# Fields for columns in the metadata.
+# Fields for columns in the metadata.  Any not listed in the Tags variables
+# are generated using custom code.
 columnFields = ["description", "type", "notNull", "defaultValue",
     "unit", "ucd", "displayOrder"]
 
 # Fields with numeric contents.
 numericFields = ["notNull", "displayOrder"]
 
-schema = """
+###############################################################################
+# DDL for creating database and tables
+###############################################################################
+
+databaseDDL = """
+DROP DATABASE IF EXISTS lsst_schema_browser;
+CREATE DATABASE lsst_schema_browser;
+USE lsst_schema_browser;
+
+"""
+
+# Names of fields in these tables after "name" must match the names in the
+# Fields variables above.
+
+tableDDL = """
 CREATE TABLE md_Table (
-	id INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
 	engine VARCHAR(255),
 	description VARCHAR(255)
 );
 
 CREATE TABLE md_Column (
-	id INTEGER NOT NULL UNIQUE PRIMARY KEY,
-	tableId INTEGER NOT NULL REFERENCES md_Table (id),
+	columnId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
 	name VARCHAR(255) NOT NULL,
 	description VARCHAR(255),
 	type VARCHAR(255),
@@ -50,6 +65,74 @@ CREATE TABLE md_Column (
 
 """
 
+
+###############################################################################
+# Standard header to be prepended
+###############################################################################
+
+LSSTheader = """
+-- LSST Database Metadata
+-- $Revision$
+-- $Date$
+--
+-- See <http://dev.lsstcorp.org/trac/wiki/Copyrights>
+-- for copyright information.
+
+"""
+
+###############################################################################
+# Usage and command line processing
+###############################################################################
+
+usage = """%prog exportFile_{version}.xml [-m {message}]
+
+Everything between the first underscore and a trailing ".xml" in the argument
+filename is taken as a version string.  Any non-alphanumeric characters in the
+version string are translated to underscores ("_").
+
+The file is translated from XML to SQL DML for loading the catalog metadata
+tables with descriptions of each table and column in the catalog.  SQL DDL for
+creating the metadata tables is prepended to the file.
+
+A "CREATE TABLE AAA_Version_{version}" statement is also prepended to the
+file, as is a standard comment header.
+
+The file is renamed without the underscore and version string, and with .xml
+changed to .sql.
+
+The file is then checked into SVN using the optional message if present.
+"""
+
+parser = optparse.OptionParser(usage)
+parser.add_option("-m")
+options, arguments = parser.parse_args()
+
+if len(arguments) != 1:
+    sys.stderr.write(os.path.basename(sys.argv[0]) + usage[6:])
+    sys.exit(1)
+filename = arguments[0]
+
+pos = filename.find("_")
+if pos == -1 or filename[-4:] != ".xml":
+    sys.stderr.write(os.path.basename(sys.argv[0]) + usage[6:])
+    sys.exit(1)
+
+origVersion = filename[pos + 1:-4]
+r = re.compile(r'\W')
+version = r.sub("_", origVersion)
+
+destFilename = filename[0:pos] + ".sql"
+
+src = open(filename, mode='r')
+dest = open(destFilename, mode='wt')
+
+dest.write(LSSTheader)
+dest.write(databaseDDL)
+dest.write("\nCREATE TABLE AAA_Version_" + version + " (version CHAR);\n\n")
+dest.write(tableDDL)
+
+###############################################################################
+# Parse XML
 ###############################################################################
 
 in_class = None
@@ -68,7 +151,7 @@ engineTag = re.compile(
   r'<UML:TaggedValue tag="(Type|ENGINE)" .* value="(.+?)" modelElement="(\w+)"')
 
 colNum = 1
-line = sys.stdin.readline()
+line = src.readline()
 
 while line != "":
 
@@ -120,8 +203,10 @@ while line != "":
                 if m is not None:
                     in_attr["defaultValue"] = m.group(1)
 
-    line = sys.stdin.readline()
+    line = src.readline()
 
+###############################################################################
+# Output DML
 ###############################################################################
 
 def handleField(ptr, field, indent):
@@ -130,39 +215,41 @@ def handleField(ptr, field, indent):
     q = '"'
     if field in numericFields:
         q = ''
-    sys.stdout.write(",\n")
-    sys.stdout.write("".join(["\t" for i in xrange(indent)]))
-    sys.stdout.write(field + " = " + q + ptr[field] + q)
-
-dbN = "lsst_schema_browser"
-
-sys.stdout.write("".join(["-- " for i in xrange(25)]) + "\n")
-sys.stdout.write("-- Reset database\n")
-sys.stdout.write("DROP DATABASE IF EXISTS " + dbN + ";\n")
-sys.stdout.write("CREATE DATABASE " + dbN + ";\n")
-sys.stdout.write("USE " + dbN + ";\n\n")
-
-sys.stdout.write("".join(["-- " for i in xrange(25)]) + "\n")
-sys.stdout.write("-- Create metadata tables\n" + schema)
+    dest.write(",\n")
+    dest.write("".join(["\t" for i in xrange(indent)]))
+    dest.write(field + " = " + q + ptr[field] + q)
 
 tableId = 0
 colId = 0
 for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
     t = table[k]
     tableId += 1
-    sys.stdout.write("".join(["-- " for i in xrange(25)]) + "\n\n")
-    sys.stdout.write("INSERT INTO md_Table\n")
-    sys.stdout.write('SET id = %d, name = "%s"' % (tableId, t["name"]))
+    dest.write("".join(["-- " for i in xrange(25)]) + "\n\n")
+    dest.write("INSERT INTO md_Table\n")
+    dest.write('SET tableId = %d, name = "%s"' % (tableId, t["name"]))
     for f in tableFields:
         handleField(t, f, 1)
-    sys.stdout.write(";\n\n")
+    dest.write(";\n\n")
 
     if "columns" in t:
         for c in t["columns"]:
             colId += 1
-            sys.stdout.write("\tINSERT INTO md_Column\n")
-            sys.stdout.write('\tSET id = %d, tableId = %d, name = "%s"' %
+            dest.write("\tINSERT INTO md_Column\n")
+            dest.write('\tSET columnId = %d, tableId = %d, name = "%s"' %
                     (colId, tableId, c["name"]))
             for f in columnFields:
                 handleField(c, f, 2)
-            sys.stdout.write(";\n\n")
+            dest.write(";\n\n")
+
+###############################################################################
+# Check into SVN
+###############################################################################
+
+# Don't delete the original, just in case there's a problem.
+# os.unlink(filename)
+
+message = "LSST metadata version " + origVersion + "."
+if options.m != None:
+    message += " " + options.m
+
+# subprocess.call(["svn", "commit", destFilename, "-m", message])
