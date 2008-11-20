@@ -37,7 +37,7 @@ if ( array_key_exists('t', $_GET) ) {
     $tName = $_GET['t'];
     $title4t2d = "Details for table <i>$tName</i></td></tr>";
     $tInfo = $database->getTableInfo($tName);
-    $tId     = $tInfo[0]['id'];
+    $tId     = $tInfo[0]['tableId'];
     $tEngine = $tInfo[0]['engine'];
     $tDescr  = $tInfo[0]['description'];
     

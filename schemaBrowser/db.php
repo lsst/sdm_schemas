@@ -25,7 +25,7 @@ class MySQLDB {
     /** returns array **/
     public
     function getTableInfo($tName) {
-        $q = "SELECT id, engine, description FROM md_Table WHERE name='$tName'";
+        $q = "SELECT tableId, engine, description FROM md_Table WHERE name='$tName'";
         return $this->fetchIntoArray($q);
     }
 
