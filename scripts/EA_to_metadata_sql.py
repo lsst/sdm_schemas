@@ -252,4 +252,4 @@ message = "LSST metadata version " + origVersion + "."
 if options.m != None:
     message += " " + options.m
 
-# subprocess.call(["svn", "commit", destFilename, "-m", message])
+subprocess.call(["svn", "commit", destFilename, "-m", message])
