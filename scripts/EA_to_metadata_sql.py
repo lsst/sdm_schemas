@@ -99,12 +99,9 @@ file, as is a standard comment header.
 
 The file is renamed without the underscore and version string, and with .xml
 changed to .sql.
-
-The file is then checked into SVN using the optional message if present.
 """
 
 parser = optparse.OptionParser(usage)
-parser.add_option("-m")
 options, arguments = parser.parse_args()
 
 if len(arguments) != 1:
@@ -240,16 +237,3 @@ for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
             for f in columnFields:
                 handleField(c, f, 2)
             dest.write(";\n\n")
-
-###############################################################################
-# Check into SVN
-###############################################################################
-
-# Don't delete the original, just in case there's a problem.
-# os.unlink(filename)
-
-message = "LSST metadata version " + origVersion + "."
-if options.m != None:
-    message += " " + options.m
-
-subprocess.call(["svn", "commit", destFilename, "-m", message])
