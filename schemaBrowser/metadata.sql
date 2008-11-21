@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser;
 USE lsst_schema_browser;
 
 
-CREATE TABLE AAA_Version_DC3_3_0_7 (version CHAR);
+CREATE TABLE AAA_Version_DC3_3_0_10 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -389,52 +389,58 @@ SET tableId = 9, name = "DIASource",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 44, tableId = 9, name = "ra",
-		description = "RA-coordinate of the source centroid (degrees)&#xA;Need to support accuracy ~ 0.0001 arcsec.",
-		type = "DOUBLE",
-		notNull = 1,
-		displayOrder = 8;
-
-	INSERT INTO md_Column
-	SET columnId = 45, tableId = 9, name = "ssmId",
+	SET columnId = 44, tableId = 9, name = "ssmId",
 		description = "Pointer to mops_SSM table. Might be NULL. Yields the originating SSM object for synthetic detections injected by daytime MOPS.",
 		type = "BIGINT",
 		notNull = 0,
+		displayOrder = 8;
+
+	INSERT INTO md_Column
+	SET columnId = 45, tableId = 9, name = "ra",
+		description = "RA-coordinate of the difference source centroid.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "deg",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 46, tableId = 9, name = "decl",
-		description = "Dec coordinate of the source centroid (degrees). Need to support accuracy ~0.0001 arcsec.",
-		type = "DOUBLE",
+	SET columnId = 46, tableId = 9, name = "raErr4detection",
+		description = "Uncertainty of ra coming from Detection Pipeline.",
+		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 47, tableId = 9, name = "raErr4detection",
-		description = "Error in centroid RA coordinate (milliarcsec) coming from Detection Pipeline [FIXME, maybe use Stage name here?].",
+	SET columnId = 47, tableId = 9, name = "raErr4wcs",
+		description = "Uncertainty of ra coming from WCS Stage.",
 		type = "FLOAT",
-		notNull = 1,
+		notNull = 0,
+		unit = "deg",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 48, tableId = 9, name = "declErr4detection",
-		description = "Error in centroid Decl coordinate (milliarcsec) coming from Detection Pipeline [FIXME, maybe use Stage name here?].",
-		type = "FLOAT",
+	SET columnId = 48, tableId = 9, name = "decl",
+		description = "Declination coordinate of the difference source centroid.",
+		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 49, tableId = 9, name = "raErr4wcs",
-		description = "Error in centroid RA coordinate (milliarcsec) coming from WCS Stage.",
+	SET columnId = 49, tableId = 9, name = "declErr4detection",
+		description = "Uncertainty of decl coming from Detection Pipeline.",
 		type = "FLOAT",
-		notNull = 0,
+		notNull = 1,
+		unit = "deg",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
 	SET columnId = 50, tableId = 9, name = "declErr4wcs",
-		description = "Error in centroid Decl coordinate (milliarcsec) coming from WCS Stage.",
+		description = "Uncertainty of decl coming from WCS Stage.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "deg",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
@@ -593,30 +599,34 @@ SET tableId = 9, name = "DIASource",
 
 	INSERT INTO md_Column
 	SET columnId = 73, tableId = 9, name = "fwhmA",
-		description = "Size of the object along major axis (pixels).",
+		description = "Size of the object along major axis.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "pixel",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
 	SET columnId = 74, tableId = 9, name = "fwhmB",
-		description = "Size of the object along minor axis (pixels).",
+		description = "Size of the object along minor axis.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "pixel",
 		displayOrder = 38;
 
 	INSERT INTO md_Column
 	SET columnId = 75, tableId = 9, name = "fwhmTheta",
-		description = "Position angle of the major axis w.r.t. X-axis (measured in degrees).",
+		description = "Position angle of the major axis with regards to X-axis.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 39;
 
 	INSERT INTO md_Column
 	SET columnId = 76, tableId = 9, name = "lengthDeg",
-		description = "Size of the object along major axis (degrees).",
+		description = "Size of the object along major axis.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 40;
 
 	INSERT INTO md_Column
@@ -635,42 +645,42 @@ SET tableId = 9, name = "DIASource",
 
 	INSERT INTO md_Column
 	SET columnId = 79, tableId = 9, name = "psfMag",
-		description = "PSF magnitude of the object",
+		description = "PSF magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 43;
 
 	INSERT INTO md_Column
 	SET columnId = 80, tableId = 9, name = "psfMagErr",
-		description = "Uncertainty of PSF magnitude",
+		description = "Uncertainty of PSF magnitude.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 44;
 
 	INSERT INTO md_Column
 	SET columnId = 81, tableId = 9, name = "apMag",
-		description = "Aperture magnitude",
+		description = "Aperture magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 45;
 
 	INSERT INTO md_Column
 	SET columnId = 82, tableId = 9, name = "apMagErr",
-		description = "Uncertainty of aperture magnitude",
+		description = "Uncertainty of aperture magnitude.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 46;
 
 	INSERT INTO md_Column
 	SET columnId = 83, tableId = 9, name = "modelMag",
-		description = "model magnitude (adaptive 2D gauss)",
+		description = "Adaptive 2D gauss model magnitude.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 47;
 
 	INSERT INTO md_Column
 	SET columnId = 84, tableId = 9, name = "modelMagErr",
-		description = "Uncertainly of model magnitude.",
+		description = "Uncertainly of the model magnitude.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 48;
@@ -991,16 +1001,18 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 125, tableId = 15, name = "i",
-		description = "inclination of the orbit (degrees)",
+		description = "Inclination of the orbit.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
 	SET columnId = 126, tableId = 15, name = "node",
-		description = "longitude of ascending node (degrees)",
+		description = "Longitude of ascending node.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
@@ -1012,9 +1024,10 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 128, tableId = 15, name = "argPeri",
-		description = "argument of perihelion (degrees)",
+		description = "Argument of perihelion.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
@@ -1103,9 +1116,10 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 141, tableId = 15, name = "orbFitResidual",
-		description = "orbit fit RMS residual (arcsec)",
+		description = "Orbit fit RMS residual.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "argsec",
 		displayOrder = 24;
 
 	INSERT INTO md_Column
@@ -1152,14 +1166,14 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 148, tableId = 15, name = "uMag",
-		description = "u-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in u filter.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 31;
 
 	INSERT INTO md_Column
 	SET columnId = 149, tableId = 15, name = "uMagErr",
-		description = "u-magnitude error",
+		description = "Uncertainty of uMag.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 32;
@@ -1180,14 +1194,14 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 152, tableId = 15, name = "gMag",
-		description = "g-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in g filter.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 35;
 
 	INSERT INTO md_Column
 	SET columnId = 153, tableId = 15, name = "gMagErr",
-		description = "g-magnitude error",
+		description = "Uncertainty of gMag.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 36;
@@ -1208,14 +1222,14 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 156, tableId = 15, name = "rMag",
-		description = "r-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in r filter.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 39;
 
 	INSERT INTO md_Column
 	SET columnId = 157, tableId = 15, name = "rMagErr",
-		description = "r-magnitude error",
+		description = "Uncertainty of rMag.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 40;
@@ -1236,14 +1250,14 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 160, tableId = 15, name = "iMag",
-		description = "i-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in i filter.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 43;
 
 	INSERT INTO md_Column
 	SET columnId = 161, tableId = 15, name = "iMagErr",
-		description = "i-magnitude error",
+		description = "Uncertainty of iMag.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 44;
@@ -1264,14 +1278,14 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 164, tableId = 15, name = "zMag",
-		description = "z-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in z filter.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 47;
 
 	INSERT INTO md_Column
 	SET columnId = 165, tableId = 15, name = "zMagErr",
-		description = "z-magnitude error",
+		description = "Uncertainty of zMag.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 48;
@@ -1292,14 +1306,14 @@ SET tableId = 15, name = "MovingObject",
 
 	INSERT INTO md_Column
 	SET columnId = 168, tableId = 15, name = "yMag",
-		description = "y-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in y filter.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 51;
 
 	INSERT INTO md_Column
 	SET columnId = 169, tableId = 15, name = "yMagErr",
-		description = "y-magnitude error",
+		description = "Uncertainty of yMag.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 52;
@@ -1544,49 +1558,58 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 203, tableId = 16, name = "ra",
-		description = "RA-coordinate of the object (degrees). Weighted center of light across all filters. Need to support accuracy ~0.0001 arcsec.",
+		description = "RA-coordinate of the object. Weighted center of light across all filters.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 3;
 
 	INSERT INTO md_Column
-	SET columnId = 204, tableId = 16, name = "decl",
-		description = "Dec-coordinate of the object (degrees). Weighted center of light across all filters. Need to support accuracy ~0.0001 arcsec",
-		type = "DOUBLE",
+	SET columnId = 204, tableId = 16, name = "raErr",
+		description = "Uncertainty of ra.",
+		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 4;
 
 	INSERT INTO md_Column
-	SET columnId = 205, tableId = 16, name = "raErr",
-		type = "FLOAT",
+	SET columnId = 205, tableId = 16, name = "decl",
+		description = "Declination-coordinate of the object. Weighted center of light across all filters.",
+		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
 	SET columnId = 206, tableId = 16, name = "declErr",
+		description = "Uncertainty of decl.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
 	SET columnId = 207, tableId = 16, name = "muRa",
-		description = "derived proper motion, mu_alpha*cos(Dec) (measured in arcsec/yr)",
+		description = "Derived proper motion, mu_alpha*cos(Dec) (measured in arcsec/yr)",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "arcsec/year",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 208, tableId = 16, name = "muDecl",
-		description = "derived proper motion, mu_delta (measured in arcsec/yr)",
-		type = "DOUBLE",
+	SET columnId = 208, tableId = 16, name = "muRaErr",
+		description = "Uncertainty of muRa.",
+		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec/year",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 209, tableId = 16, name = "muRaErr",
-		description = "Error in ra proper motion",
-		type = "FLOAT",
+	SET columnId = 209, tableId = 16, name = "muDecl",
+		description = "derived proper motion, mu_delta (measured in arcsec/yr)",
+		type = "DOUBLE",
 		notNull = 0,
+		unit = "arcsec/year",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
@@ -1594,6 +1617,7 @@ SET tableId = 16, name = "Object",
 		description = "Error in Decl proper motion",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec/year",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
@@ -1889,14 +1913,14 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 253, tableId = 16, name = "uMag",
-		description = "u-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in u filter.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 53;
 
 	INSERT INTO md_Column
 	SET columnId = 254, tableId = 16, name = "uMagErr",
-		description = "u-magnitude error",
+		description = "Uncertainty of uMag.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 54;
@@ -1931,23 +1955,26 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 259, tableId = 16, name = "uPosErrA",
-		description = "Large dimension of the position error ellipse, assuming gaussian scatter (arcsec). For u filter",
+		description = "Large dimension of the position error ellipse, assuming gaussian scatter. For u filter.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 59;
 
 	INSERT INTO md_Column
 	SET columnId = 260, tableId = 16, name = "uPosErrB",
-		description = "Small dimension of the position error ellipse, assuming gaussian scatter (arcsec).  For u filter",
+		description = "Small dimension of the position error ellipse, assuming gaussian scatter.  For u filter.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "arcsec",
 		displayOrder = 60;
 
 	INSERT INTO md_Column
 	SET columnId = 261, tableId = 16, name = "uPosErrTheta",
-		description = "Orientation of the position error ellipse (degrees). For u filter",
+		description = "Orientation of the position error ellipse. For u filter",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "deg",
 		displayOrder = 61;
 
 	INSERT INTO md_Column
@@ -1962,6 +1989,7 @@ SET tableId = 16, name = "Object",
 		description = "Probability of variability in % (100% = variable object) for u filter. Note: large photometric errors do not necessarily mean variability.",
 		type = "TINYINT",
 		notNull = 0,
+		unit = "%",
 		displayOrder = 63;
 
 	INSERT INTO md_Column
@@ -2063,14 +2091,14 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 278, tableId = 16, name = "gMag",
-		description = "g-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in g filter.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 78;
 
 	INSERT INTO md_Column
 	SET columnId = 279, tableId = 16, name = "gMagErr",
-		description = "g-magnitude error",
+		description = "Uncertainty of gMag.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 79;
@@ -2230,14 +2258,14 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 303, tableId = 16, name = "rMag",
-		description = "r-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in r filter.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 103;
 
 	INSERT INTO md_Column
 	SET columnId = 304, tableId = 16, name = "rMagErr",
-		description = "r-magnitude error",
+		description = "Uncertainty of rMag.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 104;
@@ -2397,14 +2425,14 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 328, tableId = 16, name = "iMag",
-		description = "i-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in i filter.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 128;
 
 	INSERT INTO md_Column
 	SET columnId = 329, tableId = 16, name = "iMagErr",
-		description = "i-magnitude error",
+		description = "Uncertainty of iMag.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 129;
@@ -2564,14 +2592,14 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 353, tableId = 16, name = "zMag",
-		description = "z-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in z filter.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 153;
 
 	INSERT INTO md_Column
 	SET columnId = 354, tableId = 16, name = "zMagErr",
-		description = "z-magnitude error",
+		description = "Uncertainty of zMag.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 154;
@@ -2731,14 +2759,14 @@ SET tableId = 16, name = "Object",
 
 	INSERT INTO md_Column
 	SET columnId = 378, tableId = 16, name = "yMag",
-		description = "y-magnitude (weighted average)",
+		description = "Weighted average apparent magnitude in y filter.",
 		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 178;
 
 	INSERT INTO md_Column
 	SET columnId = 379, tableId = 16, name = "yMagErr",
-		description = "y-magnitude error",
+		description = "Uncertainty of yMag.",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 179;
@@ -3051,23 +3079,26 @@ SET tableId = 19, name = "Raw_Amp_Exposure",
 
 	INSERT INTO md_Column
 	SET columnId = 423, tableId = 19, name = "telAngle",
-		description = "Orientation angle of the telescope w.r.t sky (degrees).  Note: This is different from camera orientation w.r.t sky (encapsulated in WCS), since telescope is on alt-az mount.",
+		description = "Orientation angle of the telescope with regards to sky.  Note: This is different from camera orientation w.r.t sky (encapsulated in WCS), since telescope is on alt-az mount.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
 	SET columnId = 424, tableId = 19, name = "az",
-		description = "Azimuth of observation (deg), preferably at center of exposure at center of image and including refraction correction, but none of this is guaranteed",
+		description = "Azimuth of observation, preferably at center of exposure at center of image and including refraction correction, but none of this is guaranteed",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "deg",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
 	SET columnId = 425, tableId = 19, name = "altitude",
-		description = "Altitude of observation (deg), preferably at center of observation at center of image and including refraction correction, but none of this is guaranteed",
+		description = "Altitude of observation, preferably at center of observation at center of image and including refraction correction, but none of this is guaranteed",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "deg",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
@@ -3283,16 +3314,18 @@ SET tableId = 19, name = "Raw_Amp_Exposure",
 
 	INSERT INTO md_Column
 	SET columnId = 457, tableId = 19, name = "crval1",
-		description = "Sky coordinate (longitude) for reference pixel (degrees)",
+		description = "Sky coordinate (longitude) for reference pixel.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 48;
 
 	INSERT INTO md_Column
 	SET columnId = 458, tableId = 19, name = "crval2",
-		description = "Sky coordinate (latitude) for reference pixel (degrees)",
+		description = "Sky coordinate (latitude) for reference pixel.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 49;
 
 	INSERT INTO md_Column
@@ -3377,261 +3410,255 @@ SET tableId = 20, name = "Raw_CCD_Exposure";
 		displayOrder = 5;
 
 	INSERT INTO md_Column
-	SET columnId = 470, tableId = 20, name = "visitId",
-		type = "INTEGER",
-		notNull = 0,
+	SET columnId = 470, tableId = 20, name = "ra",
+		description = "Right Ascension of aperture center.",
+		type = "DOUBLE",
+		notNull = 1,
 		displayOrder = 6;
 
 	INSERT INTO md_Column
-	SET columnId = 471, tableId = 20, name = "ra",
-		description = "Right Ascension of aperture center.",
+	SET columnId = 471, tableId = 20, name = "decl",
+		description = "Declination of aperture center.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 472, tableId = 20, name = "decl",
-		description = "Declination of aperture center.",
-		type = "DOUBLE",
+	SET columnId = 472, tableId = 20, name = "equinox",
+		description = "Equinox of World Coordinate System.",
+		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 8;
 
 	INSERT INTO md_Column
-	SET columnId = 473, tableId = 20, name = "equinox",
-		description = "Equinox of World Coordinate System.",
-		type = "FLOAT",
+	SET columnId = 473, tableId = 20, name = "url",
+		description = "Logical URL to the corresponding image file.",
+		type = "VARCHAR(255)",
 		notNull = 1,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 474, tableId = 20, name = "url",
-		description = "Logical URL to the corresponding image file.",
-		type = "VARCHAR(255)",
+	SET columnId = 474, tableId = 20, name = "ctype1",
+		description = "Coordinate projection type, axis 1.",
+		type = "VARCHAR(20)",
 		notNull = 1,
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 475, tableId = 20, name = "ctype1",
-		description = "Coordinate projection type, axis 1.",
+	SET columnId = 475, tableId = 20, name = "ctype2",
+		description = "Coordinate projection type, axis 2.",
 		type = "VARCHAR(20)",
 		notNull = 1,
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 476, tableId = 20, name = "ctype2",
-		description = "Coordinate projection type, axis 2.",
-		type = "VARCHAR(20)",
+	SET columnId = 476, tableId = 20, name = "crpix1",
+		description = "Coordinate reference pixel, axis 1.",
+		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 12;
 
 	INSERT INTO md_Column
-	SET columnId = 477, tableId = 20, name = "crpix1",
-		description = "Coordinate reference pixel, axis 1.",
+	SET columnId = 477, tableId = 20, name = "crpix2",
+		description = "Coordinate reference pixel, axis 2.",
 		type = "FLOAT",
 		notNull = 1,
 		displayOrder = 13;
 
 	INSERT INTO md_Column
-	SET columnId = 478, tableId = 20, name = "crpix2",
-		description = "Coordinate reference pixel, axis 2.",
-		type = "FLOAT",
+	SET columnId = 478, tableId = 20, name = "crval1",
+		description = "Coordinate value 1 @reference pixel.",
+		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 479, tableId = 20, name = "crval1",
-		description = "Coordinate value 1 @reference pixel.",
+	SET columnId = 479, tableId = 20, name = "crval2",
+		description = "Coordinate value 2 @reference pixel.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 480, tableId = 20, name = "crval2",
-		description = "Coordinate value 2 @reference pixel.",
+	SET columnId = 480, tableId = 20, name = "cd11",
+		description = "First derivative of coordinate 1 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 16;
 
 	INSERT INTO md_Column
-	SET columnId = 481, tableId = 20, name = "cd11",
-		description = "First derivative of coordinate 1 w.r.t. axis 1.",
+	SET columnId = 481, tableId = 20, name = "cd21",
+		description = "First derivative of coordinate 2 w.r.t. axis 1.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 17;
 
 	INSERT INTO md_Column
-	SET columnId = 482, tableId = 20, name = "cd21",
-		description = "First derivative of coordinate 2 w.r.t. axis 1.",
+	SET columnId = 482, tableId = 20, name = "cd12",
+		description = "First derivative of coordinate 1 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 18;
 
 	INSERT INTO md_Column
-	SET columnId = 483, tableId = 20, name = "cd12",
-		description = "First derivative of coordinate 1 w.r.t. axis 2.",
+	SET columnId = 483, tableId = 20, name = "cd22",
+		description = "First derivative of coordinate 2 w.r.t. axis 2.",
 		type = "DOUBLE",
 		notNull = 1,
 		displayOrder = 19;
 
 	INSERT INTO md_Column
-	SET columnId = 484, tableId = 20, name = "cd22",
-		description = "First derivative of coordinate 2 w.r.t. axis 2.",
-		type = "DOUBLE",
+	SET columnId = 484, tableId = 20, name = "dateObs",
+		description = "Date/Time of observation start (UTC).",
+		type = "DATETIME",
 		notNull = 1,
 		displayOrder = 20;
 
 	INSERT INTO md_Column
-	SET columnId = 485, tableId = 20, name = "dateObs",
-		description = "Date/Time of observation start (UTC).",
+	SET columnId = 485, tableId = 20, name = "taiObs",
+		description = "TAI-OBS = UTC + offset. Offset = 32 s from  1/1/1999 to 1/1/2006, = 33 s after 1/1/2006.",
 		type = "DATETIME",
-		notNull = 1,
+		notNull = 0,
 		displayOrder = 21;
 
 	INSERT INTO md_Column
-	SET columnId = 486, tableId = 20, name = "taiObs",
-		description = "TAI-OBS = UTC + offset. Offset = 32 s from  1/1/1999 to 1/1/2006, = 33 s after 1/1/2006.",
-		type = "DATETIME",
+	SET columnId = 486, tableId = 20, name = "mjdObs",
+		description = "MJD of observation start.",
+		type = "DOUBLE",
 		notNull = 0,
 		displayOrder = 22;
 
 	INSERT INTO md_Column
-	SET columnId = 487, tableId = 20, name = "mjdObs",
-		description = "MJD of observation start.",
-		type = "DOUBLE",
-		notNull = 0,
-		displayOrder = 23;
-
-	INSERT INTO md_Column
-	SET columnId = 488, tableId = 20, name = "expTime",
+	SET columnId = 487, tableId = 20, name = "expTime",
 		description = "Duration of exposure.",
 		type = "FLOAT",
 		notNull = 1,
-		displayOrder = 24;
+		displayOrder = 23;
 
 	INSERT INTO md_Column
-	SET columnId = 489, tableId = 20, name = "darkTime",
+	SET columnId = 488, tableId = 20, name = "darkTime",
 		description = "Total elapsed time from exposure start to end of read.",
 		type = "FLOAT",
 		notNull = 0,
-		displayOrder = 25;
+		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 490, tableId = 20, name = "zd",
+	SET columnId = 489, tableId = 20, name = "zd",
 		description = "Zenith distance at observation mid-point.",
 		type = "FLOAT",
 		notNull = 1,
-		displayOrder = 26;
+		displayOrder = 25;
 
 	INSERT INTO md_Column
-	SET columnId = 491, tableId = 20, name = "airmass",
+	SET columnId = 490, tableId = 20, name = "airmass",
 		description = "Airmass value for the Amp reference pixel (preferably center, but not guaranteed).",
 		type = "FLOAT",
 		notNull = 0,
+		displayOrder = 26;
+
+	INSERT INTO md_Column
+	SET columnId = 491, tableId = 20, name = "kNonGray",
+		description = "The value of the non-gray extinction.",
+		type = "DOUBLE",
+		notNull = 1,
+		unit = "magnitude",
 		displayOrder = 27;
 
 	INSERT INTO md_Column
-	SET columnId = 492, tableId = 20, name = "kNonGray",
-		description = "The value of the non-gray extinction.",
+	SET columnId = 492, tableId = 20, name = "c0",
+		description = "One of the coefficients that specify a second order spatial polynomial surface defined over the pixels of an Exposure. The coefficients c0, cx1, ..., cxy multiply orthogonal polynomials of order 0, 1, and 2 in x and y, and order 1 in x*y. The orthogonality is defined over the set of x, y, and x*y for the set of DIASources in the Exposure that match through the Object table to a DIASource in the Exposure given by refExposureId ",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 28;
 
 	INSERT INTO md_Column
-	SET columnId = 493, tableId = 20, name = "c0",
-		description = "One of the coefficients that specify a second order spatial polynomial surface defined over the pixels of an Exposure. The coefficients c0, cx1, ..., cxy multiply orthogonal polynomials of order 0, 1, and 2 in x and y, and order 1 in x*y. The orthogonality is defined over the set of x, y, and x*y for the set of DIASources in the Exposure that match through the Object table to a DIASource in the Exposure given by refExposureId ",
+	SET columnId = 493, tableId = 20, name = "c0Err",
+		description = "Uncertainty of c0 coefficient.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 29;
 
 	INSERT INTO md_Column
-	SET columnId = 494, tableId = 20, name = "c0Err",
-		description = "Uncertainty of c0 coefficient.",
+	SET columnId = 494, tableId = 20, name = "cx1",
+		description = "See the descripton of c0.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 30;
 
 	INSERT INTO md_Column
-	SET columnId = 495, tableId = 20, name = "cx1",
-		description = "See the descripton of c0.",
+	SET columnId = 495, tableId = 20, name = "cx1Err",
+		description = "Uncertainty of cx1 coefficient.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 31;
 
 	INSERT INTO md_Column
-	SET columnId = 496, tableId = 20, name = "cx1Err",
-		description = "Uncertainty of cx1 coefficient.",
+	SET columnId = 496, tableId = 20, name = "cx2",
+		description = "See the descripton of c0.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 32;
 
 	INSERT INTO md_Column
-	SET columnId = 497, tableId = 20, name = "cx2",
-		description = "See the descripton of c0.",
+	SET columnId = 497, tableId = 20, name = "cx2Err",
+		description = "Uncertainty of cx2 coefficient.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 33;
 
 	INSERT INTO md_Column
-	SET columnId = 498, tableId = 20, name = "cx2Err",
-		description = "Uncertainty of cx2 coefficient.",
+	SET columnId = 498, tableId = 20, name = "cy1",
+		description = "See the descripton of c0.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 34;
 
 	INSERT INTO md_Column
-	SET columnId = 499, tableId = 20, name = "cy1",
-		description = "See the descripton of c0.",
+	SET columnId = 499, tableId = 20, name = "cy1Err",
+		description = "Uncertainty of cy1 coefficient.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 35;
 
 	INSERT INTO md_Column
-	SET columnId = 500, tableId = 20, name = "cy1Err",
-		description = "Uncertainty of cy1 coefficient.",
+	SET columnId = 500, tableId = 20, name = "cy2",
+		description = "See the descripton of c0.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
-	SET columnId = 501, tableId = 20, name = "cy2",
-		description = "See the descripton of c0.",
+	SET columnId = 501, tableId = 20, name = "cy2Err",
+		description = "Uncertainty of cy2 coefficient.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
-	SET columnId = 502, tableId = 20, name = "cy2Err",
-		description = "Uncertainty of cy2 coefficient.",
+	SET columnId = 502, tableId = 20, name = "cxy",
+		description = "See the descripton of c0.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
 		displayOrder = 38;
 
 	INSERT INTO md_Column
-	SET columnId = 503, tableId = 20, name = "cxy",
-		description = "See the descripton of c0.",
-		type = "DOUBLE",
-		notNull = 1,
-		unit = "magnitude",
-		displayOrder = 39;
-
-	INSERT INTO md_Column
-	SET columnId = 504, tableId = 20, name = "cxyErr",
+	SET columnId = 503, tableId = 20, name = "cxyErr",
 		description = "Uncertainty of cxy coefficient.",
 		type = "DOUBLE",
 		notNull = 1,
 		unit = "magnitude",
-		displayOrder = 40;
+		displayOrder = 39;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -3641,149 +3668,159 @@ SET tableId = 21, name = "Raw_FPA_Exposure",
 	description = "Table to store information about raw image metadata for the entire Focal Plane Assembly. Contains information from FITS header.&#xA;&#xA;ISSUE: For such a large FOV, do we expect amp-to-amp differences in texp, because shutter moves with finite speed?  If yes, texp and potentially mjd, etc should be moved further down the image hierarchy.&#xA;&#xA;ISSUE: To take previous issue even further: do we expect differences in integration time source-to-source, depending on their focal plane position?";
 
 	INSERT INTO md_Column
-	SET columnId = 505, tableId = 21, name = "exposureId",
+	SET columnId = 504, tableId = 21, name = "exposureId",
 		description = "Unique id of an exposure. At most, there will be roughly 10^7 entries in this table: (3000 per night X 300 nights X 10 years).",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 506, tableId = 21, name = "filterId",
+	SET columnId = 505, tableId = 21, name = "filterId",
 		description = "Pointer to Filter table - filter used when this exposure was taken.",
 		type = "TINYINT",
 		notNull = 1,
 		displayOrder = 2;
 
 	INSERT INTO md_Column
-	SET columnId = 507, tableId = 21, name = "procHistoryId",
+	SET columnId = 506, tableId = 21, name = "procHistoryId",
 		description = "Pointer to ProcessingHistory. Valid if all pieces processed with the same processing history (all AmpExposures and all CCDExposures). If different processing histories used, then NULL",
 		type = "INTEGER",
 		notNull = 0,
 		displayOrder = 3;
 
 	INSERT INTO md_Column
+	SET columnId = 507, tableId = 21, name = "visitId",
+		description = "Pointer to the visit this exposure belongs to.",
+		type = "INTEGER",
+		notNull = 0,
+		displayOrder = 4;
+
+	INSERT INTO md_Column
 	SET columnId = 508, tableId = 21, name = "ra",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 4;
+		unit = "degree",
+		displayOrder = 5;
 
 	INSERT INTO md_Column
 	SET columnId = 509, tableId = 21, name = "decl",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 5;
+		unit = "degree",
+		displayOrder = 6;
 
 	INSERT INTO md_Column
 	SET columnId = 510, tableId = 21, name = "obsDate",
 		description = "When image was taken (observation start). Note: datetime type does not have fractional seconds!",
 		type = "DATETIME",
 		notNull = 1,
-		displayOrder = 6;
+		displayOrder = 7;
 
 	INSERT INTO md_Column
 	SET columnId = 511, tableId = 21, name = "tai",
 		description = "time of shutter open (observation start), international atomic time.",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 7;
+		displayOrder = 8;
 
 	INSERT INTO md_Column
 	SET columnId = 512, tableId = 21, name = "taiDark",
 		description = "time of shutter closed (during the exposure, if there was such an occasion; eg due to clowds. See Kem). International atomic time. There also could be a situation when the shutter was closed and reopened multiple times during the exposure. In this case, a more complicated data structure is needed?",
 		type = "DOUBLE",
 		notNull = 0,
-		displayOrder = 8;
-
-	INSERT INTO md_Column
-	SET columnId = 513, tableId = 21, name = "azimuth",
-		description = "[in degrees]",
-		type = "FLOAT",
-		notNull = 0,
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 514, tableId = 21, name = "altitude",
-		description = "[in degrees]",
+	SET columnId = 513, tableId = 21, name = "azimuth",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 515, tableId = 21, name = "temperature",
-		description = "[in Celsius]",
+	SET columnId = 514, tableId = 21, name = "altitude",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 11;
+
+	INSERT INTO md_Column
+	SET columnId = 515, tableId = 21, name = "temperature",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "Celsius",
+		displayOrder = 12;
 
 	INSERT INTO md_Column
 	SET columnId = 516, tableId = 21, name = "texp",
 		description = "Exposure time (total length of integration), sec.&#xA;",
 		type = "FLOAT",
 		notNull = 1,
-		displayOrder = 12;
+		unit = "second",
+		displayOrder = 13;
 
 	INSERT INTO md_Column
 	SET columnId = 517, tableId = 21, name = "flag",
 		description = "Flag to indicate a problem/special condition with the image (e.g. hardware, weather, etc).",
 		type = "SMALLINT",
 		notNull = 0,
-		displayOrder = 13;
+		displayOrder = 14;
 
 	INSERT INTO md_Column
 	SET columnId = 518, tableId = 21, name = "ra_ll",
 		description = "ra for the low-left corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 14;
+		displayOrder = 15;
 
 	INSERT INTO md_Column
 	SET columnId = 519, tableId = 21, name = "dec_ll",
 		description = "del for the low-left corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 15;
+		displayOrder = 16;
 
 	INSERT INTO md_Column
 	SET columnId = 520, tableId = 21, name = "ra_lr",
 		description = "ra for the low-right corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 16;
+		displayOrder = 17;
 
 	INSERT INTO md_Column
 	SET columnId = 521, tableId = 21, name = "dec_lr",
 		description = "dec for the low-right corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 17;
+		displayOrder = 18;
 
 	INSERT INTO md_Column
 	SET columnId = 522, tableId = 21, name = "ra_ul",
 		description = "ra for the upper-left corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 18;
+		displayOrder = 19;
 
 	INSERT INTO md_Column
 	SET columnId = 523, tableId = 21, name = "dec_ul",
 		description = "dec for the upper-left corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 19;
+		displayOrder = 20;
 
 	INSERT INTO md_Column
 	SET columnId = 524, tableId = 21, name = "ra_ur",
 		description = "ra for the upper-right corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 20;
+		displayOrder = 21;
 
 	INSERT INTO md_Column
 	SET columnId = 525, tableId = 21, name = "dec_ur",
 		description = "dec for the upper-right corner. We will probably do something more fancy than that in the real system...",
 		type = "DOUBLE",
 		notNull = 1,
-		displayOrder = 21;
+		displayOrder = 22;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
@@ -4053,44 +4090,50 @@ SET tableId = 25, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 561, tableId = 25, name = "ra",
-		description = "RA-coordinate of the source centroid (degrees). Need to support accuracy ~0.0001 arcsec",
+		description = "RA-coordinate of the source centroid.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
-	SET columnId = 562, tableId = 25, name = "decl",
-		description = "Dec coordinate of the source centroid (degrees). Need to support accuracy ~0.0001 arcsec",
-		type = "DOUBLE",
-		notNull = 1,
+	SET columnId = 562, tableId = 25, name = "raErr4detection",
+		description = "Uncertainty of ra coming from Detection Pipeline.",
+		type = "FLOAT",
+		notNull = 0,
+		unit = "deg",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
 	SET columnId = 563, tableId = 25, name = "raErr4wcs",
-		description = "Error in centroid RA coordinate (miliarcsec) coming from WCS Stage.",
+		description = "Uncertainty of ra coming from WCS Stage.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
-	SET columnId = 564, tableId = 25, name = "decErr4wcs",
-		description = "Error in centroid Dec coordinate (miliarcsec) coming from WCS Stage.",
-		type = "FLOAT",
+	SET columnId = 564, tableId = 25, name = "decl",
+		description = "Declination coordinate of the source centroid.",
+		type = "DOUBLE",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
-	SET columnId = 565, tableId = 25, name = "raErr4detection",
-		description = "Error in centroid RA coordinate (miliarcsec) coming from Detection Pipeline [FIXME, maybe use Stage name here?].",
+	SET columnId = 565, tableId = 25, name = "declErr4detection",
+		description = "Uncertainty of decl coming from Detection Pipeline.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "deg",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
-	SET columnId = 566, tableId = 25, name = "decErr4detection",
-		description = "Error in centroid Dec coordinate (miliarcsec) coming from Detection Pipeline [FIXME, maybe use Stage name here?].",
+	SET columnId = 566, tableId = 25, name = "declErr4wcs",
+		description = "Uncertainty of decl coming from WCS Stage.",
 		type = "FLOAT",
-		notNull = 0,
+		notNull = 1,
+		unit = "deg",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
@@ -4249,23 +4292,26 @@ SET tableId = 25, name = "Source",
 
 	INSERT INTO md_Column
 	SET columnId = 589, tableId = 25, name = "fwhmA",
-		description = "Size of the object along major axis (pixels).",
+		description = "Size of the object along major axis.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "pixel",
 		displayOrder = 35;
 
 	INSERT INTO md_Column
 	SET columnId = 590, tableId = 25, name = "fwhmB",
-		description = "Size of the object along minor axis (pixels).",
+		description = "Size of the object along minor axis.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "pixel",
 		displayOrder = 36;
 
 	INSERT INTO md_Column
 	SET columnId = 591, tableId = 25, name = "fwhmTheta",
-		description = "Position angle of the major axis w.r.t. X-axis (measured in degrees).",
+		description = "Position angle of the major axis with regards to X-axis.",
 		type = "FLOAT",
 		notNull = 1,
+		unit = "deg",
 		displayOrder = 37;
 
 	INSERT INTO md_Column
@@ -4458,6 +4504,7 @@ SET tableId = 30, name = "Visit",
 
 	INSERT INTO md_Column
 	SET columnId = 615, tableId = 30, name = "exposureId",
+		description = "Pointer to Raw_FPA_Exposure: the two exposures that are part of this visit.",
 		type = "INTEGER",
 		notNull = 1,
 		displayOrder = 2;
@@ -4946,6 +4993,7 @@ SET tableId = 42, name = "_Source2Object",
 		description = "percentage of the split (all for a given source must add up to 100%",
 		type = "TINYINT",
 		notNull = 1,
+		unit = "%",
 		displayOrder = 3;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -5614,6 +5662,7 @@ SET tableId = 78, name = "mops_SSM",
 		description = "inclination, deg",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "degree",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
@@ -5621,6 +5670,7 @@ SET tableId = 78, name = "mops_SSM",
 		description = "longitude of ascending node, deg",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "degree",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
@@ -5628,6 +5678,7 @@ SET tableId = 78, name = "mops_SSM",
 		description = "argument of perihelion, deg",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "degree",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
@@ -5663,6 +5714,7 @@ SET tableId = 78, name = "mops_SSM",
 		description = "Slope parameter g, dimensionless",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "-",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
@@ -5670,6 +5722,7 @@ SET tableId = 78, name = "mops_SSM",
 		description = "Albedo, dimensionless",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "-",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
@@ -5744,6 +5797,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Average RA velocity deg/day, cos(dec) applied",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
@@ -5751,6 +5805,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Uncertainty in RA velocity",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
@@ -5758,6 +5813,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Average Dec velocity, deg/day)",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
@@ -5765,6 +5821,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Uncertainty in Dec velocity",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
@@ -5772,6 +5829,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Average total velocity, deg/day",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day",
 		displayOrder = 9;
 
 	INSERT INTO md_Column
@@ -5779,6 +5837,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Average RA Acceleration, deg/day^2",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day^2",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
@@ -5786,6 +5845,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Uncertainty in RA acceleration",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day^2",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
@@ -5793,6 +5853,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Average Dec Acceleration, deg/day^2",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day^2",
 		displayOrder = 12;
 
 	INSERT INTO md_Column
@@ -5800,6 +5861,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Uncertainty in Dec acceleration",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree/day^2",
 		displayOrder = 13;
 
 	INSERT INTO md_Column
@@ -5814,6 +5876,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Extrapolated (central) RA, deg",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 15;
 
 	INSERT INTO md_Column
@@ -5821,6 +5884,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Uncertainty in extrapolated RA, deg",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 16;
 
 	INSERT INTO md_Column
@@ -5828,6 +5892,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Extrapolated (central) Dec, deg",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 17;
 
 	INSERT INTO md_Column
@@ -5835,6 +5900,7 @@ SET tableId = 80, name = "mops_Tracklet";
 		description = "Uncertainty in extrapolated Dec, deg",
 		type = "DOUBLE",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 18;
 
 	INSERT INTO md_Column
@@ -9408,64 +9474,4 @@ SET tableId = 127, name = "sdqa_Rating_4ScienceFPAExposure",
 
 	INSERT INTO md_Column
 	SET columnId = 1303, tableId = 127, name = "exposureId",
-		description = "Pointer to Science_FPA_Exposure.",
-		type = "INTEGER",
-		notNull = 1,
-		displayOrder = 4;
-
-	INSERT INTO md_Column
-	SET columnId = 1304, tableId = 127, name = "metricValue",
-		description = "Value of this SDQA metric.",
-		type = "DOUBLE",
-		notNull = 1,
-		displayOrder = 5;
-
-	INSERT INTO md_Column
-	SET columnId = 1305, tableId = 127, name = "metricErr",
-		description = "Uncertainty of the value of this metric.",
-		type = "DOUBLE",
-		notNull = 1,
-		displayOrder = 6;
-
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-
-INSERT INTO md_Table
-SET tableId = 128, name = "sdqa_Threshold",
-	description = "Version-controlled metric thresholds. Total number of these records is approximately equal to 30 x the number of times the thresholds will be changed over the entire period of LSST operations (of ordre of 100), with most of the changes occuring in the first year of operations.";
-
-	INSERT INTO md_Column
-	SET columnId = 1306, tableId = 128, name = "sdqa_thresholdId",
-		description = "Primary key.",
-		type = "SMALLINT",
-		notNull = 1,
-		displayOrder = 1;
-
-	INSERT INTO md_Column
-	SET columnId = 1307, tableId = 128, name = "sdqa_metricId",
-		description = "Pointer to sdqa_Metric table.",
-		type = "SMALLINT",
-		notNull = 1,
-		displayOrder = 2;
-
-	INSERT INTO md_Column
-	SET columnId = 1308, tableId = 128, name = "upperThreshold",
-		description = "Threshold for which a metric value is tested to be greater than.",
-		type = "DOUBLE",
-		notNull = 0,
-		displayOrder = 3;
-
-	INSERT INTO md_Column
-	SET columnId = 1309, tableId = 128, name = "lowerThreshold",
-		description = "Threshold for which a metric value is tested to be less than.",
-		type = "DOUBLE",
-		notNull = 0,
-		displayOrder = 4;
-
-	INSERT INTO md_Column
-	SET columnId = 1310, tableId = 128, name = "createdDate",
-		description = "Database timestamp when the record is inserted.",
-		type = "TIMESTAMP",
-		notNull = 1,
-		defaultValue = "CURRENT_TIMESTAMP",
-		displayOrder = 5;
-
+	
