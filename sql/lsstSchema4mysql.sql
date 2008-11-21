@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3_3_0_7 (version CHAR);
+CREATE TABLE AAA_Version_DC3_3_0_10 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -85,12 +85,12 @@ CREATE TABLE DIASource
 	movingObjectId BIGINT NULL,
 	procHistoryId INTEGER NOT NULL,
 	scId INTEGER NOT NULL,
-	ra DOUBLE NOT NULL,
 	ssmId BIGINT NULL,
-	decl DOUBLE NOT NULL,
+	ra DOUBLE NOT NULL,
 	raErr4detection FLOAT(0) NOT NULL,
-	declErr4detection FLOAT(0) NOT NULL,
 	raErr4wcs FLOAT(0) NULL,
+	decl DOUBLE NOT NULL,
+	declErr4detection FLOAT(0) NOT NULL,
 	declErr4wcs FLOAT(0) NULL,
 	xFlux DOUBLE NULL,
 	xFluxErr DOUBLE NULL,
@@ -468,12 +468,12 @@ CREATE TABLE Object
 	objectId BIGINT NOT NULL,
 	procHistoryId INTEGER NOT NULL,
 	ra DOUBLE NOT NULL,
-	decl DOUBLE NOT NULL,
 	raErr FLOAT(0) NOT NULL,
+	decl DOUBLE NOT NULL,
 	declErr FLOAT(0) NOT NULL,
 	muRa DOUBLE NULL,
-	muDecl DOUBLE NULL,
 	muRaErr FLOAT(0) NULL,
+	muDecl DOUBLE NULL,
 	muDeclErr FLOAT(0) NULL,
 	xFlux DOUBLE NULL,
 	xFluxErr DOUBLE NULL,
@@ -779,7 +779,6 @@ CREATE TABLE Raw_CCD_Exposure
 	procHistoryId INTEGER NULL,
 	refExposureId BIGINT NOT NULL,
 	filterId TINYINT NOT NULL,
-	visitId INTEGER NULL,
 	ra DOUBLE NOT NULL,
 	decl DOUBLE NOT NULL,
 	equinox FLOAT(0) NOT NULL,
@@ -815,7 +814,6 @@ CREATE TABLE Raw_CCD_Exposure
 	cxy DOUBLE NOT NULL,
 	cxyErr DOUBLE NOT NULL,
 	PRIMARY KEY (ccdExposureId),
-	UNIQUE UQ_Raw_CCD_Exposure_visitId(visitId),
 	KEY (exposureId),
 	KEY (procHistoryId)
 ) ;
@@ -984,6 +982,7 @@ CREATE TABLE Visit
 (
 	visitId INTEGER NOT NULL,
 	exposureId INTEGER NOT NULL,
+	PRIMARY KEY (visitId),
 	KEY (exposureId)
 ) ;
 
@@ -1201,11 +1200,11 @@ CREATE TABLE Source
 	movingObjectId BIGINT NULL,
 	procHistoryId INTEGER NOT NULL,
 	ra DOUBLE NOT NULL,
-	decl DOUBLE NOT NULL,
-	raErr4wcs FLOAT(0) NOT NULL,
-	decErr4wcs FLOAT(0) NOT NULL,
 	raErr4detection FLOAT(0) NULL,
-	decErr4detection FLOAT(0) NULL,
+	raErr4wcs FLOAT(0) NOT NULL,
+	decl DOUBLE NOT NULL,
+	declErr4detection FLOAT(0) NULL,
+	declErr4wcs FLOAT(0) NOT NULL,
 	xFlux DOUBLE NULL,
 	xFluxErr DOUBLE NULL,
 	yFlux DOUBLE NULL,
@@ -1261,6 +1260,7 @@ CREATE TABLE Raw_FPA_Exposure
 	exposureId INTEGER NOT NULL,
 	filterId TINYINT NOT NULL,
 	procHistoryId INTEGER NULL,
+	visitId INTEGER NULL,
 	ra DOUBLE NOT NULL,
 	decl DOUBLE NOT NULL,
 	obsDate DATETIME NOT NULL,
@@ -1280,6 +1280,7 @@ CREATE TABLE Raw_FPA_Exposure
 	ra_ur DOUBLE NOT NULL,
 	dec_ur DOUBLE NOT NULL,
 	PRIMARY KEY (exposureId),
+	UNIQUE UQ_Raw_FPA_Exposure_visitId(visitId),
 	KEY (filterId),
 	KEY (procHistoryId)
 ) TYPE=MyISAM;
