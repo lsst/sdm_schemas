@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3_3_0_10 (version CHAR);
+CREATE TABLE AAA_Version_DC3_3_0_11 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -1868,6 +1868,34 @@ CREATE TABLE mops_SSMDesc
 ) ;
 
 
+CREATE TABLE _tmpl_mops_Prediction
+(
+	orbit_id BIGINT NOT NULL,
+	ra_deg DOUBLE NOT NULL,
+	dec_deg DOUBLE NOT NULL,
+	mjd DOUBLE NOT NULL,
+	smia DOUBLE NOT NULL,
+	smaa DOUBLE NOT NULL,
+	pa DOUBLE NOT NULL,
+	mag DOUBLE NOT NULL,
+	magErr FLOAT(0) NOT NULL
+) TYPE=MyISAM;
+
+
+CREATE TABLE _tmpl_mops_Ephemeris
+(
+	orbit_id BIGINT NOT NULL,
+	ra_deg DOUBLE NOT NULL,
+	dec_deg DOUBLE NOT NULL,
+	mjd DOUBLE NOT NULL,
+	smia DOUBLE NULL,
+	smaa DOUBLE NULL,
+	pa DOUBLE NULL,
+	mag DOUBLE NULL,
+	INDEX orbit_id_index (orbit_id ASC)
+) TYPE=MyISAM;
+
+
 CREATE TABLE _mops_Config
 (
 	configId BIGINT NOT NULL AUTO_INCREMENT,
@@ -1927,12 +1955,39 @@ CREATE TABLE ObjectType
 ) ;
 
 
+CREATE TABLE DIASourceIDTonight
+(
+	DIASourceId BIGINT NOT NULL
+) ;
+
+
 CREATE TABLE AlertType
 (
 	alertTypeId SMALLINT NOT NULL,
 	alertTypeDescr VARCHAR(50) NULL,
 	PRIMARY KEY (alertTypeId)
 ) TYPE=MyISAM;
+
+
+CREATE TABLE _tmpl_MatchPair
+(
+	first BIGINT NOT NULL,
+	second BIGINT NOT NULL,
+	distance DOUBLE NOT NULL
+) ;
+
+
+CREATE TABLE _tmpl_IdPair
+(
+	first BIGINT NOT NULL,
+	second BIGINT NOT NULL
+) ;
+
+
+CREATE TABLE _tmpl_Id
+(
+	id BIGINT NOT NULL
+) ;
 
 
 CREATE TABLE prv_UpdatableTable
