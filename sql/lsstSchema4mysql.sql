@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3_3_0_11 (version CHAR);
+CREATE TABLE AAA_Version_DC3_3_0_13 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -1870,9 +1870,10 @@ CREATE TABLE mops_SSMDesc
 
 CREATE TABLE _tmpl_mops_Prediction
 (
-	orbit_id BIGINT NOT NULL,
-	ra_deg DOUBLE NOT NULL,
-	dec_deg DOUBLE NOT NULL,
+	movingObjectId BIGINT NOT NULL,
+	movingObjectVersion INTEGER NOT NULL,
+	ra DOUBLE NOT NULL,
+	decl DOUBLE NOT NULL,
 	mjd DOUBLE NOT NULL,
 	smia DOUBLE NOT NULL,
 	smaa DOUBLE NOT NULL,
@@ -1884,15 +1885,16 @@ CREATE TABLE _tmpl_mops_Prediction
 
 CREATE TABLE _tmpl_mops_Ephemeris
 (
-	orbit_id BIGINT NOT NULL,
-	ra_deg DOUBLE NOT NULL,
-	dec_deg DOUBLE NOT NULL,
+	movingObjectId BIGINT NOT NULL,
+	movingObjectVersion INTEGER NOT NULL,
+	ra DOUBLE NOT NULL,
+	decl DOUBLE NOT NULL,
 	mjd DOUBLE NOT NULL,
 	smia DOUBLE NULL,
 	smaa DOUBLE NULL,
 	pa DOUBLE NULL,
 	mag DOUBLE NULL,
-	INDEX orbit_id_index (orbit_id ASC)
+	INDEX idx_mopsEphemeris_movingObjectId (movingObjectId ASC)
 ) TYPE=MyISAM;
 
 
