@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3_3_0_13 (version CHAR);
+CREATE TABLE AAA_Version_DC3_3_0_15 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -41,29 +41,6 @@ CREATE TABLE _mops_EonQueue
 	PRIMARY KEY (movingObjectId),
 	KEY (movingObjectId),
 	INDEX idx__mopsEonQueue_eventId (eventId ASC)
-) ;
-
-
-CREATE TABLE mops_Event
-(
-	eventId BIGINT NOT NULL AUTO_INCREMENT,
-	procHistoryId INT NOT NULL,
-	eventType CHAR(1) NOT NULL,
-	eventTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	movingObjectId BIGINT NULL,
-	movingObjectVersion INT NULL,
-	orbitCode CHAR(1) NULL,
-	d3 FLOAT(0) NULL,
-	d4 FLOAT(0) NULL,
-	ccdExposureId BIGINT NULL,
-	classification CHAR(1) NULL,
-	ssmId BIGINT NULL,
-	PRIMARY KEY (eventId),
-	KEY (movingObjectId),
-	INDEX idx_mopsEvent_ccdExposureId (ccdExposureId ASC),
-	INDEX idx_mopsEvent_movingObjectId (movingObjectId ASC, movingObjectVersion ASC),
-	INDEX idx_mopsEvent_procHistoryId (procHistoryId ASC),
-	INDEX idx_mopsEvent_ssmId (ssmId ASC)
 ) ;
 
 
@@ -177,34 +154,6 @@ CREATE TABLE Alert
 ) TYPE=MyISAM;
 
 
-CREATE TABLE Science_CCD_Exposure
-(
-	ccdExposureId BIGINT NOT NULL,
-	exposureId BIGINT NOT NULL,
-	sceId INTEGER NOT NULL,
-	filterId TINYINT NOT NULL,
-	equinox FLOAT(0) NOT NULL,
-	url VARCHAR(255) NOT NULL,
-	ctype1 VARCHAR(20) NOT NULL,
-	ctype2 VARCHAR(20) NOT NULL,
-	crpix1 FLOAT(0) NOT NULL,
-	crpix2 FLOAT(0) NOT NULL,
-	crval1 DOUBLE NOT NULL,
-	crval2 DOUBLE NOT NULL,
-	cd1_1 DOUBLE NOT NULL,
-	cd2_1 DOUBLE NOT NULL,
-	cd1_2 DOUBLE NOT NULL,
-	cd2_2 DOUBLE NOT NULL,
-	dateObs DATETIME NOT NULL,
-	expTime FLOAT(0) NOT NULL,
-	photoFlam FLOAT(0) NOT NULL,
-	photoZP FLOAT(0) NOT NULL,
-	nCombine INTEGER NOT NULL DEFAULT 1,
-	PRIMARY KEY (ccdExposureId),
-	KEY (ccdExposureId)
-) ;
-
-
 CREATE TABLE Calibration_CCD_Exposure
 (
 	ccdExposureId BIGINT NOT NULL,
@@ -241,12 +190,36 @@ CREATE TABLE Calibration_Amp_Exposure
 ) ;
 
 
-CREATE TABLE _Source2Amp_Exposure
+CREATE TABLE mops_Event
 (
+	eventId BIGINT NOT NULL AUTO_INCREMENT,
+	procHistoryId INT NOT NULL,
+	eventType CHAR(1) NOT NULL,
+	eventTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	movingObjectId BIGINT NULL,
+	movingObjectVersion INT NULL,
+	orbitCode CHAR(1) NULL,
+	d3 FLOAT(0) NULL,
+	d4 FLOAT(0) NULL,
+	ccdExposureId BIGINT NULL,
+	classification CHAR(1) NULL,
+	ssmId BIGINT NULL,
+	PRIMARY KEY (eventId),
+	KEY (movingObjectId),
+	INDEX idx_mopsEvent_ccdExposureId (ccdExposureId ASC),
+	INDEX idx_mopsEvent_movingObjectId (movingObjectId ASC, movingObjectVersion ASC),
+	INDEX idx_mopsEvent_procHistoryId (procHistoryId ASC),
+	INDEX idx_mopsEvent_ssmId (ssmId ASC)
+) ;
+
+
+CREATE TABLE _Source2Object
+(
+	objectId BIGINT NOT NULL,
 	sourceId BIGINT NOT NULL,
-	ampExposureId BIGINT NOT NULL,
-	KEY (ampExposureId),
-	KEY (sourceId)
+	splitPercentage TINYINT NOT NULL,
+	INDEX idx_Source2Object_objectId (objectId ASC),
+	INDEX idx_Source2Object_sourceId (sourceId ASC)
 ) ;
 
 
@@ -772,12 +745,40 @@ CREATE TABLE MovingObject
 ) ;
 
 
+CREATE TABLE Science_CCD_Exposure
+(
+	scienceCCDExposureId BIGINT NOT NULL,
+	scienceFPAExposureId INTEGER NOT NULL,
+	filterId TINYINT NOT NULL,
+	equinox FLOAT(0) NOT NULL,
+	url VARCHAR(255) NOT NULL,
+	ctype1 VARCHAR(20) NOT NULL,
+	ctype2 VARCHAR(20) NOT NULL,
+	crpix1 FLOAT(0) NOT NULL,
+	crpix2 FLOAT(0) NOT NULL,
+	crval1 DOUBLE NOT NULL,
+	crval2 DOUBLE NOT NULL,
+	cd1_1 DOUBLE NOT NULL,
+	cd2_1 DOUBLE NOT NULL,
+	cd1_2 DOUBLE NOT NULL,
+	cd2_2 DOUBLE NOT NULL,
+	dateObs DATETIME NOT NULL,
+	expTime FLOAT(0) NOT NULL,
+	photoFlam FLOAT(0) NOT NULL,
+	photoZP FLOAT(0) NOT NULL,
+	nCombine INTEGER NOT NULL DEFAULT 1,
+	PRIMARY KEY (scienceCCDExposureId),
+	KEY (scienceCCDExposureId),
+	KEY (scienceFPAExposureId)
+) ;
+
+
 CREATE TABLE Raw_CCD_Exposure
 (
-	ccdExposureId BIGINT NOT NULL,
-	exposureId INTEGER NOT NULL,
+	rawCCDExposureId BIGINT NOT NULL,
+	rawFPAExposureId INTEGER NOT NULL,
 	procHistoryId INTEGER NULL,
-	refExposureId BIGINT NOT NULL,
+	referenceRawFPAExposureId BIGINT NOT NULL,
 	filterId TINYINT NOT NULL,
 	ra DOUBLE NOT NULL,
 	decl DOUBLE NOT NULL,
@@ -813,17 +814,17 @@ CREATE TABLE Raw_CCD_Exposure
 	cy2Err DOUBLE NOT NULL,
 	cxy DOUBLE NOT NULL,
 	cxyErr DOUBLE NOT NULL,
-	PRIMARY KEY (ccdExposureId),
-	KEY (exposureId),
+	PRIMARY KEY (rawCCDExposureId),
+	KEY (rawFPAExposureId),
 	KEY (procHistoryId)
 ) ;
 
 
 CREATE TABLE Raw_Amp_Exposure
 (
-	ampExposureId BIGINT NOT NULL,
+	rawAmpExposureId BIGINT NOT NULL,
 	amplifierId SMALLINT NOT NULL,
-	ccdExposureId BIGINT NOT NULL,
+	rawCCDExposureId BIGINT NOT NULL,
 	procHistoryId INTEGER NOT NULL,
 	binX SMALLINT NULL,
 	binY SMALLINT NULL,
@@ -876,19 +877,19 @@ CREATE TABLE Raw_Amp_Exposure
 	cd22 FLOAT(0) NOT NULL,
 	cdelt1 FLOAT(0) NULL,
 	cdelt2 FLOAT(0) NULL,
-	PRIMARY KEY (ampExposureId),
+	PRIMARY KEY (rawAmpExposureId),
 	KEY (amplifierId),
-	KEY (ccdExposureId),
+	KEY (rawCCDExposureId),
 	KEY (procHistoryId)
 ) ;
 
 
 CREATE TABLE _Science_FPA_Exposure2TemplateImage
 (
-	exposureId BIGINT NOT NULL,
+	scienceFPAExposureId BIGINT NOT NULL,
 	templateImageId INTEGER NOT NULL,
 	KEY (templateImageId),
-	KEY (exposureId)
+	KEY (scienceFPAExposureId)
 ) ;
 
 
@@ -981,33 +982,33 @@ CREATE TABLE _aux_Science_FPA_Exposure_Group
 CREATE TABLE Visit
 (
 	visitId INTEGER NOT NULL,
-	exposureId INTEGER NOT NULL,
+	rawFPAExposureId INTEGER NOT NULL,
 	PRIMARY KEY (visitId),
-	KEY (exposureId)
+	KEY (rawFPAExposureId)
 ) ;
 
 
 CREATE TABLE Science_FPA_Exposure
 (
-	cseId INTEGER NOT NULL,
-	exposureId BIGINT NOT NULL,
-	subtractedExposureId INTEGER NOT NULL,
-	varianceExposureId INTEGER NOT NULL,
+	scienceFPAExposureId INTEGER NOT NULL,
+	rawFPAExposureId INTEGER NOT NULL,
+	subtractedRawFPAExposureId INTEGER NOT NULL,
+	varianceRawFPAExposureId INTEGER NOT NULL,
 	cseGroupId MEDIUMINT NOT NULL,
-	PRIMARY KEY (cseId),
-	UNIQUE UQ_Science_FPA_Exposure_exposureId(exposureId),
-	KEY (exposureId),
-	KEY (subtractedExposureId),
-	KEY (varianceExposureId),
+	PRIMARY KEY (scienceFPAExposureId),
+	UNIQUE UQ_Science_FPA_Exposure_rawFPAExposureId(rawFPAExposureId),
+	KEY (rawFPAExposureId),
+	KEY (subtractedRawFPAExposureId),
+	KEY (varianceRawFPAExposureId),
 	KEY (cseGroupId)
 ) ;
 
 
 CREATE TABLE Calibration_FPA_Exposure
 (
-	exposureId INTEGER NOT NULL,
-	PRIMARY KEY (exposureId),
-	KEY (exposureId)
+	calibrationFPAExposureId INTEGER NOT NULL,
+	PRIMARY KEY (calibrationFPAExposureId),
+	KEY (calibrationFPAExposureId)
 ) ;
 
 
@@ -1107,13 +1108,12 @@ CREATE TABLE mops_Event_OrbitDerivation
 ) ;
 
 
-CREATE TABLE _Source2Object
+CREATE TABLE _Source2Amp_Exposure
 (
-	objectId BIGINT NOT NULL,
 	sourceId BIGINT NOT NULL,
-	splitPercentage TINYINT NOT NULL,
-	INDEX idx_Source2Object_objectId (objectId ASC),
-	INDEX idx_Source2Object_sourceId (sourceId ASC)
+	ampExposureId BIGINT NOT NULL,
+	KEY (ampExposureId),
+	KEY (sourceId)
 ) ;
 
 
@@ -1257,7 +1257,7 @@ CREATE TABLE Source
 
 CREATE TABLE Raw_FPA_Exposure
 (
-	exposureId INTEGER NOT NULL,
+	rawFPAEposureId INTEGER NOT NULL,
 	filterId TINYINT NOT NULL,
 	procHistoryId INTEGER NULL,
 	visitId INTEGER NULL,
@@ -1279,7 +1279,7 @@ CREATE TABLE Raw_FPA_Exposure
 	dec_ul DOUBLE NOT NULL,
 	ra_ur DOUBLE NOT NULL,
 	dec_ur DOUBLE NOT NULL,
-	PRIMARY KEY (exposureId),
+	PRIMARY KEY (rawFPAEposureId),
 	UNIQUE UQ_Raw_FPA_Exposure_visitId(visitId),
 	KEY (filterId),
 	KEY (procHistoryId)
@@ -1478,12 +1478,12 @@ CREATE TABLE _aux_FPA_Bias2CMExposure
 
 CREATE TABLE Science_Amp_Exposure
 (
-	ampExposureId BIGINT NOT NULL,
-	ccdExposureId BIGINT NOT NULL,
+	scienceAmpExposureId BIGINT NOT NULL,
+	scienceCCDExposureId BIGINT NOT NULL,
 	sdqa_imageStatusId SMALLINT NOT NULL,
-	PRIMARY KEY (ampExposureId),
-	KEY (ampExposureId),
-	KEY (ccdExposureId),
+	PRIMARY KEY (scienceAmpExposureId),
+	KEY (scienceAmpExposureId),
+	KEY (scienceCCDExposureId),
 	KEY (sdqa_imageStatusId)
 ) ;
 
@@ -2283,27 +2283,27 @@ ALTER TABLE _DIASource2Alert ADD CONSTRAINT FK_DIASource2Alert_DIASource
 	FOREIGN KEY (diaSourceId) REFERENCES DIASource (diaSourceId);
 
 ALTER TABLE DIASource ADD CONSTRAINT FK_DIASource_Raw_Amp_Exposure 
-	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (ampExposureId);
+	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
 ALTER TABLE Alert ADD CONSTRAINT FK_Alert_Object 
 	FOREIGN KEY (objectId) REFERENCES Object (objectId);
 
-ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Raw_CCD_Exposure 
-	FOREIGN KEY (ccdExposureId) REFERENCES Raw_CCD_Exposure (ccdExposureId);
-
 ALTER TABLE Calibration_CCD_Exposure ADD CONSTRAINT FK_Calibration_CCD_Exposure_Calibration_FPA_Exposure 
-	FOREIGN KEY (exposureId) REFERENCES Calibration_FPA_Exposure (exposureId);
+	FOREIGN KEY (exposureId) REFERENCES Calibration_FPA_Exposure (calibrationFPAExposureId);
 
 ALTER TABLE Calibration_CCD_Exposure ADD CONSTRAINT FK_Calibration_CCD_Exposure_Raw_CCD_Exposure 
-	FOREIGN KEY (ccdExposureId) REFERENCES Raw_CCD_Exposure (ccdExposureId);
+	FOREIGN KEY (ccdExposureId) REFERENCES Raw_CCD_Exposure (rawCCDExposureId);
 
 ALTER TABLE Calibration_Amp_Exposure ADD CONSTRAINT FK_Calibration_Amp_Exposure_Calibration_CCD_Exposure 
 	FOREIGN KEY (ccdExposureId) REFERENCES Calibration_CCD_Exposure (ccdExposureId);
 
 ALTER TABLE Calibration_Amp_Exposure ADD CONSTRAINT FK_Calibration_Amp_Exposure_Raw_Amp_Exposure 
-	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (ampExposureId);
+	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
-ALTER TABLE _Source2Amp_Exposure ADD CONSTRAINT FK_Source2Exposure_Source 
+ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Object 
+	FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Source 
 	FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
 
 ALTER TABLE placeholder_VarObject ADD CONSTRAINT FK_VarObject_Object_objectId 
@@ -2312,11 +2312,17 @@ ALTER TABLE placeholder_VarObject ADD CONSTRAINT FK_VarObject_Object_objectId
 ALTER TABLE placeholder_ObjectPhotoZ ADD CONSTRAINT FK_ObjectPhotoZ_Object_objectId 
 	FOREIGN KEY (objectId) REFERENCES Object (objectId);
 
+ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Raw_CCD_Exposure 
+	FOREIGN KEY (scienceCCDExposureId) REFERENCES Raw_CCD_Exposure (rawCCDExposureId);
+
+ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Science_FPA_Exposure 
+	FOREIGN KEY (scienceFPAExposureId) REFERENCES Science_FPA_Exposure (scienceFPAExposureId);
+
 ALTER TABLE Raw_CCD_Exposure ADD CONSTRAINT FK_CCDExposure_FPAExposure_exposureId 
-	FOREIGN KEY (exposureId) REFERENCES Raw_FPA_Exposure (exposureId);
+	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAEposureId);
 
 ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_AmpExposure_CCDExposure_ccdExposureId 
-	FOREIGN KEY (ccdExposureId) REFERENCES Raw_CCD_Exposure (ccdExposureId);
+	FOREIGN KEY (rawCCDExposureId) REFERENCES Raw_CCD_Exposure (rawCCDExposureId);
 
 ALTER TABLE _Science_FPA_Exposure2TemplateImage ADD CONSTRAINT FK_Exposure2TemplateImage_TemplateImage_templateImageId 
 	FOREIGN KEY (templateImageId) REFERENCES TemplateImage (templateImageId);
@@ -2367,13 +2373,13 @@ ALTER TABLE prv_cnf_Amplifier ADD CONSTRAINT FK_Config_Amplifier_Amplifier
 	FOREIGN KEY (amplifierId) REFERENCES prv_Amplifier (amplifierId);
 
 ALTER TABLE Visit ADD CONSTRAINT FK_Visit_Raw_FPA_Exposure 
-	FOREIGN KEY (exposureId) REFERENCES Raw_FPA_Exposure (exposureId);
+	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAEposureId);
 
 ALTER TABLE Science_FPA_Exposure ADD CONSTRAINT FK_ScienceFPAExposure_FPAExposure 
-	FOREIGN KEY (exposureId) REFERENCES sdqa_Rating_4ScienceFPAExposure (exposureId);
+	FOREIGN KEY (rawFPAExposureId) REFERENCES sdqa_Rating_4ScienceFPAExposure (exposureId);
 
 ALTER TABLE Calibration_FPA_Exposure ADD CONSTRAINT FK_CalibrationFPAExposure_FPAExposure_exposureId 
-	FOREIGN KEY (exposureId) REFERENCES Raw_FPA_Exposure (exposureId);
+	FOREIGN KEY (calibrationFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAEposureId);
 
 ALTER TABLE mops_Tracklets2DIASource ADD CONSTRAINT FK_mopsTracklets2DIASource_DIASource 
 	FOREIGN KEY (diaSourceId) REFERENCES DIASource (diaSourceId);
@@ -2387,10 +2393,7 @@ ALTER TABLE mops_MovingObject2Tracklet ADD CONSTRAINT FK_mopsMovingObject2Trackl
 ALTER TABLE mops_MovingObject2Tracklet ADD CONSTRAINT FK_mopsMovingObject2Tracklets_MovingObject_movingObjectId 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
 
-ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Object 
-	FOREIGN KEY (objectId) REFERENCES Object (objectId);
-
-ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Source 
+ALTER TABLE _Source2Amp_Exposure ADD CONSTRAINT FK_Source2Exposure_Source 
 	FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
 
 ALTER TABLE prv_cnf_CCD ADD CONSTRAINT FK_Config_CCD_CCD 
@@ -2406,7 +2409,7 @@ ALTER TABLE prv_cnf_Pipeline2Run ADD CONSTRAINT FK_Config_Pipeline2Run_Pipeline2
 	FOREIGN KEY (pipeline2runId) REFERENCES prv_Pipeline2Run (pipeline2runId);
 
 ALTER TABLE Source ADD CONSTRAINT FK_Source_RawAmpExposure_ampExposureId 
-	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (ampExposureId);
+	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
 ALTER TABLE Source ADD CONSTRAINT FK_Source_Object_objectId 
 	FOREIGN KEY (objectId) REFERENCES Object (latestObsTime);
@@ -2418,10 +2421,10 @@ ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_mopsSSM
 	FOREIGN KEY (ssmId) REFERENCES mops_SSM (ssmId);
 
 ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_ScienceCCDExposure 
-	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (ccdExposureId);
+	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
 ALTER TABLE sdqa_Rating_4ScienceCCDExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceCCDExposure_Science_CCD_Exposure 
-	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (ccdExposureId);
+	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
 ALTER TABLE sdqa_Rating_4ScienceCCDExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceCCDExposure_sdqa_Metric 
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
@@ -2463,10 +2466,10 @@ ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_Config_Node_Node
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
 ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Raw_Amp_Exposure 
-	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (ampExposureId);
+	FOREIGN KEY (scienceAmpExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
 ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Science_CCD_Exposure 
-	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (ccdExposureId);
+	FOREIGN KEY (scienceCCDExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
 ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_ScienceAmpExposure_sdqaImageStatus 
 	FOREIGN KEY (sdqa_imageStatusId) REFERENCES sdqa_ImageStatus (sdqa_imageStatusId);
@@ -2484,13 +2487,13 @@ ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqa_Threshold_sdqa_Metric
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
 
 ALTER TABLE sdqa_Rating_4ScienceFPAExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceFPAExposure_Science_FPA_Exposure 
-	FOREIGN KEY (exposureId) REFERENCES Science_FPA_Exposure (exposureId);
+	FOREIGN KEY (exposureId) REFERENCES Science_FPA_Exposure (rawFPAExposureId);
 
 ALTER TABLE sdqa_Rating_4ScienceFPAExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceFPAExposure_sdqa_Metric 
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
 
 ALTER TABLE sdqa_Rating_4ScienceAmpExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceAmpExposure_Science_Amp_Exposure 
-	FOREIGN KEY (ampExposureId) REFERENCES Science_Amp_Exposure (ampExposureId);
+	FOREIGN KEY (ampExposureId) REFERENCES Science_Amp_Exposure (scienceAmpExposureId);
 
 ALTER TABLE sdqa_Rating_4ScienceAmpExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceAmpExposure_sdqa_Metric 
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
