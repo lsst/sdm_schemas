@@ -9474,4 +9474,64 @@ SET tableId = 127, name = "sdqa_Rating_4ScienceFPAExposure",
 
 	INSERT INTO md_Column
 	SET columnId = 1303, tableId = 127, name = "exposureId",
-	
+		description = "Pointer to Science_FPA_Exposure.",
+		type = "INTEGER",
+		notNull = 1,
+		displayOrder = 4;
+
+	INSERT INTO md_Column
+	SET columnId = 1304, tableId = 127, name = "metricValue",
+		description = "Value of this SDQA metric.",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 5;
+
+	INSERT INTO md_Column
+	SET columnId = 1305, tableId = 127, name = "metricErr",
+		description = "Uncertainty of the value of this metric.",
+		type = "DOUBLE",
+		notNull = 1,
+		displayOrder = 6;
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+INSERT INTO md_Table
+SET tableId = 128, name = "sdqa_Threshold",
+	description = "Version-controlled metric thresholds. Total number of these records is approximately equal to 30 x the number of times the thresholds will be changed over the entire period of LSST operations (of ordre of 100), with most of the changes occuring in the first year of operations.";
+
+	INSERT INTO md_Column
+	SET columnId = 1306, tableId = 128, name = "sdqa_thresholdId",
+		description = "Primary key.",
+		type = "SMALLINT",
+		notNull = 1,
+		displayOrder = 1;
+
+	INSERT INTO md_Column
+	SET columnId = 1307, tableId = 128, name = "sdqa_metricId",
+		description = "Pointer to sdqa_Metric table.",
+		type = "SMALLINT",
+		notNull = 1,
+		displayOrder = 2;
+
+	INSERT INTO md_Column
+	SET columnId = 1308, tableId = 128, name = "upperThreshold",
+		description = "Threshold for which a metric value is tested to be greater than.",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 3;
+
+	INSERT INTO md_Column
+	SET columnId = 1309, tableId = 128, name = "lowerThreshold",
+		description = "Threshold for which a metric value is tested to be less than.",
+		type = "DOUBLE",
+		notNull = 0,
+		displayOrder = 4;
+
+	INSERT INTO md_Column
+	SET columnId = 1310, tableId = 128, name = "createdDate",
+		description = "Database timestamp when the record is inserted.",
+		type = "TIMESTAMP",
+		notNull = 1,
+		defaultValue = "CURRENT_TIMESTAMP",
+		displayOrder = 5;
+
