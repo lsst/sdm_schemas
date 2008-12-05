@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3_3_0_18 (version CHAR);
+CREATE TABLE AAA_Version_DC3b_3_0_18 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -216,13 +216,12 @@ CREATE TABLE mops_Event
 ) ;
 
 
-CREATE TABLE _Source2Object
+CREATE TABLE _Source2Amp_Exposure
 (
-	objectId BIGINT NOT NULL,
 	sourceId BIGINT NOT NULL,
-	splitPercentage TINYINT NOT NULL,
-	INDEX idx_Source2Object_objectId (objectId ASC),
-	INDEX idx_Source2Object_sourceId (sourceId ASC)
+	ampExposureId BIGINT NOT NULL,
+	KEY (ampExposureId),
+	KEY (sourceId)
 ) ;
 
 
@@ -1111,12 +1110,13 @@ CREATE TABLE mops_Event_OrbitDerivation
 ) ;
 
 
-CREATE TABLE _Source2Amp_Exposure
+CREATE TABLE _Source2Object
 (
+	objectId BIGINT NOT NULL,
 	sourceId BIGINT NOT NULL,
-	ampExposureId BIGINT NOT NULL,
-	KEY (ampExposureId),
-	KEY (sourceId)
+	splitPercentage TINYINT NOT NULL,
+	INDEX idx_Source2Object_objectId (objectId ASC),
+	INDEX idx_Source2Object_sourceId (sourceId ASC)
 ) ;
 
 
@@ -1397,6 +1397,17 @@ CREATE TABLE prv_CCD
 	amp10 SMALLINT NOT NULL,
 	PRIMARY KEY (ccdId),
 	KEY (raftId)
+) ;
+
+
+CREATE TABLE prv_Stage2UpdatableColumn
+(
+	stageId SMALLINT NOT NULL,
+	columnId SMALLINT NOT NULL,
+	cStage2UpdateColumnId SMALLINT NOT NULL,
+	KEY (cStage2UpdateColumnId),
+	KEY (stageId),
+	KEY (columnId)
 ) ;
 
 
@@ -1693,17 +1704,6 @@ CREATE TABLE prv_cnf_FocalPlane
 	validityEnd DATETIME NULL,
 	PRIMARY KEY (cFocalPlaneId),
 	KEY (focalPlaneId)
-) ;
-
-
-CREATE TABLE prv_Stage2UpdatableColumn
-(
-	stageId SMALLINT NOT NULL,
-	columnId SMALLINT NOT NULL,
-	cStage2UpdateColumnId SMALLINT NOT NULL,
-	KEY (cStage2UpdateColumnId),
-	KEY (stageId),
-	KEY (columnId)
 ) ;
 
 
@@ -2351,10 +2351,7 @@ ALTER TABLE Calibration_Amp_Exposure ADD CONSTRAINT FK_Calibration_Amp_Exposure_
 ALTER TABLE Calibration_Amp_Exposure ADD CONSTRAINT FK_Calibration_Amp_Exposure_Raw_Amp_Exposure 
 	FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
-ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Object 
-	FOREIGN KEY (objectId) REFERENCES Object (objectId);
-
-ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Source 
+ALTER TABLE _Source2Amp_Exposure ADD CONSTRAINT FK_Source2Exposure_Source 
 	FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
 
 ALTER TABLE placeholder_VarObject ADD CONSTRAINT FK_VarObject_Object_objectId 
@@ -2444,7 +2441,10 @@ ALTER TABLE mops_MovingObject2Tracklet ADD CONSTRAINT FK_mopsMovingObject2Trackl
 ALTER TABLE mops_MovingObject2Tracklet ADD CONSTRAINT FK_mopsMovingObject2Tracklets_MovingObject_movingObjectId 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
 
-ALTER TABLE _Source2Amp_Exposure ADD CONSTRAINT FK_Source2Exposure_Source 
+ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Object 
+	FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE _Source2Object ADD CONSTRAINT FK_Source2Object_Source 
 	FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
 
 ALTER TABLE prv_cnf_CCD ADD CONSTRAINT FK_Config_CCD_CCD 
@@ -2497,6 +2497,12 @@ ALTER TABLE prv_cnf_Filter ADD CONSTRAINT FK_Config_Filter_Filter
 
 ALTER TABLE prv_CCD ADD CONSTRAINT FK_CCD_Raft 
 	FOREIGN KEY (raftId) REFERENCES prv_Raft (raftId);
+
+ALTER TABLE prv_Stage2UpdatableColumn ADD CONSTRAINT FK_Stage2UpdatableColumn_Config_Stage2UpdatableColumn 
+	FOREIGN KEY (cStage2UpdateColumnId) REFERENCES prv_cnf_Stage2UpdatableColumn (c_stage2UpdatableColumn);
+
+ALTER TABLE prv_Stage2UpdatableColumn ADD CONSTRAINT FK_Stage2UpdatableColumn_UpdatableColumn 
+	FOREIGN KEY (columnId) REFERENCES prv_UpdatableColumn (columnId);
 
 ALTER TABLE prv_Pipeline2Run ADD CONSTRAINT FK_Pipeline2Run_Pipeline 
 	FOREIGN KEY (pipelineId) REFERENCES prv_Pipeline (pipelineId);
@@ -2590,12 +2596,6 @@ ALTER TABLE prv_Filter ADD CONSTRAINT FK_Filter_FocalPlane
 
 ALTER TABLE prv_cnf_FocalPlane ADD CONSTRAINT FK_Config_FocalPlane_FocalPlane 
 	FOREIGN KEY (focalPlaneId) REFERENCES prv_FocalPlane (focalPlaneId);
-
-ALTER TABLE prv_Stage2UpdatableColumn ADD CONSTRAINT FK_Stage2UpdatableColumn_Config_Stage2UpdatableColumn 
-	FOREIGN KEY (cStage2UpdateColumnId) REFERENCES prv_cnf_Stage2UpdatableColumn (c_stage2UpdatableColumn);
-
-ALTER TABLE prv_Stage2UpdatableColumn ADD CONSTRAINT FK_Stage2UpdatableColumn_UpdatableColumn 
-	FOREIGN KEY (columnId) REFERENCES prv_UpdatableColumn (columnId);
 
 ALTER TABLE prv_Stage2Slice ADD CONSTRAINT FK_ProcStep2Stage_ProcStep 
 	FOREIGN KEY (sliceId) REFERENCES prv_Slice (sliceId);
