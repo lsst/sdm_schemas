@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3_3_0_15 (version CHAR);
+CREATE TABLE AAA_Version_DC3_3_0_17 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -57,6 +57,7 @@ CREATE TABLE DIASource
 (
 	diaSourceId BIGINT NOT NULL,
 	ampExposureId BIGINT NOT NULL,
+	diaSource2Id BIGINT NULL,
 	filterId TINYINT NOT NULL,
 	objectId BIGINT NULL,
 	movingObjectId BIGINT NULL,
@@ -124,7 +125,9 @@ CREATE TABLE DIASource
 	flag4association SMALLINT NULL,
 	flag4detection SMALLINT NULL,
 	flag4wcs SMALLINT NULL,
+	flagClassification BIGINT NULL,
 	PRIMARY KEY (diaSourceId),
+	UNIQUE UQ_DIASource_diaSource2Id(diaSource2Id),
 	KEY (ampExposureId),
 	KEY (ampExposureId),
 	KEY (filterId),
@@ -1257,7 +1260,7 @@ CREATE TABLE Source
 
 CREATE TABLE Raw_FPA_Exposure
 (
-	rawFPAEposureId INTEGER NOT NULL,
+	rawFPAExposureId INTEGER NOT NULL,
 	filterId TINYINT NOT NULL,
 	procHistoryId INTEGER NULL,
 	visitId INTEGER NULL,
@@ -1279,7 +1282,7 @@ CREATE TABLE Raw_FPA_Exposure
 	dec_ul DOUBLE NOT NULL,
 	ra_ur DOUBLE NOT NULL,
 	dec_ur DOUBLE NOT NULL,
-	PRIMARY KEY (rawFPAEposureId),
+	PRIMARY KEY (rawFPAExposureId),
 	UNIQUE UQ_Raw_FPA_Exposure_visitId(visitId),
 	KEY (filterId),
 	KEY (procHistoryId)
@@ -2319,7 +2322,7 @@ ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Science_
 	FOREIGN KEY (scienceFPAExposureId) REFERENCES Science_FPA_Exposure (scienceFPAExposureId);
 
 ALTER TABLE Raw_CCD_Exposure ADD CONSTRAINT FK_CCDExposure_FPAExposure_exposureId 
-	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAEposureId);
+	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
 ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_AmpExposure_CCDExposure_ccdExposureId 
 	FOREIGN KEY (rawCCDExposureId) REFERENCES Raw_CCD_Exposure (rawCCDExposureId);
@@ -2373,13 +2376,13 @@ ALTER TABLE prv_cnf_Amplifier ADD CONSTRAINT FK_Config_Amplifier_Amplifier
 	FOREIGN KEY (amplifierId) REFERENCES prv_Amplifier (amplifierId);
 
 ALTER TABLE Visit ADD CONSTRAINT FK_Visit_Raw_FPA_Exposure 
-	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAEposureId);
+	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
 ALTER TABLE Science_FPA_Exposure ADD CONSTRAINT FK_ScienceFPAExposure_FPAExposure 
 	FOREIGN KEY (rawFPAExposureId) REFERENCES sdqa_Rating_4ScienceFPAExposure (exposureId);
 
 ALTER TABLE Calibration_FPA_Exposure ADD CONSTRAINT FK_CalibrationFPAExposure_FPAExposure_exposureId 
-	FOREIGN KEY (calibrationFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAEposureId);
+	FOREIGN KEY (calibrationFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
 ALTER TABLE mops_Tracklets2DIASource ADD CONSTRAINT FK_mopsTracklets2DIASource_DIASource 
 	FOREIGN KEY (diaSourceId) REFERENCES DIASource (diaSourceId);
