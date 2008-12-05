@@ -75,14 +75,14 @@ if ( array_key_exists('t', $_GET) ) {
     $data4t2d .= "</table>
 <p><b>Engine:</b> $tEngine</p>
 ";
-  } else {
+} else {
     $title4t2d = "&nbsp;";
     $data4t2d = "To see details, select a table on the left";
 }
 
 $tableList = "<span style='line-height:14px'>";
 foreach ($tables as $k=>$v) {
-    if ( isset($tN) && $tN == $v['name'] ) {
+    if ( isset($tName) && $tName == $v['name'] ) {
         $tableList .= "<a href='index.php?t=$v[name]' style='color:white;font-weight:bold'>$v[name]</a><br />";
     } else {
         $tableList .= "<a href='index.php?t=$v[name]'>$v[name]</a><br />
