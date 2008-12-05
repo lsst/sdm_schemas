@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3_3_0_17 (version CHAR);
+CREATE TABLE AAA_Version_DC3_3_0_18 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -2010,10 +2010,37 @@ CREATE TABLE prv_FocalPlane
 ) ;
 
 
+CREATE TABLE prv_SoftwarePackage
+(
+	packageId INTEGER NOT NULL,
+	packageName VARCHAR(64) NOT NULL,
+	PRIMARY KEY (packageId)
+) ;
+
+
 CREATE TABLE prv_Slice
 (
 	sliceId MEDIUMINT NOT NULL,
 	PRIMARY KEY (sliceId)
+) ;
+
+
+CREATE TABLE prv_PolicyKey
+(
+	policyKeyId INTEGER NOT NULL,
+	policyFileId INTEGER NOT NULL,
+	keyName VARCHAR(255) NOT NULL,
+	PRIMARY KEY (policyKeyId)
+) ;
+
+
+CREATE TABLE prv_PolicyFile
+(
+	policyFileId INTEGER NOT NULL,
+	pathName VARCHAR(255) NOT NULL,
+	hashValue CHAR(32) NOT NULL,
+	modifiedDate DATETIME NOT NULL,
+	PRIMARY KEY (policyFileId)
 ) ;
 
 
@@ -2031,6 +2058,27 @@ CREATE TABLE prv_cnf_Stage2UpdatableColumn
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
 	PRIMARY KEY (c_stage2UpdatableColumn)
+) ;
+
+
+CREATE TABLE prv_cnf_SoftwarePackage
+(
+	packageId INTEGER NOT NULL,
+	version VARCHAR(32) NOT NULL,
+	directory VARCHAR(255) NOT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (packageId)
+) ;
+
+
+CREATE TABLE prv_cnf_PolicyKey
+(
+	policyKeyId INTEGER NOT NULL,
+	value VARCHAR(255) NOT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (policyKeyId)
 ) ;
 
 
