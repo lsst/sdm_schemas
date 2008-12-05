@@ -22,12 +22,48 @@
 
 <h1>LSST Database Schema Browser <font size="-1"><sup>alpha</sup></font></h1>
 
+<?php
+include_once("constants.php");
+include_once("db.php");
+
+
+// takes as argument element to be added to the arguments
+function 
+prepareArgList($k, $v) {
+
+    $args = $_GET;
+    $args[$k] = $v;
+    $argsStr = "?";
+    $argsCount = count($args);
+    foreach ($args as $kA=>$vA) {
+        $argsStr .= "$kA=$vA";
+        if ( --$argsCount>0 ) $argsStr .= '&';
+    }
+    return $argsStr;
+}
+
+if ( array_key_exists('sVer', $_GET) ) {
+    $csv = $_GET['sVer']; // current schema version
+} else {
+    $csv = DEFAULT_VERSION;
+}
+
+$n = count($schemaVersions);
+if ( $n > 1 ) {
+    print "<p>Schema versions available for browsing:&nbsp;&nbsp;";
+    foreach($schemaVersions as $k=>$v) {
+        $argsStr = prepareArgList('sVer', $v);
+        $s = "<a href=\"index.php$argsStr\">$v</a>";
+        if ( $v == $csv ) print "<b><u>$s</b></u>"; else print "$s";
+        if ( $k < $n-1 ) print "&nbsp;|&nbsp;";
+    }
+}
+print " (underlined showed)</p>
+
 <table class='main'>
 <tr>
 
-<?php
-
-include_once("db.php");
+";
 
 global $database;
 
@@ -82,10 +118,11 @@ if ( array_key_exists('t', $_GET) ) {
 
 $tableList = "<span style='line-height:14px'>";
 foreach ($tables as $k=>$v) {
+    $argStr = prepareArgList('t', $v[name]);
     if ( isset($tName) && $tName == $v['name'] ) {
-        $tableList .= "<a href='index.php?t=$v[name]' style='color:white;font-weight:bold'>$v[name]</a><br />";
+        $tableList .= "<a href='index.php$argStr' style='color:white;font-weight:bold'>$v[name]</a><br />";
     } else {
-        $tableList .= "<a href='index.php?t=$v[name]'>$v[name]</a><br />
+        $tableList .= "<a href='index.php$argStr'>$v[name]</a><br />
 ";
     }
 }

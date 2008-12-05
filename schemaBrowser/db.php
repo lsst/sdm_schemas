@@ -10,7 +10,15 @@ class MySQLDB {
     function MySQLDB() {
         $this->connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS)
             or die("MySQL error");
-        mysqli_select_db($this->connection, DB_NAME) 
+
+        // check which schema version should be displayed
+        if ( array_key_exists('sVer', $_GET) ) {
+            $csv = $_GET['sVer'];
+        } else {
+            $csv = DEFAULT_VERSION;
+        }
+
+        mysqli_select_db($this->connection, DB_NAME_PREFIX . $csv) 
             or die(mysqli_error($this->connection));
     }
 
