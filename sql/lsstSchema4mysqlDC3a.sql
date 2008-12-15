@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_2 (version CHAR);
+CREATE TABLE AAA_Version_3_0_3 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -282,6 +282,8 @@ CREATE TABLE DIASource
 	apMagErr DOUBLE NOT NULL,
 	modelMag DOUBLE NOT NULL,
 	modelMagErr DOUBLE NOT NULL,
+	instMag DOUBLE NOT NULL,
+	instMagErr DOUBLE NOT NULL,
 	apDia FLOAT(0) NULL,
 	flagClassification BIGINT NULL,
 	_dataSource TINYINT NOT NULL,
