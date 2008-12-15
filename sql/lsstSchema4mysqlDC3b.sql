@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_21 (version CHAR);
+CREATE TABLE AAA_Version_3_0_22 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -104,6 +104,12 @@ CREATE TABLE DIASource
 	apMagErr FLOAT(0) NOT NULL,
 	modelMag DOUBLE NOT NULL,
 	modelMagErr FLOAT(0) NULL,
+	instMag DOUBLE NOT NULL,
+	instMagErr DOUBLE NOT NULL,
+	nonGrayCorrMag DOUBLE NULL,
+	nonGrayCorrMagErr DOUBLE NULL,
+	atmCorrMag DOUBLE NULL,
+	atmCorrMagErr DOUBLE NULL,
 	apDia FLOAT(0) NULL,
 	refMag FLOAT(0) NULL,
 	Ixx FLOAT(0) NULL,
@@ -1253,6 +1259,12 @@ CREATE TABLE Source
 	modelMagErr FLOAT(0) NOT NULL,
 	petroMag DOUBLE NULL,
 	petroMagErr FLOAT(0) NULL,
+	instMag DOUBLE NOT NULL,
+	instMagErr DOUBLE NOT NULL,
+	nonGrayCorrMag DOUBLE NULL,
+	nonGrayCorrMagErr DOUBLE NULL,
+	atmCorrMag DOUBLE NULL,
+	atmCorrMagErr DOUBLE NULL,
 	apDia FLOAT(0) NULL,
 	snr FLOAT(0) NOT NULL,
 	chi2 FLOAT(0) NOT NULL,
