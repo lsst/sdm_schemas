@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_DC3a_3_0_0 (version CHAR);
+CREATE TABLE AAA_Version_3_0_2 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -151,9 +151,18 @@ CREATE TABLE Science_CCD_Exposure
 	cd2_2 DOUBLE NOT NULL,
 	dateObs TIMESTAMP NOT NULL DEFAULT 0,
 	expTime FLOAT(0) NULL,
+	ccdSize VARCHAR(50) NULL,
 	photoFlam FLOAT(0) NOT NULL,
 	photoZP FLOAT(0) NOT NULL,
 	nCombine INTEGER NOT NULL DEFAULT 1,
+	taiMjd DOUBLE NULL,
+	bixX INTEGER NULL,
+	binY INTEGER NULL,
+	readNoise DOUBLE NULL,
+	ccdDetectorId INTEGER NULL,
+	saturationLimit BIGINT NULL,
+	dataSection VARCHAR(24) NULL,
+	gain DOUBLE NULL,
 	PRIMARY KEY (scienceCCDExposureId),
 	KEY (rawCCDExposureId),
 	KEY (scienceFPAExposureId)
@@ -813,7 +822,7 @@ CREATE TABLE sdqa_Metric
 	sdqa_metricId SMALLINT NOT NULL,
 	metricName VARCHAR(30) NOT NULL,
 	physicalUnits VARCHAR(30) NOT NULL,
-	dataType CHAR(10) NOT NULL,
+	dataType CHAR(1) NOT NULL,
 	definition VARCHAR(255) NOT NULL,
 	PRIMARY KEY (sdqa_metricId)
 ) ;
