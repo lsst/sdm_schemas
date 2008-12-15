@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_3 (version CHAR);
+CREATE TABLE AAA_Version_3_0_4 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -159,7 +159,6 @@ CREATE TABLE Science_CCD_Exposure
 	bixX INTEGER NULL,
 	binY INTEGER NULL,
 	readNoise DOUBLE NULL,
-	ccdDetectorId INTEGER NULL,
 	saturationLimit BIGINT NULL,
 	dataSection VARCHAR(24) NULL,
 	gain DOUBLE NULL,
