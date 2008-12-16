@@ -43,8 +43,7 @@ ALTER TABLE DIASourceTemplate
     DROP KEY ccdExposureId,
     DROP KEY filterId,
     DROP KEY movingObjectId,
-    DROP KEY objectId,
-    DROP KEY scId;
+    DROP KEY objectId;
 
 -- This should be a permanent table, but copy it from Object for now.
 CREATE TABLE NonVarObject LIKE Object;
@@ -55,39 +54,37 @@ ALTER TABLE InMemoryObjectTemplate
     DROP INDEX idx_Object_ugColor,
     DROP INDEX idx_Object_grColor,
     DROP INDEX idx_Object_riColor,
-    DROP INDEX idx_Object_izColor,
-    DROP INDEX idx_Object_latestObsTime,
-    DROP KEY   procHistoryId;
+    DROP INDEX idx_Object_izColor;
 
 ALTER TABLE InMemoryObjectTemplate ENGINE=MEMORY;
 
-CREATE TABLE InMemoryMatchPairTemplate LIKE MatchPair;
+CREATE TABLE InMemoryMatchPairTemplate LIKE _tmpl_MatchPair;
 ALTER TABLE InMemoryMatchPairTemplate ENGINE=MEMORY;
 
-CREATE TABLE InMemoryIdTemplate LIKE Id;
+CREATE TABLE InMemoryIdTemplate LIKE _tmpl_Id;
 ALTER TABLE InMemoryIdTemplate ENGINE=MEMORY;
 
 -- Populate the Object table for the run
-INSERT INTO Object SELECT * FROM DC2.Object;
+-- Todo: need to check if this is needed in DC3
+-- INSERT INTO Object SELECT * FROM DC2.Object;
 
 -- Create tables that accumulate data from per-visit tables
-CREATE TABLE MopsPreds LIKE mops_pred;
+CREATE TABLE MopsPreds LIKE _tmpl_mops_Prediction;
 ALTER TABLE MopsPreds
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE DiaSourceToObjectMatches LIKE MatchPair;
+CREATE TABLE DiaSourceToObjectMatches LIKE _tmpl_MatchPair;
 ALTER TABLE DiaSourceToObjectMatches
     ADD COLUMN visitId INTEGER NOT NULL,
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE MopsPredToDiaSourceMatches LIKE MatchPair;
+CREATE TABLE MopsPredToDiaSourceMatches LIKE _tmpl_MatchPair;
 ALTER TABLE MopsPredToDiaSourceMatches
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE NewObjectIdPairs LIKE IdPair;
+CREATE TABLE NewObjectIdPairs LIKE _tmpl_IdPair;
 ALTER TABLE NewObjectIdPairs
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
-
