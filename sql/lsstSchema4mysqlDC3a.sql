@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_5 (version CHAR);
+CREATE TABLE AAA_Version_3_0_7 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -402,6 +402,7 @@ CREATE TABLE sdqa_Threshold
 	lowerThreshold DOUBLE NULL,
 	createdDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (sdqa_thresholdId),
+	UNIQUE UQ_sdqa_Threshold_sdqa_metricId(sdqa_metricId),
 	KEY (sdqa_metricId)
 ) ;
 
@@ -825,13 +826,14 @@ CREATE TABLE sdqa_Metric
 	physicalUnits VARCHAR(30) NOT NULL,
 	dataType CHAR(1) NOT NULL,
 	definition VARCHAR(255) NOT NULL,
-	PRIMARY KEY (sdqa_metricId)
+	PRIMARY KEY (sdqa_metricId),
+	UNIQUE UQ_sdqa_Metric_metricName(metricName)
 ) ;
 
 
 CREATE TABLE sdqa_ImageStatus
 (
-	sdqa_imageStatusId SMALLINT NOT NULL,
+	sdqa_imageStatusId SMALLINT NOT NULL AUTO_INCREMENT,
 	statusName VARCHAR(30) NOT NULL,
 	definition VARCHAR(255) NOT NULL,
 	PRIMARY KEY (sdqa_imageStatusId)
