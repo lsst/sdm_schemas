@@ -1,16 +1,23 @@
 To install the LSST schema browser:
 
 1)
-Load the LSST schema metadata into mysql using command:
+Create schema databases:
+   mysql -e "CREATE DATABASE lsst_schema_browser_DC3a"
+   mysql -e "CREATE DATABASE lsst_schema_browser_DC3b"
 
-    mysql < metadata.sql
-
-This will create a database lsst_schema_browser and load
 
 2)
-Update DB_SERVER, DB_USER and DB_PASS in the file "constants.php"
+Load the LSST schema metadata into mysql using command:
+
+    mysql lsst_schema_browser_DC3a < metadata_DC3a.sql
+    mysql lsst_schema_browser_DC3b < metadata_DC3b.sql
+
 
 3)
+Update DB_SERVER, DB_USER and DB_PASS in the file "constants.php"
+
+
+4)
 Put this whole directory in a place visible by the httpd server
 eg, put a link to this directory from /var/www/html
 
