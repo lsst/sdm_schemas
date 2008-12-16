@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_4 (version CHAR);
+CREATE TABLE AAA_Version_3_0_5 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -396,7 +396,7 @@ CREATE TABLE mops_SSM
 
 CREATE TABLE sdqa_Threshold
 (
-	sdqa_thresholdId SMALLINT NOT NULL,
+	sdqa_thresholdId SMALLINT NOT NULL AUTO_INCREMENT,
 	sdqa_metricId SMALLINT NOT NULL,
 	upperThreshold DOUBLE NULL,
 	lowerThreshold DOUBLE NULL,
@@ -820,7 +820,7 @@ CREATE TABLE _mops_Config
 
 CREATE TABLE sdqa_Metric
 (
-	sdqa_metricId SMALLINT NOT NULL,
+	sdqa_metricId SMALLINT NOT NULL AUTO_INCREMENT,
 	metricName VARCHAR(30) NOT NULL,
 	physicalUnits VARCHAR(30) NOT NULL,
 	dataType CHAR(1) NOT NULL,
