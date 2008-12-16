@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_7 (version CHAR);
+CREATE TABLE AAA_Version_3_0_8 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -432,6 +432,20 @@ CREATE TABLE prv_PolicyFile
 	modifiedDate DATETIME NOT NULL,
 	PRIMARY KEY (policyFileId)
 ) ;
+
+
+CREATE TABLE prv_Filter
+(
+	filterId TINYINT NOT NULL,
+	focalPlaneId TINYINT NOT NULL,
+	name VARCHAR(80) NOT NULL,
+	url VARCHAR(255) NULL,
+	clam FLOAT(0) NOT NULL,
+	bw FLOAT(0) NOT NULL,
+	PRIMARY KEY (filterId),
+	UNIQUE name(name),
+	INDEX focalPlaneId (focalPlaneId ASC)
+) TYPE=MyISAM;
 
 
 CREATE TABLE prv_cnf_SoftwarePackage
