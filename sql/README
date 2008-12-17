@@ -1,4 +1,9 @@
 
+For more information, see 
+http://dev.lsstcorp.org/trac/wiki/dbDC3aSetup
+
+
+
 abbreviations used below:
  - rpwd: root mysql password
  - upwd: user mysql password
@@ -10,7 +15,6 @@ One-time setup
   -- Run the commands from this section once
   -- 
   -- Notice that mysql root privileges are required.
-  -- No other section requires mysql root privileges.
 
   -- 1) initialize global database
   mysql -uroot -p<rpwd> < setup_GlobalDB.sql
@@ -32,9 +36,21 @@ One-time setup
   -- Notice that users won't be able to hack in and extend runs by calling 'UPDATE' by hand
 
 
+  -- If we decide to send notifications, we should
+  -- capture users' emails in the database,
+  -- the command to do this:
+  mysql -uroot -p<rpwd> GlobalDB -e 'INSERT INTO UserInfo_DC3a(name, email) VALUES ("<u1>", "<e1>"), ("<u2>", "<e2>"), ...)'
+
+
 
 Per run setup
 =============
+
+  -- input:
+  --  * run name
+  --  * run type. Values: user/production. Default: user. 
+  --    Allow production runs only from one special account
+
 
   -- check available disk space, if too low (say below 10%)
   -- run the cleanupExpiredRuns script (see below), 
@@ -65,7 +81,11 @@ Per run setup
 
 
   -- register this run in the global database
+  -- if it is a user run do:
   mysql -u<userName> -p<upwd> GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("<runName>", "<dbName>", NOW(), DATE_ADD(NOW(), INTERVAL 2 WEEK), "<userName>")'
+  -- if it is a production run do:
+  mysql -u<userName> -p<upwd> GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("<runName>", "<dbName>", NOW(), DATE_ADD(NOW(), INTERVAL 10 YEAR), "<userName>")'
+
 
 
 Asynchronous

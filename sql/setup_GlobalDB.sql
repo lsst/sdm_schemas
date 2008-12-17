@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS GlobalDB;
 USE GlobalDB;
 
 
--- create global table(s)
+-- global table for keeping run-related info
 CREATE TABLE IF NOT EXISTS RunInfo_DC3a (
     runName VARCHAR(64) NOT NULL,            -- unique name of the run
     dbName VARCHAR(64) NOT NULL,             -- database name
@@ -13,10 +13,20 @@ CREATE TABLE IF NOT EXISTS RunInfo_DC3a (
     initiator VARCHAR(64) NOT NULL,          -- user name of the run initiator
     nExtensions SMALLINT NOT NULL DEFAULT 0, -- number of times extension was requested
     expDate DATE NOT NULL,                   -- date at which run expires (can be deleted)
+    firstNotifDate DATETIME DEFAULT NULL,    -- date when 1st notification was sent
+    finalNotifDate DATETIME DEFAULT NULL,    -- date when final notification was sent
     delDate DATETIME DEFAULT NULL,           -- deletion time or NULL
     PRIMARY KEY (runName),
     INDEX (expDate)
 ) ENGINE=MyISAM; 
+
+
+-- global table for keeping user-related into
+-- used for notifications
+CREATE TABLE IF NOT EXISTS UserInfo_DC3a (
+    name VARCHAR(64) NOT NULL PRIMARY KEY,
+    email VARCHAR(64) NOT NULL
+) ENGINE=MyISAM;
 
 
 -- create stored functions / procedures
@@ -47,7 +57,9 @@ BEGIN
    -- do the update
    UPDATE RunInfo_DC3a
    SET    expDate = DATE_ADD(NOW(), INTERVAL 2 WEEK),
-          nExtensions = nExtensions + 1
+          nExtensions = nExtensions + 1,
+          firstNotifDate = NULL,
+          finalNotifDate = NULL
    WHERE  runName = in_runName
    AND    delDate IS NULL;
 
