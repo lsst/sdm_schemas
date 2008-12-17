@@ -7,12 +7,14 @@ USE GlobalDB;
 
 -- create global table(s)
 CREATE TABLE IF NOT EXISTS RunInfo_DC3a (
-    runId VARCHAR(64) NOT NULL,     -- unique name of the run
-    expDate DATETIME NOT NULL,      -- time at which run can be deleted
-    initiator VARCHAR(64) NOT NULL, -- user name of the run initiator
-    status ENUM ('STARTED', 'KILLED', 'FAILED', 'FINISHED'),
-    delDate DATETIME,               -- deletion time or NULL
-    PRIMARY KEY (runId),
+    runName VARCHAR(64) NOT NULL,            -- unique name of the run
+    dbName VARCHAR(64) NOT NULL,             -- database name
+    startDate DATETIME NOT NULL,             -- time when run was started
+    initiator VARCHAR(64) NOT NULL,          -- user name of the run initiator
+    nExtensions SMALLINT NOT NULL DEFAULT 0, -- number of times extension was requested
+    expDate DATE NOT NULL,                   -- date at which run expires (can be deleted)
+    delDate DATETIME DEFAULT NULL,           -- deletion time or NULL
+    PRIMARY KEY (runName),
     INDEX (expDate)
 ) ENGINE=MyISAM; 
 
@@ -20,21 +22,38 @@ CREATE TABLE IF NOT EXISTS RunInfo_DC3a (
 -- create stored functions / procedures
 DELIMITER //
 
-CREATE PROCEDURE extendRun ( in_dbName VARCHAR(64) )
+-- known "feature": it will extend some else's run
+-- return value:
+--  1: successfully extended
+-- -1: run not found
+-- -2: run already deleted
+CREATE FUNCTION extendRun ( in_runName VARCHAR(64) ) RETURNS INT
 BEGIN
+   DECLARE n INT;
+
+   -- report error if run not found
+   SELECT COUNT(*) INTO n
+   FROM   RunInfo_DC3a
+   WHERE  runName = in_runName;
+   IF n <> 1 THEN RETURN -1; END IF;
+
+   -- report error if run already deleted
+   SELECT COUNT(*) INTO n
+   FROM   RunInfo_DC3a
+   WHERE  runName = in_runName
+   AND    delDate IS NOT NULL;
+   IF n = 1 THEN RETURN -2; END IF;
+
+   -- do the update
    UPDATE RunInfo_DC3a
-   SET    expDate = DATE_ADD(NOW(), INTERVAL 1 WEEK)
-   WHERE  runId = in_dbName
+   SET    expDate = DATE_ADD(NOW(), INTERVAL 2 WEEK),
+          nExtensions = nExtensions + 1
+   WHERE  runName = in_runName
    AND    delDate IS NULL;
+
+   RETURN 1;
 END;
 //
 
 DELIMITER ;
 
-
--- authorize everybody to insert runs and 
--- extend runs' expiration time.
--- Notice that users won't be able to hack in
--- and extend runs by calling 'UPDATE' by hand
-GRANT SELECT, INSERT ON RunInfo_DC3a TO ''@'localhost';
-GRANT EXECUTE ON PROCEDURE extendRun TO ''@'localhost';

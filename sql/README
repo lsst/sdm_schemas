@@ -13,7 +13,7 @@ One-time setup
   -- No other section requires mysql root privileges.
 
   -- 1) initialize global database
-  mysql -uroot -p<rpwd> setup_LSSTGlobal.sql
+  mysql -uroot -p<rpwd> < setup_GlobalDB.sql
 
   -- 2) precreate mysql users
   --
@@ -22,8 +22,15 @@ One-time setup
   -- 
   -- Warning: likely we will need to open remote access 
   -- at least to some domains!
-  mysql -uroot -p<rpwd> -e mysql "GRANT ALL ON `<username>\_%`.* TO '<username>'@'localhost' IDENTIFIED BY <upwd>"
-  mysql -uroot -p<rpwd> -e mysql "GRANT SELECT ON *.* TO '<username>'@'localhost' IDENTIFIED BY <upwd>"
+
+  -- Run this for each user:
+  mysql -uroot -p<rpwd> -e 'GRANT ALL ON `<userName>\_%`.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  mysql -uroot -p<rpwd> -e 'GRANT SELECT ON *.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  mysql -uroot -p<rpwd> -e 'GRANT SELECT, INSERT ON GlobalDB.RunInfo_DC3a TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  mysql -uroot -p<rpwd> -e 'GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  -- The above will authorize everybody to insert runs and extend runs' expiration time.
+  -- Notice that users won't be able to hack in and extend runs by calling 'UPDATE' by hand
+
 
 
 Per run setup
@@ -35,26 +42,30 @@ Per run setup
 
 
   -- create per run database, using the following naming conventions:
-  -- <username>_<DC version><run number or name>,
+  -- <userName>_<DC version><run number or name>,
   -- for example, jbecla_DC3a_123, smm_DC3a_myTestRun, admin_DC3a_final
-  mysql -u<username> -p<upwd> -e "CREATE DATABASE <dbName>"
+  mysql -u<userName> -p<upwd> -e "CREATE DATABASE <dbName>"
 
 
   -- Load schema. Use the appropriate schema file:
   -- lsstSchema4mysqlDC3a.sql or lsstSchema4mysqlDC3b.sql 
-  mysql -u<username> -p<upwd> <dbName> <schema file>
+  mysql -u<userName> -p<upwd> <dbName> < <schema file>
 
 
   -- load stored procedures and functions
-  mysql -u<username> -p<upwd> <dbName> setup_storedFunctions.sql
+  mysql -u<userName> -p<upwd> <dbName> < setup_storedFunctions.sql
 
 
   -- Load sdqa specific tables
-  mysql -u<username> -p<upwd> <dbName> setup_sdqa.sql
+  mysql -u<userName> -p<upwd> <dbName> < setup_sdqa.sql
 
 
   -- load run specific contents and tables
-  mysql -u<username> -p<upwd> <dbName> setup_perRunTables.sql
+  mysql -u<userName> -p<upwd> <dbName> < setup_perRunTables.sql
+
+
+  -- register this run in the global database
+  mysql -u<userName> -p<upwd> GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("<runName>", "<dbName>", NOW(), DATE_ADD(NOW(), INTERVAL 2 WEEK), "<userName>")'
 
 
 Asynchronous
