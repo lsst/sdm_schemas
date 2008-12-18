@@ -32,25 +32,27 @@ CREATE TABLE IF NOT EXISTS UserInfo_DC3a (
 -- create stored functions / procedures
 DELIMITER //
 
--- known "feature": it will extend some else's run
 -- return value:
 --  1: successfully extended
 -- -1: run not found
 -- -2: run already deleted
-CREATE FUNCTION extendRun ( in_runName VARCHAR(64) ) RETURNS INT
+CREATE FUNCTION extendRun ( in_runName VARCHAR(64),
+                            in_userName VARCHAR(64) ) RETURNS INT
 BEGIN
    DECLARE n INT;
 
    -- report error if run not found
    SELECT COUNT(*) INTO n
    FROM   RunInfo_DC3a
-   WHERE  runName = in_runName;
+   WHERE  runName = in_runName
+   AND    initiator = in_userName;
    IF n <> 1 THEN RETURN -1; END IF;
 
    -- report error if run already deleted
    SELECT COUNT(*) INTO n
    FROM   RunInfo_DC3a
    WHERE  runName = in_runName
+   AND    initiator = in_userName
    AND    delDate IS NOT NULL;
    IF n = 1 THEN RETURN -2; END IF;
 
@@ -61,6 +63,7 @@ BEGIN
           firstNotifDate = NULL,
           finalNotifDate = NULL
    WHERE  runName = in_runName
+   AND    initiator = in_userName
    AND    delDate IS NULL;
 
    RETURN 1;

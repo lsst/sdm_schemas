@@ -43,15 +43,14 @@ mysql -udummy2 -pdummyPwd2 GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbNam
 
 
 # try twice if extending run is allowed 
-mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('runY')"
-mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('runY')"
+mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('runY', 'dummy2')"
+mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('runY', 'dummy2')"
 
 # try extending some elses run
-mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('runX')"
+mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('runX', 'dummy2')"
 
 # try extending invalid run
-mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('xyz')"
-
+mysql -udummy2 -pdummyPwd2 GlobalDB -e "SELECT extendRun('xyz', 'dummy2')"
 
 
 
