@@ -9,6 +9,34 @@ abbreviations used below:
  - upwd: user mysql password
 
 
+MySQL Account management
+========================
+
+Assuption: to start a run, user needs to have mysql account,
+appropriate authorizations, and her/his email should be 
+registered in mysql database.
+
+
+  -- Commands to run to "register" user:
+
+    -- create mysql user account and authorizing
+       -- Warning: likely we will need to open remote access 
+       -- at least to some domains!
+  mysql -uroot -p<rpwd> -e 'GRANT ALL ON `<userName>\_%`.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  mysql -uroot -p<rpwd> -e 'GRANT SELECT ON *.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  mysql -uroot -p<rpwd> -e 'GRANT SELECT, INSERT ON GlobalDB.RunInfo_DC3a TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  mysql -uroot -p<rpwd> -e 'GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
+  -- The above will authorize everybody to insert runs and extend runs' expiration time.
+  -- Notice that users won't be able to hack in and extend runs by calling 'UPDATE' by hand
+
+    -- registering email
+  mysql -uroot -p<rpwd> GlobalDB -e 'INSERT INTO UserInfo_DC3a(name, email) VALUES ("<username>", "<email>"))'
+
+ Notice: I am planning to bundle all this into a single script
+ input: username, userpassword, useremail
+
+
+
 One-time setup
 ==============
 
@@ -19,27 +47,13 @@ One-time setup
   -- 1) initialize global database
   mysql -uroot -p<rpwd> < setup_GlobalDB.sql
 
-  -- 2) precreate mysql users
-  --
-  -- We need to decide how we will get the list of users
-  -- and their passwords... through policy?
-  -- 
-  -- Warning: likely we will need to open remote access 
-  -- at least to some domains!
 
-  -- Run this for each user:
-  mysql -uroot -p<rpwd> -e 'GRANT ALL ON `<userName>\_%`.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  mysql -uroot -p<rpwd> -e 'GRANT SELECT ON *.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  mysql -uroot -p<rpwd> -e 'GRANT SELECT, INSERT ON GlobalDB.RunInfo_DC3a TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  mysql -uroot -p<rpwd> -e 'GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  -- The above will authorize everybody to insert runs and extend runs' expiration time.
-  -- Notice that users won't be able to hack in and extend runs by calling 'UPDATE' by hand
+checking status
+===============
 
 
-  -- If we decide to send notifications, we should
-  -- capture users' emails in the database,
-  -- the command to do this:
-  mysql -uroot -p<rpwd> GlobalDB -e 'INSERT INTO UserInfo_DC3a(name, email) VALUES ("<u1>", "<e1>"), ("<u2>", "<e2>"), ...)'
+todo: need to write a script that checks if mysql account is set for given user.
+Input: db version (eg dc3a), and username
 
 
 
@@ -47,19 +61,23 @@ Per run setup
 =============
 
   -- input:
-  --  * run name
-  --  * run type. Values: user/production. Default: user. 
-  --    Allow production runs only from one special account
+  --   - dc version, eg dc3a
+  --   - run name
+  --   - run type. Values: user/production. Default: user. 
+  --   - username + mysql password
 
 
   -- check available disk space, if too low (say below 10%)
-  -- run the cleanupExpiredRuns script (see below), 
-  -- if disk space still too low, alert someone and give up
+  -- alert someone and give up
 
-
+  -- if it is production run, then read special policy file 
+  -- which defines usernames that can start production runs.
+  -- Fail if user not authorized to start a production run.
+ 
   -- create per run database, using the following naming conventions:
-  -- <userName>_<DC version><run number or name>,
-  -- for example, jbecla_DC3a_123, smm_DC3a_myTestRun, admin_DC3a_final
+  -- <userName>_<DC version>_<u|p>_<run number or name>,
+  -- for example, jbecla_DC3a_u_123, smm_DC3a_u_myTestRun, admin_DC3a_p_final
+  -- u/p indicates run type (user/production)
   mysql -u<userName> -p<upwd> -e "CREATE DATABASE <dbName>"
 
 
@@ -68,7 +86,7 @@ Per run setup
   mysql -u<userName> -p<upwd> <dbName> < <schema file>
 
 
-  -- load stored procedures and functions
+  -- Load stored procedures and functions
   mysql -u<userName> -p<upwd> <dbName> < setup_storedFunctions.sql
 
 
@@ -76,7 +94,7 @@ Per run setup
   mysql -u<userName> -p<upwd> <dbName> < setup_sdqa.sql
 
 
-  -- load run specific contents and tables
+  -- Load run specific contents and tables
   mysql -u<userName> -p<upwd> <dbName> < setup_perRunTables.sql
 
 

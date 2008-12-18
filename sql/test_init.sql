@@ -1,7 +1,7 @@
 
 # cleanup from previous test
-mysql -e "drop database if exists dummy1_DC3a_runX"
-mysql -e "drop database if exists dummy2_DC3a_runY"
+mysql -e "drop database if exists dummy1_DC3a_u_runX"
+mysql -e "drop database if exists dummy2_DC3a_u_runY"
 
 
 # one time
@@ -24,21 +24,21 @@ mysql -e 'GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO `dummy2`@`localhost` I
 
 
 # dummy1 runX
-mysql -udummy1 -pdummyPwd1 -e "CREATE DATABASE dummy1_DC3a_runX"
-mysql -udummy1 -pdummyPwd1 dummy1_DC3a_runX < lsstSchema4mysqlDC3a.sql
-mysql -udummy1 -pdummyPwd1 dummy1_DC3a_runX < setup_storedFunctions.sql
-mysql -udummy1 -pdummyPwd1 dummy1_DC3a_runX < setup_sdqa.sql
-mysql -udummy1 -pdummyPwd1 dummy1_DC3a_runX < setup_perRunTables.sql
-mysql -udummy1 -pdummyPwd1 GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("runX", "dummy1_DC3a_runX", NOW(), DATE_ADD(NOW(), INTERVAL 2 WEEK), "dummy1")'
+mysql -udummy1 -pdummyPwd1 -e "CREATE DATABASE dummy1_DC3a_u_runX"
+mysql -udummy1 -pdummyPwd1 dummy1_DC3a_u_runX < lsstSchema4mysqlDC3a.sql
+mysql -udummy1 -pdummyPwd1 dummy1_DC3a_u_runX < setup_storedFunctions.sql
+mysql -udummy1 -pdummyPwd1 dummy1_DC3a_u_runX < setup_sdqa.sql
+mysql -udummy1 -pdummyPwd1 dummy1_DC3a_u_runX < setup_perRunTables.sql
+mysql -udummy1 -pdummyPwd1 GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("runX", "dummy1_DC3a_u_runX", NOW(), DATE_ADD(NOW(), INTERVAL 2 WEEK), "dummy1")'
 
 
 # dummy2 runY
-mysql -udummy2 -pdummyPwd2 -e "CREATE DATABASE dummy2_DC3a_runY"
-mysql -udummy2 -pdummyPwd2 dummy2_DC3a_runY < lsstSchema4mysqlDC3a.sql
-mysql -udummy2 -pdummyPwd2 dummy2_DC3a_runY < setup_storedFunctions.sql
-mysql -udummy2 -pdummyPwd2 dummy2_DC3a_runY < setup_sdqa.sql
-mysql -udummy2 -pdummyPwd2 dummy2_DC3a_runY < setup_perRunTables.sql
-mysql -udummy2 -pdummyPwd2 GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("runY", "dummy2_DC3a_runY", NOW(), DATE_ADD(NOW(), INTERVAL 2 WEEK), "dummy2")'
+mysql -udummy2 -pdummyPwd2 -e "CREATE DATABASE dummy2_DC3a_u_runY"
+mysql -udummy2 -pdummyPwd2 dummy2_DC3a_u_runY < lsstSchema4mysqlDC3a.sql
+mysql -udummy2 -pdummyPwd2 dummy2_DC3a_u_runY < setup_storedFunctions.sql
+mysql -udummy2 -pdummyPwd2 dummy2_DC3a_u_runY < setup_sdqa.sql
+mysql -udummy2 -pdummyPwd2 dummy2_DC3a_u_runY < setup_perRunTables.sql
+mysql -udummy2 -pdummyPwd2 GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("runY", "dummy2_DC3a_u_runY", NOW(), DATE_ADD(NOW(), INTERVAL 2 WEEK), "dummy2")'
 
 
 
