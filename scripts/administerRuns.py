@@ -20,14 +20,23 @@ Manage information about runs in database.
                  dbSuperUserName,
                  dbSuperUserPassword,
                  globalDbName):
+        if globalDbName == "":
+            raise RuntimeError("Invalid (empty) global db name")
+
         self.dbHostName = dbHostName
         self.dbSuperUserName = dbSuperUserName
         self.dbSuperUserPassword = dbSuperUserPassword
         self.globalDbName = globalDbName
 
-    def setupGlobalDB(self, sqlDir):
+    def setupGlobalDB(self, policyFile):
         """Set up Global Database. This should be executed only once.
 Warning: it requires mysql superuser password."""
+
+        # Load data from the policy file
+        #if not os.path.exists(policyFile):
+            #raise RuntimeError("Policy file'%s' not found" % policyFile)
+        # TODO: load this from policy file
+        sqlDir = "../sql/" # path to the file setup_GlobalDB.sql
 
         # Verify that the schema file exists
         sqlFilePath = os.path.join(sqlDir, "setup_GlobalDB.sql")
@@ -45,48 +54,48 @@ Warning: it requires mysql superuser password."""
         # Create Global database
         cursor = db.cursor()
         try:
-            cursor.execute("CREATE DATABASE %s" % self.globalDbName)
+            cursor.execute("CREATE DATABASE " + self.globalDbName)
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-
+        # close db connection
         cursor.close()
+        db.close()
 
         # Load schema
         if self.dbSuperUserPassword:
             cmd = 'mysql -h%s -u%s -p%s %s' % \
-                (self.dbHostName, 
-                 self.dbSuperUserName, 
-                 self.dbSuperUserPassword,
-                 self.globalDbName)
+                (self.dbHostName, self.dbSuperUserName, 
+                 self.dbSuperUserPassword, self.globalDbName)
         else:
             cmd = 'mysql -h%s -u%s %s' % \
-                (self.dbHostName, 
-                 self.dbSuperUserName, 
-                 self.globalDbName)
+                (self.dbHostName, self.dbSuperUserName, self.globalDbName)
         with file(sqlFilePath) as sqlFile:
             if subprocess.call(cmd.split(), stdin=sqlFile) != 0:
                 raise RuntimeError("Failed to execute " + sqlFilePath)
 
-        # close db connection
-        db.close()
 
-    def checkStatus(self, userName, userPassword, clientMachine, dcVersion):
+    def checkStatus(self, policyFile, userName, userPassword, clientMachine):
         """Checks status of global database and checks 
         whether user is authorized to start a run"""
 
+        # Load data from the policy file
+        #if not os.path.exists(policyFile):
+            #raise RuntimeError("Policy file'%s' not found" % policyFile)
+        # TODO: load this from policy file
+        sqlDir = "../sql/" # path to the file setup_GlobalDB.sql
+        dcVersion = "DC3a"
+
         try:
             # Try opening Global database
-            db = MySQLdb.connect (self.dbHostName, 
-                                  userName, 
-                                  userPassword,
-                                  self.globalDbName)
+            db = MySQLdb.connect (self.dbHostName, userName, 
+                                  userPassword, self.globalDbName)
             cursor = db.cursor()
 
             # check if RunInfo_<dc version> table exists
-            cursor.execute("DESC RunInfo_%s" % dcVersion)
+            cursor.execute("DESC RunInfo_" + dcVersion)
 
             # check if UserInfo_<dc version> table exists
-            cursor.execute("DESC UserInfo_%s" % dcVersion)
+            cursor.execute("DESC UserInfo_" + dcVersion)
 
             # check if user has appropriate database privileges
             cmd = """
@@ -111,9 +120,25 @@ Warning: it requires mysql superuser password."""
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
 
-    def prepareForNewRun(self, runName, runType, # runType: 'u' or 'p' 
-                         userName, userPassword, 
-                         dcVersion, sqlDir):
+    def prepareForNewRun(self, policyFile, runName, 
+                         runType, # runType: 'u' or 'p' 
+                         userName, userPassword):
+        if (runType != 'p' and runType != 'u'):
+            raise RuntimeError("Invalid runType '%c', expected 'u' or 'p'" % \
+                                   runType)
+        if runName == "":
+            raise RuntimeError("Invalid (empty) runName")
+
+        # Load data from the policy file
+        #if not os.path.exists(policyFile):
+            #raise RuntimeError("Policy file'%s' not found" % policyFile)
+        # TODO: load this from policy file
+        minDisk = 10 # minimum disk space required [%]
+        runLife = 2  # default lifetime of new runs measured [weeks]
+        dcVersion = "DC3a"
+        sqlDir = "../sql"
+        superUsers = "" # list of user authorized to start production runs
+
         # Verify that all needed sql files exist
         fN = "lsstSchema4mysql%s.sql" % dcVersion
         sqlSchemaFilePath = os.path.join(sqlDir, fN)
@@ -125,32 +150,18 @@ Warning: it requires mysql superuser password."""
             if not os.path.exists(f):
                 raise RuntimeError("Can't find file '%s'" % f)
 
-        # get from policy
-        # - minimum disk space required [%]
-        # - default lifetime of new run measured in weeks
-        # ....
-        minDisk = 10 # [%]
-        runLife = 2
-
         # check if disk space is not below this limit
         # if it is, issue an alert and exit
-        # ....
-        # ....
+        # TODO ...
 
         if runType == 'p':
-            # get from policy list of users who can
-            # start production runs
-            # ....
-
-            # check if userName is authorized ...
-            # ....
-            runLife = 1000 # practically "never expire"
+            runLife = 1000 # ensure this run "never expire"
+            # check if userName is authorized to start production run
+            # TODO...
 
        # Connect to mysql database
         try:
-            db = MySQLdb.connect(self.dbHostName,
-                                 userName,
-                                 userPassword)
+            db = MySQLdb.connect(self.dbHostName, userName, userPassword)
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
 
@@ -164,20 +175,18 @@ Warning: it requires mysql superuser password."""
             cursor.execute("CREATE DATABASE %s" % runDbName)
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
+
+        # close connection to the run database
         cursor.close()
+        db.close()
 
         # Prepare command for loading
         if userPassword:
             cmd = 'mysql -h%s -u%s -p%s %s' % \
-                (self.dbHostName, 
-                 userName, 
-                 userPassword,
-                 runDbName)
+                (self.dbHostName, userName, userPassword, runDbName)
         else:
             cmd = 'mysql -h%s -u%s %s' % \
-                (self.dbHostName, 
-                 userName, 
-                 runDbName)
+                (self.dbHostName, userName, runDbName)
 
         # load schema, stored function, sdqa and per-run stuff
         for fP in (sqlSchemaFilePath, sqlStFuncFilePath, \
@@ -186,16 +195,10 @@ Warning: it requires mysql superuser password."""
             if subprocess.call(cmd.split(), stdin=f) != 0:
                 raise RuntimeError("Failed to execute " + fP)
 
-        # close connection to the run database
-        cursor.close()
-        db.close()
-
         # open connection to the Global database
         try:
-            db = MySQLdb.connect(self.dbHostName,
-                                 userName,
-                                 userPassword,
-                                 self.globalDbName)
+            db = MySQLdb.connect(self.dbHostName, userName,
+                                 userPassword, self.globalDbName)
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
 
@@ -224,11 +227,13 @@ x = AdminRuns("localhost", # mysql host
               "GlobalDB")  # global db name
 
 
-x.setupGlobalDB("../sql/") # path to the file setup_GlobalDB.sql
+x.setupGlobalDB("globalDBPolicy.txt")
 
-x.checkStatus("becla",     # non-superuser
+x.checkStatus("perRunDBPolicy.txt", 
+              "becla",     # non-superuser
               "",          # password
-              "localhost", # machine where mysql client is executed
-              "DC3a")      # Data challenge version
+              "localhost") # machine where mysql client is executed
 
-x.prepareForNewRun("myFirstRun", "u", "becla", "", "DC3a", "../sql");
+x.prepareForNewRun("perRunDBPolicy.txt", "myFirstRun",  "u", "becla", "");
+x.prepareForNewRun("perRunDBPolicy.txt", "mySecondRun", "u", "becla", "");
+x.prepareForNewRun("perRunDBPolicy.txt", "prodRunA",    "p", "becla", "");
