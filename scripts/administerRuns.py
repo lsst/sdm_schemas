@@ -43,23 +43,19 @@ Warning: it requires mysql superuser password."""
         if not os.path.exists(sqlFilePath):
             raise RuntimeError("Can't find schema file '%s'" % sqlFilePath)
 
-        # Connect to mysql database
         try:
+            # Connect to mysql database
             db = MySQLdb.connect(self.dbHostName,
                                  self.dbSuperUserName,
                                  self.dbSuperUserPassword)
-        except MySQLdb.Error, e:
-            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-
-        # Create Global database
-        cursor = db.cursor()
-        try:
+            # Create Global database
+            cursor = db.cursor()
             cursor.execute("CREATE DATABASE " + self.globalDbName)
+            cursor.close()
+            # Disconnect
+            db.close()
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-        # close db connection
-        cursor.close()
-        db.close()
 
         # Load schema
         if self.dbSuperUserPassword:
@@ -90,13 +86,10 @@ Warning: it requires mysql superuser password."""
             db = MySQLdb.connect (self.dbHostName, userName, 
                                   userPassword, self.globalDbName)
             cursor = db.cursor()
-
             # check if RunInfo_<dc version> table exists
             cursor.execute("DESC RunInfo_" + dcVersion)
-
             # check if UserInfo_<dc version> table exists
             cursor.execute("DESC UserInfo_" + dcVersion)
-
             # check if user has appropriate database privileges
             cmd = """
                 SELECT Insert_priv 
@@ -120,12 +113,12 @@ Warning: it requires mysql superuser password."""
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
 
+
     def prepareForNewRun(self, policyFile, runName, 
                          runType, # runType: 'u' or 'p' 
                          userName, userPassword):
         if (runType != 'p' and runType != 'u'):
-            raise RuntimeError("Invalid runType '%c', expected 'u' or 'p'" % \
-                                   runType)
+            raise RuntimeError("Invalid runType '%c', expected 'u' or 'p'" % runType)
         if runName == "":
             raise RuntimeError("Invalid (empty) runName")
 
@@ -133,7 +126,7 @@ Warning: it requires mysql superuser password."""
         #if not os.path.exists(policyFile):
             #raise RuntimeError("Policy file'%s' not found" % policyFile)
         # TODO: load this from policy file
-        minDisk = 10 # minimum disk space required [%]
+        minPercDiskSpaceReq = 10 # minimum disk space required [%]
         runLife = 2  # default lifetime of new runs measured [weeks]
         dcVersion = "DC3a"
         sqlDir = "../sql"
@@ -150,35 +143,46 @@ Warning: it requires mysql superuser password."""
             if not os.path.exists(f):
                 raise RuntimeError("Can't find file '%s'" % f)
 
-        # check if disk space is not below this limit
-        # if it is, issue an alert and exit
-        # TODO ...
+        # find out mysql datadir
+        try:
+            db = MySQLdb.connect(self.dbHostName, userName, userPassword)
+            cursor = db.cursor()
+            cursor.execute("SHOW VARIABLES LIKE 'datadir'")
+            retRow = cursor.fetchone()
+            mysqlDataDir = retRow[1]
+        except MySQLdb.Error, e:
+            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
+
+        # check if available disk space is not below required limit
+        # for that directory
+        st =  os.statvfs(mysqlDataDir)
+        percDiskSpaceAvail = 100 * st.f_bavail / st.f_blocks
+        if percDiskSpaceAvail < minPercDiskSpaceReq:
+            raise RuntimeError(
+                "Not enough disk space available in mysql " +
+                "datadir '%s', required %i%%, available %i%%" % 
+                (mysqlDataDir, minPercDiskSpaceReq, percDiskSpaceAvail))
 
         if runType == 'p':
             runLife = 1000 # ensure this run "never expire"
             # check if userName is authorized to start production run
             # TODO...
 
-       # Connect to mysql database
-        try:
-            db = MySQLdb.connect(self.dbHostName, userName, userPassword)
-        except MySQLdb.Error, e:
-            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-
         # assemble db name
         # format: <userName>_<DC version>_<u|p>_<run number or name>
         runDbName = "%s_%s_%c_%s" % (userName, dcVersion, runType, runName)
 
-        # create database for this new run
-        cursor = db.cursor()
         try:
+            # Connect to mysql database
+            db = MySQLdb.connect(self.dbHostName, userName, userPassword)
+            # create database for this new run
+            cursor = db.cursor()
             cursor.execute("CREATE DATABASE %s" % runDbName)
+            # close connection to the run database
+            cursor.close()
+            db.close()
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-
-        # close connection to the run database
-        cursor.close()
-        db.close()
 
         # Prepare command for loading
         if userPassword:
@@ -199,22 +203,18 @@ Warning: it requires mysql superuser password."""
         try:
             db = MySQLdb.connect(self.dbHostName, userName,
                                  userPassword, self.globalDbName)
-        except MySQLdb.Error, e:
-            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-
-        # register this run in the global database
-        cmd = """INSERT INTO RunInfo_DC3a 
+            # register this run in the global database
+            cmd = """INSERT INTO RunInfo_DC3a 
                         (runName, dbName, startDate, expDate, initiator) 
-                 VALUES ("%s", "%s", NOW(), 
+                     VALUES ("%s", "%s", NOW(), 
                          DATE_ADD(NOW(), INTERVAL %i WEEK), "%s")""" % \
-            (runName, runDbName, runLife, userName)
-        cursor = db.cursor()
-        try:
+                (runName, runDbName, runLife, userName)
+            cursor = db.cursor()
             cursor.execute(cmd)
+            cursor.close()
+            db.close()
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-        cursor.close()
-        db.close()
 
 
 ## --------------------------------- ##
@@ -235,5 +235,5 @@ x.checkStatus("perRunDBPolicy.txt",
               "localhost") # machine where mysql client is executed
 
 x.prepareForNewRun("perRunDBPolicy.txt", "myFirstRun",  "u", "becla", "");
-x.prepareForNewRun("perRunDBPolicy.txt", "mySecondRun", "u", "becla", "");
-x.prepareForNewRun("perRunDBPolicy.txt", "prodRunA",    "p", "becla", "");
+#x.prepareForNewRun("perRunDBPolicy.txt", "mySecondRun", "u", "becla", "");
+#x.prepareForNewRun("perRunDBPolicy.txt", "prodRunA",    "p", "becla", "");
