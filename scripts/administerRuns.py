@@ -110,7 +110,7 @@ Warning: it requires mysql superuser password."""
 
         # check if available disk space is not below required limit
         # for that directory
-        percDiskSpaceAvail = self.getDataDirSpaceAvail()
+        percDiskSpaceAvail = self.getDataDirSpaceAvailPerc()
         if percDiskSpaceAvail < minPercDiskSpaceReq:
             raise RuntimeError(
                 "Not enough disk space available in mysql " +
@@ -132,11 +132,11 @@ Warning: it requires mysql superuser password."""
             self.loadSqlScript(fP, userName, userPassword, runDbName)
 
         # Register this run in the global database
-        cmd = """INSERT INTO RunInfo_DC3a 
+        cmd = """INSERT INTO RunInfo_%s 
                     (runName, dbName, startDate, expDate, initiator) 
                  VALUES ("%s", "%s", NOW(), 
                      DATE_ADD(NOW(), INTERVAL %i WEEK), "%s")""" % \
-            (runName, runDbName, runLife, userName)
+            (dcVersion, runName, runDbName, runLife, userName)
         self.execCommand0(cmd)
 
         # Disconnect from database

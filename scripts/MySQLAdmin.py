@@ -90,9 +90,16 @@ class MySQLAdmin:
                 raise RuntimeError("Failed to execute %s < %s" % (cmd, script))
             print "\nExecuted: %s < %s" % (cmd, script)
 
-    # returns % space available for directory where mysql stores data
-    def getDataDirSpaceAvail(self):
+    # returns space available in % datadir
+    def getDataDirSpaceAvailPerc(self):
         row = self.execCommand1("SHOW VARIABLES LIKE 'datadir'")
         mysqlDataDir = row[1]
         st =  os.statvfs(mysqlDataDir)
         return 100 * st.f_bavail / st.f_blocks
+
+    # returns space available in KBbytes
+    def getDataDirSpaceAvail(self):
+        row = self.execCommand1("SHOW VARIABLES LIKE 'datadir'")
+        mysqlDataDir = row[1]
+        st =  os.statvfs(mysqlDataDir)
+        return st.f_bfree * st.f_bsize / 1024
