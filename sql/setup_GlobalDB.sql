@@ -1,22 +1,20 @@
 
--- create global database
-CREATE DATABASE IF NOT EXISTS GlobalDB;
-
-USE GlobalDB;
 
 
 -- global table for keeping run-related info
 CREATE TABLE IF NOT EXISTS RunInfo_DC3a (
+    runInfoId INT NOT NULL AUTO_INCREMENT,   -- primary key
     runName VARCHAR(64) NOT NULL,            -- unique name of the run
     dbName VARCHAR(64) NOT NULL,             -- database name
     startDate DATETIME NOT NULL,             -- time when run was started
     initiator VARCHAR(64) NOT NULL,          -- user name of the run initiator
     nExtensions SMALLINT NOT NULL DEFAULT 0, -- number of times extension was requested
-    expDate DATE NOT NULL,                   -- date at which run expires (can be deleted)
+    expDate DATETIME NOT NULL,               -- date at which run expires (can be deleted)
     firstNotifDate DATETIME DEFAULT NULL,    -- date when 1st notification was sent
     finalNotifDate DATETIME DEFAULT NULL,    -- date when final notification was sent
     delDate DATETIME DEFAULT NULL,           -- deletion time or NULL
-    PRIMARY KEY (runName),
+    PRIMARY KEY (runInfoId),
+    UNIQUE(runName, initiator),
     INDEX (expDate)
 ) ENGINE=MyISAM; 
 
@@ -27,6 +25,8 @@ CREATE TABLE IF NOT EXISTS UserInfo_DC3a (
     name VARCHAR(64) NOT NULL PRIMARY KEY,
     email VARCHAR(64) NOT NULL
 ) ENGINE=MyISAM;
+
+
 
 
 -- create stored functions / procedures

@@ -45,7 +45,9 @@ One-time setup
   -- Notice that mysql root privileges are required.
 
   -- 1) initialize global database
-  mysql -uroot -p<rpwd> < setup_GlobalDB.sql
+
+  mysql -uroot -p<rpwd> -e "CREATE DATABASE GlobalDB"
+  mysql -uroot -p<rpwd> GlobalDB < setup_GlobalDB.sql
 
 
 checking status
