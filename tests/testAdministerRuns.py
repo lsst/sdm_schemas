@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 
 
-from MySQLAdmin import MySQLAdmin
+from mysqlBase import MySQLBase
 from administerRuns import AdminRuns
 
 
 gDb = "GlobalDB"
 
 def dropDB():
-    admin = MySQLAdmin("localhost")
+    admin = MySQLBase("localhost")
     admin.connect("becla", "")
     admin.execCommand0("DROP DATABASE IF EXISTS " + gDb)
     admin.execCommand0("DROP DATABASE IF EXISTS becla_DC3a_u_myFirstRun")

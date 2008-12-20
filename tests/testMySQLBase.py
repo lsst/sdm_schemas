@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
 
-from MySQLAdmin import MySQLAdmin
+from mysqlBase import MySQLBase
 
 
-x = MySQLAdmin("localhost")
+x = MySQLBase("localhost")
 
 x.connect("becla", "")
 x.execCommandN("SHOW DATABASES")
