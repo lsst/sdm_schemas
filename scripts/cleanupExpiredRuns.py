@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from MySQLAdmin import MySQLAdmin
+from mysqlBase import MySQLBase
 import MySQLdb
 import optparse
 import os
@@ -37,10 +37,10 @@ daysFirstNotice = 7 # days when first notice is sent before run can be deleted
 daysFinalNotice = 1 # days when final notice is sent before run can be deleted
 
 
-class CleanupExpiredRuns(MySQLAdmin):
+class CleanupExpiredRuns(MySQLBase):
 
     def __init__(self, dbHost, globalDbName, suName, suPassword, dcVer):
-        MySQLAdmin.__init__(self, dbHost)
+        MySQLBase.__init__(self, dbHost)
         if globalDbName == "":
             raise RuntimeError("Invalid (empty) global db name")
         if dcVer == "":

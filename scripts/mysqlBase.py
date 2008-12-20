@@ -7,9 +7,9 @@ import subprocess
 import sys
 
 
-class MySQLAdmin:
+class MySQLBase:
     """
-    MySQLAdmin class is a wrapper around MySQLdb. It contains a set of 
+    MySQLBase class is a wrapper around MySQLdb. It contains a set of 
     low level basic database utilities such as connecting to database, 
     executing commands or loading sql scripts to database. It caches
     connections, and handles database errors.

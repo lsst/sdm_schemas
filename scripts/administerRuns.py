@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import MySQLdb
-from MySQLAdmin import MySQLAdmin
+from mysqlBase import MySQLBase
 import os
 import subprocess
 import sys
@@ -10,7 +10,7 @@ import sys
 """This file contains a set of utilities to manage runs"""
 
 
-class AdminRuns(MySQLAdmin):
+class AdminRuns(MySQLBase):
     """
     Class AdminRuns manages information about runs in the database,
     including operations like setting up global database, verifying
@@ -19,7 +19,7 @@ class AdminRuns(MySQLAdmin):
     """
 
     def __init__(self, dbHostName, globalDbName):
-        MySQLAdmin.__init__(self, dbHostName)
+        MySQLBase.__init__(self, dbHostName)
         if globalDbName == "":
             raise RuntimeError("Invalid (empty) global db name")
         self.globalDbName = globalDbName
