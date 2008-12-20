@@ -36,7 +36,8 @@ class MySQLBase:
             self.disconnect()
 
         try:
-            self.db = MySQLdb.connect(self.dbHostName, dbUser, dbPassword, dbName)
+            self.db = MySQLdb.connect(self.dbHostName, dbUser, 
+                                      dbPassword, dbName)
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
 
@@ -106,8 +107,9 @@ class MySQLBase:
 
         with file(scriptPath) as scriptFile:
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
-                raise RuntimeError("Failed to execute %s < %s" % (cmd,scriptPath))
-            print "\nExecuted: %s < %s" % (cmd, script)
+                raise RuntimeError("Failed to execute %s < %s" % \
+                                       (cmd,scriptPath))
+            print "\nExecuted: %s < %s" % (cmd, scriptPath)
 
     def getDataDirSpaceAvailPerc(self):
         """
