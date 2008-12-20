@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import MySQLdb
 from mysqlBase import MySQLBase
 import os
 import subprocess
@@ -70,15 +69,25 @@ class AdminRuns(MySQLBase):
         self.connect(userName, userPassword, self.globalDbName)
         self.execCommand0("DESC RunInfo_" + dcVersion)
         self.execCommand0("DESC UserInfo_" + dcVersion)
+        self.disconnect()
 
         # check if user has appropriate database privileges
+        self.connect(userName, userPassword, "mysql")
+        cmd = "SELECT Table_priv FROM tables_priv WHERE " + \
+            "user='%s' AND host='%s' AND Table_name='RunInfo_%s'" % \
+            (userName, clientMachine, dcVersion)
+        row = self.execCommand1(cmd)
+        if (row is not None):
+            self.disconnect()
+            return
         cmd = "SELECT Insert_priv FROM mysql.user WHERE " + \
               "user='%s' AND host='%s'" % (userName, clientMachine)
         row = self.execCommand1(cmd)
-        self.disconnect()
-        if row is None or ((row is not None) and (str(row[0])!="Y")):
-            uc = "'%s:%s'" % (userName, clientMachine)
-            raise RuntimeError("Database authorization failure for %s" % uc)
+        if (row is not None) and (str(row[0])=="Y"):
+            self.disconnect()
+            return
+        uc = "'%s:%s'" % (userName, clientMachine)
+        raise RuntimeError("Database authorization failure for %s" % uc)
 
 
     def prepareForNewRun(self, policyFile, runName, 
