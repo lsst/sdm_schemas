@@ -8,7 +8,12 @@ import sys
 
 
 class MySQLAdmin:
-
+    """
+    MySQLAdmin class is a wrapper around MySQLdb. It contains a set of 
+    low level basic database utilities such as connecting to database, 
+    executing commands or loading sql scripts to database. It caches
+    connections, and handles database errors.
+    """
     def __init__(self, dbHostName):
         self.dbHostName = dbHostName
         self.db = None
@@ -21,7 +26,10 @@ class MySQLAdmin:
         return self.db != None
 
     def connect(self, dbUser, dbPassword, dbName=""):
-
+        """
+        It connects to database. If a connection is already open it will try to
+        reuse it. If it can't it will disconnect it.
+        """
         if self.isConnected():
             if self.dbOpened == dbName:
                 return
@@ -46,20 +54,29 @@ class MySQLAdmin:
         print "\nDisconnected (%s)" % self.dbOpened
         self.dbOpened = None
 
-    # Returns zero row numbers
     def execCommand0(self, command):
+        """
+        Executes mysql commands which return no rows
+        """
         return self.execCommand(command, 0)
 
-    # Returns one row number
     def execCommand1(self, command):
+        """
+        Executes mysql commands which return one rows
+        """
         return self.execCommand(command, 1)
 
-    # Returns multiple row number
     def execCommandN(self, command):
+        """
+        Executes mysql commands which return multiple rows
+        """
         return self.execCommand(command, 'n')
 
-    # nRowsRet: expected number of rows returned 0/1/n
     def execCommand(self, command, nRowsRet):
+        """
+        Executes mysql commands which return any number of rows.
+        Expected number of returned rows should be given in nRowSet
+        """
         if not self.isConnected():
             raise RuntimeError("No connection (command: '%s')" % command)
 
@@ -76,8 +93,10 @@ class MySQLAdmin:
         print ret
         return ret
 
-    def loadSqlScript(self, script, dbUser, dbPassword, dbName=""):
-
+    def loadSqlScript(self, scriptPath, dbUser, dbPassword, dbName=""):
+        """
+        Loads sql script into the database.
+        """
         if dbPassword:
             cmd = 'mysql -h%s -u%s -p%s %s' % \
                 (self.dbHostName, dbUser, dbPassword, dbName)
@@ -85,20 +104,24 @@ class MySQLAdmin:
             cmd = 'mysql -h%s -u%s %s' % \
                 (self.dbHostName, dbUser, dbName)
 
-        with file(script) as scriptFile:
+        with file(scriptPath) as scriptFile:
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
-                raise RuntimeError("Failed to execute %s < %s" % (cmd, script))
+                raise RuntimeError("Failed to execute %s < %s" % (cmd,scriptPath))
             print "\nExecuted: %s < %s" % (cmd, script)
 
-    # returns space available in % datadir
     def getDataDirSpaceAvailPerc(self):
+        """
+        Returns space available in mysql datadir (percentage volume available)
+        """
         row = self.execCommand1("SHOW VARIABLES LIKE 'datadir'")
         mysqlDataDir = row[1]
         st =  os.statvfs(mysqlDataDir)
         return 100 * st.f_bavail / st.f_blocks
 
-    # returns space available in KBbytes
     def getDataDirSpaceAvail(self):
+        """
+        Returns space available in mysql datadir (in kilobytes)
+        """
         row = self.execCommand1("SHOW VARIABLES LIKE 'datadir'")
         mysqlDataDir = row[1]
         st =  os.statvfs(mysqlDataDir)

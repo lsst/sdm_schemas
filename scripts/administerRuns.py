@@ -12,7 +12,10 @@ import sys
 
 class AdminRuns(MySQLAdmin):
     """
-Manage information about runs in database.
+    Class AdminRuns manages information about runs in the database,
+    including operations like setting up global database, verifying
+    status of global database and user-specific database settings prior
+    to starting a run, and registering run in global database.
     """
 
     def __init__(self, dbHostName, globalDbName):
@@ -23,9 +26,10 @@ Manage information about runs in database.
 
 
     def setupGlobalDB(self, policyFile):
-        """Set up Global Database. This should be executed only once.
-Warning: it requires mysql superuser password."""
-
+        """
+        setupGlobalDB configures Global Database. This function should 
+        executed only once.  Warning: it requires mysql superuser password.
+        """
         # Load data from the policy file
         #if not os.path.exists(policyFile):
             #raise RuntimeError("Policy file'%s' not found" % policyFile)
@@ -50,9 +54,11 @@ Warning: it requires mysql superuser password."""
 
 
     def checkStatus(self, policyFile, userName, userPassword, clientMachine):
-        """Checks status of global database and checks 
-        whether user is authorized to start a run"""
-
+        """
+        checkStatus checks status of global database and user-specific 
+        database settings such as authorizations. It should be used prior 
+        to starting a run.
+        """
         # Load data from the policy file
         #if not os.path.exists(policyFile):
             #raise RuntimeError("Policy file'%s' not found" % policyFile)
@@ -78,6 +84,12 @@ Warning: it requires mysql superuser password."""
     def prepareForNewRun(self, policyFile, runName, 
                          runType, # runType: 'u' or 'p' 
                          userName, userPassword):
+        """
+        prepareForNewRun prepares database for a new run. This includes
+        creating appropriate database(s) and tables(s) as well as preloading
+        some static database contents and registering the run in the 
+        global database.
+        """
         if (runType != 'p' and runType != 'u'):
             raise RuntimeError("Invalid runType '%c', expected 'u' or 'p'" % \
                                    runType)
