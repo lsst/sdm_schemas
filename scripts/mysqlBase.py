@@ -82,7 +82,7 @@ class MySQLBase:
             raise RuntimeError("No connection (command: '%s')" % command)
 
         cursor = self.db.cursor()
-        print "\nExecuting %s" % command
+        print "Executing %s" % command
         cursor.execute(command)
         if nRowsRet == 0:
             ret = ""

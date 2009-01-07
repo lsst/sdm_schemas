@@ -1,12 +1,39 @@
 
-For more information, see 
+For more information, see:
+
 http://dev.lsstcorp.org/trac/wiki/dbDC3aSetup
 
 
+Policy files needed
+===================
 
-abbreviations used below:
- - rpwd: root mysql password
- - upwd: user mysql password
+1) "mysqlsu.txt". Contents:
+    - mysql superuser name
+    - mysql superuser password
+
+2) "globalDBPolicy.txt". Contents:
+    - path to the setup scripts (these in DMS/cat/??/sql/)
+    - mysql superuser name
+    - mysql superuser password
+
+3) "perRunDBPolicy.txt". Contents:
+ -  path to the setup scripts (these in DMS/cat/??/sql/)
+  - minimum percentage of disk space required to start a run in % (eg 10)
+  - lifetime of a user-type runs measured in weeks (eg 2)
+  - dc version (eg DC3a)
+  - list of mysql user accounts authorized to start production runs
+
+4) "cleanupExpiredRunsPolicyFile.txt". Contents:
+  - dcVersion # eg "DC3a"
+  - dbHostName # name of the mysql server host, eg lsst10
+  - mysql superuser name
+  - mysql superuser password
+  - global database name
+  - daysFirstNotice (# days when first notice is sent before run can 
+                     be deleted, a reasonable value is 7)
+  - daysFinalNotice (# days when final notice is sent before run can 
+                     be deleted, a reasonable value is 1)
+
 
 
 MySQL Account management
@@ -16,99 +43,87 @@ Assuption: to start a run, user needs to have mysql account,
 appropriate authorizations, and her/his email should be 
 registered in mysql database.
 
+To authorize user, use: addMySqlUser.py command. It takes 
+the following arguments:
 
-  -- Commands to run to "register" user:
+addMySqlUser.py -f {policyFile} -s {mysqlServerHost} -u {userName} 
+                -p {userPassword} -e {userEmail} -c {clientHost} 
+                -g {globalDbName} -v {dcVersion}
+Where:
+  - policyFile:      the policy file containing mysql superuser name and password.
+  - mysqlServerHost: host name where the mysql server runs
+  - userName:        mysql username of the added user
+  - userPassword:    mysql password of the added user
+  - userEmail:       email address of the added user
+  - clientHost:      host name where user will jobs, wildcards allowed
+  - globalDbName:    name of the mysql "global database"
+  - dcVersion:       DC version, eg DC3a
 
-    -- create mysql user account and authorizing
-       -- Warning: likely we will need to open remote access 
-       -- at least to some domains!
-  mysql -uroot -p<rpwd> -e 'GRANT ALL ON `<userName>\_%`.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  mysql -uroot -p<rpwd> -e 'GRANT SELECT ON *.* TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  mysql -uroot -p<rpwd> -e 'GRANT SELECT, INSERT ON GlobalDB.RunInfo_DC3a TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  mysql -uroot -p<rpwd> -e 'GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO `<userName>`@`localhost` IDENTIFIED BY "<upwd>"'
-  -- The above will authorize everybody to insert runs and extend runs' expiration time.
-  -- Notice that users won't be able to hack in and extend runs by calling 'UPDATE' by hand
 
-    -- registering email
-  mysql -uroot -p<rpwd> GlobalDB -e 'INSERT INTO UserInfo_DC3a(name, email) VALUES ("<username>", "<email>"))'
-
- Notice: I am planning to bundle all this into a single script
- input: username, userpassword, useremail
-
+Notice that GlobalDB must be setup prior to adding users.
 
 
 One-time setup
 ==============
 
-  -- Run the commands from this section once
-  -- 
-  -- Notice that mysql root privileges are required.
+To do one-time setup, run the function setupGlobalDB
+from administerRuns.py. Example
 
-  -- 1) initialize global database
+#!/usr/bin/env python
+from administerRuns import AdminRuns
+x = AdminRuns("lsst10",    # mysql server host
+              "GlobalDB")  # name of the global database
 
-  mysql -uroot -p<rpwd> -e "CREATE DATABASE GlobalDB"
-  mysql -uroot -p<rpwd> GlobalDB < setup_GlobalDB.sql
-
-
-checking status
-===============
+x.setupGlobalDB("globalDBPolicy.txt")
 
 
-todo: need to write a script that checks if mysql account is set for given user.
-Input: db version (eg dc3a), and username
 
+checking status before starting a run
+=====================================
+
+Run this prior to starting a run to check
+if the database is properly set up.
+
+Execute the function checkStatus() from administerRuns.py. 
+
+Example:
+
+#!/usr/bin/env python
+from administerRuns import AdminRuns
+x = AdminRuns("lsst10",    # mysql server host
+              "GlobalDB")  # name of the global database
+
+x.checkStatus("perRunDBPolicy.txt", 
+              "jacek",  # non-superuser
+              "p",      # password
+              "ds33")   # machine where mysql client is executed
 
 
 Per run setup
 =============
 
-  -- input:
-  --   - dc version, eg dc3a
-  --   - run name
-  --   - run type. Values: user/production. Default: user. 
-  --   - username + mysql password
+Run this at the beginning of starting the run.
 
+Execute the function prepareForNewRun from adminsterRuns.py
 
-  -- check available disk space, if too low (say below 10%)
-  -- alert someone and give up
+Example:
 
-  -- if it is production run, then read special policy file 
-  -- which defines usernames that can start production runs.
-  -- Fail if user not authorized to start a production run.
- 
-  -- create per run database, using the following naming conventions:
-  -- <userName>_<DC version>_<u|p>_<run number or name>,
-  -- for example, jbecla_DC3a_u_123, smm_DC3a_u_myTestRun, admin_DC3a_p_final
-  -- u/p indicates run type (user/production)
-  mysql -u<userName> -p<upwd> -e "CREATE DATABASE <dbName>"
+#!/usr/bin/env python
+from administerRuns import AdminRuns
+x = AdminRuns("lsst10",    # mysql server host
+              "GlobalDB")  # name of the global database
 
-
-  -- Load schema. Use the appropriate schema file:
-  -- lsstSchema4mysqlDC3a.sql or lsstSchema4mysqlDC3b.sql 
-  mysql -u<userName> -p<upwd> <dbName> < <schema file>
-
-
-  -- Load stored procedures and functions
-  mysql -u<userName> -p<upwd> <dbName> < setup_storedFunctions.sql
-
-
-  -- Load sdqa specific tables
-  mysql -u<userName> -p<upwd> <dbName> < setup_sdqa.sql
-
-
-  -- Load run specific contents and tables
-  mysql -u<userName> -p<upwd> <dbName> < setup_perRunTables.sql
-
-
-  -- register this run in the global database
-  -- if it is a user run do:
-  mysql -u<userName> -p<upwd> GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("<runName>", "<dbName>", NOW(), DATE_ADD(NOW(), INTERVAL 2 WEEK), "<userName>")'
-  -- if it is a production run do:
-  mysql -u<userName> -p<upwd> GlobalDB -e 'INSERT INTO RunInfo_DC3a (runName, dbName, startDate, expDate, initiator) VALUES ("<runName>", "<dbName>", NOW(), DATE_ADD(NOW(), INTERVAL 10 YEAR), "<userName>")'
+x.prepareForNewRun("perRunDBPolicy.txt", 
+                   "myFirstRun",  # run name
+                   "u",           # run type ('u' or 'p')
+                   "becla",       # user name
+                   "pwd")         # user password;
 
 
 
 Asynchronous
 ============
- -- run this once per day, preferably at night
- /DMS/cat/???/scripts/cleanExpiredRuns.py root <rpwd>
+
+The following should be executed once every 24h, eg at midnight:
+
+ /DMS/cat/???/scripts/cleanExpiredRuns.py "cleanupExpiredRunsPolicyFile.txt"

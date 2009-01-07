@@ -41,36 +41,36 @@ VALUES ('nGoodPix', 'counts', 'f',    'Number of good pixels.')
 
 -- initialize sdqa_Threshold table --
 
-SELECT addSdqaThresholdRecord('nGoodPix', \N   , 7500000);
-SELECT addSdqaThresholdRecord('nDeadPix', 1000 , \N);
-SELECT addSdqaThresholdRecord('nHotPix' , 1000 , \N);
-SELECT addSdqaThresholdRecord('nSpurPix', 14000, \N);
-SELECT addSdqaThresholdRecord('nSatPix' , 2500 , \N);
-SELECT addSdqaThresholdRecord('nObjPix' , 70000, \N);
-SELECT addSdqaThresholdRecord('nNanPix' , 1000 , \N);
-SELECT addSdqaThresholdRecord('nDirtPix', 1000 , \N);
-SELECT addSdqaThresholdRecord('nStarPix', \N   , 10);
-SELECT addSdqaThresholdRecord('nGalxPix', \N   , 10);
-SELECT addSdqaThresholdRecord('nObjSex' , \N   , 200);
-SELECT addSdqaThresholdRecord('fwhmSex' , 6.2  , 4.4);
-SELECT addSdqaThresholdRecord('gMean'   , 50000, 10);
-SELECT addSdqaThresholdRecord('gMedian' , 50000, 0);
-SELECT addSdqaThresholdRecord('cMedian1', 50000, 0);
-SELECT addSdqaThresholdRecord('cMedian2', 50000, 0);
-SELECT addSdqaThresholdRecord('cMedian3', 50000, 0);
-SELECT addSdqaThresholdRecord('cMedian4', 50000, 0);
-SELECT addSdqaThresholdRecord('gMode'   , 50000, -40);
-SELECT addSdqaThresholdRecord('MmFlag'  , 2    , \N);
-SELECT addSdqaThresholdRecord('gStdDev' , 1000 , 100);
-SELECT addSdqaThresholdRecord('gMAbsDev', 50000, 10);
-SELECT addSdqaThresholdRecord('gSkewns' , 200  , 10);
-SELECT addSdqaThresholdRecord('gKurtos' , 50000, 10);
-SELECT addSdqaThresholdRecord('gMinVal' , 50000, -32000);
-SELECT addSdqaThresholdRecord('gMaxVal' , 74000, 10000);
-SELECT addSdqaThresholdRecord('pTile1'  , 1000 , -1000);
-SELECT addSdqaThresholdRecord('pTile16' , 20000, -100);
-SELECT addSdqaThresholdRecord('pTile84' , 50000, 5);
-SELECT addSdqaThresholdRecord('pTile99' , 70000, 20);
+SELECT addSdqaThresholdRecord('nGoodPix', \N   , 7500000) INTO @x;
+SELECT addSdqaThresholdRecord('nDeadPix', 1000 , \N) INTO @x;
+SELECT addSdqaThresholdRecord('nHotPix' , 1000 , \N) INTO @x;
+SELECT addSdqaThresholdRecord('nSpurPix', 14000, \N) INTO @x;
+SELECT addSdqaThresholdRecord('nSatPix' , 2500 , \N) INTO @x;
+SELECT addSdqaThresholdRecord('nObjPix' , 70000, \N) INTO @x;
+SELECT addSdqaThresholdRecord('nNanPix' , 1000 , \N) INTO @x;
+SELECT addSdqaThresholdRecord('nDirtPix', 1000 , \N) INTO @x;
+SELECT addSdqaThresholdRecord('nStarPix', \N   , 10) INTO @x;
+SELECT addSdqaThresholdRecord('nGalxPix', \N   , 10) INTO @x;
+SELECT addSdqaThresholdRecord('nObjSex' , \N   , 200) INTO @x;
+SELECT addSdqaThresholdRecord('fwhmSex' , 6.2  , 4.4) INTO @x;
+SELECT addSdqaThresholdRecord('gMean'   , 50000, 10) INTO @x;
+SELECT addSdqaThresholdRecord('gMedian' , 50000, 0) INTO @x;
+SELECT addSdqaThresholdRecord('cMedian1', 50000, 0) INTO @x;
+SELECT addSdqaThresholdRecord('cMedian2', 50000, 0) INTO @x;
+SELECT addSdqaThresholdRecord('cMedian3', 50000, 0) INTO @x;
+SELECT addSdqaThresholdRecord('cMedian4', 50000, 0) INTO @x;
+SELECT addSdqaThresholdRecord('gMode'   , 50000, -40) INTO @x;
+SELECT addSdqaThresholdRecord('MmFlag'  , 2    , \N) INTO @x;
+SELECT addSdqaThresholdRecord('gStdDev' , 1000 , 100) INTO @x;
+SELECT addSdqaThresholdRecord('gMAbsDev', 50000, 10) INTO @x;
+SELECT addSdqaThresholdRecord('gSkewns' , 200  , 10) INTO @x;
+SELECT addSdqaThresholdRecord('gKurtos' , 50000, 10) INTO @x;
+SELECT addSdqaThresholdRecord('gMinVal' , 50000, -32000) INTO @x;
+SELECT addSdqaThresholdRecord('gMaxVal' , 74000, 10000) INTO @x;
+SELECT addSdqaThresholdRecord('pTile1'  , 1000 , -1000) INTO @x;
+SELECT addSdqaThresholdRecord('pTile16' , 20000, -100) INTO @x;
+SELECT addSdqaThresholdRecord('pTile84' , 50000, 5) INTO @x;
+SELECT addSdqaThresholdRecord('pTile99' , 70000, 20) INTO @x;
 
 
 

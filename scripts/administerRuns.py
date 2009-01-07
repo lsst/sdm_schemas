@@ -26,7 +26,7 @@ class AdminRuns(MySQLBase):
 
     def setupGlobalDB(self, policyFile):
         """
-        setupGlobalDB configures Global Database. This function should 
+        setupGlobalDB configures Global Database. This function should be
         executed only once.  Warning: it requires mysql superuser password.
         """
         # Load data from the policy file
@@ -55,38 +55,41 @@ class AdminRuns(MySQLBase):
     def checkStatus(self, policyFile, userName, userPassword, clientMachine):
         """
         checkStatus checks status of global database and user-specific 
-        database settings such as authorizations. It should be used prior 
-        to starting a run.
+        database settings such as authorizations. It should be called 
+        prior to starting a run.
         """
         # Load data from the policy file
         #if not os.path.exists(policyFile):
             #raise RuntimeError("Policy file'%s' not found" % policyFile)
         # TODO: load this from policy file
         sqlDir = "../sql/" # path to the file setup_GlobalDB.sql
-        dcVersion = "DC3a"
 
         # Check if Global database and its tables exist
         self.connect(userName, userPassword, self.globalDbName)
-        self.execCommand0("DESC RunInfo_" + dcVersion)
-        self.execCommand0("DESC UserInfo_" + dcVersion)
+        self.execCommand0("DESC RunInfo")
+        self.execCommand0("DESC UserInfo")
         self.disconnect()
 
         # check if user has appropriate database privileges
+        # notice we are not dealing with different variations
+        # (wildcards etc) for the host name, so this is a very
+        # crude verification.
         self.connect(userName, userPassword, "mysql")
         cmd = "SELECT Table_priv FROM tables_priv WHERE " + \
-            "user='%s' AND host='%s' AND Table_name='RunInfo_%s'" % \
-            (userName, clientMachine, dcVersion)
+            "user='%s' AND Table_name='RunInfo'" % \
+            (userName)
         row = self.execCommand1(cmd)
         if (row is not None):
             self.disconnect()
             return
         cmd = "SELECT Insert_priv FROM mysql.user WHERE " + \
-              "user='%s' AND host='%s'" % (userName, clientMachine)
+              "user='%s'" % (userName)
         row = self.execCommand1(cmd)
         if (row is not None) and (str(row[0])=="Y"):
             self.disconnect()
             return
-        uc = "'%s:%s'" % (userName, clientMachine)
+        # uc = "'%s:%s'" % (userName, clientMachine)
+        uc = userName
         raise RuntimeError("Database authorization failure for %s" % uc)
 
 
@@ -101,9 +104,12 @@ class AdminRuns(MySQLBase):
         """
         if (runType != 'p' and runType != 'u'):
             raise RuntimeError("Invalid runType '%c', expected 'u' or 'p'" % \
-                                   runType)
+                               runType)
         if runName == "":
             raise RuntimeError("Invalid (empty) runName")
+
+        print "prepareForNewRun(%s, %s, %s, %s)" % \
+              (runName, runType, userName, userPassword)
 
         # Load data from the policy file
         #if not os.path.exists(policyFile):
@@ -121,6 +127,7 @@ class AdminRuns(MySQLBase):
                      os.path.join(sqlDir, "setup_storedFunctions.sql"),
                      os.path.join(sqlDir, "setup_sdqa.sql"),
                      os.path.join(sqlDir, "setup_perRunTables.sql")]
+
         # Verify these scripts exist
         for f in dbScripts:
             if not os.path.exists(f):
@@ -140,8 +147,8 @@ class AdminRuns(MySQLBase):
 
         if runType == 'p':
             runLife = 1000 # ensure this run "never expire"
-            # check if userName is authorized to start production run
-            # TODO...
+            # TODO: check if userName is authorized to start production run
+
 
         # create database for this new run
         # format: <userName>_<DC version>_<u|p>_<run number or name>
@@ -153,11 +160,11 @@ class AdminRuns(MySQLBase):
             self.loadSqlScript(fP, userName, userPassword, runDbName)
 
         # Register this run in the global database
-        cmd = """INSERT INTO RunInfo_%s 
-                    (runName, dbName, startDate, expDate, initiator) 
-                 VALUES ("%s", "%s", NOW(), 
+        cmd = """INSERT INTO RunInfo 
+                    (runName, dcVersion, dbName, startDate, expDate, initiator) 
+                 VALUES ("%s", "%s", "%s", NOW(), 
                      DATE_ADD(NOW(), INTERVAL %i WEEK), "%s")""" % \
-            (dcVersion, runName, runDbName, runLife, userName)
+            (runName, dcVersion, runDbName, runLife, userName)
         self.execCommand0(cmd)
 
         # Disconnect from database

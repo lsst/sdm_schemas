@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-
-from mysqlBase import MySQLBase
 from administerRuns import AdminRuns
+from mysqlBase import MySQLBase
 
 
 gDb = "GlobalDB"
@@ -18,16 +17,15 @@ def dropDB():
 dropDB()
 
 x = AdminRuns("localhost", # mysql host
-              gDb)  # global db name
-
+              gDb)         # global db name
 
 x.setupGlobalDB("globalDBPolicy.txt")
 
 x.checkStatus("perRunDBPolicy.txt", 
-              "becla",     # non-superuser
-              "",          # password
+              "jacek",     # non-superuser
+              "p",         # password
               "localhost") # machine where mysql client is executed
 
-#x.prepareForNewRun("perRunDBPolicy.txt", "myFirstRun",  "u", "becla", "");
+x.prepareForNewRun("perRunDBPolicy.txt", "myFirstRun",  "u", "becla", "");
 #x.prepareForNewRun("perRunDBPolicy.txt", "mySecondRun", "u", "becla", "");
 #x.prepareForNewRun("perRunDBPolicy.txt", "prodRunA",    "p", "becla", "");
