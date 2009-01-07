@@ -109,7 +109,7 @@ class CleanupExpiredRuns(MySQLBase):
         dbNames = self.execCommandN(self.cmdGetExpiredRuns)
         for dbN in dbNames:
             print "  --> Deleting ", dbN[0], " <--"
-            self.execCommand0("DROP DATABASE %s" % dbN[0])
+            self.execCommand0("DROP DATABASE IF EXISTS %s" % dbN[0])
             self.execCommand0(
                 "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
 
