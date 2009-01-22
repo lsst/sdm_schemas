@@ -14,14 +14,14 @@ import sys
 """
 
 
-usage = """%prog -f {policyFile} -s {mysqlServerHost} -u {userName} -p {userPassword} -e {userEmail} -c {clientHost} -g {globalDbName} -v {dcVersion}
+usage = """%prog -f {policyFile} -s {mysqlServerHost} -u {userName} -p {userPassword} -e {userEmail} -g {globalDbName} -v {dcVersion} [-c {clientHost}] 
 Where:
   - policyFile:      the policy file containing mysql superuser name and password.
   - mysqlServerHost: host name where the mysql server runs
   - userName:        mysql username of the added user
   - userPassword:    mysql password of the added user
   - userEmail:       email address of the added user
-  - clientHost:      host name where user will jobs, wildcards allowed
+  - clientHost:      host names authorized to access mysql server, wildcards allowed. Default: "%" (all hosts)
   - globalDbName:    name of the mysql "global database"
   - dcVersion:       DC version, eg DC3a
 """
@@ -40,8 +40,8 @@ parser.add_option("-v")
 options, arguments = parser.parse_args()
 
 if not options.f or not options.s or not options.u or \
-   not options.p or not options.e or not options.c or \
-   not options.g or not options.v:
+   not options.p or not options.e or not options.g or \
+   not options.v:
     sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
     sys.exit(1)
 
@@ -50,9 +50,14 @@ serverHost = options.s
 userName = options.u
 userPass = options.p
 userEmail = options.e
-clientHost = options.c
 globalDbName = options.g
 dcVersion = options.v
+
+if options.c:
+    clientHost = options.c
+else:
+    clientHost = '%'
+
 
 # TODO... read these from the policyFile
 rootU = "becla" # mysql superuser
@@ -73,5 +78,6 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % (globalDbName, toSt
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
 
-admin.execCommand0("INSERT INTO UserInfo(name, email) VALUES ('%s', '%s')"%\
-                   (userName, userEmail))
+admin.execCommand0("INSERT INTO UserInfo(name, email) VALUES ('%s', '%s') " \
+                    % (userName, userEmail) + \
+                   "ON DUPLICATE KEY UPDATE email='%s'" % userEmail)
