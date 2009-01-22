@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS RunInfo (
     PRIMARY KEY (runInfoId),
     UNIQUE(runName, initiator),
     INDEX (expDate)
-) ENGINE=MyISAM; 
+) ENGINE=InnoDB; 
 
 
 -- global table for keeping user-related into
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS RunInfo (
 CREATE TABLE IF NOT EXISTS UserInfo (
     name VARCHAR(64) NOT NULL PRIMARY KEY,
     email VARCHAR(64) NOT NULL
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 
 
@@ -40,7 +40,7 @@ DELIMITER //
 CREATE FUNCTION extendRun (
     in_runName VARCHAR(64),
     in_dcVersion VARCHAR(16),
-    in_userName VARCHAR(64) ) RETURNS INT
+    in_runInitiator VARCHAR(64) ) RETURNS INT
 BEGIN
    DECLARE n INT;
 
@@ -49,7 +49,7 @@ BEGIN
    FROM   RunInfo
    WHERE  runName = in_runName
    AND    dcVersion = in_dcVersion
-   AND    initiator = in_userName;
+   AND    initiator = in_runInitiator;
    IF n <> 1 THEN RETURN -1; END IF;
 
    -- report error if run already deleted
@@ -57,7 +57,7 @@ BEGIN
    FROM   RunInfo
    WHERE  runName = in_runName
    AND    dcVersion = in_dcVersion
-   AND    initiator = in_userName
+   AND    initiator = in_runInitiator
    AND    delDate IS NOT NULL;
    IF n = 1 THEN RETURN -2; END IF;
 
@@ -69,7 +69,7 @@ BEGIN
           finalNotifDate = NULL
    WHERE  runName = in_runName
    AND    dcVersion = in_dcVersion
-   AND    initiator = in_userName
+   AND    initiator = in_runInitiator
    AND    delDate IS NULL;
 
    RETURN 1;
