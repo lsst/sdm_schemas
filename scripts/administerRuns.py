@@ -74,10 +74,10 @@ class AdminRuns(MySQLBase):
         # notice we are not dealing with different variations
         # (wildcards etc) for the host name, so this is a very
         # crude verification.
-        self.connect(userName, userPassword, "mysql")
         cmd = "SELECT Table_priv FROM tables_priv WHERE " + \
             "user='%s' AND Table_name='RunInfo'" % \
             (userName)
+        self.connect(userName, userPassword, "mysql")
         row = self.execCommand1(cmd)
         if (row is not None):
             self.disconnect()
@@ -85,8 +85,8 @@ class AdminRuns(MySQLBase):
         cmd = "SELECT Insert_priv FROM mysql.user WHERE " + \
               "user='%s'" % (userName)
         row = self.execCommand1(cmd)
+        self.disconnect()
         if (row is not None) and (str(row[0])=="Y"):
-            self.disconnect()
             return
         # uc = "'%s:%s'" % (userName, clientMachine)
         uc = userName
@@ -140,6 +140,7 @@ class AdminRuns(MySQLBase):
         # for that directory
         percDiskSpaceAvail = self.getDataDirSpaceAvailPerc()
         if percDiskSpaceAvail < minPercDiskSpaceReq:
+            self.disconnect()
             raise RuntimeError(
                 "Not enough disk space available in mysql " +
                 "datadir, required %i%%, available %i%%" % 

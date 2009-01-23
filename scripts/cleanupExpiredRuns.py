@@ -79,7 +79,7 @@ class CleanupExpiredRuns(MySQLBase):
         # find all runs that will expire in <daysFirstNotice> or less days, 
         # and send first notification if it was not sent
         self.cmdGetRunsFirstNotice = """
-  SELECT runInfoId, runName, dbName, expDate, email
+  SELECT runInfoId, runName, dbName, expDate, initiator, dbName, dcVersion
   FROM   RunInfo
   LEFT JOIN UserInfo ON (RunInfo.initiator=UserInfo.name)
   WHERE  DATEDIFF(expDate, %s) <= %i
@@ -90,13 +90,63 @@ class CleanupExpiredRuns(MySQLBase):
         # we sent first notification at least 6 days ago, and
         # send final notification
         self.cmdGetRunsFinalNotice = """
-  SELECT runInfoId, runName, dbName, expDate, email
+  SELECT runInfoId, runName, dbName, expDate, initiator, dbName, dcVersion
   FROM   RunInfo
   LEFT JOIN UserInfo ON (RunInfo.initiator=UserInfo.name)
   WHERE  DATEDIFF(expDate, %s) < %i
     AND  firstNotifDate IS NOT NULL
     AND  finalNotifDate IS NULL
 """ % (now, daysFinalNotice)
+
+
+    def emailNotices(self, firstN, finalN):
+        print "emailNotices(%s, %s)" % (firstN, finalN)
+
+        if not firstN and not finalN:
+            return
+
+        if not firstN:
+            firstN = "   None"
+        if not finalN:
+            finalN = "   None"
+
+        contents = """
+Hello,
+
+This is an automated notification listing runs
+that will be deleted from the mysql database on 
+lsst10. Information about each run is in the form
+[runName, dcVersion, initiator, dbName]
+
+Final notification (runs to be deleted in %s day(s)):
+
+%s
+
+First notification (runs to be deleted in %s day(s)):
+
+%s
+
+To prevent a run from being deleted, extend 
+it by running the following mysql commands:
+
+  USE %s
+  SELECT extendRun('<runName>', '<dcVersion>', '<initiator>')
+
+Regards,
+The LSST Database Team
+
+""" % (daysFinalNotice, finalN, daysFirstNotice, firstN, globalDbName)
+
+        subject = "Purging expired runs"
+
+        print """
+*************
+Email to: lsst-data
+Subject: %s
+%s
+*************
+""" % (subject, contents)
+
 
     def run(self):
         # Connect to database
@@ -111,26 +161,24 @@ class CleanupExpiredRuns(MySQLBase):
             print "  --> Deleting ", dbN[0], " <--"
             self.execCommand0("DROP DATABASE IF EXISTS %s" % dbN[0])
             self.execCommand0(
-                "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
+             "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
 
         # re-check disk space
         dataDirSpaceAvailAfter = self.getDataDirSpaceAvail()
 
-        # Send final notices
+        # Prepare final notices
         rows = self.execCommandN(self.cmdGetRunsFinalNotice)
         runIds = ""
-        print "len = ", len(rows)
+
+        finalN = ""
         if len(rows) > 0:
+            finalN = ""
             for row in rows:
                 runInfoId = int(row[0])
-                runName   = row[1]
-                dbName    = row[2]
-                expDate   = row[3]
-                email     = row[4]
                 runIds += "%i," % runInfoId
-                print "Sending final notif about run with id %i to %s" % \
-                    (runInfoId, email)
-            # to do: send real emails (one per user)
+                finalN += " - %s, %s, %s, %s\n" % \
+                    (row[1], row[6], row[4], row[5])
+                    # runName, dcVer, initiator, dbName
 
             #Remember the final notices where sent
             cmd = """
@@ -140,19 +188,17 @@ class CleanupExpiredRuns(MySQLBase):
 """ % (now, runIds[:-1])
             self.execCommand0(cmd)
 
-        # Send first notices
+        # Prepare first notices
         rows = self.execCommandN(self.cmdGetRunsFirstNotice)
+        firstN = ""
         if len(rows) > 0:
+            firstN = ""
             for row in rows:
                 runInfoId = int(row[0])
-                runName   = row[1]
-                dbName    = row[2]
-                expDate   = row[3]
-                email     = row[4]
                 runIds += "%i," % runInfoId
-                print "Sending first notif about run with id %i to %s" % \
-                    (runInfoId, email)
-            # to do: send real emails (one per user)
+                firstN += " - %s, %s, %s, %s\n" % \
+                    (row[1], row[6], row[4], row[5])
+                    # runName, dcVer, initiator, dbName
 
             #Remember the first notices where sent
             cmd = """
@@ -162,8 +208,14 @@ class CleanupExpiredRuns(MySQLBase):
 """ % (now, runIds[:-1])
             self.execCommand0(cmd)
 
-        # Disconnect from database
-        self.disconnect()
+            # Send the email with the notices
+            self.emailNotices(firstN, finalN)
+
+            # Disconnect from database
+            self.disconnect()
+            return
+
+
 
 
 xx = CleanupExpiredRuns(dbHostName, globalDbName, superUserName, 

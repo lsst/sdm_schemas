@@ -71,8 +71,6 @@ a2.checkStatus("perRunDBPolicy.txt",
 b = MySQLBase(hostN)
 
 bSU = MySQLBase(hostN)
-bSU.connect("becla", "", gDb)
-
 
 outLogFile = open("./_cleanup.log", "w")
 
@@ -80,9 +78,11 @@ outLogFile = open("./_cleanup.log", "w")
 # u2 starts regularly one run every 3 days
 for n in range(1, maxNIter):
     print "\n\n************** doing ", n, " **************\n"
+
     a1.prepareForNewRun("perRunDBPolicy.txt", "myRun_%02i"%n,  "u", u1, p1)
 
     # manually adjust the run start time, notice, have to run as su
+    bSU.connect("becla", "", gDb)
     bSU.execCommand0("""
       UPDATE RunInfo 
       SET startDate = ADDTIME("2008-05-01 15:00:00", "%i 00:00:00"),
@@ -90,6 +90,8 @@ for n in range(1, maxNIter):
       WHERE runName = 'myRun_%02i' 
         AND initiator = '%s'
 """ % (n, n, n, u1))
+    bSU.disconnect()
+
     # If it is May 18, extend 5th run
     if n == 18:
         b.connect(u1, p1, gDb)
@@ -105,6 +107,7 @@ for n in range(1, maxNIter):
         a2.prepareForNewRun("perRunDBPolicy.txt", "myRun_%02i"%n,  "u", u2, p2);
 
     # manually adjust the run start time
+    bSU.connect("becla", "", gDb)
     bSU.execCommand0("""
       UPDATE RunInfo 
       SET startDate = ADDTIME("2008-05-01 15:00:00", "%i 00:00:00"),
@@ -113,11 +116,13 @@ for n in range(1, maxNIter):
         AND initiator = '%s'
 
 """ % (n, n, n, u2))
-
-    a2.connect(u2, p2, gDb)
+    bSU.disconnect()
 
     print "Currently have:"
+    a2.connect(u2, p2, gDb)
     res = a2.execCommandN("SELECT * FROM RunInfo")
+    a2.disconnect()
+
     for r in res:
         print r
 

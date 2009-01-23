@@ -34,15 +34,17 @@ CREATE TABLE IF NOT EXISTS UserInfo (
 DELIMITER //
 
 -- return value:
---  1: successfully extended
--- -1: run not found
--- -2: run already deleted
+--  - "0000-01-01": run not found
+--  - "0000-02-02": run already deleted
+--  - a valid date: new expiration date
+
 CREATE FUNCTION extendRun (
     in_runName VARCHAR(64),
     in_dcVersion VARCHAR(16),
-    in_runInitiator VARCHAR(64) ) RETURNS INT
+    in_runInitiator VARCHAR(64) ) RETURNS DATETIME
 BEGIN
    DECLARE n INT;
+   DECLARE r DATETIME;
 
    -- report error if run not found
    SELECT COUNT(*) INTO n
@@ -50,7 +52,7 @@ BEGIN
    WHERE  runName = in_runName
    AND    dcVersion = in_dcVersion
    AND    initiator = in_runInitiator;
-   IF n <> 1 THEN RETURN -1; END IF;
+   IF n <> 1 THEN RETURN "0000-01-01"; END IF;
 
    -- report error if run already deleted
    SELECT COUNT(*) INTO n
@@ -59,7 +61,7 @@ BEGIN
    AND    dcVersion = in_dcVersion
    AND    initiator = in_runInitiator
    AND    delDate IS NOT NULL;
-   IF n = 1 THEN RETURN -2; END IF;
+   IF n = 1 THEN RETURN "0000-02-02"; END IF;
 
    -- do the update
    UPDATE RunInfo
@@ -72,7 +74,8 @@ BEGIN
    AND    initiator = in_runInitiator
    AND    delDate IS NULL;
 
-   RETURN 1;
+   SELECT DATE_ADD(NOW(), INTERVAL 2 WEEK) INTO r;
+   RETURN r;
 END;
 //
 

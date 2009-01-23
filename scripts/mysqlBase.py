@@ -48,6 +48,7 @@ class MySQLBase:
         if self.db == None:
             return
         try:
+            self.db.commit()
             self.db.close()
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
