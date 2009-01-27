@@ -33,10 +33,10 @@ def createDummyUserAccounts():
     program exist. In normal operations, these accounts should already exist
     prior to running anything.
     """
-    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -e %s@x.com -c localhost -g %s -v %s" % (u1, p1, u1, gDb, dcV)
+    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u1, p1, gDb, dcV)
     print cmd
     subprocess.call(cmd.split())
-    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -e %s@x.com -c localhost -g %s -v %s" % (u2, p2, u2, gDb, dcV)
+    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u2, p2, gDb, dcV)
     print cmd
     subprocess.call(cmd.split())
 

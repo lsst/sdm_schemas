@@ -14,13 +14,12 @@ import sys
 """
 
 
-usage = """%prog -f {policyFile} -s {mysqlServerHost} -u {userName} -p {userPassword} -e {userEmail} -g {globalDbName} -v {dcVersion} [-c {clientHost}] 
+usage = """%prog -f {policyFile} -s {mysqlServerHost} -u {userName} -p {userPassword} -g {globalDbName} -v {dcVersion} [-c {clientHost}] 
 Where:
   - policyFile:      the policy file containing mysql superuser name and password.
   - mysqlServerHost: host name where the mysql server runs
   - userName:        mysql username of the added user
   - userPassword:    mysql password of the added user
-  - userEmail:       email address of the added user
   - clientHost:      host names authorized to access mysql server, wildcards allowed. Default: "%" (all hosts)
   - globalDbName:    name of the mysql "global database"
   - dcVersion:       DC version, eg DC3a
@@ -32,7 +31,6 @@ parser.add_option("-f")
 parser.add_option("-s")
 parser.add_option("-u")
 parser.add_option("-p")
-parser.add_option("-e")
 parser.add_option("-c")
 parser.add_option("-g")
 parser.add_option("-v")
@@ -40,8 +38,7 @@ parser.add_option("-v")
 options, arguments = parser.parse_args()
 
 if not options.f or not options.s or not options.u or \
-   not options.p or not options.e or not options.g or \
-   not options.v:
+   not options.p or not options.g or not options.v:
     sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
     sys.exit(1)
 
@@ -49,7 +46,6 @@ policyFile = options.f
 serverHost = options.s
 userName = options.u
 userPass = options.p
-userEmail = options.e
 globalDbName = options.g
 dcVersion = options.v
 
@@ -77,7 +73,3 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % (globalDbName, toSt
 
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
-
-admin.execCommand0("INSERT INTO UserInfo(name, email) VALUES ('%s', '%s') " \
-                    % (userName, userEmail) + \
-                   "ON DUPLICATE KEY UPDATE email='%s'" % userEmail)

@@ -81,7 +81,6 @@ class CleanupExpiredRuns(MySQLBase):
         self.cmdGetRunsFirstNotice = """
   SELECT runInfoId, runName, dbName, expDate, initiator, dbName, dcVersion
   FROM   RunInfo
-  LEFT JOIN UserInfo ON (RunInfo.initiator=UserInfo.name)
   WHERE  DATEDIFF(expDate, %s) <= %i
     AND  firstNotifDate IS NULL
 """ % (now, daysFirstNotice)
@@ -92,7 +91,6 @@ class CleanupExpiredRuns(MySQLBase):
         self.cmdGetRunsFinalNotice = """
   SELECT runInfoId, runName, dbName, expDate, initiator, dbName, dcVersion
   FROM   RunInfo
-  LEFT JOIN UserInfo ON (RunInfo.initiator=UserInfo.name)
   WHERE  DATEDIFF(expDate, %s) < %i
     AND  firstNotifDate IS NOT NULL
     AND  finalNotifDate IS NULL

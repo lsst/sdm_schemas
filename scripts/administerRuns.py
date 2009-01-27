@@ -67,7 +67,6 @@ class AdminRuns(MySQLBase):
         # Check if Global database and its tables exist
         self.connect(userName, userPassword, self.globalDbName)
         self.execCommand0("DESC RunInfo")
-        self.execCommand0("DESC UserInfo")
         self.disconnect()
 
         # check if user has appropriate database privileges

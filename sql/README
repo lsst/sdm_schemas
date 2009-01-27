@@ -39,22 +39,20 @@ Policy files needed
 MySQL Account management
 ========================
 
-Assuption: to start a run, user needs to have mysql account,
-appropriate authorizations, and her/his email should be 
-registered in mysql database.
+Assuption: to start a run, user needs to have mysql account
+with appropriate authorizations.
 
 To authorize user, use: addMySqlUser.py command. It takes 
 the following arguments:
 
 addMySqlUser.py -f {policyFile} -s {mysqlServerHost} -u {userName} 
-                -p {userPassword} -e {userEmail} -c {clientHost} 
+                -p {userPassword} -c {clientHost} 
                 -g {globalDbName} -v {dcVersion}
 Where:
   - policyFile:      the policy file containing mysql superuser name and password.
   - mysqlServerHost: host name where the mysql server runs
   - userName:        mysql username of the added user
   - userPassword:    mysql password of the added user
-  - userEmail:       email address of the added user
   - clientHost:      host name where user will jobs, wildcards allowed
   - globalDbName:    name of the mysql "global database"
   - dcVersion:       DC version, eg DC3a

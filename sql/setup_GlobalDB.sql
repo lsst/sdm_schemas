@@ -20,15 +20,6 @@ CREATE TABLE IF NOT EXISTS RunInfo (
 ) ENGINE=InnoDB; 
 
 
--- global table for keeping user-related into
--- used for notifications
-CREATE TABLE IF NOT EXISTS UserInfo (
-    name VARCHAR(64) NOT NULL PRIMARY KEY,
-    email VARCHAR(64) NOT NULL
-) ENGINE=InnoDB;
-
-
-
 
 -- create stored functions / procedures
 DELIMITER //

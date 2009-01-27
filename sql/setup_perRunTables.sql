@@ -50,12 +50,6 @@ CREATE TABLE NonVarObject LIKE Object;
 
 CREATE TABLE InMemoryObjectTemplate LIKE Object;
 
-ALTER TABLE InMemoryObjectTemplate
-    DROP INDEX idx_Object_ugColor,
-    DROP INDEX idx_Object_grColor,
-    DROP INDEX idx_Object_riColor,
-    DROP INDEX idx_Object_izColor;
-
 ALTER TABLE InMemoryObjectTemplate ENGINE=MEMORY;
 
 CREATE TABLE InMemoryMatchPairTemplate LIKE _tmpl_MatchPair;
