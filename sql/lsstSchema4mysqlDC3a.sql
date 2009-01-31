@@ -8,24 +8,24 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_10 (version CHAR);
+CREATE TABLE AAA_Version_3_0_11 (version CHAR);
 
-CREATE TABLE mops_Tracklets2DIASource
+CREATE TABLE mops_TrackletsToDIASource
 (
 	trackletId BIGINT NOT NULL,
 	diaSourceId BIGINT NOT NULL,
 	PRIMARY KEY (trackletId, diaSourceId),
-	INDEX idx_mopsTracklets2DIASource_diaSourceId (diaSourceId ASC),
+	INDEX idx_mopsTrackletsToDIASource_diaSourceId (diaSourceId ASC),
 	KEY (trackletId)
 ) ;
 
 
-CREATE TABLE mops_MovingObject2Tracklet
+CREATE TABLE mops_MovingObjectToTracklet
 (
 	movingObjectId BIGINT NOT NULL,
 	trackletId BIGINT NOT NULL,
-	INDEX idx_mopsMovingObject2Tracklets_movingObjectId (movingObjectId ASC),
-	INDEX idx_mopsMovingObject2Tracklets_trackletId (trackletId ASC)
+	INDEX idx_mopsMovingObjectToTracklets_movingObjectId (movingObjectId ASC),
+	INDEX idx_mopsMovingObjectToTracklets_trackletId (trackletId ASC)
 ) ;
 
 
@@ -107,7 +107,7 @@ CREATE TABLE _mops_EonQueue
 ) ;
 
 
-CREATE TABLE _Raw_FPA_Exposure2Visit
+CREATE TABLE _Raw_FPA_ExposureToVisit
 (
 	visitId INTEGER NOT NULL,
 	exposureId BIGINT NOT NULL,
@@ -173,7 +173,7 @@ CREATE TABLE mops_Event
 ) ;
 
 
-CREATE TABLE sdqa_Rating_4ScienceFPAExposure
+CREATE TABLE sdqa_Rating_ForScienceFPAExposure
 (
 	sdqa_ratingId BIGINT NOT NULL,
 	sdqa_metricId SMALLINT NOT NULL,
@@ -182,13 +182,13 @@ CREATE TABLE sdqa_Rating_4ScienceFPAExposure
 	metricValue DOUBLE NOT NULL,
 	metricErr DOUBLE NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
-	KEY (sdqa_thresholdId),
 	KEY (exposureId),
-	KEY (sdqa_metricId)
+	KEY (sdqa_metricId),
+	KEY (sdqa_thresholdId)
 ) ;
 
 
-CREATE TABLE sdqa_Rating_4ScienceCCDExposure
+CREATE TABLE sdqa_Rating_ForScienceCCDExposure
 (
 	sdqa_ratingId BIGINT NOT NULL,
 	sdqa_metricId SMALLINT NOT NULL,
@@ -197,9 +197,9 @@ CREATE TABLE sdqa_Rating_4ScienceCCDExposure
 	metricValue DOUBLE NOT NULL,
 	metricErr DOUBLE NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
-	KEY (ccdExposureId),
 	KEY (sdqa_metricId),
-	KEY (sdqa_thresholdId)
+	KEY (sdqa_thresholdId),
+	KEY (ccdExposureId)
 ) ;
 
 
@@ -207,7 +207,7 @@ CREATE TABLE DIASource
 (
 	diaSourceId BIGINT NOT NULL,
 	ccdExposureId BIGINT NOT NULL,
-	diaSource2Id BIGINT NULL,
+	diaSourceToId BIGINT NULL,
 	filterId TINYINT NOT NULL,
 	objectId BIGINT NULL,
 	movingObjectId BIGINT NULL,
@@ -218,11 +218,11 @@ CREATE TABLE DIASource
 	dcol DOUBLE NOT NULL,
 	drow DOUBLE NOT NULL,
 	ra DOUBLE NOT NULL,
-	raErr4detection DOUBLE NOT NULL,
-	decErr4detection DOUBLE NOT NULL,
-	raErr4wcs DOUBLE NULL,
+	raErrForDetection DOUBLE NOT NULL,
+	decErrForDetection DOUBLE NOT NULL,
+	raErrForWcs DOUBLE NULL,
 	decl DOUBLE NOT NULL,
-	decErr4wcs DOUBLE NULL,
+	decErrForWcs DOUBLE NULL,
 	cx DOUBLE NOT NULL,
 	cy DOUBLE NOT NULL,
 	cz DOUBLE NOT NULL,
@@ -247,6 +247,7 @@ CREATE TABLE DIASource
 	snr FLOAT(0) NOT NULL,
 	chi2 FLOAT(0) NOT NULL,
 	PRIMARY KEY (diaSourceId),
+	UNIQUE UQ_DIASource_diaSourceToId(diaSourceToId),
 	KEY (movingObjectId),
 	KEY (ccdExposureId),
 	KEY (filterId),
@@ -327,7 +328,7 @@ CREATE TABLE Raw_CCD_Exposure
 ) ;
 
 
-CREATE TABLE _Science_FPA_Exposure2TemplateImage
+CREATE TABLE _Science_FPA_ExposureToTemplateImage
 (
 	scienceFPAExposureId BIGINT NOT NULL,
 	templateImageId INTEGER NOT NULL,
@@ -373,7 +374,7 @@ CREATE TABLE sdqa_Threshold
 ) ;
 
 
-CREATE TABLE sdqa_Rating_4ScienceAmpExposure
+CREATE TABLE sdqa_Rating_ForScienceAmpExposure
 (
 	sdqa_ratingId BIGINT NOT NULL,
 	sdqa_metricId SMALLINT NOT NULL,
@@ -382,29 +383,29 @@ CREATE TABLE sdqa_Rating_4ScienceAmpExposure
 	metricValue DOUBLE NOT NULL,
 	metricErr DOUBLE NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
-	KEY (ampExposureId),
 	KEY (sdqa_metricId),
-	KEY (sdqa_thresholdId)
+	KEY (sdqa_thresholdId),
+	KEY (ampExposureId)
 ) ;
 
 
-CREATE TABLE _Object2Type
+CREATE TABLE _ObjectToType
 (
 	objectId BIGINT NOT NULL,
 	typeId SMALLINT NOT NULL,
 	probability TINYINT NULL DEFAULT 100,
-	KEY (objectId),
-	KEY (typeId)
+	KEY (typeId),
+	KEY (objectId)
 ) ;
 
 
-CREATE TABLE _MovingObject2Type
+CREATE TABLE _MovingObjectToType
 (
 	movingObjectId BIGINT NOT NULL,
 	typeId SMALLINT NOT NULL,
 	probability TINYINT NULL DEFAULT 100,
-	KEY (movingObjectId),
-	KEY (typeId)
+	KEY (typeId),
+	KEY (movingObjectId)
 ) ;
 
 
@@ -774,23 +775,11 @@ CREATE TABLE prv_cnf_PolicyKey
 
 
 
-ALTER TABLE mops_Tracklets2DIASource ADD CONSTRAINT FK_mopsTracklets2DIASource_mopsTracklets 
-	FOREIGN KEY (trackletId) REFERENCES mops_Tracklet (trackletId);
-
-ALTER TABLE mops_MovingObject2Tracklet ADD CONSTRAINT FK_mopsMovingObject2Tracklets_mopsTracklets 
-	FOREIGN KEY (trackletId) REFERENCES mops_Tracklet (trackletId);
-
-ALTER TABLE mops_MovingObject2Tracklet ADD CONSTRAINT FK_mopsMovingObject2Tracklets_MovingObject_movingObjectId 
-	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
-
 ALTER TABLE _mops_MoidQueue ADD CONSTRAINT FK__mops_MoidQueue_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
 
 ALTER TABLE _mops_EonQueue ADD CONSTRAINT FK__mopsEonQueue_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
-
-ALTER TABLE _Raw_FPA_Exposure2Visit ADD CONSTRAINT FK__Raw_FPA_Exposure2Visit_Raw_FPA_Exposure 
-	FOREIGN KEY (exposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
 ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mops_Tracklet_Science_CCD_Exposure 
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
@@ -800,18 +789,6 @@ ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_mopsSSM
 
 ALTER TABLE mops_Event ADD CONSTRAINT FK_mops_Event_Science_CCD_Exposure 
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
-
-ALTER TABLE sdqa_Rating_4ScienceFPAExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceFPAExposure_sdqa_Threshold 
-	FOREIGN KEY (sdqa_thresholdId) REFERENCES sdqa_Threshold (sdqa_thresholdId);
-
-ALTER TABLE sdqa_Rating_4ScienceFPAExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceFPAExposure_sdqa_Metric 
-	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
-
-ALTER TABLE sdqa_Rating_4ScienceCCDExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceCCDExposure_sdqa_Metric 
-	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
-
-ALTER TABLE sdqa_Rating_4ScienceCCDExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceCCDExposure_sdqa_Threshold 
-	FOREIGN KEY (sdqa_thresholdId) REFERENCES sdqa_Threshold (sdqa_thresholdId);
 
 ALTER TABLE DIASource ADD CONSTRAINT FK_DIASource_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
@@ -828,23 +805,8 @@ ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Science_
 ALTER TABLE Raw_CCD_Exposure ADD CONSTRAINT FK_Raw_CCD_Exposure_Raw_FPA_Exposure 
 	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
-ALTER TABLE _Science_FPA_Exposure2TemplateImage ADD CONSTRAINT FK__Science_FPA_Exposure2TemplateImage_Science_FPA_Exposure 
-	FOREIGN KEY (scienceFPAExposureId) REFERENCES Science_FPA_Exposure (scienceFPAExposureId);
-
 ALTER TABLE mops_SSM ADD CONSTRAINT FK_mopsSSM_mopsSSMDesc 
 	FOREIGN KEY (ssmDescId) REFERENCES mops_SSMDesc (ssmDescId);
 
 ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqa_Threshold_sdqa_Metric 
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
-
-ALTER TABLE sdqa_Rating_4ScienceAmpExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceAmpExposure_sdqa_Metric 
-	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
-
-ALTER TABLE sdqa_Rating_4ScienceAmpExposure ADD CONSTRAINT FK_sdqa_Rating_4ScienceAmpExposure_sdqa_Threshold 
-	FOREIGN KEY (sdqa_thresholdId) REFERENCES sdqa_Threshold (sdqa_thresholdId);
-
-ALTER TABLE _Object2Type ADD CONSTRAINT FK_Object2Type_ObjectType 
-	FOREIGN KEY (typeId) REFERENCES ObjectType (typeId);
-
-ALTER TABLE _MovingObject2Type ADD CONSTRAINT FK_MovingObject2Type_ObjectType 
-	FOREIGN KEY (typeId) REFERENCES ObjectType (typeId);
