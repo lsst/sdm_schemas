@@ -69,5 +69,28 @@ BEGIN
 END
 //
 
+-- ===========================   Time   =========================== --
+
+-- Created: 09 February 2008, K.-T. Lim (ktl@slac.stanford.edu)
+--
+-- Convert TAI to UTC
+--
+
+CREATE FUNCTION taiToUtc (
+    taiTime_ BIGINT
+) RETURNS BIGINT
+
+BEGIN
+
+    DECLARE leapSeconds_ INT;
+
+    SELECT COUNT(*) INTO leapSeconds_
+    FROM leapSecondTable
+    WHERE insertedSecond <= taiTime;
+
+    RETURN taiTime_ - leapSeconds * 1000000000;
+
+END
+//
 
 DELIMITER ;
