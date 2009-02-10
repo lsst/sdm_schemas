@@ -72,25 +72,128 @@ END
 -- ===========================   Time   =========================== --
 
 -- Created: 09 February 2008, K.-T. Lim (ktl@slac.stanford.edu)
+
 --
--- Convert TAI to UTC
+-- Table of leap seconds.
 --
 
-CREATE FUNCTION taiToUtc (
-    taiTime_ BIGINT
+CREATE TABLE LeapSeconds (
+    daysSinceEpoch FLOAT NOT NULL,
+    seconds INT NOT NULL
+);
+
+INSERT INTO LeapSeconds VALUES
+    (730.0, 10),
+    (912.0, 11),
+    (1096.0, 12),
+    (1461.0, 13),
+    (1826.0, 14),
+    (2191.0, 15),
+    (2557.0, 16),
+    (2922.0, 17),
+    (3287.0, 18),
+    (3652.0, 19),
+    (4199.0, 20),
+    (4564.0, 21),
+    (4929.0, 22),
+    (5660.0, 23),
+    (6574.0, 24),
+    (7305.0, 25),
+    (7670.0, 26),
+    (8217.0, 27),
+    (8582.0, 28),
+    (8947.0, 29),
+    (9496.0, 30),
+    (10043.0, 31),
+    (10592.0, 32),
+    (13149.0, 33),
+    (14245.0, 34);
+
+
+--
+-- Function to convert UTC nanoseconds to Modified Julian Days (UTC).
+--
+
+CREATE FUNCTION utcToMJD (
+    utcTime_ BIGINT
+) RETURNS DOUBLE
+BEGIN
+    RETURN utcTime_ / 86.4e12 + 40587.0;
+END
+//
+
+
+--
+-- Function to convert UTC nanoseconds to TAI nanoseconds.
+--
+
+CREATE FUNCTION utcToTAI (
+    utcTime_ BIGINT
 ) RETURNS BIGINT
-
 BEGIN
 
+    DECLARE daysSinceEpoch_ FLOAT;
     DECLARE leapSeconds_ INT;
 
-    SELECT COUNT(*) INTO leapSeconds_
-    FROM leapSecondTable
-    WHERE insertedSecond <= taiTime;
+    SELECT MAX(daysSinceEpoch) INTO daysSinceEpoch_
+        FROM LeapSeconds
+        WHERE daysSinceEpoch * 86.4e12 < utcTime_;
 
-    RETURN taiTime_ - leapSeconds * 1000000000;
+    IF daysSinceEpoch_ IS NULL THEN
+        SET leapSeconds_ = (utcToMJD(utcTime_) - 39126.0) * 0.002592 + 4.21317;
+    ELSE
+        SELECT seconds INTO leapSeconds_
+            FROM LeapSeconds
+            WHERE daysSinceEpoch = daysSinceEpoch_;
+    END IF;
+
+    RETURN utcTime_ - leapSeconds_ * 1000000000;
 
 END
 //
+
+
+--
+-- Function to convert TAI nanoseconds to UTC nanoseconds.
+--
+
+CREATE FUNCTION taiToUTC (
+    taiTime_ BIGINT
+) RETURNS BIGINT
+BEGIN
+
+    DECLARE daysSinceEpoch_ FLOAT;
+    DECLARE leapSeconds_ INT;
+
+    SELECT MAX(daysSinceEpoch) INTO daysSinceEpoch_
+        FROM LeapSeconds
+        WHERE daysSinceEpoch * 86.4e12 + seconds * 1.0e9 < taiTime_;
+
+    IF daysSinceEpoch_ IS NULL THEN
+        RETURN (taiTime_ - 4.21317e9 - (40587.0 - 39126.0) * 0.002592e9) /
+            (1 - 0.002592e9 / 86.4e12);
+    END IF;
+
+    SELECT seconds INTO leapSeconds_
+        FROM LeapSeconds
+        WHERE daysSinceEpoch = daysSinceEpoch_;
+    RETURN taiTime_ + leapSeconds_ * 1000000000;
+
+END
+//
+
+
+--
+-- Function to convert TAI nanoseconds to Modified Julian Days (UTC).
+--
+
+CREATE FUNCTION taiToMJD (
+    taiTime_ BIGINT
+) RETURNS DOUBLE
+BEGIN
+    RETURN taiToUTC(taiTime_) / 86.4e12 + 40587.0;
+END
+//
+
 
 DELIMITER ;
