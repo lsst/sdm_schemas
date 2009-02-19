@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_11 (version CHAR);
+CREATE TABLE AAA_Version_3_0_12 (version CHAR);
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -200,6 +200,18 @@ CREATE TABLE sdqa_Rating_ForScienceCCDExposure
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ccdExposureId)
+) ;
+
+
+CREATE TABLE prv_cnf_PolicyKey
+(
+	runId VARCHAR(64) NOT NULL,
+	policyKeyId INTEGER NOT NULL,
+	value TEXT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (runId, policyKeyId),
+	KEY (runId, policyKeyId)
 ) ;
 
 
@@ -406,6 +418,31 @@ CREATE TABLE _MovingObjectToType
 	probability TINYINT NULL DEFAULT 100,
 	KEY (typeId),
 	KEY (movingObjectId)
+) ;
+
+
+CREATE TABLE prv_PolicyKey
+(
+	runId VARCHAR(64) NOT NULL,
+	policyKeyId INTEGER NOT NULL,
+	policyFileId INTEGER NOT NULL,
+	keyName VARCHAR(255) NOT NULL,
+	keyType VARCHAR(16) NOT NULL,
+	PRIMARY KEY (runId, policyKeyId),
+	KEY (runId, policyFileId)
+) ;
+
+
+CREATE TABLE prv_cnf_SoftwarePackage
+(
+	runId VARCHAR(64) NOT NULL,
+	packageId INTEGER NOT NULL,
+	version VARCHAR(255) NOT NULL,
+	directory VARCHAR(255) NOT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (runId, packageId),
+	KEY (runId, packageId)
 ) ;
 
 
@@ -712,28 +749,21 @@ CREATE TABLE _tmpl_Id
 
 CREATE TABLE prv_SoftwarePackage
 (
+	runId VARCHAR(64) NOT NULL,
 	packageId INTEGER NOT NULL,
 	packageName VARCHAR(64) NOT NULL,
-	PRIMARY KEY (packageId)
-) ;
-
-
-CREATE TABLE prv_PolicyKey
-(
-	policyKeyId INTEGER NOT NULL,
-	policyFileId INTEGER NOT NULL,
-	keyName VARCHAR(255) NOT NULL,
-	PRIMARY KEY (policyKeyId)
+	PRIMARY KEY (runId, packageId)
 ) ;
 
 
 CREATE TABLE prv_PolicyFile
 (
+	runId VARCHAR(64) NOT NULL,
 	policyFileId INTEGER NOT NULL,
 	pathName VARCHAR(255) NOT NULL,
 	hashValue CHAR(32) NOT NULL,
-	modifiedDate DATETIME NOT NULL,
-	PRIMARY KEY (policyFileId)
+	modifiedDate BIGINT NOT NULL,
+	PRIMARY KEY (runId, policyFileId)
 ) ;
 
 
@@ -749,27 +779,6 @@ CREATE TABLE prv_Filter
 	UNIQUE name(name),
 	INDEX focalPlaneId (focalPlaneId ASC)
 ) TYPE=MyISAM;
-
-
-CREATE TABLE prv_cnf_SoftwarePackage
-(
-	packageId INTEGER NOT NULL,
-	version VARCHAR(32) NOT NULL,
-	directory VARCHAR(255) NOT NULL,
-	validityBegin DATETIME NULL,
-	validityEnd DATETIME NULL,
-	PRIMARY KEY (packageId)
-) ;
-
-
-CREATE TABLE prv_cnf_PolicyKey
-(
-	policyKeyId INTEGER NOT NULL,
-	value VARCHAR(255) NOT NULL,
-	validityBegin DATETIME NULL,
-	validityEnd DATETIME NULL,
-	PRIMARY KEY (policyKeyId)
-) ;
 
 
 
@@ -789,6 +798,9 @@ ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_mopsSSM
 
 ALTER TABLE mops_Event ADD CONSTRAINT FK_mops_Event_Science_CCD_Exposure 
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
+
+ALTER TABLE prv_cnf_PolicyKey ADD CONSTRAINT FK_prv_cnf_PolicyKey_prv_PolicyKey 
+	FOREIGN KEY (runId, policyKeyId) REFERENCES prv_PolicyKey (runId, policyKeyId);
 
 ALTER TABLE DIASource ADD CONSTRAINT FK_DIASource_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
@@ -810,3 +822,9 @@ ALTER TABLE mops_SSM ADD CONSTRAINT FK_mopsSSM_mopsSSMDesc
 
 ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqa_Threshold_sdqa_Metric 
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
+
+ALTER TABLE prv_PolicyKey ADD CONSTRAINT FK_prv_PolicyKey_prv_PolicyFile 
+	FOREIGN KEY (runId, policyFileId) REFERENCES prv_PolicyFile (runId, policyFileId);
+
+ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_prv_SoftwarePackage 
+	FOREIGN KEY (runId, packageId) REFERENCES prv_SoftwarePackage (runId, packageId);
