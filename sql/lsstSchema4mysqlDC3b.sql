@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_27 (version CHAR);
+CREATE TABLE AAA_Version_3_0_28 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -1468,6 +1468,18 @@ CREATE TABLE prv_cnf_Slice
 ) ;
 
 
+CREATE TABLE prv_cnf_PolicyKey
+(
+	runId VARCHAR(64) NOT NULL,
+	policyKeyId INTEGER NOT NULL,
+	value TEXT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (runId, policyKeyId),
+	KEY (runId, policyKeyId)
+) ;
+
+
 CREATE TABLE prv_cnf_Node
 (
 	cNodeId INTEGER NOT NULL,
@@ -1763,6 +1775,17 @@ CREATE TABLE prv_Run
 ) ;
 
 
+CREATE TABLE prv_PolicyKey
+(
+	runId VARCHAR(64) NOT NULL,
+	policyKeyId INTEGER NOT NULL,
+	policyFileId INTEGER NOT NULL,
+	keyName VARCHAR(255) NOT NULL,
+	keyType VARCHAR(16) NOT NULL,
+	PRIMARY KEY (runId, policyKeyId)
+) ;
+
+
 CREATE TABLE prv_Pipeline
 (
 	pipelineId TINYINT NOT NULL,
@@ -1779,6 +1802,19 @@ CREATE TABLE prv_Node
 	policyId MEDIUMINT NOT NULL,
 	PRIMARY KEY (nodeId),
 	KEY (policyId)
+) ;
+
+
+CREATE TABLE prv_cnf_SoftwarePackage
+(
+	runId VARCHAR(64) NOT NULL,
+	packageId INTEGER NOT NULL,
+	version VARCHAR(255) NOT NULL,
+	directory VARCHAR(255) NOT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (runId, packageId),
+	KEY (runId, packageId)
 ) ;
 
 
@@ -2039,9 +2075,10 @@ CREATE TABLE prv_FocalPlane
 
 CREATE TABLE prv_SoftwarePackage
 (
+	runId VARCHAR(64) NOT NULL,
 	packageId INTEGER NOT NULL,
 	packageName VARCHAR(64) NOT NULL,
-	PRIMARY KEY (packageId)
+	PRIMARY KEY (runId, packageId)
 ) ;
 
 
@@ -2052,22 +2089,14 @@ CREATE TABLE prv_Slice
 ) ;
 
 
-CREATE TABLE prv_PolicyKey
-(
-	policyKeyId INTEGER NOT NULL,
-	policyFileId INTEGER NOT NULL,
-	keyName VARCHAR(255) NOT NULL,
-	PRIMARY KEY (policyKeyId)
-) ;
-
-
 CREATE TABLE prv_PolicyFile
 (
+	runId VARCHAR(64) NOT NULL,
 	policyFileId INTEGER NOT NULL,
 	pathName VARCHAR(255) NOT NULL,
 	hashValue CHAR(32) NOT NULL,
-	modifiedDate DATETIME NOT NULL,
-	PRIMARY KEY (policyFileId)
+	modifiedDate BIGINT NOT NULL,
+	PRIMARY KEY (runId, policyFileId)
 ) ;
 
 
@@ -2085,27 +2114,6 @@ CREATE TABLE prv_cnf_StageToUpdatableColumn
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
 	PRIMARY KEY (c_stageToUpdatableColumn)
-) ;
-
-
-CREATE TABLE prv_cnf_SoftwarePackage
-(
-	packageId INTEGER NOT NULL,
-	version VARCHAR(32) NOT NULL,
-	directory VARCHAR(255) NOT NULL,
-	validityBegin DATETIME NULL,
-	validityEnd DATETIME NULL,
-	PRIMARY KEY (packageId)
-) ;
-
-
-CREATE TABLE prv_cnf_PolicyKey
-(
-	policyKeyId INTEGER NOT NULL,
-	value VARCHAR(255) NOT NULL,
-	validityBegin DATETIME NULL,
-	validityEnd DATETIME NULL,
-	PRIMARY KEY (policyKeyId)
 ) ;
 
 
@@ -2444,6 +2452,9 @@ ALTER TABLE prv_cnf_Slice ADD CONSTRAINT FK_Config_Slice_Node
 ALTER TABLE prv_cnf_Slice ADD CONSTRAINT FK_Config_Slice_Slice 
 	FOREIGN KEY (sliceId) REFERENCES prv_Slice (sliceId);
 
+ALTER TABLE prv_cnf_PolicyKey ADD CONSTRAINT FK_prv_cnf_PolicyKey_prv_PolicyKey 
+	FOREIGN KEY (runId, policyKeyId) REFERENCES prv_PolicyKey (runId, policyKeyId);
+
 ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_Config_Node_Node 
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
@@ -2503,3 +2514,6 @@ ALTER TABLE prv_Pipeline ADD CONSTRAINT FK_Pipeline_Policy
 
 ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_Policy 
 	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
+
+ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_prv_SoftwarePackage 
+	FOREIGN KEY (runId, packageId) REFERENCES prv_SoftwarePackage (runId, packageId);
