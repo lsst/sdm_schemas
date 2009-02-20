@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_14 (version CHAR);
+CREATE TABLE AAA_Version_3_0_15 (version CHAR);
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -450,13 +450,13 @@ CREATE TABLE WCSSource
 	ampExposureId BIGINT NULL,
 	filterId TINYINT NOT NULL,
 	wcsObjectId BIGINT NULL,
-	wcsObjectRa DOUBLE NOT NULL,
+	wcsObjectRa DOUBLE NULL,
 	wcsObjectRaErr FLOAT(0) NULL,
-	wcsObjectDecl DOUBLE NOT NULL,
+	wcsObjectDecl DOUBLE NULL,
 	wcsObjectDeclErr FLOAT(0) NULL,
-	ra DOUBLE NOT NULL,
+	ra DOUBLE NULL,
 	raErr FLOAT(0) NULL,
-	decl DOUBLE NOT NULL,
+	decl DOUBLE NULL,
 	declErr FLOAT(0) NULL,
 	xFlux DOUBLE NULL,
 	xFluxErr FLOAT(0) NULL,
