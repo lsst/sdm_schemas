@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_12 (version CHAR);
+CREATE TABLE AAA_Version_3_0_14 (version CHAR);
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -205,13 +205,12 @@ CREATE TABLE sdqa_Rating_ForScienceCCDExposure
 
 CREATE TABLE prv_cnf_PolicyKey
 (
-	runId VARCHAR(64) NOT NULL,
 	policyKeyId INTEGER NOT NULL,
 	value TEXT NULL,
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
-	PRIMARY KEY (runId, policyKeyId),
-	KEY (runId, policyKeyId)
+	PRIMARY KEY (policyKeyId),
+	KEY (policyKeyId)
 ) ;
 
 
@@ -223,36 +222,37 @@ CREATE TABLE DIASource
 	filterId TINYINT NOT NULL,
 	objectId BIGINT NULL,
 	movingObjectId BIGINT NULL,
-	colc DOUBLE NOT NULL,
-	colcErr FLOAT(0) NOT NULL,
-	rowc DOUBLE NOT NULL,
-	rowcErr FLOAT(0) NOT NULL,
+	xAstrom DOUBLE NOT NULL,
+	xAstromErr FLOAT(0) NOT NULL,
+	yAstrom DOUBLE NOT NULL,
+	yAstromErr FLOAT(0) NOT NULL,
 	dcol DOUBLE NOT NULL,
 	drow DOUBLE NOT NULL,
 	ra DOUBLE NOT NULL,
-	raErrForDetection DOUBLE NOT NULL,
-	decErrForDetection DOUBLE NOT NULL,
+	raErrForDetection FLOAT(0) NOT NULL,
 	raErrForWcs DOUBLE NULL,
 	decl DOUBLE NOT NULL,
-	decErrForWcs DOUBLE NULL,
+	decErrForDetection FLOAT(0) NOT NULL,
+	decErrForWcs FLOAT(0) NULL,
 	cx DOUBLE NOT NULL,
 	cy DOUBLE NOT NULL,
 	cz DOUBLE NOT NULL,
 	taiMidPoint DOUBLE NOT NULL,
 	taiRange DOUBLE NOT NULL,
-	fwhmA FLOAT(0) NOT NULL,
-	fwhmB FLOAT(0) NOT NULL,
-	fwhmTheta FLOAT(0) NOT NULL,
-	flux DOUBLE NOT NULL,
-	fluxErr DOUBLE NOT NULL,
-	psfMag DOUBLE NOT NULL,
-	psfMagErr DOUBLE NOT NULL,
-	apMag DOUBLE NOT NULL,
-	apMagErr DOUBLE NOT NULL,
-	modelMag DOUBLE NOT NULL,
-	modelMagErr DOUBLE NOT NULL,
-	instMag DOUBLE NOT NULL,
-	instMagErr DOUBLE NOT NULL,
+	Ixx FLOAT(0) NULL,
+	IxxErr FLOAT(0) NOT NULL,
+	Iyy FLOAT(0) NULL,
+	IyyErr FLOAT(0) NULL,
+	Ixy FLOAT(0) NULL,
+	IxyErr FLOAT(0) NULL,
+	psfFlux DOUBLE NOT NULL,
+	psfFluxErr FLOAT(0) NOT NULL,
+	apFlux DOUBLE NOT NULL,
+	apFluxErr FLOAT(0) NOT NULL,
+	modelFlux DOUBLE NOT NULL,
+	modelFluxErr FLOAT(0) NOT NULL,
+	instFlux DOUBLE NOT NULL,
+	instFluxErr FLOAT(0) NOT NULL,
 	apDia FLOAT(0) NULL,
 	flagClassification BIGINT NULL,
 	_dataSource TINYINT NOT NULL,
@@ -423,27 +423,95 @@ CREATE TABLE _MovingObjectToType
 
 CREATE TABLE prv_PolicyKey
 (
-	runId VARCHAR(64) NOT NULL,
 	policyKeyId INTEGER NOT NULL,
 	policyFileId INTEGER NOT NULL,
 	keyName VARCHAR(255) NOT NULL,
 	keyType VARCHAR(16) NOT NULL,
-	PRIMARY KEY (runId, policyKeyId),
-	KEY (runId, policyFileId)
+	PRIMARY KEY (policyKeyId),
+	KEY (policyFileId)
 ) ;
 
 
 CREATE TABLE prv_cnf_SoftwarePackage
 (
-	runId VARCHAR(64) NOT NULL,
 	packageId INTEGER NOT NULL,
 	version VARCHAR(255) NOT NULL,
 	directory VARCHAR(255) NOT NULL,
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
-	PRIMARY KEY (runId, packageId),
-	KEY (runId, packageId)
+	PRIMARY KEY (packageId),
+	KEY (packageId)
 ) ;
+
+
+CREATE TABLE WCSSource
+(
+	wcsSourceId BIGINT NOT NULL,
+	ampExposureId BIGINT NULL,
+	filterId TINYINT NOT NULL,
+	wcsObjectId BIGINT NULL,
+	wcsObjectRa DOUBLE NOT NULL,
+	wcsObjectRaErr FLOAT(0) NULL,
+	wcsObjectDecl DOUBLE NOT NULL,
+	wcsObjectDeclErr FLOAT(0) NULL,
+	ra DOUBLE NOT NULL,
+	raErr FLOAT(0) NULL,
+	decl DOUBLE NOT NULL,
+	declErr FLOAT(0) NULL,
+	xFlux DOUBLE NULL,
+	xFluxErr FLOAT(0) NULL,
+	yFlux DOUBLE NULL,
+	yFluxErr FLOAT(0) NULL,
+	raFlux DOUBLE NULL,
+	raFluxErr FLOAT(0) NULL,
+	declFlux DOUBLE NULL,
+	declFluxErr FLOAT(0) NULL,
+	xPeak DOUBLE NULL,
+	yPeak DOUBLE NULL,
+	raPeak DOUBLE NULL,
+	declPeak DOUBLE NULL,
+	xAstrom DOUBLE NULL,
+	xAstromErr FLOAT(0) NULL,
+	yAstrom DOUBLE NULL,
+	yAstromErr FLOAT(0) NULL,
+	raAstrom DOUBLE NULL,
+	raAstromErr FLOAT(0) NULL,
+	declAstrom DOUBLE NULL,
+	declAstromErr FLOAT(0) NULL,
+	taiMidPoint DOUBLE NOT NULL,
+	taiRange FLOAT(0) NULL,
+	psfFlux DOUBLE NOT NULL,
+	psfFluxErr FLOAT(0) NOT NULL,
+	apFlux DOUBLE NOT NULL,
+	apFluxErr FLOAT(0) NOT NULL,
+	modelFlux DOUBLE NOT NULL,
+	modelFluxErr FLOAT(0) NOT NULL,
+	petroFlux DOUBLE NULL,
+	petroFluxErr FLOAT(0) NULL,
+	instFlux DOUBLE NOT NULL,
+	instFluxErr FLOAT(0) NOT NULL,
+	nonGrayCorrFlux DOUBLE NULL,
+	nonGrayCorrFluxErr FLOAT(0) NULL,
+	atmCorrFlux DOUBLE NULL,
+	atmCorrFluxErr FLOAT(0) NULL,
+	apDia FLOAT(0) NULL,
+	Ixx FLOAT(0) NULL,
+	IxxErr FLOAT(0) NULL,
+	Iyy FLOAT(0) NULL,
+	IyyErr FLOAT(0) NULL,
+	Ixy FLOAT(0) NULL,
+	IxyErr FLOAT(0) NULL,
+	snr FLOAT(0) NOT NULL,
+	chi2 FLOAT(0) NOT NULL,
+	sky FLOAT(0) NULL,
+	skyErr FLOAT(0) NULL,
+	flag SMALLINT NULL,
+	PRIMARY KEY (wcsSourceId),
+	KEY (ampExposureId),
+	KEY (filterId),
+	KEY (raErr),
+	KEY (wcsObjectId)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Object
@@ -749,21 +817,19 @@ CREATE TABLE _tmpl_Id
 
 CREATE TABLE prv_SoftwarePackage
 (
-	runId VARCHAR(64) NOT NULL,
 	packageId INTEGER NOT NULL,
 	packageName VARCHAR(64) NOT NULL,
-	PRIMARY KEY (runId, packageId)
+	PRIMARY KEY (packageId)
 ) ;
 
 
 CREATE TABLE prv_PolicyFile
 (
-	runId VARCHAR(64) NOT NULL,
 	policyFileId INTEGER NOT NULL,
 	pathName VARCHAR(255) NOT NULL,
 	hashValue CHAR(32) NOT NULL,
 	modifiedDate BIGINT NOT NULL,
-	PRIMARY KEY (runId, policyFileId)
+	PRIMARY KEY (policyFileId)
 ) ;
 
 
@@ -800,7 +866,7 @@ ALTER TABLE mops_Event ADD CONSTRAINT FK_mops_Event_Science_CCD_Exposure
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
 ALTER TABLE prv_cnf_PolicyKey ADD CONSTRAINT FK_prv_cnf_PolicyKey_prv_PolicyKey 
-	FOREIGN KEY (runId, policyKeyId) REFERENCES prv_PolicyKey (runId, policyKeyId);
+	FOREIGN KEY (policyKeyId) REFERENCES prv_PolicyKey (policyKeyId);
 
 ALTER TABLE DIASource ADD CONSTRAINT FK_DIASource_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
@@ -824,7 +890,7 @@ ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqa_Threshold_sdqa_Metric
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
 
 ALTER TABLE prv_PolicyKey ADD CONSTRAINT FK_prv_PolicyKey_prv_PolicyFile 
-	FOREIGN KEY (runId, policyFileId) REFERENCES prv_PolicyFile (runId, policyFileId);
+	FOREIGN KEY (policyFileId) REFERENCES prv_PolicyFile (policyFileId);
 
 ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_prv_SoftwarePackage 
-	FOREIGN KEY (runId, packageId) REFERENCES prv_SoftwarePackage (runId, packageId);
+	FOREIGN KEY (packageId) REFERENCES prv_SoftwarePackage (packageId);
