@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_28 (version CHAR);
+CREATE TABLE AAA_Version_3_0_31 (version CHAR);
 
 CREATE TABLE mops_Event_OrbitIdentification
 (
@@ -71,45 +71,40 @@ CREATE TABLE DIASource
 	declErrForDetection FLOAT(0) NOT NULL,
 	declErrForWcs FLOAT(0) NULL,
 	xFlux DOUBLE NULL,
-	xFluxErr DOUBLE NULL,
+	xFluxErr FLOAT(0) NULL,
 	yFlux DOUBLE NULL,
-	yFluxErr DOUBLE NULL,
+	yFluxErr FLOAT(0) NULL,
 	raFlux DOUBLE NULL,
-	raFluxErr DOUBLE NULL,
+	raFluxErr FLOAT(0) NULL,
 	declFlux DOUBLE NULL,
-	declFluxErr DOUBLE NULL,
+	declFluxErr FLOAT(0) NULL,
 	xPeak DOUBLE NULL,
 	yPeak DOUBLE NULL,
 	raPeak DOUBLE NULL,
 	declPeak DOUBLE NULL,
 	xAstrom DOUBLE NULL,
-	xAstromErr DOUBLE NULL,
+	xAstromErr FLOAT(0) NULL,
 	yAstrom DOUBLE NULL,
-	yAstromErr DOUBLE NULL,
+	yAstromErr FLOAT(0) NULL,
 	raAstrom DOUBLE NULL,
-	raAstromErr DOUBLE NULL,
+	raAstromErr FLOAT(0) NULL,
 	declAstrom DOUBLE NULL,
-	declAstromErr DOUBLE NULL,
+	declAstromErr FLOAT(0) NULL,
 	taiMidPoint DOUBLE NOT NULL,
 	taiRange FLOAT(0) NOT NULL,
-	fwhmA FLOAT(0) NOT NULL,
-	fwhmB FLOAT(0) NOT NULL,
-	fwhmTheta FLOAT(0) NOT NULL,
 	lengthDeg DOUBLE NOT NULL,
-	flux FLOAT(0) NOT NULL,
-	fluxErr FLOAT(0) NOT NULL,
-	psfMag DOUBLE NOT NULL,
-	psfMagErr FLOAT(0) NOT NULL,
-	apMag DOUBLE NOT NULL,
-	apMagErr FLOAT(0) NOT NULL,
-	modelMag DOUBLE NOT NULL,
-	modelMagErr FLOAT(0) NULL,
-	instMag DOUBLE NOT NULL,
-	instMagErr DOUBLE NOT NULL,
-	nonGrayCorrMag DOUBLE NULL,
-	nonGrayCorrMagErr DOUBLE NULL,
-	atmCorrMag DOUBLE NULL,
-	atmCorrMagErr DOUBLE NULL,
+	psfFlux DOUBLE NOT NULL,
+	psfFluxErr FLOAT(0) NOT NULL,
+	apFlux DOUBLE NOT NULL,
+	apFluxErr FLOAT(0) NOT NULL,
+	modelFlux DOUBLE NOT NULL,
+	modelFluxErr FLOAT(0) NULL,
+	instFlux DOUBLE NOT NULL,
+	instFluxErr FLOAT(0) NOT NULL,
+	nonGrayCorrFlux DOUBLE NULL,
+	nonGrayCorrFluxErr FLOAT(0) NULL,
+	atmCorrFlux DOUBLE NULL,
+	atmCorrFluxErr FLOAT(0) NULL,
 	apDia FLOAT(0) NULL,
 	refMag FLOAT(0) NULL,
 	Ixx FLOAT(0) NULL,
@@ -142,7 +137,7 @@ CREATE TABLE DIASource
 	KEY (procHistoryId),
 	INDEX idx_DIASource_ssmId (ssmId ASC),
 	KEY (scId),
-	INDEX idx_DIASource_psfMag (psfMag ASC),
+	INDEX idx_DIASource_psfMag (psfFlux ASC),
 	INDEX idx_DIASource_taiMidPoint (taiMidPoint ASC)
 ) TYPE=MyISAM;
 
@@ -457,25 +452,25 @@ CREATE TABLE Object
 	muDecl DOUBLE NULL,
 	muDeclErr FLOAT(0) NULL,
 	xFlux DOUBLE NULL,
-	xFluxErr DOUBLE NULL,
+	xFluxErr FLOAT(0) NULL,
 	yFlux DOUBLE NULL,
-	yFluxErr DOUBLE NULL,
+	yFluxErr FLOAT(0) NULL,
 	raFlux DOUBLE NULL,
-	raFluxErr DOUBLE NULL,
+	raFluxErr FLOAT(0) NULL,
 	declFlux DOUBLE NULL,
-	declFluxErr DOUBLE NULL,
+	declFluxErr FLOAT(0) NULL,
 	xPeak DOUBLE NULL,
 	yPeak DOUBLE NULL,
 	raPeak DOUBLE NULL,
 	declPeak DOUBLE NULL,
 	xAstrom DOUBLE NULL,
-	xAstromErr DOUBLE NULL,
+	xAstromErr FLOAT(0) NULL,
 	yAstrom DOUBLE NULL,
-	yAstromErr DOUBLE NULL,
+	yAstromErr FLOAT(0) NULL,
 	raAstrom DOUBLE NULL,
-	raAstromErr DOUBLE NULL,
+	raAstromErr FLOAT(0) NULL,
 	declAstrom DOUBLE NULL,
-	declAstromErr DOUBLE NULL,
+	declAstromErr FLOAT(0) NULL,
 	refrRaAstrom FLOAT(0) NULL,
 	refrRaAstromErr FLOAT(0) NULL,
 	refrDeclAstrom FLOAT(0) NULL,
@@ -492,11 +487,11 @@ CREATE TABLE Object
 	izColor DOUBLE NULL,
 	zyColor DOUBLE NULL,
 	cx DOUBLE NOT NULL,
-	cxErr DOUBLE NOT NULL,
+	cxErr FLOAT(0) NOT NULL,
 	cy DOUBLE NOT NULL,
-	cyErr DOUBLE NOT NULL,
+	cyErr FLOAT(0) NOT NULL,
 	cz DOUBLE NOT NULL,
-	czErr DOUBLE NOT NULL,
+	czErr FLOAT(0) NOT NULL,
 	flagForStage1 INTEGER NULL,
 	flagForStage2 INTEGER NULL,
 	flagForStage3 INTEGER NULL,
@@ -630,7 +625,7 @@ CREATE TABLE Object
 	yMag DOUBLE NULL,
 	yMagErr FLOAT(0) NULL,
 	yPetroMag DOUBLE NULL,
-	yPetroMagErr DOUBLE NULL,
+	yPetroMagErr FLOAT(0) NULL,
 	yApMag DOUBLE NULL,
 	yApMagErr FLOAT(0) NULL,
 	yPosErrA FLOAT(0) NULL,
@@ -823,17 +818,17 @@ CREATE TABLE Raw_CCD_Exposure
 	airmass FLOAT(0) NULL,
 	kNonGray DOUBLE NOT NULL,
 	c0 DOUBLE NOT NULL,
-	c0Err DOUBLE NOT NULL,
+	c0Err FLOAT(0) NOT NULL,
 	cx1 DOUBLE NOT NULL,
-	cx1Err DOUBLE NOT NULL,
+	cx1Err FLOAT(0) NOT NULL,
 	cx2 DOUBLE NOT NULL,
-	cx2Err DOUBLE NOT NULL,
+	cx2Err FLOAT(0) NOT NULL,
 	cy1 DOUBLE NOT NULL,
-	cy1Err DOUBLE NOT NULL,
+	cy1Err FLOAT(0) NOT NULL,
 	cy2 DOUBLE NOT NULL,
-	cy2Err DOUBLE NOT NULL,
+	cy2Err FLOAT(0) NOT NULL,
 	cxy DOUBLE NOT NULL,
-	cxyErr DOUBLE NOT NULL,
+	cxyErr FLOAT(0) NOT NULL,
 	PRIMARY KEY (rawCCDExposureId),
 	KEY (rawFPAExposureId),
 	KEY (procHistoryId)
@@ -1227,45 +1222,48 @@ CREATE TABLE Source
 	declErrForDetection FLOAT(0) NULL,
 	declErrForWcs FLOAT(0) NOT NULL,
 	xFlux DOUBLE NULL,
-	xFluxErr DOUBLE NULL,
+	xFluxErr FLOAT(0) NULL,
 	yFlux DOUBLE NULL,
-	yFluxErr DOUBLE NULL,
+	yFluxErr FLOAT(0) NULL,
 	raFlux DOUBLE NULL,
-	raFluxErr DOUBLE NULL,
+	raFluxErr FLOAT(0) NULL,
 	declFlux DOUBLE NULL,
-	declFluxErr DOUBLE NULL,
+	declFluxErr FLOAT(0) NULL,
 	xPeak DOUBLE NULL,
 	yPeak DOUBLE NULL,
 	raPeak DOUBLE NULL,
 	declPeak DOUBLE NULL,
 	xAstrom DOUBLE NULL,
-	xAstromErr DOUBLE NULL,
+	xAstromErr FLOAT(0) NULL,
 	yAstrom DOUBLE NULL,
-	yAstromErr DOUBLE NULL,
+	yAstromErr FLOAT(0) NULL,
 	raAstrom DOUBLE NULL,
-	raAstromErr DOUBLE NULL,
+	raAstromErr FLOAT(0) NULL,
 	declAstrom DOUBLE NULL,
-	declAstromErr DOUBLE NULL,
+	declAstromErr FLOAT(0) NULL,
 	taiMidPoint DOUBLE NOT NULL,
 	taiRange FLOAT(0) NULL,
-	fwhmA FLOAT(0) NOT NULL,
-	fwhmB FLOAT(0) NOT NULL,
-	fwhmTheta FLOAT(0) NOT NULL,
-	psfMag DOUBLE NOT NULL,
-	psfMagErr FLOAT(0) NOT NULL,
-	apMag DOUBLE NOT NULL,
-	apMagErr FLOAT(0) NOT NULL,
-	modelMag DOUBLE NOT NULL,
-	modelMagErr FLOAT(0) NOT NULL,
-	petroMag DOUBLE NULL,
-	petroMagErr FLOAT(0) NULL,
-	instMag DOUBLE NOT NULL,
-	instMagErr DOUBLE NOT NULL,
-	nonGrayCorrMag DOUBLE NULL,
-	nonGrayCorrMagErr DOUBLE NULL,
-	atmCorrMag DOUBLE NULL,
-	atmCorrMagErr DOUBLE NULL,
+	psfFlux DOUBLE NOT NULL,
+	psfFluxErr FLOAT(0) NOT NULL,
+	apFlux DOUBLE NOT NULL,
+	apFluxErr FLOAT(0) NOT NULL,
+	modelFlux DOUBLE NOT NULL,
+	modelFluxErr FLOAT(0) NOT NULL,
+	petroFlux DOUBLE NULL,
+	petroFluxErr FLOAT(0) NULL,
+	instFlux DOUBLE NOT NULL,
+	instFluxErr FLOAT(0) NOT NULL,
+	nonGrayCorrFlux DOUBLE NULL,
+	nonGrayCorrFluxErr FLOAT(0) NULL,
+	atmCorrFlux DOUBLE NULL,
+	atmCorrFluxErr FLOAT(0) NULL,
 	apDia FLOAT(0) NULL,
+	Ixx FLOAT(0) NULL,
+	IxxErr FLOAT(0) NULL,
+	Iyy FLOAT(0) NULL,
+	IyyErr FLOAT(0) NULL,
+	Ixy FLOAT(0) NULL,
+	IxyErr FLOAT(0) NULL,
 	snr FLOAT(0) NOT NULL,
 	chi2 FLOAT(0) NOT NULL,
 	sky FLOAT(0) NULL,
@@ -1320,21 +1318,21 @@ CREATE TABLE mops_Tracklet
 	procHistoryId INT NOT NULL,
 	ssmId BIGINT NULL,
 	velRa DOUBLE NULL,
-	velRaErr DOUBLE NULL,
+	velRaErr FLOAT(0) NULL,
 	velDecl DOUBLE NULL,
-	velDeclErr DOUBLE NULL,
+	velDeclErr FLOAT(0) NULL,
 	velTot DOUBLE NULL,
 	accRa DOUBLE NULL,
-	accRaErr DOUBLE NULL,
+	accRaErr FLOAT(0) NULL,
 	accDecl DOUBLE NULL,
-	accDeclErr DOUBLE NULL,
+	accDeclErr FLOAT(0) NULL,
 	extEpoch DOUBLE NULL,
 	extRa DOUBLE NULL,
-	extRaErr DOUBLE NULL,
+	extRaErr FLOAT(0) NULL,
 	extDecl DOUBLE NULL,
-	extDeclErr DOUBLE NULL,
+	extDeclErr FLOAT(0) NULL,
 	extMag DOUBLE NULL,
-	extMagErr DOUBLE NULL,
+	extMagErr FLOAT(0) NULL,
 	probability DOUBLE NULL,
 	status CHAR(1) NULL,
 	classification CHAR(1) NULL,
@@ -1353,7 +1351,7 @@ CREATE TABLE sdqa_Rating_ForScienceCCDExposure
 	sdqa_thresholdId SMALLINT NOT NULL,
 	ccdExposureId BIGINT NOT NULL,
 	metricValue DOUBLE NOT NULL,
-	metricErr DOUBLE NOT NULL,
+	metricErr FLOAT(0) NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
@@ -1424,6 +1422,17 @@ CREATE TABLE prv_CCD
 ) ;
 
 
+CREATE TABLE prv_StageToUpdatableColumn
+(
+	stageId SMALLINT NOT NULL,
+	columnId SMALLINT NOT NULL,
+	cStageToUpdateColumnId SMALLINT NOT NULL,
+	KEY (stageId),
+	KEY (columnId),
+	KEY (cStageToUpdateColumnId)
+) ;
+
+
 CREATE TABLE prv_StageToPipeline
 (
 	stageToPipelineId MEDIUMINT NOT NULL,
@@ -1470,13 +1479,12 @@ CREATE TABLE prv_cnf_Slice
 
 CREATE TABLE prv_cnf_PolicyKey
 (
-	runId VARCHAR(64) NOT NULL,
 	policyKeyId INTEGER NOT NULL,
 	value TEXT NULL,
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
-	PRIMARY KEY (runId, policyKeyId),
-	KEY (runId, policyKeyId)
+	PRIMARY KEY (policyKeyId),
+	KEY (policyKeyId)
 ) ;
 
 
@@ -1608,7 +1616,7 @@ CREATE TABLE sdqa_Rating_ForScienceFPAExposure
 	sdqa_thresholdId SMALLINT NOT NULL,
 	exposureId INTEGER NOT NULL,
 	metricValue DOUBLE NOT NULL,
-	metricErr DOUBLE NOT NULL,
+	metricErr FLOAT(0) NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
 	KEY (exposureId),
 	KEY (sdqa_metricId),
@@ -1623,7 +1631,7 @@ CREATE TABLE sdqa_Rating_ForScienceAmpExposure
 	sdqa_thresholdId SMALLINT NOT NULL,
 	ampExposureId BIGINT NOT NULL,
 	metricValue DOUBLE NOT NULL,
-	metricErr DOUBLE NOT NULL,
+	metricErr FLOAT(0) NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
@@ -1734,17 +1742,6 @@ CREATE TABLE prv_cnf_FocalPlane
 ) ;
 
 
-CREATE TABLE prv_StageToUpdatableColumn
-(
-	stageId SMALLINT NOT NULL,
-	columnId SMALLINT NOT NULL,
-	cStageToUpdateColumnId SMALLINT NOT NULL,
-	KEY (stageId),
-	KEY (columnId),
-	KEY (cStageToUpdateColumnId)
-) ;
-
-
 CREATE TABLE prv_StageToSlice
 (
 	stageToSliceId MEDIUMINT NOT NULL,
@@ -1777,12 +1774,12 @@ CREATE TABLE prv_Run
 
 CREATE TABLE prv_PolicyKey
 (
-	runId VARCHAR(64) NOT NULL,
 	policyKeyId INTEGER NOT NULL,
 	policyFileId INTEGER NOT NULL,
 	keyName VARCHAR(255) NOT NULL,
 	keyType VARCHAR(16) NOT NULL,
-	PRIMARY KEY (runId, policyKeyId)
+	PRIMARY KEY (policyKeyId),
+	KEY (policyFileId)
 ) ;
 
 
@@ -1807,14 +1804,13 @@ CREATE TABLE prv_Node
 
 CREATE TABLE prv_cnf_SoftwarePackage
 (
-	runId VARCHAR(64) NOT NULL,
 	packageId INTEGER NOT NULL,
 	version VARCHAR(255) NOT NULL,
 	directory VARCHAR(255) NOT NULL,
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
-	PRIMARY KEY (runId, packageId),
-	KEY (runId, packageId)
+	PRIMARY KEY (packageId),
+	KEY (packageId)
 ) ;
 
 
@@ -2075,10 +2071,9 @@ CREATE TABLE prv_FocalPlane
 
 CREATE TABLE prv_SoftwarePackage
 (
-	runId VARCHAR(64) NOT NULL,
 	packageId INTEGER NOT NULL,
 	packageName VARCHAR(64) NOT NULL,
-	PRIMARY KEY (runId, packageId)
+	PRIMARY KEY (packageId)
 ) ;
 
 
@@ -2091,12 +2086,11 @@ CREATE TABLE prv_Slice
 
 CREATE TABLE prv_PolicyFile
 (
-	runId VARCHAR(64) NOT NULL,
 	policyFileId INTEGER NOT NULL,
 	pathName VARCHAR(255) NOT NULL,
 	hashValue CHAR(32) NOT NULL,
 	modifiedDate BIGINT NOT NULL,
-	PRIMARY KEY (runId, policyFileId)
+	PRIMARY KEY (policyFileId)
 ) ;
 
 
@@ -2453,7 +2447,7 @@ ALTER TABLE prv_cnf_Slice ADD CONSTRAINT FK_Config_Slice_Slice
 	FOREIGN KEY (sliceId) REFERENCES prv_Slice (sliceId);
 
 ALTER TABLE prv_cnf_PolicyKey ADD CONSTRAINT FK_prv_cnf_PolicyKey_prv_PolicyKey 
-	FOREIGN KEY (runId, policyKeyId) REFERENCES prv_PolicyKey (runId, policyKeyId);
+	FOREIGN KEY (policyKeyId) REFERENCES prv_PolicyKey (policyKeyId);
 
 ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_Config_Node_Node 
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
@@ -2509,6 +2503,9 @@ ALTER TABLE prv_Stage ADD CONSTRAINT FK_Stage_Policy
 ALTER TABLE prv_Run ADD CONSTRAINT FK_Run_Policy 
 	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
 
+ALTER TABLE prv_PolicyKey ADD CONSTRAINT FK_prv_PolicyKey_prv_PolicyFile 
+	FOREIGN KEY (policyFileId) REFERENCES prv_PolicyFile (policyFileId);
+
 ALTER TABLE prv_Pipeline ADD CONSTRAINT FK_Pipeline_Policy 
 	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
 
@@ -2516,4 +2513,4 @@ ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_Policy
 	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
 
 ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_prv_SoftwarePackage 
-	FOREIGN KEY (runId, packageId) REFERENCES prv_SoftwarePackage (runId, packageId);
+	FOREIGN KEY (packageId) REFERENCES prv_SoftwarePackage (packageId);
