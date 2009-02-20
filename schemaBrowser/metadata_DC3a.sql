@@ -1912,6 +1912,7 @@ SET tableId = 12, name = "WCSSource",
 		description = "RA of the object from the WCS Object Catalog.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "degree",
 		displayOrder = 5;
 
 	INSERT INTO md_Column
@@ -1919,6 +1920,7 @@ SET tableId = 12, name = "WCSSource",
 		description = "Uncertainty of wcsObjectRa.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 6;
 
 	INSERT INTO md_Column
@@ -1926,6 +1928,7 @@ SET tableId = 12, name = "WCSSource",
 		description = "Decl of the object from the WCS Object Catalog.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "degree",
 		displayOrder = 7;
 
 	INSERT INTO md_Column
@@ -1933,6 +1936,7 @@ SET tableId = 12, name = "WCSSource",
 		description = "Uncertainty of wcsObjectDecl.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 8;
 
 	INSERT INTO md_Column
@@ -1948,6 +1952,7 @@ SET tableId = 12, name = "WCSSource",
 		description = "Uncertainty of ra.",
 		type = "FLOAT",
 		notNull = 0,
+		unit = "degree",
 		displayOrder = 10;
 
 	INSERT INTO md_Column
@@ -1955,6 +1960,7 @@ SET tableId = 12, name = "WCSSource",
 		description = "Decl that the WCS yields for this WCSSource.",
 		type = "DOUBLE",
 		notNull = 1,
+		unit = "degree",
 		displayOrder = 11;
 
 	INSERT INTO md_Column
