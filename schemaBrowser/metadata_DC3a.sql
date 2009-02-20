@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3a;
 USE lsst_schema_browser_DC3a;
 
 
-CREATE TABLE AAA_Version_DC3a_3_0_14 (version CHAR);
+CREATE TABLE AAA_Version_DC3a_3_0_15 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -1911,7 +1911,7 @@ SET tableId = 12, name = "WCSSource",
 	SET columnId = 262, tableId = 12, name = "wcsObjectRa",
 		description = "RA of the object from the WCS Object Catalog.",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 5;
 
@@ -1927,7 +1927,7 @@ SET tableId = 12, name = "WCSSource",
 	SET columnId = 264, tableId = 12, name = "wcsObjectDecl",
 		description = "Decl of the object from the WCS Object Catalog.",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 7;
 
@@ -1943,7 +1943,7 @@ SET tableId = 12, name = "WCSSource",
 	SET columnId = 266, tableId = 12, name = "ra",
 		description = "RA that the WCS yields for this WCSSource.",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 9;
 
@@ -1959,7 +1959,7 @@ SET tableId = 12, name = "WCSSource",
 	SET columnId = 268, tableId = 12, name = "decl",
 		description = "Decl that the WCS yields for this WCSSource.",
 		type = "DOUBLE",
-		notNull = 1,
+		notNull = 0,
 		unit = "degree",
 		displayOrder = 11;
 
