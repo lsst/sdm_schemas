@@ -7,14 +7,8 @@ http://dev.lsstcorp.org/trac/wiki/dbDC3aSetup
 Policy files needed
 ===================
 
-1) "mysqlsu.txt". Contents:
-    - mysql superuser name
-    - mysql superuser password
-
 2) "globalDBPolicy.txt". Contents:
     - path to the setup scripts (these in DMS/cat/??/sql/)
-    - mysql superuser name
-    - mysql superuser password
 
 3) "perRunDBPolicy.txt". Contents:
  -  path to the setup scripts (these in DMS/cat/??/sql/)
@@ -45,11 +39,10 @@ with appropriate authorizations.
 To authorize user, use: addMySqlUser.py command. It takes 
 the following arguments:
 
-addMySqlUser.py -f {policyFile} -s {mysqlServerHost} -u {userName} 
+addMySqlUser.py -s {mysqlServerHost} -u {userName} 
                 -p {userPassword} -c {clientHost} 
                 -g {globalDbName} -v {dcVersion}
 Where:
-  - policyFile:      the policy file containing mysql superuser name and password.
   - mysqlServerHost: host name where the mysql server runs
   - userName:        mysql username of the added user
   - userPassword:    mysql password of the added user
@@ -65,7 +58,8 @@ One-time setup
 ==============
 
 To do one-time setup, run the function setupGlobalDB
-from administerRuns.py. Example
+from administerRuns.py. Notice that it will prompt
+for musql superuser account name and password. Example
 
 #!/usr/bin/env python
 from administerRuns import AdminRuns

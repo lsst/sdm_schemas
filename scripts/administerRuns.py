@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from mysqlBase import MySQLBase
+import getpass
 import os
 import subprocess
 import sys
@@ -34,8 +35,9 @@ class AdminRuns(MySQLBase):
             #raise RuntimeError("Policy file'%s' not found" % policyFile)
         # TODO: load this from policy file
         sqlDir = "../sql/" # path to the file setup_GlobalDB.sql
-        dbSuperUserName = "becla"
-        dbSuperUserPassword = ""
+
+        dbSuperUserName = raw_input("Enter mysql superuser account name: ")
+        dbSuperUserPassword = getpass.getpass()
 
         # Verify that the schema file exists
         sqlFilePath = os.path.join(sqlDir, "setup_GlobalDB.sql")
@@ -99,7 +101,8 @@ class AdminRuns(MySQLBase):
         prepareForNewRun prepares database for a new run. This includes
         creating appropriate database(s) and tables(s) as well as preloading
         some static database contents and registering the run in the 
-        global database.
+        global database. It returns a database name corresponding to the
+        run that is starting.
         """
         if (runType != 'p' and runType != 'u'):
             raise RuntimeError("Invalid runType '%c', expected 'u' or 'p'" % \
@@ -169,3 +172,14 @@ class AdminRuns(MySQLBase):
 
         # Disconnect from database
         self.disconnect()
+
+        # return database name
+        return runDbName
+
+    def runFinished():
+        """
+        Should be called after the run finished. This 
+        function records in the GlobalDB the fact that
+        the run finished (date, maybe status, etc)
+        """
+

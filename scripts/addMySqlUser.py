@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from mysqlBase import MySQLBase
+import getpass
 import optparse
 import os
 import sys
@@ -14,9 +15,8 @@ import sys
 """
 
 
-usage = """%prog -f {policyFile} -s {mysqlServerHost} -u {userName} -p {userPassword} -g {globalDbName} -v {dcVersion} [-c {clientHost}] 
+usage = """%prog -s {mysqlServerHost} -u {userName} -p {userPassword} -g {globalDbName} -v {dcVersion} [-c {clientHost}] 
 Where:
-  - policyFile:      the policy file containing mysql superuser name and password.
   - mysqlServerHost: host name where the mysql server runs
   - userName:        mysql username of the added user
   - userPassword:    mysql password of the added user
@@ -27,7 +27,6 @@ Where:
 
 
 parser = optparse.OptionParser(usage)
-parser.add_option("-f")
 parser.add_option("-s")
 parser.add_option("-u")
 parser.add_option("-p")
@@ -37,12 +36,11 @@ parser.add_option("-v")
 
 options, arguments = parser.parse_args()
 
-if not options.f or not options.s or not options.u or \
+if not options.s or not options.u or \
    not options.p or not options.g or not options.v:
     sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
     sys.exit(1)
 
-policyFile = options.f
 serverHost = options.s
 userName = options.u
 userPass = options.p
@@ -55,10 +53,8 @@ else:
     clientHost = '%'
 
 
-# TODO... read these from the policyFile
-rootU = "becla" # mysql superuser
-rootP = ""      # mysql superuser password
-
+rootU = raw_input("Enter mysql superuser account name: ")
+rootP = getpass.getpass()
 
 admin = MySQLBase(serverHost)
 admin.connect(rootU, rootP, globalDbName)
