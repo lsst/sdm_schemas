@@ -19,6 +19,6 @@ x.execCommandN("SHOW TABLES")
 x.connect("becla", "", "db1")
 x.execCommand0("CREATE TABLE t2 (i int)")
 x.execCommandN("SHOW TABLES")
-x.loadSqlScript("../sql/setup_GlobalDB.sql", "becla", "", "db1")
+x.loadSqlScript("../sql/setup_DB_global.sql", "becla", "", "db1")
 
 

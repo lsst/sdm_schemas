@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from administerRuns import AdminRuns
+from administerRuns import SUAdmin
 from mysqlBase import MySQLBase
 import MySQLdb
 import subprocess
@@ -19,6 +20,15 @@ p2 = "pwd2"
 maxNIter = 30
 
 
+fakedPolicy = {
+    'globalDbName': gDb,
+    'dcVersion': 'DC3a',
+    'sqlDir': '../sql/', # path to the setup files
+    'minPercDiskSpaceReq': 10, # minimum disk space required [%]
+    'userRunLife': 2  # default lifetime of new user runs [in weeks]
+}
+
+
 def dropDB():
     admin = MySQLBase(hostN)
     admin.connect("becla", "")
@@ -33,37 +43,41 @@ def createDummyUserAccounts():
     program exist. In normal operations, these accounts should already exist
     prior to running anything.
     """
-    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u1, p1, gDb, dcV)
+    cmd = "../scripts/addMySqlUser.py -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u1, p1, gDb, dcV)
     print cmd
     subprocess.call(cmd.split())
-    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u2, p2, gDb, dcV)
+    cmd = "../scripts/addMySqlUser.py -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u2, p2, gDb, dcV)
     print cmd
     subprocess.call(cmd.split())
 
 
 dropDB()
 
-# one connection per user
-a1 = AdminRuns(hostN, # mysql host
-              gDb)   # global db name
-a2 = AdminRuns(hostN, # mysql host
-              gDb)   # global db name
-
 
 # create global db
-a1.setupGlobalDB("globalDBPolicy.txt")
+xSU = SUAdmin(hostN, # mysql host
+              3306,  # mysql port
+              fakedPolicy)
+xSU.setupOnceGlobal()
+
+
+# one connection per user
+a1 = AdminRuns(hostN, # mysql host
+               3306,  # mysql port
+               fakedPolicy)
+a2 = AdminRuns(hostN, # mysql host
+               3306,  # mysql port
+               fakedPolicy)
 
 
 createDummyUserAccounts()
 
 
-a1.checkStatus("perRunDBPolicy.txt", 
-               u1,     # non-superuser
+a1.checkStatus(u1,     # non-superuser
                p1,     # password
                hostN)  # machine where mysql client is executed
 
-a2.checkStatus("perRunDBPolicy.txt", 
-               u2,     # non-superuser
+a2.checkStatus(u2,     # non-superuser
                p2,     # password
                hostN)  # machine where mysql client is executed
 
@@ -79,7 +93,7 @@ outLogFile = open("./_cleanup.log", "w")
 for n in range(1, maxNIter):
     print "\n\n************** doing ", n, " **************\n"
 
-    a1.prepareForNewRun("perRunDBPolicy.txt", "myRun_%02i"%n,  "u", u1, p1)
+    a1.prepareForNewRun("myRun_%02i"%n, u1, p1)
 
     # manually adjust the run start time, notice, have to run as su
     bSU.connect("becla", "", gDb)
@@ -104,7 +118,7 @@ for n in range(1, maxNIter):
         b.disconnect()
 
     if n % 3 == 1:
-        a2.prepareForNewRun("perRunDBPolicy.txt", "myRun_%02i"%n,  "u", u2, p2);
+        a2.prepareForNewRun("myRun_%02i"%n, u2, p2);
 
     # manually adjust the run start time
     bSU.connect("becla", "", gDb)

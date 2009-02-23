@@ -14,8 +14,9 @@ class MySQLBase:
     executing commands or loading sql scripts to database. It caches
     connections, and handles database errors.
     """
-    def __init__(self, dbHostName):
+    def __init__(self, dbHostName, portNo=3306):
         self.dbHostName = dbHostName
+        self.dbHostPort = portNo
         self.db = None
         self.dbOpened = None
 
@@ -36,8 +37,11 @@ class MySQLBase:
             self.disconnect()
 
         try:
-            self.db = MySQLdb.connect(self.dbHostName, dbUser, 
-                                      dbPassword, dbName)
+            self.db = MySQLdb.connect(host=self.dbHostName, 
+                                      port=self.dbHostPort,
+                                      user=dbUser, 
+                                      passwd=dbPassword, 
+                                      db=dbName)
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
 
