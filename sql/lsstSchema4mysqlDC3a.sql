@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_15 (version CHAR);
+CREATE TABLE AAA_Version_3_0_16 (version CHAR);
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -254,7 +254,8 @@ CREATE TABLE DIASource
 	instFlux DOUBLE NOT NULL,
 	instFluxErr FLOAT(0) NOT NULL,
 	apDia FLOAT(0) NULL,
-	flagClassification BIGINT NULL,
+	flagForClassification BIGINT NULL,
+	flagForDetection BIGINT NULL,
 	_dataSource TINYINT NOT NULL,
 	snr FLOAT(0) NOT NULL,
 	chi2 FLOAT(0) NOT NULL,
