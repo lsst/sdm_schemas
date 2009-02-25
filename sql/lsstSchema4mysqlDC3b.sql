@@ -1346,13 +1346,14 @@ CREATE TABLE mops_Tracklet
 
 CREATE TABLE sdqa_Rating_ForScienceCCDExposure
 (
-	sdqa_ratingId BIGINT NOT NULL,
+	sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
 	sdqa_metricId SMALLINT NOT NULL,
 	sdqa_thresholdId SMALLINT NOT NULL,
 	ccdExposureId BIGINT NOT NULL,
 	metricValue DOUBLE NOT NULL,
 	metricErr FLOAT(0) NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
+	UNIQUE UQ_sdqa_Rating_ForScienceCCDExposure_metricId_ccdExposureId(sdqa_metricId, ccdExposureId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ccdExposureId)
@@ -1611,13 +1612,14 @@ CREATE TABLE sdqa_Threshold
 
 CREATE TABLE sdqa_Rating_ForScienceFPAExposure
 (
-	sdqa_ratingId BIGINT NOT NULL,
+	sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
 	sdqa_metricId SMALLINT NOT NULL,
 	sdqa_thresholdId SMALLINT NOT NULL,
 	exposureId INTEGER NOT NULL,
 	metricValue DOUBLE NOT NULL,
 	metricErr FLOAT(0) NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
+	UNIQUE UQ_sdqa_Rating_ForScienceFPAExposure_metricId_exposureId(sdqa_metricId, exposureId),
 	KEY (exposureId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId)
@@ -1626,13 +1628,14 @@ CREATE TABLE sdqa_Rating_ForScienceFPAExposure
 
 CREATE TABLE sdqa_Rating_ForScienceAmpExposure
 (
-	sdqa_ratingId BIGINT NOT NULL,
+	sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
 	sdqa_metricId SMALLINT NOT NULL,
 	sdqa_thresholdId SMALLINT NOT NULL,
 	ampExposureId BIGINT NOT NULL,
 	metricValue DOUBLE NOT NULL,
 	metricErr FLOAT(0) NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
+	UNIQUE UQ_sdqa_Rating_ForScienceAmpExposure_metricId_ampExposureId(sdqa_metricId, ampExposureId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ampExposureId)
