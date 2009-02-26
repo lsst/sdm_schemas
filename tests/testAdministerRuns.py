@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from administerRuns import AdminRuns
-from mysqlBase import MySQLBase
+from lsst.cat.administerRuns import AdminRuns
+from lsst.cat.mysqlBase import MySQLBase
 
 
 fakedPolicy = {

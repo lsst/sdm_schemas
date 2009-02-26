@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 
-from administerRuns import AdminRuns
-from administerRuns import SUAdmin
-from mysqlBase import MySQLBase
-import MySQLdb
+from lsst.cat.administerRuns import AdminRuns, SUAdmin
+from lsst.cat.mysqlBase import MySQLBase
+
 import subprocess
 
 gDb = "GlobalDB4cleanupTest"

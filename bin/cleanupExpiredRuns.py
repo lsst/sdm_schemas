@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from mysqlBase import MySQLBase
+from lsst.cat.mysqlBase import MySQLBase
 import optparse
 import os
 import subprocess
