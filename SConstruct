@@ -39,13 +39,8 @@ for d in Split("sql bin pipeline lib python examples tests doc"):
 env['IgnoreFiles'] = r"(~$|\.pyc$|^\.svn$|\.o$)"
 
 Alias("install", [env.Install(env['prefix'], "python"),
-                  env.Install(env['prefix'], "include"),
-                  env.Install(env['prefix'], "lib"),
                   env.Install(env['prefix'], "bin"),
                   env.Install(env['prefix'], "sql"),
-                  env.Install(env['prefix'], "pipeline"),
-                  env.InstallAs(os.path.join(env['prefix'], "doc", "doxygen"),
-                                os.path.join("doc", "htmlDir")),
                   env.InstallEups(os.path.join(env['prefix'], "ups"))])
 
 scons.CleanTree(r"*~ core *.so *.os *.o")
