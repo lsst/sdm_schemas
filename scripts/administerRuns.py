@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from mysqlBase import MySQLBase
-import getpass
 import os
 import subprocess
 import sys
@@ -10,10 +9,13 @@ import sys
 """This file contains a set of utilities to manage runs"""
 
 
-class AdminBase(MySQLBase):
+class AdminRuns(MySQLBase):
     """
-    Base class. Extracts and stores information from 
-    policy object.
+    Class AdminRuns contains a set of utils to administer LSST-specific
+    contents of the database which do not require mysql superuser access.
+    In particular, it helps to setup verify  status of global database(s)
+    and user-specific database settings prior to starting a run, and 
+    allows to register run in global database.
     """
 
     def __init__(self, dbHostName, portNo, policyObject):
@@ -35,71 +37,6 @@ class AdminBase(MySQLBase):
         self.dcDbName = '%s_DB' % self.dcVersion
 
 
-class SUAdmin(AdminBase):
-    """
-    Class SUAdmin contains a set of utils to administer LSST-specific
-    contents of the database. It requires mysql superuser access.
-    In particular, it helps to setup global database and the 
-    per-data-challenge database.
-    """
-
-    def __init__(self, dbHostName, portNo, policyObject):
-        AdminBase.__init__(self, dbHostName, portNo, policyObject)
-        self.dbSUName = raw_input("Enter mysql superuser account name: ")
-        self.dbSUPwd = getpass.getpass()
-
-
-    def setupOnceGlobal(self):
-        """
-        setupOnceGlobal creates and configures Global database. 
-        This function should be executed only once.
-        """
-        # create and configure global database
-        self.__setupOnce__(self.globalDbName, 'setup_DB_global.sql')
-
-
-    def setupOnceDataChallenge(self):
-        """
-        setupOnceDataChallenge creates and configures data-challenge
-        specific database. It should be executed once for each DC.
-        """
-        # create and configure per-DC database
-        self.__setupOnce__(self.dcDbName, 'setup_DB_dataChallenge.sql')
-        # also load the regular per-run schema
-        fN = "lsstSchema4mysql%s.sql" % self.dcVersion
-        p = os.path.join(self.sqlDir, fN)
-        self.loadSqlScript(p, self.dbSUName, self.dbSUPwd, self.dcDbName)
-
-
-    def __setupOnce__(self, dbName, setupScript):
-        # Verify that the setup file exist
-        setupPath = os.path.join(self.sqlDir, setupScript)
-        if not os.path.exists(setupPath):
-            raise RuntimeError("Can't find schema file '%s'" % setupPath)
-
-        # Create database
-        self.connect(self.dbSUName, self.dbSUPwd)
-        self.execCommand0("CREATE DATABASE " + dbName)
-        self.disconnect()
-
-        # Configure the database
-        self.loadSqlScript(setupPath, self.dbSUName, self.dbSUPwd, dbName)
-
-
-
-class AdminRuns(AdminBase):
-    """
-    Class AdminRuns contains a set of utils to administer LSST-specific
-    contents of the database which do not require mysql superuser access.
-    In particular, it helps to setup verify  status of global database(s)
-    and user-specific database settings prior to starting a run, and 
-    allows to register run in global database.
-    """
-
-    def __init(self, dbHostName, portNo, policyObject):
-        AdminBase.__init__(self, dbHostName, portNo, policyObject)
-
-
     def checkStatus(self, userName, userPassword, clientMachine):
         """
         checkStatus checks status of global database and user-specific 
@@ -108,11 +45,15 @@ class AdminRuns(AdminBase):
         """
 
         # Check if Global database and its tables exist
+        if not self.dbExists(userName, userPassword, self.globalDbName):
+            raise RuntimeError("Db '%s' not initialied." % self.globalDbName)
         self.connect(userName, userPassword, self.globalDbName)
         self.execCommand0("DESC RunInfo")
         self.disconnect()
 
         # Check if per-DC database and its tables exist
+        if not self.dbExists(userName, userPassword, self.dcDbName):
+            raise RuntimeError("Db '%s' not initialied." % self.dcDbName)
         self.connect(userName, userPassword, self.dcDbName)
         self.execCommand0("DESC prv_RunDbNameToRunCode")
         self.execCommand0("DESC prv_PolicyFile")
@@ -211,11 +152,10 @@ class AdminRuns(AdminBase):
         # Disconnect from database
         self.disconnect()
 
-        return "mysql://%s:%i/%s" % \
-                (self.dbHostName, self.dbHostPort, runDbName)
+        return (runDbName, self.dcDbName)
 
 
-    def runFinished(dbName):
+    def runFinished(self, dbName):
         """
         Should be called after the run finished. This 
         function records in the GlobalDB the fact that
