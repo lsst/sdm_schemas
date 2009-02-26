@@ -53,7 +53,7 @@ class AdminRuns(MySQLBase):
 
         # Check if per-DC database and its tables exist
         if not self.dbExists(userName, userPassword, self.dcDbName):
-            raise RuntimeError("Db '%s' not initialied." % self.dcDbName)
+            raise RuntimeError("Db '%s' not initialized." % self.dcDbName)
         self.connect(userName, userPassword, self.dcDbName)
         self.execCommand0("DESC prv_RunDbNameToRunCode")
         self.execCommand0("DESC prv_PolicyFile")
