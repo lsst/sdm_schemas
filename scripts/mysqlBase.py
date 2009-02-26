@@ -60,6 +60,34 @@ class MySQLBase:
         print "\nDisconnected (%s)" % self.dbOpened
         self.dbOpened = None
 
+    def dbExists(self, dbUser, dbPassword, dbName):
+        """
+        Checks if given database exists by trying to connect to it.
+        """
+        if self.isConnected():
+            self.disconnect()
+
+        # check if can connect to the server using given credentials
+        try:
+            self.db = MySQLdb.connect(host=self.dbHostName, 
+                                      port=self.dbHostPort,
+                                      user=dbUser, 
+                                      passwd=dbPassword)
+        except MySQLdb.Error, e:
+            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
+        self.disconnect()
+        # now check if the db exists
+        try:
+            self.db = MySQLdb.connect(host=self.dbHostName, 
+                                      port=self.dbHostPort,
+                                      user=dbUser, 
+                                      passwd=dbPassword,
+                                      db=dbName)
+        except MySQLdb.Error, e:
+            return False
+        self.disconnect()
+        return True
+
     def execCommand0(self, command):
         """
         Executes mysql commands which return no rows
