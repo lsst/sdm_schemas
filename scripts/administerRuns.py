@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import lsst.cat.MySQLBase
+from lsst.cat.MySQLBase import MySQLBase
 import os
 import subprocess
 import sys
@@ -45,18 +45,14 @@ class AdminRuns(MySQLBase):
         """
 
         # Check if Global database and its tables exist
-        if not self.dbExists(userName, userPassword, self.globalDbName):
-            raise RuntimeError("Db '%s' not initialied." % self.globalDbName)
         self.connect(userName, userPassword, self.globalDbName)
-        self.execCommand0("DESC RunInfo")
+        self.tableExists(RunInfo, True)
         self.disconnect()
 
         # Check if per-DC database and its tables exist
-        if not self.dbExists(userName, userPassword, self.dcDbName):
-            raise RuntimeError("Db '%s' not initialized." % self.dcDbName)
         self.connect(userName, userPassword, self.dcDbName)
-        self.execCommand0("DESC prv_RunDbNameToRunCode")
-        self.execCommand0("DESC prv_PolicyFile")
+        tableExists('prv_RunDbNameToRunCode', True)
+        tableExists('prv_PolicyFile', True)
         self.disconnect()
 
         # check if user has appropriate database privileges
@@ -135,7 +131,7 @@ class AdminRuns(MySQLBase):
         # create database for this new run
         # format: <userName>_<DC version>_<u|p>_<run number or name>
         runDbName = "%s_%s_%c_%s" % (userName, self.dcVersion, runType, runName)
-        self.execCommand0("CREATE DATABASE %s" % runDbName)
+        self.createDb(runDbName)
 
         # load all scripts
         for fP in dbScripts:
@@ -149,7 +145,6 @@ class AdminRuns(MySQLBase):
             (runName, self.dcVersion, runDbName, runLife, userName)
         self.execCommand0(cmd)
 
-        # Disconnect from database
         self.disconnect()
 
         return (runDbName, self.dcDbName)
@@ -163,6 +158,5 @@ class AdminRuns(MySQLBase):
         It take an argument: databaseName"
         """
 
-        self.connect(userName, userPassword, self.globalDbName)
-        self.execCommand0("DESC RunInfo")
-        self.disconnect()
+        #self.connect(userName, userPassword, self.globalDbName)
+        #self.disconnect()

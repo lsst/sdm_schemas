@@ -35,7 +35,6 @@ class MySQLBase:
             if self.dbOpened == dbName:
                 return
             self.disconnect()
-
         try:
             self.db = MySQLdb.connect(host=self.dbHostName, 
                                       port=self.dbHostPort,
@@ -45,8 +44,9 @@ class MySQLBase:
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
 
-        self.dbOpened = dbName
-        print "\nConnected to " + dbName
+        if dbName != "":
+            self.dbOpened = dbName
+        #print "\nConnected to " + dbName
 
     def disconnect(self):
         if self.db == None:
@@ -57,36 +57,37 @@ class MySQLBase:
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
         self.db = None
-        print "\nDisconnected (%s)" % self.dbOpened
+        #print "\nDisconnected (%s)" % self.dbOpened
         self.dbOpened = None
 
-    def dbExists(self, dbUser, dbPassword, dbName):
-        """
-        Checks if given database exists by trying to connect to it.
-        """
-        if self.isConnected():
-            self.disconnect()
+    def createDb(self, dbName):
+        self.execCommand0("CREATE DATABASE %s" % dbName)
 
-        # check if can connect to the server using given credentials
-        try:
-            self.db = MySQLdb.connect(host=self.dbHostName, 
-                                      port=self.dbHostPort,
-                                      user=dbUser, 
-                                      passwd=dbPassword)
-        except MySQLdb.Error, e:
-            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-        self.disconnect()
-        # now check if the db exists
-        try:
-            self.db = MySQLdb.connect(host=self.dbHostName, 
-                                      port=self.dbHostPort,
-                                      user=dbUser, 
-                                      passwd=dbPassword,
-                                      db=dbName)
-        except MySQLdb.Error, e:
-            return False
-        self.disconnect()
-        return True
+    def dropDb(self, dbName):
+        admin.execCommand0("DROP DATABASE IF EXISTS %s" % dbName)
+
+    def dbExists(self, dbName, throwOnFailure=False):
+        if dbName is None:
+            raise RuntimeError("Invalid dbName")
+        dbNames = self.execCommandN('SHOW DATABASES')
+        for dbN in dbNames:
+            if dbN[0] == dbName:
+                return True
+        if throwOnFailure:
+            raise RuntimeError("Database '%s' does not exist." % (dbName))
+        return False
+
+    def tableExists(self, tableName, throwOnFailure=False):
+        if self.dbOpened is None:
+            raise RuntimeError("Not connected to any database")
+        tableNames = self.execCommandN('SHOW TABLES')
+        for tN in tableNames:
+            if tN[0] == tableName:
+                return True
+        if throwOnFailure:
+            raise RuntimeError("Table '%s' does not exist in db '%s'." % \
+                                   (tableName, dbName))
+        return False
 
     def execCommand0(self, command):
         """
@@ -124,7 +125,7 @@ class MySQLBase:
         else:
             ret = cursor.fetchall()
         cursor.close()
-        print ret
+        #print ret
         return ret
 
     def loadSqlScript(self, scriptPath, dbUser, dbPassword, dbName=""):
@@ -139,10 +140,10 @@ class MySQLBase:
                 (self.dbHostName, dbUser, dbName)
 
         with file(scriptPath) as scriptFile:
+            print "Executing %s < %s" % (cmd, scriptPath)
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
                 raise RuntimeError("Failed to execute %s < %s" % \
                                        (cmd,scriptPath))
-            print "\nExecuted: %s < %s" % (cmd, scriptPath)
 
     def getDataDirSpaceAvailPerc(self):
         """

@@ -1,24 +1,29 @@
 #!/usr/bin/env python
 
 
-import lsst.cat.MySQLBase
+from lsst.cat.MySQLBase import MySQLBase
+import getpass
+import os
 
+usr = raw_input('Enter mysql user name: ')
+pwd = getpass.getpass()
+dbn = 'dummy_Test_DB_375Ef_4DRf56'
+sqlDir = './sql'
 
 x = MySQLBase("localhost")
+x.connect(usr, pwd)
 
-x.connect("becla", "")
-x.execCommandN("SHOW DATABASES")
-x.execCommand0("DROP DATABASE IF EXISTS db1")
-x.execCommand0("CREATE DATABASE db1")
-x.execCommandN("SHOW DATABASES")
+throwOnFailure = True
+assert not x.dbExists(dbn), 'Db %s should not exist' % dbn
+x.createDb(dbn)
+x.dbExists(dbn, throwOnFailure), 'Db %s should exist' % dbn
+x.connect(usr, pwd, dbn)
+assert not x.tableExists('xyz'), 'Table should not exist'
+x.loadSqlScript(os.path.join(sqlDir, 'setup_DB_global.sql'), usr, pwd, dbn)
+x.tableExists('RunInfo', throwOnFailure)
+x.dropDb(dbn)
+assert not x.dbExists(dbn), "droppped db '%s', but still exists" % dbn
 
 
-x.connect("becla", "", "db1")
-x.execCommand0("CREATE TABLE t1 (i int)")
-x.execCommandN("SHOW TABLES")
-x.connect("becla", "", "db1")
-x.execCommand0("CREATE TABLE t2 (i int)")
-x.execCommandN("SHOW TABLES")
-x.loadSqlScript("../sql/setup_DB_global.sql", "becla", "", "db1")
 
 

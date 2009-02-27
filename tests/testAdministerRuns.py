@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-import lsst.cat.administerRuns as AdminRuns
-import lsst.cat.MySQLBase
+from lsst.cat.administerRuns import AdminRuns
+from lsst.cat.MySQLBase import MySQLBase
 
 
 fakedPolicy = {
@@ -12,41 +12,40 @@ fakedPolicy = {
     'userRunLife': 2  # default lifetime of new user runs [in weeks]
 }
 
+host = "localhost"
+port = 3306
+usr = 'jacek'
+uwd = 'p'
+
+
 
 def dropDB():
     
-    admin = MySQLBase("localhost", 3306)
-    admin.connect("becla", "")
-    admin.execCommand0("DROP DATABASE IF EXISTS becla_DC3a_u_myFirstRun")
-    admin.execCommand0("DROP DATABASE IF EXISTS becla_DC3a_u_mySecondRun")
-    admin.execCommand0("DROP DATABASE IF EXISTS becla_DC3a_p_prodRunA")
+    admin = MySQLBase(host, port)
+    admin.connect(usr, pwd)
+    admin.dropDb('%s_%s_u_myFirstRun' % (usr, fakedPolicy[dcVersion]))
+    admin.dropDb('%s_%s_u_mySecondRun' % (usr, fakedPolicy[dcVersion]))
+    admin.dropDb('%s_%s_p_prodRunA' % (usr, fakedPolicy[dcVersion]))
 
 def markRunFinished(dbName):
-    admin = MySQLBase("localhost", 3306)
-    admin.connect("becla", "", fakedPolicy['globalDbName'])
+    admin = MySQLBase(host, port)
+    admin.connect(usr, pwd, fakedPolicy['globalDbName'])
     r = admin.execCommand1('SELECT setRunFinished("%s")' % dbName)
     print r
 
 def startSomeRuns():
-    x = AdminRuns("localhost", # mysql host
-                  3306,        # mysql server port
-                  fakedPolicy)
+    x = AdminRuns(host, port, fakedPolicy)
 
-    x.checkStatus("jacek",     # non-superuser
-                  "p",         # password
-                  "localhost") # machine where mysql client is executed
+    x.checkStatus(usr, pwd, 'localhost')
 
-    r = x.prepareForNewRun("myFirstRun",  "becla", "");
-    print 'got: '
+    r = x.prepareForNewRun('myFirstRun',  usr, pwd);
     print r
-    markRunFinished('becla_DC3a_u_myFirstRun')
+    markRunFinished('%s_%s_u_myFirstRun' %(usr, fakedPolicy[dcVersion]))
 
-    r = x.prepareForNewRun("mySecondRun", "becla", "");
-    print 'got: '
+    r = x.prepareForNewRun('mySecondRun', usr, pwd);
     print r
-    #markRunFinished('becla_DC3a_u_mySecondRun')
+    #markRunFinished('%s_%s_u_mySecondRun' %(usr, fakedPolicy[dcVersion]))
 
-    #x.prepareForNewRun("prodRunA",    "becla", "");
 
 ####################################################
 

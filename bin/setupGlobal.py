@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import lsst.cat.MySQLBase
+from lsst.cat.MySQLBase import MySQLBase
 import getpass
 import os
 import sys
@@ -41,15 +41,16 @@ class SetupGlobal(MySQLBase):
         setupGlobal creates and per-data-challenge database,
         and optionally (if it does not exist) the Global database. 
         """
-        # first create & configure Global database (if doesn't exist)
-        if self.dbExists(self.dbSUName, self.dbSUPwd, self.globalDbName):
+        self.connect(self.dbSUName, self.dbSUPwd)
+        # create & configure Global database (if doesn't exist)
+        if self.dbExists(self.globalDbName):
             print "%s exists" % self.globalDbName
         else:
             self.__setupOnce__(self.globalDbName, 'setup_DB_global.sql')
 
         # create and configure per-data-challange database (if doesn't exist)
         dcDbName = '%s_DB' % self.dcVersion
-        if self.dbExists(self.dbSUName, self.dbSUPwd, dcDbName):
+        if self.dbExists(dcDbName):
             print "%s exists" % dcDbName
         else:
             self.__setupOnce__(dcDbName, 'setup_DB_dataChallenge.sql')
@@ -57,6 +58,7 @@ class SetupGlobal(MySQLBase):
             fN = "lsstSchema4mysql%s.sql" % self.dcVersion
             p = os.path.join(self.sqlDir, fN)
             self.loadSqlScript(p, self.dbSUName, self.dbSUPwd, dcDbName)
+        self.disconnect()
 
     def __setupOnce__(self, dbName, setupScript):
         # Verify that the setupScript exist
@@ -64,12 +66,9 @@ class SetupGlobal(MySQLBase):
         if not os.path.exists(setupPath):
             raise RuntimeError("Can't find schema file '%s'" % setupPath)
         # Create database
-        self.connect(self.dbSUName, self.dbSUPwd)
-        self.execCommand0("CREATE DATABASE " + dbName)
-        self.disconnect()
+        self.createDb(dbName)
         # Configure database
         self.loadSqlScript(setupPath, self.dbSUName, self.dbSUPwd, dbName)
-
 
 
 

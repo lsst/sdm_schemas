@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-install lsst.cat.MySQLBase
+from lsst.cat.MySQLBase import MySQLBase
 import getpass
 
 fakedPolicy = {
