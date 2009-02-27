@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from mysqlBase import MySQLBase
+import lsst.cal.MySQLBase
 import getpass
 import optparse
 import os

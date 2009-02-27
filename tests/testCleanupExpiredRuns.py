@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from lsst.cat.administerRuns import AdminRuns, SUAdmin
-from lsst.cat.mysqlBase import MySQLBase
+import lsst.cat.MySQLBase
 
 import subprocess
 

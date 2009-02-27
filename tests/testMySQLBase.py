@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-from mysqlBase import MySQLBase
+import lsst.cat.MySQLBase
 
 
 x = MySQLBase("localhost")
