@@ -42,7 +42,8 @@ class MySQLBase:
                                       passwd=dbPassword, 
                                       db=dbName)
         except MySQLdb.Error, e:
-            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
+            raise RuntimeError("DB Error %d: %s. host=%s, port=%i, user=%s, pass=<hidden>" % \
+                               (e.args[0], e.args[1], self.dbHostName, self.dbHostPort, dbUser))
 
         if dbName != "":
             self.dbOpened = dbName
@@ -64,7 +65,7 @@ class MySQLBase:
         self.execCommand0("CREATE DATABASE %s" % dbName)
 
     def dropDb(self, dbName):
-        admin.execCommand0("DROP DATABASE IF EXISTS %s" % dbName)
+        self.execCommand0("DROP DATABASE IF EXISTS %s" % dbName)
 
     def dbExists(self, dbName, throwOnFailure=False):
         if dbName is None:

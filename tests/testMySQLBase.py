@@ -7,10 +7,13 @@ import os
 
 usr = raw_input('Enter mysql user name: ')
 pwd = getpass.getpass()
+#host ='localhost'
+host = 'lsst10.ncsa.uiuc.edu'
 dbn = 'dummy_Test_DB_375Ef_4DRf56'
 sqlDir = './sql'
 
-x = MySQLBase("localhost")
+
+x = MySQLBase(host)
 x.connect(usr, pwd)
 
 throwOnFailure = True
