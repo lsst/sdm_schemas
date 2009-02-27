@@ -70,9 +70,10 @@ class MySQLBase:
     def dbExists(self, dbName, throwOnFailure=False):
         if dbName is None:
             raise RuntimeError("Invalid dbName")
-        dbNames = self.execCommandN('SHOW DATABASES')
-        for dbN in dbNames:
-            if dbN[0] == dbName:
+        cmd = "SELECT COUNT(*) FROM information_schema.schemata "
+        cmd += "WHERE schema_name = '%s'" % dbName
+        count = self.execCommand1(cmd)
+        if count[0] == 1:
                 return True
         if throwOnFailure:
             raise RuntimeError("Database '%s' does not exist." % (dbName))
@@ -81,13 +82,15 @@ class MySQLBase:
     def tableExists(self, tableName, throwOnFailure=False):
         if self.dbOpened is None:
             raise RuntimeError("Not connected to any database")
-        tableNames = self.execCommandN('SHOW TABLES')
-        for tN in tableNames:
-            if tN[0] == tableName:
-                return True
+        cmd = "SELECT COUNT(*) FROM information_schema.tables "
+        cmd += "WHERE table_schema = '%s' AND table_name = '%s'" % \
+               (self.dbOpened, tableName)
+        count = self.execCommand1(cmd)
+        if count[0] == 1:
+            return True
         if throwOnFailure:
             raise RuntimeError("Table '%s' does not exist in db '%s'." % \
-                                   (tableName, dbName))
+                               (tableName, dbName))
         return False
 
     def execCommand0(self, command):
