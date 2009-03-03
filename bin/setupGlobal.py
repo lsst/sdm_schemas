@@ -2,7 +2,6 @@
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
-import lsst.pex.policy as pexPolicy
 
 import getpass
 import optparse
@@ -91,7 +90,8 @@ parser.add_option("-f")
 options, arguments = parser.parse_args()
 
 r = PolicyReader(None, options.f)
-(serverHost, serverPort, globalDbName, dcVersion) = r.readIt()
+(serverHost, serverPort) = r.readAuthInfo()
+(globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
 
 x = SetupGlobal(serverHost, serverPort, globalDbName, dcVersion)
 x.run()

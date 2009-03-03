@@ -2,7 +2,6 @@
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
-import lsst.pex.policy as pexPolicy
 
 import getpass
 import optparse
@@ -23,8 +22,10 @@ if not options.f:
     sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
     sys.exit(1)
 
+
 r = PolicyReader(None, options.f)
-(serverHost, serverPort, globalDbName, dcVersion) = r.readIt()
+(serverHost, serverPort) = r.readAuthInfo()
+(globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
 dcDb = '%s_DB' % dcVersion
 
 

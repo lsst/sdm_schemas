@@ -2,49 +2,48 @@
 
 from lsst.cat.administerRuns import AdminRuns
 from lsst.cat.MySQLBase import MySQLBase
+from lsst.cat.policyReader import PolicyReader
+
+import getpass
 
 
-fakedPolicy = {
-    'globalDbName': 'GlobalDB',
-    'dcVersion': 'DC3a',
-    'sqlDir': '../sql/', # path to the setup files
-    'minPercDiskSpaceReq': 10, # minimum disk space required [%]
-    'userRunLife': 2  # default lifetime of new user runs [in weeks]
-}
+r = PolicyReader()
+(host, port) = r.readAuthInfo()
+(globalDbName, dcVersion, minPercDiskSpaceReq, \
+ userRunLife) = r.readGlobalSetup()
 
-host = "localhost"
-port = 3306
-usr = 'jacek'
-uwd = 'p'
 
+usr = raw_input("Enter mysql account name: ")
+pwd = getpass.getpass()
 
 
 def dropDB():
     
     admin = MySQLBase(host, port)
     admin.connect(usr, pwd)
-    admin.dropDb('%s_%s_u_myFirstRun' % (usr, fakedPolicy[dcVersion]))
-    admin.dropDb('%s_%s_u_mySecondRun' % (usr, fakedPolicy[dcVersion]))
-    admin.dropDb('%s_%s_p_prodRunA' % (usr, fakedPolicy[dcVersion]))
+    admin.dropDb('%s_%s_u_myFirstRun' % (usr, dcVersion))
+    admin.dropDb('%s_%s_u_mySecondRun' % (usr, dcVersion))
+    admin.dropDb('%s_%s_p_prodRunA' % (usr, dcVersion))
 
 def markRunFinished(dbName):
     admin = MySQLBase(host, port)
-    admin.connect(usr, pwd, fakedPolicy['globalDbName'])
-    r = admin.execCommand1('SELECT setRunFinished("%s")' % dbName)
+    admin.connect(usr, pwd, globalDbName)
+    r = admin.execCommand1("SELECT setRunFinished('%s')" % dbName)
     print r
 
 def startSomeRuns():
-    x = AdminRuns(host, port, fakedPolicy)
+    x = AdminRuns(host, port, globalDbName, dcVersion,
+                  minPercDiskSpaceReq, userRunLife)
 
-    x.checkStatus(usr, pwd, 'localhost')
+    x.checkStatus(usr, pwd, host)
 
     r = x.prepareForNewRun('myFirstRun',  usr, pwd);
     print r
-    markRunFinished('%s_%s_u_myFirstRun' %(usr, fakedPolicy[dcVersion]))
+    markRunFinished('%s_%s_u_myFirstRun' %(usr, dcVersion))
 
     r = x.prepareForNewRun('mySecondRun', usr, pwd);
     print r
-    #markRunFinished('%s_%s_u_mySecondRun' %(usr, fakedPolicy[dcVersion]))
+    #markRunFinished('%s_%s_u_mySecondRun' %(usr, dcVersion))
 
 
 ####################################################

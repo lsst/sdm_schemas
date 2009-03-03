@@ -1,9 +1,20 @@
 #!/usr/bin/env python
 
 from lsst.cat.administerRuns import AdminRuns, SUAdmin
+from lsst.cat.policyReader import PolicyReader
+
 import lsst.cat.MySQLBase
 
 import subprocess
+
+
+r = PolicyReader(None, options.f)
+(host, serverPort) = r.readAuthInfo()
+(globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
+
+
+sqlDir = os.path.join(os.environ["CAT_DIR"], "sql")
+
 
 gDb = "GlobalDB4cleanupTest"
 dcV = "DC3a"
@@ -29,7 +40,7 @@ fakedPolicy = {
 
 
 def dropDB():
-    admin = MySQLBase(hostN)
+    admin = MySQLBase(host, port)
     admin.connect("becla", "")
     admin.execCommand0("DROP DATABASE IF EXISTS " + gDb)
     for n in range(1, maxNIter):
@@ -54,36 +65,27 @@ dropDB()
 
 
 # create global db
-xSU = SUAdmin(hostN, # mysql host
-              3306,  # mysql port
+xSU = SUAdmin(host, port, # mysql host and port
               fakedPolicy)
 xSU.setupOnceGlobal()
 
 
 # one connection per user
-a1 = AdminRuns(hostN, # mysql host
-               3306,  # mysql port
+a1 = AdminRuns(host, port, # mysql host and port
                fakedPolicy)
-a2 = AdminRuns(hostN, # mysql host
-               3306,  # mysql port
+a2 = AdminRuns(host, port, # mysql host and port
                fakedPolicy)
 
 
 createDummyUserAccounts()
 
 
-a1.checkStatus(u1,     # non-superuser
-               p1,     # password
-               hostN)  # machine where mysql client is executed
-
-a2.checkStatus(u2,     # non-superuser
-               p2,     # password
-               hostN)  # machine where mysql client is executed
+a1.checkStatus(u1, p1)   # non-superuser name and password
+a2.checkStatus(u2, p2)   # non-superuser name and password
 
 
-b = MySQLBase(hostN)
-
-bSU = MySQLBase(hostN)
+b = MySQLBase(host, port)
+bSU = MySQLBase(host, port)
 
 outLogFile = open("./_cleanup.log", "w")
 

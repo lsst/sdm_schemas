@@ -2,18 +2,21 @@
 
 
 from lsst.cat.MySQLBase import MySQLBase
+from lsst.cat.policyReader import PolicyReader
 import getpass
 import os
 
+
+r = PolicyReader()
+(host, port) = r.readAuthInfo()
+
 usr = raw_input('Enter mysql user name: ')
 pwd = getpass.getpass()
-#host ='localhost'
-host = 'lsst10.ncsa.uiuc.edu'
+
 dbn = 'dummy_Test_DB_375Ef_4DRf56'
-sqlDir = './sql'
+sqlDir = os.path.join(os.environ["CAT_DIR"], 'sql')
 
-
-x = MySQLBase(host)
+x = MySQLBase(host, port)
 x.connect(usr, pwd)
 
 throwOnFailure = True
@@ -26,7 +29,3 @@ x.loadSqlScript(os.path.join(sqlDir, 'setup_DB_global.sql'), usr, pwd, dbn)
 x.tableExists('RunInfo', throwOnFailure)
 x.dropDb(dbn)
 assert not x.dbExists(dbn), "droppped db '%s', but still exists" % dbn
-
-
-
-

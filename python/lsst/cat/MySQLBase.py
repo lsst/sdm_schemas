@@ -68,7 +68,8 @@ class MySQLBase:
         self.execCommand0("CREATE DATABASE %s" % dbName)
 
     def dropDb(self, dbName):
-        self.execCommand0("DROP DATABASE IF EXISTS %s" % dbName)
+        if self.dbExists(dbName):
+            self.execCommand0("DROP DATABASE %s" % dbName)
 
     def dbExists(self, dbName, throwOnFailure=False):
         if dbName is None:
@@ -154,6 +155,7 @@ class MySQLBase:
                 raise RuntimeError("Failed to execute %s < %s" % \
                                        (cmd,scriptPath))
 
+    # this works only if executed on database server. need to fix...
     def getDataDirSpaceAvailPerc(self):
         """
         Returns space available in mysql datadir (percentage volume available)

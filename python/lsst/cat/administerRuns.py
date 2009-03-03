@@ -18,14 +18,15 @@ class AdminRuns(MySQLBase):
     allows to register run in global database.
     """
 
-    def __init__(self, dbHostName, portNo, policyObject):
+    def __init__(self, dbHostName, portNo, globalDbName,
+                 dcVersion, minPercDiskSpaceReq, userRunLife):
         MySQLBase.__init__(self, dbHostName, portNo)
 
-        self.globalDbName = policyObject['globalDbName']
-        self.dcVersion = policyObject['dcVersion']
-        self.sqlDir = policyObject['sqlDir']
-        self.minPercDiskSpaceReq = policyObject['minPercDiskSpaceReq']
-        self.userRunLife = policyObject['userRunLife']
+        self.globalDbName = globalDbName
+        self.dcVersion = dcVersion
+        self.sqlDir = os.path.join(os.environ["CAT_DIR"], "sql")
+        self.minPercDiskSpaceReq = minPercDiskSpaceReq
+        self.userRunLife = userRunLife
 
         if self.globalDbName == "":
             raise RuntimeError("Invalid (empty) global db name")
@@ -46,13 +47,13 @@ class AdminRuns(MySQLBase):
 
         # Check if Global database and its tables exist
         self.connect(userName, userPassword, self.globalDbName)
-        self.tableExists(RunInfo, True)
+        self.tableExists('RunInfo', True)
         self.disconnect()
 
         # Check if per-DC database and its tables exist
         self.connect(userName, userPassword, self.dcDbName)
-        tableExists('prv_RunDbNameToRunCode', True)
-        tableExists('prv_PolicyFile', True)
+        self.tableExists('prv_RunDbNameToRunCode', True)
+        self.tableExists('prv_PolicyFile', True)
         self.disconnect()
 
         # check if user has appropriate database privileges
@@ -111,13 +112,14 @@ class AdminRuns(MySQLBase):
 
         # check if available disk space is not below required limit
         # for that directory
-        percDiskSpaceAvail = self.getDataDirSpaceAvailPerc()
-        if percDiskSpaceAvail < self.minPercDiskSpaceReq:
-            self.disconnect()
-            raise RuntimeError(
-                "Not enough disk space available in mysql " +
-                "datadir, required %i%%, available %i%%" % 
-                (self.minPercDiskSpaceReq, percDiskSpaceAvail))
+        # does not work if db server is accessed remotely...
+        # percDiskSpaceAvail = self.getDataDirSpaceAvailPerc()
+        # if percDiskSpaceAvail < self.minPercDiskSpaceReq:
+        #    self.disconnect()
+        #    raise RuntimeError(
+        #        "Not enough disk space available in mysql " +
+        #        "datadir, required %i%%, available %i%%" % 
+        #        (self.minPercDiskSpaceReq, percDiskSpaceAvail))
 
         if runType == 'p':
             runLife = 1000 # ensure this run "never expire"
@@ -137,8 +139,8 @@ class AdminRuns(MySQLBase):
         # Register this run in the global database
         cmd = """INSERT INTO RunInfo 
                  (runName, dcVersion, dbName, startDate, expDate, initiator)
-                 VALUES ("%s", "%s", "%s", NOW(), 
-                     DATE_ADD(NOW(), INTERVAL %i WEEK), "%s")""" % \
+                 VALUES ('%s', '%s', '%s', NOW(), 
+                     DATE_ADD(NOW(), INTERVAL %i WEEK), '%s')""" % \
             (runName, self.dcVersion, runDbName, runLife, userName)
         self.execCommand0(cmd)
 

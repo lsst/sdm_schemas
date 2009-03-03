@@ -15,15 +15,28 @@ class PolicyReader:
         if fName is None:
             fName = 'defaultCatPolicy.paf'
 
-        self.policyPath = os.path.join(fPath, fName)
+        policyPath = os.path.join(fPath, fName)
+        self.policyObj = pexPolicy.Policy.createPolicy(policyPath)
+
         log = Log(Log.getDefaultLog(), "cat")
-        log.log(Log.DEBUG, 'Reading policy from %s' % self.policyPath)
+        log.log(Log.DEBUG, 'Reading policy from %s' % policyPath)
 
-    def readIt(self):
-        pol = pexPolicy.Policy.createPolicy(self.policyPath)
-        host = pol.getString('database.authinfo.host')
-        port = pol.getInt('database.authinfo.port')
-        gDb = pol.getString('database.globalDbName')
-        dcVer = pol.getString('database.dcVersion')
+    def readAuthInfo(self):
+        loc = 'database.authinfo'
+        host = self.policyObj.getString('%s.host' % loc)
+        port = self.policyObj.getInt('%s.port' % loc)
+        return (host, port)
+    
+    def readGlobalSetup(self):
+        loc = 'database.globalSetup'
+        gDb = self.policyObj.getString('%s.globalDbName' % loc)
+        dcVer = self.policyObj.getString('%s.dcVersion' % loc)
+        minDiskSp = self.policyObj.getInt('%s.minPercDiskSpaceReq' % loc)
+        uRunLife = self.policyObj.getInt('%s.userRunLife' % loc)
+        return (gDb, dcVer, minDiskSp, uRunLife)
 
-        return (host, port, gDb, dcVer)
+    def readRunCleanup(self):
+        loc = 'database.runCleanup'
+        firstN = self.policyObj.getInt('%s.daysFirstNotice' % loc)
+        finalN = self.policyObj.getInt('%s.daysFinalNotice' % loc)
+        return (firstN, finalN)

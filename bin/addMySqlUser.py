@@ -2,7 +2,6 @@
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
-import lsst.pex.policy as pexPolicy
 
 import getpass
 import optparse
@@ -49,7 +48,8 @@ else:
     clientHost = '%'
 
 r = PolicyReader(None, options.f)
-(serverHost, serverPort, globalDbName, dcVersion) = r.readIt()
+(serverHost, serverPort) = r.readAuthInfo()
+(globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
 dcDb = '%s_DB' % dcVersion
 
 rootU = raw_input("Enter mysql superuser account name: ")
@@ -71,3 +71,6 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
 
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
+
+print 'User added'
+
