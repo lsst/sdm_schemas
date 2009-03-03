@@ -22,21 +22,21 @@ class PolicyReader:
         log.log(Log.DEBUG, 'Reading policy from %s' % policyPath)
 
     def readAuthInfo(self):
-        loc = 'database.authinfo'
-        host = self.policyObj.getString('%s.host' % loc)
-        port = self.policyObj.getInt('%s.port' % loc)
+        subP = self.policyObj.getPolicy('database.authinfo')
+        host = subP.getString('host')
+        port = subP.getInt('port')
         return (host, port)
     
     def readGlobalSetup(self):
-        loc = 'database.globalSetup'
-        gDb = self.policyObj.getString('%s.globalDbName' % loc)
-        dcVer = self.policyObj.getString('%s.dcVersion' % loc)
-        minDiskSp = self.policyObj.getInt('%s.minPercDiskSpaceReq' % loc)
-        uRunLife = self.policyObj.getInt('%s.userRunLife' % loc)
+        subP = self.policyObj.getPolicy('database.globalSetup')
+        gDb = subP.getString('globalDbName')
+        dcVer = subP.getString('dcVersion')
+        minDiskSp = subP.getInt('minPercDiskSpaceReq')
+        uRunLife = subP.getInt('userRunLife')
         return (gDb, dcVer, minDiskSp, uRunLife)
 
     def readRunCleanup(self):
-        loc = 'database.runCleanup'
-        firstN = self.policyObj.getInt('%s.daysFirstNotice' % loc)
-        finalN = self.policyObj.getInt('%s.daysFinalNotice' % loc)
+        subP = self.policyObj('database.runCleanup')
+        firstN = subP.getInt('daysFirstNotice')
+        finalN = subP.getInt('daysFinalNotice')
         return (firstN, finalN)
