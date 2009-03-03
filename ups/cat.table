@@ -1,6 +1,7 @@
 setupRequired(python >= 2.5)
 setupRequired(mysqlclient >= 5.0.45+1)
 setupRequired(mysqlpython >= 1.2.2)
+setupRequired(pex_logging >= 3.0)
 
 envAppend(PATH, ${PRODUCT_DIR}/bin)
 envAppend(PYTHONPATH, ${PRODUCT_DIR}/python)

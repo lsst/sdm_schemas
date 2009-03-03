@@ -94,9 +94,6 @@ class AdminRuns(MySQLBase):
         if runName == "":
             raise RuntimeError("Invalid (empty) runName")
 
-        print "prepareForNewRun(%s, %s, %s, %s)" % \
-              (runName, runType, userName, userPassword)
-
         # prepare list of sql scripts to load
         fN = "lsstSchema4mysql%s.sql" % self.dcVersion
         dbScripts = [os.path.join(self.sqlDir, fN),

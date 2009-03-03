@@ -6,6 +6,7 @@ import os
 import subprocess
 import sys
 
+from lsst.pex.logging import Log
 
 class MySQLBase:
     """
@@ -19,6 +20,8 @@ class MySQLBase:
         self.dbHostPort = portNo
         self.db = None
         self.dbOpened = None
+        self.log = Log(Log.getDefaultLog(), "cat")
+        # self.log.setThreshold(Log.DEBUG)
 
     def __del__(self):
         self.disconnect()
@@ -42,12 +45,12 @@ class MySQLBase:
                                       passwd=dbPassword, 
                                       db=dbName)
         except MySQLdb.Error, e:
-            raise RuntimeError("DB Error %d: %s. host=%s, port=%i, user=%s, pass=<hidden>" % \
+            raise RuntimeError("DB Error %d: %s. host=%s, port=%s, user=%s, pass=<hidden>" % \
                                (e.args[0], e.args[1], self.dbHostName, self.dbHostPort, dbUser))
-
         if dbName != "":
             self.dbOpened = dbName
-        #print "\nConnected to " + dbName
+        self.log.log(Log.DEBUG, "User %s connected to mysql://%s:%s/%s" %\
+                     (dbUser, self.dbHostName, self.dbHostPort, dbName))
 
     def disconnect(self):
         if self.db == None:
@@ -57,8 +60,8 @@ class MySQLBase:
             self.db.close()
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
+        self.log.log(Log.DEBUG, "Disconnected from db %s" % self.dbOpened)
         self.db = None
-        #print "\nDisconnected (%s)" % self.dbOpened
         self.dbOpened = None
 
     def createDb(self, dbName):
@@ -120,7 +123,7 @@ class MySQLBase:
             raise RuntimeError("No connection (command: '%s')" % command)
 
         cursor = self.db.cursor()
-        print "Executing %s" % command
+        self.log.log(Log.DEBUG, "Executing %s" % command)
         cursor.execute(command)
         if nRowsRet == 0:
             ret = ""
@@ -129,7 +132,7 @@ class MySQLBase:
         else:
             ret = cursor.fetchall()
         cursor.close()
-        #print ret
+        self.log.log(Log.DEBUG, "Got: %s" % str(ret))
         return ret
 
     def loadSqlScript(self, scriptPath, dbUser, dbPassword, dbName=""):
@@ -137,14 +140,16 @@ class MySQLBase:
         Loads sql script into the database.
         """
         if dbPassword:
-            cmd = 'mysql -h%s -u%s -p%s %s' % \
-                (self.dbHostName, dbUser, dbPassword, dbName)
+            cmd = 'mysql -h%s -P%s -u%s -p%s %s' % \
+                (self.dbHostName, self.dbHostPort, dbUser, dbPassword, dbName)
         else:
-            cmd = 'mysql -h%s -u%s %s' % \
-                (self.dbHostName, dbUser, dbName)
+            cmd = 'mysql -h%s -P%s -u%s %s' % \
+                (self.dbHostName, self.dbHostPort, dbUser, dbName)
 
         with file(scriptPath) as scriptFile:
-            print "Executing %s < %s" % (cmd, scriptPath)
+            self.log.log(Log.DEBUG,
+                         "Loading %s into db=%s on %s:%s, user=%s" % \
+                (scriptPath, dbName, self.dbHostName, self.dbHostPort, dbUser)
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
                 raise RuntimeError("Failed to execute %s < %s" % \
                                        (cmd,scriptPath))
