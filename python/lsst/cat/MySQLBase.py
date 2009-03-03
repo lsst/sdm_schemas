@@ -148,8 +148,8 @@ class MySQLBase:
 
         with file(scriptPath) as scriptFile:
             self.log.log(Log.DEBUG,
-                         "Loading %s into db=%s on %s:%s, user=%s" % \
-                (scriptPath, dbName, self.dbHostName, self.dbHostPort, dbUser)
+                         "Loading %s into db=%s on %s:%s, user=%s"% \
+              (scriptPath, dbName, self.dbHostName, self.dbHostPort, dbUser))
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
                 raise RuntimeError("Failed to execute %s < %s" % \
                                        (cmd,scriptPath))

@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
 from lsst.cat.MySQLBase import MySQLBase
+from lsst.cat.policyReader import PolicyReader
+import lsst.pex.policy as pexPolicy
+
 import getpass
 import optparse
 import os
@@ -15,51 +18,44 @@ import sys
 """
 
 
-usage = """%prog -s {mysqlServerHost} -u {userName} -p {userPassword} -g {globalDbName} -v {dcVersion} [-c {clientHost}] 
+usage = """%prog -u {userName} -p {userPassword} [-f {policyFile}] [-c {clientHost}] 
 Where:
-  - mysqlServerHost: host name where the mysql server runs
   - userName:        mysql username of the added user
   - userPassword:    mysql password of the added user
-  - clientHost:      host names authorized to access mysql server, wildcards allowed. Default: "%" (all hosts)
-  - globalDbName:    name of the mysql "global database"
-  - dcVersion:       DC version, eg DC3a
+  - clientHost:      host names authorized to access mysql server,
+                     wildcards are allowed. Default: "%" (all hosts)
+  - policyFile:      policy file. Default CAT_DIR/defaultCatPolicy.paf
 """
 
 
 parser = optparse.OptionParser(usage)
-parser.add_option("-s")
 parser.add_option("-u")
 parser.add_option("-p")
+parser.add_option("-f")
 parser.add_option("-c")
-parser.add_option("-g")
-parser.add_option("-v")
 
 options, arguments = parser.parse_args()
 
-if not options.s or not options.u or \
-   not options.p or not options.g or not options.v:
+if not options.u or not options.p:
     sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
     sys.exit(1)
 
-serverHost = options.s
 userName = options.u
 userPass = options.p
-globalDbName = options.g
-dcVersion = options.v
 
 if options.c:
     clientHost = options.c
 else:
     clientHost = '%'
 
-
+r = PolicyReader(None, options.f)
+(serverHost, serverPort, globalDbName, dcVersion) = r.readIt()
 dcDb = '%s_DB' % dcVersion
-
 
 rootU = raw_input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
-admin = MySQLBase(serverHost)
+admin = MySQLBase(serverHost, serverPort)
 admin.connect(rootU, rootP, globalDbName)
 
 toStr = "TO `%s`@`%s` IDENTIFIED BY '%s'" % (userName, clientHost, userPass)
@@ -70,7 +66,8 @@ admin.execCommand0("GRANT SELECT ON *.* %s" % toStr)
 
 admin.execCommand0("GRANT SELECT ON %s.* %s" % (dcDb, toStr))
 
-admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % (globalDbName, toStr))
+admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
+                   (globalDbName, toStr))
 
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))

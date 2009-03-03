@@ -1,30 +1,41 @@
 #!/usr/bin/env python
 
 from lsst.cat.MySQLBase import MySQLBase
+from lsst.cat.policyReader import PolicyReader
+import lsst.pex.policy as pexPolicy
+
 import getpass
+import optparse
 import os
 import sys
 
 
 usage = """
 
-%prog initializes the LSST Global database and 
-per-data-challenge database. Requires CAT_ENV
-environment variable.
+%prog [-f policyFile]
+
+Initializes the LSST Global database and per-data-challenge database. 
+
+Requires $CAT_ENV environment variable.
+
+If the policy file is not specified, the default
+one will be used: $CAT_DIR/defaultCatPolicy.paf
+
 """
 
 
 class SetupGlobal(MySQLBase):
-    def __init__(self, dbHostName, portNo, policyObject):
+    def __init__(self, dbHostName, portNo, globalDbName, dcVersion):
         MySQLBase.__init__(self, dbHostName, portNo)
 
-        # Pull in some key-values from the policyObject.
-        for n in ['globalDbName', 'dcVersion']:
-            setattr(self, n, policyObject.get(n, "")) # empty default
-        if self.globalDbName == "":
+        if globalDbName == "":
             raise RuntimeError("Invalid (empty) global db name")
-        if self.dcVersion == "":
+        self.globalDbName = globalDbName
+
+        if dcVersion == "":
             raise RuntimeError("Invalid (empty) dcVersion name")
+        self.dcVersion = dcVersion
+
         # Pull in sqlDir from CAT_DIR
         self.sqlDir = os.getenv('CAT_DIR')
         if not self.sqlDir:
@@ -44,20 +55,23 @@ class SetupGlobal(MySQLBase):
         self.connect(self.dbSUName, self.dbSUPwd)
         # create & configure Global database (if doesn't exist)
         if self.dbExists(self.globalDbName):
-            print "%s exists" % self.globalDbName
+            print "'%s' exists." % self.globalDbName
         else:
             self.__setupOnce__(self.globalDbName, 'setup_DB_global.sql')
-
+            print "Setup '%s' succeeded." % self.globalDbName
+            
         # create and configure per-data-challange database (if doesn't exist)
         dcDbName = '%s_DB' % self.dcVersion
         if self.dbExists(dcDbName):
-            print "%s exists" % dcDbName
+            print "'%s' exists." % dcDbName
         else:
             self.__setupOnce__(dcDbName, 'setup_DB_dataChallenge.sql')
             # also load the regular per-run schema
             fN = "lsstSchema4mysql%s.sql" % self.dcVersion
             p = os.path.join(self.sqlDir, fN)
             self.loadSqlScript(p, self.dbSUName, self.dbSUPwd, dcDbName)
+            print "Setup '%s' succeeded." % dcDbName
+
         self.disconnect()
 
     def __setupOnce__(self, dbName, setupScript):
@@ -71,14 +85,13 @@ class SetupGlobal(MySQLBase):
         self.loadSqlScript(setupPath, self.dbSUName, self.dbSUPwd, dbName)
 
 
+parser = optparse.OptionParser(usage)
+parser.add_option("-f")
 
-# these should be fetched from policies [to-do]
-dbHost = 'localhost'
-portNo = 3306
-fakedPolicy = {
-    'globalDbName': 'GlobalDB',
-    'dcVersion': 'DC3a',
-}
+options, arguments = parser.parse_args()
 
-x = SetupGlobal(dbHost, portNo, fakedPolicy)
+r = PolicyReader(None, options.f)
+(serverHost, serverPort, globalDbName, dcVersion) = r.readIt()
+
+x = SetupGlobal(serverHost, serverPort, globalDbName, dcVersion)
 x.run()

@@ -1,29 +1,54 @@
 #!/usr/bin/env python
 
 from lsst.cat.MySQLBase import MySQLBase
+from lsst.cat.policyReader import PolicyReader
+import lsst.pex.policy as pexPolicy
+
 import getpass
+import optparse
+import os
+import sys
 
-fakedPolicy = {
-    'globalDbName': 'GlobalDB',
-    'dcVersion': 'DC3a' }
 
+usage = """%prog -f policyFile
 
-# Pull in some key-values from the policy
-globalDbName = fakedPolicy['globalDbName']
-dcVersion = fakedPolicy['dcVersion']
+Destroys the Global Database and the data-challange specific database.
+"""
 
-dcDbName = "%s_DB" % dcVersion
+parser = optparse.OptionParser(usage)
+parser.add_option("-f")
+
+options, arguments = parser.parse_args()
+if not options.f:
+    sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
+    sys.exit(1)
+
+r = PolicyReader(None, options.f)
+(serverHost, serverPort, globalDbName, dcVersion) = r.readIt()
+dcDb = '%s_DB' % dcVersion
+
 
 print """
-             ** WARNING **
+   ** WARNING **
    You are attempting to destroy the '%s' database 
    and the '%s' database - think twice before proceeding!
-""" % (globalDbName, dcDbName)
+""" % (globalDbName, dcDb)
+
 
 dbSUName = raw_input("Enter mysql superuser account name: ")
 dbSUPwd = getpass.getpass()
 
-x = MySQLBase("localhost", 3306)
+dcDbName = '%s_DB' % dcVersion
+
+def destroyOne(x, dbName):
+    if x.dbExists(dbName):
+        x.execCommand0("DROP DATABASE IF EXISTS " + dbName)
+        print "Destroyed '%s'." % dbName
+    else:
+        print "Db '%s' does not exist." % dbName
+
+x = MySQLBase(serverHost, serverPort)
 x.connect(dbSUName, dbSUPwd)
-x.execCommand0("DROP DATABASE IF EXISTS " + globalDbName)
-x.execCommand0("DROP DATABASE IF EXISTS " + dcDbName)
+destroyOne(x, globalDbName)
+destroyOne(x, dcDbName)
+x.disconnect()
