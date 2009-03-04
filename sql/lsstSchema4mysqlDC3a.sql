@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_17 (version CHAR);
+CREATE TABLE AAA_Version_3_0_18 (version CHAR);
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -232,8 +232,8 @@ CREATE TABLE DIASource
 	raErrForDetection FLOAT(0) NULL,
 	raErrForWcs FLOAT(0) NULL,
 	decl DOUBLE NOT NULL,
-	decErrForDetection FLOAT(0) NULL,
-	decErrForWcs FLOAT(0) NULL,
+	declErrForDetection FLOAT(0) NULL,
+	declErrForWcs FLOAT(0) NULL,
 	taiMidPoint DOUBLE NOT NULL,
 	taiRange DOUBLE NOT NULL,
 	Ixx FLOAT(0) NULL,
