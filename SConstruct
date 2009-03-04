@@ -5,12 +5,19 @@
 import glob, os.path, re, sys
 import lsst.SConsUtils as scons
 
-dependencies = ["python", "mysqlclient"]
+dependencies = ["python", "mysqlclient", "mysqlpython", "boost", "utils", "pex_exceptions", "daf_base", "pex_logging", "pex_policy"]
 
 env = scons.makeEnv("cat",
                     r"$HeadURL: svn+ssh://svn.lsstcorp.org/DMS/cat/base/trunk/SConstruct $",
                     [["python"],
-                     ["mysqlclient"]
+                     ["mysqlclient"],
+		     ["mysqlpython"],
+		     ["boost", "boost/regex.hpp", "boost_regex:C++"],
+		     ["utils", "lsst/tr1/unordered_map.h", "utils:C++"],
+		     ["pex_exceptions", "lsst/pex/exceptions.h", "pex_exceptions:C++"],
+		     ["daf_base", "lsst/daf/base.h", "daf_base:C++"],
+		     ["pex_logging", "lsst/pex/logging/Log.h", "pex_logging:C++"],
+		     ["pex_policy", "lsst/pex/policy/Policy.h", "pex_policy:C++"]
                     ])
 env.Help("""
 LSST Catalog package
@@ -39,6 +46,7 @@ for d in Split("sql bin pipeline lib python examples tests doc"):
 env['IgnoreFiles'] = r"(~$|\.pyc$|^\.svn$|\.o$)"
 
 Alias("install", [env.Install(env['prefix'], "python"),
+                  env.Install(env['prefix'], "policy"),
                   env.Install(env['prefix'], "bin"),
                   env.Install(env['prefix'], "sql"),
                   env.InstallEups(os.path.join(env['prefix'], "ups"))])
