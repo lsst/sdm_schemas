@@ -18,7 +18,7 @@ Initializes the LSST Global database and per-data-challenge database.
 Requires $CAT_ENV environment variable.
 
 If the policy file is not specified, the default
-one will be used: $CAT_DIR/defaultCatPolicy.paf
+one will be used: $CAT_DIR/policy/defaultProdCatPolicy.paf
 
 """
 

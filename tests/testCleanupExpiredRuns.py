@@ -9,8 +9,7 @@ import os
 import subprocess
 
 catDir = os.environ["CAT_DIR"]
-pfDir = os.path.join(catDir, 'tests')
-policyF = os.path.join(pfDir, 'cleanupExpiredRuns.paf')
+policyF = os.path.join(catDir, 'policy/defaultTestCatPolicy.paf')
 
 
 r = PolicyReader(policyF)

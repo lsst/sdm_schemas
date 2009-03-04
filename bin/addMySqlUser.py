@@ -23,7 +23,7 @@ Where:
   - userPassword:    mysql password of the added user
   - clientHost:      host names authorized to access mysql server,
                      wildcards are allowed. Default: "%" (all hosts)
-  - policyFile:      policy file. Default CAT_DIR/defaultCatPolicy.paf
+  - policyFile:      policy file. Default $CAT_DIR/policy/defaultProdCatPolicy.paf
 """
 
 

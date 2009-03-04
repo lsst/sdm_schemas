@@ -6,7 +6,6 @@ from lsst.cat.policyReader import PolicyReader
 import getpass
 import optparse
 import os
-import subprocess
 import string
 import sys
 

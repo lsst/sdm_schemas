@@ -12,7 +12,7 @@ class PolicyReader:
             pDir = os.environ["CAT_DIR"]
             if pDir is None:
                 raise RuntimeError('CAT_DIR env var required')
-            fullPath = os.path.join(pDir, 'policy/defaultCatPolicy.paf')
+            fullPath = os.path.join(pDir, 'policy/defaultProdCatPolicy.paf')
         self.policyObj = pexPolicy.Policy.createPolicy(fullPath)
         log = Log(Log.getDefaultLog(), "cat")
         log.log(Log.DEBUG, 'Reading policy from %s' % fullPath)
