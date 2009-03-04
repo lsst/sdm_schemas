@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3a;
 USE lsst_schema_browser_DC3a;
 
 
-CREATE TABLE AAA_Version_DC3a_3_0_17 (version CHAR);
+CREATE TABLE AAA_Version_DC3a_3_0_18 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -192,14 +192,14 @@ SET tableId = 2, name = "DIASource",
 		displayOrder = 14;
 
 	INSERT INTO md_Column
-	SET columnId = 21, tableId = 2, name = "decErrForDetection",
+	SET columnId = 21, tableId = 2, name = "declErrForDetection",
 		description = "Error in centroid Dec coordinate (miliarcsec) coming from Detection Pipeline [FIXME, maybe use Stage name here?].",
 		type = "FLOAT",
 		notNull = 0,
 		displayOrder = 15;
 
 	INSERT INTO md_Column
-	SET columnId = 22, tableId = 2, name = "decErrForWcs",
+	SET columnId = 22, tableId = 2, name = "declErrForWcs",
 		description = "Error in centroid Dec coordinate (miliarcsec) coming from WCS Stage.",
 		type = "FLOAT",
 		notNull = 0,
