@@ -9,8 +9,8 @@ import getpass
 
 r = PolicyReader()
 (host, port) = r.readAuthInfo()
-(globalDbName, dcVersion, minPercDiskSpaceReq, \
- userRunLife) = r.readGlobalSetup()
+(globalDbName, dcVersion, dcDb, \
+ minPercDiskSpaceReq, userRunLife) = r.readGlobalSetup()
 
 
 usr = raw_input("Enter mysql account name: ")
@@ -33,7 +33,7 @@ def markRunFinished(dbName):
 
 def startSomeRuns():
     x = AdminRuns(host, port, globalDbName, dcVersion,
-                  minPercDiskSpaceReq, userRunLife)
+                  dcDb, minPercDiskSpaceReq, userRunLife)
 
     x.checkStatus(usr, pwd, host)
 

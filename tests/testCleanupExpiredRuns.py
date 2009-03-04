@@ -15,7 +15,7 @@ policyF = os.path.join(pfDir, 'cleanupExpiredRuns.paf')
 
 r = PolicyReader(policyF)
 (host, port) = r.readAuthInfo()
-(gDb, dcV, minPercDiskSpaceReq, userRunLife) = r.readGlobalSetup()
+(gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife) = r.readGlobalSetup()
 
 
 
@@ -74,8 +74,8 @@ createDummyUserAccounts()
 
 
 # one connection per user
-a1 = AdminRuns(host, port, gDb, dcV, minPercDiskSpaceReq, userRunLife)
-a2 = AdminRuns(host, port, gDb, dcV, minPercDiskSpaceReq, userRunLife)
+a1 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
+a2 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
 
 
 a1.checkStatus(u1, p1, 'dummy') # non-superuser name and password

@@ -25,21 +25,18 @@ if not options.f:
 
 r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
-(globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
-dcDb = '%s_DB' % dcVersion
+(globalDbName, dcVersion, dcDbName, dummy1, dummy2) = r.readGlobalSetup()
 
 
 print """
    ** WARNING **
    You are attempting to destroy the '%s' database 
    and the '%s' database - think twice before proceeding!
-""" % (globalDbName, dcDb)
+""" % (globalDbName, dcDbName)
 
 
 dbSUName = raw_input("Enter mysql superuser account name: ")
 dbSUPwd = getpass.getpass()
-
-dcDbName = '%s_DB' % dcVersion
 
 def destroyOne(x, dbName):
     if x.dbExists(dbName):

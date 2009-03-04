@@ -24,7 +24,7 @@ one will be used: $CAT_DIR/defaultCatPolicy.paf
 
 
 class SetupGlobal(MySQLBase):
-    def __init__(self, dbHostName, portNo, globalDbName, dcVersion):
+    def __init__(self, dbHostName, portNo, globalDbName, dcVersion, dcDb):
         MySQLBase.__init__(self, dbHostName, portNo)
 
         if globalDbName == "":
@@ -34,6 +34,10 @@ class SetupGlobal(MySQLBase):
         if dcVersion == "":
             raise RuntimeError("Invalid (empty) dcVersion name")
         self.dcVersion = dcVersion
+
+        if dcDb == "":
+            raise RuntimeError("Invalid (empty) dc db name")
+        self.dcDbName = dcDb
 
         # Pull in sqlDir from CAT_DIR
         self.sqlDir = os.getenv('CAT_DIR')
@@ -60,16 +64,15 @@ class SetupGlobal(MySQLBase):
             print "Setup '%s' succeeded." % self.globalDbName
             
         # create and configure per-data-challange database (if doesn't exist)
-        dcDbName = '%s_DB' % self.dcVersion
-        if self.dbExists(dcDbName):
-            print "'%s' exists." % dcDbName
+        if self.dbExists(self.dcDbName):
+            print "'%s' exists." % self.dcDbName
         else:
-            self.__setupOnce__(dcDbName, 'setup_DB_dataChallenge.sql')
+            self.__setupOnce__(self.dcDbName, 'setup_DB_dataChallenge.sql')
             # also load the regular per-run schema
             fN = "lsstSchema4mysql%s.sql" % self.dcVersion
             p = os.path.join(self.sqlDir, fN)
-            self.loadSqlScript(p, self.dbSUName, self.dbSUPwd, dcDbName)
-            print "Setup '%s' succeeded." % dcDbName
+            self.loadSqlScript(p, self.dbSUName, self.dbSUPwd, self.dcDbName)
+            print "Setup '%s' succeeded." % self.dcDbName
 
         self.disconnect()
 
@@ -91,7 +94,7 @@ options, arguments = parser.parse_args()
 
 r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
-(globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
+(globalDbName, dcVersion, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 
-x = SetupGlobal(serverHost, serverPort, globalDbName, dcVersion)
+x = SetupGlobal(serverHost, serverPort, globalDbName, dcVersion, dcDb)
 x.run()

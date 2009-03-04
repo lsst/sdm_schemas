@@ -49,8 +49,7 @@ else:
 
 r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
-(globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
-dcDb = '%s_DB' % dcVersion
+(globalDbName, dcVersion, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 
 rootU = raw_input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()

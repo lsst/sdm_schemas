@@ -19,11 +19,12 @@ class AdminRuns(MySQLBase):
     """
 
     def __init__(self, dbHostName, portNo, globalDbName,
-                 dcVersion, minPercDiskSpaceReq, userRunLife):
+                 dcVersion, dcDb, minPercDiskSpaceReq, userRunLife):
         MySQLBase.__init__(self, dbHostName, portNo)
 
         self.globalDbName = globalDbName
         self.dcVersion = dcVersion
+        self.dcDbName = dcDb
         self.sqlDir = os.path.join(os.environ["CAT_DIR"], "sql")
         self.minPercDiskSpaceReq = minPercDiskSpaceReq
         self.userRunLife = userRunLife
@@ -34,8 +35,6 @@ class AdminRuns(MySQLBase):
             raise RuntimeError("Invalid (empty) dcVersion name")
         if not os.path.exists(self.sqlDir):
             raise RuntimeError("Directory '%s' not found" % self.sqlDir)
-
-        self.dcDbName = '%s_DB' % self.dcVersion
 
 
     def checkStatus(self, userName, userPassword, clientMachine):

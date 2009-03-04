@@ -202,7 +202,7 @@ else:
 
 r = PolicyReader(options.f)
 (host, port) = r.readAuthInfo()
-(gDb, dcVer, dummy1, dummy2) = r.readGlobalSetup()
+(gDb, dcVer, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 (dFirstNotice, dFinalNotice) = r.readRunCleanup()
 
 print """\n\n
@@ -217,4 +217,3 @@ rootP = getpass.getpass()
 xx = CleanupExpiredRuns(host, port, gDb, rootU, rootP, 
                         dFirstNotice, dFinalNotice)
 xx.run()
-

@@ -27,9 +27,10 @@ class PolicyReader:
         subP = self.policyObj.getPolicy('database.globalSetup')
         gDb = subP.getString('globalDbName')
         dcVer = subP.getString('dcVersion')
+        dcDb = subP.getString('dcDbName')
         minDiskSp = subP.getInt('minPercDiskSpaceReq')
         uRunLife = subP.getInt('userRunLife')
-        return (gDb, dcVer, minDiskSp, uRunLife)
+        return (gDb, dcVer, dcDb, minDiskSp, uRunLife)
 
     def readRunCleanup(self):
         subP = self.policyObj.getPolicy('database.runCleanup')
