@@ -89,7 +89,7 @@ parser.add_option("-f")
 
 options, arguments = parser.parse_args()
 
-r = PolicyReader(None, options.f)
+r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
 (globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
 

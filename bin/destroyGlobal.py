@@ -23,7 +23,7 @@ if not options.f:
     sys.exit(1)
 
 
-r = PolicyReader(None, options.f)
+r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
 (globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
 dcDb = '%s_DB' % dcVersion

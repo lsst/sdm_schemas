@@ -7,19 +7,15 @@ import lsst.pex.policy as pexPolicy
 import os
 
 class PolicyReader:
-    def __init__(self, fPath=None, fName=None):
-        if fPath is None:
-            fPath = os.environ["CAT_DIR"]
-            if fPath is None:
+    def __init__(self, fullPath=None):
+        if fullPath is None:
+            pDir = os.environ["CAT_DIR"]
+            if pDir is None:
                 raise RuntimeError('CAT_DIR env var required')
-        if fName is None:
-            fName = 'defaultCatPolicy.paf'
-
-        policyPath = os.path.join(fPath, fName)
-        self.policyObj = pexPolicy.Policy.createPolicy(policyPath)
-
+            fullPath = os.path.join(pDir, 'policy/defaultCatPolicy.paf')
+        self.policyObj = pexPolicy.Policy.createPolicy(fullPath)
         log = Log(Log.getDefaultLog(), "cat")
-        log.log(Log.DEBUG, 'Reading policy from %s' % policyPath)
+        log.log(Log.DEBUG, 'Reading policy from %s' % fullPath)
 
     def readAuthInfo(self):
         subP = self.policyObj.getPolicy('database.authinfo')
@@ -36,7 +32,7 @@ class PolicyReader:
         return (gDb, dcVer, minDiskSp, uRunLife)
 
     def readRunCleanup(self):
-        subP = self.policyObj('database.runCleanup')
+        subP = self.policyObj.getPolicy('database.runCleanup')
         firstN = subP.getInt('daysFirstNotice')
         finalN = subP.getInt('daysFinalNotice')
         return (firstN, finalN)

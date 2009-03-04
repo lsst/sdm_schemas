@@ -47,7 +47,7 @@ if options.c:
 else:
     clientHost = '%'
 
-r = PolicyReader(None, options.f)
+r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
 (globalDbName, dcVersion, dummy1, dummy2) = r.readGlobalSetup()
 dcDb = '%s_DB' % dcVersion
@@ -72,5 +72,5 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
 
-print 'User added'
+print "User '%s' added." % userName
 

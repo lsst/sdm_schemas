@@ -1,67 +1,46 @@
 #!/usr/bin/env python
 
-import lsst.cat.MySQLBase
+from lsst.cat.MySQLBase import MySQLBase
+from lsst.cat.policyReader import PolicyReader
+
+import getpass
 import optparse
 import os
 import subprocess
 import string
 import sys
 
-usage = """%prog <policyFile> [-t time] [-g globalDbName]
+usage = """%prog -f policyFile [-t time]
 """
 
 
-# TODO: argument parsing
 parser = optparse.OptionParser(usage)
 parser.add_option("-d")
+parser.add_option("-f")
 parser.add_option("-g")
 options, arguments = parser.parse_args()
 
-if len(arguments) <1:
+if not options.f:
     sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
     sys.exit(1)
 
-policyFile = arguments[0]
-
-
-# Load data from policy file 
-# TODO: load this from policy file
-dcVersion = "DC3a"
-dbHostName = "localhost"
-superUserName = "becla"
-superUserPassword = ""
-globalDbName = "GlobalDB"
-daysFirstNotice = 7 # days when first notice is sent before run can be deleted
-daysFinalNotice = 1 # days when final notice is sent before run can be deleted
-
-
-if options.d: # format: YYYY:MM:DD
-    now = "'%s 00:00:01'" % options.d
-else:
-    now = "NOW()"
-
-if options.g:
-    globalDbName = options.g
-
-
-print """\n\n
-  ******************************************************************
-  *** Executing cleanupExpiredRun, now=%s, globalDB=%s
-""" % (now, globalDbName)
 
 
 class CleanupExpiredRuns(MySQLBase):
 
-    def __init__(self, dbHost, globalDbName, suName, suPassword, dcVer):
-        MySQLBase.__init__(self, dbHost)
-        if globalDbName == "":
+    def __init__(self, dbHost, dbPort, gDb,
+                 rootU, rootP, 
+                 dFirstNotice, dFinalNotice):
+        MySQLBase.__init__(self, dbHost, dbPort)
+        if gDb == "":
             raise RuntimeError("Invalid (empty) global db name")
         if dcVer == "":
             raise RuntimeError("Invalid (empty) dcVer")
-        self.globalDbName = globalDbName
-        self.suName = suName
-        self.suPassword = suPassword
-        self.dcVersion = dcVer
+        self.globalDbName = gDb
+        self.rootU = rootU
+        self.rootP = rootP
+        self.daysFirstNotice = dFirstNotice
+        self.daysFinalNotice = dFinalNotice
 
         # Finds all runs that expired, which were not deleted yet.
         # Selects only these for which final notification was sent
@@ -83,7 +62,7 @@ class CleanupExpiredRuns(MySQLBase):
   FROM   RunInfo
   WHERE  DATEDIFF(expDate, %s) <= %i
     AND  firstNotifDate IS NULL
-""" % (now, daysFirstNotice)
+""" % (now, self.daysFirstNotice)
 
         # find all runs that will expire in 1 day or less, for which
         # we sent first notification at least 6 days ago, and
@@ -94,7 +73,7 @@ class CleanupExpiredRuns(MySQLBase):
   WHERE  DATEDIFF(expDate, %s) < %i
     AND  firstNotifDate IS NOT NULL
     AND  finalNotifDate IS NULL
-""" % (now, daysFinalNotice)
+""" % (now, self.daysFinalNotice)
 
 
     def emailNotices(self, firstN, finalN):
@@ -133,7 +112,7 @@ it by running the following mysql commands:
 Regards,
 The LSST Database Team
 
-""" % (daysFinalNotice, finalN, daysFirstNotice, firstN, globalDbName)
+""" % (self.daysFinalNotice, finalN, self.daysFirstNotice, firstN, self.gDb)
 
         subject = "Purging expired runs"
 
@@ -148,7 +127,7 @@ Subject: %s
 
     def run(self):
         # Connect to database
-        self.connect(self.suName, self.suPassword, self.globalDbName)
+        self.connect(self.rootU, self.rootP, self.globalDbName)
 
         # check available disk space and remember it for reporting
         dataDirSpaceAvailBefore = self.getDataDirSpaceAvail()
@@ -214,9 +193,28 @@ Subject: %s
             return
 
 
+##########################################################
 
+if options.d: # format: YYYY:MM:DD
+    now = "'%s 00:00:01'" % options.d
+else:
+    now = "NOW()"
 
-xx = CleanupExpiredRuns(dbHostName, globalDbName, superUserName, 
-                        superUserPassword, dcVersion)
+r = PolicyReader(options.f)
+(host, port) = r.readAuthInfo()
+(gDb, dcVer, dummy1, dummy2) = r.readGlobalSetup()
+(dFirstNotice, dFinalNotice) = r.readRunCleanup()
+
+print """\n\n
+  ******************************************************************
+  *** Executing cleanupExpiredRun, now=%s, globalDB=%s
+""" % (now, gDb)
+
+# TODO: fetch mysql root user/password from file
+rootU = raw_input("Enter mysql superuser account name: ")
+rootP = getpass.getpass()
+
+xx = CleanupExpiredRuns(host, port, gDb, rootU, rootP, 
+                        dFirstNotice, dFinalNotice)
 xx.run()
 
