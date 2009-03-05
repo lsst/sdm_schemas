@@ -97,6 +97,12 @@ class MySQLBase:
                                (tableName, dbName))
         return False
 
+    def userExists(self, userName, hostName):
+        ret = self.execCommand1(
+            "SELECT COUNT(*) FROM mysql.user WHERE user='%s' AND host='%s'" %\
+            (userName, hostName))
+        return ret[0] != 0
+
     def execCommand0(self, command):
         """
         Executes mysql commands which return no rows
@@ -130,10 +136,11 @@ class MySQLBase:
             ret = ""
         elif nRowsRet == 1:
             ret = cursor.fetchone()
+            self.log.log(Log.DEBUG, "Got: %s" % str(ret))
         else:
             ret = cursor.fetchall()
+            self.log.log(Log.DEBUG, "Got: %s" % str(ret))
         cursor.close()
-        self.log.log(Log.DEBUG, "Got: %s" % str(ret))
         return ret
 
     def loadSqlScript(self, scriptPath, dbUser, dbPassword, dbName=""):

@@ -57,7 +57,11 @@ rootP = getpass.getpass()
 admin = MySQLBase(serverHost, serverPort)
 admin.connect(rootU, rootP, globalDbName)
 
-toStr = "TO `%s`@`%s` IDENTIFIED BY '%s'" % (userName, clientHost, userPass)
+toStr = "TO `%s`@`%s`" % (userName, clientHost)
+if admin.userExists(userName, clientHost):
+    print 'This account already exists, upgrading priviledges. User password will not change.'
+else:
+    toStr += " IDENTIFIED BY '%s'" % userPass
 
 admin.execCommand0("GRANT ALL ON `%s_%%`.* %s" % (userName, toStr))
 
