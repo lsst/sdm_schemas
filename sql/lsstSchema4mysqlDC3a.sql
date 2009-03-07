@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_19 (version CHAR);
+CREATE TABLE AAA_Version_3_0_20 (version CHAR);
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -835,6 +835,15 @@ CREATE TABLE prv_SoftwarePackage
 	packageId INTEGER NOT NULL,
 	packageName VARCHAR(64) NOT NULL,
 	PRIMARY KEY (packageId)
+) ;
+
+
+CREATE TABLE prv_Run
+(
+	offset INTEGER NOT NULL AUTO_INCREMENT,
+	runId VARCHAR(255) NOT NULL,
+	PRIMARY KEY (offset),
+	UNIQUE UQ_prv_Run_runId(runId)
 ) ;
 
 
