@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_20 (version CHAR);
+CREATE TABLE AAA_Version_3_0_21 (version CHAR);
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -282,7 +282,7 @@ CREATE TABLE prv_cnf_PolicyKey
 CREATE TABLE DIASource
 (
 	diaSourceId BIGINT NOT NULL,
-	ccdExposureId BIGINT NOT NULL,
+	ampExposureId BIGINT NOT NULL,
 	diaSourceToId BIGINT NULL,
 	filterId TINYINT NOT NULL,
 	objectId BIGINT NULL,
@@ -321,7 +321,7 @@ CREATE TABLE DIASource
 	PRIMARY KEY (diaSourceId),
 	UNIQUE UQ_DIASource_diaSourceToId(diaSourceToId),
 	KEY (movingObjectId),
-	KEY (ccdExposureId),
+	KEY (ampExposureId),
 	KEY (filterId),
 	KEY (movingObjectId),
 	KEY (objectId)
