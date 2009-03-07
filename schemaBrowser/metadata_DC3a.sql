@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3a;
 USE lsst_schema_browser_DC3a;
 
 
-CREATE TABLE AAA_Version_DC3a_3_0_20 (version CHAR);
+CREATE TABLE AAA_Version_DC3a_3_0_21 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -101,8 +101,8 @@ SET tableId = 2, name = "DIASource",
 		displayOrder = 1;
 
 	INSERT INTO md_Column
-	SET columnId = 8, tableId = 2, name = "ccdExposureId",
-		description = "Pointer to Raw_CCD_Exposure table",
+	SET columnId = 8, tableId = 2, name = "ampExposureId",
+		description = "Pointer to Raw_Amp_Exposure table",
 		type = "BIGINT",
 		notNull = 1,
 		displayOrder = 2;
