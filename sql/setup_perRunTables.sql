@@ -37,10 +37,10 @@ INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SM', 'MOPS synthetic co
 -- Create tables in the form (ENGINE/indexes) expected by pipelines --
 -- ================================================================ --
 
-CREATE TABLE DIASourceTemplate LIKE DIASource;
+CREATE TABLE _tmpl_DIASource LIKE DIASource;
 
-ALTER TABLE DIASourceTemplate
-    DROP KEY ccdExposureId,
+ALTER TABLE _tmpl_DIASource 
+    DROP KEY ampExposureId,
     DROP KEY filterId,
     DROP KEY movingObjectId,
     DROP KEY objectId;
@@ -48,15 +48,15 @@ ALTER TABLE DIASourceTemplate
 -- This should be a permanent table, but copy it from Object for now.
 CREATE TABLE NonVarObject LIKE Object;
 
-CREATE TABLE InMemoryObjectTemplate LIKE Object;
+CREATE TABLE _tmpl_InMemoryObject LIKE Object;
 
-ALTER TABLE InMemoryObjectTemplate ENGINE=MEMORY;
+ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
 
-CREATE TABLE InMemoryMatchPairTemplate LIKE _tmpl_MatchPair;
-ALTER TABLE InMemoryMatchPairTemplate ENGINE=MEMORY;
+CREATE TABLE _tmpl_InMemoryMatchPair LIKE _tmpl_MatchPair;
+ALTER TABLE _tmpl_InMemoryMatchPair ENGINE=MEMORY;
 
-CREATE TABLE InMemoryIdTemplate LIKE _tmpl_Id;
-ALTER TABLE InMemoryIdTemplate ENGINE=MEMORY;
+CREATE TABLE _tmpl_InMemoryId LIKE _tmpl_Id;
+ALTER TABLE _tmpl_InMemoryId ENGINE=MEMORY;
 
 -- Populate the Object table for the run
 -- Todo: need to check if this is needed in DC3
