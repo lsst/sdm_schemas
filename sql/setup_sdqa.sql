@@ -35,6 +35,12 @@ VALUES ('nGoodPix', 'counts', 'f',    'Number of good pixels.')
       ,('pTile16' , 'D.N.'  , 't',    'Image 16-percentile.')
       ,('pTile84' , 'D.N.'  , 't',    'Image 84-percentile.')
       ,('pTile99' , 'D.N.'  , 't',    'Image 99-percentile.')
+      ,('phot.psf.numAvailStars', 'counts', 'f',    'Number of available PSF stars.')
+      ,('phot.psf.numGoodStars', 'counts', 'f',    'Number of good PSF stars.')
+      ,('phot.psf.spatialFitChi2', 'dimensionless', 't',    'Chi^2 for spatial PSF fit.')
+      ,('phot.psf.spatialLowOrdFlag', 'flag', 'f',    'Flag if forced to lower spatial order in PSF fit.')
+      ,('ip.isr.numSaturatedPixels', 'counts', 'f',    'Number of saturated pixels.')
+      ,('ip.isr.numCosmicRayPixels', 'counts', 'f',    'Number of cosmic-ray pixels.')
 ;
 
 
@@ -71,6 +77,12 @@ SELECT addSdqaThresholdRecord('pTile1'  , 1000 , -1000) INTO @x;
 SELECT addSdqaThresholdRecord('pTile16' , 20000, -100) INTO @x;
 SELECT addSdqaThresholdRecord('pTile84' , 50000, 5) INTO @x;
 SELECT addSdqaThresholdRecord('pTile99' , 70000, 20) INTO @x;
+SELECT addSdqaThresholdRecord('phot.psf.numAvailStars', \N   , 10) INTO @x;
+SELECT addSdqaThresholdRecord('phot.psf.numGoodStars', \N   , 10) INTO @x;
+SELECT addSdqaThresholdRecord('phot.psf.spatialFitChi2', 3   , 0.1) INTO @x;
+SELECT addSdqaThresholdRecord('phot.psf.spatialLowOrdFlag', \N   , \N) INTO @x;
+SELECT addSdqaThresholdRecord('ip.isr.numSaturatedPixels', 10000, \N) INTO @x;
+SELECT addSdqaThresholdRecord('ip.isr.numCosmicRayPixels', 1000, \N) INTO @x;
 
 
 
