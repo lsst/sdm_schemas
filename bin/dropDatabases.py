@@ -11,9 +11,9 @@ import sys
 
 usage = """
 
-%prog -u <username> [-p <matchingPattern>]
+%prog -u <username> [-p <matchingPattern>] [-f <policyFile>]
 
-Drops databases for given user. If matching patter is not specified, it will drop all databases.
+Drops databases for given user. If matching pattern is not specified, it will drop all databases. If matching pattern is specified, it will match any database that name contains given pattern anywhere after the "<username>_".
 
 Requires $CAT_ENV environment variable.
 
@@ -48,38 +48,39 @@ class DropDatabases(MySQLBase):
             raise RuntimeError("Directory '%s' not found" % self.sqlDir)
 
         self.dbUName = dbUName
-        self.dbUPwd = getpass.getpass()
+        self.dbUPwd = getpass.getpass("MySQL password for user '%s': " % dbUName)
 
     def run(self, pattern):
-        self.connect(self.dbUName, self.dbUPwd)
+        self.connect(self.dbUName, self.dbUPwd, self.globalDbName)
 
         if pattern:
-            pattern = '%s_%s' % (self.dbUName, pattern)
+            pattern = '%s_%%%s%%' % (self.dbUName, pattern)
         else:
-            pattern = "%s_" % self.dbUName
+            pattern = "%s_%%" % self.dbUName
 
         cmd = """
   SELECT dbName
   FROM   RunInfo
   WHERE  dbName LIKE '%s'
-     AND delDate IS NOT NULL
+     AND delDate IS NULL
 """ % pattern
-        dbs = self.execCommandN("SHOW DATABASES")
+        dbs = self.execCommandN(cmd)
         for dbN in dbs:
             print 'Deleting %s' % dbN
-            #self.dropDb(dbN)
-            self.execCommand0('SELECT setRunDeleted()' % dbN)
+            self.dropDb(dbN)
+            self.execCommand0("SELECT setRunDeleted('%s')" % dbN)
         self.disconnect()
 
 
 parser = optparse.OptionParser(usage)
+parser.add_option("-f")
 parser.add_option("-p")
 parser.add_option("-u")
 
 options, arguments = parser.parse_args()
 
 if not options.u:
-    sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
+    sys.stderr.write(os.path.basename(sys.argv[0]) + usage[7:])
     sys.exit(1)
 
 if options.p:
