@@ -8,7 +8,6 @@ printed to stdout. Errors are reported to stderr. To use:
 import sys
 import math
 import re
-import RO.Alg
 
 MaxEnumItems = 65535
 MaxSetItems = 64
@@ -91,7 +90,7 @@ class TableInfo(object):
         self.simpleColInfo = dict()
         # info for user-adjustable adjustable columns; dict of:
         # type: list of widths or of (width0, width1) of that type
-        self.userColInfo = RO.Alg.ListDict()
+        self.userColInfo = dict()
     
     def addCol(self, line):
         line = line.lower()

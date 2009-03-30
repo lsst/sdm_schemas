@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS RunInfo (
     runName VARCHAR(64) NOT NULL,            -- unique name of the run
     dbName VARCHAR(64) NOT NULL,             -- database name
     startDate DATETIME NOT NULL,             -- time when run was started
+    endDate DATETIME,                        -- time when run ended
     initiator VARCHAR(64) NOT NULL,          -- user name of the run initiator
     nExtensions SMALLINT NOT NULL DEFAULT 0, -- number of times extension was requested
     expDate DATETIME NOT NULL,               -- date at which run expires (can be deleted)
@@ -69,6 +70,54 @@ BEGIN
    RETURN r;
 END;
 //
+
+-- marks a run as 'finished'
+-- return value:
+--  0 - success
+-- -1 - not found
+-- -2 - already closed
+CREATE FUNCTION setRunFinished (
+   in_runDbName VARCHAR(64) ) RETURNS INT
+BEGIN
+   DECLARE n INT;
+   DECLARE d DATETIME;
+
+   SELECT COUNT(*) INTO n
+   FROM   RunInfo
+   WHERE  dbName = in_runDbName;
+   IF n <> 1 THEN RETURN -1; END IF;
+
+   SELECT endDate INTO d
+   FROM   RunInfo
+   WHERE  dbName = in_runDbName;
+   IF (d IS NOT NULL) THEN RETURN -2; END IF;
+
+   UPDATE RunInfo
+   SET endDate = NOW()
+   WHERE dbName = in_runDbName;
+
+   RETURN 0;
+END
+//
+
+CREATE FUNCTION setRunDeleted (
+   in_runDbName VARCHAR(64) ) RETURNS INT
+BEGIN
+   DECLARE n INT;
+
+   SELECT COUNT(*) INTO n
+   FROM   RunInfo
+   WHERE  dbName = in_runDbName;
+   IF n <> 1 THEN RETURN -1; END IF;
+
+   UPDATE RunInfo 
+   SET delDate = NOW()
+   WHERE dbName = in_runDbName;
+
+   RETURN 0;
+END
+//
+
 
 DELIMITER ;
 

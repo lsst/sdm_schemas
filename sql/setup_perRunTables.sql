@@ -23,6 +23,19 @@ INSERT INTO prv_Filter VALUES (6,  0, 'w', NULL, 0.0, 0.0);
 INSERT INTO prv_Filter VALUES (7,  0, 'V', NULL, 0.0, 0.0);
 INSERT INTO prv_Filter VALUES (-99, 0, 'DD', NULL, 0.0, 0.0); -- dummy filter
 
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (0,  'u', 0.0, 0.0);
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (1,  'g', 0.0, 0.0);
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (2,  'r', 0.0, 0.0);
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (3,  'i', 0.0, 0.0);
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (4,  'z', 0.0, 0.0);
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (5,  'y', 0.0, 0.0);
+
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (6,  'w', 0.0, 0.0);
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (7,  'V', 0.0, 0.0);
+INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (-99, 'DD', 0.0, 0.0);
+
+
+
 INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S0', 'MOPS synthetic NEO');
 INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S1', 'MOPS synthetic main-belt object');
 INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'St', 'MOPS synthetic Trojan');
@@ -37,10 +50,10 @@ INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SM', 'MOPS synthetic co
 -- Create tables in the form (ENGINE/indexes) expected by pipelines --
 -- ================================================================ --
 
-CREATE TABLE DIASourceTemplate LIKE DIASource;
+CREATE TABLE _tmpl_DIASource LIKE DIASource;
 
-ALTER TABLE DIASourceTemplate
-    DROP KEY ccdExposureId,
+ALTER TABLE _tmpl_DIASource 
+    DROP KEY ampExposureId,
     DROP KEY filterId,
     DROP KEY movingObjectId,
     DROP KEY objectId;
@@ -48,37 +61,33 @@ ALTER TABLE DIASourceTemplate
 -- This should be a permanent table, but copy it from Object for now.
 CREATE TABLE NonVarObject LIKE Object;
 
-CREATE TABLE InMemoryObjectTemplate LIKE Object;
+CREATE TABLE _tmpl_InMemoryObject LIKE Object;
 
-ALTER TABLE InMemoryObjectTemplate ENGINE=MEMORY;
+ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
 
-CREATE TABLE InMemoryMatchPairTemplate LIKE _tmpl_MatchPair;
-ALTER TABLE InMemoryMatchPairTemplate ENGINE=MEMORY;
+CREATE TABLE _tmpl_InMemoryMatchPair LIKE _tmpl_MatchPair;
+ALTER TABLE _tmpl_InMemoryMatchPair ENGINE=MEMORY;
 
-CREATE TABLE InMemoryIdTemplate LIKE _tmpl_Id;
-ALTER TABLE InMemoryIdTemplate ENGINE=MEMORY;
-
--- Populate the Object table for the run
--- Todo: need to check if this is needed in DC3
--- INSERT INTO Object SELECT * FROM DC2.Object;
+CREATE TABLE _tmpl_InMemoryId LIKE _tmpl_Id;
+ALTER TABLE _tmpl_InMemoryId ENGINE=MEMORY;
 
 -- Create tables that accumulate data from per-visit tables
-CREATE TABLE MopsPreds LIKE _tmpl_mops_Prediction;
-ALTER TABLE MopsPreds
+CREATE TABLE _mops_Prediction LIKE _tmpl_mops_Prediction;
+ALTER TABLE _mops_Prediction
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE DiaSourceToObjectMatches LIKE _tmpl_MatchPair;
-ALTER TABLE DiaSourceToObjectMatches
+CREATE TABLE _ap_DIASourceToObjectMatches LIKE _tmpl_MatchPair;
+ALTER TABLE _ap_DIASourceToObjectMatches
     ADD COLUMN visitId INTEGER NOT NULL,
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE MopsPredToDiaSourceMatches LIKE _tmpl_MatchPair;
-ALTER TABLE MopsPredToDiaSourceMatches
+CREATE TABLE _ap_PredToDIASourceMatches LIKE _tmpl_MatchPair;
+ALTER TABLE _ap_PredToDIASourceMatches
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE NewObjectIdPairs LIKE _tmpl_IdPair;
-ALTER TABLE NewObjectIdPairs
+CREATE TABLE _ap_DIASourceToNewObject LIKE _tmpl_IdPair;
+ALTER TABLE _ap_DIASourceToNewObject
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);

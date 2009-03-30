@@ -6,6 +6,7 @@ import os
 import subprocess
 import sys
 
+from lsst.pex.logging import Log
 
 class MySQLBase:
     """
@@ -14,10 +15,13 @@ class MySQLBase:
     executing commands or loading sql scripts to database. It caches
     connections, and handles database errors.
     """
-    def __init__(self, dbHostName):
+    def __init__(self, dbHostName, portNo=3306):
         self.dbHostName = dbHostName
+        self.dbHostPort = portNo
         self.db = None
         self.dbOpened = None
+        self.log = Log(Log.getDefaultLog(), "cat")
+        # self.log.setThreshold(Log.DEBUG)
 
     def __del__(self):
         self.disconnect()
@@ -34,15 +38,19 @@ class MySQLBase:
             if self.dbOpened == dbName:
                 return
             self.disconnect()
-
         try:
-            self.db = MySQLdb.connect(self.dbHostName, dbUser, 
-                                      dbPassword, dbName)
+            self.db = MySQLdb.connect(host=self.dbHostName, 
+                                      port=self.dbHostPort,
+                                      user=dbUser, 
+                                      passwd=dbPassword, 
+                                      db=dbName)
         except MySQLdb.Error, e:
-            raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-
-        self.dbOpened = dbName
-        print "\nConnected to " + dbName
+            raise RuntimeError("DB Error %d: %s. host=%s, port=%s, user=%s, pass=<hidden>" % \
+                               (e.args[0], e.args[1], self.dbHostName, self.dbHostPort, dbUser))
+        if dbName != "":
+            self.dbOpened = dbName
+        self.log.log(Log.DEBUG, "User %s connected to mysql://%s:%s/%s" %\
+                     (dbUser, self.dbHostName, self.dbHostPort, dbName))
 
     def disconnect(self):
         if self.db == None:
@@ -52,9 +60,48 @@ class MySQLBase:
             self.db.close()
         except MySQLdb.Error, e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
+        self.log.log(Log.DEBUG, "Disconnected from db %s" % self.dbOpened)
         self.db = None
-        print "\nDisconnected (%s)" % self.dbOpened
         self.dbOpened = None
+
+    def createDb(self, dbName):
+        self.execCommand0("CREATE DATABASE %s" % dbName)
+
+    def dropDb(self, dbName):
+        if self.dbExists(dbName):
+            self.execCommand0("DROP DATABASE %s" % dbName)
+
+    def dbExists(self, dbName, throwOnFailure=False):
+        if dbName is None:
+            raise RuntimeError("Invalid dbName")
+        cmd = "SELECT COUNT(*) FROM information_schema.schemata "
+        cmd += "WHERE schema_name = '%s'" % dbName
+        count = self.execCommand1(cmd)
+        if count[0] == 1:
+                return True
+        if throwOnFailure:
+            raise RuntimeError("Database '%s' does not exist." % (dbName))
+        return False
+
+    def tableExists(self, tableName, throwOnFailure=False):
+        if self.dbOpened is None:
+            raise RuntimeError("Not connected to any database")
+        cmd = "SELECT COUNT(*) FROM information_schema.tables "
+        cmd += "WHERE table_schema = '%s' AND table_name = '%s'" % \
+               (self.dbOpened, tableName)
+        count = self.execCommand1(cmd)
+        if count[0] == 1:
+            return True
+        if throwOnFailure:
+            raise RuntimeError("Table '%s' does not exist in db '%s'." % \
+                               (tableName, dbName))
+        return False
+
+    def userExists(self, userName, hostName):
+        ret = self.execCommand1(
+            "SELECT COUNT(*) FROM mysql.user WHERE user='%s' AND host='%s'" %\
+            (userName, hostName))
+        return ret[0] != 0
 
     def execCommand0(self, command):
         """
@@ -83,16 +130,17 @@ class MySQLBase:
             raise RuntimeError("No connection (command: '%s')" % command)
 
         cursor = self.db.cursor()
-        print "Executing %s" % command
+        self.log.log(Log.DEBUG, "Executing %s" % command)
         cursor.execute(command)
         if nRowsRet == 0:
             ret = ""
         elif nRowsRet == 1:
             ret = cursor.fetchone()
+            self.log.log(Log.DEBUG, "Got: %s" % str(ret))
         else:
             ret = cursor.fetchall()
+            self.log.log(Log.DEBUG, "Got: %s" % str(ret))
         cursor.close()
-        print ret
         return ret
 
     def loadSqlScript(self, scriptPath, dbUser, dbPassword, dbName=""):
@@ -100,18 +148,21 @@ class MySQLBase:
         Loads sql script into the database.
         """
         if dbPassword:
-            cmd = 'mysql -h%s -u%s -p%s %s' % \
-                (self.dbHostName, dbUser, dbPassword, dbName)
+            cmd = 'mysql -h%s -P%s -u%s -p%s %s' % \
+                (self.dbHostName, self.dbHostPort, dbUser, dbPassword, dbName)
         else:
-            cmd = 'mysql -h%s -u%s %s' % \
-                (self.dbHostName, dbUser, dbName)
+            cmd = 'mysql -h%s -P%s -u%s %s' % \
+                (self.dbHostName, self.dbHostPort, dbUser, dbName)
 
         with file(scriptPath) as scriptFile:
+            self.log.log(Log.DEBUG,
+                         "Loading %s into db=%s on %s:%s, user=%s"% \
+              (scriptPath, dbName, self.dbHostName, self.dbHostPort, dbUser))
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
                 raise RuntimeError("Failed to execute %s < %s" % \
                                        (cmd,scriptPath))
-            print "\nExecuted: %s < %s" % (cmd, scriptPath)
 
+    # this works only if executed on database server. need to fix...
     def getDataDirSpaceAvailPerc(self):
         """
         Returns space available in mysql datadir (percentage volume available)

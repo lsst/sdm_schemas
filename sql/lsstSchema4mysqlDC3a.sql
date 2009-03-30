@@ -8,7 +8,45 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_11 (version CHAR);
+CREATE TABLE AAA_Version_3_0_22 (version CHAR);
+
+CREATE TABLE Science_Amp_Exposure
+(
+	scienceAmpExposureId BIGINT NOT NULL,
+	scienceCCDExposureId BIGINT NOT NULL,
+	rawAmpExposureId BIGINT NULL,
+	ampId INTEGER NULL,
+	filterId INTEGER NULL,
+	equinox FLOAT(0) NULL,
+	url VARCHAR(255) NULL,
+	ctype1 VARCHAR(20) NULL,
+	ctype2 VARCHAR(20) NULL,
+	crpix1 FLOAT(0) NULL,
+	crpix2 FLOAT(0) NULL,
+	crval1 DOUBLE NULL,
+	crval2 DOUBLE NULL,
+	cd1_1 DOUBLE NULL,
+	cd2_1 DOUBLE NULL,
+	cd1_2 DOUBLE NULL,
+	cd2_2 DOUBLE NULL,
+	dateObs TIMESTAMP NULL DEFAULT 0,
+	expTime FLOAT(0) NULL,
+	ccdSize VARCHAR(50) NULL,
+	photoFlam FLOAT(0) NULL,
+	photoZP FLOAT(0) NULL,
+	nCombine INTEGER NULL DEFAULT 1,
+	taiMjd DOUBLE NULL,
+	bixX INTEGER NULL,
+	binY INTEGER NULL,
+	readNoise DOUBLE NULL,
+	saturationLimit BIGINT NULL,
+	dataSection VARCHAR(24) NULL,
+	gain DOUBLE NULL,
+	PRIMARY KEY (scienceAmpExposureId),
+	KEY (rawAmpExposureId),
+	KEY (scienceCCDExposureId)
+) ;
+
 
 CREATE TABLE mops_TrackletsToDIASource
 (
@@ -107,6 +145,31 @@ CREATE TABLE _mops_EonQueue
 ) ;
 
 
+CREATE TABLE Raw_Amp_Exposure
+(
+	rawAmpExposureId BIGINT NOT NULL,
+	rawCCDExposureId BIGINT NOT NULL,
+	ampId INTEGER NOT NULL,
+	radecSys VARCHAR(20) NULL,
+	url VARCHAR(255) NOT NULL,
+	ctype1 VARCHAR(20) NOT NULL,
+	ctype2 VARCHAR(20) NOT NULL,
+	crpix1 FLOAT(0) NOT NULL,
+	crpix2 FLOAT(0) NOT NULL,
+	crval1 DOUBLE NOT NULL,
+	crval2 DOUBLE NOT NULL,
+	cd11 DOUBLE NOT NULL,
+	cd21 DOUBLE NOT NULL,
+	cd12 DOUBLE NOT NULL,
+	cd22 DOUBLE NOT NULL,
+	taiObs TIMESTAMP NOT NULL DEFAULT 0,
+	darkTime FLOAT(0) NULL,
+	zd FLOAT(0) NULL,
+	PRIMARY KEY (rawAmpExposureId),
+	KEY (rawCCDExposureId)
+) ;
+
+
 CREATE TABLE _Raw_FPA_ExposureToVisit
 (
 	visitId INTEGER NOT NULL,
@@ -175,13 +238,14 @@ CREATE TABLE mops_Event
 
 CREATE TABLE sdqa_Rating_ForScienceFPAExposure
 (
-	sdqa_ratingId BIGINT NOT NULL,
+	sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
 	sdqa_metricId SMALLINT NOT NULL,
 	sdqa_thresholdId SMALLINT NOT NULL,
 	exposureId INTEGER NOT NULL,
 	metricValue DOUBLE NOT NULL,
 	metricErr DOUBLE NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
+	UNIQUE UQ_sdqa_Rating_ForScienceFPAExposure_metricId_exposureId(sdqa_metricId, exposureId),
 	KEY (exposureId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId)
@@ -190,66 +254,74 @@ CREATE TABLE sdqa_Rating_ForScienceFPAExposure
 
 CREATE TABLE sdqa_Rating_ForScienceCCDExposure
 (
-	sdqa_ratingId BIGINT NOT NULL,
+	sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
 	sdqa_metricId SMALLINT NOT NULL,
 	sdqa_thresholdId SMALLINT NOT NULL,
 	ccdExposureId BIGINT NOT NULL,
 	metricValue DOUBLE NOT NULL,
 	metricErr DOUBLE NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
+	UNIQUE UQ_sdqa_Rating_ForScienceCCDExposure_metricId_ccdExposureId(sdqa_metricId, ccdExposureId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ccdExposureId)
 ) ;
 
 
+CREATE TABLE prv_cnf_PolicyKey
+(
+	policyKeyId INTEGER NOT NULL,
+	value TEXT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (policyKeyId),
+	KEY (policyKeyId)
+) ;
+
+
 CREATE TABLE DIASource
 (
 	diaSourceId BIGINT NOT NULL,
-	ccdExposureId BIGINT NOT NULL,
+	ampExposureId BIGINT NOT NULL,
 	diaSourceToId BIGINT NULL,
 	filterId TINYINT NOT NULL,
 	objectId BIGINT NULL,
 	movingObjectId BIGINT NULL,
-	colc DOUBLE NOT NULL,
-	colcErr FLOAT(0) NOT NULL,
-	rowc DOUBLE NOT NULL,
-	rowcErr FLOAT(0) NOT NULL,
-	dcol DOUBLE NOT NULL,
-	drow DOUBLE NOT NULL,
+	xAstrom DOUBLE NOT NULL,
+	xAstromErr FLOAT(0) NULL,
+	yAstrom DOUBLE NOT NULL,
+	yAstromErr FLOAT(0) NULL,
 	ra DOUBLE NOT NULL,
-	raErrForDetection DOUBLE NOT NULL,
-	decErrForDetection DOUBLE NOT NULL,
-	raErrForWcs DOUBLE NULL,
+	raErrForDetection FLOAT(0) NULL,
+	raErrForWcs FLOAT(0) NULL,
 	decl DOUBLE NOT NULL,
-	decErrForWcs DOUBLE NULL,
-	cx DOUBLE NOT NULL,
-	cy DOUBLE NOT NULL,
-	cz DOUBLE NOT NULL,
+	declErrForDetection FLOAT(0) NULL,
+	declErrForWcs FLOAT(0) NULL,
 	taiMidPoint DOUBLE NOT NULL,
 	taiRange DOUBLE NOT NULL,
-	fwhmA FLOAT(0) NOT NULL,
-	fwhmB FLOAT(0) NOT NULL,
-	fwhmTheta FLOAT(0) NOT NULL,
-	flux DOUBLE NOT NULL,
-	fluxErr DOUBLE NOT NULL,
-	psfMag DOUBLE NOT NULL,
-	psfMagErr DOUBLE NOT NULL,
-	apMag DOUBLE NOT NULL,
-	apMagErr DOUBLE NOT NULL,
-	modelMag DOUBLE NOT NULL,
-	modelMagErr DOUBLE NOT NULL,
-	instMag DOUBLE NOT NULL,
-	instMagErr DOUBLE NOT NULL,
+	Ixx FLOAT(0) NULL,
+	IxxErr FLOAT(0) NULL,
+	Iyy FLOAT(0) NULL,
+	IyyErr FLOAT(0) NULL,
+	Ixy FLOAT(0) NULL,
+	IxyErr FLOAT(0) NULL,
+	psfFlux DOUBLE NOT NULL,
+	psfFluxErr FLOAT(0) NULL,
+	apFlux DOUBLE NOT NULL,
+	apFluxErr FLOAT(0) NULL,
+	modelFlux DOUBLE NOT NULL,
+	modelFluxErr FLOAT(0) NULL,
+	instFlux DOUBLE NOT NULL,
+	instFluxErr FLOAT(0) NULL,
 	apDia FLOAT(0) NULL,
-	flagClassification BIGINT NULL,
-	_dataSource TINYINT NOT NULL,
+	flagForClassification BIGINT NULL,
+	flagForDetection BIGINT NULL,
 	snr FLOAT(0) NOT NULL,
 	chi2 FLOAT(0) NOT NULL,
 	PRIMARY KEY (diaSourceId),
 	UNIQUE UQ_DIASource_diaSourceToId(diaSourceToId),
 	KEY (movingObjectId),
-	KEY (ccdExposureId),
+	KEY (ampExposureId),
 	KEY (filterId),
 	KEY (movingObjectId),
 	KEY (objectId)
@@ -268,34 +340,7 @@ CREATE TABLE Science_CCD_Exposure
 (
 	scienceCCDExposureId BIGINT NOT NULL,
 	scienceFPAExposureId BIGINT NOT NULL,
-	rawCCDExposureId BIGINT NOT NULL,
-	ccdDetectorId INTEGER NULL,
-	filterId INTEGER NULL,
-	equinox FLOAT(0) NULL,
-	url VARCHAR(255) NOT NULL,
-	ctype1 VARCHAR(20) NOT NULL,
-	ctype2 VARCHAR(20) NOT NULL,
-	crpix1 FLOAT(0) NOT NULL,
-	crpix2 FLOAT(0) NOT NULL,
-	crval1 DOUBLE NOT NULL,
-	crval2 DOUBLE NOT NULL,
-	cd1_1 DOUBLE NOT NULL,
-	cd2_1 DOUBLE NOT NULL,
-	cd1_2 DOUBLE NOT NULL,
-	cd2_2 DOUBLE NOT NULL,
-	dateObs TIMESTAMP NOT NULL DEFAULT 0,
-	expTime FLOAT(0) NULL,
-	ccdSize VARCHAR(50) NULL,
-	photoFlam FLOAT(0) NOT NULL,
-	photoZP FLOAT(0) NOT NULL,
-	nCombine INTEGER NOT NULL DEFAULT 1,
-	taiMjd DOUBLE NULL,
-	bixX INTEGER NULL,
-	binY INTEGER NULL,
-	readNoise DOUBLE NULL,
-	saturationLimit BIGINT NULL,
-	dataSection VARCHAR(24) NULL,
-	gain DOUBLE NULL,
+	rawCCDExposureId BIGINT NULL,
 	PRIMARY KEY (scienceCCDExposureId),
 	KEY (rawCCDExposureId),
 	KEY (scienceFPAExposureId)
@@ -305,26 +350,9 @@ CREATE TABLE Science_CCD_Exposure
 CREATE TABLE Raw_CCD_Exposure
 (
 	rawCCDExposureId BIGINT NOT NULL,
-	ccdDetectorId INTEGER NOT NULL,
 	rawFPAExposureId BIGINT NOT NULL,
-	radecSys VARCHAR(20) NULL,
-	url VARCHAR(255) NOT NULL,
-	ctype1 VARCHAR(20) NOT NULL,
-	ctype2 VARCHAR(20) NOT NULL,
-	crpix1 FLOAT(0) NOT NULL,
-	crpix2 FLOAT(0) NOT NULL,
-	crval1 DOUBLE NOT NULL,
-	crval2 DOUBLE NOT NULL,
-	cd11 DOUBLE NOT NULL,
-	cd21 DOUBLE NOT NULL,
-	cd12 DOUBLE NOT NULL,
-	cd22 DOUBLE NOT NULL,
-	taiObs TIMESTAMP NOT NULL DEFAULT 0,
-	darkTime FLOAT(0) NULL,
-	zd FLOAT(0) NULL,
 	PRIMARY KEY (rawCCDExposureId),
-	KEY (rawFPAExposureId),
-	KEY (ccdDetectorId)
+	KEY (rawFPAExposureId)
 ) ;
 
 
@@ -376,13 +404,14 @@ CREATE TABLE sdqa_Threshold
 
 CREATE TABLE sdqa_Rating_ForScienceAmpExposure
 (
-	sdqa_ratingId BIGINT NOT NULL,
+	sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
 	sdqa_metricId SMALLINT NOT NULL,
 	sdqa_thresholdId SMALLINT NOT NULL,
 	ampExposureId BIGINT NOT NULL,
 	metricValue DOUBLE NOT NULL,
 	metricErr DOUBLE NOT NULL,
 	PRIMARY KEY (sdqa_ratingId),
+	UNIQUE UQ_sdqa_Rating_ForScienceAmpExposure_metricId_ampExposureId(sdqa_metricId, ampExposureId),
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ampExposureId)
@@ -407,6 +436,97 @@ CREATE TABLE _MovingObjectToType
 	KEY (typeId),
 	KEY (movingObjectId)
 ) ;
+
+
+CREATE TABLE prv_PolicyKey
+(
+	policyKeyId INTEGER NOT NULL,
+	policyFileId INTEGER NOT NULL,
+	keyName VARCHAR(255) NOT NULL,
+	keyType VARCHAR(16) NOT NULL,
+	PRIMARY KEY (policyKeyId),
+	KEY (policyFileId)
+) ;
+
+
+CREATE TABLE prv_cnf_SoftwarePackage
+(
+	packageId INTEGER NOT NULL,
+	version VARCHAR(255) NOT NULL,
+	directory VARCHAR(255) NOT NULL,
+	validityBegin DATETIME NULL,
+	validityEnd DATETIME NULL,
+	PRIMARY KEY (packageId),
+	KEY (packageId)
+) ;
+
+
+CREATE TABLE WCSSource
+(
+	wcsSourceId BIGINT NOT NULL,
+	ampExposureId BIGINT NULL,
+	filterId TINYINT NULL,
+	wcsObjectId BIGINT NULL,
+	wcsObjectRa DOUBLE NULL,
+	wcsObjectRaErr FLOAT(0) NULL,
+	wcsObjectDecl DOUBLE NULL,
+	wcsObjectDeclErr FLOAT(0) NULL,
+	ra DOUBLE NULL,
+	raErr FLOAT(0) NULL,
+	decl DOUBLE NULL,
+	declErr FLOAT(0) NULL,
+	xFlux DOUBLE NULL,
+	xFluxErr FLOAT(0) NULL,
+	yFlux DOUBLE NULL,
+	yFluxErr FLOAT(0) NULL,
+	raFlux DOUBLE NULL,
+	raFluxErr FLOAT(0) NULL,
+	declFlux DOUBLE NULL,
+	declFluxErr FLOAT(0) NULL,
+	xPeak DOUBLE NULL,
+	yPeak DOUBLE NULL,
+	raPeak DOUBLE NULL,
+	declPeak DOUBLE NULL,
+	xAstrom DOUBLE NULL,
+	xAstromErr FLOAT(0) NULL,
+	yAstrom DOUBLE NULL,
+	yAstromErr FLOAT(0) NULL,
+	raAstrom DOUBLE NULL,
+	raAstromErr FLOAT(0) NULL,
+	declAstrom DOUBLE NULL,
+	declAstromErr FLOAT(0) NULL,
+	psfFlux DOUBLE NULL,
+	psfFluxErr FLOAT(0) NULL,
+	apFlux DOUBLE NULL,
+	apFluxErr FLOAT(0) NULL,
+	modelFlux DOUBLE NULL,
+	modelFluxErr FLOAT(0) NULL,
+	petroFlux DOUBLE NULL,
+	petroFluxErr FLOAT(0) NULL,
+	instFlux DOUBLE NULL,
+	instFluxErr FLOAT(0) NULL,
+	nonGrayCorrFlux DOUBLE NULL,
+	nonGrayCorrFluxErr FLOAT(0) NULL,
+	atmCorrFlux DOUBLE NULL,
+	atmCorrFluxErr FLOAT(0) NULL,
+	apDia FLOAT(0) NULL,
+	Ixx FLOAT(0) NULL,
+	IxxErr FLOAT(0) NULL,
+	Iyy FLOAT(0) NULL,
+	IyyErr FLOAT(0) NULL,
+	Ixy FLOAT(0) NULL,
+	IxyErr FLOAT(0) NULL,
+	snr FLOAT(0) NULL,
+	chi2 FLOAT(0) NULL,
+	sky FLOAT(0) NULL,
+	skyErr FLOAT(0) NULL,
+	flag BIGINT NULL,
+	PRIMARY KEY (wcsSourceId),
+	KEY (ampExposureId),
+	KEY (filterId),
+	KEY (raErr),
+	KEY (wcsObjectId)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Object
@@ -491,7 +611,7 @@ CREATE TABLE MovingObject
 	timePeri DOUBLE NOT NULL,
 	epoch DOUBLE NOT NULL,
 	h_v DOUBLE NOT NULL,
-	g DOUBLE NULL,
+	g DOUBLE NULL DEFAULT 0.15,
 	rotationPeriod DOUBLE NULL,
 	rotationEpoch DOUBLE NULL,
 	albedo DOUBLE NULL,
@@ -506,28 +626,28 @@ CREATE TABLE MovingObject
 	mopsStatus CHAR(1) NULL,
 	stablePass CHAR(1) NULL,
 	timeCreated TIMESTAMP NULL,
-	uMag DOUBLE NOT NULL,
-	uMagErr FLOAT(0) NOT NULL,
+	uMag DOUBLE NULL,
+	uMagErr FLOAT(0) NULL,
 	uAmplitude FLOAT(0) NULL,
 	uPeriod FLOAT(0) NULL,
-	gMag DOUBLE NOT NULL,
-	gMagErr FLOAT(0) NOT NULL,
+	gMag DOUBLE NULL,
+	gMagErr FLOAT(0) NULL,
 	gAmplitude FLOAT(0) NULL,
 	gPeriod FLOAT(0) NULL,
-	rMag DOUBLE NOT NULL,
-	rMagErr FLOAT(0) NOT NULL,
+	rMag DOUBLE NULL,
+	rMagErr FLOAT(0) NULL,
 	rAmplitude FLOAT(0) NULL,
 	rPeriod FLOAT(0) NULL,
-	iMag DOUBLE NOT NULL,
-	iMagErr FLOAT(0) NOT NULL,
+	iMag DOUBLE NULL,
+	iMagErr FLOAT(0) NULL,
 	iAmplitude FLOAT(0) NULL,
 	iPeriod FLOAT(0) NULL,
-	zMag DOUBLE NOT NULL,
-	zMagErr FLOAT(0) NOT NULL,
+	zMag DOUBLE NULL,
+	zMagErr FLOAT(0) NULL,
 	zAmplitude FLOAT(0) NULL,
 	zPeriod FLOAT(0) NULL,
-	yMag DOUBLE NOT NULL,
-	yMagErr FLOAT(0) NOT NULL,
+	yMag DOUBLE NULL,
+	yMagErr FLOAT(0) NULL,
 	yAmplitude FLOAT(0) NULL,
 	yPeriod FLOAT(0) NULL,
 	flag INTEGER NULL,
@@ -566,6 +686,79 @@ CREATE TABLE MovingObject
 	INDEX idx_MovingObject_ssmObjectName (ssmObjectName ASC),
 	INDEX idx_MovingObject_status (mopsStatus ASC)
 ) ;
+
+
+CREATE TABLE _tmpl_WCSSource
+(
+	sourceId BIGINT NOT NULL,
+	ampExposureId BIGINT NULL,
+	filterId TINYINT NOT NULL,
+	objectId BIGINT NULL,
+	movingObjectId BIGINT NULL,
+	procHistoryId INTEGER NOT NULL,
+	ra DOUBLE NOT NULL,
+	raErrForDetection FLOAT(0) NULL,
+	raErrForWcs FLOAT(0) NOT NULL,
+	decl DOUBLE NOT NULL,
+	declErrForDetection FLOAT(0) NULL,
+	declErrForWcs FLOAT(0) NOT NULL,
+	xFlux DOUBLE NULL,
+	xFluxErr FLOAT(0) NULL,
+	yFlux DOUBLE NULL,
+	yFluxErr FLOAT(0) NULL,
+	raFlux DOUBLE NULL,
+	raFluxErr FLOAT(0) NULL,
+	declFlux DOUBLE NULL,
+	declFluxErr FLOAT(0) NULL,
+	xPeak DOUBLE NULL,
+	yPeak DOUBLE NULL,
+	raPeak DOUBLE NULL,
+	declPeak DOUBLE NULL,
+	xAstrom DOUBLE NULL,
+	xAstromErr FLOAT(0) NULL,
+	yAstrom DOUBLE NULL,
+	yAstromErr FLOAT(0) NULL,
+	raAstrom DOUBLE NULL,
+	raAstromErr FLOAT(0) NULL,
+	declAstrom DOUBLE NULL,
+	declAstromErr FLOAT(0) NULL,
+	taiMidPoint DOUBLE NOT NULL,
+	taiRange FLOAT(0) NULL,
+	psfFlux DOUBLE NOT NULL,
+	psfFluxErr FLOAT(0) NOT NULL,
+	apFlux DOUBLE NOT NULL,
+	apFluxErr FLOAT(0) NOT NULL,
+	modelFlux DOUBLE NOT NULL,
+	modelFluxErr FLOAT(0) NOT NULL,
+	petroFlux DOUBLE NULL,
+	petroFluxErr FLOAT(0) NULL,
+	instFlux DOUBLE NOT NULL,
+	instFluxErr FLOAT(0) NOT NULL,
+	nonGrayCorrFlux DOUBLE NULL,
+	nonGrayCorrFluxErr FLOAT(0) NULL,
+	atmCorrFlux DOUBLE NULL,
+	atmCorrFluxErr FLOAT(0) NULL,
+	apDia FLOAT(0) NULL,
+	Ixx FLOAT(0) NULL,
+	IxxErr FLOAT(0) NULL,
+	Iyy FLOAT(0) NULL,
+	IyyErr FLOAT(0) NULL,
+	Ixy FLOAT(0) NULL,
+	IxyErr FLOAT(0) NULL,
+	snr FLOAT(0) NOT NULL,
+	chi2 FLOAT(0) NOT NULL,
+	sky FLOAT(0) NULL,
+	skyErr FLOAT(0) NULL,
+	flagForAssociation SMALLINT NULL,
+	flagForDetection SMALLINT NULL,
+	flagForWcs SMALLINT NULL,
+	PRIMARY KEY (sourceId),
+	KEY (ampExposureId),
+	KEY (filterId),
+	KEY (movingObjectId),
+	KEY (objectId),
+	KEY (procHistoryId)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Science_FPA_Exposure
@@ -718,12 +911,12 @@ CREATE TABLE prv_SoftwarePackage
 ) ;
 
 
-CREATE TABLE prv_PolicyKey
+CREATE TABLE prv_Run
 (
-	policyKeyId INTEGER NOT NULL,
-	policyFileId INTEGER NOT NULL,
-	keyName VARCHAR(255) NOT NULL,
-	PRIMARY KEY (policyKeyId)
+	offset INTEGER NOT NULL AUTO_INCREMENT,
+	runId VARCHAR(255) NOT NULL,
+	PRIMARY KEY (offset),
+	UNIQUE UQ_prv_Run_runId(runId)
 ) ;
 
 
@@ -732,7 +925,7 @@ CREATE TABLE prv_PolicyFile
 	policyFileId INTEGER NOT NULL,
 	pathName VARCHAR(255) NOT NULL,
 	hashValue CHAR(32) NOT NULL,
-	modifiedDate DATETIME NOT NULL,
+	modifiedDate BIGINT NOT NULL,
 	PRIMARY KEY (policyFileId)
 ) ;
 
@@ -751,35 +944,23 @@ CREATE TABLE prv_Filter
 ) TYPE=MyISAM;
 
 
-CREATE TABLE prv_cnf_SoftwarePackage
-(
-	packageId INTEGER NOT NULL,
-	version VARCHAR(32) NOT NULL,
-	directory VARCHAR(255) NOT NULL,
-	validityBegin DATETIME NULL,
-	validityEnd DATETIME NULL,
-	PRIMARY KEY (packageId)
-) ;
-
-
-CREATE TABLE prv_cnf_PolicyKey
-(
-	policyKeyId INTEGER NOT NULL,
-	value VARCHAR(255) NOT NULL,
-	validityBegin DATETIME NULL,
-	validityEnd DATETIME NULL,
-	PRIMARY KEY (policyKeyId)
-) ;
 
 
 
+ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Raw_Amp_Exposure 
+	FOREIGN KEY (rawAmpExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
+ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Science_CCD_Exposure 
+	FOREIGN KEY (scienceCCDExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
 ALTER TABLE _mops_MoidQueue ADD CONSTRAINT FK__mops_MoidQueue_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
 
 ALTER TABLE _mops_EonQueue ADD CONSTRAINT FK__mopsEonQueue_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
+
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_Raw_Amp_Exposure_Raw_CCD_Exposure 
+	FOREIGN KEY (rawCCDExposureId) REFERENCES Raw_CCD_Exposure (rawCCDExposureId);
 
 ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mops_Tracklet_Science_CCD_Exposure 
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
@@ -789,6 +970,9 @@ ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_mopsSSM
 
 ALTER TABLE mops_Event ADD CONSTRAINT FK_mops_Event_Science_CCD_Exposure 
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
+
+ALTER TABLE prv_cnf_PolicyKey ADD CONSTRAINT FK_prv_cnf_PolicyKey_prv_PolicyKey 
+	FOREIGN KEY (policyKeyId) REFERENCES prv_PolicyKey (policyKeyId);
 
 ALTER TABLE DIASource ADD CONSTRAINT FK_DIASource_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
@@ -810,3 +994,9 @@ ALTER TABLE mops_SSM ADD CONSTRAINT FK_mopsSSM_mopsSSMDesc
 
 ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqa_Threshold_sdqa_Metric 
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
+
+ALTER TABLE prv_PolicyKey ADD CONSTRAINT FK_prv_PolicyKey_prv_PolicyFile 
+	FOREIGN KEY (policyFileId) REFERENCES prv_PolicyFile (policyFileId);
+
+ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_prv_SoftwarePackage 
+	FOREIGN KEY (packageId) REFERENCES prv_SoftwarePackage (packageId);

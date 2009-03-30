@@ -1,31 +1,58 @@
 #!/usr/bin/env python
 
-from administerRuns import AdminRuns
-from mysqlBase import MySQLBase
-import MySQLdb
+from lsst.cat.administerRuns import AdminRuns
+from lsst.cat.policyReader import PolicyReader
+from lsst.cat.MySQLBase import MySQLBase
+
+import getpass
+import os
 import subprocess
 
-gDb = "GlobalDB4cleanupTest"
-dcV = "DC3a"
-hostN = "localhost" # mysql server host name
+catDir = os.environ["CAT_DIR"]
+policyF = os.path.join(catDir, 'policy/defaultTestCatPolicy.paf')
+
+
+r = PolicyReader(policyF)
+(host, port) = r.readAuthInfo()
+(gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife) = r.readGlobalSetup()
+
+
+
+sqlDir = os.path.join(catDir, "sql")
+
 
 # dummy mysql users + passwords
-u1 = "dummy1"
-p1 = "pwd1"
-u2 = "dummy2"
-p2 = "pwd2"
+u1 = "jacek_test"
+p1 = "j"
+u2 = "jacek_test2"
+p2 = "j2"
+
+
+rootU = raw_input("Enter mysql superuser account name: ")
+rootP = getpass.getpass()
 
 
 maxNIter = 30
 
 
-def dropDB():
-    admin = MySQLBase(hostN)
-    admin.connect("becla", "")
-    admin.execCommand0("DROP DATABASE IF EXISTS " + gDb)
+def dropTestDbs():
+    admin = MySQLBase(host, port)
+    admin.connect(rootU, rootP)
+    admin.dropDb(gDb)
     for n in range(1, maxNIter):
-        admin.execCommand0("DROP DATABASE IF EXISTS %s_%s_u_myRun_%02i" % (u1, dcV, n))
-        admin.execCommand0("DROP DATABASE IF EXISTS %s_%s_u_myRun_%02i" % (u2, dcV, n))
+        admin.dropDb("%s_%s_u_myRun_%02i" % (u1, dcV, n))
+        admin.dropDb("%s_%s_u_myRun_%02i" % (u2, dcV, n))
+
+def resetGlobalDb():
+    x = os.path.join(catDir, 'bin/destroyGlobal.py')
+    cmd = '%s -f %s' % (x, policyF)
+    subprocess.call(cmd.split())
+
+    x = os.path.join(catDir, 'bin/setupGlobal.py')
+    cmd = '%s -f %s' % (x, policyF)
+    subprocess.call(cmd.split())
+
+
 
 def createDummyUserAccounts():
     """
@@ -33,44 +60,29 @@ def createDummyUserAccounts():
     program exist. In normal operations, these accounts should already exist
     prior to running anything.
     """
-    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u1, p1, gDb, dcV)
-    print cmd
+    x = os.path.join(catDir, 'bin/addMySqlUser.py')
+    cmd = '%s -f %s -u %s -p %s' % (x, policyF, u1, p1)
     subprocess.call(cmd.split())
-    cmd = "../scripts/addMySqlUser.py -f dummy -s localhost -u %s -p %s -c localhost -g %s -v %s" % (u2, p2, gDb, dcV)
-    print cmd
+    cmd = '%s -f %s -u %s -p %s' % (x, policyF, u2, p2)
     subprocess.call(cmd.split())
 
 
-dropDB()
-
-# one connection per user
-a1 = AdminRuns(hostN, # mysql host
-              gDb)   # global db name
-a2 = AdminRuns(hostN, # mysql host
-              gDb)   # global db name
-
-
-# create global db
-a1.setupGlobalDB("globalDBPolicy.txt")
-
-
+dropTestDbs()
+resetGlobalDb()
 createDummyUserAccounts()
 
 
-a1.checkStatus("perRunDBPolicy.txt", 
-               u1,     # non-superuser
-               p1,     # password
-               hostN)  # machine where mysql client is executed
-
-a2.checkStatus("perRunDBPolicy.txt", 
-               u2,     # non-superuser
-               p2,     # password
-               hostN)  # machine where mysql client is executed
+# one connection per user
+a1 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
+a2 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
 
 
-b = MySQLBase(hostN)
+a1.checkStatus(u1, p1, 'dummy') # non-superuser name and password
+a2.checkStatus(u2, p2, 'dummy') # non-superuser name and password
 
-bSU = MySQLBase(hostN)
+
+b = MySQLBase(host, port)
+bSU = MySQLBase(host, port)
 
 outLogFile = open("./_cleanup.log", "w")
 
@@ -79,14 +91,14 @@ outLogFile = open("./_cleanup.log", "w")
 for n in range(1, maxNIter):
     print "\n\n************** doing ", n, " **************\n"
 
-    a1.prepareForNewRun("perRunDBPolicy.txt", "myRun_%02i"%n,  "u", u1, p1)
+    a1.prepareForNewRun("myRun_%02i"%n, u1, p1)
 
     # manually adjust the run start time, notice, have to run as su
-    bSU.connect("becla", "", gDb)
+    bSU.connect(rootU, rootP, gDb)
     bSU.execCommand0("""
       UPDATE RunInfo 
-      SET startDate = ADDTIME("2008-05-01 15:00:00", "%i 00:00:00"),
-          expDate   = ADDTIME("2008-05-14 15:00:00", "%i 00:00:00")
+      SET startDate = ADDTIME('2008-05-01 15:00:00', '%i 00:00:00'),
+          expDate   = ADDTIME('2008-05-14 15:00:00', '%i 00:00:00')
       WHERE runName = 'myRun_%02i' 
         AND initiator = '%s'
 """ % (n, n, n, u1))
@@ -104,14 +116,14 @@ for n in range(1, maxNIter):
         b.disconnect()
 
     if n % 3 == 1:
-        a2.prepareForNewRun("perRunDBPolicy.txt", "myRun_%02i"%n,  "u", u2, p2);
+        a2.prepareForNewRun("myRun_%02i"%n, u2, p2);
 
     # manually adjust the run start time
-    bSU.connect("becla", "", gDb)
+    bSU.connect(rootU, rootP, gDb)
     bSU.execCommand0("""
       UPDATE RunInfo 
-      SET startDate = ADDTIME("2008-05-01 15:00:00", "%i 00:00:00"),
-          expDate   = ADDTIME("2008-05-14 15:00:00", "%i 00:00:00")
+      SET startDate = ADDTIME('2008-05-01 15:00:00', '%i 00:00:00'),
+          expDate   = ADDTIME('2008-05-14 15:00:00', '%i 00:00:00')
       WHERE runName = 'myRun_%02i' 
         AND initiator = '%s'
 
@@ -128,8 +140,9 @@ for n in range(1, maxNIter):
 
     print "\n\n******** now running cleanup script **********\n"
 
-    cmd = "../scripts/cleanupExpiredRuns.py f -d 2008-05-%i -g %s" %\
-        (n, gDb)
+    x = os.path.join(catDir, 'bin/cleanupExpiredRuns.py')
+    cmd = '%s -f %s -d 2008-05-%i -g %s' % (x, policyF, n, gDb)
+
     print "calling ", cmd
     subprocess.call(cmd.split(), stdout=outLogFile)
 
