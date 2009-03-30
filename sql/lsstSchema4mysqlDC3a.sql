@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_0_22 (version CHAR);
+CREATE TABLE AAA_Version_3_0_23 (version CHAR);
 
 CREATE TABLE Science_Amp_Exposure
 (
@@ -36,7 +36,7 @@ CREATE TABLE Science_Amp_Exposure
 	photoZP FLOAT(0) NULL,
 	nCombine INTEGER NULL DEFAULT 1,
 	taiMjd DOUBLE NULL,
-	bixX INTEGER NULL,
+	binX INTEGER NULL,
 	binY INTEGER NULL,
 	readNoise DOUBLE NULL,
 	saturationLimit BIGINT NULL,
