@@ -69,6 +69,8 @@ BEGIN
 END
 //
 
+DELIMITER ;
+
 -- ===========================   Time   =========================== --
 
 -- Created by K.-T. Lim (ktl@slac.stanford.edu)
@@ -79,15 +81,15 @@ END
 
 CREATE TABLE LeapSeconds (
     whenJd FLOAT NOT NULL,
-    offset FLOAT NOT NULL
+    offset FLOAT NOT NULL,
     mjdRef FLOAT NOT NULL,
     drift FLOAT NOT NULL,
-    whenMjd FLOAT NULL,
+    whenMjdUtc FLOAT NULL,
     whenUtc BIGINT NULL,
     whenTai BIGINT NULL
 );
 
-INSERT INTO LeapSeconds VALUES
+INSERT INTO LeapSeconds (whenJd, offset, mjdRef, drift) VALUES
     (2437300.5, 1.4228180, 37300., 0.001296),
     (2437512.5, 1.3728180, 37300., 0.001296),
     (2437665.5, 1.8458580, 37665., 0.0011232),
@@ -134,11 +136,13 @@ UPDATE LeapSeconds
             CAST(1.0e9 * (offset + (whenMjdUtc - mjdRef) * drift) AS SIGNED);
 
 
+DELIMITER //
+
 --
 -- Function to convert UTC nanoseconds to TAI nanoseconds.
 --
 
-CREATE FUNCTION utcToTAI (
+CREATE FUNCTION utcToTai (
     nsecs_ BIGINT
 ) RETURNS BIGINT
 BEGIN
@@ -158,9 +162,9 @@ BEGIN
             SELECT MAX(whenUtc) FROM LeapSeconds WHERE whenUtc <= nsecs_
         );
     SET mjd_ = nsecs_ / nsecsPerDay_ + epochInMjd_;
-    SET leapSecs = offset_ + (mjd_ - mjdRef_) * drift;
+    SET leapSecs_ = offset_ + (mjd_ - mjdRef_) * drift_;
     
-    RETURN nsecs_ + CAST(leapSecs * 1.0e9 + 0.5 AS SIGNED INTEGER);
+    RETURN nsecs_ + CAST(leapSecs_ * 1.0e9 + 0.5 AS SIGNED INTEGER);
 
 END
 //
@@ -170,7 +174,7 @@ END
 -- Function to convert TAI nanoseconds to UTC nanoseconds.
 --
 
-CREATE FUNCTION taiToUTC (
+CREATE FUNCTION taiToUtc (
     nsecs_ BIGINT
 ) RETURNS BIGINT
 BEGIN
@@ -192,8 +196,8 @@ BEGIN
         );
     SET taiSecs_ = nsecs_ / 1.0e9;
     SET leapSecs_ = taiSecs_ -
-        (taiSecs_ - offset_ - drift_ * (epochInMjd_ - mjdRef)) /
-        (1.0 + drift * 1.0e9 / nsecPerDay_);
+        (taiSecs_ - offset_ - drift_ * (epochInMjd_ - mjdRef_)) /
+        (1.0 + drift_ * 1.0e9 / nsecsPerDay_);
     RETURN nsecs_ - CAST(leapSecs_ * 1.0e9 + 0.5 AS SIGNED);
 
 END
@@ -247,7 +251,7 @@ CREATE FUNCTION mjdUtcToTai (
     mjdUtc_ FLOAT
 ) RETURNS BIGINT
 BEGIN
-    RETURN utcToTai((mjdTai_ - 40587.0) * 86.4e12);
+    RETURN utcToTai((mjdUtc_ - 40587.0) * 86.4e12);
 END
 //
 
