@@ -12,7 +12,7 @@ CREATE DATABASE lsst_schema_browser_DC3a;
 USE lsst_schema_browser_DC3a;
 
 
-CREATE TABLE AAA_Version_DC3a_3_0_22 (version CHAR);
+CREATE TABLE AAA_Version_DC3a_3_0_23 (version CHAR);
 
 
 CREATE TABLE md_Table (
@@ -1785,7 +1785,7 @@ SET tableId = 10, name = "Science_Amp_Exposure";
 		displayOrder = 24;
 
 	INSERT INTO md_Column
-	SET columnId = 246, tableId = 10, name = "bixX",
+	SET columnId = 246, tableId = 10, name = "binX",
 		description = "Binning of the ccd in x.",
 		type = "INTEGER",
 		notNull = 0,
