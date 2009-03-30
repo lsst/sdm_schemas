@@ -71,56 +71,67 @@ END
 
 -- ===========================   Time   =========================== --
 
--- Created: 09 February 2008, K.-T. Lim (ktl@slac.stanford.edu)
+-- Created by K.-T. Lim (ktl@slac.stanford.edu)
 
 --
 -- Table of leap seconds.
 --
 
 CREATE TABLE LeapSeconds (
-    daysSinceEpoch FLOAT NOT NULL,
-    seconds INT NOT NULL
+    whenJd FLOAT NOT NULL,
+    offset FLOAT NOT NULL
+    mjdRef FLOAT NOT NULL,
+    drift FLOAT NOT NULL,
+    whenMjd FLOAT NULL,
+    whenUtc BIGINT NULL,
+    whenTai BIGINT NULL
 );
 
 INSERT INTO LeapSeconds VALUES
-    (730.0, 10),
-    (912.0, 11),
-    (1096.0, 12),
-    (1461.0, 13),
-    (1826.0, 14),
-    (2191.0, 15),
-    (2557.0, 16),
-    (2922.0, 17),
-    (3287.0, 18),
-    (3652.0, 19),
-    (4199.0, 20),
-    (4564.0, 21),
-    (4929.0, 22),
-    (5660.0, 23),
-    (6574.0, 24),
-    (7305.0, 25),
-    (7670.0, 26),
-    (8217.0, 27),
-    (8582.0, 28),
-    (8947.0, 29),
-    (9496.0, 30),
-    (10043.0, 31),
-    (10592.0, 32),
-    (13149.0, 33),
-    (14245.0, 34);
+    (2437300.5, 1.4228180, 37300., 0.001296),
+    (2437512.5, 1.3728180, 37300., 0.001296),
+    (2437665.5, 1.8458580, 37665., 0.0011232),
+    (2438334.5, 1.9458580, 37665., 0.0011232),
+    (2438395.5, 3.2401300, 38761., 0.001296),
+    (2438486.5, 3.3401300, 38761., 0.001296),
+    (2438639.5, 3.4401300, 38761., 0.001296),
+    (2438761.5, 3.5401300, 38761., 0.001296),
+    (2438820.5, 3.6401300, 38761., 0.001296),
+    (2438942.5, 3.7401300, 38761., 0.001296),
+    (2439004.5, 3.8401300, 38761., 0.001296),
+    (2439126.5, 4.3131700, 39126., 0.002592),
+    (2439887.5, 4.2131700, 39126., 0.002592),
+    (2441317.5, 10.0, 41317., 0.0),
+    (2441499.5, 11.0, 41317., 0.0),
+    (2441683.5, 12.0, 41317., 0.0),
+    (2442048.5, 13.0, 41317., 0.0),
+    (2442413.5, 14.0, 41317., 0.0),
+    (2442778.5, 15.0, 41317., 0.0),
+    (2443144.5, 16.0, 41317., 0.0),
+    (2443509.5, 17.0, 41317., 0.0),
+    (2443874.5, 18.0, 41317., 0.0),
+    (2444239.5, 19.0, 41317., 0.0),
+    (2444786.5, 20.0, 41317., 0.0),
+    (2445151.5, 21.0, 41317., 0.0),
+    (2445516.5, 22.0, 41317., 0.0),
+    (2446247.5, 23.0, 41317., 0.0),
+    (2447161.5, 24.0, 41317., 0.0),
+    (2447892.5, 25.0, 41317., 0.0),
+    (2448257.5, 26.0, 41317., 0.0),
+    (2448804.5, 27.0, 41317., 0.0),
+    (2449169.5, 28.0, 41317., 0.0),
+    (2449534.5, 29.0, 41317., 0.0),
+    (2450083.5, 30.0, 41317., 0.0),
+    (2450630.5, 31.0, 41317., 0.0),
+    (2451179.5, 32.0, 41317., 0.0),
+    (2453736.5, 33.0, 41317., 0.0),
+    (2454832.5, 34.0, 41317., 0.0);
 
-
---
--- Function to convert UTC nanoseconds to Modified Julian Days (UTC).
---
-
-CREATE FUNCTION utcToMJD (
-    utcTime_ BIGINT
-) RETURNS DOUBLE
-BEGIN
-    RETURN utcTime_ / 86.4e12 + 40587.0;
-END
-//
+UPDATE LeapSeconds
+    SET whenMjdUtc = whenJd - 2400000.5,
+        whenUtc = CAST((whenMjdUtc - 40587.0) * 86.4e12 AS SIGNED),
+        whenTai = whenUtc +
+            CAST(1.0e9 * (offset + (whenMjdUtc - mjdRef) * drift) AS SIGNED);
 
 
 --
@@ -128,26 +139,28 @@ END
 --
 
 CREATE FUNCTION utcToTAI (
-    utcTime_ BIGINT
+    nsecs_ BIGINT
 ) RETURNS BIGINT
 BEGIN
+    DECLARE nsecsPerDay_ DOUBLE;
+    DECLARE epochInMjd_ DOUBLE;
+    DECLARE offset_ FLOAT;
+    DECLARE mjdRef_ FLOAT;
+    DECLARE drift_ FLOAT;
+    DECLARE mjd_ DOUBLE;
+    DECLARE leapSecs_ DOUBLE;
 
-    DECLARE daysSinceEpoch_ FLOAT;
-    DECLARE leapSeconds_ INT;
-
-    SELECT MAX(daysSinceEpoch) INTO daysSinceEpoch_
+    SET nsecsPerDay_ = 86.4e12;
+    SET epochInMjd_ = 40587.0;
+    SELECT offset, mjdRef, drift INTO offset_, mjdRef_, drift_
         FROM LeapSeconds
-        WHERE daysSinceEpoch * 86.4e12 < utcTime_;
-
-    IF daysSinceEpoch_ IS NULL THEN
-        SET leapSeconds_ = (utcToMJD(utcTime_) - 39126.0) * 0.002592 + 4.21317;
-    ELSE
-        SELECT seconds INTO leapSeconds_
-            FROM LeapSeconds
-            WHERE daysSinceEpoch = daysSinceEpoch_;
-    END IF;
-
-    RETURN utcTime_ - leapSeconds_ * 1000000000;
+        WHERE whenUtc = (
+            SELECT MAX(whenUtc) FROM LeapSeconds WHERE whenUtc <= nsecs_
+        );
+    SET mjd_ = nsecs_ / nsecsPerDay_ + epochInMjd_;
+    SET leapSecs = offset_ + (mjd_ - mjdRef_) * drift;
+    
+    RETURN nsecs_ + CAST(leapSecs * 1.0e9 + 0.5 AS SIGNED INTEGER);
 
 END
 //
@@ -158,26 +171,30 @@ END
 --
 
 CREATE FUNCTION taiToUTC (
-    taiTime_ BIGINT
+    nsecs_ BIGINT
 ) RETURNS BIGINT
 BEGIN
 
-    DECLARE daysSinceEpoch_ FLOAT;
-    DECLARE leapSeconds_ INT;
+    DECLARE nsecsPerDay_ DOUBLE;
+    DECLARE epochInMjd_ DOUBLE;
+    DECLARE offset_ FLOAT;
+    DECLARE mjdRef_ FLOAT;
+    DECLARE drift_ FLOAT;
+    DECLARE taiSecs_ DOUBLE;
+    DECLARE leapSecs_ DOUBLE;
 
-    SELECT MAX(daysSinceEpoch) INTO daysSinceEpoch_
+    SET nsecsPerDay_ = 86.4e12;
+    SET epochInMjd_ = 40587.0;
+    SELECT offset, mjdRef, drift INTO offset_, mjdRef_, drift_
         FROM LeapSeconds
-        WHERE daysSinceEpoch * 86.4e12 + seconds * 1.0e9 < taiTime_;
-
-    IF daysSinceEpoch_ IS NULL THEN
-        RETURN (taiTime_ - 4.21317e9 - (40587.0 - 39126.0) * 0.002592e9) /
-            (1 - 0.002592e9 / 86.4e12);
-    END IF;
-
-    SELECT seconds INTO leapSeconds_
-        FROM LeapSeconds
-        WHERE daysSinceEpoch = daysSinceEpoch_;
-    RETURN taiTime_ + leapSeconds_ * 1000000000;
+        WHERE whenTai = (
+            SELECT MAX(whenTai) FROM LeapSeconds WHERE whenTai <= nsecs_
+        );
+    SET taiSecs_ = nsecs_ / 1.0e9;
+    SET leapSecs_ = taiSecs_ -
+        (taiSecs_ - offset_ - drift_ * (epochInMjd_ - mjdRef)) /
+        (1.0 + drift * 1.0e9 / nsecPerDay_);
+    RETURN nsecs_ - CAST(leapSecs_ * 1.0e9 + 0.5 AS SIGNED);
 
 END
 //
@@ -187,13 +204,51 @@ END
 -- Function to convert TAI nanoseconds to Modified Julian Days (UTC).
 --
 
-CREATE FUNCTION taiToMJD (
-    taiTime_ BIGINT
+CREATE FUNCTION taiToMjdUtc (
+    nsecs_ BIGINT
 ) RETURNS DOUBLE
 BEGIN
-    RETURN taiToUTC(taiTime_) / 86.4e12 + 40587.0;
+    RETURN taiToUTC(nsecs_) / 86.4e12 + 40587.0;
 END
 //
 
+
+--
+-- Function to convert TAI nanoseconds to Modified Julian Days (TAI).
+--
+
+CREATE FUNCTION taiToMjdTai (
+    nsecs_ BIGINT
+) RETURNS DOUBLE
+BEGIN
+    RETURN nsecs_ / 86.4e12 + 40587.0;
+END
+//
+
+
+--
+-- Function to convert Modified Julian Days (TAI) to TAI nanoseconds.
+--
+
+CREATE FUNCTION mjdTaiToTai (
+    mjdTai_ FLOAT
+) RETURNS BIGINT
+BEGIN
+    RETURN (mjdTai_ - 40587.0) * 86.4e12;
+END
+//
+
+
+--
+-- Function to convert Modified Julian Days (UTC) to TAI nanoseconds.
+--
+
+CREATE FUNCTION mjdUtcToTai (
+    mjdUtc_ FLOAT
+) RETURNS BIGINT
+BEGIN
+    RETURN utcToTai((mjdTai_ - 40587.0) * 86.4e12);
+END
+//
 
 DELIMITER ;
