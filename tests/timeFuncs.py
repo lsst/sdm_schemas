@@ -12,17 +12,17 @@ class TimeFuncTestCase(unittest.TestCase):
         self.db.setRetrieveLocation(dafPersist.LogicalLocation(
             "mysql://lsst10.ncsa.uiuc.edu:3306/ktl"))
         self.db.startTransaction()
-        self.db.setTableForQuery("test")
+        self.db.setTableForQuery("DUAL", True)
 
     def tearDown(self):
         self.db.endTransaction()
 
     def testMJD(self):
         mjdUtc = 45205.125
-        self.db.outColumn("taiToUtc(mjdUtcToTai(%f))" % mjdUtc)
-        self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc)
-        self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc)
-        self.db.outColumn("taiToMjdTai(mjdUtcToTai(%f))" % mjdUtc)
+        self.db.outColumn("taiToUtc(mjdUtcToTai(%f))" % mjdUtc, True)
+        self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc, True)
+        self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
+        self.db.outColumn("taiToMjdTai(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.query()
         haveRow = self.db.next()
         self.assert_(haveRow)
@@ -36,9 +36,9 @@ class TimeFuncTestCase(unittest.TestCase):
 
     def testNsecs(self):
         nsecsUtc = 1192755473000000000L
-        self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc)
-        self.db.outColumn("utcToTai(%d)" % nsecsUtc)
-        self.db.outColumn("taiToMjdUtc(utcToTai(%d))" % nsecsUtc)
+        self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc, True)
+        self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
+        self.db.outColumn("taiToMjdUtc(utcToTai(%d))" % nsecsUtc, True)
         self.db.query()
         haveRow = self.db.next()
         self.assert_(haveRow)
@@ -50,9 +50,9 @@ class TimeFuncTestCase(unittest.TestCase):
 
     def testBoundaryMJD(self):
         mjdUtc = 47892.0
-        self.db.outColumn("taiToUtc(mjdUtcToTai(%f))" % mjdUtc)
-        self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc)
-        self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc)
+        self.db.outColumn("taiToUtc(mjdUtcToTai(%f))" % mjdUtc, True)
+        self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc, True)
+        self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.query()
         haveRow = self.db.next()
         self.assert_(haveRow)
@@ -64,8 +64,8 @@ class TimeFuncTestCase(unittest.TestCase):
 
     def testCrossBoundaryNsecs(self):
         nsecsUtc = 631151998000000000L
-        self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc)
-        self.db.outColumn("utcToTai(%d)" % nsecsUtc)
+        self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc, True)
+        self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
         self.db.query()
         haveRow = self.db.next()
         self.assert_(haveRow)
@@ -76,11 +76,11 @@ class TimeFuncTestCase(unittest.TestCase):
 
     def testNsecsTAI(self):
         nsecsTai = 1192755506000000000L
-        self.db.outColumn("taiToUtc(%d)" % nsecsTai)
-        self.db.outColumn("utcToTai(taiToUtc(%d))" % nsecsTai)
-        self.db.outColumn("taiToMjdUtc(%d)" % nsecsTai)
+        self.db.outColumn("taiToUtc(%d)" % nsecsTai, True)
+        self.db.outColumn("utcToTai(taiToUtc(%d))" % nsecsTai, True)
+        self.db.outColumn("taiToMjdUtc(%d)" % nsecsTai, True)
         self.db.query()
-        haveRow = self.db.Next()
+        haveRow = self.db.next()
         self.assert_(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 1192755473000000000L)
         self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000L)
