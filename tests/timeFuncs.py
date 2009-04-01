@@ -6,45 +6,29 @@ import re
 import time
 
 import lsst.daf.persistence as dafPersist
+import lsst.cat.SqlScript as SqlScript
 
 class TimeFuncTestCase(unittest.TestCase):
     """A test case for SQL time functions."""
 
     def setUp(self):
-        self.testId = int(time.time() * 10.0)
+        testId = int(time.time() * 10.0)
+
+        self.dbName = "test_%d" % testId
+        dbUrl = "mysql://lsst10.ncsa.uiuc.edu:3306/" + self.dbName
+
         self.db = dafPersist.DbStorage()
+
         self.db.setRetrieveLocation(dafPersist.LogicalLocation(
             "mysql://lsst10.ncsa.uiuc.edu:3306/test"))
-
         self.db.startTransaction()
-        self.db.executeSql("CREATE DATABASE test_%d" % self.testId)
+        self.db.executeSql("CREATE DATABASE " + self.dbName)
         self.db.endTransaction()
 
-        self.db.setRetrieveLocation(dafPersist.LogicalLocation(
-            "mysql://lsst10.ncsa.uiuc.edu:3306/test_%d" % self.testId))
+        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+            "setup_storedFunctions.sql"), dbUrl)
 
-        f = open(os.path.join(os.environ['CAT_DIR'], "sql",
-            "setup_storedFunctions.sql"), "r")
-        delimiter = ";"
-        statement = ""
-        for l in f.xreadlines():
-            if re.match(r'$|--$|--\s', l):
-                continue
-            l = re.sub(r'\s+--\s.*', "", l)
-            m = re.match(r'DELIMITER (//|;)', l)
-            if m:
-                delimiter = m.group(1)
-                continue
-            if re.search(delimiter + r'\s*\S', l):
-                raise RuntimeError, "Text after delimiter"
-            if re.search(delimiter + r'\s*$', l):
-                self.db.startTransaction()
-                self.db.executeSql(statement +
-                        re.sub(delimiter + '\s*$', "", l))
-                self.db.endTransaction()
-                statement = ""
-            else:
-                statement += l
+        self.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
 
         self.db.startTransaction()
         self.db.setTableForQuery("DUAL", True)
@@ -53,7 +37,7 @@ class TimeFuncTestCase(unittest.TestCase):
         self.db.endTransaction()
 
         self.db.startTransaction()
-        self.db.executeSql("DROP DATABASE test_%d" % self.testId)
+        self.db.executeSql("DROP DATABASE " + self.dbName)
         self.db.endTransaction()
 
     def testMJD(self):
