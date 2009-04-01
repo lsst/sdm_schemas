@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 
 import unittest
+import os
+import re
+import time
 
 import lsst.daf.persistence as dafPersist
 
@@ -8,13 +11,49 @@ class TimeFuncTestCase(unittest.TestCase):
     """A test case for SQL time functions."""
 
     def setUp(self):
+        self.testId = int(time.time() * 10.0)
         self.db = dafPersist.DbStorage()
         self.db.setRetrieveLocation(dafPersist.LogicalLocation(
-            "mysql://lsst10.ncsa.uiuc.edu:3306/ktl"))
+            "mysql://lsst10.ncsa.uiuc.edu:3306/test"))
+
+        self.db.startTransaction()
+        self.db.executeSql("CREATE DATABASE test_%d" % self.testId)
+        self.db.endTransaction()
+
+        self.db.setRetrieveLocation(dafPersist.LogicalLocation(
+            "mysql://lsst10.ncsa.uiuc.edu:3306/test_%d" % self.testId))
+
+        f = open(os.path.join(os.environ['CAT_DIR'], "sql",
+            "setup_storedFunctions.sql"), "r")
+        delimiter = ";"
+        statement = ""
+        for l in f.xreadlines():
+            if re.match(r'$|--$|--\s', l):
+                continue
+            l = re.sub(r'\s+--\s.*', "", l)
+            m = re.match(r'DELIMITER (//|;)', l)
+            if m:
+                delimiter = m.group(1)
+                continue
+            if re.search(delimiter + r'\s*\S', l):
+                raise RuntimeError, "Text after delimiter"
+            if re.search(delimiter + r'\s*$', l):
+                self.db.startTransaction()
+                self.db.executeSql(statement +
+                        re.sub(delimiter + '\s*$', "", l))
+                self.db.endTransaction()
+                statement = ""
+            else:
+                statement += l
+
         self.db.startTransaction()
         self.db.setTableForQuery("DUAL", True)
 
     def tearDown(self):
+        self.db.endTransaction()
+
+        self.db.startTransaction()
+        self.db.executeSql("DROP DATABASE test_%d" % self.testId)
         self.db.endTransaction()
 
     def testMJD(self):
@@ -87,6 +126,9 @@ class TimeFuncTestCase(unittest.TestCase):
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
         haveRow = self.db.next()
         self.assert_(not haveRow)
+
+def suite():
+    return unittest.makeSuite(TimeFuncTestCase)
 
 if __name__ == '__main__':
     unittest.main()
