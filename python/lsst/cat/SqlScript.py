@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import with_statement
+
 import optparse
 import os
 import re
@@ -10,25 +12,25 @@ defaultDbUrl='mysql://lsst10.ncsa.uiuc.edu:3306/test'
 
 def parse(filename):
     statements = []
-    f = open(filename, "r")
-    delimiter = ";"
-    statement = ""
-    for l in f.xreadlines():
-        if re.match(r'$|--$|--\s', l):
-            continue
-        l = re.sub(r'\s+--\s.*', "", l)
-        m = re.match(r'DELIMITER (//|;)', l, flags=re.I)
-        if m:
-            delimiter = m.group(1)
-            continue
-        if re.search(delimiter + r'\s*\S', l):
-            raise RuntimeError, "Non-comment text after delimiter: %s" % l
-        if re.search(delimiter + r'\s*$', l):
-            statements.append(statement + re.sub(delimiter + '\s*$', "", l))
-            statement = ""
-        else:
-            statement += l
-    f.close()
+    with open(filename, "r") as f:
+        delimiter = ";"
+        statement = ""
+        for l in f:
+            if re.match(r'$|--$|--\s', l):
+                continue
+            l = re.sub(r'\s+--\s.*', "", l)
+            m = re.match(r'DELIMITER (//|;)', l, flags=re.I)
+            if m:
+                delimiter = m.group(1)
+                continue
+            if re.search(delimiter + r'\s*\S', l):
+                raise RuntimeError, "Non-comment text after delimiter: %s" % l
+            if re.search(delimiter + r'\s*$', l):
+                l = re.sub(delimiter + r'\s*$', "", l)
+                statements.append(statement + l)
+                statement = ""
+            else:
+                statement += l
     return statements
 
 def run(filename, dbUrl=defaultDbUrl):
