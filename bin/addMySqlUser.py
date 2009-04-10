@@ -65,6 +65,8 @@ else:
 
 admin.execCommand0("GRANT ALL ON `%s_%%`.* %s" % (userName, toStr))
 
+admin.execCommand0("GRANT ALL ON `test`.* %s" % toStr)
+
 admin.execCommand0("GRANT SELECT ON *.* %s" % toStr)
 
 admin.execCommand0("GRANT SELECT, INSERT ON %s.* %s" % (dcDb, toStr))
