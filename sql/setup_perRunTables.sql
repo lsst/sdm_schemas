@@ -4,7 +4,7 @@
 -- $Revision$
 -- $Date$
 --
--- See <http://lsstdev.ncsa.uiuc.edu:8100/trac/wiki/Copyrights>
+-- See <http://lsstdev.ncsa.uiuc.edu/trac/wiki/Copyrights>
 -- for copyright information.
 
 -- ================================================= --
