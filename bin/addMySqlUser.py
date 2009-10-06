@@ -65,7 +65,10 @@ else:
 
 admin.execCommand0("GRANT ALL ON `%s_%%`.* %s" % (userName, toStr))
 
-admin.execCommand0("GRANT ALL ON `test%%`.* %s" % toStr)
+# this is not needed because the mysql built-in annonymous
+# account is used for databases starting with "test"
+# See also: http://bugs.mysql.com/bug.php?id=47843
+# admin.execCommand0("GRANT ALL ON `test%%`.* %s" % toStr)
 
 admin.execCommand0("GRANT SELECT ON *.* %s" % toStr)
 
