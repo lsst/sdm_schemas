@@ -121,3 +121,9 @@ END
 
 DELIMITER ;
 
+
+-- See http://bugs.mysql.com/bug.php?id=47843
+-- for more details
+UPDATE mysql.db SET Execute_priv = 'Y' WHERE Db = 'test' OR Db = 'test\_%';
+FLUSH PRIVILEGES;
+
