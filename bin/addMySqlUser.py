@@ -63,7 +63,7 @@ if admin.userExists(userName, clientHost):
 else:
     toStr += " IDENTIFIED BY '%s'" % userPass
 
-admin.execCommand0("GRANT ALL ON `%s_%%`.* %s" % (userName, toStr))
+admin.execCommand0("GRANT ALL ON `%s\_%%`.* %s" % (userName, toStr))
 
 # this is not needed because the mysql built-in annonymous
 # account is used for databases starting with "test"
