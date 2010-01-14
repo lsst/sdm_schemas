@@ -23,16 +23,16 @@ INSERT INTO prv_Filter VALUES (6,  0, 'w', NULL, 0.0, 0.0);
 INSERT INTO prv_Filter VALUES (7,  0, 'V', NULL, 0.0, 0.0);
 INSERT INTO prv_Filter VALUES (-99, 0, 'DD', NULL, 0.0, 0.0); -- dummy filter
 
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (0,  'u', 0.0, 0.0);
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (1,  'g', 0.0, 0.0);
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (2,  'r', 0.0, 0.0);
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (3,  'i', 0.0, 0.0);
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (4,  'z', 0.0, 0.0);
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (5,  'y', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (0,  'u', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (1,  'g', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (2,  'r', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (3,  'i', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (4,  'z', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (5,  'y', 0.0, 0.0);
 
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (6,  'w', 0.0, 0.0);
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (7,  'V', 0.0, 0.0);
-INSERT INTO Filter(filterId, filtName, photClam, photBW) VALUES (-99, 'DD', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (6,  'w', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (7,  'V', 0.0, 0.0);
+INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (-99, 'DD', 0.0, 0.0);
 
 
 
