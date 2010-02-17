@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_68 (version CHAR);
+CREATE TABLE AAA_Version_3_1_73 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -108,6 +108,37 @@ CREATE TABLE _ObjectToType
 	probability TINYINT NULL DEFAULT 100,
 	KEY (typeId),
 	KEY (objectId)
+) ;
+
+
+CREATE TABLE _qservChunkMap
+(
+	raMin DOUBLE NOT NULL,
+	raMax DOUBLE NOT NULL,
+	declMin DOUBLE NOT NULL,
+	declMax DOUBLE NOT NULL,
+	chunkId INTEGER NOT NULL,
+	rowCount INTEGER NOT NULL
+) ;
+
+
+CREATE TABLE _qservObjectIdMap
+(
+	objectId BIGINT NOT NULL,
+	chunkId INTEGER NOT NULL,
+	subChunkId INTEGER NOT NULL
+) ;
+
+
+CREATE TABLE _qservSubChunkMap
+(
+	raMin DOUBLE NOT NULL,
+	raMax DOUBLE NOT NULL,
+	declMin DOUBLE NOT NULL,
+	declMax DOUBLE NOT NULL,
+	chunkId INTEGER NOT NULL,
+	subChunkId INTEGER NOT NULL,
+	rowCount INTEGER NOT NULL
 ) ;
 
 
@@ -618,6 +649,8 @@ CREATE TABLE CalibSource
 	calibSourceId BIGINT NOT NULL,
 	ccdExposureId BIGINT NULL,
 	filterId TINYINT NULL,
+	astroRefCatId BIGINT NULL,
+	photoRefCatId BIGINT NULL,
 	ra DOUBLE NOT NULL,
 	raSigma FLOAT(0) NOT NULL,
 	decl DOUBLE NOT NULL,
@@ -638,6 +671,8 @@ CREATE TABLE CalibSource
 	momentIxy FLOAT(0) NULL,
 	momentIxySigma FLOAT(0) NULL,
 	flag BIGINT NULL,
+	_chunkId INTEGER NULL,
+	_subChunkId INTEGER NULL,
 	PRIMARY KEY (calibSourceId),
 	KEY (ccdExposureId),
 	KEY (filterId),
@@ -673,10 +708,9 @@ CREATE TABLE DiaSource
 	psfFluxSigma FLOAT(0) NOT NULL,
 	apFlux FLOAT(0) NOT NULL,
 	apFluxSigma FLOAT(0) NOT NULL,
+	exposureStartTime FLOAT(0) NOT NULL,
 	modelFlux FLOAT(0) NOT NULL,
 	modelFluxSigma FLOAT(0) NOT NULL,
-	i FLOAT(0) NULL,
-	iSigma FLOAT(0) NULL,
 	momentIx FLOAT(0) NULL,
 	momentIxSigma FLOAT(0) NULL,
 	momentIy FLOAT(0) NULL,
@@ -687,8 +721,9 @@ CREATE TABLE DiaSource
 	momentIyySigma FLOAT(0) NULL,
 	momentIxy FLOAT(0) NULL,
 	momentIxySigma FLOAT(0) NULL,
-	exposureStartTime FLOAT(0) NOT NULL,
 	flags BIGINT NOT NULL,
+	_chunkId INTEGER NULL,
+	_subChunkId INTEGER NULL,
 	PRIMARY KEY (diaSourceId),
 	KEY (ccdExposureId),
 	KEY (filterId),
@@ -721,6 +756,8 @@ CREATE TABLE ForcedDiaSource
 	modelSOLnL FLOAT(0) NULL,
 	modelLOLnL FLOAT(0) NULL,
 	flags BIGINT NOT NULL,
+	_chunkId INTEGER NULL,
+	_subChunkId INTEGER NULL,
 	PRIMARY KEY (objectId, ccdExposureId)
 ) ;
 
@@ -749,6 +786,8 @@ CREATE TABLE ForcedSource
 	modelSOLnL FLOAT(0) NULL,
 	modelLOLnL FLOAT(0) NULL,
 	flags BIGINT NOT NULL,
+	_chunkId INTEGER NULL,
+	_subChunkId INTEGER NULL,
 	PRIMARY KEY (objectId, ccdExposureId)
 ) ;
 
@@ -850,7 +889,6 @@ CREATE TABLE MovingObject
 CREATE TABLE Object
 (
 	objectId BIGINT NOT NULL,
-	subChunkId INTEGER NULL,
 	iauId CHAR(34) NULL,
 	ra_PS DOUBLE NOT NULL,
 	ra_PS_Sigma FLOAT(0) NOT NULL,
@@ -991,10 +1029,6 @@ CREATE TABLE Object
 	gE1_radius_SG_Cov FLOAT(0) NULL,
 	gE2_radius_SG_Cov FLOAT(0) NULL,
 	gFlags INTEGER NULL,
-	iFlags INTEGER NULL,
-	rFlags INTEGER NULL,
-	yFlags INTEGER NULL,
-	zFlags INTEGER NULL,
 	rNumObs INTEGER NULL,
 	rExtendedness FLOAT(0) NULL,
 	rVarProb FLOAT(0) NULL,
@@ -1051,6 +1085,7 @@ CREATE TABLE Object
 	rE1_e2_SG_Cov FLOAT(0) NULL,
 	rE1_radius_SG_Cov FLOAT(0) NULL,
 	rE2_radius_SG_Cov FLOAT(0) NULL,
+	rFlags INTEGER NULL,
 	iNumObs INTEGER NULL,
 	iExtendedness FLOAT(0) NULL,
 	iVarProb FLOAT(0) NULL,
@@ -1107,6 +1142,7 @@ CREATE TABLE Object
 	iE1_e2_SG_Cov FLOAT(0) NULL,
 	iE1_radius_SG_Cov FLOAT(0) NULL,
 	iE2_radius_SG_Cov FLOAT(0) NULL,
+	iFlags INTEGER NULL,
 	zNumObs INTEGER NULL,
 	zExtendedness FLOAT(0) NULL,
 	zVarProb FLOAT(0) NULL,
@@ -1163,6 +1199,7 @@ CREATE TABLE Object
 	zE1_e2_SG_Cov FLOAT(0) NULL,
 	zE1_radius_SG_Cov FLOAT(0) NULL,
 	zE2_radius_SG_Cov FLOAT(0) NULL,
+	zFlags INTEGER NULL,
 	yNumObs INTEGER NULL,
 	yExtendedness FLOAT(0) NULL,
 	yVarProb FLOAT(0) NULL,
@@ -1219,6 +1256,9 @@ CREATE TABLE Object
 	yE1_e2_SG_Cov FLOAT(0) NULL,
 	yE1_radius_SG_Cov FLOAT(0) NULL,
 	yE2_radius_SG_Cov FLOAT(0) NULL,
+	yFlags INTEGER NULL,
+	_chunkId INTEGER NULL,
+	_subChunkId INTEGER NULL,
 	PRIMARY KEY (objectId)
 ) TYPE=MyISAM;
 
@@ -1251,12 +1291,16 @@ CREATE TABLE Source
 	sky FLOAT(0) NOT NULL,
 	skySigma FLOAT(0) NOT NULL,
 	psfLnL FLOAT(0) NULL,
+	lnL_SG FLOAT(0) NULL,
+	extendedness FLOAT(0) NULL,
 	psfFlux DOUBLE NOT NULL,
 	psfFluxSigma FLOAT(0) NOT NULL,
 	apFlux FLOAT(0) NOT NULL,
 	apFluxSigma FLOAT(0) NOT NULL,
 	modelFlux FLOAT(0) NOT NULL,
 	modelFluxSigma FLOAT(0) NOT NULL,
+	flux_SG FLOAT(0) NULL,
+	flux_SG_Sigma FLOAT(0) NULL,
 	galExtinction FLOAT(0) NULL,
 	sersicN_SG FLOAT(0) NULL,
 	sersicN_SG_Sigma FLOAT(0) NULL,
@@ -1281,6 +1325,8 @@ CREATE TABLE Source
 	grayExtinction FLOAT(0) NOT NULL,
 	nonGrayExtinction FLOAT(0) NOT NULL,
 	flags BIGINT NOT NULL,
+	_chunkId INTEGER NULL,
+	_subChunkId INTEGER NULL,
 	PRIMARY KEY (sourceId),
 	KEY (objectId),
 	KEY (ccdExposureId),
