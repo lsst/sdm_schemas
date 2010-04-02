@@ -47,8 +47,12 @@ INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SM', 'MOPS synthetic co
 
 
 -- ================================================================ --
--- Create tables in the form (ENGINE/indexes) expected by pipelines --
+--  Create tables using existing templates, adjust engine types etc --
 -- ================================================================ --
+
+CREATE TABLE DiaSourceForMovingObject LIKE DiaSource;
+CREATE TABLE SourceForMovingObject LIKE Source;
+
 
 CREATE TABLE _tmpl_DIASource LIKE DIASource;
 
