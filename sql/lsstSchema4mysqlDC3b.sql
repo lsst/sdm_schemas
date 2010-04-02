@@ -8,10 +8,20 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_81 (version CHAR);
+CREATE TABLE AAA_Version_3_1_82 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
+
+
+CREATE TABLE prv_Activity
+(
+	activityId TINYINT NOT NULL,
+	offset MEDIUMINT NOT NULL,
+	type VARCHAR(64) NOT NULL,
+	platform VARCHAR(64) NOT NULL,
+	PRIMARY KEY (activityId, offset)
+) ;
 
 
 CREATE TABLE prv_cnf_PolicyKey
@@ -74,10 +84,8 @@ CREATE TABLE prv_PolicyKey
 
 CREATE TABLE prv_Run
 (
-	offset INTEGER NOT NULL AUTO_INCREMENT,
+	offset MEDIUMINT NOT NULL AUTO_INCREMENT,
 	runId VARCHAR(255) NOT NULL,
-	hostName VARCHAR(64) NULL,
-	processId INTEGER NULL,
 	PRIMARY KEY (offset),
 	UNIQUE UQ_prv_Run_runId(runId)
 ) ;
