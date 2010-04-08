@@ -44,6 +44,18 @@ VALUES ('nGoodPix', 'counts', 'f',    'Number of good pixels.')
       ,('ip.diffim.residuals', 'sigma', 't',    'Residuals.')
       ,('ip.diffim.kernelSum', 'dimensionless', 't',    'Kernel sum.')
       ,('ip.diffim.d_residuals', 'sigma', 't',    'Per-footprint residuals.')
+      ,( 'nBadCalibPix', 'counts', 'f', 'Number of pixels with compromised values (charge traps, hot pixels).' )
+      ,( 'nSaturatePix', 'counts', 'f', 'Number of pixels compromised by detector saturation, including pixels with uncorrectable non-linearity.' )
+      ,( 'overscanMean', 'ADU', 't', 'Mean of overscan pixels, computed from Good pixels.')
+      ,( 'overscanStdDev', 'ADU', 't', 'Standard deviation of overscan pixels, computed from Good pixels.')
+      ,( 'overscanMedian', 'ADU', 't', 'Median of overscan pixels, computed from Good pixels; used as robust estimate of CCD bias level.')
+      ,( 'imageClippedMean4Sigma3Passes', 'e-', 't', 'Clipped mean of image at 4 sigma with 3 iterations, computed from Good pixels.')
+      ,( 'imageStdDev', 'e-', 't', 'Standard devation of image, computed from Good pixels.')
+      ,( 'imageMedian', 'e-', 't', 'Median of image, computed from Good pixels.')
+      ,( 'imageMin', 'e-', 't', 'Minimum of image, computed from Good pixels.')
+      ,( 'imageMax', 'e-', 't', 'Maximum of image, computed from Good pixels.')
+      ,( 'imageGradientX', 'e-/pixel', 't', 'Image gradient along axis 1, computed from Good pixels in background regions.')
+      ,( 'imageGradientY', 'e-/pixel', 't', 'Image gradient along axis 2, computed from Good pixels in background regions.')
 ;
 
 
