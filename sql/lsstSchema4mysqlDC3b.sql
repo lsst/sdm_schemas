@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_82 (version CHAR);
+CREATE TABLE AAA_Version_3_1_83 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -579,7 +579,7 @@ CREATE TABLE Raw_Ccd_Exposure
 
 CREATE TABLE Raw_Ccd_Exposure_Metadata
 (
-	rawCcdExposureId  NOT NULL,
+	rawCcdExposureId BIGINT NOT NULL,
 	exposureType TINYINT NOT NULL,
 	metadataKey VARCHAR(255) NOT NULL,
 	metadataValue VARCHAR(255) NULL,
@@ -883,29 +883,29 @@ CREATE TABLE Object
 	ra_PS_Sigma FLOAT(0) NOT NULL,
 	decl_PS DOUBLE NOT NULL,
 	decl_PS_Sigma FLOAT(0) NOT NULL,
-	radecl_PS_Cov FLOAT(0) NOT NULL,
-	ra_SG DOUBLE NOT NULL,
-	ra_SG_Sigma FLOAT(0) NOT NULL,
-	decl_SG DOUBLE NOT NULL,
-	decl_SG_Sigma FLOAT(0) NOT NULL,
-	radecl_SG_Cov FLOAT(0) NOT NULL,
-	raRange FLOAT(0) NOT NULL,
-	declRange FLOAT(0) NOT NULL,
-	muRa_PS DOUBLE NOT NULL,
-	muRa_PS_Sigma FLOAT(0) NOT NULL,
-	muDecl_PS DOUBLE NOT NULL,
-	muDecl_PS_Sigma FLOAT(0) NOT NULL,
-	muRaDecl_PS_Cov FLOAT(0) NOT NULL,
-	parallax_PS DOUBLE NOT NULL,
-	parallax_PS_Sigma FLOAT(0) NOT NULL,
-	cannonicalFilterId TINYINT NOT NULL,
+	radecl_PS_Cov FLOAT(0) NULL,
+	ra_SG DOUBLE NULL,
+	ra_SG_Sigma FLOAT(0) NULL,
+	decl_SG DOUBLE NULL,
+	decl_SG_Sigma FLOAT(0) NULL,
+	radecl_SG_Cov FLOAT(0) NULL,
+	raRange FLOAT(0) NULL,
+	declRange FLOAT(0) NULL,
+	muRa_PS DOUBLE NULL,
+	muRa_PS_Sigma FLOAT(0) NULL,
+	muDecl_PS DOUBLE NULL,
+	muDecl_PS_Sigma FLOAT(0) NULL,
+	muRaDecl_PS_Cov FLOAT(0) NULL,
+	parallax_PS DOUBLE NULL,
+	parallax_PS_Sigma FLOAT(0) NULL,
+	canonicalFilterId TINYINT NULL,
 	extendedness FLOAT(0) NULL,
 	varProb FLOAT(0) NULL,
 	earliestObsTime DOUBLE NULL,
 	latestObsTime DOUBLE NULL,
+	flags INTEGER NULL,
 	uNumObs INTEGER NULL,
 	uExtendedness FLOAT(0) NULL,
-	flags INTEGER NULL,
 	uVarProb FLOAT(0) NULL,
 	uRaOffset_PS FLOAT(0) NULL,
 	uRaOffset_PS_Sigma FLOAT(0) NULL,
@@ -1261,7 +1261,82 @@ CREATE TABLE ObjectExtras
 ) ;
 
 
-CREATE TABLE Source
+CREATE TABLE Source_pt1
+(
+	sourceId BIGINT NOT NULL,
+	ampExposureId BIGINT NULL,
+	filterId TINYINT NOT NULL,
+	objectId BIGINT NULL,
+	movingObjectId BIGINT NULL,
+	procHistoryId INTEGER NOT NULL,
+	ra DOUBLE NOT NULL,
+	raErrForDetection FLOAT(0) NULL,
+	raErrForWcs FLOAT(0) NOT NULL,
+	decl DOUBLE NOT NULL,
+	declErrForDetection FLOAT(0) NULL,
+	declErrForWcs FLOAT(0) NOT NULL,
+	xFlux DOUBLE NULL,
+	xFluxErr FLOAT(0) NULL,
+	yFlux DOUBLE NULL,
+	yFluxErr FLOAT(0) NULL,
+	raFlux DOUBLE NULL,
+	raFluxErr FLOAT(0) NULL,
+	declFlux DOUBLE NULL,
+	declFluxErr FLOAT(0) NULL,
+	xPeak DOUBLE NULL,
+	yPeak DOUBLE NULL,
+	raPeak DOUBLE NULL,
+	declPeak DOUBLE NULL,
+	xAstrom DOUBLE NULL,
+	xAstromErr FLOAT(0) NULL,
+	yAstrom DOUBLE NULL,
+	yAstromErr FLOAT(0) NULL,
+	raAstrom DOUBLE NULL,
+	raAstromErr FLOAT(0) NULL,
+	declAstrom DOUBLE NULL,
+	declAstromErr FLOAT(0) NULL,
+	raObject DOUBLE NULL,
+	declObject DOUBLE NULL,
+	taiMidPoint DOUBLE NOT NULL,
+	taiRange FLOAT(0) NULL,
+	psfFlux DOUBLE NOT NULL,
+	psfFluxErr FLOAT(0) NOT NULL,
+	apFlux DOUBLE NOT NULL,
+	apFluxErr FLOAT(0) NOT NULL,
+	modelFlux DOUBLE NOT NULL,
+	modelFluxErr FLOAT(0) NOT NULL,
+	petroFlux DOUBLE NULL,
+	petroFluxErr FLOAT(0) NULL,
+	instFlux DOUBLE NOT NULL,
+	instFluxErr FLOAT(0) NOT NULL,
+	nonGrayCorrFlux DOUBLE NULL,
+	nonGrayCorrFluxErr FLOAT(0) NULL,
+	atmCorrFlux DOUBLE NULL,
+	atmCorrFluxErr FLOAT(0) NULL,
+	apDia FLOAT(0) NULL,
+	Ixx FLOAT(0) NULL,
+	IxxErr FLOAT(0) NULL,
+	Iyy FLOAT(0) NULL,
+	IyyErr FLOAT(0) NULL,
+	Ixy FLOAT(0) NULL,
+	IxyErr FLOAT(0) NULL,
+	snr FLOAT(0) NOT NULL,
+	chi2 FLOAT(0) NOT NULL,
+	sky FLOAT(0) NULL,
+	skyErr FLOAT(0) NULL,
+	flagForAssociation SMALLINT NULL,
+	flagForDetection SMALLINT NULL,
+	flagForWcs SMALLINT NULL,
+	PRIMARY KEY (sourceId),
+	INDEX ampExposureId (ampExposureId ASC),
+	INDEX filterId (filterId ASC),
+	INDEX movingObjectId (movingObjectId ASC),
+	INDEX objectId (objectId ASC),
+	INDEX procHistoryId (procHistoryId ASC)
+) TYPE=MyISAM;
+
+
+CREATE TABLE Source_pt2
 (
 	sourceId BIGINT NOT NULL,
 	ccdExposureId BIGINT NULL,
@@ -1357,5 +1432,5 @@ ALTER TABLE mops_SSM ADD CONSTRAINT FK_mopsSSM_mopsSSMDesc
 ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_mopsSSM 
 	FOREIGN KEY (ssmId) REFERENCES mops_SSM (ssmId);
 
-ALTER TABLE Source ADD CONSTRAINT FK_Source_Object 
+ALTER TABLE Source_pt2 ADD CONSTRAINT FK_Source_Object 
 	FOREIGN KEY (objectId) REFERENCES Object (objectId);
