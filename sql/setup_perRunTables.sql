@@ -51,13 +51,13 @@ INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SM', 'MOPS synthetic co
 -- ================================================================ --
 
 CREATE TABLE DiaSourceForMovingObject LIKE DiaSource;
-CREATE TABLE SourceForMovingObject LIKE Source;
+CREATE TABLE SourceForMovingObject LIKE Source_pt1;
 
 
-CREATE TABLE _tmpl_DIASource LIKE DIASource;
+CREATE TABLE _tmpl_DiaSource LIKE DiaSource;
 
-ALTER TABLE _tmpl_DIASource 
-    DROP KEY ampExposureId,
+ALTER TABLE _tmpl_DiaSource 
+    DROP KEY ccdExposureId,
     DROP KEY filterId,
     DROP KEY movingObjectId,
     DROP KEY objectId;
@@ -81,17 +81,17 @@ ALTER TABLE _mops_Prediction
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE _ap_DIASourceToObjectMatches LIKE _tmpl_MatchPair;
-ALTER TABLE _ap_DIASourceToObjectMatches
+CREATE TABLE _ap_DiaSourceToObjectMatches LIKE _tmpl_MatchPair;
+ALTER TABLE _ap_DiaSourceToObjectMatches
     ADD COLUMN visitId INTEGER NOT NULL,
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE _ap_PredToDIASourceMatches LIKE _tmpl_MatchPair;
-ALTER TABLE _ap_PredToDIASourceMatches
+CREATE TABLE _ap_PredToDiaSourceMatches LIKE _tmpl_MatchPair;
+ALTER TABLE _ap_PredToDiaSourceMatches
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE _ap_DIASourceToNewObject LIKE _tmpl_IdPair;
-ALTER TABLE _ap_DIASourceToNewObject
+CREATE TABLE _ap_DiaSourceToNewObject LIKE _tmpl_IdPair;
+ALTER TABLE _ap_DiaSourceToNewObject
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
