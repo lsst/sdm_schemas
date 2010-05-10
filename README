@@ -1,7 +1,7 @@
 # standalone installation (DC3b db), useful for testing
 
 cd $CAT_DIR
-mysql -e 'create database DBGlobal'
+mysql -e 'create database GlobalDB'
 mysql -e 'create database DC3b_DB'
 mysql -D DC3b_DB < sql/lsstSchema4mysqlDC3b.sql
 mysql -D DBGlobal < sql/setup_DB_global.sql
