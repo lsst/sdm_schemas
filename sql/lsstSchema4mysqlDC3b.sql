@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_83 (version CHAR);
+CREATE TABLE AAA_Version_3_1_84 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -18,6 +18,7 @@ CREATE TABLE prv_Activity
 (
 	activityId TINYINT NOT NULL,
 	offset MEDIUMINT NOT NULL,
+	name VARCHAR(64) NOT NULL,
 	type VARCHAR(64) NOT NULL,
 	platform VARCHAR(64) NOT NULL,
 	PRIMARY KEY (activityId, offset)
