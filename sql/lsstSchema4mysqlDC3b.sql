@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_85 (version CHAR);
+CREATE TABLE AAA_Version_3_1_86 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -1325,6 +1325,7 @@ CREATE TABLE Source_pt1
 	chi2 FLOAT(0) NOT NULL,
 	sky FLOAT(0) NULL,
 	skyErr FLOAT(0) NULL,
+	extendedness FLOAT(0) NULL,
 	flagForAssociation SMALLINT NULL,
 	flagForDetection SMALLINT NULL,
 	flagForWcs SMALLINT NULL,
