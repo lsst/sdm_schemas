@@ -6,7 +6,7 @@ import lsst.pex.policy as pexPolicy
 
 import os
 
-class PolicyReader:
+class PolicyReader(object):
     def __init__(self, fullPath=None):
         if fullPath is None:
             pDir = os.environ["CAT_DIR"]

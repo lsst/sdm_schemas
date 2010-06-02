@@ -8,7 +8,7 @@ import sys
 
 from lsst.pex.logging import Log
 
-class MySQLBase:
+class MySQLBase(object):
     """
     MySQLBase class is a wrapper around MySQLdb. It contains a set of 
     low level basic database utilities such as connecting to database, 
