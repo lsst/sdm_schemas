@@ -8,57 +8,12 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_86 (version CHAR);
+CREATE TABLE AAA_Version_3_1_87 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE TABLE logs (
-  id INT(11) NOT NULL AUTO_INCREMENT,
-  HOSTID VARCHAR(80) DEFAULT NULL,
-  RUNID VARCHAR(80) DEFAULT NULL,
-  LOG VARCHAR(80) DEFAULT NULL,
-  workerid VARCHAR(80) DEFAULT NULL,
-  SLICEID INT(11) DEFAULT NULL,
-  STAGEID INT(11) DEFAULT NULL,
-  LOOPNUM INT(11) DEFAULT NULL,
-  STATUS VARCHAR(80) DEFAULT NULL,
-  LEVEL INT(11) DEFAULT '9999',
-  DATE VARCHAR(30) DEFAULT NULL,
-  TIMESTAMP BIGINT(25) UNSIGNED DEFAULT NULL,
-  node INT(10) DEFAULT NULL,
-  custom VARCHAR(4096) DEFAULT NULL,
-  timereceived TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  visitid INT(11) DEFAULT NULL,
-  COMMENT VARCHAR(2048) DEFAULT NULL,
-  PIPELINE VARCHAR(80) DEFAULT NULL,
-  TYPE VARCHAR(5) DEFAULT NULL,
-  EVENTTIME BIGINT(25) UNSIGNED DEFAULT NULL,
-  PUBTIME BIGINT(25) UNSIGNED DEFAULT NULL,
-  usertime BIGINT(25) UNSIGNED DEFAULT NULL,
-  systemtime BIGINT(25) UNSIGNED DEFAULT NULL,
-  PRIMARY KEY  (id),
-  KEY a (runid)
-) ;
 
-CREATE TABLE durations (
-  id INT(11) NOT NULL AUTO_INCREMENT,
-  RUNID VARCHAR(80) DEFAULT NULL,
-  name VARCHAR(80) DEFAULT NULL,
-  SLICEID INT(11) DEFAULT '-1',
-  duration BIGINT(25) DEFAULT NULL,
-  HOSTID VARCHAR(80) DEFAULT NULL,
-  LOOPNUM INT(11) DEFAULT '-1',
-  STAGEID INT(11) DEFAULT '-1',
-  PIPELINE VARCHAR(80) DEFAULT NULL,
-  COMMENT VARCHAR(256) DEFAULT NULL,
-  start VARCHAR(80) DEFAULT NULL,
-  userduration BIGINT(25) UNSIGNED DEFAULT NULL,
-  systemduration BIGINT(25) UNSIGNED DEFAULT NULL,
-  PRIMARY KEY (id),
-  KEY dur_runid (runid(8)),
-  KEY idx_durations_pipeline (pipeline) USING BTREE,
-  KEY idx_durations_name (name) USING BTREE
-) ;
+
 
 CREATE TABLE prv_Activity
 (
@@ -77,8 +32,7 @@ CREATE TABLE prv_cnf_PolicyKey
 	value TEXT NULL,
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
-	PRIMARY KEY (policyKeyId),
-	KEY (policyKeyId)
+	PRIMARY KEY (policyKeyId)
 ) ;
 
 
@@ -89,8 +43,7 @@ CREATE TABLE prv_cnf_SoftwarePackage
 	directory VARCHAR(255) NOT NULL,
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
-	PRIMARY KEY (packageId),
-	KEY (packageId)
+	PRIMARY KEY (packageId)
 ) ;
 
 
@@ -230,6 +183,30 @@ CREATE TABLE Ccd_Detector
 ) ;
 
 
+CREATE TABLE Durations
+(
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	RUNID VARCHAR(80) NULL,
+	name VARCHAR(80) NULL,
+	SLICEID INTEGER NULL DEFAULT -1,
+	duration BIGINT NULL,
+	HOSTID VARCHAR(80) NULL,
+	LOOPNUM INTEGER NULL DEFAULT -1,
+	STAGEID INTEGER NULL DEFAULT -1,
+	PIPELINE VARCHAR(80) NULL,
+	COMMENT VARCHAR(255) NULL,
+	start VARCHAR(80) NULL,
+	userduration BIGINT NULL,
+	systemduration BIGINT NULL,
+	PRIMARY KEY (id),
+	INDEX dur_runid (RUNID ASC),
+	INDEX idx_durations_pipeline (PIPELINE ASC),
+	INDEX idx_durations_name (name ASC)
+) ;
+
+CREATE VIEW durations AS SELECT * FROM Durations;
+
+
 CREATE TABLE Filter
 (
 	filterId TINYINT NOT NULL,
@@ -238,6 +215,38 @@ CREATE TABLE Filter
 	photBW FLOAT(0) NOT NULL,
 	PRIMARY KEY (filterId)
 ) ;
+
+
+CREATE TABLE Logs
+(
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	HOSTID VARCHAR(80) NULL,
+	RUNID VARCHAR(80) NULL,
+	LOG VARCHAR(80) NULL,
+	workerid VARCHAR(80) NULL,
+	SLICEID INTEGER NULL,
+	STAGEID INTEGER NULL,
+	LOOPNUM INTEGER NULL,
+	STATUS VARCHAR(80) NULL,
+	LEVEL INTEGER NULL DEFAULT 9999,
+	DATE VARCHAR(30) NULL,
+	TIMESTAMP BIGINT NULL,
+	node INTEGER NULL,
+	custom VARCHAR(4096) NULL,
+	timereceived TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	visitid INTEGER NULL,
+	COMMENT TEXT NULL,
+	PIPELINE VARCHAR(80) NULL,
+	TYPE VARCHAR(5) NULL,
+	EVENTTIME BIGINT NULL,
+	PUBTIME BIGINT NULL,
+	usertime BIGINT NULL,
+	systemtime BIGINT NULL,
+	PRIMARY KEY (id),
+	INDEX a (RUNID ASC)
+) ;
+
+CREATE VIEW logs AS SELECT * FROM Logs;
 
 
 CREATE TABLE ObjectType
@@ -329,7 +338,6 @@ CREATE TABLE _mops_EonQueue
 	insertTime TIMESTAMP NOT NULL,
 	status CHAR(1) NULL DEFAULT 'I',
 	PRIMARY KEY (movingObjectId),
-	KEY (movingObjectId),
 	INDEX idx__mopsEonQueue_eventId (eventId ASC)
 ) ;
 
@@ -414,8 +422,7 @@ CREATE TABLE mops_Event_OrbitIdentification
 	eventId BIGINT NOT NULL,
 	childObjectId BIGINT NOT NULL,
 	PRIMARY KEY (eventId),
-	INDEX idx_mopsEventOrbitIdentification2MovingObject_childObjectId (childObjectId ASC),
-	KEY (eventId)
+	INDEX idx_mopsEventOrbitIdentification2MovingObject_childObjectId (childObjectId ASC)
 ) ;
 
 
@@ -426,8 +433,7 @@ CREATE TABLE mops_Event_TrackletAttribution
 	ephemerisDistance FLOAT(0) NOT NULL,
 	ephemerisUncertainty FLOAT(0) NULL,
 	PRIMARY KEY (eventId),
-	INDEX idx_mopsEventTrackletAttribution_trackletId (trackletId ASC),
-	KEY (eventId)
+	INDEX idx_mopsEventTrackletAttribution_trackletId (trackletId ASC)
 ) ;
 
 
@@ -438,8 +444,7 @@ CREATE TABLE mops_Event_TrackletPrecovery
 	ephemerisDistance FLOAT(0) NOT NULL,
 	ephemerisUncertainty FLOAT(0) NULL,
 	PRIMARY KEY (eventId),
-	INDEX idx_mopsEventTrackletPrecovery_trackletId (trackletId ASC),
-	KEY (eventId)
+	INDEX idx_mopsEventTrackletPrecovery_trackletId (trackletId ASC)
 ) ;
 
 
@@ -448,8 +453,7 @@ CREATE TABLE mops_Event_TrackletRemoval
 	eventId BIGINT NOT NULL,
 	trackletId BIGINT NOT NULL,
 	PRIMARY KEY (eventId),
-	INDEX idx_mopsEventTrackletRemoval_trackletId (trackletId ASC),
-	KEY (eventId)
+	INDEX idx_mopsEventTrackletRemoval_trackletId (trackletId ASC)
 ) ;
 
 
@@ -1372,6 +1376,33 @@ CREATE TABLE Source_pt1
 	sky FLOAT(0) NULL,
 	skyErr FLOAT(0) NULL,
 	extendedness FLOAT(0) NULL,
+	flux_PS FLOAT(0) NULL,
+	flux_PS_Sigma FLOAT(0) NULL,
+	flux_SG FLOAT(0) NULL,
+	flux_SG_Sigma FLOAT(0) NULL,
+	sersicN_SG FLOAT(0) NULL,
+	sersicN_SG_Sigma FLOAT(0) NULL,
+	e1_SG FLOAT(0) NULL,
+	e1_SG_Sigma FLOAT(0) NULL,
+	e2_SG FLOAT(0) NULL,
+	e2_SG_Sigma FLOAT(0) NULL,
+	radius_SG FLOAT(0) NULL,
+	radius_SG_Sigma FLOAT(0) NULL,
+	flux_flux_SG_Cov FLOAT(0) NULL,
+	flux_e1_SG_Cov FLOAT(0) NULL,
+	flux_e2_SG_Cov FLOAT(0) NULL,
+	flux_radius_SG_Cov FLOAT(0) NULL,
+	flux_sersicN_SG_Cov FLOAT(0) NULL,
+	e1_e1_SG_Cov FLOAT(0) NULL,
+	e1_e2_SG_Cov FLOAT(0) NULL,
+	e1_radius_SG_Cov FLOAT(0) NULL,
+	e1_sersicN_SG_Cov FLOAT(0) NULL,
+	e2_e2_SG_Cov FLOAT(0) NULL,
+	e2_radius_SG_Cov FLOAT(0) NULL,
+	e2_sersicN_SG_Cov FLOAT(0) NULL,
+	radius_radius_SG_Cov FLOAT(0) NULL,
+	radius_sersicN_SG_Cov FLOAT(0) NULL,
+	sersicN_sersicN_SG_Cov FLOAT(0) NULL,
 	flagForAssociation SMALLINT NULL,
 	flagForDetection SMALLINT NULL,
 	flagForWcs SMALLINT NULL,
