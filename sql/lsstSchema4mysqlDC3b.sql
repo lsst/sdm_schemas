@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_87 (version CHAR);
+CREATE TABLE AAA_Version_3_1_88 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -1400,7 +1400,7 @@ CREATE TABLE Source_pt1
 	radius_sersicN_SG_Cov FLOAT(0) NULL,
 	sersicN_sersicN_SG_Cov FLOAT(0) NULL,
 	flagForAssociation SMALLINT NULL,
-	flagForDetection SMALLINT NULL,
+	flagForDetection INTEGER NULL,
 	flagForWcs SMALLINT NULL,
 	PRIMARY KEY (sourceId),
 	INDEX ampExposureId (ampExposureId ASC),
