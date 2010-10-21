@@ -204,8 +204,6 @@ CREATE TABLE Durations
 	INDEX idx_durations_name (name ASC)
 ) ;
 
-CREATE VIEW durations AS SELECT * FROM Durations;
-
 
 CREATE TABLE Filter
 (
@@ -245,8 +243,6 @@ CREATE TABLE Logs
 	PRIMARY KEY (id),
 	INDEX a (RUNID ASC)
 ) ;
-
-CREATE VIEW logs AS SELECT * FROM Logs;
 
 
 CREATE TABLE ObjectType
