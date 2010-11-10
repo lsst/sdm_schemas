@@ -111,8 +111,8 @@ CREATE TABLE Durations
 	PIPELINE VARCHAR(80) NULL,
 	COMMENT VARCHAR(255) NULL,
 	start VARCHAR(80) NULL,
-	userduration BIGINT NULL,
-	systemduration BIGINT NULL,
+	userduration FLOAT(0) NULL,
+	systemduration FLOAT(0) NULL,
 	PRIMARY KEY (id),
 	INDEX dur_runid (RUNID ASC),
 	INDEX idx_durations_pipeline (PIPELINE ASC),
@@ -144,8 +144,8 @@ CREATE TABLE Logs
 	TYPE VARCHAR(5) NULL,
 	EVENTTIME BIGINT NULL,
 	PUBTIME BIGINT NULL,
-	usertime BIGINT NULL,
-	systemtime BIGINT NULL,
+	usertime FLOAT(0) NULL,
+	systemtime FLOAT(0) NULL,
 	PRIMARY KEY (id),
 	INDEX a (RUNID ASC)
 ) ;
