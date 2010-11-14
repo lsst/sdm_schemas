@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_88 (version CHAR);
+CREATE TABLE AAA_Version_3_1_90 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -188,8 +188,8 @@ CREATE TABLE Durations
 	id INTEGER NOT NULL AUTO_INCREMENT,
 	RUNID VARCHAR(80) NULL,
 	name VARCHAR(80) NULL,
-    workerid VARCHAR(80) NULL,
-    stagename VARCHAR(80) NULL,
+	workerid VARCHAR(80) NULL,
+	stagename VARCHAR(80) NULL,
 	SLICEID INTEGER NULL DEFAULT -1,
 	duration BIGINT NULL,
 	HOSTID VARCHAR(80) NULL,
@@ -224,7 +224,7 @@ CREATE TABLE Logs
 	RUNID VARCHAR(80) NULL,
 	LOG VARCHAR(80) NULL,
 	workerid VARCHAR(80) NULL,
-    stagename VARCHAR(80) NULL,
+	stagename VARCHAR(80) NULL,
 	SLICEID INTEGER NULL,
 	STAGEID INTEGER NULL,
 	LOOPNUM INTEGER NULL,
@@ -306,6 +306,22 @@ CREATE TABLE sdqa_Rating_ForScienceCcdExposure
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ccdExposureId)
+) ;
+
+
+CREATE TABLE sdqa_Rating_ForSnapCcdExposure
+(
+	sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
+	sdqa_metricId SMALLINT NOT NULL,
+	sdqa_thresholdId SMALLINT NOT NULL,
+	ccdExposureId BIGINT NOT NULL,
+	metricValue DOUBLE NOT NULL,
+	metricSigma DOUBLE NOT NULL,
+	PRIMARY KEY (sdqa_ratingId),
+	INDEX UQ_sdqa_Rating_ForScienceCCDExposure_metricId_ccdExposureId (sdqa_metricId ASC, ccdExposureId ASC),
+	INDEX sdqa_metricId (sdqa_metricId ASC),
+	INDEX sdqa_thresholdId (sdqa_thresholdId ASC),
+	INDEX ccdExposureId (ccdExposureId ASC)
 ) ;
 
 
@@ -597,6 +613,26 @@ CREATE TABLE Raw_Amp_Exposure_Metadata
 ) ;
 
 
+CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
+(
+	rawAmpExposureId BIGINT NOT NULL,
+	scienceCcdExposureId BIGINT NOT NULL,
+	snap TINYINT NOT NULL,
+	amp TINYINT NOT NULL,
+	INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
+) ;
+
+
+CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
+(
+	rawAmpExposureId BIGINT NOT NULL,
+	amp TINYINT NOT NULL,
+	snapCcdExposureId BIGINT NOT NULL,
+	PRIMARY KEY (rawAmpExposureId),
+	INDEX snapCcdExposureId (snapCcdExposureId ASC)
+) ;
+
+
 CREATE TABLE Raw_Ccd_Exposure
 (
 	rawCcdExposureId BIGINT NOT NULL,
@@ -702,6 +738,16 @@ CREATE TABLE Science_Ccd_Exposure_Metadata
 	metadataKey VARCHAR(255) NOT NULL,
 	metadataValue VARCHAR(255) NULL,
 	PRIMARY KEY (scienceCcdExposureId)
+) ;
+
+
+CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
+(
+	snapCcdExposureId BIGINT NOT NULL,
+	snap TINYINT NOT NULL,
+	scienceCcdExposureId BIGINT NOT NULL,
+	PRIMARY KEY (snapCcdExposureId),
+	INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
 ) ;
 
 
