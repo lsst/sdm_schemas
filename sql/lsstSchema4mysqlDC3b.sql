@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_1_90 (version CHAR);
+CREATE TABLE AAA_Version_3_2_0 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -23,7 +23,7 @@ CREATE TABLE prv_Activity
 	type VARCHAR(64) NOT NULL,
 	platform VARCHAR(64) NOT NULL,
 	PRIMARY KEY (activityId, offset)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE prv_cnf_PolicyKey
@@ -33,7 +33,7 @@ CREATE TABLE prv_cnf_PolicyKey
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
 	PRIMARY KEY (policyKeyId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE prv_cnf_SoftwarePackage
@@ -44,7 +44,7 @@ CREATE TABLE prv_cnf_SoftwarePackage
 	validityBegin DATETIME NULL,
 	validityEnd DATETIME NULL,
 	PRIMARY KEY (packageId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE prv_Filter
@@ -68,7 +68,7 @@ CREATE TABLE prv_PolicyFile
 	hashValue CHAR(32) NOT NULL,
 	modifiedDate BIGINT NOT NULL,
 	PRIMARY KEY (policyFileId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE prv_PolicyKey
@@ -79,7 +79,7 @@ CREATE TABLE prv_PolicyKey
 	keyType VARCHAR(16) NOT NULL,
 	PRIMARY KEY (policyKeyId),
 	KEY (policyFileId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE prv_Run
@@ -88,7 +88,7 @@ CREATE TABLE prv_Run
 	runId VARCHAR(255) NOT NULL,
 	PRIMARY KEY (offset),
 	UNIQUE UQ_prv_Run_runId(runId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE prv_SoftwarePackage
@@ -96,7 +96,7 @@ CREATE TABLE prv_SoftwarePackage
 	packageId INTEGER NOT NULL,
 	packageName VARCHAR(64) NOT NULL,
 	PRIMARY KEY (packageId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _MovingObjectToType
@@ -106,7 +106,7 @@ CREATE TABLE _MovingObjectToType
 	probability TINYINT NULL DEFAULT 100,
 	KEY (typeId),
 	KEY (movingObjectId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _ObjectToType
@@ -116,7 +116,7 @@ CREATE TABLE _ObjectToType
 	probability TINYINT NULL DEFAULT 100,
 	KEY (typeId),
 	KEY (objectId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _qservChunkMap
@@ -127,7 +127,7 @@ CREATE TABLE _qservChunkMap
 	declMax DOUBLE NOT NULL,
 	chunkId INTEGER NOT NULL,
 	objCount INTEGER NOT NULL
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _qservObjectIdMap
@@ -135,7 +135,7 @@ CREATE TABLE _qservObjectIdMap
 	objectId BIGINT NOT NULL,
 	chunkId INTEGER NOT NULL,
 	subChunkId INTEGER NOT NULL
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _qservSubChunkMap
@@ -147,20 +147,49 @@ CREATE TABLE _qservSubChunkMap
 	chunkId INTEGER NOT NULL,
 	subChunkId INTEGER NOT NULL,
 	objCount INTEGER NOT NULL
-) ;
+) TYPE=MyISAM;
+
+
+CREATE TABLE _tmpl_ap_DiaSourceToNewObject
+(
+	first BIGINT NOT NULL,
+	second BIGINT NOT NULL,
+	visitId INTEGER NOT NULL,
+	INDEX idx_visitId (visitId ASC)
+) TYPE=MyISAM;
+
+
+CREATE TABLE _tmpl_ap_DiaSourceToObjectMatches
+(
+	first BIGINT NOT NULL,
+	second BIGINT NOT NULL,
+	distance DOUBLE NOT NULL,
+	visitId INTEGER NOT NULL,
+	INDEX idx_visitId (visitId ASC)
+) TYPE=MyISAM;
+
+
+CREATE TABLE _tmpl_ap_PredToDiaSourceMatches
+(
+	first BIGINT NOT NULL,
+	second BIGINT NOT NULL,
+	distance DOUBLE NOT NULL,
+	visitId INTEGER NOT NULL,
+	INDEX idx_visitId (visitId ASC)
+) TYPE=MyISAM;
 
 
 CREATE TABLE _tmpl_Id
 (
 	id BIGINT NOT NULL
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _tmpl_IdPair
 (
 	first BIGINT NOT NULL,
 	second BIGINT NOT NULL
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _tmpl_MatchPair
@@ -168,7 +197,7 @@ CREATE TABLE _tmpl_MatchPair
 	first BIGINT NOT NULL,
 	second BIGINT NOT NULL,
 	distance DOUBLE NOT NULL
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Ccd_Detector
@@ -180,7 +209,7 @@ CREATE TABLE Ccd_Detector
 	rdNoise FLOAT(0) NULL,
 	saturate FLOAT(0) NULL,
 	PRIMARY KEY (ccdDetectorId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Durations
@@ -204,7 +233,7 @@ CREATE TABLE Durations
 	INDEX dur_runid (RUNID ASC),
 	INDEX idx_durations_pipeline (PIPELINE ASC),
 	INDEX idx_durations_name (name ASC)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Filter
@@ -214,7 +243,19 @@ CREATE TABLE Filter
 	photClam FLOAT(0) NOT NULL,
 	photBW FLOAT(0) NOT NULL,
 	PRIMARY KEY (filterId)
-) ;
+) TYPE=MyISAM;
+
+
+CREATE TABLE LeapSeconds
+(
+	whenJd FLOAT(0) NOT NULL,
+	offset FLOAT(0) NOT NULL,
+	mjdRef FLOAT(0) NOT NULL,
+	drift FLOAT(0) NOT NULL,
+	whenMjdUtc FLOAT(0) NULL,
+	whenUtc BIGINT NULL,
+	whenTai BIGINT NULL
+) TYPE=MyISAM;
 
 
 CREATE TABLE Logs
@@ -245,7 +286,7 @@ CREATE TABLE Logs
 	systemtime FLOAT(0) NULL,
 	PRIMARY KEY (id),
 	INDEX a (RUNID ASC)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE ObjectType
@@ -253,7 +294,52 @@ CREATE TABLE ObjectType
 	typeId SMALLINT NOT NULL,
 	description VARCHAR(255) NULL,
 	PRIMARY KEY (typeId)
-) ;
+) TYPE=MyISAM;
+
+
+CREATE TABLE RefObjMatch
+(
+	refObjectId BIGINT NULL,
+	objectId BIGINT NULL,
+	refRa DOUBLE NULL,
+	refDec DOUBLE NULL,
+	angSep DOUBLE NULL,
+	nRefMatches INTEGER NULL,
+	nObjMatches INTEGER NULL,
+	closestToRef TINYINT NULL,
+	closestToObj TINYINT NULL,
+	flags INTEGER NULL
+) TYPE=MyISAM;
+
+
+CREATE TABLE SimRefObject
+(
+	refObjectId BIGINT NOT NULL,
+	isStar TINYINT NOT NULL,
+	ra DOUBLE NOT NULL,
+	decl DOUBLE NOT NULL,
+	gLat DOUBLE NULL,
+	gLon DOUBLE NULL,
+	sedName CHAR(32) NULL,
+	uMag DOUBLE NOT NULL,
+	gMag DOUBLE NOT NULL,
+	rMag DOUBLE NOT NULL,
+	iMag DOUBLE NOT NULL,
+	zMag DOUBLE NOT NULL,
+	yMag DOUBLE NOT NULL,
+	muRa DOUBLE NULL,
+	muDecl DOUBLE NULL,
+	parallax DOUBLE NULL,
+	vRad DOUBLE NULL,
+	isVar TINYINT NOT NULL,
+	redshift DOUBLE NULL,
+	uCov INTEGER NOT NULL,
+	gCov INTEGER NOT NULL,
+	rCov INTEGER NOT NULL,
+	iCov INTEGER NOT NULL,
+	zCov INTEGER NOT NULL,
+	yCov INTEGER NOT NULL
+) TYPE=MyISAM;
 
 
 CREATE TABLE sdqa_ImageStatus
@@ -262,7 +348,7 @@ CREATE TABLE sdqa_ImageStatus
 	statusName VARCHAR(30) NOT NULL,
 	definition VARCHAR(255) NOT NULL,
 	PRIMARY KEY (sdqa_imageStatusId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE sdqa_Metric
@@ -274,7 +360,7 @@ CREATE TABLE sdqa_Metric
 	definition VARCHAR(255) NOT NULL,
 	PRIMARY KEY (sdqa_metricId),
 	UNIQUE UQ_sdqaMetric_metricName(metricName)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForScienceAmpExposure
@@ -290,7 +376,7 @@ CREATE TABLE sdqa_Rating_ForScienceAmpExposure
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ampExposureId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForScienceCcdExposure
@@ -306,7 +392,7 @@ CREATE TABLE sdqa_Rating_ForScienceCcdExposure
 	KEY (sdqa_metricId),
 	KEY (sdqa_thresholdId),
 	KEY (ccdExposureId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForSnapCcdExposure
@@ -322,7 +408,7 @@ CREATE TABLE sdqa_Rating_ForSnapCcdExposure
 	INDEX sdqa_metricId (sdqa_metricId ASC),
 	INDEX sdqa_thresholdId (sdqa_thresholdId ASC),
 	INDEX ccdExposureId (ccdExposureId ASC)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE sdqa_Threshold
@@ -335,7 +421,7 @@ CREATE TABLE sdqa_Threshold
 	PRIMARY KEY (sdqa_thresholdId),
 	UNIQUE UQ_sdqa_Threshold_sdqa_metricId(sdqa_metricId),
 	KEY (sdqa_metricId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE _mops_Config
@@ -571,7 +657,7 @@ CREATE TABLE _Raw_Ccd_ExposureToVisit
 	ccdExposureId BIGINT NOT NULL,
 	KEY (ccdExposureId),
 	KEY (visitId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE FpaMetadata
@@ -581,7 +667,7 @@ CREATE TABLE FpaMetadata
 	metadataKey VARCHAR(255) NOT NULL,
 	metadataValue VARCHAR(255) NULL,
 	PRIMARY KEY (ccdExposureId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE RaftMetadata
@@ -590,27 +676,62 @@ CREATE TABLE RaftMetadata
 	metadataKey VARCHAR(255) NOT NULL,
 	metadataValue VARCHAR(255) NULL,
 	PRIMARY KEY (raftId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure
 (
 	rawAmpExposureId BIGINT NOT NULL,
-	rawCcdExposureId BIGINT NOT NULL,
-	ampId INTEGER NOT NULL,
-	PRIMARY KEY (rawAmpExposureId),
-	KEY (rawCcdExposureId)
-) ;
+	visit INTEGER NOT NULL,
+	snap TINYINT NOT NULL,
+	raft TINYINT NOT NULL,
+	ccd TINYINT NOT NULL,
+	amp TINYINT NOT NULL,
+	filterId TINYINT NOT NULL,
+	ra DOUBLE NOT NULL,
+	decl DOUBLE NOT NULL,
+	equinox FLOAT(0) NOT NULL,
+	raDeSys VARCHAR(20) NOT NULL,
+	ctype1 VARCHAR(20) NOT NULL,
+	ctype2 VARCHAR(20) NOT NULL,
+	crpix1 FLOAT(0) NOT NULL,
+	crpix2 FLOAT(0) NOT NULL,
+	crval1 DOUBLE NOT NULL,
+	crval2 DOUBLE NOT NULL,
+	cd1_1 DOUBLE NOT NULL,
+	cd1_2 DOUBLE NOT NULL,
+	cd2_1 DOUBLE NOT NULL,
+	cd2_2 DOUBLE NOT NULL,
+	llcRa DOUBLE NOT NULL,
+	llcDecl DOUBLE NOT NULL,
+	ulcRa DOUBLE NOT NULL,
+	ulcDecl DOUBLE NOT NULL,
+	urcRa DOUBLE NOT NULL,
+	urcDecl DOUBLE NOT NULL,
+	lrcRa DOUBLE NOT NULL,
+	lrcDecl DOUBLE NOT NULL,
+	taiMjd DOUBLE NOT NULL,
+	obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	expMidpt VARCHAR(30) NOT NULL,
+	expTime FLOAT(0) NOT NULL,
+	airmass FLOAT(0) NOT NULL,
+	darkTime FLOAT(0) NOT NULL,
+	zd FLOAT(0) NULL,
+	PRIMARY KEY (rawAmpExposureId)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure_Metadata
 (
 	rawAmpExposureId BIGINT NOT NULL,
-	exposureType TINYINT NOT NULL,
 	metadataKey VARCHAR(255) NOT NULL,
-	metadataValue VARCHAR(255) NULL,
-	PRIMARY KEY (rawAmpExposureId)
-) ;
+	exposureType TINYINT NOT NULL,
+	intValue INTEGER NULL,
+	doubleValue DOUBLE NULL,
+	stringValue VARCHAR(255) NULL,
+	PRIMARY KEY (rawAmpExposureId, metadataKey),
+	INDEX IDX_metadataKey (metadataKey ASC)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
@@ -620,7 +741,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
 	snap TINYINT NOT NULL,
 	amp TINYINT NOT NULL,
 	INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
@@ -630,7 +751,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
 	snapCcdExposureId BIGINT NOT NULL,
 	PRIMARY KEY (rawAmpExposureId),
 	INDEX snapCcdExposureId (snapCcdExposureId ASC)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Raw_Ccd_Exposure
@@ -660,7 +781,7 @@ CREATE TABLE Raw_Ccd_Exposure
 	taiObs TIMESTAMP NOT NULL DEFAULT 0,
 	expTime FLOAT(0) NOT NULL,
 	PRIMARY KEY (rawCcdExposureId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Raw_Ccd_Exposure_Metadata
@@ -670,7 +791,7 @@ CREATE TABLE Raw_Ccd_Exposure_Metadata
 	metadataKey VARCHAR(255) NOT NULL,
 	metadataValue VARCHAR(255) NULL,
 	PRIMARY KEY (rawCcdExposureId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Science_Amp_Exposure
@@ -682,63 +803,79 @@ CREATE TABLE Science_Amp_Exposure
 	PRIMARY KEY (scienceAmpExposureId),
 	KEY (scienceCcdExposureId),
 	KEY (rawAmpExposureId)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Science_Amp_Exposure_Metadata
 (
 	scienceAmpExposureId BIGINT NOT NULL,
-	exposureType TINYINT NOT NULL,
 	metadataKey VARCHAR(255) NOT NULL,
-	metadataValue VARCHAR(255) NULL,
-	PRIMARY KEY (scienceAmpExposureId)
-) ;
+	exposureType TINYINT NOT NULL,
+	intValue INTEGER NULL,
+	doubleValue DOUBLE NULL,
+	stringValue VARCHAR(255) NULL,
+	PRIMARY KEY (scienceAmpExposureId, metadataKey),
+	INDEX IDX_metadataKey (metadataKey ASC)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure
 (
 	scienceCcdExposureId BIGINT NOT NULL,
-	rawCcdExposureId BIGINT NULL,
-	snapId TINYINT NOT NULL,
-	filterId INTEGER NULL,
-	equinox FLOAT(0) NULL,
-	url VARCHAR(255) NULL,
-	ctype1 VARCHAR(20) NULL,
-	ctype2 VARCHAR(20) NULL,
-	crpix1 FLOAT(0) NULL,
-	crpix2 FLOAT(0) NULL,
-	crval1 DOUBLE NULL,
-	crval2 DOUBLE NULL,
-	cd1_1 DOUBLE NULL,
-	cd2_1 DOUBLE NULL,
-	cd1_2 DOUBLE NULL,
-	cd2_2 DOUBLE NULL,
-	taiMjd DOUBLE NULL,
-	ccdSize VARCHAR(50) NULL,
-	dateObs TIMESTAMP NULL DEFAULT 0,
-	expTime FLOAT(0) NULL,
-	photoFlam FLOAT(0) NULL,
-	photoZP FLOAT(0) NULL,
-	nCombine INTEGER NULL DEFAULT 1,
-	binX INTEGER NULL,
-	binY INTEGER NULL,
-	readNoise DOUBLE NULL,
-	saturationLimit BIGINT NULL,
-	dataSection VARCHAR(24) NULL,
-	gain DOUBLE NULL,
-	PRIMARY KEY (scienceCcdExposureId),
-	KEY (rawCcdExposureId)
-) ;
+	visit INTEGER NOT NULL,
+	raft TINYINT NOT NULL,
+	ccd TINYINT NOT NULL,
+	filterId TINYINT NOT NULL,
+	ra DOUBLE NOT NULL,
+	decl DOUBLE NOT NULL,
+	equinox FLOAT(0) NOT NULL,
+	raDeSys VARCHAR(20) NOT NULL,
+	ctype1 VARCHAR(20) NOT NULL,
+	ctype2 VARCHAR(20) NOT NULL,
+	crpix1 FLOAT(0) NOT NULL,
+	crpix2 FLOAT(0) NOT NULL,
+	crval1 DOUBLE NOT NULL,
+	crval2 DOUBLE NOT NULL,
+	cd1_1 DOUBLE NOT NULL,
+	cd1_2 DOUBLE NOT NULL,
+	cd2_1 DOUBLE NOT NULL,
+	cd2_2 DOUBLE NOT NULL,
+	llcRa DOUBLE NOT NULL,
+	llcDecl DOUBLE NOT NULL,
+	ulcRa DOUBLE NOT NULL,
+	ulcDecl DOUBLE NOT NULL,
+	urcRa DOUBLE NOT NULL,
+	urcDecl DOUBLE NOT NULL,
+	lrcRa DOUBLE NOT NULL,
+	lrcDecl DOUBLE NOT NULL,
+	taiMjd DOUBLE NOT NULL,
+	obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	expMidpt VARCHAR(30) NOT NULL,
+	expTime FLOAT(0) NOT NULL,
+	nCombine INTEGER NOT NULL,
+	binX INTEGER NOT NULL,
+	binY INTEGER NOT NULL,
+	readNoise FLOAT(0) NOT NULL,
+	saturationLimit INTEGER NOT NULL,
+	gainEff DOUBLE NOT NULL,
+	fluxMag0 FLOAT(0) NOT NULL,
+	fluxMag0Sigma FLOAT(0) NOT NULL,
+	fwhm DOUBLE NOT NULL,
+	PRIMARY KEY (scienceCcdExposureId)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure_Metadata
 (
 	scienceCcdExposureId BIGINT NOT NULL,
-	exposureType TINYINT NOT NULL,
 	metadataKey VARCHAR(255) NOT NULL,
-	metadataValue VARCHAR(255) NULL,
-	PRIMARY KEY (scienceCcdExposureId)
-) ;
+	exposureType TINYINT NOT NULL,
+	intValue INTEGER NULL,
+	doubleValue DOUBLE NULL,
+	stringValue VARCHAR(255) NULL,
+	PRIMARY KEY (scienceCcdExposureId, metadataKey),
+	INDEX IDX_metadataKey (metadataKey ASC)
+) TYPE=MyISAM;
 
 
 CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
@@ -748,13 +885,13 @@ CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
 	scienceCcdExposureId BIGINT NOT NULL,
 	PRIMARY KEY (snapCcdExposureId),
 	INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Visit
 (
 	visitId INTEGER NOT NULL
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE CalibSource
@@ -858,23 +995,14 @@ CREATE TABLE DiaSource
 CREATE TABLE ForcedSource
 (
 	objectId BIGINT NOT NULL,
-	ccdExposureId BIGINT NOT NULL,
-	sky FLOAT(0) NOT NULL,
-	skySigma FLOAT(0) NOT NULL,
-	flux_PS FLOAT(0) NULL,
-	flux_PS_Sigma FLOAT(0) NULL,
-	flux_SG FLOAT(0) NULL,
-	flux_SG_Sigma FLOAT(0) NULL,
-	flux_CSG FLOAT(0) NULL,
-	flux_CSG_Sigma FLOAT(0) NULL,
-	psfLnL FLOAT(0) NULL,
-	modelLSLnL FLOAT(0) NULL,
-	modelSGLnL FLOAT(0) NULL,
-	flags BIGINT NOT NULL,
-	_chunkId INTEGER NULL,
-	_subChunkId INTEGER NULL,
-	PRIMARY KEY (objectId, ccdExposureId)
-) ;
+	visitId INTEGER NOT NULL,
+	flux FLOAT(0) NOT NULL,
+	flux_Sigma FLOAT(0) NULL,
+	x FLOAT(0) NULL,
+	y FLOAT(0) NULL,
+	flags TINYINT NOT NULL,
+	PRIMARY KEY (objectId, visitId)
+) TYPE=MyISAM;
 
 
 CREATE TABLE MovingObject
@@ -968,7 +1096,7 @@ CREATE TABLE MovingObject
 	INDEX idx_MovingObject_ssmId (ssmId ASC),
 	INDEX idx_MovingObject_ssmObjectName (ssmObjectName ASC),
 	INDEX idx_MovingObject_status (mopsStatus ASC)
-) ;
+) TYPE=MyISAM;
 
 
 CREATE TABLE Object
@@ -976,9 +1104,9 @@ CREATE TABLE Object
 	objectId BIGINT NOT NULL,
 	iauId CHAR(34) NULL,
 	ra_PS DOUBLE NOT NULL,
-	ra_PS_Sigma FLOAT(0) NOT NULL,
+	ra_PS_Sigma FLOAT(0) NULL,
 	decl_PS DOUBLE NOT NULL,
-	decl_PS_Sigma FLOAT(0) NOT NULL,
+	decl_PS_Sigma FLOAT(0) NULL,
 	radecl_PS_Cov FLOAT(0) NULL,
 	ra_SG DOUBLE NULL,
 	ra_SG_Sigma FLOAT(0) NULL,
@@ -1200,7 +1328,8 @@ CREATE TABLE Object
 	yFlags INTEGER NULL,
 	_chunkId INTEGER NULL,
 	_subChunkId INTEGER NULL,
-	PRIMARY KEY (objectId)
+	PRIMARY KEY (objectId),
+	INDEX IDX_Object_decl (decl_PS ASC)
 ) TYPE=MyISAM;
 
 
@@ -1354,13 +1483,13 @@ CREATE TABLE ObjectExtras
 	_chunkId INTEGER NULL,
 	_subChunkId INTEGER NULL,
 	PRIMARY KEY (objectId)
-) ;
+) TYPE=MyISAM;
 
 
-CREATE TABLE Source_pt1
+CREATE TABLE Source
 (
 	sourceId BIGINT NOT NULL,
-	ampExposureId BIGINT NULL,
+	scienceCcdExposureId BIGINT NULL,
 	filterId TINYINT NOT NULL,
 	objectId BIGINT NULL,
 	movingObjectId BIGINT NULL,
@@ -1449,14 +1578,15 @@ CREATE TABLE Source_pt1
 	radius_sersicN_SG_Cov FLOAT(0) NULL,
 	sersicN_sersicN_SG_Cov FLOAT(0) NULL,
 	flagForAssociation SMALLINT NULL,
-	flagForDetection INTEGER NULL,
+	flagForDetection SMALLINT NULL,
 	flagForWcs SMALLINT NULL,
 	PRIMARY KEY (sourceId),
-	INDEX ampExposureId (ampExposureId ASC),
-	INDEX filterId (filterId ASC),
-	INDEX movingObjectId (movingObjectId ASC),
-	INDEX objectId (objectId ASC),
-	INDEX procHistoryId (procHistoryId ASC)
+	INDEX IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
+	INDEX IDX_filterId (filterId ASC),
+	INDEX IDX_movingObjectId (movingObjectId ASC),
+	INDEX IDX_objectId (objectId ASC),
+	INDEX IDX_procHistoryId (procHistoryId ASC),
+	INDEX IDX_Source_decl (decl ASC)
 ) TYPE=MyISAM;
 
 
