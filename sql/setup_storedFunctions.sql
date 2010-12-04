@@ -76,18 +76,8 @@ DELIMITER ;
 -- Created by K.-T. Lim (ktl@slac.stanford.edu)
 
 --
--- Table of leap seconds.
+-- Load table of leap seconds.
 --
-
-CREATE TABLE IF NOT EXISTS LeapSeconds (
-    whenJd FLOAT NOT NULL,
-    offset FLOAT NOT NULL,
-    mjdRef FLOAT NOT NULL,
-    drift FLOAT NOT NULL,
-    whenMjdUtc FLOAT NULL,
-    whenUtc BIGINT NULL,
-    whenTai BIGINT NULL
-);
 
 INSERT INTO LeapSeconds (whenJd, offset, mjdRef, drift) VALUES
     (2437300.5, 1.4228180, 37300., 0.001296),
