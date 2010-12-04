@@ -79,7 +79,7 @@ DELIMITER ;
 -- Table of leap seconds.
 --
 
-CREATE TABLE LeapSeconds (
+CREATE TABLE IF NOT EXISTS LeapSeconds (
     whenJd FLOAT NOT NULL,
     offset FLOAT NOT NULL,
     mjdRef FLOAT NOT NULL,
