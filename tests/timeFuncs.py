@@ -49,6 +49,10 @@ class TimeFuncTestCase(unittest.TestCase):
         self.db.endTransaction()
 
         SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+            "lsstSchema4mysqlDC3b.sql"), dbUrl)
+        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+            "setup_perRunTables.sql"), dbUrl)
+        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
             "setup_storedFunctions.sql"), dbUrl)
 
         self.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
