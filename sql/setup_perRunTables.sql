@@ -149,3 +149,5 @@ ALTER TABLE _ap_DiaSourceToNewObject
     ADD COLUMN visitId INTEGER NOT NULL, 
     ADD INDEX  idx_visitId (visitId);
 
+CREATE TABLE BadSource LIKE Source;
+
