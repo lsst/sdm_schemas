@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_2_0 (version CHAR);
+CREATE TABLE AAA_Version_3_2_2 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -200,6 +200,15 @@ CREATE TABLE _tmpl_MatchPair
 ) TYPE=MyISAM;
 
 
+CREATE TABLE AmpMap
+(
+	ampNum TINYINT NOT NULL,
+	ampName CHAR(3) NOT NULL,
+	PRIMARY KEY (ampNum),
+	UNIQUE UQ_AmpMap_ampName(ampName)
+) ;
+
+
 CREATE TABLE Ccd_Detector
 (
 	ccdDetectorId INTEGER NOT NULL DEFAULT 1,
@@ -210,6 +219,15 @@ CREATE TABLE Ccd_Detector
 	saturate FLOAT(0) NULL,
 	PRIMARY KEY (ccdDetectorId)
 ) TYPE=MyISAM;
+
+
+CREATE TABLE CcdMap
+(
+	ccdNum TINYINT NOT NULL,
+	ccdName CHAR(3) NOT NULL,
+	PRIMARY KEY (ccdNum),
+	UNIQUE UQ_CcdMap_ccdName(ccdName)
+) ;
 
 
 CREATE TABLE Durations
@@ -295,6 +313,15 @@ CREATE TABLE ObjectType
 	description VARCHAR(255) NULL,
 	PRIMARY KEY (typeId)
 ) TYPE=MyISAM;
+
+
+CREATE TABLE RaftMap
+(
+	raftNum TINYINT NOT NULL,
+	raftName CHAR(3) NOT NULL,
+	PRIMARY KEY (raftNum),
+	UNIQUE UQ_RaftMap_raftName(raftName)
+) ;
 
 
 CREATE TABLE RefObjMatch
