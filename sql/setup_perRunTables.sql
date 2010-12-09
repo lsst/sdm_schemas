@@ -7,6 +7,25 @@
 -- See <http://lsstdev.ncsa.uiuc.edu/trac/wiki/Copyrights>
 -- for copyright information.
 
+
+-- ================================================= --
+--                    Create Views                   --
+-- ================================================= --
+
+CREATE VIEW Science_Ccd_Exposure_Mapped_View AS
+  SELECT Science_Ccd_Exposure.*, RaftMap.raftName, CcdMap.ccdName
+  FROM Science_Ccd_Exposure
+  JOIN RaftMap ON Science_Ccd_Exposure.raft = RaftMap.raftNum
+  JOIN CcdMap  ON Science_Ccd_Exposure.ccd  = CcdMap.ccdNum;
+
+
+CREATE VIEW Raw_Amp_Exposure_Mapped_View AS
+  SELECT Raw_Amp_Exposure.*, RaftMap.raftName, AmpMap.ampName
+  FROM Raw_Amp_Exposure
+  JOIN RaftMap ON Raw_Amp_Exposure.raft = RaftMap.raftNum
+  JOIN AmpMap  ON Raw_Amp_Exposure.amp  = AmpMap.ampNum;
+
+
 -- ================================================= --
 -- Populate lookup/mapping tables with fixed content --
 -- ================================================= --
@@ -35,6 +54,21 @@ INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (7,  'V', 0.0,
 INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (-99, 'DD', 0.0, 0.0);
 
 
+INSERT INTO RaftMap(raftNum, raftName) VALUES 
+     (0,'0,1'),  (1,'0,2'),  (2,'0,3'),  (3,'1,0'),  (4,'1,1'),  (5,'1,2'),
+     (6,'1,3'),  (7,'1,4'),  (8,'2,0'),  (9,'2,1'),  (10,'2,2'), (11,'2,3'),
+     (12,'2,4'), (13,'3,0'), (14,'3,1'), (15,'3,2'), (16,'3,3'), (17,'3,4'),
+     (18,'4,1'), (19,'4,2'), (20,'4,3');
+
+INSERT INTO CcdMap VALUES 
+     (0,'0,0'), (1,'0,1'), (2,'0,2'), (3,'1,0'), (4,'1,1'), (5,'1,2'),
+     (6,'2,0'), (7,'2,1'), (8,'2,2');
+
+INSERT INTO AmpMap VALUES
+     (0, "0,0"), (1, "0,1"), (2, "0,2"), (3, "0,3"),
+     (4, "0,4"), (5, "0,5"), (6, "0,6"), (7, "0,7"),
+     (8, "1,0"), (9, "1,1"), (10, "1,2"), (11, "1,3"),
+     (12, "1,4"), (13, "1,5"), (14, "1,6"), (15, "1,7");
 
 INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S0', 'MOPS synthetic NEO');
 INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S1', 'MOPS synthetic main-belt object');
