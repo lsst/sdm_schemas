@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_2_2 (version CHAR);
+CREATE TABLE AAA_Version_3_2_3 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -335,7 +335,9 @@ CREATE TABLE RefObjMatch
 	nObjMatches INTEGER NULL,
 	closestToRef TINYINT NULL,
 	closestToObj TINYINT NULL,
-	flags INTEGER NULL
+	flags INTEGER NULL,
+	KEY (objectId),
+	KEY (refObjectId)
 ) TYPE=MyISAM;
 
 
@@ -365,7 +367,9 @@ CREATE TABLE SimRefObject
 	rCov INTEGER NOT NULL,
 	iCov INTEGER NOT NULL,
 	zCov INTEGER NOT NULL,
-	yCov INTEGER NOT NULL
+	yCov INTEGER NOT NULL,
+	PRIMARY KEY (refObjectId),
+	INDEX IDX_decl (decl ASC)
 ) TYPE=MyISAM;
 
 
@@ -1700,6 +1704,12 @@ ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_pr
 
 ALTER TABLE prv_PolicyKey ADD CONSTRAINT FK_prv_PolicyKey_prv_PolicyFile 
 	FOREIGN KEY (policyFileId) REFERENCES prv_PolicyFile (policyFileId);
+
+ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object 
+	FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_SimRefObject 
+	FOREIGN KEY (refObjectId) REFERENCES SimRefObject (refObjectId);
 
 ALTER TABLE _mops_EonQueue ADD CONSTRAINT FK__mopsEonQueue_MovingObject 
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
