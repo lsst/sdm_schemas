@@ -8,7 +8,7 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Version_3_2_3 (version CHAR);
+CREATE TABLE AAA_Version_3_2_4 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -771,6 +771,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
 	scienceCcdExposureId BIGINT NOT NULL,
 	snap TINYINT NOT NULL,
 	amp TINYINT NOT NULL,
+	PRIMARY KEY (rawAmpExposureId),
 	INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
 ) TYPE=MyISAM;
 
