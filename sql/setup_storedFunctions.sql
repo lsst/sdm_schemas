@@ -235,7 +235,7 @@ CREATE FUNCTION fluxToAbMagSigma(
 ) RETURNS FLOAT DETERMINISTIC
 BEGIN
    -- the constant below is 2.5 / LOG(10)
-   RETURN 5.756462732485114210 * fluxSigma / flux; 
+   RETURN 1.085736204758129569 * fluxSigma / flux; 
 END
 //
 
