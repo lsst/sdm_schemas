@@ -189,4 +189,114 @@ BEGIN
 END
 //
 
+--
+-- Function to compute the angular separation (in arcseconds) between
+-- two positions. Input coordinates must be specified in degrees.
+-- The implementation uses the haversine distance formula.
+--
+CREATE FUNCTION angSepArcsec(
+    ra1 FLOAT,
+    dec1 FLOAT,
+    ra2 FLOAT,
+    dec2 FLOAT
+) RETURNS FLOAT DETERMINISTIC
+BEGIN
+   DECLARE dra FLOAT;
+   DECLARE ddec FLOAT;
+   DECLARE a FLOAT;
+   DECLARE b FLOAT;
+   DECLARE c FLOAT;
+   SET dra = RADIANS(0.5*(ra2 - ra1));
+   SET ddec = RADIANS(0.5*(dec2 - dec1));
+   SET a = POW(SIN(ddec), 2) + COS(RADIANS(dec1)) * COS(RADIANS(dec2)) * POW(SIN(dra), 2);
+   SET b = SQRT(a);
+   SET c = IF(b > 1, 1, b);
+   RETURN DEGREES(2.0 * ASIN(c)) * 3600.0;
+END
+//
+
+--
+-- Converts a calibrated flux (erg/cm**2/sec/Hz) to an AB magnitude.
+--
+CREATE FUNCTION fluxToAbMag(
+    flux FLOAT
+) RETURNS FLOAT DETERMINISTIC
+BEGIN
+    RETURN -2.5 * LOG10(flux) - 48.6;
+END
+//
+
+--
+-- Converts calibrated flux error (erg/cm**2/sec/Hz) to an AB magnitude error.
+--
+CREATE FUNCTION fluxToAbMagSigma(
+    flux FLOAT,
+    fluxSigma FLOAT
+) RETURNS FLOAT DETERMINISTIC
+BEGIN
+   -- the constant below is 2.5 / LOG(10)
+   RETURN 5.756462732485114210 * fluxSigma / flux; 
+END
+//
+
+--
+-- Converts a raw DN value to a calibrated flux (erg/cm**2/sec/Hz).
+--
+CREATE FUNCTION dnToFlux(
+    dn       FLOAT,
+    fluxMag0 FLOAT
+) RETURNS FLOAT DETERMINISTIC
+BEGIN
+    RETURN 3.630780547701013425e-20 * dn / fluxMag0;
+END
+//
+
+--
+-- Converts a raw DN error to a calibrated flux error (erg/cm**2/sec/Hz).
+--
+CREATE FUNCTION dnToFluxSigma(
+    dn            FLOAT,
+    dnSigma       FLOAT,
+    fluxMag0      FLOAT,
+    fluxMag0Sigma FLOAT
+) RETURNS FLOAT DETERMINISTIC
+BEGIN
+    RETURN 3.630780547701013425e-20 *
+           SQRT((POW(dnSigma, 2) + POW(dn * fluxMag0Sigma / fluxMag0, 2)) /
+                POW(fluxMag0, 2));
+END
+//
+
+--
+-- Converts a raw DN value to an AB magnitude.
+--
+CREATE FUNCTION dnToAbMag(
+    dn       FLOAT,
+    fluxMag0 FLOAT
+) RETURNS FLOAT DETERMINISTIC
+BEGIN
+    DECLARE f FLOAT;
+    SET f = dnToFlux(dn, fluxMag0);
+    RETURN fluxToAbMag(f);
+END
+//
+
+--
+-- Converts a raw DN error to an AB magnitude error.
+--
+CREATE FUNCTION dnToAbMagSigma(
+    dn            FLOAT,
+    dnSigma       FLOAT,
+    fluxMag0      FLOAT,
+    fluxMag0Sigma FLOAT
+) RETURNS FLOAT DETERMINISTIC
+BEGIN
+    DECLARE f FLOAT;
+    DECLARE fSigma FLOAT;
+    SET f = dnToFlux(dn, fluxMag0);
+    SET fSigma = dnToFluxSigma(dn, dnSigma, fluxMag0, fluxMag0Sigma);
+    RETURN fluxToAbMagSigma(f, fSigma);
+END
+//
+
 DELIMITER ;
