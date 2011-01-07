@@ -103,6 +103,6 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
 
-admin.execCommand0("GRANT EXECUTE ON `rplante_DC3b_u_pt11final`.* %s" % toStr
+admin.execCommand0("GRANT EXECUTE ON `rplante_DC3b_u_pt11final`.* %s" % toStr)
             
 print "User '%s' added." % userName
