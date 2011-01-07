@@ -15,4 +15,5 @@ GRANT SELECT ON *.* TO 'znewuser'@'%' ;
 GRANT SELECT, INSERT ON \`DC3b\_DB\`.* TO 'znewuser'@'%' ;
 GRANT SELECT, INSERT ON GlobalDB.RunInfo TO 'znewuser'@'%' ; 
 GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO 'znewuser'@'%' ; 
+GRANT EXECUTE ON \`rplante_DC3b_u_pt11final\`.* TO 'znewuser'@'%' ; 
 ZZEND
