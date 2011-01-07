@@ -52,7 +52,7 @@ CREATE FUNCTION addSdqaThresholdRecord (
     upperThreshold_  DOUBLE,
     lowerThreshold_  DOUBLE
 ) RETURNS INT
-
+  SQL SECURITY INVOKER
 BEGIN
 
     DECLARE sdqa_thresholdId_ SMALLINT;

@@ -103,21 +103,6 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
 
-for ff in ["angSepArcsec",
-           "dnToAbMag",
-           "dnToAbMagSigma",
-           "dnToFlux",
-           "dnToFluxSigma",
-           "fluxToAbMag",
-           "fluxToAbMagSigma",
-           "mjdTaiToTai",
-           "mjdUtcToTai",
-           "taiToMjdTai",
-           "taiToMjdUtc",
-           "taiToUtc",
-           "utcToTai"]:
-    cmd = "GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt11final`.`%s` %s" % (ff, toStr)
-    admin.execCommand0(cmd)
+admin.execCommand0("GRANT EXECUTE ON `rplante_DC3b_u_pt11final`.* %s" % toStr
             
 print "User '%s' added." % userName
-
