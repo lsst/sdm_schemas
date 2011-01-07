@@ -9,6 +9,19 @@
 -- for copyright information.
 
 
+--                I M P O R T A N T
+--
+-- When adding a new function, if the function needs
+-- to be executed by all users:
+-- 1) add it to the list of functions in cat/bin/addMySqlUser.py
+-- 2) list all users that need to be authorized by running 
+--    SELECT DISTINCT(user) FROM mysql.tables_priv
+-- 3) for each of these users run
+--    GRANT EXECUTE ON FUNCTION `<dbName>`.`<functionname>` TO `<userName>`@`%`
+--    for example 
+--    GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt11final`.`dnToFlux` TO `john`@'%'
+
+
 DELIMITER //
 
 -- ===========================   SDQA   =========================== --
