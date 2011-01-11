@@ -68,14 +68,14 @@ CREATE TABLE md_Table (
 	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
 	engine VARCHAR(255),
-	description VARCHAR(255)
+	description TEXT
 );
 
 CREATE TABLE md_Column (
 	columnId INTEGER NOT NULL UNIQUE PRIMARY KEY,
 	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
 	name VARCHAR(255) NOT NULL,
-	description VARCHAR(255),
+	description TEXT,
 	type VARCHAR(255),
 	notNull INTEGER DEFAULT 0,
 	defaultValue VARCHAR(255),
