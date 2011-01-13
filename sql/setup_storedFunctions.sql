@@ -30,6 +30,47 @@
 
 DELIMITER //
 
+-- ==========================  ADMIN  ============================= --
+
+
+-- returns 1 if given user has privileges to create new run
+-- otherwise it returns a negative number
+CREATE FUNCTION checkIfUserCanStartRun (
+    userName_      VARCHAR(30)
+) RETURNS INT
+  SQL SECURITY DEFINER
+BEGIN
+
+    DECLARE tmpI_ SMALLINT;
+    DECLARE tmpC_ CHAR;
+
+    SELECT Table_priv INTO tmpI_
+    FROM   mysql.tables_priv
+    WHERE  user = userName_
+       AND Table_name = 'RunInfo';
+
+    IF tmpI_ IS NOT NULL THEN
+        RETURN 1; -- ok
+    END IF;
+
+    SELECT Insert_priv INTO tmpC_
+    FROM   mysql.user
+    WHERE user = userName_;
+
+    IF tmpC_ IS NULL THEN
+        RETURN -1;
+    END IF;
+
+    IF tmpC_ = "Y" THEN
+        RETURN 1; -- ok
+    END IF;
+
+    RETURN -2;
+END
+//
+
+
+
 -- ===========================   SDQA   =========================== --
 
 -- Created: 24 October 2008, R. Laher (laher@ipac.caltech.edu)
