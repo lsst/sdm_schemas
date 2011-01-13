@@ -11,9 +11,9 @@
 # GRANT ALL ON `znewuser\_%`.* TO 'znewuser'@'%' ;
 
 mysql -u root -p <<ZZEND
-GRANT SELECT ON *.* TO 'znewuser'@'%' ;
 GRANT SELECT, INSERT ON \`DC3b\_DB\`.* TO 'znewuser'@'%' ;
 GRANT SELECT, INSERT ON GlobalDB.RunInfo TO 'znewuser'@'%' ; 
 GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO 'znewuser'@'%' ; 
-GRANT EXECUTE ON \`rplante_DC3b_u_pt11final\`.* TO 'znewuser'@'%' ; 
+GRANT EXECUTE, SELECT ON \`%\_%\`.* TO 'znewuser'@'%' ; 
+GRANT SELECT ON Test.* TO 'znewuser'@'%' ; 
 ZZEND

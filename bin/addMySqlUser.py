@@ -93,8 +93,6 @@ admin.execCommand0("GRANT ALL ON `%s\_%%`.* %s" % (userName, toStr))
 # See also: http://bugs.mysql.com/bug.php?id=47843
 # admin.execCommand0("GRANT ALL ON `test%%`.* %s" % toStr)
 
-admin.execCommand0("GRANT SELECT ON *.* %s" % toStr)
-
 admin.execCommand0("GRANT SELECT, INSERT ON `%s\_DB`.* %s" % (dcVersion, toStr))
 
 admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
@@ -103,6 +101,8 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
 
-admin.execCommand0("GRANT EXECUTE ON `rplante_DC3b_u_pt11final`.* %s" % toStr)
-            
+admin.execCommand0("GRANT EXECUTE, SELECT ON `%%\_%%`.* %s" % toStr)
+
+admin.execCommand0("GRANT SELECT ON `Test`.* %s" % toStr)
+
 print "User '%s' added." % userName
