@@ -22,7 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
-
+import lsst.pex.policy as pexPolicy
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
 
@@ -70,14 +70,28 @@ if options.c:
 else:
     clientHost = '%'
 
+
+host = None
+port = None
+rootU = None
+rootP = None
 r = PolicyReader(options.f)
-(serverHost, serverPort) = r.readAuthInfo()
+dbAuthPolicy = os.environ['HOME'] + '/.lsst/db-auth.paf'
+if os.path.isfile(dbAuthPolicy):
+    policyObj = pexPolicy.Policy.createPolicy(dbAuthPolicy)
+    subP = policyObj.getPolicy('database.authInfo')
+    host = subP.getString('host')
+    port = subP.getInt('port')
+    rootU = subP.getString('admU')
+    rootP = subP.getString('password')
+else:
+    rootU = raw_input("Enter mysql superuser account name: ")
+    rootP = getpass.getpass()
+    (host, port) = r.readAuthInfo()
+
 (globalDbName, dcVersion, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 
-rootU = raw_input("Enter mysql superuser account name: ")
-rootP = getpass.getpass()
-
-admin = MySQLBase(serverHost, serverPort)
+admin = MySQLBase(host, port)
 admin.connect(rootU, rootP, globalDbName)
 
 toStr = "TO `%s`@`%s`" % (userName, clientHost)
