@@ -149,7 +149,6 @@ LSSTheader = """
 
 # get the svn revision of the input file
 cmd = "svn info -R " + options.i + "| grep Revision"
-print cmd
 r = commands.getoutput(cmd)
 if len(r.split()) > 2:
     sys.stderr.write("Can't determine svn revision of the input file '%s', error was: %s" % (options.i, r))
@@ -174,10 +173,57 @@ def isColumnDefinition(c):
     return c not in ["PRIMARY", "KEY", "INDEX", "UNIQUE"]
 
 
+def isCommentLine(str):
+    return re.match('[\s]*--', str) is not None
+
+
+def isUnitLine(str):
+    return re.search(r'<unit>(.+)</unit>', str) is not None
+
+
+def retrieveUnit(str):
+    xx = re.compile(r'<unit>(.+)</unit>')
+    x = xx.search(str)
+    return x.group(1)
+
+
+def containsDescrTagStart(str):
+    return re.search(r'<descr>', str) is not None
+
+
+def containsDescrTagEnd(str):
+    return re.search(r'</descr>', str) is not None
+
+
+def retrieveDescr(str):
+    xx = re.compile(r'<descr>(.+)</descr>')
+    x = xx.search(str)
+    return x.group(1)
+    
+
+def retrieveDescrStart(str):
+    xx = re.compile('<descr>(.+)')
+    x = xx.search(str)
+    return x.group(1)
+
+
+def retrieveDescrMid(str):
+    xx = re.compile('[\s]*--(.+)')
+    x = xx.search(str)
+    return x.group(1)
+
+
+def retrieveDescrEnd(str):
+    xx = re.compile('[\s]*--(.+)</descr>')
+    x = xx.search(str)
+    return x.group(1)
+    
+    
 def retrieveIsNotNull(str):
     if re.search('NOT NULL', str):
         return '1'
     return '0'
+
                 
 def retrieveType(str):
     arr = str.split()
@@ -199,9 +245,9 @@ def retrieveDefaultValue(str):
             returnNext = 1
 
 
-
 in_table = None
 in_col = None
+in_ColDescr = None
 table = {}
 
 tableStart = re.compile(r'CREATE TABLE (\w+)*')
@@ -215,7 +261,7 @@ unitEnd = re.compile(r'</unit>')
 
 colNum = 1
 
-tableNumber = 1000
+tableNumber = 1000 # just for hashing, not really needed by schema browser
 
 iF = open(options.i, mode='r')
 for line in iF:
@@ -229,6 +275,7 @@ for line in iF:
             colNum = 1
             in_table = table[tableNumber]
             tableNumber += 1
+            in_col = None
             #print "Found table ", in_table
     elif tableEnd.match(line):
         m = engineLine.match(line)
@@ -256,7 +303,40 @@ for line in iF:
                     in_table["columns"] = []
                 in_table["columns"].append(in_col)
             #print "found col: ", in_col
-            in_col = None
+        elif isCommentLine(line): # handle comments
+            if in_col is None:    # table comment
+
+                if containsDescrTagStart(line):
+                    if containsDescrTagEnd(line):
+                        in_table["description"] = retrieveDescr(line)
+                    else:
+                        in_table["description"] = retrieveDescrStart(line)
+                elif "description" in in_table:
+                    if containsDescrTagEnd(line):
+                        in_table["description"] += retrieveDescrEnd(line)
+                    else:
+                        in_table["description"] += retrieveDescrMid(line)
+
+            else:
+                                  # column comment
+                if containsDescrTagStart(line):
+                    if containsDescrTagEnd(line):
+                        in_col["description"] = retrieveDescr(line)
+                    else:
+                        in_col["description"] = retrieveDescrStart(line)
+                        in_colDescr = 1
+                elif in_colDescr:
+                    if containsDescrTagEnd(line):
+                        in_col["description"] += retrieveDescrEnd(line)
+                        in_colDescr = None
+                    else:
+                        in_col["description"] += retrieveDescrMid(line)
+
+                                  # units
+                if isUnitLine(line):
+                    in_col["unit"] = retrieveUnit(line)
+
+
 iF.close()
 
 ###############################################################################
