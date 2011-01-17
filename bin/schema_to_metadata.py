@@ -147,16 +147,23 @@ LSSTheader = """
 ################################################################################
 
 
-# get the svn revision of the input file
-cmd = "svn info -R " + options.i + "| grep Revision"
-r = commands.getoutput(cmd)
-if len(r.split()) > 2:
-    sys.stderr.write("Can't determine svn revision of the input file '%s', error was: %s" % (options.i, r))
-    sys.exit(1)
-revision = int(r.split()[1])
-if not revision or revision < 1:
-    sys.stderr.write("Can't determine svn revision of the input file '%s'" %s)
-    sys.exit(1)
+# get the svn revision of the file
+def getRevision4File(f):
+    cmd = "svn info -R " + f + "| grep Revision"
+    r = commands.getoutput(cmd)
+    if len(r.split()) > 2:
+        sys.stderr.write("Can't determine svn revision of the input file " + \
+                         "'%s', error was: %s" % (f, r))
+        sys.exit(1)
+        revision = int(r.split()[1])
+        if not revision or revision < 1:
+            sys.stderr.write(
+                    "Can't determine svn revision of the input file '%s'" %s)
+            sys.exit(1)
+    return revision
+
+
+revision = getRevision4File(options.i)
 
 oFName = "/tmp/metadata_%s.sql" % options.v
 oF = open(oFName, mode='wt')
@@ -214,6 +221,8 @@ def retrieveDescrMid(str):
 
 
 def retrieveDescrEnd(str):
+    if re.search('-- </descr>', str):
+        return ''
     xx = re.compile('[\s]*--(.+)</descr>')
     x = xx.search(str)
     return x.group(1)
