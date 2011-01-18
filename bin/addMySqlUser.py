@@ -115,6 +115,9 @@ admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
 admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
                    (globalDbName, toStr))
 
+admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.checkIfUserCanStartRun %s" % \
+                                      (globalDbName, toStr))
+
 admin.execCommand0("GRANT EXECUTE, SELECT ON `%%\_%%`.* %s" % toStr)
 
 admin.execCommand0("GRANT SELECT ON `Test`.* %s" % toStr)

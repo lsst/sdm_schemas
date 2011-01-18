@@ -14,6 +14,7 @@ mysql -u root -p <<ZZEND
 GRANT SELECT, INSERT ON \`DC3b\_DB\`.* TO 'znewuser'@'%' ;
 GRANT SELECT, INSERT ON GlobalDB.RunInfo TO 'znewuser'@'%' ; 
 GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO 'znewuser'@'%' ; 
+GRANT EXECUTE ON FUNCTION GlobalDB.checkIfUserCanStartRun TO 'znewuser'@'%' ; 
 GRANT EXECUTE, SELECT ON \`%\_%\`.* TO 'znewuser'@'%' ; 
 GRANT SELECT ON Test.* TO 'znewuser'@'%' ; 
 ZZEND
