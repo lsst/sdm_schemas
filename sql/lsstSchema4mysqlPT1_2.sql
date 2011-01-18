@@ -8,7 +8,9 @@
 -- for copyright information.
 
 
-CREATE TABLE AAA_Revision_$Rev$ (r CHAR);
+CREATE TABLE ZZZ_Db_Description (r VARCHAR(255));
+INSERT INTO ZZZ_Db_Description(r) VALUES('$Rev$');
+
 
 SET FOREIGN_KEY_CHECKS=0;
 
