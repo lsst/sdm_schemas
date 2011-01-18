@@ -66,9 +66,6 @@ The script extract information from the input file and generates the output
 file that can be used by the schema browser. The output will be placed in
 /tmp/metadata_{VERSION}.sql
 
-A "CREATE TABLE AAA_Version_{version}" statement is also prepended to the
-file, as is a standard comment header.
-
 The input schema file should be in subversion (svn info -R will be executed
 on that file)
 
@@ -167,14 +164,13 @@ def getRevision4File(f):
         sys.exit(1)
     return revision
 
-
 revision = getRevision4File(options.i)
+# todo: display revision number in schema browser
 
 oFName = "/tmp/metadata_%s.sql" % options.v
 oF = open(oFName, mode='wt')
 oF.write(LSSTheader)
 oF.write(databaseDDL)
-oF.write("\nCREATE TABLE AAA_Revision_%i (r CHAR);\n\n" % revision)
 oF.write(tableDDL)
 
 ###############################################################################
