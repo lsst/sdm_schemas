@@ -1,7 +1,7 @@
 
 -- LSST Database Schema
 -- $Author$
--- $Revision$
+-- $Revision: 18841 $
 -- $Date$
 --
 -- See <http://lsstdev.ncsa.uiuc.edu/trac/wiki/Copyrights>
