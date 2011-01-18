@@ -17,7 +17,7 @@ CREATE TABLE ZZZ_Db_Description
 (
     r VARCHAR(255)
         -- <descr>Captures information from svn about the schema file
-        -- including the file name, the revision, date and author./descr>
+        -- including the file name, the revision, date and author.</descr>
 ) ;
 INSERT INTO ZZZ_Db_Description(r) VALUES('$Id$') ;
 
