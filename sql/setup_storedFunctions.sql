@@ -9,25 +9,6 @@
 -- for copyright information.
 
 
---                I M P O R T A N T
---
--- When adding a new function, if the function needs
--- to be executed by all users:
--- 1) add it to the list of functions in cat/bin/addMySqlUser.py
--- 2) list all users that need to be authorized by running 
---    SELECT DISTINCT(user) FROM mysql.tables_priv
--- 3) see which databases need to be authorized by looking at grants
---    of one of the existing users:
---    SHOW GRANTS FOR <existingUser>
--- 4) for each of these users and for each of these databases
---    GRANT EXECUTE ON FUNCTION `<dbName>`.`<functionName>` TO `<userName>`@`%`
---    for example 
---    GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt11final`.`myNewFunction` TO `user1`@`%`
---    GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt12final`.`myNewFunction` TO `user1`@`%`
---    GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt11final`.`myNewFunction` TO `user2`@`%`
---    GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt12final`.`myNewFunction` TO `user2`@`%`
-
-
 DELIMITER //
 
 -- ==========================  ADMIN  ============================= --
