@@ -1429,6 +1429,7 @@ CREATE TABLE Source
     snr FLOAT(0) NOT NULL,
         -- <descr>Not set for PT1.1.</descr>
     chi2 FLOAT(0) NOT NULL,
+        -- <descr>Not set for PT1.1.</descr>
     sky FLOAT(0) NULL,
         -- <descr>Not set for PT1.1.</descr>
     skyErr FLOAT(0) NULL,
