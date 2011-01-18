@@ -39,9 +39,10 @@ CREATE TABLE CcdMap
 CREATE TABLE Filter
 (
     filterId TINYINT NOT NULL,
-    filterName CHAR(255) NOT NULL,
-        -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y'.
-        -- </descr>
+        -- <descr>Unique id (primary key).</descr>
+    filterName CHAR(3) NOT NULL,
+        -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y', 
+        -- 'w', 'V'.</descr>
     photClam FLOAT(0) NOT NULL,
         -- <descr>Filter centroid wavelength.</descr>
     photBW FLOAT(0) NOT NULL,
@@ -339,9 +340,18 @@ CREATE TABLE Raw_Amp_Exposure
     visit INTEGER NOT NULL,
     snap TINYINT NOT NULL,
     raft TINYINT NOT NULL,
+    raftName CHAR(3) NOT NULL,
+        -- <descr>Raft name, pulled in from the RaftMap table.</descr>
     ccd TINYINT NOT NULL,
+    ccdName CHAR(3) NOT NULL,
+        -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
     amp TINYINT NOT NULL,
+    ampName CHAR(3) NOT NULL,
+        -- <descr>Amp name, pulled in from the AmpMap table.</descr>
     filterId TINYINT NOT NULL,
+        -- <descr>Id of the filter used for this exposure.</descr>
+    filterName CHAR(3) NOT NULL,
+        -- <descr>Filter name, pulled in from the Filter table.</descr>
     ra DOUBLE NOT NULL,
     decl DOUBLE NOT NULL,
     equinox FLOAT(0) NOT NULL,
@@ -423,9 +433,15 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Primary key (unique identifier).</descr>
     visit INTEGER NOT NULL,
     raft TINYINT NOT NULL,
+    raftName CHAR(3) NOT NULL,
+        -- <descr>Raft name, pulled in from the RaftMap table.</descr>
     ccd TINYINT NOT NULL,
+    ccdName CHAR(3) NOT NULL,
+        -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
     filterId TINYINT NOT NULL,
-        -- <descr>Pointer to filter.</descr>
+        -- <descr>Id of the filter used for this exposure.</descr>
+    filterName CHAR(3) NOT NULL,
+        -- <descr>Filter name, pulled in from the Filter table.</descr>
     ra DOUBLE NOT NULL,
     decl DOUBLE NOT NULL,
     equinox FLOAT(0) NOT NULL,
@@ -1276,8 +1292,7 @@ CREATE TABLE Source
         -- <descr>Identifier for the CCD the source was detected/measured on
         -- (pointer to Science_Ccd_Exposure).</descr>
     filterId TINYINT NOT NULL,
-        -- <descr>Pointer to Filter table; 0='u', 1='g', 2='r', 3='i', 4='z',
-        -- 5='y'.</descr>
+        -- <descr>Id of the filter used for this source.</descr>
     objectId BIGINT NULL,
         -- <descr>The object this source was assigned to. NULL if the PT1.2
         -- clustering algorithm generated a single-source object for this

@@ -12,24 +12,6 @@
 --                    Create Views                   --
 -- ================================================= --
 
-CREATE 
-  SQL SECURITY INVOKER    
-  VIEW Science_Ccd_Exposure_Mapped_View 
-AS
-  SELECT Science_Ccd_Exposure.*, RaftMap.raftName, CcdMap.ccdName
-  FROM Science_Ccd_Exposure
-  JOIN RaftMap ON Science_Ccd_Exposure.raft = RaftMap.raftNum
-  JOIN CcdMap  ON Science_Ccd_Exposure.ccd  = CcdMap.ccdNum;
-
-
-CREATE 
-  SQL SECURITY INVOKER
-  VIEW Raw_Amp_Exposure_Mapped_View 
-AS
-  SELECT Raw_Amp_Exposure.*, RaftMap.raftName, AmpMap.ampName
-  FROM Raw_Amp_Exposure
-  JOIN RaftMap ON Raw_Amp_Exposure.raft = RaftMap.raftNum
-  JOIN AmpMap  ON Raw_Amp_Exposure.amp  = AmpMap.ampNum;
 
 
 -- ================================================= --
