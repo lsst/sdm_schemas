@@ -7,7 +7,8 @@
 # to MySQL via the phpMyAdmin application, specifying
 # the option:
 # "Grant all privileges on wildcard name (username\_%)"
-# which executes the following command:
+# which executes the following commands:
+# CREATE USER 'znewuser'@'%' IDENTIFIED BY '***';
 # GRANT ALL ON `znewuser\_%`.* TO 'znewuser'@'%' ;
 
 mysql -u root -p <<ZZEND
