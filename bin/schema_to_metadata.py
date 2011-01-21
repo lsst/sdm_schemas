@@ -121,6 +121,11 @@ CREATE TABLE md_Column (
 	INDEX md_Column_idx (tableId, name)
 );
 
+CREATE TABLE md_DbDescr (
+	schemaFile VARCHAR(255),
+	revision VARCHAR(64)
+);
+
 """
 
 
@@ -148,25 +153,6 @@ LSSTheader = """
 # 
 ################################################################################
 
-
-# get the svn revision of the file
-def getRevision4File(f):
-    cmd = "svn info -R " + f + "| grep Revision"
-    r = commands.getoutput(cmd)
-    if len(r.split()) > 2:
-        sys.stderr.write("Can't determine svn revision of the input file " + \
-                         "'%s', error was: %s" % (f, r))
-        sys.exit(1)
-    revision = int(r.split()[1])
-    if not revision or revision < 1:
-        sys.stderr.write(
-                  "Can't determine svn revision of the input file '%s'" %s)
-        sys.exit(1)
-    return revision
-
-revision = getRevision4File(options.i)
-# todo: display revision number in schema browser
-
 oFName = "/tmp/metadata_%s.sql" % options.v
 oF = open(oFName, mode='wt')
 oF.write(LSSTheader)
@@ -176,6 +162,7 @@ oF.write(tableDDL)
 ###############################################################################
 # Parse sql
 ###############################################################################
+
 
 def isColumnDefinition(c):
     return c not in ["PRIMARY", "KEY", "INDEX", "UNIQUE"]
@@ -260,6 +247,9 @@ in_col = None
 in_ColDescr = None
 table = {}
 
+dbDescr_file = None
+dbDescr_rev = None
+
 tableStart = re.compile(r'CREATE TABLE (\w+)*')
 tableEnd = re.compile(r"\)")
 engineLine = re.compile(r'\) TYPE=(\w+)*;')
@@ -268,6 +258,7 @@ descrStart = re.compile(r'<descr>')
 descrEnd = re.compile(r'</descr>')
 unitStart = re.compile(r'<unit>')
 unitEnd = re.compile(r'</unit>')
+zzDbDescr = re.compile(r'INSERT INTO ZZZ_Db_Description\(r\) VALUES\(\'\$Id: ([\w.]+) (\w+)')
 
 colNum = 1
 
@@ -279,14 +270,13 @@ for line in iF:
     m = tableStart.search(line)
     if m is not None:
         tableName = m.group(1)
-        if not re.match('AAA_Version_', tableName):
-            table[tableNumber] = {}
-            table[tableNumber]["name"] = tableName
-            colNum = 1
-            in_table = table[tableNumber]
-            tableNumber += 1
-            in_col = None
-            #print "Found table ", in_table
+        table[tableNumber] = {}
+        table[tableNumber]["name"] = tableName
+        colNum = 1
+        in_table = table[tableNumber]
+        tableNumber += 1
+        in_col = None
+        #print "Found table ", in_table
     elif tableEnd.match(line):
         m = engineLine.match(line)
         if m is not None:
@@ -345,7 +335,10 @@ for line in iF:
                                   # units
                 if isUnitLine(line):
                     in_col["unit"] = retrieveUnit(line)
-
+    elif zzDbDescr.match(line): # process "INSERT INTO ZZZ_Db_Description"
+        m = zzDbDescr.search(line)
+        dbDescr_file = m.group(1)
+        dbDescr_rev = m.group(2)
 
 iF.close()
 
@@ -362,6 +355,15 @@ def handleField(ptr, field, indent):
     oF.write(",\n")
     oF.write("".join(["\t" for i in xrange(indent)]))
     oF.write(field + " = " + q + ptr[field] + q)
+
+
+if dbDescr_file and dbDescr_rev:
+    oF.write("".join(["-- " for i in xrange(25)]) + "\n\n")
+    oF.write("INSERT INTO md_DbDescr\n")
+    oF.write('SET schemaFile = "%s", revision = "%s"' % \
+                 (dbDescr_file, dbDescr_rev))
+    oF.write(";\n\n")
+
 
 tableId = 0
 colId = 0
