@@ -54,6 +54,9 @@ tableFields = ["engine",  "description"]
 columnFields = ["description", "type", "notNull", "defaultValue",
                 "unit", "ucd", "displayOrder"]
 
+# Fields for md_Index table
+indexFields = ["type", "columns"]
+
 numericFields = ["notNull", "displayOrder"]
 
 ###############################################################################
@@ -101,14 +104,14 @@ USE lsst_schema_browser_%s;
 
 tableDDL = """
 CREATE TABLE md_Table (
-	tableId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	tableId INTEGER NOT NULL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL UNIQUE,
 	engine VARCHAR(255),
 	description TEXT
 );
 
 CREATE TABLE md_Column (
-	columnId INTEGER NOT NULL UNIQUE PRIMARY KEY,
+	columnId INTEGER NOT NULL PRIMARY KEY,
 	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
 	name VARCHAR(255) NOT NULL,
 	description TEXT,
@@ -120,6 +123,14 @@ CREATE TABLE md_Column (
         displayOrder INTEGER NOT NULL,
 	INDEX md_Column_idx (tableId, name)
 );
+
+CREATE TABLE md_Index (
+	indexId INTEGER NOT NULL PRIMARY KEY,
+	tableId INTEGER NOT NULL REFERENCES md_Table (tableId),
+	type VARCHAR(64) NOT NULL,
+	columns VARCHAR(255) NOT NULL,
+	INDEX md_Column_idx (tableId)
+) ;
 
 CREATE TABLE md_DbDescr (
 	schemaFile VARCHAR(255),
@@ -164,8 +175,8 @@ oF.write(tableDDL)
 ###############################################################################
 
 
-def isColumnDefinition(c):
-    return c not in ["PRIMARY", "KEY", "INDEX", "UNIQUE"]
+def isIndexDefinition(c):
+    return c in ["PRIMARY", "KEY", "INDEX", "UNIQUE"]
 
 
 def isCommentLine(str):
@@ -241,6 +252,24 @@ def retrieveDefaultValue(str):
         if a == 'DEFAULT':
             returnNext = 1
 
+#example strings:
+#"    PRIMARY KEY (id),",
+#"    KEY IDX_sId (sId ASC),",
+#"    KEY IDX_d (decl DESC)",
+#"    UNIQUE UQ_AmpMap_ampName(ampName)"
+#"    UNIQUE UQ_x(xx DESC, yy),"
+
+def retrieveColumns(str):
+    xx = re.search('[\s\w_]+\(([\w ,]+)\)', str.rstrip())
+    xx = xx.group(1).split() # skip " ASC", " DESC" etc
+    s = ''
+    for x in xx:
+        if not x == 'ASC' and not x == 'DESC':
+            s += x
+            if x[-1] == ',':
+                s += ' '
+    return s
+
 
 in_table = None
 in_col = None
@@ -289,7 +318,19 @@ for line in iF:
         m = columnLine.match(line)
         if m is not None:
             firstWord = m.group(1)
-            if isColumnDefinition(firstWord):
+            if isIndexDefinition(firstWord):
+                t = "-"
+                if firstWord == "PRIMARY":
+                    t = "PRIMARY KEY"
+                elif firstWord == "UNIQUE":
+                    t = "UNIQUE"
+                idxInfo = {"type" : t,
+                           "columns" : retrieveColumns(line)
+                           }
+                if "indexes" not in in_table:
+                    in_table["indexes"] = []
+                in_table["indexes"].append(idxInfo)
+            else:
                 in_col = {"name" : firstWord, 
                           "displayOrder" : str(colNum),
                           "type" : retrieveType(line),
@@ -341,6 +382,7 @@ for line in iF:
         dbDescr_rev = m.group(2)
 
 iF.close()
+#print table
 
 ###############################################################################
 # Output DML
@@ -367,6 +409,7 @@ if dbDescr_file and dbDescr_rev:
 
 tableId = 0
 colId = 0
+idxId = 0
 for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
     t = table[k]
     tableId += 1
@@ -384,6 +427,15 @@ for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
             oF.write('\tSET columnId = %d, tableId = %d, name = "%s"' %
                     (colId, tableId, c["name"]))
             for f in columnFields:
+                handleField(c, f, 2)
+            oF.write(";\n\n")
+
+    if "indexes" in t:
+        for c in t["indexes"]:
+            idxId += 1
+            oF.write("\tINSERT INTO md_Index\n")
+            oF.write('\tSET indexId = %d, tableId = %d' % (idxId, tableId))
+            for f in indexFields:
                 handleField(c, f, 2)
             oF.write(";\n\n")
 
