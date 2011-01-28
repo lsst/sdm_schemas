@@ -12,7 +12,14 @@ CREATE TABLE AAA_Version_3_2_4 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
-
+CREATE TABLE ZZZ_Db_Description 
+    -- <descr>Internal table used for storing database description</descr>
+(
+    r VARCHAR(255)
+        -- <descr>Captures information from svn about the schema file
+        -- including the file name, the revision, date and author.</descr>
+) ;
+INSERT INTO ZZZ_Db_Description(r) VALUES('$Id$') ;
 
 
 CREATE TABLE prv_Activity
