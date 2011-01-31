@@ -49,9 +49,9 @@ CREATE TABLE Filter
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y', 
         -- 'w', 'V'.</descr>
-    photClam FLOAT(0) NOT NULL,
+    photClam FLOAT NOT NULL,
         -- <descr>Filter centroid wavelength.</descr>
-    photBW FLOAT(0) NOT NULL,
+    photBW FLOAT NOT NULL,
         -- <descr>System effective bandwidth.</descr>
     PRIMARY KEY (filterId)
 ) TYPE=MyISAM;
@@ -62,15 +62,15 @@ CREATE TABLE LeapSeconds
     -- http://maia.usno.navy.mil/ser7/tai-utc.dat</a>.
     -- </descr>
 (
-    whenJd FLOAT(0) NOT NULL,
+    whenJd FLOAT NOT NULL,
         -- <descr>JD of change in TAI-UTC difference (leap second).</descr>
-    offset FLOAT(0) NOT NULL,
+    offset FLOAT NOT NULL,
         -- <descr>New number of leap seconds.</descr>
-    mjdRef FLOAT(0) NOT NULL,
+    mjdRef FLOAT NOT NULL,
         -- <descr>Reference MJD for drift (prior to 1972-Jan-1).</descr>
-    drift FLOAT(0) NOT NULL,
+    drift FLOAT NOT NULL,
         -- <descr>Drift in seconds per day (prior to 1972-Jan-1).</descr>
-    whenMjdUtc FLOAT(0) NULL,
+    whenMjdUtc FLOAT NULL,
         -- <descr>MJD in UTC system of change (computed).</descr>
     whenUtc BIGINT NULL,
         -- <descr>Nanoseconds from epoch in UTC system of change (computed).
@@ -360,12 +360,12 @@ CREATE TABLE Raw_Amp_Exposure
         -- <descr>Filter name, pulled in from the Filter table.</descr>
     ra DOUBLE NOT NULL,
     decl DOUBLE NOT NULL,
-    equinox FLOAT(0) NOT NULL,
+    equinox FLOAT NOT NULL,
     raDeSys VARCHAR(20) NOT NULL,
     ctype1 VARCHAR(20) NOT NULL,
     ctype2 VARCHAR(20) NOT NULL,
-    crpix1 FLOAT(0) NOT NULL,
-    crpix2 FLOAT(0) NOT NULL,
+    crpix1 FLOAT NOT NULL,
+    crpix2 FLOAT NOT NULL,
     crval1 DOUBLE NOT NULL,
     crval2 DOUBLE NOT NULL,
     cd1_1 DOUBLE NOT NULL,
@@ -383,10 +383,10 @@ CREATE TABLE Raw_Amp_Exposure
     taiMjd DOUBLE NOT NULL,
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     expMidpt VARCHAR(30) NOT NULL,
-    expTime FLOAT(0) NOT NULL,
-    airmass FLOAT(0) NOT NULL,
-    darkTime FLOAT(0) NOT NULL,
-    zd FLOAT(0) NULL,
+    expTime FLOAT NOT NULL,
+    airmass FLOAT NOT NULL,
+    darkTime FLOAT NOT NULL,
+    zd FLOAT NULL,
     PRIMARY KEY (rawAmpExposureId)
 ) TYPE=MyISAM;
 
@@ -450,16 +450,16 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Filter name, pulled in from the Filter table.</descr>
     ra DOUBLE NOT NULL,
     decl DOUBLE NOT NULL,
-    equinox FLOAT(0) NOT NULL,
+    equinox FLOAT NOT NULL,
         -- <descr>Equinox of World Coordinate System.</descr>
     raDeSys VARCHAR(20) NOT NULL,
     ctype1 VARCHAR(20) NOT NULL,
         -- <descr>Coordinate projection type, axis 1.</descr>
     ctype2 VARCHAR(20) NOT NULL,
         -- <descr>Coordinate projection type, axis 2.</descr>
-    crpix1 FLOAT(0) NOT NULL,
+    crpix1 FLOAT NOT NULL,
         -- <descr>Coordinate reference pixel, axis 1.</descr>
-    crpix2 FLOAT(0) NOT NULL,
+    crpix2 FLOAT NOT NULL,
         -- <descr>Coordinate reference pixel, axis 2.</descr>
     crval1 DOUBLE NOT NULL,
         -- <descr>Coordinate value 1 @reference pixel.</descr>
@@ -485,7 +485,7 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Date of the start of the exposure.</descr>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     expMidpt VARCHAR(30) NOT NULL,
-    expTime FLOAT(0) NOT NULL,
+    expTime FLOAT NOT NULL,
         -- <descr>Duration of exposure.</descr>
     nCombine INTEGER NOT NULL,
         -- <descr>Number of images co-added to create a deeper image.</descr>
@@ -493,14 +493,14 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Binning of the ccd in x.</descr>
     binY INTEGER NOT NULL,
         -- <descr>Binning of the ccd in y.</descr>
-    readNoise FLOAT(0) NOT NULL,
+    readNoise FLOAT NOT NULL,
         -- <descr>Read noise of the ccd.</descr>
     saturationLimit INTEGER NOT NULL,
         -- <descr>Saturation limit for the ccd (average of the amplifiers).
         -- </descr>
     gainEff DOUBLE NOT NULL,
-    fluxMag0 FLOAT(0) NOT NULL,
-    fluxMag0Sigma FLOAT(0) NOT NULL,
+    fluxMag0 FLOAT NOT NULL,
+    fluxMag0Sigma FLOAT NOT NULL,
     fwhm DOUBLE NOT NULL,
     PRIMARY KEY (scienceCcdExposureId)
 ) TYPE=MyISAM;
@@ -566,7 +566,7 @@ CREATE TABLE Object
         -- to minimizing the sum of the square angular separations between the
         -- source positions and the object position.</descr>
         -- <unit>deg</unit>
-    ra_PS_Sigma FLOAT(0) NULL,
+    ra_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of ra_PS (standard deviation).</descr>
         -- <unit>deg</unit>
     decl_PS DOUBLE NOT NULL,
@@ -576,10 +576,10 @@ CREATE TABLE Object
         -- to minimizing the sum of the square angular separations between the
         -- source positions and the object position.</descr>
         -- <unit>deg</unit>
-    decl_PS_Sigma FLOAT(0) NULL,
+    decl_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of decl_PS (standard deviation).</descr>
         -- <unit>deg</unit>
-    radecl_PS_Cov FLOAT(0) NULL,
+    radecl_PS_Cov FLOAT NULL,
         -- <descr>Covariance of ra_PS and decl_PS.</descr>
         -- <unit>deg^2</unit>
     ra_SG DOUBLE NULL,
@@ -588,7 +588,7 @@ CREATE TABLE Object
         -- is computed using the same point source model source positions as
         -- ra_PS, decl_PS.</descr>
         -- <unit>deg</unit>
-    ra_SG_Sigma FLOAT(0) NULL,
+    ra_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of ra_SG (standard deviation).</descr>
         -- <unit>deg</unit>
     decl_SG DOUBLE NULL,
@@ -597,18 +597,18 @@ CREATE TABLE Object
         -- is computed using the same point source model source positions as
         -- ra_PS, decl_PS.</descr>
         -- <unit>deg</unit>
-    decl_SG_Sigma FLOAT(0) NULL,
+    decl_SG_Sigma FLOAT NULL,
         -- <descr>Uncertain of decl_SG (standard deviation).</descr>
         -- <unit>deg</unit>
-    radecl_SG_Cov FLOAT(0) NULL,
+    radecl_SG_Cov FLOAT NULL,
         -- <descr>Covariance of ra_SG and decl_SG.</descr>
         -- <unit>deg^2</unit>
-    raRange FLOAT(0) NULL,
+    raRange FLOAT NULL,
         -- <descr>Not set for PT1.2. Width in RA of the bounding box on the sky
         -- that fully encloses the footprint of this object for the canonical
         -- model (Small Galaxy) and canonical filter.</descr>
         -- <unit>deg</unit>
-    declRange FLOAT(0) NULL,
+    declRange FLOAT NULL,
         -- <descr>Not set for PT1.2. Height in Dec of the bounding box on the
         -- sky that fully encloses the footprint of this object in the canonical
         -- model (Small Galaxy) and canonical filter.</descr>
@@ -617,23 +617,23 @@ CREATE TABLE Object
         -- <descr>Not set for PT1.2. Proper motion (ra) for the Point Source
         -- model.</descr>
         -- <unit>miliarcsec/year</unit>
-    muRa_PS_Sigma FLOAT(0) NULL,
+    muRa_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of muRa_PS.</descr>
         -- <unit>miliarcsec/year</unit>
     muDecl_PS DOUBLE NULL,
         -- <descr>Not set for PT1.2. Proper motion (decl) for the Point Source
         -- model.</descr>
         -- <unit>miliarcsec/year</unit>
-    muDecl_PS_Sigma FLOAT(0) NULL,
+    muDecl_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of muDecl_PS.</descr>
         -- <unit>miliarcsec/year</unit>
-    muRaDecl_PS_Cov FLOAT(0) NULL,
+    muRaDecl_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of muRa_PS and muDecl_PS.
         -- </descr>
     parallax_PS DOUBLE NULL,
         -- <descr>Not set for PT1.2. Parallax for Point Source model.</descr>
         -- <unit>miliarcsec</unit>
-    parallax_PS_Sigma FLOAT(0) NULL,
+    parallax_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of parallax_PS.</descr>
         -- <unit>miliarcsec</unit>
     canonicalFilterId TINYINT NULL,
@@ -643,7 +643,7 @@ CREATE TABLE Object
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object. Valid range: 0-10,000 (divide by 100 to get the actuall
         -- probability in the range 0-100% with 2 digit precision).</descr>
-    varProb FLOAT(0) NULL,
+    varProb FLOAT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable.
         -- Valid range: 0-1, where 1 indicates a variable object with 100%
         -- probability.</descr>
@@ -664,60 +664,60 @@ CREATE TABLE Object
         -- object for u filter. Valid range: 0-10,000 (divide by 100 to get the 
         -- actuall probability in the range 0-100% with 2 digit precision).
         -- </descr>
-    uVarProb FLOAT(0) NULL,
+    uVarProb FLOAT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for u filter. Valid range: 0-1, where 1 indicates a variable object
         -- with 100% probability.</descr>
-    uRaOffset_PS FLOAT(0) NULL,
+    uRaOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of ra_PS for u filter.
         -- </descr>
-    uRaOffset_PS_Sigma FLOAT(0) NULL,
+    uRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uRaOffset_PS.</descr>
-    uDeclOffset_PS FLOAT(0) NULL,
+    uDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for u filter.
         -- </descr>
-    uDeclOffset_PS_Sigma FLOAT(0) NULL,
+    uDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uDeclOffset_PS.</descr>
-    uRaDeclOffset_PS_Cov FLOAT(0) NULL,
+    uRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of uRaOffset_PS and
         -- uDeclOffset_PS.</descr>
-    uRaOffset_SG FLOAT(0) NULL,
+    uRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for u
         -- filter.</descr>
-    uRaOffset_SG_Sigma FLOAT(0) NULL,
+    uRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uRaOffset_SG.</descr>
-    uDeclOffset_SG FLOAT(0) NULL,
+    uDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for u filter.
         -- </descr>
-    uDeclOffset_SG_Sigma FLOAT(0) NULL,
+    uDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uDeclOffset_SG.</descr>
-    uRaDeclOffset_SG_Cov FLOAT(0) NULL,
+    uRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of uRaOffset_SG and
         -- uDeclOffset_SG.</descr>
-    uLnL_PS FLOAT(0) NULL,
+    uLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- u filter.</descr>
-    uLnL_SG FLOAT(0) NULL,
+    uLnL_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Small Galaxy for
         -- u filter.</descr>
-    uFlux_PS FLOAT(0) NULL,
+    uFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of u-band sources
         -- belonging to this object.</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    uFlux_PS_Sigma FLOAT(0) NULL,
+    uFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertain of uFlux_PS (standard deviation).</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    uFlux_SG FLOAT(0) NULL,
+    uFlux_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Small Galaxy model for u filter.
         -- </descr>
-    uFlux_SG_Sigma FLOAT(0) NULL,
+    uFlux_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uFlux_SG.</descr>
-    uFlux_CSG FLOAT(0) NULL,
+    uFlux_CSG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Canonical Small Galaxy model for u
         -- filter.</descr>
-    uFlux_CSG_Sigma FLOAT(0) NULL,
+    uFlux_CSG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uFlux_CSG.</descr>
-    uTimescale FLOAT(0) NULL,
+    uTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for u filter.</descr>
         -- <unit>day</unit>
@@ -729,33 +729,33 @@ CREATE TABLE Object
         -- <descr>The latest time (TAI) when this object was observed in u
         -- filter.</descr>
         -- <unit>mjd</unit>
-    uSersicN_SG FLOAT(0) NULL,
+    uSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for u
         -- filter.</descr>
-    uSersicN_SG_Sigma FLOAT(0) NULL,
+    uSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uSersicN_SG.</descr>
-    uE1_SG FLOAT(0) NULL,
+    uE1_SG FLOAT NULL,
         -- <descr>Unweighted mean u-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    uE1_SG_Sigma FLOAT(0) NULL,
+    uE1_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uE1_SG.</descr>
-    uE2_SG FLOAT(0) NULL,
+    uE2_SG FLOAT NULL,
         -- <descr>Unweighted mean u-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    uE2_SG_Sigma FLOAT(0) NULL,
+    uE2_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uE2_SG.</descr>
-    uRadius_SG FLOAT(0) NULL,
+    uRadius_SG FLOAT NULL,
         -- <descr>Unweighted mean u-band radius of source cluster. Note that
         -- PT1.2 contains no small galaxy model code - radii are derived from
         -- source adaptive second moments (Ixx, Iyy, Ixy).</descr>
         -- <unit>arcsec</unit>
-    uRadius_SG_Sigma FLOAT(0) NULL,
+    uRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of uRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
     uFlags INTEGER NULL,
@@ -769,60 +769,60 @@ CREATE TABLE Object
         -- object for g filter. Valid range: 0-10,000 (divide by 100 to get the 
         -- actuall probability in the range 0-100% with 2 digit precision).
         -- </descr>
-    gVarProb FLOAT(0) NULL,
+    gVarProb FLOAT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for g filter. Valid range: 0-1, where 1 indicates a variable object
         -- with 100% probability.</descr>
-    gRaOffset_PS FLOAT(0) NULL,
+    gRaOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of ra_PS for g filter.
         -- </descr>
-    gRaOffset_PS_Sigma FLOAT(0) NULL,
+    gRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gRaOffset_PS.</descr>
-    gDeclOffset_PS FLOAT(0) NULL,
+    gDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for g filter.
         -- </descr>
-    gDeclOffset_PS_Sigma FLOAT(0) NULL,
+    gDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gDeclOffset_PS.</descr>
-    gRaDeclOffset_PS_Cov FLOAT(0) NULL,
+    gRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of gRaOffset_PS and
         -- gDeclOffset_PS.</descr>
-    gRaOffset_SG FLOAT(0) NULL,
+    gRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for g
         -- filter.</descr>
-    gRaOffset_SG_Sigma FLOAT(0) NULL,
+    gRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gRaOffset_SG.</descr>
-    gDeclOffset_SG FLOAT(0) NULL,
+    gDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for g filter.
         -- </descr>
-    gDeclOffset_SG_Sigma FLOAT(0) NULL,
+    gDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gDeclOffset_SG.</descr>
-    gRaDeclOffset_SG_Cov FLOAT(0) NULL,
+    gRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of gRaOffset_SG and
         -- gDeclOffset_SG.</descr>
-    gLnL_PS FLOAT(0) NULL,
+    gLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- g filter.</descr>
-    gLnL_SG FLOAT(0) NULL,
+    gLnL_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Small Galaxy for
         -- g filter.</descr>
-    gFlux_PS FLOAT(0) NULL,
+    gFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of g-band sources
         -- belonging to this object.</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    gFlux_PS_Sigma FLOAT(0) NULL,
+    gFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of gFlux_PS (standard deviation).</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    gFlux_SG FLOAT(0) NULL,
+    gFlux_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Small Galaxy model for g filter.
         -- </descr>
-    gFlux_SG_Sigma FLOAT(0) NULL,
+    gFlux_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gFlux_SG.</descr>
-    gFlux_CSG FLOAT(0) NULL,
+    gFlux_CSG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Canonical Small Galaxy model for g
         -- filter.</descr>
-    gFlux_CSG_Sigma FLOAT(0) NULL,
+    gFlux_CSG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gFlux_CSG.</descr>
-    gTimescale FLOAT(0) NULL,
+    gTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for g filter.</descr>
         -- <unit>day</unit>
@@ -834,33 +834,33 @@ CREATE TABLE Object
         -- <descr>The latest time (TAI) when this object was observed in g
         -- filter.</descr>
         -- <unit>mjd</unit>
-    gSersicN_SG FLOAT(0) NULL,
+    gSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for g
         -- filter.</descr>
-    gSersicN_SG_Sigma FLOAT(0) NULL,
+    gSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gSersicN_SG.</descr>
-    gE1_SG FLOAT(0) NULL,
+    gE1_SG FLOAT NULL,
         -- <descr>Unweighted mean g-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    gE1_SG_Sigma FLOAT(0) NULL,
+    gE1_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gE1_SG.</descr>
-    gE2_SG FLOAT(0) NULL,
+    gE2_SG FLOAT NULL,
         -- <descr>Unweighted mean g-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    gE2_SG_Sigma FLOAT(0) NULL,
+    gE2_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gE2_SG.</descr>
-    gRadius_SG FLOAT(0) NULL,
+    gRadius_SG FLOAT NULL,
         -- <descr>Unweighted mean g-band radius of source cluster. Note that
         -- PT1.2 contains no small galaxy model code - radii are derived from
         -- source adaptive second moments (Ixx, Iyy, Ixy).</descr>
         -- <unit>arcsec</unit>
-    gRadius_SG_Sigma FLOAT(0) NULL,
+    gRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of gRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
     gFlags INTEGER NULL,
@@ -874,60 +874,60 @@ CREATE TABLE Object
         -- object for r filter. Valid range: 0-10,000 (divide by 100 to get the 
         -- actuall probability in the range 0-100% with 2 digit precision).
         -- </descr>
-    rVarProb FLOAT(0) NULL,
+    rVarProb FLOAT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for r filter. Valid range: 0-1, where 1 indicates a variable object
         -- with 100% probability.</descr>
-    rRaOffset_PS FLOAT(0) NULL,
+    rRaOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of ra_PS for r filter.
         -- </descr>
-    rRaOffset_PS_Sigma FLOAT(0) NULL,
+    rRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rRaOffset_PS.</descr>
-    rDeclOffset_PS FLOAT(0) NULL,
+    rDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for r filter.
         -- </descr>
-    rDeclOffset_PS_Sigma FLOAT(0) NULL,
+    rDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rDeclOffset_PS.</descr>
-    rRaDeclOffset_PS_Cov FLOAT(0) NULL,
+    rRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of rRaOffset_PS and
         -- rDeclOffset_PS.</descr>
-    rRaOffset_SG FLOAT(0) NULL,
+    rRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for r
         -- filter.</descr>
-    rRaOffset_SG_Sigma FLOAT(0) NULL,
+    rRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rRaOffset_SG.</descr>
-    rDeclOffset_SG FLOAT(0) NULL,
+    rDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for r filter.
         -- </descr>
-    rDeclOffset_SG_Sigma FLOAT(0) NULL,
+    rDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rDeclOffset_SG.</descr>
-    rRaDeclOffset_SG_Cov FLOAT(0) NULL,
+    rRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of rRaOffset_SG and
         -- rDeclOffset_SG.</descr>
-    rLnL_PS FLOAT(0) NULL,
+    rLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- r filter.</descr>
-    rLnL_SG FLOAT(0) NULL,
+    rLnL_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Small Galaxy for
         -- r filter.</descr>
-    rFlux_PS FLOAT(0) NULL,
+    rFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of r-band sources
         -- belonging to this object.</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    rFlux_PS_Sigma FLOAT(0) NULL,
+    rFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of rFlux_PS (standard deviation).</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    rFlux_SG FLOAT(0) NULL,
+    rFlux_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Small Galaxy model for r filter.
         -- </descr>
-    rFlux_SG_Sigma FLOAT(0) NULL,
+    rFlux_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rFlux_SG.</descr>
-    rFlux_CSG FLOAT(0) NULL,
+    rFlux_CSG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Canonical Small Galaxy model for r
         -- filter.</descr>
-    rFlux_CSG_Sigma FLOAT(0) NULL,
+    rFlux_CSG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rFlux_CSG.</descr>
-    rTimescale FLOAT(0) NULL,
+    rTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for r filter.</descr>
         -- <unit>day</unit>
@@ -939,33 +939,33 @@ CREATE TABLE Object
         -- <descr>The latest time (TAI) when this object was observed in r
         -- filter.</descr>
         -- <unit>mjd</unit>
-    rSersicN_SG FLOAT(0) NULL,
+    rSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for r
         -- filter.</descr>
-    rSersicN_SG_Sigma FLOAT(0) NULL,
+    rSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rSersicN_SG.</descr>
-    rE1_SG FLOAT(0) NULL,
+    rE1_SG FLOAT NULL,
         -- <descr>Unweighted mean r-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    rE1_SG_Sigma FLOAT(0) NULL,
+    rE1_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rE1_SG.</descr>
-    rE2_SG FLOAT(0) NULL,
+    rE2_SG FLOAT NULL,
         -- <descr>Unweighted mean r-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    rE2_SG_Sigma FLOAT(0) NULL,
+    rE2_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rE2_SG.</descr>
-    rRadius_SG FLOAT(0) NULL,
+    rRadius_SG FLOAT NULL,
         -- <descr>Unweighted mean r-band radius of source cluster. Note that
         -- PT1.2 contains no small galaxy model code - radii are derived from
         -- source adaptive second moments (Ixx, Iyy, Ixy).</descr>
         -- <unit>arcsec</unit>
-    rRadius_SG_Sigma FLOAT(0) NULL,
+    rRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of rRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
     rFlags INTEGER NULL,
@@ -979,60 +979,60 @@ CREATE TABLE Object
         -- object for i filter. Valid range: 0-10,000 (divide by 100 to get the 
         -- actuall probability in the range 0-100% with 2 digit precision).
         -- </descr>
-    iVarProb FLOAT(0) NULL,
+    iVarProb FLOAT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for i filter. Valid range: 0-1, where 1 indicates a variable object
         -- with 100% probability.</descr>
-    iRaOffset_PS FLOAT(0) NULL,
+    iRaOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of ra_PS for i filter.
         -- </descr>
-    iRaOffset_PS_Sigma FLOAT(0) NULL,
+    iRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iRaOffset_PS.</descr>
-    iDeclOffset_PS FLOAT(0) NULL,
+    iDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for i filter.
         -- </descr>
-    iDeclOffset_PS_Sigma FLOAT(0) NULL,
+    iDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iDeclOffset_PS.</descr>
-    iRaDeclOffset_PS_Cov FLOAT(0) NULL,
+    iRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of iRaOffset_PS and
         -- iDeclOffset_PS.</descr>
-    iRaOffset_SG FLOAT(0) NULL,
+    iRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for i
         -- filter.</descr>
-    iRaOffset_SG_Sigma FLOAT(0) NULL,
+    iRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iRaOffset_SG.</descr>
-    iDeclOffset_SG FLOAT(0) NULL,
+    iDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for i filter.
         -- </descr>
-    iDeclOffset_SG_Sigma FLOAT(0) NULL,
+    iDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iDeclOffset_SG.</descr>
-    iRaDeclOffset_SG_Cov FLOAT(0) NULL,
+    iRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of iRaOffset_SG and
         -- iDeclOffset_SG.</descr>
-    iLnL_PS FLOAT(0) NULL,
+    iLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- i filter.</descr>
-    iLnL_SG FLOAT(0) NULL,
+    iLnL_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Small Galaxy for
         -- i filter.</descr>
-    iFlux_PS FLOAT(0) NULL,
+    iFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of i-band sources
         -- belonging to this object.</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    iFlux_PS_Sigma FLOAT(0) NULL,
+    iFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of iFlux_PS (standard deviation).</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    iFlux_SG FLOAT(0) NULL,
+    iFlux_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Small Galaxy model for i filter.
         -- </descr>
-    iFlux_SG_Sigma FLOAT(0) NULL,
+    iFlux_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iFlux_SG.</descr>
-    iFlux_CSG FLOAT(0) NULL,
+    iFlux_CSG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Canonical Small Galaxy model for i
         -- filter.</descr>
-    iFlux_CSG_Sigma FLOAT(0) NULL,
+    iFlux_CSG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iFlux_CSG.</descr>
-    iTimescale FLOAT(0) NULL,
+    iTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for i filter.</descr>
         -- <unit>day</unit>
@@ -1044,33 +1044,33 @@ CREATE TABLE Object
         -- <descr>The latest time (TAI) when this object was observed in i
         -- filter.</descr>
         -- <unit>mjd</unit>
-    iSersicN_SG FLOAT(0) NULL,
+    iSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for i
         -- filter.</descr>
-    iSersicN_SG_Sigma FLOAT(0) NULL,
+    iSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iSersicN_SG.</descr>
-    iE1_SG FLOAT(0) NULL,
+    iE1_SG FLOAT NULL,
         -- <descr>Unweighted mean i-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    iE1_SG_Sigma FLOAT(0) NULL,
+    iE1_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iE1_SG.</descr>
-    iE2_SG FLOAT(0) NULL,
+    iE2_SG FLOAT NULL,
         -- <descr>Unweighted mean i-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    iE2_SG_Sigma FLOAT(0) NULL,
+    iE2_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iE2_SG.</descr>
-    iRadius_SG FLOAT(0) NULL,
+    iRadius_SG FLOAT NULL,
         -- <descr>Unweighted mean i-band radius of source cluster. Note that
         -- PT1.2 contains no small galaxy model code - radii are derived from
         -- source adaptive second moments (Ixx, Iyy, Ixy).</descr>
         -- <unit>arcsec</unit>
-    iRadius_SG_Sigma FLOAT(0) NULL,
+    iRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of iRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
     iFlags INTEGER NULL,
@@ -1084,60 +1084,60 @@ CREATE TABLE Object
         -- object for z filter. Valid range: 0-10,000 (divide by 100 to get the 
         -- actuall probability in the range 0-100% with 2 digit precision).
         -- </descr>
-    zVarProb FLOAT(0) NULL,
+    zVarProb FLOAT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for z filter. Valid range: 0-1, where 1 indicates a variable object
         -- with 100% probability.</descr>
-    zRaOffset_PS FLOAT(0) NULL,
+    zRaOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of ra_PS for z filter.
         -- </descr>
-    zRaOffset_PS_Sigma FLOAT(0) NULL,
+    zRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zRaOffset_PS.</descr>
-    zDeclOffset_PS FLOAT(0) NULL,
+    zDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for z filter.
         -- </descr>
-    zDeclOffset_PS_Sigma FLOAT(0) NULL,
+    zDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zDeclOffset_PS.</descr>
-    zRaDeclOffset_PS_Cov FLOAT(0) NULL,
+    zRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of zRaOffset_PS and
         -- zDeclOffset_PS.</descr>
-    zRaOffset_SG FLOAT(0) NULL,
+    zRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for z
         -- filter.</descr>
-    zRaOffset_SG_Sigma FLOAT(0) NULL,
+    zRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zRaOffset_SG.</descr>
-    zDeclOffset_SG FLOAT(0) NULL,
+    zDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for z filter.
         -- </descr>
-    zDeclOffset_SG_Sigma FLOAT(0) NULL,
+    zDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zDeclOffset_SG.</descr>
-    zRaDeclOffset_SG_Cov FLOAT(0) NULL,
+    zRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of zRaOffset_SG and
         -- zDeclOffset_SG.</descr>
-    zLnL_PS FLOAT(0) NULL,
+    zLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- z filter.</descr>
-    zLnL_SG FLOAT(0) NULL,
+    zLnL_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Small Galaxy for
         -- z filter.</descr>
-    zFlux_PS FLOAT(0) NULL,
+    zFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of z-band sources
         -- belonging to this object.</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    zFlux_PS_Sigma FLOAT(0) NULL,
+    zFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of zFlux_PS (standard deviation).</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    zFlux_SG FLOAT(0) NULL,
+    zFlux_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Small Galaxy model for z filter.
         -- </descr>
-    zFlux_SG_Sigma FLOAT(0) NULL,
+    zFlux_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zFlux_SG.</descr>
-    zFlux_CSG FLOAT(0) NULL,
+    zFlux_CSG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Canonical Small Galaxy model for z
         -- filter.</descr>
-    zFlux_CSG_Sigma FLOAT(0) NULL,
+    zFlux_CSG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zFlux_CSG.</descr>
-    zTimescale FLOAT(0) NULL,
+    zTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for z filter.</descr>
         -- <unit>day</unit>
@@ -1149,33 +1149,33 @@ CREATE TABLE Object
         -- <descr>The latest time (TAI) when this object was observed in z
         -- filter.</descr>
         -- <unit>mjd</unit>
-    zSersicN_SG FLOAT(0) NULL,
+    zSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for z
         -- filter.</descr>
-    zSersicN_SG_Sigma FLOAT(0) NULL,
+    zSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zSersicN_SG.</descr>
-    zE1_SG FLOAT(0) NULL,
+    zE1_SG FLOAT NULL,
         -- <descr>Unweighted mean z-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    zE1_SG_Sigma FLOAT(0) NULL,
+    zE1_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zE1_SG.</descr>
-    zE2_SG FLOAT(0) NULL,
+    zE2_SG FLOAT NULL,
         -- <descr>Unweighted mean z-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    zE2_SG_Sigma FLOAT(0) NULL,
+    zE2_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zE2_SG.</descr>
-    zRadius_SG FLOAT(0) NULL,
+    zRadius_SG FLOAT NULL,
         -- <descr>Unweighted mean z-band radius of source cluster. Note that
         -- PT1.2 contains no small galaxy model code - radii are derived from
         -- source adaptive second moments (Ixx, Iyy, Ixy).</descr>
         -- <unit>arcsec</unit>
-    zRadius_SG_Sigma FLOAT(0) NULL,
+    zRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of zRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
     zFlags INTEGER NULL,
@@ -1189,60 +1189,60 @@ CREATE TABLE Object
         -- object for y filter. Valid range: 0-10,000 (divide by 100 to get the 
         -- actuall probability in the range 0-100% with 2 digit precision).
         -- </descr>
-    yVarProb FLOAT(0) NULL,
+    yVarProb FLOAT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for y filter. Valid range: 0-1, where 1 indicates a variable object
         -- with 100% probability.</descr>
-    yRaOffset_PS FLOAT(0) NULL,
+    yRaOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of ra_PS for y filter.
         -- </descr>
-    yRaOffset_PS_Sigma FLOAT(0) NULL,
+    yRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yRaOffset_PS.</descr>
-    yDeclOffset_PS FLOAT(0) NULL,
+    yDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for y filter.
         -- </descr>
-    yDeclOffset_PS_Sigma FLOAT(0) NULL,
+    yDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yDeclOffset_PS.</descr>
-    yRaDeclOffset_PS_Cov FLOAT(0) NULL,
+    yRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of yRaOffset_PS and
         -- yDeclOffset_PS.</descr>
-    yRaOffset_SG FLOAT(0) NULL,
+    yRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for y
         -- filter.</descr>
-    yRaOffset_SG_Sigma FLOAT(0) NULL,
+    yRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yRaOffset_SG.</descr>
-    yDeclOffset_SG FLOAT(0) NULL,
+    yDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for y filter.
         -- </descr>
-    yDeclOffset_SG_Sigma FLOAT(0) NULL,
+    yDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yDeclOffset_SG.</descr>
-    yRaDeclOffset_SG_Cov FLOAT(0) NULL,
+    yRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of yRaOffset_SG and
         -- yDeclOffset_SG.</descr>
-    yLnL_PS FLOAT(0) NULL,
+    yLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- y filter.</descr>
-    yLnL_SG FLOAT(0) NULL,
+    yLnL_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Small Galaxy for
         -- y filter.</descr>
-    yFlux_PS FLOAT(0) NULL,
+    yFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of y-band sources
         -- belonging to this object.</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    yFlux_PS_Sigma FLOAT(0) NULL,
+    yFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of yFlux_PS (standard deviation).</descr>
         -- <unit>erg/s/cm^2/Hz</unit>
-    yFlux_SG FLOAT(0) NULL,
+    yFlux_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Small Galaxy model for y filter.
         -- </descr>
-    yFlux_SG_Sigma FLOAT(0) NULL,
+    yFlux_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yFlux_SG.</descr>
-    yFlux_CSG FLOAT(0) NULL,
+    yFlux_CSG FLOAT NULL,
         -- <descr>Not set for PT1.2. Flux for Canonical Small Galaxy model for y
         -- filter.</descr>
-    yFlux_CSG_Sigma FLOAT(0) NULL,
+    yFlux_CSG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yFlux_CSG.</descr>
-    yTimescale FLOAT(0) NULL,
+    yTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for y filter.</descr>
         -- <unit>day</unit>
@@ -1254,33 +1254,33 @@ CREATE TABLE Object
         -- <descr>The latest time (TAI) when this object was observed in y
         -- filter.</descr>
         -- <unit>mjd</unit>
-    ySersicN_SG FLOAT(0) NULL,
+    ySersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for y
         -- filter.</descr>
-    ySersicN_SG_Sigma FLOAT(0) NULL,
+    ySersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of ySersicN_SG.</descr>
-    yE1_SG FLOAT(0) NULL,
+    yE1_SG FLOAT NULL,
         -- <descr>Unweighted mean y-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    yE1_SG_Sigma FLOAT(0) NULL,
+    yE1_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yE1_SG.</descr>
-    yE2_SG FLOAT(0) NULL,
+    yE2_SG FLOAT NULL,
         -- <descr>Unweighted mean y-band ellipticity of source cluster in a
         -- tangent plane centered on (ra_PS, decl_PS) and with the standard N,E
         -- basis. Note that PT1.2 contains no small galaxy model code -
         -- ellipticities are derived from source adaptive second moments (Ixx,
         -- Iyy, Ixy).</descr>
-    yE2_SG_Sigma FLOAT(0) NULL,
+    yE2_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yE2_SG.</descr>
-    yRadius_SG FLOAT(0) NULL,
+    yRadius_SG FLOAT NULL,
         -- <descr>Unweighted mean y-band radius of source cluster. Note that
         -- PT1.2 contains no small galaxy model code - radii are derived from
         -- source adaptive second moments (Ixx, Iyy, Ixy).</descr>
         -- <unit>arcsec</unit>
-    yRadius_SG_Sigma FLOAT(0) NULL,
+    yRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of yRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
     yFlags INTEGER NULL,
@@ -1316,47 +1316,47 @@ CREATE TABLE Source
     ra DOUBLE NOT NULL,
         -- <descr>RA of source centroid (equal to raAstrom).</descr>
         -- <unit>deg</unit>
-    raErrForDetection FLOAT(0) NULL,
+    raErrForDetection FLOAT NULL,
         -- <descr>Component of ra uncertainty due to detection uncertainty
         -- (xAstromErr, yAstromErr).</descr>
         -- <unit>deg</unit>
-    raErrForWcs FLOAT(0) NOT NULL,
+    raErrForWcs FLOAT NOT NULL,
         -- <descr>Not set for PT1.2. Component of ra uncertainty due to
         -- uncertainty in WCS solution.</descr>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
         -- <descr>Declination of source centroid (equal to declAstrom).</descr>
         -- <unit>deg</unit>
-    declErrForDetection FLOAT(0) NULL,
+    declErrForDetection FLOAT NULL,
         -- <descr>Component of decl uncertainty due to detection uncertainty
         -- (xAstromErr, yAstromErr).</descr>
         -- <unit>deg</unit>
-    declErrForWcs FLOAT(0) NOT NULL,
+    declErrForWcs FLOAT NOT NULL,
         -- <descr>Not set for PT1.2. Component of decl uncertainty due to
         -- uncertainty in WCS solution.</descr>
         -- <unit>deg</unit>
     xFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <unit>pix</unit>
-    xFluxErr FLOAT(0) NULL,
+    xFluxErr FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of xFlux.</descr>
         -- <unit>pix</unit>
     yFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <unit>pix</unit>
-    yFluxErr FLOAT(0) NULL,
+    yFluxErr FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yFlux.</descr>
         -- <unit>pix</unit>
     raFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2. RA of (xFlux, yFlux).</descr>
         -- <unit>deg</unit>
-    raFluxErr FLOAT(0) NULL,
+    raFluxErr FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of raFlux.</descr>
         -- <unit>deg</unit>
     declFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2. Dec of (xFlux, yFlux).</descr>
         -- <unit>deg</unit>
-    declFluxErr FLOAT(0) NULL,
+    declFluxErr FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of declFlux.</descr>
         -- <unit>deg</unit>
     xPeak DOUBLE NULL,
@@ -1374,25 +1374,25 @@ CREATE TABLE Source
     xAstrom DOUBLE NULL,
         -- <descr>Position (x) measured for purposes of astrometry.</descr>
         -- <unit>pix</unit>
-    xAstromErr FLOAT(0) NULL,
+    xAstromErr FLOAT NULL,
         -- <descr>Uncertainty of xAstrom.</descr>
         -- <unit>pix</unit>
     yAstrom DOUBLE NULL,
         -- <descr>Position (y) measured for purposes of astrometry.</descr>
         -- <unit>pix</unit>
-    yAstromErr FLOAT(0) NULL,
+    yAstromErr FLOAT NULL,
         -- <descr>Uncertainty of yAstrom.</descr>
         -- <unit>pix</unit>
     raAstrom DOUBLE NULL,
         -- <descr>RA of (xAstrom, yAstrom).</descr>
         -- <unit>deg</unit>
-    raAstromErr FLOAT(0) NULL,
+    raAstromErr FLOAT NULL,
         -- <descr>Uncertainty of raAstrom.</descr>
         -- <unit>deg</unit>
     declAstrom DOUBLE NULL,
         -- <descr>Dec of (xAstrom, yAstrom).</descr>
         -- <unit>deg</unit>
-    declAstromErr FLOAT(0) NULL,
+    declAstromErr FLOAT NULL,
         -- <descr>Uncertainty of declAstrom.</descr>
         -- <unit>deg</unit>
     raObject DOUBLE NULL,
@@ -1406,137 +1406,137 @@ CREATE TABLE Source
     taiMidPoint DOUBLE NOT NULL,
         -- <descr>Middle of exposure time (TAI).</descr>
         -- <unit>mjd</unit>
-    taiRange FLOAT(0) NULL,
+    taiRange FLOAT NULL,
         -- <descr>Exposure time.</descr>
         -- <unit>s</unit>
     psfFlux DOUBLE NOT NULL,
         -- <descr>Uncalibrated PSF flux of source.</descr>
         -- <unit>DN</unit>
-    psfFluxErr FLOAT(0) NOT NULL,
+    psfFluxErr FLOAT NOT NULL,
         -- <descr>Uncertainty of psfFlux.</descr>
         -- <unit>DN</unit>
     apFlux DOUBLE NOT NULL,
         -- <descr>Uncalibrated aperture flux of source.</descr>
         -- <unit>DN</unit>
-    apFluxErr FLOAT(0) NOT NULL,
+    apFluxErr FLOAT NOT NULL,
         -- <descr>Uncertainty of apFlux.</descr>
         -- <unit>DN</unit>
     modelFlux DOUBLE NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    modelFluxErr FLOAT(0) NOT NULL,
+    modelFluxErr FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
     petroFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    petroFluxErr FLOAT(0) NULL,
+    petroFluxErr FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     instFlux DOUBLE NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    instFluxErr FLOAT(0) NOT NULL,
+    instFluxErr FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
     nonGrayCorrFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    nonGrayCorrFluxErr FLOAT(0) NULL,
+    nonGrayCorrFluxErr FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     atmCorrFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    atmCorrFluxErr FLOAT(0) NULL,
+    atmCorrFluxErr FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    apDia FLOAT(0) NULL,
+    apDia FLOAT NULL,
         -- <descr>Not set for PT1.2</descr>
-    Ixx FLOAT(0) NULL,
+    Ixx FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
-    IxxErr FLOAT(0) NULL,
+    IxxErr FLOAT NULL,
         -- <descr>Uncertainty of Ixx.</descr>
-    Iyy FLOAT(0) NULL,
+    Iyy FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
-    IyyErr FLOAT(0) NULL,
+    IyyErr FLOAT NULL,
         -- <descr>Uncertainty of Iyy.</descr>
-    Ixy FLOAT(0) NULL,
+    Ixy FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
-    IxyErr FLOAT(0) NULL,
+    IxyErr FLOAT NULL,
         -- <descr>Uncertainty of Ixy.</descr>
-    snr FLOAT(0) NOT NULL,
+    snr FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    chi2 FLOAT(0) NOT NULL,
+    chi2 FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    sky FLOAT(0) NULL,
+    sky FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    skyErr FLOAT(0) NULL,
+    skyErr FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     extendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object. Valid range: 0-10,000 (divide by 100 to get the actuall
         -- probability in the range 0-100% with 2 digit precision).</descr>
-    flux_PS FLOAT(0) NULL,
+    flux_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Calibrated flux for Point Source model.
         -- </descr>
-    flux_PS_Sigma FLOAT(0) NULL,
+    flux_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of flux_PS.</descr>
-    flux_SG FLOAT(0) NULL,
+    flux_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Calibrated flux for Small Galaxy model.
         -- </descr>
-    flux_SG_Sigma FLOAT(0) NULL,
+    flux_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of flux_SG.</descr>
-    sersicN_SG FLOAT(0) NULL,
+    sersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model.
         -- </descr>
-    sersicN_SG_Sigma FLOAT(0) NULL,
+    sersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of sersicN_SG.</descr>
-    e1_SG FLOAT(0) NULL,
+    e1_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Ellipticity for Small Galaxy.</descr>
-    e1_SG_Sigma FLOAT(0) NULL,
+    e1_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of e1_SG.</descr>
-    e2_SG FLOAT(0) NULL,
+    e2_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of e2_SG.</descr>
-    e2_SG_Sigma FLOAT(0) NULL,
+    e2_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of e2_SG.</descr>
-    radius_SG FLOAT(0) NULL,
+    radius_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Size of Small Galaxy model.</descr>
-    radius_SG_Sigma FLOAT(0) NULL,
+    radius_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of radius_SG.</descr>
-    flux_flux_SG_Cov FLOAT(0) NULL,
+    flux_flux_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and flux for Small
         -- Galaxy model.</descr>
-    flux_e1_SG_Cov FLOAT(0) NULL,
+    flux_e1_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and e1 for Small Galaxy
         -- model.</descr>
-    flux_e2_SG_Cov FLOAT(0) NULL,
+    flux_e2_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and e2 for Small Galaxy
         -- model.</descr>
-    flux_radius_SG_Cov FLOAT(0) NULL,
+    flux_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and radius for Small
         -- Galaxy model.</descr>
-    flux_sersicN_SG_Cov FLOAT(0) NULL,
+    flux_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and sersicN for Small
         -- Galaxy model.</descr>
-    e1_e1_SG_Cov FLOAT(0) NULL,
+    e1_e1_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and e1 for Small Galaxy
         -- model.</descr>
-    e1_e2_SG_Cov FLOAT(0) NULL,
+    e1_e2_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and e2 for Small Galaxy
         -- model.</descr>
-    e1_radius_SG_Cov FLOAT(0) NULL,
+    e1_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and radius for Small
         -- Galaxy model.</descr>
-    e1_sersicN_SG_Cov FLOAT(0) NULL,
+    e1_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and sersicN for Small
         -- Galaxy model.</descr>
-    e2_e2_SG_Cov FLOAT(0) NULL,
+    e2_e2_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e2 and e2 for Small Galaxy
         -- model.</descr>
-    e2_radius_SG_Cov FLOAT(0) NULL,
+    e2_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e2 and radius for Small
         -- Galaxy model.</descr>
-    e2_sersicN_SG_Cov FLOAT(0) NULL,
+    e2_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e2 and sersicN for Small
         -- Galaxy model.</descr>
-    radius_radius_SG_Cov FLOAT(0) NULL,
+    radius_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of radius and radius for Small
         -- Galaxy model.</descr>
-    radius_sersicN_SG_Cov FLOAT(0) NULL,
+    radius_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of radius and sersicN for Small
         -- Galaxy model.</descr>
-    sersicN_sersicN_SG_Cov FLOAT(0) NULL,
+    sersicN_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance for sersicN and sersicN for
         -- Small Galaxy model.</descr>
     flagForAssociation SMALLINT NULL,
