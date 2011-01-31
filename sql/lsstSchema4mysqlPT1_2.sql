@@ -13,7 +13,7 @@ SET FOREIGN_KEY_CHECKS=0;
 
 
 CREATE TABLE ZZZ_Db_Description 
-    -- <descr>Internal table used for storing database description</descr>
+    -- <descr>Internal table used for storing database description.</descr>
 (
     r VARCHAR(255)
         -- <descr>Captures information from svn about the schema file
@@ -639,10 +639,10 @@ CREATE TABLE Object
     canonicalFilterId TINYINT NULL,
         -- <descr>Not set for PT1.2. Id of the filter which is the canonical
         -- filter for size, ellipticity and Sersic index parameters.</descr>
-    extendedness FLOAT(0) NULL,
+    extendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object. Valid range: 0-1, where 1 indicates an extended object with
-        -- 100% probability.</descr>
+        -- object. Valid range: 0-10,000 (divide by 100 to get the actuall
+        -- probability in the range 0-100% with 2 digit precision).</descr>
     varProb FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable.
         -- Valid range: 0-1, where 1 indicates a variable object with 100%
@@ -659,10 +659,11 @@ CREATE TABLE Object
         -- <descr>Always 0 in PT1.2.</descr>
     uNumObs INTEGER NULL,
         -- <descr>Number of u-band sources associated with this object.</descr>
-    uExtendedness FLOAT(0) NULL,
+    uExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for u filter. Valid range: 0-1, where 1 indicates an extended
-        -- object with 100% probability.</descr>
+        -- object for u filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- actuall probability in the range 0-100% with 2 digit precision).
+        -- </descr>
     uVarProb FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for u filter. Valid range: 0-1, where 1 indicates a variable object
@@ -763,10 +764,11 @@ CREATE TABLE Object
         -- N_ellipticity_samples*4096.</descr>
     gNumObs INTEGER NULL,
         -- <descr>Number of g-band sources associated with this object.</descr>
-    gExtendedness FLOAT(0) NULL,
+    gExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for g filter. Valid range: 0-1, where 1 indicates an extended
-        -- object with 100% probability.</descr>
+        -- object for g filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- actuall probability in the range 0-100% with 2 digit precision).
+        -- </descr>
     gVarProb FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for g filter. Valid range: 0-1, where 1 indicates a variable object
@@ -867,10 +869,11 @@ CREATE TABLE Object
         -- N_ellipticity_samples*4096.</descr>
     rNumObs INTEGER NULL,
         -- <descr>Number of r-band sources associated with this object.</descr>
-    rExtendedness FLOAT(0) NULL,
+    rExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for r filter. Valid range: 0-1, where 1 indicates an extended
-        -- object with 100% probability.</descr>
+        -- object for r filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- actuall probability in the range 0-100% with 2 digit precision).
+        -- </descr>
     rVarProb FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for r filter. Valid range: 0-1, where 1 indicates a variable object
@@ -971,10 +974,11 @@ CREATE TABLE Object
         -- N_ellipticity_samples*4096.</descr>
     iNumObs INTEGER NULL,
         -- <descr>Number of i-band sources associated with this object.</descr>
-    iExtendedness FLOAT(0) NULL,
+    iExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for i filter. Valid range: 0-1, where 1 indicates an extended
-        -- object with 100% probability.</descr>
+        -- object for i filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- actuall probability in the range 0-100% with 2 digit precision).
+        -- </descr>
     iVarProb FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for i filter. Valid range: 0-1, where 1 indicates a variable object
@@ -1075,10 +1079,11 @@ CREATE TABLE Object
         -- N_ellipticity_samples*4096.</descr>
     zNumObs INTEGER NULL,
         -- <descr>Number of z-band sources associated with this object.</descr>
-    zExtendedness FLOAT(0) NULL,
+    zExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for z filter. Valid range: 0-1, where 1 indicates an extended
-        -- object with 100% probability.</descr>
+        -- object for z filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- actuall probability in the range 0-100% with 2 digit precision).
+        -- </descr>
     zVarProb FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for z filter. Valid range: 0-1, where 1 indicates a variable object
@@ -1179,10 +1184,11 @@ CREATE TABLE Object
         -- N_ellipticity_samples*4096.</descr>
     yNumObs INTEGER NULL,
         -- <descr>Number of y-band sources associated with this object.</descr>
-    yExtendedness FLOAT(0) NULL,
+    yExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for y filter. Valid range: 0-1, where 1 indicates an extended
-        -- object with 100% probability.</descr>
+        -- object for y filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- actuall probability in the range 0-100% with 2 digit precision).
+        -- </descr>
     yVarProb FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Probability that this object is variable
         -- for y filter. Valid range: 0-1, where 1 indicates a variable object
@@ -1457,10 +1463,10 @@ CREATE TABLE Source
         -- <descr>Not set for PT1.2.</descr>
     skyErr FLOAT(0) NULL,
         -- <descr>Not set for PT1.2.</descr>
-    extendedness FLOAT(0) NULL,
-        -- <descr>Not set for PT1.2. Probability that this source is an extended
-        -- source. Valid range: 0-1, where 1 indicates an extended source with
-        -- 100% probability.</descr>
+    extendedness SMALLINT NULL,
+        -- <descr>Not set for PT1.2. Probability that this object is an extended
+        -- object. Valid range: 0-10,000 (divide by 100 to get the actuall
+        -- probability in the range 0-100% with 2 digit precision).</descr>
     flux_PS FLOAT(0) NULL,
         -- <descr>Not set for PT1.2. Calibrated flux for Point Source model.
         -- </descr>
