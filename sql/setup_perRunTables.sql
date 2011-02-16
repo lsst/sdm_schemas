@@ -19,16 +19,16 @@
 -- ================================================= --
 
 -- LSST filters
-INSERT INTO prv_Filter VALUES (0,  0, 'u', NULL, 0.0, 0.0);
-INSERT INTO prv_Filter VALUES (1,  0, 'g', NULL, 0.0, 0.0);
-INSERT INTO prv_Filter VALUES (2,  0, 'r', NULL, 0.0, 0.0);
-INSERT INTO prv_Filter VALUES (3,  0, 'i', NULL, 0.0, 0.0);
-INSERT INTO prv_Filter VALUES (4,  0, 'z', NULL, 0.0, 0.0);
-INSERT INTO prv_Filter VALUES (5,  0, 'y', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (0,  0, 'u', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (1,  0, 'g', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (2,  0, 'r', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (3,  0, 'i', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (4,  0, 'z', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (5,  0, 'y', NULL, 0.0, 0.0);
 -- Additional filters used by MOPS
-INSERT INTO prv_Filter VALUES (6,  0, 'w', NULL, 0.0, 0.0);
-INSERT INTO prv_Filter VALUES (7,  0, 'V', NULL, 0.0, 0.0);
-INSERT INTO prv_Filter VALUES (-99, 0, 'DD', NULL, 0.0, 0.0); -- dummy filter
+-- INSERT INTO prv_Filter VALUES (6,  0, 'w', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (7,  0, 'V', NULL, 0.0, 0.0);
+-- INSERT INTO prv_Filter VALUES (-99, 0, 'DD', NULL, 0.0, 0.0); -- dummy filter
 
 INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (0,  'u', 0.0, 0.0);
 INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (1,  'g', 0.0, 0.0);
