@@ -58,14 +58,14 @@ INSERT INTO AmpMap VALUES
      (8, "1,0"), (9, "1,1"), (10, "1,2"), (11, "1,3"),
      (12, "1,4"), (13, "1,5"), (14, "1,6"), (15, "1,7");
 
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S0', 'MOPS synthetic NEO');
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S1', 'MOPS synthetic main-belt object');
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'St', 'MOPS synthetic Trojan');
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SC', 'MOPS synthetic Centaur');
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'ST', 'MOPS synthetic trans-Neptunian object');
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SS', 'MOPS synthetic scattered disk object');
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'Sc', 'MOPS synthetic comet');
-INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SM', 'MOPS synthetic control object');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S0', 'MOPS synthetic NEO');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'S1', 'MOPS synthetic main-belt object');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'St', 'MOPS synthetic Trojan');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SC', 'MOPS synthetic Centaur');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'ST', 'MOPS synthetic trans-Neptunian object');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SS', 'MOPS synthetic scattered disk object');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'Sc', 'MOPS synthetic comet');
+-- INSERT INTO mops_SSMDesc (prefix, description) VALUES ( 'SM', 'MOPS synthetic control object');
 
 
 -- ================================================================ --
@@ -126,16 +126,16 @@ UPDATE LeapSeconds
 --  Create tables using existing templates, adjust engine types etc --
 -- ================================================================ --
 
-CREATE TABLE DiaSourceForMovingObject LIKE DiaSource;
+-- CREATE TABLE DiaSourceForMovingObject LIKE DiaSource;
 
 
-CREATE TABLE _tmpl_DiaSource LIKE DiaSource;
+-- CREATE TABLE _tmpl_DiaSource LIKE DiaSource;
 
-ALTER TABLE _tmpl_DiaSource 
-    DROP KEY ccdExposureId,
-    DROP KEY filterId,
-    DROP KEY movingObjectId,
-    DROP KEY objectId;
+-- ALTER TABLE _tmpl_DiaSource 
+--     DROP KEY ccdExposureId,
+--     DROP KEY filterId,
+--     DROP KEY movingObjectId,
+--     DROP KEY objectId;
 
 -- This should be a permanent table, but copy it from Object for now.
 CREATE TABLE NonVarObject LIKE Object;
@@ -144,32 +144,32 @@ CREATE TABLE _tmpl_InMemoryObject LIKE Object;
 
 ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
 
-CREATE TABLE _tmpl_InMemoryMatchPair LIKE _tmpl_MatchPair;
-ALTER TABLE _tmpl_InMemoryMatchPair ENGINE=MEMORY;
+-- CREATE TABLE _tmpl_InMemoryMatchPair LIKE _tmpl_MatchPair;
+-- ALTER TABLE _tmpl_InMemoryMatchPair ENGINE=MEMORY;
 
-CREATE TABLE _tmpl_InMemoryId LIKE _tmpl_Id;
-ALTER TABLE _tmpl_InMemoryId ENGINE=MEMORY;
+-- CREATE TABLE _tmpl_InMemoryId LIKE _tmpl_Id;
+-- ALTER TABLE _tmpl_InMemoryId ENGINE=MEMORY;
 
 -- Create tables that accumulate data from per-visit tables
-CREATE TABLE _mops_Prediction LIKE _tmpl_mops_Prediction;
-ALTER TABLE _mops_Prediction
-    ADD COLUMN visitId INTEGER NOT NULL, 
-    ADD INDEX  idx_visitId (visitId);
+-- CREATE TABLE _mops_Prediction LIKE _tmpl_mops_Prediction;
+-- ALTER TABLE _mops_Prediction
+--     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE _ap_DiaSourceToObjectMatches LIKE _tmpl_MatchPair;
-ALTER TABLE _ap_DiaSourceToObjectMatches
-    ADD COLUMN visitId INTEGER NOT NULL,
-    ADD INDEX  idx_visitId (visitId);
+-- CREATE TABLE _ap_DiaSourceToObjectMatches LIKE _tmpl_MatchPair;
+-- ALTER TABLE _ap_DiaSourceToObjectMatches
+--     ADD COLUMN visitId INTEGER NOT NULL,
+--     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE _ap_PredToDiaSourceMatches LIKE _tmpl_MatchPair;
-ALTER TABLE _ap_PredToDiaSourceMatches
-    ADD COLUMN visitId INTEGER NOT NULL, 
-    ADD INDEX  idx_visitId (visitId);
+-- CREATE TABLE _ap_PredToDiaSourceMatches LIKE _tmpl_MatchPair;
+-- ALTER TABLE _ap_PredToDiaSourceMatches
+--     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE _ap_DiaSourceToNewObject LIKE _tmpl_IdPair;
-ALTER TABLE _ap_DiaSourceToNewObject
-    ADD COLUMN visitId INTEGER NOT NULL, 
-    ADD INDEX  idx_visitId (visitId);
+-- CREATE TABLE _ap_DiaSourceToNewObject LIKE _tmpl_IdPair;
+-- ALTER TABLE _ap_DiaSourceToNewObject
+--     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD INDEX  idx_visitId (visitId);
 
 CREATE TABLE BadSource LIKE Source;
 
