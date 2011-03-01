@@ -1523,10 +1523,10 @@ CREATE TABLE Source
         -- model. It represents how well resolved the measured source was 
         -- compared to the psf.  0 = unresolved, 1 = well resolved. 
         -- Effectively, it's: 1-(psfSize)/(psf-convolvedImageSize).</descr>
-    sigma_SG FLOAT NULL,
+    sourceWidth_SG FLOAT NULL,
         -- <descr>The width of an un-psf-corrected source for the Small Galaxy
         -- model, calculated as: (Ixx*Iyy - Ixy^2)^(1/4).</descr>
-    sigma_SG_Sigma FLOAT NULL,
+    SourceWidth_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of sigma_SG.</descr>
     shapeFlag_SG SMALLINT NULL,
         -- <descr>Flag containing information about the shape-fitting for the
