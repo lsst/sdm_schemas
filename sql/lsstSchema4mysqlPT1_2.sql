@@ -1316,47 +1316,47 @@ CREATE TABLE Source
     ra DOUBLE NOT NULL,
         -- <descr>RA of source centroid (equal to raAstrom).</descr>
         -- <unit>deg</unit>
-    raErrForDetection FLOAT NULL,
+    raSigmaForDetection FLOAT NULL,
         -- <descr>Component of ra uncertainty due to detection uncertainty
-        -- (xAstromErr, yAstromErr).</descr>
+        -- (xAstromSigma, yAstromSigma).</descr>
         -- <unit>deg</unit>
-    raErrForWcs FLOAT NOT NULL,
+    raSigmaForWcs FLOAT NOT NULL,
         -- <descr>Not set for PT1.2. Component of ra uncertainty due to
         -- uncertainty in WCS solution.</descr>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
         -- <descr>Declination of source centroid (equal to declAstrom).</descr>
         -- <unit>deg</unit>
-    declErrForDetection FLOAT NULL,
+    declSigmaForDetection FLOAT NULL,
         -- <descr>Component of decl uncertainty due to detection uncertainty
-        -- (xAstromErr, yAstromErr).</descr>
+        -- (xAstromSigma, yAstromSigma).</descr>
         -- <unit>deg</unit>
-    declErrForWcs FLOAT NOT NULL,
+    declSigmaForWcs FLOAT NOT NULL,
         -- <descr>Not set for PT1.2. Component of decl uncertainty due to
         -- uncertainty in WCS solution.</descr>
         -- <unit>deg</unit>
     xFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <unit>pix</unit>
-    xFluxErr FLOAT NULL,
+    xFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of xFlux.</descr>
         -- <unit>pix</unit>
     yFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <unit>pix</unit>
-    yFluxErr FLOAT NULL,
+    yFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yFlux.</descr>
         -- <unit>pix</unit>
     raFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2. RA of (xFlux, yFlux).</descr>
         -- <unit>deg</unit>
-    raFluxErr FLOAT NULL,
+    raFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of raFlux.</descr>
         -- <unit>deg</unit>
     declFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2. Dec of (xFlux, yFlux).</descr>
         -- <unit>deg</unit>
-    declFluxErr FLOAT NULL,
+    declFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of declFlux.</descr>
         -- <unit>deg</unit>
     xPeak DOUBLE NULL,
@@ -1374,25 +1374,25 @@ CREATE TABLE Source
     xAstrom DOUBLE NULL,
         -- <descr>Position (x) measured for purposes of astrometry.</descr>
         -- <unit>pix</unit>
-    xAstromErr FLOAT NULL,
+    xAstromSigma FLOAT NULL,
         -- <descr>Uncertainty of xAstrom.</descr>
         -- <unit>pix</unit>
     yAstrom DOUBLE NULL,
         -- <descr>Position (y) measured for purposes of astrometry.</descr>
         -- <unit>pix</unit>
-    yAstromErr FLOAT NULL,
+    yAstromSigma FLOAT NULL,
         -- <descr>Uncertainty of yAstrom.</descr>
         -- <unit>pix</unit>
     raAstrom DOUBLE NULL,
         -- <descr>RA of (xAstrom, yAstrom).</descr>
         -- <unit>deg</unit>
-    raAstromErr FLOAT NULL,
+    raAstromSigma FLOAT NULL,
         -- <descr>Uncertainty of raAstrom.</descr>
         -- <unit>deg</unit>
     declAstrom DOUBLE NULL,
         -- <descr>Dec of (xAstrom, yAstrom).</descr>
         -- <unit>deg</unit>
-    declAstromErr FLOAT NULL,
+    declAstromSigma FLOAT NULL,
         -- <descr>Uncertainty of declAstrom.</descr>
         -- <unit>deg</unit>
     raObject DOUBLE NULL,
@@ -1412,48 +1412,48 @@ CREATE TABLE Source
     psfFlux DOUBLE NOT NULL,
         -- <descr>Uncalibrated PSF flux of source.</descr>
         -- <unit>DN</unit>
-    psfFluxErr FLOAT NOT NULL,
+    psfFluxSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of psfFlux.</descr>
         -- <unit>DN</unit>
     apFlux DOUBLE NOT NULL,
         -- <descr>Uncalibrated aperture flux of source.</descr>
         -- <unit>DN</unit>
-    apFluxErr FLOAT NOT NULL,
+    apFluxSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of apFlux.</descr>
         -- <unit>DN</unit>
     modelFlux DOUBLE NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    modelFluxErr FLOAT NOT NULL,
+    modelFluxSigma FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
     petroFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    petroFluxErr FLOAT NULL,
+    petroFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     instFlux DOUBLE NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    instFluxErr FLOAT NOT NULL,
+    instFluxSigma FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
     nonGrayCorrFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    nonGrayCorrFluxErr FLOAT NULL,
+    nonGrayCorrFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     atmCorrFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    atmCorrFluxErr FLOAT NULL,
+    atmCorrFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     apDia FLOAT NULL,
         -- <descr>Not set for PT1.2</descr>
     Ixx FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
-    IxxErr FLOAT NULL,
+    IxxSigma FLOAT NULL,
         -- <descr>Uncertainty of Ixx.</descr>
     Iyy FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
-    IyyErr FLOAT NULL,
+    IyySigma FLOAT NULL,
         -- <descr>Uncertainty of Iyy.</descr>
     Ixy FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
-    IxyErr FLOAT NULL,
+    IxySigma FLOAT NULL,
         -- <descr>Uncertainty of Ixy.</descr>
     snr FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
@@ -1461,7 +1461,7 @@ CREATE TABLE Source
         -- <descr>Not set for PT1.2.</descr>
     sky FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    skyErr FLOAT NULL,
+    skySigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     extendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
