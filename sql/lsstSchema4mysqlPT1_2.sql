@@ -1526,8 +1526,8 @@ CREATE TABLE Source
     sourceWidth_SG FLOAT NULL,
         -- <descr>The width of an un-psf-corrected source for the Small Galaxy
         -- model, calculated as: (Ixx*Iyy - Ixy^2)^(1/4).</descr>
-    SourceWidth_SG_Sigma FLOAT NULL,
-        -- <descr>Uncertainty of sigma_SG.</descr>
+    sourceWidth_SG_Sigma FLOAT NULL,
+        -- <descr>Uncertainty of sourceWidth_SG.</descr>
     shapeFlag_SG SMALLINT NULL,
         -- <descr>Flag containing information about the shape-fitting for the
         -- Small Galaxy model. The meaning of the flag bits is to-be-decided.
