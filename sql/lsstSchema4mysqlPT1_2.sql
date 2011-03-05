@@ -1467,6 +1467,40 @@ CREATE TABLE Source
         -- <descr>PSF adaptive second moment.</descr>
     psfIxySigma FLOAT NULL,
         -- <descr>Uncertainty of psfIxy.</descr>
+    e1_SG FLOAT NULL,
+        -- <descr>Not set for PT1.2. Ellipticity for the Small Galaxy described
+        -- through e1/e2.</descr>
+    e1_SG_Sigma FLOAT NULL,
+        -- <descr>Not set for PT1.2. Uncertainty of e1_SG.</descr>
+    e2_SG FLOAT NULL,
+        -- <descr>Not set for PT1.2. Ellipticity for the Small Galaxy described 
+        -- through e1/e2.</descr>
+    e2_SG_Sigma FLOAT NULL,
+        -- <descr>Not set for PT1.2. Uncertainty of e2_SG.</descr>
+    resolution_SG FLOAT NULL,
+        -- <descr>Diagnostic output of shape measurement for the Small Galaxy
+        -- model. It represents how well resolved the measured source was 
+        -- compared to the psf.  0 = unresolved, 1 = well resolved. 
+        -- Effectively, it's: 1-(psfSize)/(psf-convolvedImageSize).</descr>
+    shear1_SG FLOAT NULL,
+        -- <descr>Ellipticity for the Small Galaxy model described through 
+        -- shear1/shear2.</descr>
+    shear1_SG_Sigma FLOAT NULL,
+        -- <descr>Uncertainty of shear1_SG.</descr>
+    shear2_SG FLOAT NULL,
+        -- <descr>Ellipticity for the Small Galaxy model described through 
+        -- shear1/shear2.</descr>
+    shear2_SG_Sigma FLOAT NULL,
+        -- <descr>Uncertainty of shear2_SG.</descr>
+    sourceWidth_SG FLOAT NULL,
+        -- <descr>The width of an un-psf-corrected source for the Small Galaxy
+        -- model, calculated as: (Ixx*Iyy - Ixy^2)^(1/4).</descr>
+    sourceWidth_SG_Sigma FLOAT NULL,
+        -- <descr>Uncertainty of sourceWidth_SG.</descr>
+    shapeFlag_SG SMALLINT NULL,
+        -- <descr>Flag containing information about the shape-fitting for the
+        -- Small Galaxy model. The meaning of the flag bits is to-be-decided.
+        -- </descr>
     snr FLOAT NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
     chi2 FLOAT NOT NULL,
@@ -1494,44 +1528,10 @@ CREATE TABLE Source
         -- </descr>
     sersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of sersicN_SG.</descr>
-    e1_SG FLOAT NULL,
-        -- <descr>Not set for PT1.2. Ellipticity for the Small Galaxy described
-        -- through e1/e2.</descr>
-    e1_SG_Sigma FLOAT NULL,
-        -- <descr>Not set for PT1.2. Uncertainty of e1_SG.</descr>
-    e2_SG FLOAT NULL,
-        -- <descr>Not set for PT1.2. Ellipticity for the Small Galaxy described 
-        -- through e1/e2.</descr>
-    e2_SG_Sigma FLOAT NULL,
-        -- <descr>Not set for PT1.2. Uncertainty of e2_SG.</descr>
     radius_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Size of Small Galaxy model.</descr>
     radius_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of radius_SG.</descr>
-    shear1_SG FLOAT NULL,
-        -- <descr>Ellipticity for the Small Galaxy model described through 
-        -- shear1/shear2.</descr>
-    shear1_SG_Sigma FLOAT NULL,
-        -- <descr>Uncertainty of shear1_SG.</descr>
-    shear2_SG FLOAT NULL,
-        -- <descr>Ellipticity for the Small Galaxy model described through 
-        -- shear1/shear2.</descr>
-    shear2_SG_Sigma FLOAT NULL,
-        -- <descr>Uncertainty of shear2_SG.</descr>
-    resolution_SG FLOAT NULL,
-        -- <descr>Diagnostic output of shape measurement for the Small Galaxy
-        -- model. It represents how well resolved the measured source was 
-        -- compared to the psf.  0 = unresolved, 1 = well resolved. 
-        -- Effectively, it's: 1-(psfSize)/(psf-convolvedImageSize).</descr>
-    sourceWidth_SG FLOAT NULL,
-        -- <descr>The width of an un-psf-corrected source for the Small Galaxy
-        -- model, calculated as: (Ixx*Iyy - Ixy^2)^(1/4).</descr>
-    sourceWidth_SG_Sigma FLOAT NULL,
-        -- <descr>Uncertainty of sourceWidth_SG.</descr>
-    shapeFlag_SG SMALLINT NULL,
-        -- <descr>Flag containing information about the shape-fitting for the
-        -- Small Galaxy model. The meaning of the flag bits is to-be-decided.
-        -- </descr>
     flux_flux_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and flux for Small
         -- Galaxy model.</descr>
