@@ -24,7 +24,7 @@ INSERT INTO ZZZ_Db_Description(r) VALUES('$Id$') ;
 
 CREATE TABLE prv_Activity
 (
-    activityId INTEGER NOT NULL,
+    activityId BIGINT NOT NULL,
         -- <descr>Unique id derived from prv_Run.offset.&#xA;</descr>
     offset MEDIUMINT NOT NULL,
         -- <descr>Corresponding prv_Run offset.&#xA;</descr>
