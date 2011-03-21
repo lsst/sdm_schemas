@@ -42,7 +42,7 @@ CREATE TABLE prv_Activity
 
 CREATE TABLE prv_cnf_PolicyKey
 (
-    policyKeyId INTEGER NOT NULL,
+    policyKeyId BIGINT NOT NULL,
     value TEXT NULL,
     validityBegin DATETIME NULL,
     validityEnd DATETIME NULL,
@@ -105,9 +105,9 @@ CREATE TABLE prv_PolicyFile
 
 CREATE TABLE prv_PolicyKey
 (
-    policyKeyId INTEGER NOT NULL,
+    policyKeyId BIGINT NOT NULL,
         -- <descr>Identifier for a key within a Policy file.</descr>
-    policyFileId INTEGER NOT NULL,
+    policyFileId BIGINT NOT NULL,
         -- <descr>Identifier for the Policy file.</descr>
     keyName VARCHAR(255) NOT NULL,
         -- <descr>Name of the key in the Policy file.</descr>
