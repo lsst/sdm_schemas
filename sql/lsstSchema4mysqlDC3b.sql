@@ -89,7 +89,7 @@ CREATE TABLE prv_Filter
 
 CREATE TABLE prv_PolicyFile
 (
-    policyFileId INTEGER NOT NULL,
+    policyFileId BIGINT NOT NULL,
         -- <descr>Identifier for the file containing the Policy.</descr>
     pathName VARCHAR(255) NOT NULL,
         -- <descr>Path to the Policy file.</descr>
