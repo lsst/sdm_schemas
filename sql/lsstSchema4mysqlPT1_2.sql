@@ -18,7 +18,7 @@ CREATE TABLE ZZZ_Db_Description
     r VARCHAR(255)
         -- <descr>Captures information from svn about the schema file
         -- including the file name, the revision, date and author.</descr>
-) ;
+) ENGINE=MyISAM;
 INSERT INTO ZZZ_Db_Description(r) VALUES('$Id$') ;
 
 
@@ -29,7 +29,7 @@ CREATE TABLE AmpMap
     ampName CHAR(3) NOT NULL,
     PRIMARY KEY (ampNum),
     UNIQUE UQ_AmpMap_ampName(ampName)
-) ;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE CcdMap
@@ -39,7 +39,7 @@ CREATE TABLE CcdMap
     ccdName CHAR(3) NOT NULL,
     PRIMARY KEY (ccdNum),
     UNIQUE UQ_CcdMap_ccdName(ccdName)
-) ;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Filter
@@ -54,7 +54,7 @@ CREATE TABLE Filter
     photBW FLOAT NOT NULL,
         -- <descr>System effective bandwidth.</descr>
     PRIMARY KEY (filterId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE LeapSeconds
@@ -78,7 +78,7 @@ CREATE TABLE LeapSeconds
     whenTai BIGINT NULL
         -- <descr>Nanoseconds from epoch in TAI system of change (computed).
         -- </descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE ObjectType
@@ -89,7 +89,7 @@ CREATE TABLE ObjectType
         -- <descr>Unique id.</descr>
     description VARCHAR(255) NULL,
     PRIMARY KEY (typeId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE RaftMap
@@ -99,7 +99,7 @@ CREATE TABLE RaftMap
     raftName CHAR(3) NOT NULL,
     PRIMARY KEY (raftNum),
     UNIQUE UQ_RaftMap_raftName(raftName)
-) ;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE RefObjMatch
@@ -139,7 +139,7 @@ CREATE TABLE RefObjMatch
         -- object.</li></ul></descr>
     KEY (objectId),
     KEY (refObjectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE SimRefObject
@@ -211,7 +211,7 @@ CREATE TABLE SimRefObject
         -- </descr>
     PRIMARY KEY (refObjectId),
     KEY IDX_decl (decl ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_ImageStatus
@@ -226,7 +226,7 @@ CREATE TABLE sdqa_ImageStatus
     definition VARCHAR(255) NOT NULL,
         -- <descr>Detailed Definition of the image status.</descr>
     PRIMARY KEY (sdqa_imageStatusId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Metric
@@ -247,32 +247,7 @@ CREATE TABLE sdqa_Metric
     definition VARCHAR(255) NOT NULL,
     PRIMARY KEY (sdqa_metricId),
     UNIQUE UQ_sdqaMetric_metricName(metricName)
-) TYPE=MyISAM;
-
-
-CREATE TABLE sdqa_Rating_ForScienceAmpExposure
-    -- <descr>Various SDQA ratings for a given amplifier image. There will
-    -- approximately 30 of these records per image record.</descr>
-(
-    sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
-        -- <descr>Primary key. Auto-increment is used, we define a composite
-        -- unique key, so potential duplicates will be captured.</descr>
-    sdqa_metricId SMALLINT NOT NULL,
-        -- <descr>Pointer to sdqa_Metric.</descr>
-    sdqa_thresholdId SMALLINT NOT NULL,
-        -- <descr>Pointer to sdqa_Threshold.</descr>
-    ampExposureId BIGINT NOT NULL,
-        -- <descr>Pointer to Science_Amp_Exposure.</descr>
-    metricValue DOUBLE NOT NULL,
-        -- <descr>Value of this SDQA metric.</descr>
-    metricSigma DOUBLE NOT NULL,
-        -- <descr>Uncertainty of the value of this metric.</descr>
-    PRIMARY KEY (sdqa_ratingId),
-    UNIQUE UQ_sdqaRating_ForScienceAmpExposure_metricId_ampExposureId(sdqa_metricId, ampExposureId),
-    KEY (sdqa_metricId),
-    KEY (sdqa_thresholdId),
-    KEY (ampExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForScienceCcdExposure
@@ -296,23 +271,31 @@ CREATE TABLE sdqa_Rating_ForScienceCcdExposure
     KEY (sdqa_metricId),
     KEY (sdqa_thresholdId),
     KEY (ccdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForSnapCcdExposure
+    -- <descr>Various SDQA ratings for a given pair of ScienceCcdExposures (a "snap").</descr>
 (
     sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
+        -- <descr>Primary key. Auto-increment is used, we define a composite
+        -- unique key, so potential duplicates will be captured.</descr>
     sdqa_metricId SMALLINT NOT NULL,
+        -- <descr>Pointer to sdqa_Metric.</descr>
     sdqa_thresholdId SMALLINT NOT NULL,
+        -- <descr>Pointer to sdqa_Threshold.</descr>
     ccdExposureId BIGINT NOT NULL,
+        -- <descr>Pointer to Science_Ccd_Exposure.</descr>
     metricValue DOUBLE NOT NULL,
+        -- <descr>Value of this SDQA metric.</descr>
     metricSigma DOUBLE NOT NULL,
+        -- <descr>Uncertainty of the value of this metric.</descr>
     PRIMARY KEY (sdqa_ratingId),
-    KEY UQ_sdqa_Rating_ForScienceCCDExposure_metricId_ccdExposureId (sdqa_metricId ASC, ccdExposureId ASC),
+    KEY UQ_sdqa_Rating_ForSnapCCDExposure_metricId_ccdExposureId (sdqa_metricId ASC, ccdExposureId ASC),
     KEY sdqa_metricId (sdqa_metricId ASC),
     KEY sdqa_thresholdId (sdqa_thresholdId ASC),
     KEY ccdExposureId (ccdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Threshold
@@ -337,7 +320,7 @@ CREATE TABLE sdqa_Threshold
     PRIMARY KEY (sdqa_thresholdId),
     UNIQUE UQ_sdqa_Threshold_sdqa_metricId(sdqa_metricId),
     KEY (sdqa_metricId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure
@@ -346,12 +329,15 @@ CREATE TABLE Raw_Amp_Exposure
     visit INTEGER NOT NULL,
     snap TINYINT NOT NULL,
     raft TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the RaftMap table.</descr>
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name, pulled in from the RaftMap table.</descr>
     ccd TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
     ccdName CHAR(3) NOT NULL,
         -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
     amp TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the AmpMap table.</descr>
     ampName CHAR(3) NOT NULL,
         -- <descr>Amp name, pulled in from the AmpMap table.</descr>
     filterId TINYINT NOT NULL,
@@ -388,7 +374,7 @@ CREATE TABLE Raw_Amp_Exposure
     darkTime FLOAT NOT NULL,
     zd FLOAT NULL,
     PRIMARY KEY (rawAmpExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure_Metadata
@@ -409,18 +395,20 @@ CREATE TABLE Raw_Amp_Exposure_Metadata
     stringValue VARCHAR(255) NULL,
     PRIMARY KEY (rawAmpExposureId, metadataKey),
     KEY IDX_metadataKey (metadataKey ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
-CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
+CREATE TABLE Raw_Amp_To_Science_CcdExposure
 (
     rawAmpExposureId BIGINT NOT NULL,
     scienceCcdExposureId BIGINT NOT NULL,
+        -- <descr>Pointer to the Science_Ccd_Exposure.</descr>
     snap TINYINT NOT NULL,
     amp TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the AmpMap table.</descr>
     PRIMARY KEY (rawAmpExposureId),
     KEY scienceCcdExposureId (scienceCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
@@ -430,7 +418,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
     snapCcdExposureId BIGINT NOT NULL,
     PRIMARY KEY (rawAmpExposureId),
     KEY snapCcdExposureId (snapCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure
@@ -438,10 +426,13 @@ CREATE TABLE Science_Ccd_Exposure
     scienceCcdExposureId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier).</descr>
     visit INTEGER NOT NULL,
+        -- <descr>Reference to the corresponding entry in the Visit table.</descr>
     raft TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the RaftMap table.</descr>
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name, pulled in from the RaftMap table.</descr>
     ccd TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
     ccdName CHAR(3) NOT NULL,
         -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
     filterId TINYINT NOT NULL,
@@ -503,7 +494,7 @@ CREATE TABLE Science_Ccd_Exposure
     fluxMag0Sigma FLOAT NOT NULL,
     fwhm DOUBLE NOT NULL,
     PRIMARY KEY (scienceCcdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure_Metadata
@@ -523,7 +514,7 @@ CREATE TABLE Science_Ccd_Exposure_Metadata
     stringValue VARCHAR(255) NULL,
     PRIMARY KEY (scienceCcdExposureId, metadataKey),
     KEY IDX_metadataKey (metadataKey ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
@@ -531,9 +522,10 @@ CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
     snapCcdExposureId BIGINT NOT NULL,
     snap TINYINT NOT NULL,
     scienceCcdExposureId BIGINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the Science_Ccd_Exposure table.</descr>
     PRIMARY KEY (snapCcdExposureId),
     KEY scienceCcdExposureId (scienceCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Visit
@@ -541,7 +533,7 @@ CREATE TABLE Visit
 (
     visitId INTEGER NOT NULL
         -- <descr>Unique identifier.</descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Object
@@ -1293,7 +1285,7 @@ CREATE TABLE Object
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (objectId),
     KEY IDX_Object_decl (decl_PS ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Source
@@ -1615,14 +1607,87 @@ CREATE TABLE Source
     KEY IDX_objectId (objectId ASC),
     KEY IDX_procHistoryId (procHistoryId ASC),
     KEY IDX_Source_decl (decl ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 SET FOREIGN_KEY_CHECKS=1;
 
 
+ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_SimRefObject
+    FOREIGN KEY (refObjectId) REFERENCES SimRefObject (refObjectId);
+
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
 
-ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_SimRefObject
-    FOREIGN KEY (refObjectId) REFERENCES SimRefObject (refObjectId);
+ALTER TABLE sdqa_Rating_ForScienceCcdExposure ADD CONSTRAINT FK_sdqaRatingForScienceCcdExposure_metricId
+    FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
+
+ALTER TABLE sdqa_Rating_ForScienceCcdExposure ADD CONSTRAINT FK_sdqaRatingForScienceCcdExposure_thresholdId
+    FOREIGN KEY (sdqa_thresholdId) REFERENCES sdqa_Threshold (sdqa_thresholdId);
+
+ALTER TABLE sdqa_Rating_ForScienceCcdExposure ADD CONSTRAINT FK_sdqaRatingForScienceCcdExposure_ccdExposureId
+    FOREIGN KEY (ccdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+
+ALTER TABLE sdqa_Rating_ForSnapCcdExposure ADD CONSTRAINT FK_sdqaRatingForSnapCcdExposure_metricId
+    FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
+
+ALTER TABLE sdqa_Rating_ForSnapCcdExposure ADD CONSTRAINT FK_sdqaRatingForSnapCcdExposure_thresholdId
+    FOREIGN KEY (sdqa_thresholdId) REFERENCES sdqa_Threshold (sdqa_thresholdId);
+
+ALTER TABLE sdqa_Rating_ForSnapCcdExposure ADD CONSTRAINT FK_sdqaRatingForSnapCcdExposure_ccdExposureId
+    FOREIGN KEY (ccdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+
+ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqaThreshold_sdqaMetricId
+    FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
+
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_visit
+    FOREIGN KEY (visit) REFERENCES Visit (visitId);
+
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_raft
+    FOREIGN KEY (raft) REFERENCES RaftMap (raftNum);
+
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_ccd
+    FOREIGN KEY (ccd) REFERENCES CcdMap (ccdNum);
+
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_amp
+    FOREIGN KEY (amp) REFERENCES AmpMap (ampNum);
+
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+
+ALTER TABLE Raw_Amp_Exposure_Metadata ADD CONSTRAINT FK_RawAmpExposureMetadata_rawAmpExposureId
+    FOREIGN KEY (rawAmpExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
+
+ALTER TABLE Raw_Amp_To_Science_CcdExposure ADD CONSTRAINT FK_RawAmpToScienceExposure_scienceCcdExposureId
+    FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+
+ALTER TABLE Raw_Amp_To_Science_CcdExposure ADD CONSTRAINT FK_RawAmpToScienceExposure_amp
+    FOREIGN KEY (amp) REFERENCES AmpMap (ampNum);
+
+ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_visit
+    FOREIGN KEY (visit) REFERENCES Visit (visitId);
+
+ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_raft
+    FOREIGN KEY (raft) REFERENCES RaftMap (raftNum);
+
+ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_ccd
+    FOREIGN KEY (ccd) REFERENCES CcdMap (ccdNum);
+
+ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+
+ALTER TABLE Snap_Ccd_To_Science_Ccd_Exposure ADD CONSTRAINT FK_SnapCcdToScienceCcdExposure_scienceCcdExposureId
+    FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_scienceCcdExposureId
+    FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_objectId
+    FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
