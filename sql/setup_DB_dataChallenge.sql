@@ -51,7 +51,7 @@ CREATE TABLE prv_cnf_PolicyKey
 
 CREATE TABLE prv_cnf_SoftwarePackage
 (
-    packageId INTEGER NOT NULL,
+    packageId BIGINT NOT NULL,
     version VARCHAR(255) NOT NULL,
     directory VARCHAR(255) NOT NULL,
     validityBegin DATETIME NULL,
@@ -128,7 +128,7 @@ CREATE TABLE prv_Run
 
 CREATE TABLE prv_SoftwarePackage
 (
-    packageId INTEGER NOT NULL,
+    packageId BIGINT NOT NULL,
     packageName VARCHAR(64) NOT NULL,
     PRIMARY KEY (packageId)
 ) ENGINE=InnoDB;
