@@ -81,6 +81,38 @@ CREATE TABLE LeapSeconds
 ) ENGINE=MyISAM;
 
 
+CREATE TABLE Logs
+    -- <descr>Per-run logs.</descr>
+(
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    HOSTID VARCHAR(80) NULL,
+    RUNID VARCHAR(80) NULL,
+    LOG VARCHAR(80) NULL,
+    workerid VARCHAR(80) NULL,
+    stagename VARCHAR(80) NULL,
+    SLICEID INTEGER NULL,
+    STAGEID INTEGER NULL,
+    LOOPNUM INTEGER NULL,
+    STATUS VARCHAR(80) NULL,
+    LEVEL INTEGER NULL DEFAULT 9999,
+    DATE VARCHAR(30) NULL,
+    TIMESTAMP BIGINT NULL,
+    node INTEGER NULL,
+    custom VARCHAR(4096) NULL,
+    timereceived TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    visitid INTEGER NULL,
+    COMMENT TEXT NULL,
+    PIPELINE VARCHAR(80) NULL,
+    TYPE VARCHAR(5) NULL,
+    EVENTTIME BIGINT NULL,
+    PUBTIME BIGINT NULL,
+    usertime FLOAT(0) NULL,
+    systemtime FLOAT(0) NULL,
+    PRIMARY KEY (id),
+    INDEX a (RUNID ASC)
+) TYPE=MyISAM;
+
+
 CREATE TABLE ObjectType
     -- <descr>Table to store description of object types. It includes all object
     -- types: static, variables, Solar System objects, etc.</descr>
