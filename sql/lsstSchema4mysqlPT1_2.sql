@@ -1311,9 +1311,9 @@ CREATE TABLE Object
         -- <descr>Encodes the number of y-band sources used to determine mean
         -- flux/ellipticity. Equal to N_flux_samples +
         -- N_ellipticity_samples*4096.</descr>
-    _chunkId INTEGER NULL,
+    chunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
-    _subChunkId INTEGER NULL,
+    subChunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (objectId),
     KEY IDX_Object_decl (decl_PS ASC)
