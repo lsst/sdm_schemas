@@ -306,8 +306,8 @@ CREATE TABLE sdqa_Rating_ForScienceCcdExposure
 ) ENGINE=MyISAM;
 
 
-CREATE TABLE sdqa_Rating_ForSnapCcdExposure
-    -- <descr>Various SDQA ratings for a given pair of ScienceCcdExposures (a "snap").</descr>
+CREATE TABLE sdqa_Rating_ForScienceAmpExposure
+    -- <descr>Various SDQA ratings for a post-ISR amplifier of a single snap of a ScienceCcdExposure.</descr>
 (
     sdqa_ratingId BIGINT NOT NULL AUTO_INCREMENT,
         -- <descr>Primary key. Auto-increment is used, we define a composite
@@ -316,17 +316,17 @@ CREATE TABLE sdqa_Rating_ForSnapCcdExposure
         -- <descr>Pointer to sdqa_Metric.</descr>
     sdqa_thresholdId SMALLINT NOT NULL,
         -- <descr>Pointer to sdqa_Threshold.</descr>
-    ccdExposureId BIGINT NOT NULL,
-        -- <descr>Pointer to Science_Ccd_Exposure.</descr>
+    ampExposureId BIGINT NOT NULL,
+        -- <descr>Pointer to Raw_Amp_Exposure.</descr>
     metricValue DOUBLE NOT NULL,
         -- <descr>Value of this SDQA metric.</descr>
     metricSigma DOUBLE NOT NULL,
         -- <descr>Uncertainty of the value of this metric.</descr>
     PRIMARY KEY (sdqa_ratingId),
-    KEY UQ_sdqa_Rating_ForSnapCCDExposure_metricId_ccdExposureId (sdqa_metricId ASC, ccdExposureId ASC),
+    KEY UQ_sdqa_Rating_ForScienceAmpExposure_metricId_ampExposureId (sdqa_metricId ASC, ampExposureId ASC),
     KEY sdqa_metricId (sdqa_metricId ASC),
     KEY sdqa_thresholdId (sdqa_thresholdId ASC),
-    KEY ccdExposureId (ccdExposureId ASC)
+    KEY ampExposureId (ampExposureId ASC)
 ) ENGINE=MyISAM;
 
 
