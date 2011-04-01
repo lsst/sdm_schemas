@@ -1666,8 +1666,8 @@ ALTER TABLE sdqa_Rating_ForScienceAmpExposure ADD CONSTRAINT FK_sdqaRatingForSci
 ALTER TABLE sdqa_Rating_ForScienceAmpExposure ADD CONSTRAINT FK_sdqaRatingForScienceAmpExposure_thresholdId
     FOREIGN KEY (sdqa_thresholdId) REFERENCES sdqa_Threshold (sdqa_thresholdId);
 
-ALTER TABLE sdqa_Rating_ForScienceAmpExposure ADD CONSTRAINT FK_sdqaRatingForScienceAmpExposure_ccdExposureId
-    FOREIGN KEY (ccdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+ALTER TABLE sdqa_Rating_ForScienceAmpExposure ADD CONSTRAINT FK_sdqaRatingForScienceAmpExposure_ampExposureId
+    FOREIGN KEY (ampExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
 ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqaThreshold_sdqaMetricId
     FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
