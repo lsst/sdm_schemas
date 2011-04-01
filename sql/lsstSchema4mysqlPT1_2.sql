@@ -1660,13 +1660,13 @@ ALTER TABLE sdqa_Rating_ForScienceCcdExposure ADD CONSTRAINT FK_sdqaRatingForSci
 ALTER TABLE sdqa_Rating_ForScienceCcdExposure ADD CONSTRAINT FK_sdqaRatingForScienceCcdExposure_ccdExposureId
     FOREIGN KEY (ccdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
 
-ALTER TABLE sdqa_Rating_ForSnapCcdExposure ADD CONSTRAINT FK_sdqaRatingForSnapCcdExposure_metricId
+ALTER TABLE sdqa_Rating_ForScienceAmpExposure ADD CONSTRAINT FK_sdqaRatingForScienceAmpExposure_metricId
     FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
 
-ALTER TABLE sdqa_Rating_ForSnapCcdExposure ADD CONSTRAINT FK_sdqaRatingForSnapCcdExposure_thresholdId
+ALTER TABLE sdqa_Rating_ForScienceAmpExposure ADD CONSTRAINT FK_sdqaRatingForScienceAmpExposure_thresholdId
     FOREIGN KEY (sdqa_thresholdId) REFERENCES sdqa_Threshold (sdqa_thresholdId);
 
-ALTER TABLE sdqa_Rating_ForSnapCcdExposure ADD CONSTRAINT FK_sdqaRatingForSnapCcdExposure_ccdExposureId
+ALTER TABLE sdqa_Rating_ForScienceAmpExposure ADD CONSTRAINT FK_sdqaRatingForScienceAmpExposure_ccdExposureId
     FOREIGN KEY (ccdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
 
 ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqaThreshold_sdqaMetricId
