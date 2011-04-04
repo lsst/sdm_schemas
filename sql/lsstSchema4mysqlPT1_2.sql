@@ -1445,17 +1445,17 @@ CREATE TABLE Source
     apFluxSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of apFlux.</descr>
         -- <unit>DN</unit>
-    modelFlux DOUBLE NOT NULL,
+    modelFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    modelFluxSigma FLOAT NOT NULL,
+    modelFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     petroFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
     petroFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-    instFlux DOUBLE NOT NULL,
+    instFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-    instFluxSigma FLOAT NOT NULL,
+    instFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
     nonGrayCorrFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
