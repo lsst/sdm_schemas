@@ -192,7 +192,7 @@ CREATE TABLE SimRefObject
     gLon DOUBLE NULL,
         -- <descr>Galactic longitude, deg. NULL for galaxies.</descr>
         -- <unit>deg</unit>
-    sedName CHAR(32) NULL,
+    sedName VARCHAR(255) NULL,
         -- <descr>Best-fit SED name. NULL for galaxies.</descr>
     uMag DOUBLE NOT NULL,
         -- <descr>u band AB magnitude</descr>
