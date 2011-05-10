@@ -135,6 +135,8 @@ CREATE TABLE RaftMap
 
 
 CREATE TABLE RefObjMatch
+    -- <descr>Table containing the results of a spatial match between
+    -- SimRefObject and Object.</descr>
 (
     refObjectId BIGINT NULL,
         -- <descr>Reference object id (pointer to SimRefObject). NULL if
@@ -170,6 +172,46 @@ CREATE TABLE RefObjMatch
         -- geocentric place was applied prior to matching the reference
         -- object.</li></ul></descr>
     KEY (objectId),
+    KEY (refObjectId)
+) ENGINE=MyISAM;
+
+
+CREATE TABLE RefSrcMatch
+    -- <descr>Table containing the results of a spatial match between
+    -- SimRefObject and Source.</descr>
+(
+    refObjectId BIGINT NULL,
+        -- <descr>Reference object id (pointer to SimRefObject). NULL if
+        -- reference object has no matches.</descr>
+    sourceId BIGINT NULL,
+        -- <descr>Source id. NULL if source has no matches.</descr>
+    refRa DOUBLE NULL,
+        -- <descr>ICRS reference object RA at epoch of source.</descr>
+        -- <unit>deg</unit>
+    refDec DOUBLE NULL,
+        -- <descr>ICRS reference object Dec at epoch of source.</descr>
+        -- <unit>deg</unit>
+    angSep DOUBLE NULL,
+        -- <descr>Angular separation between reference object and object.
+        -- </descr>
+        -- <unit>arcsec</unit>
+    nRefMatches INTEGER NULL,
+        -- <descr>Total number of matches for reference object.</descr>
+    nSrcMatches INTEGER NULL,
+        -- <descr>Total number of matches for source.</descr>
+    closestToRef TINYINT NULL,
+        -- <descr>1 if source is the closest match for reference object, 0
+        -- otherwise.</descr>
+    closestToSrc TINYINT NULL,
+        -- <descr>1 if reference object is the closest match for source, 0
+        -- otherwise.</descr>
+    flags INTEGER NULL,
+        -- <descr>Bitwise or of match flags.<ul><li>0x1: the reference object
+        -- has proper motion.</li><li>0x2: the reference object has
+        -- parallax.</li><li>0x4: a reduction for parallax from barycentric to
+        -- geocentric place was applied prior to matching the reference
+        -- object.</li></ul></descr>
+    KEY (sourceId),
     KEY (refObjectId)
 ) ENGINE=MyISAM;
 
