@@ -273,7 +273,7 @@ def retrieveColumns(str):
 
 in_table = None
 in_col = None
-in_ColDescr = None
+in_colDescr = None
 table = {}
 
 dbDescr_file = None
