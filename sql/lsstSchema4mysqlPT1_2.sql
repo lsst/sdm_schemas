@@ -110,7 +110,7 @@ CREATE TABLE Logs
     systemtime FLOAT(0) NULL,
     PRIMARY KEY (id),
     INDEX a (RUNID ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE ObjectType
