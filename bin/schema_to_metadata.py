@@ -281,7 +281,7 @@ dbDescr_rev = None
 
 tableStart = re.compile(r'CREATE TABLE (\w+)*')
 tableEnd = re.compile(r"\)")
-engineLine = re.compile(r'\) TYPE=(\w+)*;')
+engineLine = re.compile(r'\) (ENGINE|TYPE)=(\w+)*;')
 columnLine = re.compile(r'[\s]+(\w+) ([\w\(\)]+)')
 descrStart = re.compile(r'<descr>')
 descrEnd = re.compile(r'</descr>')
@@ -309,7 +309,7 @@ for line in iF:
     elif tableEnd.match(line):
         m = engineLine.match(line)
         if m is not None:
-            engineName = m.group(1)
+            engineName = m.group(2)
             in_table["engine"] = engineName
         #print "end of the table"
         #print in_table
