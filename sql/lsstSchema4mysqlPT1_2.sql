@@ -217,72 +217,93 @@ CREATE TABLE RefSrcMatch
 
 
 CREATE TABLE SimRefObject
+    -- <descr>Stores properties of ImSim reference objects that fall within
+    --        at least one CCD. Includes both stars and galaxies.
+    -- </descr>
 (
     refObjectId BIGINT NOT NULL,
-        -- <descr>Reference object id.</descr>
+        -- <descr>Unique reference object ID.</descr>
     isStar TINYINT NOT NULL,
         -- <descr>1 for stars, 0 for galaxies.</descr>
+    varClass TINYINT NOT NULL,
+        -- <descr>Variability classification code:
+        -- <ul>
+        --    <li>0 = Non-variable</li>
+        --    <li>1 = RR-Lyrae</li>
+        --    <li>2 = Active galactic nucleus</li>
+        --    <li>3 = Lensed Quasar</li>
+        --    <li>4 = M-Dwarf flares</li>
+        --    <li>5 = Eclipsing binary</li>
+        --    <li>6 = Microlensing</li>
+        --    <li>7 = Long duration microlensing</li>
+        --    <li>8 = AM CVn</li>
+        --    <li>9 = Cepheid</li>
+        -- </ul>
+        -- </descr>
     ra DOUBLE NOT NULL,
-        -- <descr>RA, ICRS.</descr>
+        -- <descr>ICRS R.A. of object.</descr>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
-        -- <descr>Dec, ICRS.</descr>
+        -- <descr>ICRS Dec. of object.</descr>
         -- <unit>deg</unit>
     gLat DOUBLE NULL,
-        -- <descr>Galactic latitude. NULL for galaxies.</descr>
+        -- <descr>Galactic latitude of star. NULL for galaxies.</descr>
         -- <unit>deg</unit>
     gLon DOUBLE NULL,
-        -- <descr>Galactic longitude, deg. NULL for galaxies.</descr>
+        -- <descr>Galactic longitude of star. NULL for galaxies.</descr>
         -- <unit>deg</unit>
     sedName VARCHAR(255) NULL,
         -- <descr>Best-fit SED name. NULL for galaxies.</descr>
     uMag DOUBLE NOT NULL,
-        -- <descr>u band AB magnitude</descr>
+        -- <descr>u-band AB magnitude.</descr>
     gMag DOUBLE NOT NULL,
-        -- <descr>g band AB magnitude</descr>
+        -- <descr>g-band AB magnitude.</descr>
     rMag DOUBLE NOT NULL,
-        -- <descr>r band AB magnitude</descr>
+        -- <descr>r-band AB magnitude.</descr>
     iMag DOUBLE NOT NULL,
-        -- <descr>i band AB magnitude</descr>
+        -- <descr>i-band AB magnitude.</descr>
     zMag DOUBLE NOT NULL,
-        -- <descr>z band AB magnitude</descr>
+        -- <descr>z-band AB magnitude.</descr>
     yMag DOUBLE NOT NULL,
-        -- <descr>y band AB magnitude</descr>
+        -- <descr>y-band AB magnitude.</descr>
     muRa DOUBLE NULL,
-        -- <descr>dRA/dt*cos(decl). NULL for galaxies.</descr>
+        -- <descr>Proper motion : dRA/dt*cos(decl). NULL for galaxies.</descr>
         -- <unit>milliarcsec/year</unit>
     muDecl DOUBLE NULL,
-        -- <descr>dDec/dt. NULL for galaxies.</descr>
+        -- <descr>Proper motion : dDec/dt. NULL for galaxies.</descr>
         -- <unit>milliarcsec/year</unit>
     parallax DOUBLE NULL,
         -- <descr>Stellar parallax. NULL for galaxies.</descr>
         -- <unit>milliarcsec</unit>
     vRad DOUBLE NULL,
-        -- <descr>Radial velocity. NULL for galaxies.</descr>
+        -- <descr>Radial velocity of star. NULL for galaxies.</descr>
         -- <unit>km/s</unit>
-    isVar TINYINT NOT NULL,
-        -- <descr>1 for variable stars, 0 for galaxies and non-variable stars.
-        -- </descr>
     redshift DOUBLE NULL,
         -- <descr>Redshift. NULL for stars.</descr>
-    uCov INTEGER NOT NULL,
-        -- <descr>Number of u-band science CCDs containing reference object.
-        -- </descr>
-    gCov INTEGER NOT NULL,
-        -- <descr>Number of g-band science CCDs containing reference object.
-        -- </descr>
-    rCov INTEGER NOT NULL,
-        -- <descr>Number of r-band science CCDs containing reference object.
-        -- </descr>
-    iCov INTEGER NOT NULL,
-        -- <descr>Number of i-band science CCDs containing reference object.
-        -- </descr>
-    zCov INTEGER NOT NULL,
-        -- <descr>Number of z-band science CCDs containing reference object.
-        -- </descr>
-    yCov INTEGER NOT NULL,
-        -- <descr>Number of y-band science CCDs containing reference object.
-        -- </descr>
+    semiMajorBulge DOUBLE NULL,
+        -- <descr>Semi-major axis length of galaxy bulge. NULL for stars.</descr>
+        -- <unit>arcsec</unit>
+    semiMinorBulge DOUBLE NULL,
+        -- <descr>Semi-minor axis length of galaxy bulge. NULL for stars.</descr>
+        -- <unit>arcsec</unit>
+    semiMajorDisk DOUBLE NULL,
+        -- <descr>Semi-major axis length of galaxy disk. NULL for stars.</descr>
+        -- <unit>arcsec</unit>
+    semiMinorDisk DOUBLE NULL,
+        -- <descr>Semi-minor axis length of galaxy disk. NULL for stars.</descr>
+        -- <unit>arcsec</unit>
+    uCov SMALLINT NOT NULL,
+        -- <descr>Number of u-band science CCDs containing reference object.</descr>
+    gCov SMALLINT NOT NULL,
+        -- <descr>Number of g-band science CCDs containing reference object.</descr>
+    rCov SMALLINT NOT NULL,
+        -- <descr>Number of r-band science CCDs containing reference object.</descr>
+    iCov SMALLINT NOT NULL,
+        -- <descr>Number of i-band science CCDs containing reference object.</descr>
+    zCov SMALLINT NOT NULL,
+        -- <descr>Number of z-band science CCDs containing reference object.</descr>
+    yCov SMALLINT NOT NULL,
+        -- <descr>Number of y-band science CCDs containing reference object.</descr>
     PRIMARY KEY (refObjectId),
     KEY IDX_decl (decl ASC)
 ) ENGINE=MyISAM;
