@@ -493,7 +493,7 @@ CREATE TABLE Raw_Amp_Exposure_Metadata
 ) ENGINE=MyISAM;
 
 
-CREATE TABLE Raw_Amp_To_Science_CcdExposure
+CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
 (
     rawAmpExposureId BIGINT NOT NULL,
     scienceCcdExposureId BIGINT NOT NULL,
