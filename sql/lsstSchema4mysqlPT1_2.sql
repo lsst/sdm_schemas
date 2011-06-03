@@ -1756,10 +1756,10 @@ ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_filterId
 ALTER TABLE Raw_Amp_Exposure_Metadata ADD CONSTRAINT FK_RawAmpExposureMetadata_rawAmpExposureId
     FOREIGN KEY (rawAmpExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
-ALTER TABLE Raw_Amp_To_Science_CcdExposure ADD CONSTRAINT FK_RawAmpToScienceExposure_scienceCcdExposureId
+ALTER TABLE Raw_Amp_To_Science_Ccd_Exposure ADD CONSTRAINT FK_RawAmpToScienceExposure_scienceCcdExposureId
     FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
 
-ALTER TABLE Raw_Amp_To_Science_CcdExposure ADD CONSTRAINT FK_RawAmpToScienceExposure_amp
+ALTER TABLE Raw_Amp_To_Science_Ccd_Exposure ADD CONSTRAINT FK_RawAmpToScienceExposure_amp
     FOREIGN KEY (amp) REFERENCES AmpMap (ampNum);
 
 ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_visit
