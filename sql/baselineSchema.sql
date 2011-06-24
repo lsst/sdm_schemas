@@ -1406,9 +1406,8 @@ CREATE TABLE CalibSource
 
 
 CREATE TABLE DiaSource
-    -- <descr>Table to store high signal-to-noise &quot;sources&quot;. A source
-    -- is a measurement of Object's properties from a single image that contains
-    -- its footprint on the sky.</descr>
+    -- <descr>Table to store &quot;difference image sources&quot; - sources
+    -- detected on a difference image during Alert Production.</descr>
 (
     diaSourceId BIGINT NOT NULL,
         -- <descr>Unique id.&#xA;</descr>
