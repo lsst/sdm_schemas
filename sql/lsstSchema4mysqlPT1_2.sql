@@ -671,8 +671,9 @@ CREATE TABLE Science_Ccd_Exposure_To_Htm10
 CREATE TABLE Visit
     -- <descr>Defines a single Visit. 1 row per LSST visit.</descr>
 (
-    visitId INTEGER NOT NULL
+    visitId INTEGER NOT NULL,
         -- <descr>Unique identifier.</descr>
+    PRIMARY KEY (visitId)
 ) ENGINE=MyISAM;
 
 

@@ -1321,8 +1321,9 @@ CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
 CREATE TABLE Visit
     -- <descr>Defines a single Visit. 1 row per LSST visit.</descr>
 (
-    visitId INTEGER NOT NULL
+    visitId INTEGER NOT NULL,
         -- <descr>Unique identifier.&#xA;</descr>
+    PRIMARY KEY (visitId)
 ) TYPE=MyISAM;
 
 
