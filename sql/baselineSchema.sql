@@ -2832,7 +2832,7 @@ CREATE TABLE Source
         -- (xAstromSigma, yAstromSigma).</descr>
         -- <unit>degree</unit>
     raSigmaForWcs FLOAT NOT NULL,
-        -- <descr>Not set for PT1.2. Component of ra uncertainty due to
+        -- <descr>Component of ra uncertainty due to
         -- uncertainty in WCS solution.</descr>
         -- <unit>degree</unit>
     decl DOUBLE NOT NULL,
@@ -2843,7 +2843,7 @@ CREATE TABLE Source
         -- (xAstromSigma, yAstromSigma).</descr>
         -- <unit>degree</unit>
     declSigmaForWcs FLOAT NOT NULL,
-        -- <descr>Not set for PT1.2. Component of decl uncertainty due to
+        -- <descr>Component of decl uncertainty due to
         -- uncertainty in WCS solution.</descr>
         -- <unit>degree</unit>
     xAstrom FLOAT(0) NOT NULL,
