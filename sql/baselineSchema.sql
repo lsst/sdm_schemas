@@ -114,7 +114,7 @@ CREATE TABLE prv_PolicyKey
     keyType VARCHAR(16) NOT NULL,
         -- <descr>Type of the key in the Policy file.</descr>
     PRIMARY KEY (policyKeyId),
-    KEY (policyFileId)
+    INDEX (policyFileId)
 ) TYPE=MyISAM;
 
 
@@ -146,8 +146,8 @@ CREATE TABLE _MovingObjectToType
     probability TINYINT NULL DEFAULT 100,
         -- <descr>Probability that given MovingObject is of given type. Range:
         -- 0-100 (in%)</descr>
-    KEY (typeId),
-    KEY (movingObjectId)
+    INDEX (typeId),
+    INDEX (movingObjectId)
 ) TYPE=MyISAM;
 
 
@@ -161,8 +161,8 @@ CREATE TABLE _ObjectToType
     probability TINYINT NULL DEFAULT 100,
         -- <descr>Probability that given object is of given type. Range 0-100 %
         -- </descr>
-    KEY (typeId),
-    KEY (objectId)
+    INDEX (typeId),
+    INDEX (objectId)
 ) TYPE=MyISAM;
 
 
@@ -441,8 +441,8 @@ CREATE TABLE RefObjMatch
         -- applied prior to matching the reference object. Should never be set
         -- when matching against objects, but may be set when matching against
         -- sources.&lt;/li&gt;&#xA;&lt;/ul&gt;</descr>
-    KEY (objectId),
-    KEY (refObjectId)
+    INDEX (objectId),
+    INDEX (refObjectId)
 ) TYPE=MyISAM;
 
 
@@ -573,9 +573,9 @@ CREATE TABLE sdqa_Rating_ForScienceAmpExposure
         -- <descr>Uncertainty of the value of this metric.</descr>
     PRIMARY KEY (sdqa_ratingId),
     UNIQUE UQ_sdqaRating_ForScienceAmpExposure_metricId_ampExposureId(sdqa_metricId, ampExposureId),
-    KEY (sdqa_metricId),
-    KEY (sdqa_thresholdId),
-    KEY (ampExposureId)
+    INDEX (sdqa_metricId),
+    INDEX (sdqa_thresholdId),
+    INDEX (ampExposureId)
 ) TYPE=MyISAM;
 
 
@@ -597,9 +597,9 @@ CREATE TABLE sdqa_Rating_ForScienceCcdExposure
         -- <descr>Uncertainty of the value of this metric.</descr>
     PRIMARY KEY (sdqa_ratingId),
     UNIQUE UQ_sdqa_Rating_ForScienceCCDExposure_metricId_ccdExposureId(sdqa_metricId, ccdExposureId),
-    KEY (sdqa_metricId),
-    KEY (sdqa_thresholdId),
-    KEY (ccdExposureId)
+    INDEX (sdqa_metricId),
+    INDEX (sdqa_thresholdId),
+    INDEX (ccdExposureId)
 ) TYPE=MyISAM;
 
 
@@ -640,7 +640,7 @@ CREATE TABLE sdqa_Threshold
         -- <descr>Database timestamp when the record is inserted.</descr>
     PRIMARY KEY (sdqa_thresholdId),
     UNIQUE UQ_sdqa_Threshold_sdqa_metricId(sdqa_metricId),
-    KEY (sdqa_metricId)
+    INDEX (sdqa_metricId)
 ) TYPE=MyISAM;
 
 
@@ -691,7 +691,7 @@ CREATE TABLE _mops_MoidQueue
     insertTime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         -- <descr>Wall clock time object was queued</descr>
     PRIMARY KEY (movingObjectId, movingObjectVersion),
-    KEY (movingObjectId),
+    INDEX (movingObjectId),
     INDEX idx_mopsMoidQueue_eventId (eventId ASC)
 ) ;
 
@@ -760,7 +760,7 @@ CREATE TABLE mops_Event
     ssmId BIGINT NULL,
         -- <descr>Matching SSM ID for clean classifications</descr>
     PRIMARY KEY (eventId),
-    KEY (movingObjectId),
+    INDEX (movingObjectId),
     INDEX idx_mopsEvent_ccdExposureId (ccdExposureId ASC),
     INDEX idx_mopsEvent_movingObjectId (movingObjectId ASC, movingObjectVersion ASC),
     INDEX idx_mopsEvent_procHistoryId (procHistoryId ASC),
@@ -779,7 +779,7 @@ CREATE TABLE mops_Event_OrbitDerivation
         -- <descr>Associated tracklet ID (multiple rows per event)</descr>
     PRIMARY KEY (eventId, trackletId),
     INDEX idx_mopsEventDerivation_trackletId (trackletId ASC),
-    KEY (eventId)
+    INDEX (eventId)
 ) ;
 
 
@@ -991,7 +991,7 @@ CREATE TABLE mops_TrackletToDiaSource
     diaSourceId BIGINT NOT NULL,
     PRIMARY KEY (trackletId, diaSourceId),
     INDEX idx_mopsTrackletsToDIASource_diaSourceId (diaSourceId ASC),
-    KEY (trackletId)
+    INDEX (trackletId)
 ) ;
 
 
@@ -1012,8 +1012,8 @@ CREATE TABLE _Raw_Ccd_ExposureToVisit
         -- belongs to.</descr>
     ccdExposureId BIGINT NOT NULL,
         -- <descr>Pointer to entry in Raw_Ccd_Exposure table.</descr>
-    KEY (ccdExposureId),
-    KEY (visitId)
+    INDEX (ccdExposureId),
+    INDEX (visitId)
 ) TYPE=MyISAM;
 
 
@@ -1209,8 +1209,8 @@ CREATE TABLE Science_Amp_Exposure
         -- <descr>Pointer to the amplifier corresponding to this amp exposure.
         -- </descr>
     PRIMARY KEY (scienceAmpExposureId),
-    KEY (scienceCcdExposureId),
-    KEY (rawAmpExposureId)
+    INDEX (scienceCcdExposureId),
+    INDEX (rawAmpExposureId)
 ) TYPE=MyISAM;
 
 
@@ -1406,9 +1406,9 @@ CREATE TABLE CalibSource
     _subChunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (calibSourceId),
-    KEY (ccdExposureId),
-    KEY (filterId),
-    KEY (xAstromSigma)
+    INDEX (ccdExposureId),
+    INDEX (filterId),
+    INDEX (xAstromSigma)
 ) TYPE=MyISAM;
 
 
@@ -1548,10 +1548,10 @@ CREATE TABLE DiaSource
     _subChunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (diaSourceId),
-    KEY (ccdExposureId),
-    KEY (filterId),
-    KEY (movingObjectId),
-    KEY (objectId)
+    INDEX (ccdExposureId),
+    INDEX (filterId),
+    INDEX (movingObjectId),
+    INDEX (objectId)
 ) TYPE=MyISAM;
 
 
@@ -1783,7 +1783,7 @@ CREATE TABLE MovingObject
     arcLengthDays DOUBLE NULL,
         -- <descr>Arc length of detections used to compute orbit</descr>
     PRIMARY KEY (movingObjectId, movingObjectVersion),
-    KEY (procHistoryId),
+    INDEX (procHistoryId),
     INDEX idx_MovingObject_taxonomicTypeId (taxonomicTypeId ASC),
     INDEX idx_MovingObject_ssmId (ssmId ASC),
     INDEX idx_MovingObject_ssmObjectName (ssmObjectName ASC),
@@ -2805,72 +2805,101 @@ CREATE TABLE ObjectExtras
 
 
 CREATE TABLE Source
+    -- <descr>Table to store high signal-to-noise &quot;sources&quot;. A source
+    -- is a measurement of Object's properties from a single image that contains
+    -- its footprint on the sky.</descr>
 (
     sourceId BIGINT NOT NULL,
-    scienceCcdExposureId BIGINT NULL,
+        -- <descr>Unique id.</descr>
+    ccdExposureId BIGINT NULL,
+        -- <descr>Pointer to the CcdExpsoure where this source was measured.
+        -- Note that we are allowing a source to belong to multiple
+        -- AmpExposures, but it may not span multiple CcdExposures.</descr>
     filterId TINYINT NOT NULL,
+        -- <descr>Pointer to an entry in Filter table: filter used to take
+        -- Exposure where this Source was measured.</descr>
     objectId BIGINT NULL,
+        -- <descr>Pointer to Object table. Might be NULL (each Source will point
+        -- to either MovingObject or Object)</descr>
     movingObjectId BIGINT NULL,
-    procHistoryId INTEGER NOT NULL,
+        -- <descr>Pointer to MovingObject table. Might be NULL (each Source will
+        -- point to either MovingObject or Object)</descr>
     ra DOUBLE NOT NULL,
-    raErrForDetection FLOAT(0) NULL,
-    raErrForWcs FLOAT(0) NOT NULL,
+        -- <descr>RA-coordinate of the center of the source.</descr>
+        -- <unit>degree</unit>
+    raSigmaForDetection FLOAT NULL,
+        -- <descr>Component of ra uncertainty due to detection uncertainty
+        -- (xAstromSigma, yAstromSigma).</descr>
+        -- <unit>degree</unit>
+    raSigmaForWcs FLOAT NOT NULL,
+        -- <descr>Not set for PT1.2. Component of ra uncertainty due to
+        -- uncertainty in WCS solution.</descr>
+        -- <unit>degree</unit>
     decl DOUBLE NOT NULL,
-    declErrForDetection FLOAT(0) NULL,
-    declErrForWcs FLOAT(0) NOT NULL,
+        -- <descr>Decl-coordinate of the center of the source.</descr>
+        -- <unit>degree</unit>
+    declSigmaForDetection FLOAT NULL,
+        -- <descr>Component of decl uncertainty due to detection uncertainty
+        -- (xAstromSigma, yAstromSigma).</descr>
+        -- <unit>degree</unit>
+    declSigmaForWcs FLOAT NOT NULL,
+        -- <descr>Not set for PT1.2. Component of decl uncertainty due to
+        -- uncertainty in WCS solution.</descr>
+        -- <unit>degree</unit>
+    xAstrom FLOAT(0) NOT NULL,
+        -- <descr>x position computed by a centroiding algorithm for the
+        -- purposes of astrometry using Dave Monet's algorithm.</descr>
+        -- <unit>degree</unit>
+    xAstromSigma FLOAT(0) NOT NULL,
+        -- <descr>Uncertainty of xAstrom.</descr>
+        -- <unit>degree</unit>
+    yAstrom FLOAT(0) NOT NULL,
+        -- <descr>y position computed by a centroiding algorithm for the
+        -- purposes of astrometry using Dave Monet's algorithm.</descr>
+        -- <unit>degree</unit>
+    yAstromSigma FLOAT(0) NOT NULL,
+        -- <descr>Uncertainty of yAstrom.</descr>
+        -- <unit>degree</unit>
+    xyAstromCov FLOAT(0) NOT NULL,
+        -- <descr>Covariance between the xAstrom and the yAstrom.</descr>
+        -- <unit>degree</unit>
+    astromRefrRa FLOAT(0) NULL,
+        -- <descr>Astrometric refraction in ra.</descr>
+        -- <unit>degree</unit>
+    astromRefrRaSigma FLOAT(0) NULL,
+        -- <descr>Uncertainty of astromRefrRa.</descr>
+        -- <unit>degree</unit>
+    astromRefrDecl FLOAT(0) NULL,
+        -- <descr>Astrometric refraction in decl.</descr>
+        -- <unit>degree</unit>
+    astromRefrDeclSigma FLOAT(0) NULL,
+        -- <descr>Uncertainty of astromRefrDecl.</descr>
+        -- <unit>degree</unit>
+    snr FLOAT(0) NOT NULL,
+        -- <descr>Signal to noise ratio.</descr>
+    chi2 FLOAT(0) NOT NULL,
+    sky FLOAT(0) NOT NULL,
+        -- <descr>Sky background.</descr>
+    skySigma FLOAT(0) NOT NULL,
+        -- <descr>Uncertainty of sky.</descr>
+    psfLnL FLOAT(0) NULL,
+        -- <descr>ln(likelihood) of being a PSF.</descr>
+    lnL_SG FLOAT(0) NULL,
+        -- <descr>Log-likelihood of being a Small Galaxy.</descr>
+    taiMidPoint DOUBLE NOT NULL,
+        -- <descr>Middle of exposure time (TAI).</descr>
+        -- <unit>mjd</unit>
+    taiRange FLOAT NULL,
+        -- <descr>Exposure time.</descr>
+        -- <unit>s</unit>
     xFlux DOUBLE NULL,
     xFluxErr FLOAT(0) NULL,
     yFlux DOUBLE NULL,
     yFluxErr FLOAT(0) NULL,
-    raFlux DOUBLE NULL,
-    raFluxErr FLOAT(0) NULL,
-    declFlux DOUBLE NULL,
-    declFluxErr FLOAT(0) NULL,
     xPeak DOUBLE NULL,
     yPeak DOUBLE NULL,
     raPeak DOUBLE NULL,
     declPeak DOUBLE NULL,
-    xAstrom DOUBLE NULL,
-    xAstromErr FLOAT(0) NULL,
-    yAstrom DOUBLE NULL,
-    yAstromErr FLOAT(0) NULL,
-    raAstrom DOUBLE NULL,
-    raAstromErr FLOAT(0) NULL,
-    declAstrom DOUBLE NULL,
-    declAstromErr FLOAT(0) NULL,
-    raObject DOUBLE NULL,
-    declObject DOUBLE NULL,
-    taiMidPoint DOUBLE NOT NULL,
-    taiRange FLOAT(0) NULL,
-    psfFlux DOUBLE NOT NULL,
-    psfFluxErr FLOAT(0) NOT NULL,
-    apFlux DOUBLE NOT NULL,
-    apFluxErr FLOAT(0) NOT NULL,
-    modelFlux DOUBLE NOT NULL,
-    modelFluxErr FLOAT(0) NOT NULL,
-    petroFlux DOUBLE NULL,
-    petroFluxErr FLOAT(0) NULL,
-    instFlux DOUBLE NOT NULL,
-    instFluxErr FLOAT(0) NOT NULL,
-    nonGrayCorrFlux DOUBLE NULL,
-    nonGrayCorrFluxErr FLOAT(0) NULL,
-    atmCorrFlux DOUBLE NULL,
-    atmCorrFluxErr FLOAT(0) NULL,
-    apDia FLOAT(0) NULL,
-    Ixx FLOAT(0) NULL,
-    IxxErr FLOAT(0) NULL,
-    Iyy FLOAT(0) NULL,
-    IyyErr FLOAT(0) NULL,
-    Ixy FLOAT(0) NULL,
-    IxyErr FLOAT(0) NULL,
-    snr FLOAT(0) NOT NULL,
-    chi2 FLOAT(0) NOT NULL,
-    sky FLOAT(0) NULL,
-    skyErr FLOAT(0) NULL,
-    extendedness FLOAT(0) NULL,
-        -- <descr>Probability that this source is an extended source. Valid
-        -- range: 0-1, where 1 indicates an extended source with 100%
-        -- probability.</descr>
     flux_PS FLOAT(0) NULL,
         -- <descr>Calibrated flux for Point Source model.</descr>
     flux_PS_Sigma FLOAT(0) NULL,
@@ -2879,8 +2908,44 @@ CREATE TABLE Source
         -- <descr>Calibrated flux for Small Galaxy model.</descr>
     flux_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of flux_SG.</descr>
+    flux_CSG FLOAT(0) NULL,
+        -- <descr>Calibrated flux for Cannonical Small Galaxy model.
+        -- </descr>
+    flux_CSG_Sigma FLOAT(0) NULL,
+        -- <descr>Uncertainly of flux_CSG.</descr>
+    psfFlux DOUBLE NULL,
+        -- <descr>Uncalibrated PSF flux of source.</descr>
+        -- <unit>DN</unit>
+    psfFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of psfFlux.</descr>
+        -- <unit>DN</unit>
+    apFlux DOUBLE NULL,
+        -- <descr>Uncalibrated aperture flux of source.</descr>
+        -- <unit>DN</unit>
+    apFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of apFlux.</descr>
+        -- <unit>DN</unit>
+    petroFlux DOUBLE NULL,
+        -- <descr>Petrosian flux.</descr>
+    petroFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of petroFlux.</descr>
+    instFlux DOUBLE NULL,
+        -- <descr>Instrumental flux.</descr>
+    instFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of instFlux.</descr>
+    nonGrayCorrFlux DOUBLE NULL,
+    nonGrayCorrFluxErr FLOAT(0) NULL,
+    atmCorrFlux DOUBLE NULL,
+    atmCorrFluxErr FLOAT(0) NULL,
+    apDia FLOAT(0) NULL,
+    extendedness FLOAT(0) NULL,
+        -- <descr>Probability that this source is an extended source. Valid
+        -- range: 0-1, where 1 indicates an extended source with 100%
+        -- probability.</descr>
+    galExtinction FLOAT(0) NULL,
+        -- <descr>Galactic extinction.</descr>
     sersicN_SG FLOAT(0) NULL,
-        -- <descr>Sersi index for Small Galaxy model.</descr>
+        -- <descr>Sersic index for Small Galaxy model.</descr>
     sersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of sersicN_SG.</descr>
     e1_SG FLOAT(0) NULL,
@@ -2895,49 +2960,98 @@ CREATE TABLE Source
         -- <descr>Size of Small Galaxy model.</descr>
     radius_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of radius_SG.</descr>
-    flux_flux_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of flux and flux for Small Galaxy model.</descr>
-    flux_e1_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of flux and e1 for Small Galaxy model.</descr>
-    flux_e2_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of flux and e2 for Small Galaxy model.</descr>
-    flux_radius_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of flux and radius for Small Galaxy model.</descr>
-    flux_sersicN_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of flux and sersicN for Small Galaxy model.</descr>
-    e1_e1_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of e1 and e1 for Small Galaxy model.</descr>
-    e1_e2_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of e1 and e2 for Small Galaxy model.</descr>
-    e1_radius_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of e1 and radius for Small Galaxy model.</descr>
-    e1_sersicN_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of e1 and sersicN for Small Galaxy model.</descr>
-    e2_e2_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of e2 and e2 for Small Galaxy model.</descr>
-    e2_radius_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of e2 and radius for Small Galaxy model.</descr>
-    e2_sersicN_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of e2 and sersicN for Small Galaxy model.</descr>
-    radius_radius_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of radius and radius for Small Galaxy model.
-        -- </descr>
-    radius_sersicN_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance of radius and sersicN for Small Galaxy model.
-        -- </descr>
-    sersicN_sersicN_SG_Cov FLOAT(0) NULL,
-        -- <descr>Covariance for sersicN and sersicN for Small Galaxy model.
-        -- </descr>
-    flagForAssociation SMALLINT NULL,
-    flagForDetection SMALLINT NULL,
-    flagForWcs SMALLINT NULL,
+    midPoint FLOAT(0) NOT NULL,
+        -- <descr>Corrected midPoint of the exposure (tai).</descr>
+    apCorrection FLOAT(0) NOT NULL,
+        -- <descr>Photometric correction: aperture correction.</descr>
+    grayExtinction FLOAT(0) NOT NULL,
+        -- <descr>Photometric correction: gray extinction.</descr>
+    nonGrayExtinction FLOAT(0) NOT NULL,
+        -- <descr>Photometric correction: non gray extinction.</descr>
+    momentIx FLOAT(0) NULL,
+        -- <descr>Adaptive first moment. The moments are primarily for the
+        -- moving objects, but should carry some information about defects,
+        -- cosmics, etc. too.</descr>
+    momentIxSigma FLOAT(0) NULL,
+        -- <descr>Uncertainty of momentIx.</descr>
+    momentIy FLOAT(0) NULL,
+        -- <descr>Adaptive first moment.</descr>
+    momentIySigma FLOAT(0) NULL,
+        -- <descr>Uncertainty of momentIy.</descr>
+    momentIxx FLOAT(0) NULL,
+        -- <descr>Adaptive second moment.</descr>
+    momentIxxSigma FLOAT(0) NULL,
+        -- <descr>Uncertainty of momentIxx.</descr>
+    momentIyy FLOAT(0) NULL,
+        -- <descr>Adaptive second moment.</descr>
+    momentIyySigma FLOAT(0) NULL,
+        -- <descr>Uncertainty of momentIyy.</descr>
+    momentIxy FLOAT(0) NULL,
+        -- <descr>Adaptive second moment.</descr>
+    momentIxySigma FLOAT(0) NULL,
+        -- <descr>Uncertainty of momentIxy.</descr>
+    flux_flux_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of flux and flux for Small
+        -- Galaxy model.</descr>
+    flux_e1_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of flux and e1 for Small Galaxy
+        -- model.</descr>
+    flux_e2_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of flux and e2 for Small Galaxy
+        -- model.</descr>
+    flux_radius_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of flux and radius for Small
+        -- Galaxy model.</descr>
+    flux_sersicN_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of flux and sersicN for Small
+        -- Galaxy model.</descr>
+    e1_e1_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of e1 and e1 for Small Galaxy
+        -- model.</descr>
+    e1_e2_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of e1 and e2 for Small Galaxy
+        -- model.</descr>
+    e1_radius_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of e1 and radius for Small
+        -- Galaxy model.</descr>
+    e1_sersicN_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of e1 and sersicN for Small
+        -- Galaxy model.</descr>
+    e2_e2_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of e2 and e2 for Small Galaxy
+        -- model.</descr>
+    e2_radius_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of e2 and radius for Small
+        -- Galaxy model.</descr>
+    e2_sersicN_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of e2 and sersicN for Small
+        -- Galaxy model.</descr>
+    radius_radius_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of radius and radius for Small
+        -- Galaxy model.</descr>
+    radius_sersicN_SG_Cov FLOAT NULL,
+        -- <descr>Covariance of radius and sersicN for Small
+        -- Galaxy model.</descr>
+    sersicN_sersicN_SG_Cov FLOAT NULL,
+        -- <descr>Covariance for sersicN and sersicN for
+        -- Small Galaxy model.</descr>
+    flagForAssociation INT NULL,
+        -- <descr>Flags related to association.</descr>
+    flagForDetection INT NULL,
+        -- <descr>Flags related to detection.</descr>
+    flagForWcs INT NULL,
+        -- <descr>Flags related to WCS.</descr>
+    htmId20 BIGINT NOT NULL,
+        -- <descr>Level 20 HTM ID of (ra, decl)</descr>
+    _chunkId INTEGER NULL,
+        -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (sourceId),
-    INDEX IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
-    INDEX IDX_filterId (filterId ASC),
-    INDEX IDX_movingObjectId (movingObjectId ASC),
-    INDEX IDX_objectId (objectId ASC),
-    INDEX IDX_procHistoryId (procHistoryId ASC),
-    INDEX IDX_Source_decl (decl ASC)
+    INDEX (objectId),
+    INDEX (ccdExposureId),
+    INDEX (filterId),
+    INDEX (movingObjectId),
+    INDEX (objectId),
+    INDEX IDX_htmId20 (htmId20 ASC)
 ) TYPE=MyISAM;
 
 
