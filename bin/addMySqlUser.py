@@ -40,13 +40,14 @@ import sys
 """
 
 
-usage = """%prog -u {userName} -p {userPassword} [-f {policyFile}] [-c {clientHost}] 
+usage = """%prog -u {userName} -p {userPassword} [-f {policyFile}] [-c {clientHost}] [-a {authFile}] 
 Where:
   - userName:        mysql username of the added user
   - userPassword:    mysql password of the added user
   - clientHost:      host names authorized to access mysql server,
                      wildcards are allowed. Default: "%" (all hosts)
   - policyFile:      policy file. Default $CAT_DIR/policy/defaultProdCatPolicy.paf
+  - authFile:        authorization file. Default ~/.lsst/db-auth.paf 
 """
 
 
@@ -55,6 +56,7 @@ parser.add_option("-u")
 parser.add_option("-p")
 parser.add_option("-f")
 parser.add_option("-c")
+parser.add_option("-a")
 
 options, arguments = parser.parse_args()
 
@@ -70,13 +72,18 @@ if options.c:
 else:
     clientHost = '%'
 
+if options.a:
+    dbAuthPolicy = options.a
+else:
+    dbAuthPolicy = os.environ['HOME'] + '/.lsst/db-auth.paf'
 
 host = None
 port = None
 rootU = None
 rootP = None
 r = PolicyReader(options.f)
-dbAuthPolicy = os.environ['HOME'] + '/.lsst/db-auth.paf'
+
+    
 if os.path.isfile(dbAuthPolicy):
     policyObj = pexPolicy.Policy.createPolicy(dbAuthPolicy)
     subP = policyObj.getPolicy('database.authInfo')
