@@ -171,5 +171,5 @@ ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
 --     ADD COLUMN visitId INTEGER NOT NULL, 
 --     ADD INDEX  idx_visitId (visitId);
 
-CREATE TABLE BadSource LIKE Source;
+-- CREATE TABLE BadSource LIKE Source;
 
