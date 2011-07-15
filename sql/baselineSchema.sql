@@ -1334,8 +1334,9 @@ CREATE TABLE Visit
 
 
 CREATE TABLE CalibSource
-    -- <descr>Table to store all sources detected during WCS determination.
-    -- </descr>
+    -- <descr>Table to store measured sources corresponding to sources from 
+    -- the astrometric and photometric catalogs. They are used for calibration
+    -- (as input for WCS determination).</descr>
 (
     calibSourceId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
