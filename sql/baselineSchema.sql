@@ -1403,8 +1403,6 @@ CREATE TABLE CalibSource
         -- <descr>Flag for capturing various conditions/statuses.</descr>
     _chunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
-    _subChunkId INTEGER NULL,
-        -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (calibSourceId),
     INDEX (ccdExposureId),
     INDEX (filterId),
@@ -1544,8 +1542,6 @@ CREATE TABLE DiaSource
     flags BIGINT NOT NULL,
         -- <descr>Flags.</descr>
     _chunkId INTEGER NULL,
-        -- <descr>Internal column used by qserv.</descr>
-    _subChunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (diaSourceId),
     INDEX (ccdExposureId),
