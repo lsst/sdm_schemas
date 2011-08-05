@@ -433,14 +433,16 @@ CREATE TABLE RefObjMatch
         -- <descr>Is object the closest match for reference object?</descr>
     closestToObj TINYINT NULL,
         -- <descr>Is reference object the closest match for object?</descr>
-    flags INTEGER NULL,
-        -- <descr>Bitwise or of match flags:&#xA;&lt;ul&gt;&#xA; &lt;li&gt;0x1:
-        -- the reference object has proper motion&lt;/li&gt;&#xA; &lt;li&gt;0x2:
-        -- the reference object has parallax&lt;/li&gt;&#xA; &lt;li&gt;0x4: a
-        -- reduction for parallax from barycentric to geocentric place was
-        -- applied prior to matching the reference object. Should never be set
-        -- when matching against objects, but may be set when matching against
-        -- sources.&lt;/li&gt;&#xA;&lt;/ul&gt;</descr>
+    flags INTEGER NULL DEFAULT 0,
+        -- <descr>Bitwise OR of match flags:
+        -- <ul>
+        --   <li>0x1: the reference object has proper motion</li>
+        --   <li>0x2: the reference object has parallax</li>
+        --   <li>0x4: a reduction for parallax from barycentric to geocentric 
+        --       place was applied prior to matching the reference object. 
+        --       Should never be set when matching against objects, but may be 
+        --       set when matching against sources.</li>
+        --  </ul></descr>
     INDEX (objectId),
     INDEX (refObjectId)
 ) TYPE=MyISAM;
@@ -1085,6 +1087,7 @@ CREATE TABLE Raw_Amp_Exposure
     airmass FLOAT(0) NOT NULL,
     darkTime FLOAT(0) NOT NULL,
     zd FLOAT(0) NULL,
+    flags INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (rawAmpExposureId)
 ) TYPE=MyISAM;
 
@@ -1208,6 +1211,8 @@ CREATE TABLE Science_Amp_Exposure
     ampId INTEGER NULL,
         -- <descr>Pointer to the amplifier corresponding to this amp exposure.
         -- </descr>
+    flags INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     PRIMARY KEY (scienceAmpExposureId),
     INDEX (scienceCcdExposureId),
     INDEX (rawAmpExposureId)
@@ -1294,6 +1299,8 @@ CREATE TABLE Science_Ccd_Exposure
     fluxMag0 FLOAT(0) NOT NULL,
     fluxMag0Sigma FLOAT(0) NOT NULL,
     fwhm DOUBLE NOT NULL,
+    flags INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     PRIMARY KEY (scienceCcdExposureId)
 ) TYPE=MyISAM;
 
@@ -1400,7 +1407,7 @@ CREATE TABLE CalibSource
         -- <descr>Adaptive second moment.</descr>
     momentIxySigma FLOAT(0) NULL,
         -- <descr>Uncertainty of momentIxy: sqrt(covariance(x, y))</descr>
-    flag BIGINT NULL,
+    flags BIGINT NULL DEFAULT 0,
         -- <descr>Flag for capturing various conditions/statuses.</descr>
     _chunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
@@ -1540,8 +1547,8 @@ CREATE TABLE DiaSource
         -- <descr>Adaptive second moment.</descr>
     momentIxySigma FLOAT(0) NULL,
         -- <descr>Uncertainty of momentIx.</descr>
-    flags BIGINT NOT NULL,
-        -- <descr>Flags.</descr>
+    flags BIGINT NOT NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     _chunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (diaSourceId),
@@ -1569,8 +1576,8 @@ CREATE TABLE ForcedSource
         -- <descr>x position computed by a centroiding algorithm.</descr>
     y FLOAT(0) NULL,
         -- <descr>y position computed by a centroiding algorithm.</descr>
-    flags TINYINT NOT NULL,
-        -- <descr>Flags.</descr>
+    flags TINYINT NOT NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     PRIMARY KEY (objectId, visitId)
 ) TYPE=MyISAM;
 
@@ -1703,7 +1710,7 @@ CREATE TABLE MovingObject
         -- filter</descr>
     yPeriod FLOAT(0) NULL,
         -- <descr>Period of flux variations (if regular) for y filter</descr>
-    flag INTEGER NULL,
+    flags INTEGER NULL DEFAULT 0,
         -- <descr>Problem/special condition flag.</descr>
     src01 DOUBLE NULL,
         -- <descr>square root of covariance EC EC (see SQL documentation)
@@ -1884,7 +1891,8 @@ CREATE TABLE Object
         -- <descr>The latest time when this object was observed (taiMidPoint of
         -- the last Source).</descr>
         -- <unit>TAI</unit>
-    flags INTEGER NULL,
+    flags INTEGER NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     uNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for u
         -- filter.</descr>
@@ -1961,7 +1969,8 @@ CREATE TABLE Object
         -- <descr>Size of Small Galaxy model for u filter.</descr>
     uRadius_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uRadius_SG.</descr>
-    uFlags INTEGER NULL,
+    uFlags INTEGER NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     gNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for g
         -- filter.</descr>
@@ -2038,7 +2047,8 @@ CREATE TABLE Object
         -- <descr>Size of Small Galaxy model for g filter.</descr>
     gRadius_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gRadius_SG.</descr>
-    gFlags INTEGER NULL,
+    gFlags INTEGER NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     rNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for r
         -- filter.</descr>
@@ -2115,7 +2125,8 @@ CREATE TABLE Object
         -- <descr>Size of Small Galaxy model for r filter.</descr>
     rRadius_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rRadius_SG.</descr>
-    rFlags INTEGER NULL,
+    rFlags INTEGER NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     iNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for i
         -- filter.</descr>
@@ -2192,7 +2203,8 @@ CREATE TABLE Object
         -- <descr>Size of Small Galaxy model for i filter.</descr>
     iRadius_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iRadius_SG.</descr>
-    iFlags INTEGER NULL,
+    iFlags INTEGER NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     zNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for z
         -- filter.</descr>
@@ -2269,7 +2281,8 @@ CREATE TABLE Object
         -- <descr>Size of Small Galaxy model for z filter.</descr>
     zRadius_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zRadius_SG.</descr>
-    zFlags INTEGER NULL,
+    zFlags INTEGER NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     yNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for y
         -- filter.</descr>
@@ -2346,7 +2359,8 @@ CREATE TABLE Object
         -- <descr>Size of Small Galaxy model for y filter.</descr>
     yRadius_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yRadius_SG.</descr>
-    yFlags INTEGER NULL,
+    yFlags INTEGER NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
     _chunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     _subChunkId INTEGER NULL,
@@ -3032,11 +3046,11 @@ CREATE TABLE Source
     sersicN_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Covariance for sersicN and sersicN for
         -- Small Galaxy model.</descr>
-    flagForAssociation INT NULL,
+    flagsForAssociation INT NULL DEFAULT 0,
         -- <descr>Flags related to association.</descr>
-    flagForDetection INT NULL,
+    flagsForDetection INT NULL DEFAULT 0,
         -- <descr>Flags related to detection.</descr>
-    flagForWcs INT NULL,
+    flagsForWcs INT NULL DEFAULT 0,
         -- <descr>Flags related to WCS.</descr>
     htmId20 BIGINT NOT NULL,
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>

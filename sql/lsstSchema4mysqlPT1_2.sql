@@ -165,12 +165,14 @@ CREATE TABLE RefObjMatch
     closestToObj TINYINT NULL,
         -- <descr>1 if reference object is the closest match for object, 0
         -- otherwise.</descr>
-    flags INTEGER NULL,
-        -- <descr>Bitwise or of match flags.<ul><li>0x1: the reference object
-        -- has proper motion.</li><li>0x2: the reference object has
-        -- parallax.</li><li>0x4: a reduction for parallax from barycentric to
-        -- geocentric place was applied prior to matching the reference
-        -- object.</li></ul></descr>
+    flags INTEGER NULL DEFAULT 0,
+        -- <descr>Bitwise OR of match flags.
+        -- <ul>
+        --   <li>0x1: the reference object has proper motion.</li>
+        --   <li>0x2: the reference object has parallax.</li>
+        --   <li>0x4: a reduction for parallax from barycentric to geocentric 
+        --       place was applied prior to matching the reference object.</li>
+        -- </ul></descr>
     KEY (objectId),
     KEY (refObjectId)
 ) ENGINE=MyISAM;
@@ -205,12 +207,14 @@ CREATE TABLE RefSrcMatch
     closestToSrc TINYINT NULL,
         -- <descr>1 if reference object is the closest match for source, 0
         -- otherwise.</descr>
-    flags INTEGER NULL,
-        -- <descr>Bitwise or of match flags.<ul><li>0x1: the reference object
-        -- has proper motion.</li><li>0x2: the reference object has
-        -- parallax.</li><li>0x4: a reduction for parallax from barycentric to
-        -- geocentric place was applied prior to matching the reference
-        -- object.</li></ul></descr>
+    flags INTEGER NULL DEFAULT 0,
+        -- <descr>Bitwise OR of match flags.
+        -- <ul>
+        --   <li>0x1: the reference object has proper motion.</li>
+        --   <li>0x2: the reference object has parallax.</li>
+        --   <li>0x4: a reduction for parallax from barycentric to geocentric 
+        --       place was applied prior to matching the reference object.</li>
+        -- </ul></descr>
     KEY (sourceId),
     KEY (refObjectId)
 ) ENGINE=MyISAM;
@@ -617,7 +621,18 @@ CREATE TABLE Science_Ccd_Exposure
     fluxMag0Sigma FLOAT NOT NULL,
     fwhm DOUBLE NOT NULL,
     poly BINARY(120) NOT NULL,
-        -- <descr>binary representation of the 4-corner polygon for the ccd.</descr>
+        -- <descr>Binary representation of the 4-corner polygon for the ccd.
+        -- </descr>
+    flags INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Flags, meaning of the bits:
+        -- <ul>
+        --   <li>0x01 PROCESSING_FAILED: The pipeline failed to process this 
+        --       CCD</li>
+	--   <li>0x02 BAD_PSF_ZEROPOINT: The PSF flux zero-point appears to 
+        --       be bad</li>
+	--   <li>0x04 BAD_PSF_SCATTER: The PSF flux for stars shows excess 
+        --       scatter</li>
+        -- </ul></descr>
     PRIMARY KEY (scienceCcdExposureId)
 ) ENGINE=MyISAM;
 
@@ -1803,12 +1818,13 @@ CREATE TABLE Source
         --       moments are unweighted.</li>
         --   <li>0x000020 SHAPE_UNWEIGHTED_BAD: even the unweighted moments were
         --       bad.</li>
-        --   <li>0x000040 PEAKCENTER: given centre is position of peak pixel.</li>
+        --   <li>0x000040 PEAKCENTER: given centre is position of peak pixel.
+        --       </li>
         --   <li>0x000080 BINNED1: source was found in 1x1 binned image.</li>
         --   <li>0x000100 INTERP: source's footprint includes interpolated 
         --       pixels.</li>
-        --   <li>0x000200 INTERP_CENTER: source's centre is close to interpolated
-        --       pixels.</li>
+        --   <li>0x000200 INTERP_CENTER: source's centre is close to 
+        --       interpolated pixels.</li>
         --   <li>0x000400 SATUR: source's footprint includes saturated pixels.
         --       </li>
         --   <li>0x000800 SATUR_CENTER: source's centre is close to saturated 
