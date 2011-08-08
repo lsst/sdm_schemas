@@ -916,17 +916,16 @@ CREATE TABLE Object
     uRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of uRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
+    uFlux_PS_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute uFlux_PS.</descr>
+    uFlux_ESG_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute uFlux_ESG.</descr>
+    uFlux_Gaussian_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute uFlux_Gaussian.</descr>
+    uEllipticity_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute uE1_SG, uE2_SG, and uRadius_SG.</descr>
     uFlags INTEGER NULL,
-        -- <descr>Encodes the number of u-band sources used to determine mean
-        -- fluxes/ellipticity:
-        -- <ul>
-        -- <li>bits 0-7: number of PSF flux samples</li>
-        -- <li>bits 8-15: number of ESG (Experimental Small Galaxy)
-        --     model flux samples</li>
-        -- <li>bits 16-23: number of elliptical Gaussian model flux samples</li>
-        -- <li>bits 24-31: number of adaptive second moment samples;
-        --     ellipticities are derived from moments</li>
-        -- </ul></descr>
+        -- <descr>Not set for PT1.2.</descr>
     gNumObs INTEGER NULL,
         -- <descr>Number of g-band sources associated with this object.</descr>
     gExtendedness SMALLINT NULL,
@@ -1032,17 +1031,16 @@ CREATE TABLE Object
     gRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of gRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
+    gFlux_PS_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute gFlux_PS.</descr>
+    gFlux_ESG_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute gFlux_ESG.</descr>
+    gFlux_Gaussian_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute gFlux_Gaussian.</descr>
+    gEllipticity_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute gE1_SG, gE2_SG, and gRadius_SG.</descr>
     gFlags INTEGER NULL,
-        -- <descr>Encodes the number of g-band sources used to determine mean
-        -- fluxes/ellipticity:
-        -- <ul>
-        -- <li>bits 0-7: number of PSF flux samples</li>
-        -- <li>bits 8-15: number of ESG (Experimental Small Galaxy)
-        --     model flux samples</li>
-        -- <li>bits 16-23: number of elliptical Gaussian model flux samples</li>
-        -- <li>bits 24-31: number of adaptive second moment samples;
-        --     ellipticities are derived from moments</li>
-        -- </ul></descr>
+        -- <descr>Not set for PT1.2.</descr>
     rNumObs INTEGER NULL,
         -- <descr>Number of r-band sources associated with this object.</descr>
     rExtendedness SMALLINT NULL,
@@ -1148,17 +1146,16 @@ CREATE TABLE Object
     rRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of rRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
+    rFlux_PS_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute rFlux_PS.</descr>
+    rFlux_ESG_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute rFlux_ESG.</descr>
+    rFlux_Gaussian_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute rFlux_Gaussian.</descr>
+    rEllipticity_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute rE1_SG, rE2_SG, and rRadius_SG.</descr>
     rFlags INTEGER NULL,
-        -- <descr>Encodes the number of r-band sources used to determine mean
-        -- fluxes/ellipticity:
-        -- <ul>
-        -- <li>bits 0-7: number of PSF flux samples</li>
-        -- <li>bits 8-15: number of ESG (Experimental Small Galaxy)
-        --     model flux samples</li>
-        -- <li>bits 16-23: number of elliptical Gaussian model flux samples</li>
-        -- <li>bits 24-31: number of adaptive second moment samples;
-        --     ellipticities are derived from moments</li>
-        -- </ul></descr>
+        -- <descr>Not set for PT1.2.</descr>
     iNumObs INTEGER NULL,
         -- <descr>Number of i-band sources associated with this object.</descr>
     iExtendedness SMALLINT NULL,
@@ -1264,17 +1261,16 @@ CREATE TABLE Object
     iRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of iRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
+    iFlux_PS_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute iFlux_PS.</descr>
+    iFlux_ESG_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute iFlux_ESG.</descr>
+    iFlux_Gaussian_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute iFlux_Gaussian.</descr>
+    iEllipticity_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute iE1_SG, iE2_SG, and iRadius_SG.</descr>
     iFlags INTEGER NULL,
-        -- <descr>Encodes the number of i-band sources used to determine mean
-        -- fluxes/ellipticity:
-        -- <ul>
-        -- <li>bits 0-7: number of PSF flux samples</li>
-        -- <li>bits 8-15: number of ESG (Experimental Small Galaxy)
-        --     model flux samples</li>
-        -- <li>bits 16-23: number of elliptical Gaussian model flux samples</li>
-        -- <li>bits 24-31: number of adaptive second moment samples;
-        --     ellipticities are derived from moments</li>
-        -- </ul></descr>
+        -- <descr>Not set for PT1.2.</descr>
     zNumObs INTEGER NULL,
         -- <descr>Number of z-band sources associated with this object.</descr>
     zExtendedness SMALLINT NULL,
@@ -1380,17 +1376,16 @@ CREATE TABLE Object
     zRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of zRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
+    zFlux_PS_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute zFlux_PS.</descr>
+    zFlux_ESG_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute zFlux_ESG.</descr>
+    zFlux_Gaussian_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute zFlux_Gaussian.</descr>
+    zEllipticity_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute zE1_SG, zE2_SG, and zRadius_SG.</descr>
     zFlags INTEGER NULL,
-        -- <descr>Encodes the number of z-band sources used to determine mean
-        -- fluxes/ellipticity:
-        -- <ul>
-        -- <li>bits 0-7: number of PSF flux samples</li>
-        -- <li>bits 8-15: number of ESG (Experimental Small Galaxy)
-        --     model flux samples</li>
-        -- <li>bits 16-23: number of elliptical Gaussian model flux samples</li>
-        -- <li>bits 24-31: number of adaptive second moment samples;
-        --     ellipticities are derived from moments</li>
-        -- </ul></descr>
+        -- <descr>Not set for PT1.2.</descr>
     yNumObs INTEGER NULL,
         -- <descr>Number of y-band sources associated with this object.</descr>
     yExtendedness SMALLINT NULL,
@@ -1496,17 +1491,16 @@ CREATE TABLE Object
     yRadius_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of yRadius_SG (standard deviation).</descr>
         -- <unit>arcsec</unit>
+    yFlux_PS_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute yFlux_PS.</descr>
+    yFlux_ESG_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute yFlux_ESG.</descr>
+    yFlux_Gaussian_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute yFlux_Gaussian.</descr>
+    yEllipticity_Num SMALLINT NULL,
+        -- <descr>Number of sources used to compute yE1_SG, yE2_SG, and yRadius_SG.</descr>
     yFlags INTEGER NULL,
-        -- <descr>Encodes the number of y-band sources used to determine mean
-        -- fluxes/ellipticity:
-        -- <ul>
-        -- <li>bits 0-7: number of PSF flux samples</li>
-        -- <li>bits 8-15: number of ESG (Experimental Small Galaxy)
-        --     model flux samples</li>
-        -- <li>bits 16-23: number of elliptical Gaussian model flux samples</li>
-        -- <li>bits 24-31: number of adaptive second moment samples;
-        --     ellipticities are derived from moments</li>
-        -- </ul></descr>
+        -- <descr>Not set for PT1.2.</descr>
     chunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     subChunkId INTEGER NULL,
