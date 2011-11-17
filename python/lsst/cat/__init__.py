@@ -21,3 +21,4 @@
 #
 
 from MySQLBase import *
+from .version import *
