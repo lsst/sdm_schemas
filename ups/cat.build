@@ -1,3 +1,2 @@
-svn co @SVNROOT@/DMS/cat/tags/@VERSION@ @PRODUCT@-@VERSION@ &&
-cd @PRODUCT@-@VERSION@ &&
-setup -r . &&
+@LSST BUILD@
+build_lsst @PRODUCT.replace("_", "/")@ @REPOVERSION@ @PRODUCT@-@VERSION@
