@@ -19,7 +19,7 @@ CREATE TABLE ZZZ_Db_Description
         -- <descr>Captures information from svn about the schema file
         -- including the file name, the revision, date and author.</descr>
 ) ;
-INSERT INTO ZZZ_Db_Description(r) VALUES('$Id$') ;
+INSERT INTO ZZZ_Db_Description(r) VALUES('$Id$');
 
 
 CREATE TABLE prv_Activity
