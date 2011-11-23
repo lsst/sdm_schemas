@@ -11,13 +11,15 @@ SET FOREIGN_KEY_CHECKS=0;
 
 
 CREATE TABLE ZZZ_Db_Description 
-    -- <descr>Internal table used for storing database description.</descr>
+    -- <descr>Internal table used for storing database description</descr>
 (
+    f VARCHAR(255),
+        -- <descr>The schema file name.</desc>
     r VARCHAR(255)
-        -- <descr>Captures information from svn about the schema file
-        -- including the file name, the revision, date and author.</descr>
-) ENGINE=MyISAM;
-INSERT INTO ZZZ_Db_Description(r) VALUES('$Id$') ;
+        -- <descr>Captures information from "git describe".</descr>
+) TYPE=MyISAM;
+
+INSERT INTO ZZZ_Db_Description(f) VALUES('lsstImSimSchema4mysql.sql');
 
 
 CREATE TABLE SimRefGalaxy

@@ -287,7 +287,7 @@ descrStart = re.compile(r'<descr>')
 descrEnd = re.compile(r'</descr>')
 unitStart = re.compile(r'<unit>')
 unitEnd = re.compile(r'</unit>')
-zzDbDescr = re.compile(r'INSERT INTO ZZZ_Db_Description\(r\) VALUES\(\'\$Id: ([\w.]+) (\w+)')
+zzDbDescrF = re.compile(r'INSERT INTO ZZZ_Db_Description\(f\) VALUES\(\'([\w.]+)')
 
 colNum = 1
 
@@ -376,10 +376,10 @@ for line in iF:
                                   # units
                 if isUnitLine(line):
                     in_col["unit"] = retrieveUnit(line)
-    elif zzDbDescr.match(line): # process "INSERT INTO ZZZ_Db_Description"
-        m = zzDbDescr.search(line)
+    elif zzDbDescrF.match(line): # process "INSERT INTO ZZZ_Db_Description"
+        m = zzDbDescrF.search(line)
         dbDescr_file = m.group(1)
-        dbDescr_rev = m.group(2)
+        dbDescr_rev = commands.getoutput("git describe --dirty")
 
 iF.close()
 #print table
