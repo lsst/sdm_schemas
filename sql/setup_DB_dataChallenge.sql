@@ -18,7 +18,7 @@ CREATE TABLE ZZZ_Db_Description
         -- <descr>The schema file name.</desc>
     r VARCHAR(255)
         -- <descr>Captures information from "git describe".</descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO ZZZ_Db_Description(f) VALUES('setup_DB_dataChallange.sql');
 

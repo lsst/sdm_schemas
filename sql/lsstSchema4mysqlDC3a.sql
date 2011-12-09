@@ -17,7 +17,7 @@ CREATE TABLE ZZZ_Db_Description
         -- <descr>The schema file name.</desc>
     r VARCHAR(255)
         -- <descr>Captures information from "git describe".</descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO ZZZ_Db_Description(f) VALUES('lsstSchema4mysqlDC3a.sql');
 
@@ -314,7 +314,7 @@ CREATE TABLE DIASource
 	KEY (filterId),
 	KEY (movingObjectId),
 	KEY (objectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Visit
@@ -542,7 +542,7 @@ CREATE TABLE WCSSource
 	KEY (filterId),
 	KEY (raErr),
 	KEY (wcsObjectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Object
@@ -607,7 +607,7 @@ CREATE TABLE Object
 	yNumObs INTEGER NULL,
 	yFlags INTEGER NULL,
 	PRIMARY KEY (objectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE MovingObject
@@ -774,7 +774,7 @@ CREATE TABLE _tmpl_WCSSource
 	KEY (movingObjectId),
 	KEY (objectId),
 	KEY (procHistoryId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_FPA_Exposure
@@ -820,7 +820,7 @@ CREATE TABLE _tmpl_mops_Prediction
 	pa DOUBLE NOT NULL,
 	mag DOUBLE NOT NULL,
 	magErr FLOAT(0) NOT NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_mops_Ephemeris
@@ -835,7 +835,7 @@ CREATE TABLE _tmpl_mops_Ephemeris
 	pa DOUBLE NULL,
 	mag DOUBLE NULL,
 	INDEX idx_mopsEphemeris_movingObjectId (movingObjectId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _mops_Config
@@ -957,7 +957,7 @@ CREATE TABLE prv_Filter
 	PRIMARY KEY (filterId),
 	UNIQUE name(name),
 	INDEX focalPlaneId (focalPlaneId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 

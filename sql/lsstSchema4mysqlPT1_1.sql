@@ -17,7 +17,7 @@ CREATE TABLE ZZZ_Db_Description
         -- <descr>The schema file name.</desc>
     r VARCHAR(255)
         -- <descr>Captures information from "git describe".</descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO ZZZ_Db_Description(f) VALUES('lsstSchema4mysqlPT1_1.sql');
 
@@ -53,7 +53,7 @@ CREATE TABLE Filter
     photBW FLOAT(0) NOT NULL,
         -- <descr>System effective bandwidth.</descr>
     PRIMARY KEY (filterId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE LeapSeconds
@@ -77,7 +77,7 @@ CREATE TABLE LeapSeconds
     whenTai BIGINT NULL
         -- <descr>Nanoseconds from epoch in TAI system of change (computed).
         -- </descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE ObjectType
@@ -88,7 +88,7 @@ CREATE TABLE ObjectType
         -- <descr>Unique id.</descr>
     description VARCHAR(255) NULL,
     PRIMARY KEY (typeId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE RaftMap
@@ -138,7 +138,7 @@ CREATE TABLE RefObjMatch
         -- object.</li></ul></descr>
     KEY (objectId),
     KEY (refObjectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE SimRefObject
@@ -210,7 +210,7 @@ CREATE TABLE SimRefObject
         -- </descr>
     PRIMARY KEY (refObjectId),
     INDEX IDX_decl (decl ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_ImageStatus
@@ -225,7 +225,7 @@ CREATE TABLE sdqa_ImageStatus
     definition VARCHAR(255) NOT NULL,
         -- <descr>Detailed Definition of the image status.</descr>
     PRIMARY KEY (sdqa_imageStatusId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Metric
@@ -246,7 +246,7 @@ CREATE TABLE sdqa_Metric
     definition VARCHAR(255) NOT NULL,
     PRIMARY KEY (sdqa_metricId),
     UNIQUE UQ_sdqaMetric_metricName(metricName)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForScienceAmpExposure
@@ -271,7 +271,7 @@ CREATE TABLE sdqa_Rating_ForScienceAmpExposure
     KEY (sdqa_metricId),
     KEY (sdqa_thresholdId),
     KEY (ampExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForScienceCcdExposure
@@ -295,7 +295,7 @@ CREATE TABLE sdqa_Rating_ForScienceCcdExposure
     KEY (sdqa_metricId),
     KEY (sdqa_thresholdId),
     KEY (ccdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForSnapCcdExposure
@@ -311,7 +311,7 @@ CREATE TABLE sdqa_Rating_ForSnapCcdExposure
     INDEX sdqa_metricId (sdqa_metricId ASC),
     INDEX sdqa_thresholdId (sdqa_thresholdId ASC),
     INDEX ccdExposureId (ccdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Threshold
@@ -336,7 +336,7 @@ CREATE TABLE sdqa_Threshold
     PRIMARY KEY (sdqa_thresholdId),
     UNIQUE UQ_sdqa_Threshold_sdqa_metricId(sdqa_metricId),
     KEY (sdqa_metricId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure
@@ -378,7 +378,7 @@ CREATE TABLE Raw_Amp_Exposure
     darkTime FLOAT(0) NOT NULL,
     zd FLOAT(0) NULL,
     PRIMARY KEY (rawAmpExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure_Metadata
@@ -399,7 +399,7 @@ CREATE TABLE Raw_Amp_Exposure_Metadata
     stringValue VARCHAR(255) NULL,
     PRIMARY KEY (rawAmpExposureId, metadataKey),
     INDEX IDX_metadataKey (metadataKey ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
@@ -410,7 +410,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
     amp TINYINT NOT NULL,
     PRIMARY KEY (rawAmpExposureId),
     INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
@@ -420,7 +420,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
     snapCcdExposureId BIGINT NOT NULL,
     PRIMARY KEY (rawAmpExposureId),
     INDEX snapCcdExposureId (snapCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure
@@ -487,7 +487,7 @@ CREATE TABLE Science_Ccd_Exposure
     fluxMag0Sigma FLOAT(0) NOT NULL,
     fwhm DOUBLE NOT NULL,
     PRIMARY KEY (scienceCcdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure_Metadata
@@ -507,7 +507,7 @@ CREATE TABLE Science_Ccd_Exposure_Metadata
     stringValue VARCHAR(255) NULL,
     PRIMARY KEY (scienceCcdExposureId, metadataKey),
     INDEX IDX_metadataKey (metadataKey ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
@@ -517,7 +517,7 @@ CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
     scienceCcdExposureId BIGINT NOT NULL,
     PRIMARY KEY (snapCcdExposureId),
     INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Visit
@@ -525,7 +525,7 @@ CREATE TABLE Visit
 (
     visitId INTEGER NOT NULL
         -- <descr>Unique identifier.</descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Object
@@ -1271,7 +1271,7 @@ CREATE TABLE Object
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (objectId),
     INDEX IDX_Object_decl (decl_PS ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Source
@@ -1556,7 +1556,7 @@ CREATE TABLE Source
     INDEX IDX_objectId (objectId ASC),
     INDEX IDX_procHistoryId (procHistoryId ASC),
     INDEX IDX_Source_decl (decl ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 SET FOREIGN_KEY_CHECKS=1;

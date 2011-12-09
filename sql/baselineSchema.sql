@@ -19,7 +19,7 @@ CREATE TABLE ZZZ_Db_Description
         -- <descr>The schema file name.</desc>
     r VARCHAR(255)
         -- <descr>Captures information from "git describe".</descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO ZZZ_Db_Description(f) VALUES('baselineSchema.sql');
 
@@ -39,7 +39,7 @@ CREATE TABLE prv_Activity
         -- <descr>Name of the platform where the activity occurred (does not
         -- need to a be a DNS name).</descr>
     PRIMARY KEY (activityId, offset)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prv_cnf_PolicyKey
@@ -49,7 +49,7 @@ CREATE TABLE prv_cnf_PolicyKey
     validityBegin DATETIME NULL,
     validityEnd DATETIME NULL,
     PRIMARY KEY (policyKeyId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prv_cnf_SoftwarePackage
@@ -60,7 +60,7 @@ CREATE TABLE prv_cnf_SoftwarePackage
     validityBegin DATETIME NULL,
     validityEnd DATETIME NULL,
     PRIMARY KEY (packageId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prv_Filter
@@ -86,7 +86,7 @@ CREATE TABLE prv_Filter
     PRIMARY KEY (filterId),
     UNIQUE name(name),
     INDEX focalPlaneId (focalPlaneId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prv_PolicyFile
@@ -102,7 +102,7 @@ CREATE TABLE prv_PolicyFile
         -- <descr>Time of last modification of the Policy file as provided by
         -- the filesystem.</descr>
     PRIMARY KEY (policyFileId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prv_PolicyKey
@@ -117,7 +117,7 @@ CREATE TABLE prv_PolicyKey
         -- <descr>Type of the key in the Policy file.</descr>
     PRIMARY KEY (policyKeyId),
     INDEX (policyFileId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prv_Run
@@ -126,7 +126,7 @@ CREATE TABLE prv_Run
     runId VARCHAR(255) NOT NULL,
     PRIMARY KEY (offset),
     UNIQUE UQ_prv_Run_runId(runId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE prv_SoftwarePackage
@@ -134,7 +134,7 @@ CREATE TABLE prv_SoftwarePackage
     packageId INTEGER NOT NULL,
     packageName VARCHAR(64) NOT NULL,
     PRIMARY KEY (packageId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _MovingObjectToType
@@ -150,7 +150,7 @@ CREATE TABLE _MovingObjectToType
         -- 0-100 (in%)</descr>
     INDEX (typeId),
     INDEX (movingObjectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _ObjectToType
@@ -165,7 +165,7 @@ CREATE TABLE _ObjectToType
         -- </descr>
     INDEX (typeId),
     INDEX (objectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _qservChunkMap
@@ -184,7 +184,7 @@ CREATE TABLE _qservChunkMap
     objCount INTEGER NOT NULL
         -- <descr>Number of objects in a given chunk (for cost estimation).
         -- </descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _qservObjectIdMap
@@ -194,7 +194,7 @@ CREATE TABLE _qservObjectIdMap
     objectId BIGINT NOT NULL,
     chunkId INTEGER NOT NULL,
     subChunkId INTEGER NOT NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _qservSubChunkMap
@@ -214,7 +214,7 @@ CREATE TABLE _qservSubChunkMap
     objCount INTEGER NOT NULL
         -- <descr>Number of objects in a given subChunk (for cost
         -- estimation).</descr>
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_ap_DiaSourceToNewObject
@@ -223,7 +223,7 @@ CREATE TABLE _tmpl_ap_DiaSourceToNewObject
     second BIGINT NOT NULL,
     visitId INTEGER NOT NULL,
     INDEX idx_visitId (visitId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_ap_DiaSourceToObjectMatches
@@ -233,7 +233,7 @@ CREATE TABLE _tmpl_ap_DiaSourceToObjectMatches
     distance DOUBLE NOT NULL,
     visitId INTEGER NOT NULL,
     INDEX idx_visitId (visitId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_ap_PredToDiaSourceMatches
@@ -243,7 +243,7 @@ CREATE TABLE _tmpl_ap_PredToDiaSourceMatches
     distance DOUBLE NOT NULL,
     visitId INTEGER NOT NULL,
     INDEX idx_visitId (visitId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_Id
@@ -251,7 +251,7 @@ CREATE TABLE _tmpl_Id
     -- delete)</descr>
 (
     id BIGINT NOT NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_IdPair
@@ -259,7 +259,7 @@ CREATE TABLE _tmpl_IdPair
 (
     first BIGINT NOT NULL,
     second BIGINT NOT NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_MatchPair
@@ -268,7 +268,7 @@ CREATE TABLE _tmpl_MatchPair
     first BIGINT NOT NULL,
     second BIGINT NOT NULL,
     distance DOUBLE NOT NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE AmpMap
@@ -296,7 +296,7 @@ CREATE TABLE Ccd_Detector
     saturate FLOAT(0) NULL,
         -- <descr>Maximum data value for A/D converter</descr>
     PRIMARY KEY (ccdDetectorId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE CcdMap
@@ -331,7 +331,7 @@ CREATE TABLE Durations
     INDEX dur_runid (RUNID ASC),
     INDEX idx_durations_pipeline (PIPELINE ASC),
     INDEX idx_durations_name (name ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Filter
@@ -345,7 +345,7 @@ CREATE TABLE Filter
     photBW FLOAT(0) NOT NULL,
         -- <descr>System effective bandwidth</descr>
     PRIMARY KEY (filterId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE LeapSeconds
@@ -357,7 +357,7 @@ CREATE TABLE LeapSeconds
     whenMjdUtc FLOAT(0) NULL,
     whenUtc BIGINT NULL,
     whenTai BIGINT NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Logs
@@ -389,7 +389,7 @@ CREATE TABLE Logs
     systemtime FLOAT(0) NULL,
     PRIMARY KEY (id),
     INDEX a (RUNID ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE ObjectType
@@ -400,7 +400,7 @@ CREATE TABLE ObjectType
         -- <descr>Unique id.</descr>
     description VARCHAR(255) NULL,
     PRIMARY KEY (typeId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE RaftMap
@@ -447,7 +447,7 @@ CREATE TABLE RefObjMatch
         --  </ul></descr>
     INDEX (objectId),
     INDEX (refObjectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE SimRefObject
@@ -519,7 +519,7 @@ CREATE TABLE SimRefObject
         -- </descr>
     PRIMARY KEY (refObjectId),
     INDEX IDX_decl (decl ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_ImageStatus
@@ -534,7 +534,7 @@ CREATE TABLE sdqa_ImageStatus
     definition VARCHAR(255) NOT NULL,
         -- <descr>Detailed Definition of the image status</descr>
     PRIMARY KEY (sdqa_imageStatusId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Metric
@@ -555,7 +555,7 @@ CREATE TABLE sdqa_Metric
     definition VARCHAR(255) NOT NULL,
     PRIMARY KEY (sdqa_metricId),
     UNIQUE UQ_sdqaMetric_metricName(metricName)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForScienceAmpExposure
@@ -580,7 +580,7 @@ CREATE TABLE sdqa_Rating_ForScienceAmpExposure
     INDEX (sdqa_metricId),
     INDEX (sdqa_thresholdId),
     INDEX (ampExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForScienceCcdExposure
@@ -604,7 +604,7 @@ CREATE TABLE sdqa_Rating_ForScienceCcdExposure
     INDEX (sdqa_metricId),
     INDEX (sdqa_thresholdId),
     INDEX (ccdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Rating_ForSnapCcdExposure
@@ -620,7 +620,7 @@ CREATE TABLE sdqa_Rating_ForSnapCcdExposure
     INDEX sdqa_metricId (sdqa_metricId ASC),
     INDEX sdqa_thresholdId (sdqa_thresholdId ASC),
     INDEX ccdExposureId (ccdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Threshold
@@ -645,7 +645,7 @@ CREATE TABLE sdqa_Threshold
     PRIMARY KEY (sdqa_thresholdId),
     UNIQUE UQ_sdqa_Threshold_sdqa_metricId(sdqa_metricId),
     INDEX (sdqa_metricId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _mops_Config
@@ -714,7 +714,7 @@ CREATE TABLE _tmpl_mops_Ephemeris
     pa DOUBLE NULL,
     mag DOUBLE NULL,
     INDEX idx_mopsEphemeris_movingObjectId (movingObjectId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE _tmpl_mops_Prediction
@@ -731,7 +731,7 @@ CREATE TABLE _tmpl_mops_Prediction
     pa DOUBLE NOT NULL,
     mag DOUBLE NOT NULL,
     magErr FLOAT(0) NOT NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE mops_Event
@@ -1018,7 +1018,7 @@ CREATE TABLE _Raw_Ccd_ExposureToVisit
         -- <descr>Pointer to entry in Raw_Ccd_Exposure table.</descr>
     INDEX (ccdExposureId),
     INDEX (visitId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE FpaMetadata
@@ -1032,7 +1032,7 @@ CREATE TABLE FpaMetadata
     metadataKey VARCHAR(255) NOT NULL,
     metadataValue VARCHAR(255) NULL,
     PRIMARY KEY (ccdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE RaftMetadata
@@ -1042,7 +1042,7 @@ CREATE TABLE RaftMetadata
     metadataKey VARCHAR(255) NOT NULL,
     metadataValue VARCHAR(255) NULL,
     PRIMARY KEY (raftId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure
@@ -1091,7 +1091,7 @@ CREATE TABLE Raw_Amp_Exposure
     zd FLOAT(0) NULL,
     flags INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY (rawAmpExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_Exposure_Metadata
@@ -1108,7 +1108,7 @@ CREATE TABLE Raw_Amp_Exposure_Metadata
     stringValue VARCHAR(255) NULL,
     PRIMARY KEY (rawAmpExposureId, metadataKey),
     INDEX IDX_metadataKey (metadataKey ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
@@ -1119,7 +1119,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
     amp TINYINT NOT NULL,
     PRIMARY KEY (rawAmpExposureId),
     INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
@@ -1129,7 +1129,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
     snapCcdExposureId BIGINT NOT NULL,
     PRIMARY KEY (rawAmpExposureId),
     INDEX snapCcdExposureId (snapCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Ccd_Exposure
@@ -1185,7 +1185,7 @@ CREATE TABLE Raw_Ccd_Exposure
     expTime FLOAT(0) NOT NULL,
         -- <descr>Duration of exposure.</descr>
     PRIMARY KEY (rawCcdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Raw_Ccd_Exposure_Metadata
@@ -1199,7 +1199,7 @@ CREATE TABLE Raw_Ccd_Exposure_Metadata
     metadataKey VARCHAR(255) NOT NULL,
     metadataValue VARCHAR(255) NULL,
     PRIMARY KEY (rawCcdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Amp_Exposure
@@ -1218,7 +1218,7 @@ CREATE TABLE Science_Amp_Exposure
     PRIMARY KEY (scienceAmpExposureId),
     INDEX (scienceCcdExposureId),
     INDEX (rawAmpExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Amp_Exposure_Metadata
@@ -1235,7 +1235,7 @@ CREATE TABLE Science_Amp_Exposure_Metadata
     stringValue VARCHAR(255) NULL,
     PRIMARY KEY (scienceAmpExposureId, metadataKey),
     INDEX IDX_metadataKey (metadataKey ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure
@@ -1304,7 +1304,7 @@ CREATE TABLE Science_Ccd_Exposure
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
     PRIMARY KEY (scienceCcdExposureId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Science_Ccd_Exposure_Metadata
@@ -1320,7 +1320,7 @@ CREATE TABLE Science_Ccd_Exposure_Metadata
     stringValue VARCHAR(255) NULL,
     PRIMARY KEY (scienceCcdExposureId, metadataKey),
     INDEX IDX_metadataKey (metadataKey ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
@@ -1330,7 +1330,7 @@ CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
     scienceCcdExposureId BIGINT NOT NULL,
     PRIMARY KEY (snapCcdExposureId),
     INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Visit
@@ -1339,7 +1339,7 @@ CREATE TABLE Visit
     visitId INTEGER NOT NULL,
         -- <descr>Unique identifier.</descr>
     PRIMARY KEY (visitId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE CalibSource
@@ -1417,7 +1417,7 @@ CREATE TABLE CalibSource
     INDEX (ccdExposureId),
     INDEX (filterId),
     INDEX (xAstromSigma)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE DiaSource
@@ -1558,7 +1558,7 @@ CREATE TABLE DiaSource
     INDEX (filterId),
     INDEX (movingObjectId),
     INDEX (objectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE ForcedSource
@@ -1581,7 +1581,7 @@ CREATE TABLE ForcedSource
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
     PRIMARY KEY (objectId, visitId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE MovingObject
@@ -1794,7 +1794,7 @@ CREATE TABLE MovingObject
     INDEX idx_MovingObject_ssmId (ssmId ASC),
     INDEX idx_MovingObject_ssmObjectName (ssmObjectName ASC),
     INDEX idx_MovingObject_status (mopsStatus ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Object
@@ -2369,7 +2369,7 @@ CREATE TABLE Object
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (objectId),
     INDEX IDX_Object_decl (decl_PS ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE ObjectExtras
@@ -2814,7 +2814,7 @@ CREATE TABLE ObjectExtras
     _subChunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     PRIMARY KEY (objectId)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE Source
@@ -3065,7 +3065,7 @@ CREATE TABLE Source
     INDEX (movingObjectId),
     INDEX (objectId),
     INDEX IDX_htmId20 (htmId20 ASC)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 
