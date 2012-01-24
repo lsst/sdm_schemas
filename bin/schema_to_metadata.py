@@ -179,8 +179,16 @@ def isCommentLine(str):
 def isUnitLine(str):
     return re.search(r'<unit>(.+)</unit>', str) is not None
 
+def isUcdLine(str):
+    return re.search(r'<ucd>(.+)</ucd>', str) is not None
+
 def retrieveUnit(str):
     xx = re.compile(r'<unit>(.+)</unit>')
+    x = xx.search(str)
+    return x.group(1)
+
+def retrieveUcd(str):
+    xx = re.compile(r'<ucd>(.+)</ucd>')
     x = xx.search(str)
     return x.group(1)
 
@@ -359,6 +367,11 @@ for line in iF:
                                   # units
                 if isUnitLine(line):
                     in_col["unit"] = retrieveUnit(line)
+
+                                  # ucds
+                if isUcdLine(line):
+                    in_col["ucd"] = retrieveUcd(line)
+
     elif zzDbDescrF.match(line): # process "INSERT INTO ZZZ_Db_Description"
         m = zzDbDescrF.search(line)
         dbDescr_file = m.group(1)
