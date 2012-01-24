@@ -45,9 +45,6 @@ import sys
 # Configuration information
 ###############################################################################
 
-# Tagged values to be extracted from within <tag>...</tag>
-columnTags = ["descr", "ucd", "unit"]
-
 # Fields for tables in the metadata (values obtained with custom code).
 tableFields = ["engine",  "description"]
 
@@ -139,7 +136,6 @@ CREATE TABLE md_DbDescr (
 
 """
 
-
 ###############################################################################
 # Standard header to be prepended
 ###############################################################################
@@ -174,50 +170,40 @@ oF.write(tableDDL)
 # Parse sql
 ###############################################################################
 
-
 def isIndexDefinition(c):
     return c in ["PRIMARY", "KEY", "INDEX", "UNIQUE"]
-
 
 def isCommentLine(str):
     return re.match('[\s]*--', str) is not None
 
-
 def isUnitLine(str):
     return re.search(r'<unit>(.+)</unit>', str) is not None
-
 
 def retrieveUnit(str):
     xx = re.compile(r'<unit>(.+)</unit>')
     x = xx.search(str)
     return x.group(1)
 
-
 def containsDescrTagStart(str):
     return re.search(r'<descr>', str) is not None
 
-
 def containsDescrTagEnd(str):
     return re.search(r'</descr>', str) is not None
-
 
 def retrieveDescr(str):
     xx = re.compile(r'<descr>(.+)</descr>')
     x = xx.search(str)
     return x.group(1)
     
-
 def retrieveDescrStart(str):
     xx = re.compile('<descr>(.+)')
     x = xx.search(str)
     return x.group(1)
 
-
 def retrieveDescrMid(str):
     xx = re.compile('[\s]*--(.+)')
     x = xx.search(str)
     return x.group(1)
-
 
 def retrieveDescrEnd(str):
     if re.search('-- </descr>', str):
@@ -226,20 +212,17 @@ def retrieveDescrEnd(str):
     x = xx.search(str)
     return x.group(1)
     
-    
 def retrieveIsNotNull(str):
     if re.search('NOT NULL', str):
         return '1'
     return '0'
 
-                
 def retrieveType(str):
     arr = str.split()
     t = arr[1]
     if t == "FLOAT(0)":
         return "FLOAT"
     return t
-
 
 def retrieveDefaultValue(str):
     if re.search(' DEFAULT ', str) is None:
