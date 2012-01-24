@@ -18,7 +18,7 @@ CREATE TABLE ZZZ_Db_Description
     f VARCHAR(255),
         -- <descr>The schema file name.</desc>
     r VARCHAR(255)
-        -- <descr>Captures information from "git describe".</descr>
+        -- <descr>Captures information from 'git describe'.</descr>
 ) ENGINE=MyISAM;
 
 INSERT INTO ZZZ_Db_Description(f) VALUES('lsstSchema4mysqlPT1_2.sql');
