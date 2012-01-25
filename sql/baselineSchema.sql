@@ -374,26 +374,38 @@ CREATE TABLE Filter
 
 
 CREATE TABLE LeapSeconds
+    -- <descr>Based on <a href='http://maia.usno.navy.mil/ser7/tai-utc.dat'>
+    -- http://maia.usno.navy.mil/ser7/tai-utc.dat</a>.
+    -- </descr>
 (
     whenJd FLOAT(0) NOT NULL,
+        -- <descr>JD of change in TAI-UTC difference (leap second).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
+        -- <unit>day</unit>
     offset FLOAT(0) NOT NULL,
+        -- <descr>New number of leap seconds.</descr>
         -- <ucd>time.start</ucd>
         -- <unit>sec</unit>
     mjdRef FLOAT(0) NOT NULL,
+        -- <descr>Reference MJD for drift (prior to 1972-Jan-1).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
+        -- <unit>day</unit>
     drift FLOAT(0) NOT NULL,
+        -- <descr>Drift in seconds per day (prior to 1972-Jan-1).</descr>
         -- <ucd>arith.rate</ucd>
-        -- <unit>s/d</unit>
+        -- <unit>sec/day</unit>
     whenMjdUtc FLOAT(0) NULL,
+        -- <descr>MJD in UTC system of change (computed).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
+        -- <unit>day</unit>
     whenUtc BIGINT NULL,
+        -- <descr>Nanoseconds from epoch in UTC system of change (computed).
+        -- </descr>
         -- <ucd>time</ucd>
         -- <unit>nanosec</unit>
     whenTai BIGINT NULL
+        -- <descr>Nanoseconds from epoch in TAI system of change (computed).
+        -- </descr>
         -- <ucd>time</ucd>
         -- <unit>nanosec</unit>
 ) ENGINE=MyISAM;
@@ -458,10 +470,12 @@ CREATE TABLE RaftMap
 
 
 CREATE TABLE RefObjMatch
+    -- <descr>Table containing the results of a spatial match between
+    -- SimRefObject and Object.</descr>
 (
     refObjectId BIGINT NULL,
-        -- <descr>Reference object id (pointer to SimRefObject). NULL if object
-        -- has no matches.</descr>
+        -- <descr>Reference object id (pointer to SimRefObject). NULL if 
+        -- reference object has no matches.</descr>
     objectId BIGINT NULL,
         -- <descr>Object id. NULL if object has no matches.</descr>
         -- <ucd>meta.id;src</ucd>
@@ -480,6 +494,7 @@ CREATE TABLE RefObjMatch
         -- <ucd>pos.angDistance</ucd>
     nRefMatches INTEGER NULL,
         -- <descr>Total number of matches for reference object.</descr>
+        -- <ucd>meta.number</ucd>
     nObjMatches INTEGER NULL,
         -- <descr>Total number of matches for object.</descr>
         -- <ucd>meta.number</ucd>
@@ -506,6 +521,9 @@ CREATE TABLE RefObjMatch
 
 
 CREATE TABLE SimRefObject
+    -- <descr>Stores properties of ImSim reference objects that fall within
+    --        at least one CCD. Includes both stars and galaxies.
+    -- </descr>
 (
     refObjectId BIGINT NOT NULL,
         -- <descr>Reference object id.</descr>
@@ -534,26 +552,32 @@ CREATE TABLE SimRefObject
         -- <ucd>src.sec</ucd>
     uMag DOUBLE NOT NULL,
         -- <descr>u band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     gMag DOUBLE NOT NULL,
         -- <descr>g band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     rMag DOUBLE NOT NULL,
         -- <descr>r band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     iMag DOUBLE NOT NULL,
         -- <descr>i band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     zMag DOUBLE NOT NULL,
         -- <descr>z band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     yMag DOUBLE NOT NULL,
         -- <descr>y band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     muRa DOUBLE NULL,
-        -- <descr>dRA/dt*cos(decl). NULL for galaxies.</descr>
+        -- <descr>Proper motion: dRA/dt*cos(decl). NULL for galaxies.</descr>
         -- <ucd>pos.pm</ucd>
         -- <unit>milliarcsec/year</unit>
     muDecl DOUBLE NULL,
-        -- <descr>dDec/dt. NULL for galaxies.</descr>
+        -- <descr>Proper motion: dDec/dt. NULL for galaxies.</descr>
         -- <ucd>pos.pm</ucd>
         -- <unit>milliarcsec/year</unit>
     parallax DOUBLE NULL,
-        -- <descr>Parallal. NULL for galaxies.</descr>
+        -- <descr>Stellar parallal. NULL for galaxies.</descr>
         -- <ucd>pos.parallax</ucd>
         -- <unit>milliarcsec</unit>
     vRad DOUBLE NULL,
@@ -563,6 +587,7 @@ CREATE TABLE SimRefObject
     isVar TINYINT NOT NULL,
         -- <descr>1 for variable stars, 0 for galaxies and non-variable stars.
         -- </descr>
+        -- <ucd>src.class</ucd>
     redshift DOUBLE NULL,
         -- <descr>Redshift. NULL for stars.</descr>
         -- <ucd>src.redshift</ucd>
@@ -1149,57 +1174,77 @@ CREATE TABLE RaftMetadata
 CREATE TABLE Raw_Amp_Exposure
 (
     rawAmpExposureId BIGINT NOT NULL,
-        -- <descr>Primary key (unique identifier).</descr>
+        -- <descr>Primary key (unique identif        -- <ucd>meta.code.multip;obs.sequence</ucd>
+ier).</descr>
         -- <ucd>meta.id;obs.image</ucd>
     rawCcdExposureId BIGINT NOT NULL,
         -- <descr>Pointer to Raw_Amp_Exposure containing this science amp
         -- exposure.</descr>
         -- <ucd>meta.id;obs.image</ucd>
     visitId INTEGER NOT NULL,
-        -- <descr>Visit id this exposure belongs to.</descr>
+        -- <descr>Visit id from Visit table this exposure belongs to.</descr>
         -- <ucd>meta.id;obs.image</ucd>
     snap TINYINT NOT NULL,
+        -- <descr>Snap id this exposure belongs to.</descr>
         -- <ucd>meta.code.multip;obs.sequence</ucd>
     raft TINYINT NOT NULL,
+        -- <descr>Raft id from RaftTable this exposure belongs to.</descr>
         -- <ucd>meta.id</ucd>
     ccd TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
         -- <ucd>meta.id</ucd>
     amp TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the AmpMap table.</descr>
         -- <ucd>meta.id</ucd>
     filterId TINYINT NOT NULL,
+        -- <descr>Id of the filter used for this exposure.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     ra DOUBLE NOT NULL,
+        -- <descr>ICRS R.A. of amp center.</descr>
         -- <ucd>pos.eq.ra</ucd>
+        -- <unit>degree</unit>
     decl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec. of amp center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>degree</unit>
     equinox FLOAT(0) NOT NULL,
+        -- <descr>Equinox of World Coordinate System.</descr>
         -- <ucd>pos.equinox</ucd>
     raDeSys VARCHAR(20) NOT NULL,
         -- <ucd>pos.eq.dec</ucd>
     ctype1 VARCHAR(20) NOT NULL,
+        -- <descr>Coordinate projection type, axis 1.</descr>
         -- <ucd>pos.wcs.ctype</ucd>
     ctype2 VARCHAR(20) NOT NULL,
+        -- <descr>Coordinate projection type, axis 2.</descr>
         -- <ucd>pos.wcs.ctype</ucd>
     crpix1 FLOAT(0) NOT NULL,
+        -- <descr>Coordinate reference pixel, axis 1.</descr>
         -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crpix2 FLOAT(0) NOT NULL,
+        -- <descr>Coordinate reference pixel, axis 2.</descr>
         -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crval1 DOUBLE NOT NULL,
+        -- <descr>Coordinate value 1 @reference pixel.</descr>
         -- <ucd>pos.wcs.crvar</ucd>
         -- <unit>degree</unit>
     crval2 DOUBLE NOT NULL,
+        -- <descr>Coordinate value 2 @reference pixel.</descr>
         -- <ucd>pos.wcs.crvar</ucd>
         -- <unit>degree</unit>
     cd1_1 DOUBLE NOT NULL,
+        -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
     cd1_2 DOUBLE NOT NULL,
+        -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
     cd2_1 DOUBLE NOT NULL,
+        -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
     cd2_2 DOUBLE NOT NULL,
+        -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
     llcRa DOUBLE NOT NULL,
         -- <ucd>pos.eq.ra</ucd>
@@ -1225,13 +1270,15 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>degree</unit>
     taiMjd DOUBLE NOT NULL,
+        -- <descr>Date of the start of the exposure.</descr>
         -- <ucd>time.start</ucd>
-        -- <unit>d</unit>
+        -- <unit>day</unit>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         -- <ucd>time.start</ucd>
     expMidpt VARCHAR(30) NOT NULL,
         -- <ucd>time.epoch</ucd>
     expTime FLOAT(0) NOT NULL,
+        -- <descr>Duration of exposure.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>sec</unit>
     airmass FLOAT(0) NOT NULL,
@@ -1433,12 +1480,16 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Primary key (unique identifier).</descr>
         -- <ucd>meta.id;obs.image</ucd>
     visit INTEGER NOT NULL,
+        -- <descr>Reference to the corresponding entry in the Visit table.</descr>
         -- <ucd>obs.exposure</ucd>
     raft TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the RaftMap table.</descr>
         -- <ucd>meta.id</ucd>
     ccd TINYINT NOT NULL,
+        -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
+        -- <ucd>meta.id</ucd>
     filterId TINYINT NOT NULL,
-        -- <descr>Pointer to filter.</descr>
+        -- <descr>Id of the filter used for this exposure.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     ra DOUBLE NOT NULL,
         -- <ucd>pos.eq.ra</ucd>
@@ -1503,7 +1554,7 @@ CREATE TABLE Science_Ccd_Exposure
     taiMjd DOUBLE NOT NULL,
         -- <descr>Date of the start of the exposure</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
+        -- <unit>day</unit>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         -- <ucd>time.start</ucd>
     expMidpt VARCHAR(30) NOT NULL,
@@ -3415,9 +3466,17 @@ CREATE TABLE Source
         -- <ucd>time.duration</ucd>
         -- <unit>sec</unit>
     xFlux DOUBLE NULL,
+        -- <ucd>phot.count</ucd>
+        -- <unit>adu</unit>
     xFluxSigma FLOAT(0) NULL,
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>adu</unit>
     yFlux DOUBLE NULL,
+        -- <ucd>phot.count</ucd>
+        -- <unit>adu</unit>
     yFluxSigma FLOAT(0) NULL,
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>adu</unit>
     xPeak DOUBLE NULL,
     yPeak DOUBLE NULL,
     raPeak DOUBLE NULL,

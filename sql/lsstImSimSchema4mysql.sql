@@ -32,37 +32,50 @@ CREATE TABLE SimRefGalaxy
         -- <descr>Unique reference galaxy ID.</descr>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of galaxy center.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>degree</unit>
     decl DOUBLE NOT NULL,
         -- <descr>ICRS Dec. of galaxy center.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>degree</unit>
     htmId20 BIGINT NOT NULL,
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
     uMag DOUBLE NOT NULL,
         -- <descr>u-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     gMag DOUBLE NOT NULL,
         -- <descr>g-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     rMag DOUBLE NOT NULL,
         -- <descr>r-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     iMag DOUBLE NOT NULL,
         -- <descr>i-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     zMag DOUBLE NOT NULL,
         -- <descr>z-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     yMag DOUBLE NOT NULL,
         -- <descr>y-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     redshift DOUBLE NOT NULL,
         -- <descr>Redshift.</descr>
+        -- <ucd>src.redshift</ucd>
     semiMajorBulge DOUBLE NOT NULL,
         -- <descr>Semi-major axis length of galaxy bulge.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMinorBulge DOUBLE NOT NULL,
         -- <descr>Semi-minor axis length of galaxy bulge.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMajorDisk DOUBLE NOT NULL,
         -- <descr>Semi-major axis length of galaxy disk.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMinorDisk DOUBLE NOT NULL,
         -- <descr>Semi-minor axis length of galaxy disk.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     varClass TINYINT NOT NULL,
         -- <descr>Variability classification code:
@@ -85,45 +98,61 @@ CREATE TABLE SimRefStar
 (
     refStarId BIGINT NOT NULL,
         -- <descr>Unique galaxy ID.</descr>
+        -- <ucd>meta.id</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of star.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>degree</unit>
     decl DOUBLE NOT NULL,
         -- <descr>ICRS Dec. of star.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>degree</unit>
     htmId20 BIGINT NOT NULL,
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
     gLat DOUBLE NOT NULL,
         -- <descr>Galactic latitude of star.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.galactic.lat</ucd>
+        -- <unit>degree</unit>
     gLon DOUBLE NOT NULL,
         -- <descr>Galactic longitude of star.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.galactic.lon</ucd>
+        -- <unit>degree</unit>
     sedName VARCHAR(255) NULL,
         -- <descr>Best-fit SED name.</descr>
+        -- <ucd>src.sec</ucd>
     uMag DOUBLE NOT NULL,
         -- <descr>u-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     gMag DOUBLE NOT NULL,
         -- <descr>g-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     rMag DOUBLE NOT NULL,
         -- <descr>r-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     iMag DOUBLE NOT NULL,
         -- <descr>i-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     zMag DOUBLE NOT NULL,
         -- <descr>z-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     yMag DOUBLE NOT NULL,
         -- <descr>y-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     muRa DOUBLE NOT NULL,
         -- <descr>Proper-motion in R.A. : dRA/dt*cos(decl)</descr>
+        -- <ucd>pos.pm</ucd>
         -- <unit>milliarcsec/year</unit>
     muDecl DOUBLE NOT NULL,
         -- <descr>Proper-motion in Dec. : dDec/dt</descr>
+        -- <ucd>pos.pm</ucd>
         -- <unit>milliarcsec/year</unit>
     parallax DOUBLE NOT NULL,
         -- <descr>Stellar parallax.</descr>
+        -- <ucd>pos.parallax</ucd>
         -- <unit>milliarcsec</unit>
     vRad DOUBLE NOT NULL,
         -- <descr>Radial velocity.</descr>
+        -- <ucd>spect.dopplerVeloc.opt</ucd>
         -- <unit>km/s</unit>
     varClass TINYINT NOT NULL,
         -- <descr>Variability classification code:
@@ -150,8 +179,10 @@ CREATE TABLE SimRefObject
 (
     refObjectId BIGINT NOT NULL,
         -- <descr>Unique reference object ID.</descr>
+        -- <ucd>meta.id;src</ucd>
     isStar TINYINT NOT NULL,
         -- <descr>1 for stars, 0 for galaxies.</descr>
+        -- <ucd>src.class</ucd>
     varClass TINYINT NOT NULL,
         -- <descr>Variability classification code:
         -- <ul>
@@ -169,57 +200,77 @@ CREATE TABLE SimRefObject
         -- </descr>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of object.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>degree</unit>
     decl DOUBLE NOT NULL,
         -- <descr>ICRS Dec. of object.</descr>
-        -- <unit>deg</unit>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>degree</unit>
     htmId20 BIGINT NOT NULL,
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
     gLat DOUBLE NULL,
-        -- <descr>Galactic latitude of star. NULL for galaxies.</descr>
-        -- <unit>deg</unit>
+        -- <descr>Galactic latitude, NULL for galaxies.</descr>
+        -- <ucd>pos.galactic.lat</ucd>
+        -- <unit>degree</unit>
     gLon DOUBLE NULL,
-        -- <descr>Galactic longitude of star. NULL for galaxies.</descr>
-        -- <unit>deg</unit>
+        -- <descr>Galactic longitude. Null for galaxies.</descr>
+        -- <ucd>pos.galactic.lon</ucd>
+        -- <unit>degree</unit>
     sedName VARCHAR(255) NULL,
-        -- <descr>Best-fit SED name. NULL for galaxies.</descr>
+        -- <descr>Best-fit SED name. Null for galaxies.</descr>
+        -- <ucd>src.sec</ucd>
     uMag DOUBLE NOT NULL,
-        -- <descr>u-band AB magnitude.</descr>
+        -- <descr>u band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     gMag DOUBLE NOT NULL,
-        -- <descr>g-band AB magnitude.</descr>
+        -- <descr>g band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     rMag DOUBLE NOT NULL,
-        -- <descr>r-band AB magnitude.</descr>
+        -- <descr>r band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     iMag DOUBLE NOT NULL,
-        -- <descr>i-band AB magnitude.</descr>
+        -- <descr>i band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     zMag DOUBLE NOT NULL,
-        -- <descr>z-band AB magnitude.</descr>
+        -- <descr>z band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     yMag DOUBLE NOT NULL,
-        -- <descr>y-band AB magnitude.</descr>
+        -- <descr>y band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
     muRa DOUBLE NULL,
-        -- <descr>Proper motion : dRA/dt*cos(decl). NULL for galaxies.</descr>
+        -- <descr>dRA/dt*cos(decl). NULL for galaxies.</descr>
+        -- <ucd>pos.pm</ucd>
         -- <unit>milliarcsec/year</unit>
     muDecl DOUBLE NULL,
-        -- <descr>Proper motion : dDec/dt. NULL for galaxies.</descr>
+        -- <descr>dDec/dt. NULL for galaxies.</descr>
+        -- <ucd>pos.pm</ucd>
         -- <unit>milliarcsec/year</unit>
     parallax DOUBLE NULL,
-        -- <descr>Stellar parallax. NULL for galaxies.</descr>
+        -- <descr>Parallal. NULL for galaxies.</descr>
+        -- <ucd>pos.parallax</ucd>
         -- <unit>milliarcsec</unit>
     vRad DOUBLE NULL,
-        -- <descr>Radial velocity of star. NULL for galaxies.</descr>
-        -- <unit>km/s</unit>
+        -- <descr>Radial velocity. NULL for galaxies.</descr>
+        -- <ucd>spect.dopplerVeloc.opt</ucd>
+        -- <unit>km/sec</unit>
     redshift DOUBLE NULL,
         -- <descr>Redshift. NULL for stars.</descr>
+        -- <ucd>src.redshift</ucd>
     semiMajorBulge DOUBLE NULL,
         -- <descr>Semi-major axis length of galaxy bulge. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMinorBulge DOUBLE NULL,
         -- <descr>Semi-minor axis length of galaxy bulge. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMajorDisk DOUBLE NULL,
         -- <descr>Semi-major axis length of galaxy disk. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMinorDisk DOUBLE NULL,
         -- <descr>Semi-minor axis length of galaxy disk. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     PRIMARY KEY (refObjectId),
     KEY IDX_htmId20 (htmId20 ASC)
