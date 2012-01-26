@@ -30,6 +30,7 @@ CREATE TABLE SimRefGalaxy
 (
     refGalaxyId BIGINT NOT NULL,
         -- <descr>Unique reference galaxy ID.</descr>
+        -- <ucd>meta.id</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of galaxy center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -153,7 +154,7 @@ CREATE TABLE SimRefStar
     vRad DOUBLE NOT NULL,
         -- <descr>Radial velocity.</descr>
         -- <ucd>spect.dopplerVeloc.opt</ucd>
-        -- <unit>km/s</unit>
+        -- <unit>km/sec</unit>
     varClass TINYINT NOT NULL,
         -- <descr>Variability classification code:
         -- <ul>
