@@ -16,7 +16,7 @@ CREATE TABLE ZZZ_Db_Description
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
-        -- <descr>The schema file name.</desc>
+        -- <descr>The schema file name.</descr>
     r VARCHAR(255)
         -- <descr>Captures information from 'git describe'.</descr>
 ) ENGINE=MyISAM;
@@ -52,11 +52,11 @@ CREATE TABLE Filter
 (
     filterId TINYINT NOT NULL,
         -- <descr>Unique id (primary key).</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y', 
         -- 'w', 'V'.</descr>
-        -- <ucd>instr.bandpass</ucd>
+        -- <ucd>inst.bandpass</ucd>
     photClam FLOAT NOT NULL,
         -- <descr>Filter centroid wavelength.</descr>
         -- <ucd>em.wl.effective;inst.filter</ucd>
@@ -77,7 +77,7 @@ CREATE TABLE LeapSeconds
     whenJd FLOAT NOT NULL,
         -- <descr>JD of change in TAI-UTC difference (leap second).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
+        -- <unit>day</unit>
     offset FLOAT NOT NULL,
         -- <descr>New number of leap seconds.</descr>
         -- <ucd>time.start</ucd>
@@ -85,7 +85,7 @@ CREATE TABLE LeapSeconds
     mjdRef FLOAT NOT NULL,
         -- <descr>Reference MJD for drift (prior to 1972-Jan-1).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
+        -- <unit>day</unit>
     drift FLOAT NOT NULL,
         -- <descr>Drift in seconds per day (prior to 1972-Jan-1).</descr>
         -- <ucd>arith.rate</ucd>
@@ -145,8 +145,9 @@ CREATE TABLE ObjectType
 (
     typeId SMALLINT NOT NULL,
         -- <descr>Unique id.</descr>
+        -- <ucd>meta.id</ucd>
     description VARCHAR(255) NULL,
-        -- <ucd>meta.note;src</ucd>
+        -- <ucd>meta.note</ucd>
     PRIMARY KEY (typeId)
 ) ENGINE=MyISAM;
 
@@ -526,7 +527,7 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>inst.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
     ra DOUBLE NOT NULL,
@@ -589,7 +590,7 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>degree</unit>
     taiMjd DOUBLE NOT NULL,
-        -- <ucd>time.start</ucd>
+        -- <ucd>time.epoch</ucd>
         -- <unit>day</unit>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         -- <ucd>time.start</ucd>
@@ -695,10 +696,10 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>inst.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
-        -- <ucd>instr.bandpass</ucd>
+        -- <ucd>inst.bandpass</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of CCD center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -809,7 +810,7 @@ CREATE TABLE Science_Ccd_Exposure
     fluxMag0Sigma FLOAT NOT NULL,
         -- <ucd>stat.error;phot.flux.density</ucd>
     fwhm DOUBLE NOT NULL,
-        -- <ucd>instr.obsty.seeing</ucd>
+        -- <ucd>inst.obsty.seeing</ucd>
         -- <unit>arcsec</unit>
     poly BINARY(120) NOT NULL,
         -- <descr>Binary representation of the 4-corner polygon for the ccd.
@@ -1003,7 +1004,7 @@ CREATE TABLE Object
     canonicalFilterId TINYINT NULL,
         -- <descr>Not set for PT1.2. Id of the filter which is the canonical
         -- filter for size, ellipticity and Sersic index parameters.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     extendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object. Valid range: 0-10,000 (divide by 100 to get the actual
@@ -1015,13 +1016,13 @@ CREATE TABLE Object
     earliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time
         -- (taiMidPoint of the first Source).</descr>
-        -- <ucd>time.start</ucd>
-        -- <unit>TAI</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     latestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed (taiMidPoint of
         -- the last Source).</descr>
-        -- <ucd>time.end</ucd>
-        -- <unit>TAI</unit>
+        -- <ucd>time.epoch/ucd>
+        -- <unit>day</unit>
     meanObsTime DOUBLE NULL,
         -- <descr>The mean of the observation times (taiMidPoint) of the
         -- sources associated with this object.</descr>
@@ -1086,9 +1087,11 @@ CREATE TABLE Object
         -- <descr>Inverse variance weighted mean AB flux of u-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
+        -- <ucd>photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of uFlux_ESG (standard deviation).</descr>
+        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of u-band sources
@@ -1107,12 +1110,13 @@ CREATE TABLE Object
     uEarliestObsTime DOUBLE NULL,
         -- <descr>Time (TAI) when this object was observed for the first time in
         -- u filter.</descr>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     uLatestObsTime DOUBLE NULL,
         -- <descr>The latest time (TAI) when this object was observed in u
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     uSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for u
         -- filter.</descr>
@@ -1154,6 +1158,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute uE1_SG, uE2_SG, and uRadius_SG.</descr>
     uFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>meta.code</ucd>
     gNumObs INTEGER NULL,
         -- <descr>Number of g-band sources associated with this object.</descr>
     gExtendedness SMALLINT NULL,
@@ -1210,9 +1215,11 @@ CREATE TABLE Object
         -- <descr>Inverse variance weighted mean AB flux of g-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
+        -- <ucd>photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of gFlux_ESG (standard deviation).</descr>
+        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of g-band sources
@@ -1231,12 +1238,13 @@ CREATE TABLE Object
     gEarliestObsTime DOUBLE NULL,
         -- <descr>Time (TAI) when this object was observed for the first time in
         -- g filter.</descr>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     gLatestObsTime DOUBLE NULL,
         -- <descr>The latest time (TAI) when this object was observed in g
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     gSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for g
         -- filter.</descr>
@@ -1278,6 +1286,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute gE1_SG, gE2_SG, and gRadius_SG.</descr>
     gFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>meta.code</ucd>
     rNumObs INTEGER NULL,
         -- <descr>Number of r-band sources associated with this object.</descr>
     rExtendedness SMALLINT NULL,
@@ -1334,9 +1343,11 @@ CREATE TABLE Object
         -- <descr>Inverse variance weighted mean AB flux of r-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
+        -- <ucd>photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of rFlux_ESG (standard deviation).</descr>
+        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of r-band sources
@@ -1355,12 +1366,13 @@ CREATE TABLE Object
     rEarliestObsTime DOUBLE NULL,
         -- <descr>Time (TAI) when this object was observed for the first time in
         -- r filter.</descr>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     rLatestObsTime DOUBLE NULL,
         -- <descr>The latest time (TAI) when this object was observed in r
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     rSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for r
         -- filter.</descr>
@@ -1402,6 +1414,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute rE1_SG, rE2_SG, and rRadius_SG.</descr>
     rFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>meta.code</ucd>
     iNumObs INTEGER NULL,
         -- <descr>Number of i-band sources associated with this object.</descr>
     iExtendedness SMALLINT NULL,
@@ -1458,9 +1471,11 @@ CREATE TABLE Object
         -- <descr>Inverse variance weighted mean AB flux of i-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
+        -- <ucd>photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of iFlux_ESG (standard deviation).</descr>
+        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of i-band sources
@@ -1479,12 +1494,13 @@ CREATE TABLE Object
     iEarliestObsTime DOUBLE NULL,
         -- <descr>Time (TAI) when this object was observed for the first time in
         -- i filter.</descr>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     iLatestObsTime DOUBLE NULL,
         -- <descr>The latest time (TAI) when this object was observed in i
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     iSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for i
         -- filter.</descr>
@@ -1526,6 +1542,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute iE1_SG, iE2_SG, and iRadius_SG.</descr>
     iFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>meta.code</ucd>
     zNumObs INTEGER NULL,
         -- <descr>Number of z-band sources associated with this object.</descr>
     zExtendedness SMALLINT NULL,
@@ -1582,9 +1599,11 @@ CREATE TABLE Object
         -- <descr>Inverse variance weighted mean AB flux of z-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
+        -- <ucd>photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of zFlux_ESG (standard deviation).</descr>
+        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of z-band sources
@@ -1603,12 +1622,13 @@ CREATE TABLE Object
     zEarliestObsTime DOUBLE NULL,
         -- <descr>Time (TAI) when this object was observed for the first time in
         -- z filter.</descr>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     zLatestObsTime DOUBLE NULL,
         -- <descr>The latest time (TAI) when this object was observed in z
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     zSersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for z
         -- filter.</descr>
@@ -1650,6 +1670,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute zE1_SG, zE2_SG, and zRadius_SG.</descr>
     zFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>meta.code</ucd>
     yNumObs INTEGER NULL,
         -- <descr>Number of y-band sources associated with this object.</descr>
     yExtendedness SMALLINT NULL,
@@ -1706,9 +1727,11 @@ CREATE TABLE Object
         -- <descr>Inverse variance weighted mean AB flux of y-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
+        -- <ucd>photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of yFlux_ESG (standard deviation).</descr>
+        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of y-band sources
@@ -1727,12 +1750,13 @@ CREATE TABLE Object
     yEarliestObsTime DOUBLE NULL,
         -- <descr>Time (TAI) when this object was observed for the first time in
         -- y filter.</descr>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     yLatestObsTime DOUBLE NULL,
         -- <descr>The latest time (TAI) when this object was observed in y
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
-        -- <unit>mjd</unit>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     ySersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model for y
         -- filter.</descr>
@@ -1774,6 +1798,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute yE1_SG, yE2_SG, and yRadius_SG.</descr>
     yFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>meta.code</ucd>
     chunkId INTEGER NULL,
         -- <descr>Internal column used by qserv.</descr>
     subChunkId INTEGER NULL,
@@ -1795,7 +1820,7 @@ CREATE TABLE Source
         -- <ucd>meta.id;src</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this source.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     objectId BIGINT NULL,
         -- <descr>The object this source was assigned to. NULL if the PT1.2
         -- clustering algorithm generated a single-source object for this
@@ -1923,7 +1948,7 @@ CREATE TABLE Source
     taiMidPoint DOUBLE NOT NULL,
         -- <descr>Middle of exposure time (TAI).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>mjd</unit>
+        -- <unit>day</unit>
     taiRange FLOAT NULL,
         -- <descr>Exposure time.</descr>
         -- <ucd>time.duration</ucd>

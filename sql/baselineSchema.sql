@@ -71,7 +71,7 @@ CREATE TABLE prv_Filter
 (
     filterId TINYINT NOT NULL,
         -- <descr>Unique id.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     focalPlaneId TINYINT NOT NULL,
         -- <descr>Pointer to FocalPlane - focal plane this filter belongs to.
         -- </descr>
@@ -152,9 +152,10 @@ CREATE TABLE _MovingObjectToType
 (
     movingObjectId BIGINT NOT NULL,
         -- <descr>Pointer to entry in MovingObject table</descr>
-        -- <ucd>meta.id;src</ucd>
+        -- <ucd>meta.id</ucd>
     typeId SMALLINT NOT NULL,
         -- <descr>Pointer to entry in ObjectType table</descr>
+        -- <ucd>meta.id</ucd>
     probability TINYINT NULL DEFAULT 100,
         -- <descr>Probability that given MovingObject is of given type. Range:
         -- 0-100 (in%)</descr>
@@ -171,6 +172,7 @@ CREATE TABLE _ObjectToType
         -- <ucd>meta.id;src</ucd>
     typeId SMALLINT NOT NULL,
         -- <descr>Pointer to an entry in ObjectType table</descr>
+        -- <ucd>meta.id</ucd>
     probability TINYINT NULL DEFAULT 100,
         -- <descr>Probability that given object is of given type. Range 0-100 %
         -- </descr>
@@ -203,7 +205,9 @@ CREATE TABLE _qservObjectIdMap
     -- chunkId+subChunkId.</descr>
 (
     objectId BIGINT NOT NULL,
+        -- <ucd>meta.id;src</ucd>
     chunkId INTEGER NOT NULL,
+        -- <ucd>meta.id</ucd>
     subChunkId INTEGER NOT NULL
 ) ENGINE=MyISAM;
 
@@ -301,7 +305,7 @@ CREATE TABLE Ccd_Detector
 (
     ccdDetectorId INTEGER NOT NULL DEFAULT 1,
         -- <descr>from file name (required for raw science images)</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     biasSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
         -- <descr>Bias section (ex: '[2045:2108,1:4096]')</descr>
     trimSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
@@ -356,11 +360,11 @@ CREATE TABLE Durations
 CREATE TABLE Filter
 (
     filterId TINYINT NOT NULL,
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     filterName CHAR(255) NOT NULL,
         -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y'
         -- </descr>
-        -- <ucd>instr.bandpass</ucd>
+        -- <ucd>inst.bandpass</ucd>
     photClam FLOAT(0) NOT NULL,
         -- <descr>Filter centroid wavelength</descr>
         -- <ucd>em.wl.effective;inst.filter</ucd>
@@ -384,7 +388,7 @@ CREATE TABLE LeapSeconds
         -- <unit>day</unit>
     offset FLOAT(0) NOT NULL,
         -- <descr>New number of leap seconds.</descr>
-        -- <ucd>time.start</ucd>
+        -- <ucd>time.interval</ucd>
         -- <unit>sec</unit>
     mjdRef FLOAT(0) NOT NULL,
         -- <descr>Reference MJD for drift (prior to 1972-Jan-1).</descr>
@@ -451,6 +455,7 @@ CREATE TABLE ObjectType
 (
     typeId SMALLINT NOT NULL,
         -- <descr>Unique id.</descr>
+        -- <ucd>meta.id</ucd>
     description VARCHAR(255) NULL,
         -- <ucd>meta.note;src</ucd>
     PRIMARY KEY (typeId)
@@ -770,7 +775,7 @@ CREATE TABLE _mops_EonQueue
 (
     movingObjectId BIGINT NOT NULL,
         -- <descr>Referring derived object</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;src</ucd>
     eventId BIGINT NOT NULL,
         -- <descr>Referring history event causing insertion</descr>
     insertTime TIMESTAMP NOT NULL,
@@ -1027,7 +1032,7 @@ CREATE TABLE mops_SSMDesc
         -- <descr>MOPS prefix code S0/S1/etc.</descr>
     description VARCHAR(100) NULL,
         -- <descr>Long description</descr>
-        -- <ucd>meta.note;src</ucd>
+        -- <ucd>meta.note</ucd>
     PRIMARY KEY (ssmDescId)
 ) ;
 
@@ -1164,7 +1169,7 @@ CREATE TABLE RaftMetadata
 (
     raftId BIGINT NOT NULL,
         -- <descr>tbd</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     metadataKey VARCHAR(255) NOT NULL,
     metadataValue VARCHAR(255) NULL,
     PRIMARY KEY (raftId)
@@ -1174,8 +1179,7 @@ CREATE TABLE RaftMetadata
 CREATE TABLE Raw_Amp_Exposure
 (
     rawAmpExposureId BIGINT NOT NULL,
-        -- <descr>Primary key (unique identif        -- <ucd>meta.code.multip;obs.sequence</ucd>
-ier).</descr>
+        -- <descr>Primary key (unique identifier).</descr>
         -- <ucd>meta.id;obs.image</ucd>
     rawCcdExposureId BIGINT NOT NULL,
         -- <descr>Pointer to Raw_Amp_Exposure containing this science amp
@@ -1189,16 +1193,16 @@ ier).</descr>
         -- <ucd>meta.code.multip;obs.sequence</ucd>
     raft TINYINT NOT NULL,
         -- <descr>Raft id from RaftTable this exposure belongs to.</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     ccd TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     amp TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the AmpMap table.</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of amp center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -1322,7 +1326,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
     snap TINYINT NOT NULL,
         -- <ucd>meta.code.multip;obs.sequence</ucd>
     amp TINYINT NOT NULL,
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     PRIMARY KEY (rawAmpExposureId),
     INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
 ) ENGINE=MyISAM;
@@ -1333,7 +1337,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
     rawAmpExposureId BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     amp TINYINT NOT NULL,
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     snapCcdExposureId BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     PRIMARY KEY (rawAmpExposureId),
@@ -1355,7 +1359,7 @@ CREATE TABLE Raw_Ccd_Exposure
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>degree</unit>
     filterId INTEGER NOT NULL,
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     equinox FLOAT(0) NOT NULL,
         -- <descr>Equinox of World Coordinate System.</descr>
         -- <ucd>pos.equinox</ucd>
@@ -1481,16 +1485,16 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>meta.id;obs.image</ucd>
     visit INTEGER NOT NULL,
         -- <descr>Reference to the corresponding entry in the Visit table.</descr>
-        -- <ucd>obs.exposure</ucd>
+        -- <ucd>meta.id;obs.exposure</ucd>
     raft TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the RaftMap table.</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     ccd TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
-        -- <ucd>meta.id</ucd>
+        -- <ucd>meta.id;inst.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     ra DOUBLE NOT NULL,
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>degree</unit>
@@ -1590,7 +1594,7 @@ CREATE TABLE Science_Ccd_Exposure
     fluxMag0Sigma FLOAT(0) NOT NULL,
         -- <ucd>stat.error;phot.flux.density</ucd>
     fwhm DOUBLE NOT NULL,
-        -- <ucd>instr.obsty.seeing</ucd>
+        -- <ucd>inst.obsty.seeing</ucd>
         -- <unit>arcsec</unit>
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
@@ -1655,7 +1659,7 @@ CREATE TABLE CalibSource
     filterId TINYINT NULL,
         -- <descr>Pointer to an entry in Filter table: filter used to take the
         -- Exposure where this Source was measured.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     astroRefCatId BIGINT NULL,
         -- <descr>Pointer to the corresponding object from the Astrometric
         -- Reference Catalog.</descr>
@@ -1756,7 +1760,7 @@ CREATE TABLE DiaSource
     filterId TINYINT NOT NULL,
         -- <descr>Pointer to an entry in Filter table: filter used to take
         -- Exposure where this diaSource was measured.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     objectId BIGINT NULL,
         -- <descr>Pointer to Object table. Might be NULL (each diaSource will
         -- point to either MovingObject or Object)</descr>
@@ -2272,7 +2276,7 @@ CREATE TABLE Object
     canonicalFilterId TINYINT NULL,
         -- <descr>Id of the filter which is the canonical filter for size,
         -- ellipticity and Sersic index parameters.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     extendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object. Valid
         -- range: 0-1, where 1 indicates an extended object with 100%
@@ -2284,12 +2288,12 @@ CREATE TABLE Object
     earliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time
         -- (taiMidPoint of the first Source)</descr>
-        -- <ucd>time.start</ucd>
+        -- <ucd>time.epoch</ucd>
         -- <unit>TAI</unit>
     latestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed 
         -- (taiMidPoint of the last Source).</descr>
-        -- <ucd>time.end</ucd>
+        -- <ucd>time.epoch</ucd>
         -- <unit>TAI</unit>
     flags INTEGER NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
@@ -2364,10 +2368,11 @@ CREATE TABLE Object
         -- <descr>Time when this object was observed for the first time in u
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
+        -- <unit>TAI</unit>
     uLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in u
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
+        -- <ucd>time.epoch</ucd>
     uSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for u filter.</descr>
     uSersicN_SG_Sigma FLOAT(0) NULL,
@@ -2465,10 +2470,11 @@ CREATE TABLE Object
         -- <descr>Time when this object was observed for the first time in g
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
+        -- <unit>TAI</unit>
     gLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
+        -- <ucd>time.epoch</ucd>
     gSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for g filter.</descr>
     gSersicN_SG_Sigma FLOAT(0) NULL,
@@ -2566,10 +2572,11 @@ CREATE TABLE Object
         -- <descr>Time when this object was observed for the first time in g
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
+        -- <unit>TAI</unit>
     rLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
+        -- <ucd>time.epoch</ucd>
     rSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for r filter.</descr>
     rSersicN_SG_Sigma FLOAT(0) NULL,
@@ -2667,10 +2674,11 @@ CREATE TABLE Object
         -- <descr>Time when this object was observed for the first time in g
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
+        -- <unit>TAI</unit>
     iLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
+        -- <ucd>time.epoch</ucd>
     iSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for i filter.</descr>
     iSersicN_SG_Sigma FLOAT(0) NULL,
@@ -2768,10 +2776,11 @@ CREATE TABLE Object
         -- <descr>Time when this object was observed for the first time in g
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
+        -- <unit>TAI</unit>
     zLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
+        -- <ucd>time.epoch</ucd>
     zSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for z filter.</descr>
     zSersicN_SG_Sigma FLOAT(0) NULL,
@@ -2869,10 +2878,11 @@ CREATE TABLE Object
         -- <descr>Time when this object was observed for the first time in g
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
+        -- <unit>day</unit>
     yLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
         -- filter.</descr>
-        -- <ucd>time.end</ucd>
+        -- <ucd>time.epoch</ucd>
     ySersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for y filter.</descr>
     ySersicN_SG_Sigma FLOAT(0) NULL,
@@ -3371,7 +3381,7 @@ CREATE TABLE Source
     filterId TINYINT NOT NULL,
         -- <descr>Pointer to an entry in Filter table: filter used to take
         -- Exposure where this Source was measured.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
+        -- <ucd>meta.id;inst.filter</ucd>
     objectId BIGINT NULL,
         -- <descr>Pointer to Object table. Might be NULL (each Source will 
         -- point to either MovingObject or Object)</descr>
@@ -3460,7 +3470,7 @@ CREATE TABLE Source
     taiMidPoint DOUBLE NOT NULL,
         -- <descr>Middle of exposure time (TAI).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>mjd</unit>
+        -- <unit>day</unit>
     taiRange FLOAT NULL,
         -- <descr>Exposure time.</descr>
         -- <ucd>time.duration</ucd>
