@@ -15,7 +15,7 @@ CREATE TABLE ZZZ_Db_Description
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
-        -- <descr>The schema file name.</desc>
+        -- <descr>The schema file name.</descr>
     r VARCHAR(255)
         -- <descr>Captures information from 'git describe'.</descr>
 ) ENGINE=MyISAM;

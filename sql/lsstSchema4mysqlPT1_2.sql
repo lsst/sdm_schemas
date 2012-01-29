@@ -1903,6 +1903,7 @@ CREATE TABLE Source
         -- <ucd>meta.id;src</ucd>
     procHistoryId INTEGER NOT NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>meta.id</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>RA of source centroid (equal to raAstrom).</descr>
         -- <ucd>pos.eq.ra</ucd>
