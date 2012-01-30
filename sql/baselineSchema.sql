@@ -364,7 +364,7 @@ CREATE TABLE Filter
     filterName CHAR(255) NOT NULL,
         -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y'
         -- </descr>
-        -- <ucd>inst.bandpass</ucd>
+        -- <ucd>instr.bandpass</ucd>
     photClam FLOAT(0) NOT NULL,
         -- <descr>Filter centroid wavelength</descr>
         -- <ucd>em.wl.effective;inst.filter</ucd>
@@ -1250,15 +1250,19 @@ CREATE TABLE Raw_Amp_Exposure
     cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd1_2 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_2 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
         -- <ucd>pos.eq.ra</ucd>
     llcDecl DOUBLE NOT NULL,
@@ -1374,6 +1378,7 @@ CREATE TABLE Raw_Ccd_Exposure
         -- <ucd>pos.equinox</ucd>
     radecSys VARCHAR(20) NULL,
         -- <descr>Coordinate system type. (Allowed systems: FK5, ICRS)</descr>
+        -- <ucd>pos.frame</ucd>
     dateObs TIMESTAMP NOT NULL DEFAULT 0,
         -- <descr>Date/Time of observation start (UTC).</descr>
     url VARCHAR(255) NOT NULL,
@@ -1406,21 +1411,29 @@ CREATE TABLE Raw_Ccd_Exposure
         -- <descr>Coordinate value 2 @reference pixel.</descr>
         -- <ucd>pos.wcs.crvar</ucd>
         -- <unit>deg</unit>
-    cd11 DOUBLE NOT NULL,
+    cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
-    cd21 DOUBLE NOT NULL,
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
+    cd1_2 DOUBLE NOT NULL,
+        -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
+    cd2_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
+    cd2_2 DOUBLE NOT NULL,
+        -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     darkTime FLOAT(0) NULL,
         -- <descr>Total elapsed time from exposure start to end of read.</descr>
         -- <unit>s</unit>
-    cd12 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
     zd FLOAT(0) NULL,
         -- <descr>Zenith distance at observation mid-point.</descr>
         -- <ucd>pos.az.zd</ucd>
         -- <unit>deg</unit>
-    cd22 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
     taiObs TIMESTAMP NOT NULL DEFAULT 0,
         -- <descr>TAI-OBS = UTC + offset, offset = 32 s from 1/1/1999 to
         -- 1/1/2006</descr>
@@ -1540,15 +1553,19 @@ CREATE TABLE Science_Ccd_Exposure
     cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd1_2 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_2 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
         -- <unit>deg</unit>
     llcDecl DOUBLE NOT NULL,

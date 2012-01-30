@@ -56,7 +56,7 @@ CREATE TABLE Filter
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y', 
         -- 'w', 'V'.</descr>
-        -- <ucd>inst.bandpass</ucd>
+        -- <ucd>instr.bandpass</ucd>
     photClam FLOAT NOT NULL,
         -- <descr>Filter centroid wavelength.</descr>
         -- <ucd>em.wl.effective;inst.filter</ucd>
@@ -192,7 +192,7 @@ CREATE TABLE RefObjMatch
         -- <ucd>pos.angDistance</ucd>
     nRefMatches INTEGER NULL,
         -- <descr>Total number of matches for reference object.</descr>
-        -- <ucd>meta.number<.ucd>
+        -- <ucd>meta.number</ucd>
     nObjMatches INTEGER NULL,
         -- <descr>Total number of matches for object.</descr>
         -- <ucd>meta.number</ucd>
@@ -542,6 +542,7 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>meta.id;inst.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
+        -- <ucd>instr.bandpass</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of amp center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -572,12 +573,20 @@ CREATE TABLE Raw_Amp_Exposure
         -- <unit>deg</unit>
     cd1_1 DOUBLE NOT NULL,
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd1_2 DOUBLE NOT NULL,
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_1 DOUBLE NOT NULL,
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_2 DOUBLE NOT NULL,
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
         -- <ucd>pos.eq.ra</ucd>
     llcDecl DOUBLE NOT NULL,
@@ -668,7 +677,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
 CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
 (
     rawAmpExposureId BIGINT NOT NULL,
-        -- <ucd>meta.id;obs.image<.ucd>
+        -- <ucd>meta.id;obs.image</ucd>
     amp TINYINT NOT NULL,
         -- <ucd>meta.id;inst.det</ucd>
     snapCcdExposureId BIGINT NOT NULL,
@@ -719,7 +728,7 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>meta.id;inst.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
-        -- <ucd>inst.bandpass</ucd>
+        -- <ucd>instr.bandpass</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of CCD center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -758,15 +767,19 @@ CREATE TABLE Science_Ccd_Exposure
     cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd1_2 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     cd2_2 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
         -- <ucd>pos.wcs.cdmatrix</ucd>
+        -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
         -- <ucd>pos.eq.ra</ucd>
     llcDecl DOUBLE NOT NULL,
@@ -1045,7 +1058,7 @@ CREATE TABLE Object
     latestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed (taiMidPoint of
         -- the last Source).</descr>
-        -- <ucd>time.epoch/ucd>
+        -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     meanObsTime DOUBLE NULL,
         -- <descr>The mean of the observation times (taiMidPoint) of the
