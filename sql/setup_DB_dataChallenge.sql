@@ -31,7 +31,7 @@ CREATE TABLE ZZZ_Db_Description
         -- <descr>Captures information from 'git describe'.</descr>
 ) ENGINE=MyISAM;
 
-INSERT INTO ZZZ_Db_Description(f) VALUES('setup_DB_dataChallange.sql');
+INSERT INTO ZZZ_Db_Description(f) VALUES('setup_DB_dataChallenge.sql');
 
 
 CREATE TABLE prv_Activity
