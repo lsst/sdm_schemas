@@ -2329,7 +2329,7 @@ CREATE TABLE SkyTile
     -- <descr>IDs of sky-tiles for which data has been loaded.</descr>
 (
     skyTileId BIGINT NOT NULL,
-    PRIMARY KEY (skyTileId),
+    PRIMARY KEY (skyTileId)
 ) ENGINE=MyISAM;
 
 
