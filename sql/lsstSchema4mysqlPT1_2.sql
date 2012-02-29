@@ -2325,6 +2325,14 @@ CREATE TABLE Source
 ) ENGINE=MyISAM;
 
 
+CREATE TABLE SkyTile
+    -- <descr>IDs of sky-tiles for which data has been loaded.</descr>
+(
+    skyTileId BIGINT NOT NULL,
+    PRIMARY KEY (skyTileId),
+) ENGINE=MyISAM;
+
+
 SET FOREIGN_KEY_CHECKS=1;
 
 
