@@ -91,7 +91,7 @@ CREATE TABLE prv_Filter
     focalPlaneId TINYINT NOT NULL,
         -- <descr>Pointer to FocalPlane - focal plane this filter belongs to.
         -- </descr>
-    name VARCHAR(80) NOT NULL,
+    theName VARCHAR(80) NOT NULL,
         -- <descr>String description of the filter,e.g. 'VR SuperMacho c6027'.
         -- </descr>
         -- <ucd>meta.note</ucd>
