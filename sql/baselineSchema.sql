@@ -1176,7 +1176,7 @@ CREATE TABLE _Raw_Ccd_ExposureToVisit
 
 
 CREATE TABLE FpaMetadata
-    -- <descr>Focal-plane-related generic key-value pair metadata./descr>
+    -- <descr>Focal-plane-related generic key-value pair metadata.</descr>
 (
     ccdExposureId BIGINT NOT NULL,
         -- <descr>Id of the corresponding Raw or Science Ccd_Exposure.
