@@ -47,7 +47,7 @@ CREATE TABLE prv_Activity
         -- <ucd>meta.id</ucd>
     offset MEDIUMINT NOT NULL,
         -- <descr>Corresponding prv_Run offset.</descr>
-    name VARCHAR(64) NOT NULL,
+    theName VARCHAR(64) NOT NULL,
         -- <descr>A name for the activity.</descr>
         -- <ucd>meta.note</ucd>
     type VARCHAR(64) NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE prv_Filter
         -- <descr>Filter effective bandwidth (Angstroms). (Added from archive
         -- specs for LSST precursor data).</descr>
     PRIMARY KEY (filterId),
-    UNIQUE name(name),
+    UNIQUE UQ_theName(theName),
     INDEX focalPlaneId (focalPlaneId ASC)
 ) ENGINE=MyISAM;
 
@@ -353,7 +353,7 @@ CREATE TABLE Durations
 (
     id INTEGER NOT NULL AUTO_INCREMENT,
     RUNID VARCHAR(80) NULL,
-    name VARCHAR(80) NULL,
+    theName VARCHAR(80) NULL,
     workerid VARCHAR(80) NULL,
     stagename VARCHAR(80) NULL,
     SLICEID INTEGER NULL DEFAULT -1,
