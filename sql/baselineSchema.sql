@@ -369,7 +369,7 @@ CREATE TABLE Durations
     PRIMARY KEY (id),
     INDEX dur_runid (RUNID ASC),
     INDEX idx_durations_pipeline (PIPELINE ASC),
-    INDEX idx_durations_name (name ASC)
+    INDEX idx_durations_theName (theName ASC)
 ) ENGINE=MyISAM;
 
 
