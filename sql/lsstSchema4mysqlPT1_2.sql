@@ -657,7 +657,7 @@ CREATE TABLE Raw_Amp_Exposure
         -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
         -- exposure.</descr>
         -- <ucd>time.epoch</ucd>
-    expTime FLOAT(0) NOT NULL,
+    expTime FLOAT NOT NULL,
         -- <descr>Duration of exposure.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
@@ -871,7 +871,7 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
         -- combined exposure.</descr>
         -- <ucd>time.epoch</ucd>
-    expTime FLOAT(0) NOT NULL,
+    expTime FLOAT NOT NULL,
         -- <descr>Duration of exposure.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
@@ -1982,7 +1982,7 @@ CREATE TABLE Object
     yEllipticity_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute yE1_SG, yE2_SG, and
         -- yRadius_SG.</descr>
-        -- <ucd>meta.number<;stat.value/ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     yFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>
