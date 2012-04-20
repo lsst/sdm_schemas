@@ -44,9 +44,9 @@ CREATE TABLE AmpMap
     -- <descr>Mapping table to translate amp names to numbers.</descr>
 (
     ampNum TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     ampName CHAR(3) NOT NULL,
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     PRIMARY KEY (ampNum),
     UNIQUE UQ_AmpMap_ampName(ampName)
 ) ENGINE=MyISAM;
@@ -56,9 +56,9 @@ CREATE TABLE CcdMap
     -- <descr>Mapping table to translate ccd names to numbers.</descr>
 (
     ccdNum TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     ccdName CHAR(3) NOT NULL,
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     PRIMARY KEY (ccdNum),
     UNIQUE UQ_CcdMap_ccdName(ccdName)
 ) ENGINE=MyISAM;
@@ -68,18 +68,18 @@ CREATE TABLE Filter
 (
     filterId TINYINT NOT NULL,
         -- <descr>Unique id (primary key).</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y', 
         -- 'w', 'V'.</descr>
         -- <ucd>instr.bandpass</ucd>
     photClam FLOAT NOT NULL,
         -- <descr>Filter centroid wavelength.</descr>
-        -- <ucd>em.wl.effective;inst.filter</ucd>
+        -- <ucd>em.wl.effective;instr.filter</ucd>
         -- <unit>nm</unit>
     photBW FLOAT NOT NULL,
         -- <descr>System effective bandwidth.</descr>
-        -- <ucd>inst.bandwidth</ucd>
+        -- <ucd>instr.bandwidth</ucd>
         -- <unit>nm</unit>
     PRIMARY KEY (filterId)
 ) ENGINE=MyISAM;
@@ -172,9 +172,9 @@ CREATE TABLE RaftMap
     -- <descr>Mapping table to translate raft names to numbers.</descr>
 (
     raftNum TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     raftName CHAR(3) NOT NULL,
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     PRIMARY KEY (raftNum),
     UNIQUE UQ_RaftMap_raftName(raftName)
 ) ENGINE=MyISAM;
@@ -381,15 +381,19 @@ CREATE TABLE SimRefObject
         -- <ucd>src.redshift</ucd>
     semiMajorBulge DOUBLE NULL,
         -- <descr>Semi-major axis length of galaxy bulge. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMinorBulge DOUBLE NULL,
         -- <descr>Semi-minor axis length of galaxy bulge. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMajorDisk DOUBLE NULL,
         -- <descr>Semi-major axis length of galaxy disk. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     semiMinorDisk DOUBLE NULL,
         -- <descr>Semi-minor axis length of galaxy disk. NULL for stars.</descr>
+        -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
     uCov SMALLINT NOT NULL,
         -- <descr>Number of u-band science CCDs containing reference object.</descr>
@@ -540,22 +544,22 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>meta.id</ucd>
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name, pulled in from the RaftMap table.</descr>
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     ccd TINYINT NOT NULL,
         -- <descr>ccd id from CcdMap table this exposure belongs to.</descr>
         -- <ucd>meta.id</ucd>
     ccdName CHAR(3) NOT NULL,
         -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     amp TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the AmpMap table.</descr>
         -- <ucd>meta.id</ucd>
     ampName CHAR(3) NOT NULL,
         -- <descr>Amp name, pulled in from the AmpMap table.</descr>
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
         -- <ucd>instr.bandpass</ucd>
@@ -582,10 +586,10 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crval1 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     crval2 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     cd1_1 DOUBLE NOT NULL,
         -- <ucd>pos.wcs.cdmatrix</ucd>
@@ -604,36 +608,57 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
     llcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     ulcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     ulcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     urcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     urcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     lrcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     lrcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     taiMjd DOUBLE NOT NULL,
-        -- <ucd>time.epoch</ucd>
+        -- <descr>Time (MJD, TAI) at the start of the exposure.</descr>
+        -- <ucd>time.start</ucd>
         -- <unit>d</unit>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        -- <descr>Time (UTC, 1s precision) at the start of the
+        -- exposure.</descr>
         -- <ucd>time.start</ucd>
     expMidpt VARCHAR(30) NOT NULL,
+        -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
+        -- exposure.</descr>
         -- <ucd>time.epoch</ucd>
-    expTime FLOAT NOT NULL,
+    expTime FLOAT(0) NOT NULL,
+        -- <descr>Duration of exposure.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
     airmass FLOAT NOT NULL,
@@ -684,7 +709,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
     amp TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the AmpMap table.
         -- </descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     PRIMARY KEY (rawAmpExposureId),
     KEY scienceCcdExposureId (scienceCcdExposureId ASC)
 ) ENGINE=MyISAM;
@@ -695,7 +720,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
     rawAmpExposureId BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     amp TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     snapCcdExposureId BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     PRIMARY KEY (rawAmpExposureId),
@@ -732,16 +757,16 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>meta.id</ucd>
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name, pulled in from the RaftMap table.</descr>
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     ccd TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
         -- <ucd>meta.id</ucd>
     ccdName CHAR(3) NOT NULL,
         -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
         -- <ucd>instr.bandpass</ucd>
@@ -774,11 +799,11 @@ CREATE TABLE Science_Ccd_Exposure
         -- <unit>pixel</unit>
     crval1 DOUBLE NOT NULL,
         -- <descr>Coordinate value 1 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     crval2 DOUBLE NOT NULL,
         -- <descr>Coordinate value 2 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
@@ -797,37 +822,56 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
     llcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     ulcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     ulcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     urcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     urcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     lrcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     lrcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     taiMjd DOUBLE NOT NULL,
-        -- <descr>Date of the start of the exposure.</descr>
+        -- <descr>Time (MJD, TAI) at the start of the exposure</descr>
         -- <ucd>time.start</ucd>
         -- <unit>d</unit>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        -- <descr>Time (UTC, 1s precision) at the start of the
+        -- exposure.</descr>
         -- <ucd>time.start</ucd>
     expMidpt VARCHAR(30) NOT NULL,
+        -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
+        -- combined exposure.</descr>
         -- <ucd>time.epoch</ucd>
-    expTime FLOAT NOT NULL,
+    expTime FLOAT(0) NOT NULL,
         -- <descr>Duration of exposure.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
@@ -843,23 +887,23 @@ CREATE TABLE Science_Ccd_Exposure
         -- <unit>pixel</unit>
     readNoise FLOAT NOT NULL,
         -- <descr>Read noise of the ccd.</descr>
-        -- <ucd>inst.det.noise</ucd>
+        -- <ucd>instr.det.noise</ucd>
         -- <unit>adu</unit>
     saturationLimit INTEGER NOT NULL,
         -- <descr>Saturation limit for the ccd (average of the amplifiers).
         -- </descr>
-        -- <ucd>inst.saturation</ucd>
-        -- <ucd>arith.factor;inst.det</ucd>
+        -- <ucd>instr.saturation</ucd>
+        -- <ucd>arith.factor;instr.det</ucd>
         -- <unit>electron/adu</unit>
     gainEff DOUBLE NOT NULL,
-        -- <ucd>arith.factor;inst.det</ucd>
+        -- <ucd>arith.factor;instr.det</ucd>
         -- <unit>electron/adu</unit>
     fluxMag0 FLOAT NOT NULL,
         -- <ucd>phot.flux.density</ucd>
     fluxMag0Sigma FLOAT NOT NULL,
         -- <ucd>stat.error;phot.flux.density</ucd>
     fwhm DOUBLE NOT NULL,
-        -- <ucd>inst.obsty.seeing</ucd>
+        -- <ucd>instr.obsty.seeing</ucd>
         -- <unit>arcsec</unit>
     poly BINARY(120) NOT NULL,
         -- <descr>Binary representation of the 4-corner polygon for the ccd.
@@ -1027,37 +1071,37 @@ CREATE TABLE Object
         -- <descr>Not set for PT1.2. Proper motion (ra) for the Point Source
         -- model.</descr>
         -- <ucd>pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muRa_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of muRa_PS.</descr>
         -- <ucd>stat.error;pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muDecl_PS DOUBLE NULL,
         -- <descr>Not set for PT1.2. Proper motion (decl) for the Point Source
         -- model.</descr>
         -- <ucd>pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muDecl_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of muDecl_PS.</descr>
         -- <ucd>stat.error;pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muRaDecl_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of muRa_PS and muDecl_PS.
         -- </descr>
         -- <ucd>stat.covariance;pos.eq</ucd>
-        -- <unit>(deg/yr)^2</unit>
+        -- <unit>(mas/yr)^2</unit>
     parallax_PS DOUBLE NULL,
         -- <descr>Not set for PT1.2. Parallax for Point Source model.</descr>
         -- <ucd>pos.parallax</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas</unit>
     parallax_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of parallax_PS.</descr>
         -- <ucd>stat.error;pos.parallax</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas</unit>
     canonicalFilterId TINYINT NULL,
         -- <descr>Not set for PT1.2. Id of the filter which is the canonical
         -- filter for size, ellipticity and Sersic index parameters.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     extendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object. Valid range: 0-10,000 (divide by 100 to get the actual
@@ -1067,18 +1111,18 @@ CREATE TABLE Object
         -- Valid range: 0-1, where 1 indicates a variable object with 100%
         -- probability.</descr>
     earliestObsTime DOUBLE NULL,
-        -- <descr>Time when this object was observed for the first time
-        -- (taiMidPoint of the first Source).</descr>
+        -- <descr>Time when this object was observed for the first time,
+        -- MJD TAI (taiMidPoint of the first Source).</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     latestObsTime DOUBLE NULL,
-        -- <descr>The latest time when this object was observed (taiMidPoint of
-        -- the last Source).</descr>
+        -- <descr>The latest time when this object was observed, MJD TAI 
+        -- (taiMidPoint of the last Source).</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     meanObsTime DOUBLE NULL,
         -- <descr>The mean of the observation times (taiMidPoint) of the
-        -- sources associated with this object.</descr>
+        -- sources associated with this object, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     flags INTEGER NULL,
@@ -1086,7 +1130,7 @@ CREATE TABLE Object
         -- <ucd>meta.code</ucd>
     uNumObs INTEGER NULL,
         -- <descr>Number of u-band sources associated with this object.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     uExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object for u filter. Valid range: 0-10,000 (divide by 100 to get the 
@@ -1101,27 +1145,33 @@ CREATE TABLE Object
         -- </descr>
     uRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     uDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for u filter.
         -- </descr>
     uDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     uRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of uRaOffset_PS and
         -- uDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for u
         -- filter.</descr>
     uRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     uDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for u filter.
         -- </descr>
     uDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     uRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of uRaOffset_SG and
         -- uDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     uLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- u filter.</descr>
@@ -1131,43 +1181,43 @@ CREATE TABLE Object
     uFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of u-band sources
         -- belonging to this object.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of uFlux_PS (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uFlux_ESG FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of u-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of uFlux_ESG (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of u-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an elliptical Gaussian model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uFlux_Gaussian_Sigma FLOAT NULL,
         -- <descr>Uncertainty of uFlux_Gaussian (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     uTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for u filter.</descr>
         -- <unit>d</unit>
     uEarliestObsTime DOUBLE NULL,
-        -- <descr>Time (TAI) when this object was observed for the first time in
+        -- <descr>Time (MJD TAI) when this object was observed for the first time in
         -- u filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     uLatestObsTime DOUBLE NULL,
-        -- <descr>The latest time (TAI) when this object was observed in u
+        -- <descr>The latest time (MJD TAI) when this object was observed in u
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -1176,6 +1226,7 @@ CREATE TABLE Object
         -- filter.</descr>
     uSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of uSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     uE1_SG FLOAT NULL,
         -- <descr>Inverse variance weighted mean u-band ellipticity of source
         -- cluster in a tangent plane centered on (ra_PS, decl_PS) and with
@@ -1206,23 +1257,23 @@ CREATE TABLE Object
         -- <unit>arcsec</unit>
     uFlux_PS_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute uFlux_PS.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     uFlux_ESG_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute uFlux_ESG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     uFlux_Gaussian_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute uFlux_Gaussian.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     uEllipticity_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute uE1_SG, uE2_SG, and 
         -- uRadius_SG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     uFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>
     gNumObs INTEGER NULL,
         -- <descr>Number of g-band sources associated with this object.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     gExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object for g filter. Valid range: 0-10,000 (divide by 100 to get the 
@@ -1237,27 +1288,33 @@ CREATE TABLE Object
         -- </descr>
     gRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     gDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for g filter.
         -- </descr>
     gDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     gRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of gRaOffset_PS and
         -- gDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for g
         -- filter.</descr>
     gRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     gDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for g filter.
         -- </descr>
     gDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     gRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of gRaOffset_SG and
         -- gDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     gLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- g filter.</descr>
@@ -1267,43 +1324,43 @@ CREATE TABLE Object
     gFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of g-band sources
         -- belonging to this object.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of gFlux_PS (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gFlux_ESG FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of g-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of gFlux_ESG (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of g-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an elliptical Gaussian model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gFlux_Gaussian_Sigma FLOAT NULL,
         -- <descr>Uncertainty of gFlux_Gaussian (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     gTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for g filter.</descr>
         -- <unit>d</unit>
     gEarliestObsTime DOUBLE NULL,
-        -- <descr>Time (TAI) when this object was observed for the first time in
+        -- <descr>Time (MJD TAI) when this object was observed for the first time in
         -- g filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     gLatestObsTime DOUBLE NULL,
-        -- <descr>The latest time (TAI) when this object was observed in g
+        -- <descr>The latest time (MJD TAI) when this object was observed in g
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -1312,6 +1369,7 @@ CREATE TABLE Object
         -- filter.</descr>
     gSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of gSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     gE1_SG FLOAT NULL,
         -- <descr>Inverse variance weighted mean g-band ellipticity of source
         -- cluster in a tangent plane centered on (ra_PS, decl_PS) and with
@@ -1342,23 +1400,23 @@ CREATE TABLE Object
         -- <unit>arcsec</unit>
     gFlux_PS_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute gFlux_PS.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     gFlux_ESG_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute gFlux_ESG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     gFlux_Gaussian_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute gFlux_Gaussian.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     gEllipticity_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute gE1_SG, gE2_SG, and 
         -- gRadius_SG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     gFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>
     rNumObs INTEGER NULL,
         -- <descr>Number of r-band sources associated with this object.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     rExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object for r filter. Valid range: 0-10,000 (divide by 100 to get the 
@@ -1373,27 +1431,33 @@ CREATE TABLE Object
         -- </descr>
     rRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     rDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for r filter.
         -- </descr>
     rDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     rRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of rRaOffset_PS and
         -- rDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for r
         -- filter.</descr>
     rRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     rDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for r filter.
         -- </descr>
     rDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     rRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of rRaOffset_SG and
         -- rDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     rLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- r filter.</descr>
@@ -1403,43 +1467,43 @@ CREATE TABLE Object
     rFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of r-band sources
         -- belonging to this object.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of rFlux_PS (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rFlux_ESG FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of r-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of rFlux_ESG (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of r-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an elliptical Gaussian model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rFlux_Gaussian_Sigma FLOAT NULL,
         -- <descr>Uncertainty of rFlux_Gaussian (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     rTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for r filter.</descr>
         -- <unit>d</unit>
     rEarliestObsTime DOUBLE NULL,
-        -- <descr>Time (TAI) when this object was observed for the first time in
+        -- <descr>Time (MJD TAI) when this object was observed for the first time in
         -- r filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     rLatestObsTime DOUBLE NULL,
-        -- <descr>The latest time (TAI) when this object was observed in r
+        -- <descr>The latest time (MJD TAI) when this object was observed in r
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -1448,6 +1512,7 @@ CREATE TABLE Object
         -- filter.</descr>
     rSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of rSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     rE1_SG FLOAT NULL,
         -- <descr>Inverse variance weighted mean r-band ellipticity of source
         -- cluster in a tangent plane centered on (ra_PS, decl_PS) and with
@@ -1478,23 +1543,23 @@ CREATE TABLE Object
         -- <unit>arcsec</unit>
     rFlux_PS_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute rFlux_PS.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     rFlux_ESG_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute rFlux_ESG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     rFlux_Gaussian_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute rFlux_Gaussian.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     rEllipticity_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute rE1_SG, rE2_SG, and 
         -- rRadius_SG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     rFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>
     iNumObs INTEGER NULL,
         -- <descr>Number of i-band sources associated with this object.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     iExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object for i filter. Valid range: 0-10,000 (divide by 100 to get the 
@@ -1509,27 +1574,33 @@ CREATE TABLE Object
         -- </descr>
     iRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     iDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for i filter.
         -- </descr>
     iDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     iRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of iRaOffset_PS and
         -- iDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for i
         -- filter.</descr>
     iRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     iDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for i filter.
         -- </descr>
     iDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     iRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of iRaOffset_SG and
         -- iDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     iLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- i filter.</descr>
@@ -1539,43 +1610,43 @@ CREATE TABLE Object
     iFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of i-band sources
         -- belonging to this object.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of iFlux_PS (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iFlux_ESG FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of i-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of iFlux_ESG (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of i-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an elliptical Gaussian model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iFlux_Gaussian_Sigma FLOAT NULL,
         -- <descr>Uncertainty of iFlux_Gaussian (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     iTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for i filter.</descr>
         -- <unit>d</unit>
     iEarliestObsTime DOUBLE NULL,
-        -- <descr>Time (TAI) when this object was observed for the first time in
+        -- <descr>Time (MJD TAI) when this object was observed for the first time in
         -- i filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     iLatestObsTime DOUBLE NULL,
-        -- <descr>The latest time (TAI) when this object was observed in i
+        -- <descr>The latest time (MJD TAI) when this object was observed in i
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -1584,6 +1655,7 @@ CREATE TABLE Object
         -- filter.</descr>
     iSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of iSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     iE1_SG FLOAT NULL,
         -- <descr>Inverse variance weighted mean i-band ellipticity of source
         -- cluster in a tangent plane centered on (ra_PS, decl_PS) and with
@@ -1614,23 +1686,23 @@ CREATE TABLE Object
         -- <unit>arcsec</unit>
     iFlux_PS_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute iFlux_PS.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     iFlux_ESG_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute iFlux_ESG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     iFlux_Gaussian_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute iFlux_Gaussian.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     iEllipticity_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute iE1_SG, iE2_SG, and 
         -- iRadius_SG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     iFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>
     zNumObs INTEGER NULL,
         -- <descr>Number of z-band sources associated with this object.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     zExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object for z filter. Valid range: 0-10,000 (divide by 100 to get the 
@@ -1645,27 +1717,33 @@ CREATE TABLE Object
         -- </descr>
     zRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     zDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for z filter.
         -- </descr>
     zDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     zRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of zRaOffset_PS and
         -- zDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for z
         -- filter.</descr>
     zRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     zDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for z filter.
         -- </descr>
     zDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     zRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of zRaOffset_SG and
         -- zDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     zLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- z filter.</descr>
@@ -1675,43 +1753,43 @@ CREATE TABLE Object
     zFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of z-band sources
         -- belonging to this object.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of zFlux_PS (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zFlux_ESG FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of z-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of zFlux_ESG (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of z-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an elliptical Gaussian model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zFlux_Gaussian_Sigma FLOAT NULL,
         -- <descr>Uncertainty of zFlux_Gaussian (standard deviation).</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     zTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for z filter.</descr>
         -- <unit>d</unit>
     zEarliestObsTime DOUBLE NULL,
-        -- <descr>Time (TAI) when this object was observed for the first time in
+        -- <descr>Time (MJD TAI) when this object was observed for the first time in
         -- z filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     zLatestObsTime DOUBLE NULL,
-        -- <descr>The latest time (TAI) when this object was observed in z
+        -- <descr>The latest time (MJD TAI) when this object was observed in z
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -1720,6 +1798,7 @@ CREATE TABLE Object
         -- filter.</descr>
     zSersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of zSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     zE1_SG FLOAT NULL,
         -- <descr>Inverse variance weighted mean z-band ellipticity of source
         -- cluster in a tangent plane centered on (ra_PS, decl_PS) and with
@@ -1750,23 +1829,23 @@ CREATE TABLE Object
         -- <unit>arcsec</unit>
     zFlux_PS_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute zFlux_PS.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     zFlux_ESG_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute zFlux_ESG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     zFlux_Gaussian_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute zFlux_Gaussian.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     zEllipticity_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute zE1_SG, zE2_SG, and 
         -- zRadius_SG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     zFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>
     yNumObs INTEGER NULL,
         -- <descr>Number of y-band sources associated with this object.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     yExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object for y filter. Valid range: 0-10,000 (divide by 100 to get the 
@@ -1781,27 +1860,33 @@ CREATE TABLE Object
         -- </descr>
     yRaOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     yDeclOffset_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_PS for y filter.
         -- </descr>
     yDeclOffset_PS_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     yRaDeclOffset_PS_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of yRaOffset_PS and
         -- yDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRaOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of raOffset_SG for y
         -- filter.</descr>
     yRaOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     yDeclOffset_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Center correction of decl_SG for y filter.
         -- </descr>
     yDeclOffset_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     yRaDeclOffset_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of yRaOffset_SG and
         -- yDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     yLnL_PS FLOAT NULL,
         -- <descr>Not set for PT1.2. Log-likelihood of being a Point Source for
         -- y filter.</descr>
@@ -1811,43 +1896,43 @@ CREATE TABLE Object
     yFlux_PS FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB PSF flux of y-band sources
         -- belonging to this object.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yFlux_PS_Sigma FLOAT NULL,
         -- <descr>Uncertainty of yFlux_PS (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yFlux_ESG FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of y-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an Experimental Small Galaxy model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yFlux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of yFlux_ESG (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yFlux_Gaussian FLOAT NULL,
         -- <descr>Inverse variance weighted mean AB flux of y-band sources
         -- belonging to this object. Fluxes of individual sources estimated
         -- using an elliptical Gaussian model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yFlux_Gaussian_Sigma FLOAT NULL,
         -- <descr>Uncertainty of yFlux_Gaussian (standard deviation).</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2/Hz</unit>
     yTimescale FLOAT NULL,
         -- <descr>Not set for PT1.2. Characteristic timescale of flux variations
         -- for y filter.</descr>
         -- <unit>d</unit>
     yEarliestObsTime DOUBLE NULL,
-        -- <descr>Time (TAI) when this object was observed for the first time in
+        -- <descr>Time (MJD TAI) when this object was observed for the first time in
         -- y filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     yLatestObsTime DOUBLE NULL,
-        -- <descr>The latest time (TAI) when this object was observed in y
+        -- <descr>The latest time (MJD TAI) when this object was observed in y
         -- filter.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -1856,6 +1941,7 @@ CREATE TABLE Object
         -- filter.</descr>
     ySersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of ySersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     yE1_SG FLOAT NULL,
         -- <descr>Inverse variance weighted mean y-band ellipticity of source
         -- cluster in a tangent plane centered on (ra_PS, decl_PS) and with
@@ -1886,17 +1972,17 @@ CREATE TABLE Object
         -- <unit>arcsec</unit>
     yFlux_PS_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute yFlux_PS.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     yFlux_ESG_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute yFlux_ESG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     yFlux_Gaussian_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute yFlux_Gaussian.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     yEllipticity_Num SMALLINT NULL,
         -- <descr>Number of sources used to compute yE1_SG, yE2_SG, and
         -- yRadius_SG.</descr>
-        -- <ucd>meta.number</ucd>
+        -- <ucd>meta.number<;stat.value/ucd>
     yFlags INTEGER NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>
@@ -1921,7 +2007,7 @@ CREATE TABLE Source
         -- <ucd>meta.id;obs.image</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this source.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     objectId BIGINT NULL,
         -- <descr>The object this source was assigned to. NULL if the PT1.2
         -- clustering algorithm generated a single-source object for this
@@ -1934,7 +2020,7 @@ CREATE TABLE Source
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.id</ucd>
     ra DOUBLE NOT NULL,
-        -- <descr>RA of source centroid (equal to raAstrom).</descr>
+        -- <descr>ICRS RA of source centroid (equal to raAstrom).</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     raSigmaForDetection FLOAT NULL,
@@ -1948,7 +2034,8 @@ CREATE TABLE Source
         -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
-        -- <descr>Declination of source centroid (equal to declAstrom).</descr>
+        -- <descr>ICRS Declination of source centroid
+        -- (equal to declAstrom).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     declSigmaForDetection FLOAT NULL,
@@ -1966,46 +2053,52 @@ CREATE TABLE Source
         -- <ucd>pos.HTM</ucd>
     xFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>pos.cartesian.x</ucd>
+        -- <unit>pixel</unit>
     xFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of xFlux.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>stat.error;pos.cartesian.x</ucd>
+        -- <unit>pixel</unit>
     yFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>pos.cartesian.y</ucd>
+        -- <unit>pixel</unit>
     yFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of yFlux.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>stat.error;pos.cartesian.y</ucd>
+        -- <unit>pixel</unit>
     raFlux DOUBLE NULL,
-        -- <descr>Not set for PT1.2. RA of (xFlux, yFlux).</descr>
-        -- <ucd>phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <descr>Not set for PT1.2. ICRS RA of (xFlux, yFlux).</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
     raFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of raFlux.</descr>
-        -- <ucd>stat.err;phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
+        -- <unit>deg</unit>
     declFlux DOUBLE NULL,
-        -- <descr>Not set for PT1.2. Dec of (xFlux, yFlux).</descr>
-        -- <ucd>phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <descr>Not set for PT1.2. ICRS Dec of (xFlux, yFlux).</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
     declFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of declFlux.</descr>
-        -- <ucd>stat.err;phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
+        -- <unit>deg</unit>
     xPeak DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>pos.cartesian.x</ucd>
         -- <unit>pixel</unit>
     yPeak DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>pos.cartesian.y</ucd>
         -- <unit>pixel</unit>
     raPeak DOUBLE NULL,
         -- <descr>Not set for PT1.2. RA of (xPeak, yPeak).</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
     declPeak DOUBLE NULL,
         -- <descr>Not set for PT1.2. Dec of (xPeak, yPeak).</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
     xAstrom DOUBLE NULL,
         -- <descr>Position (x) measured for purposes of astrometry.</descr>
         -- <ucd>pos.cartesian.x</ucd>
@@ -2023,7 +2116,7 @@ CREATE TABLE Source
         -- <ucd>stat.error;pos.cartesian.x</ucd>
         -- <unit>pixel</unit>
     raAstrom DOUBLE NULL,
-        -- <descr>RA of (xAstrom, yAstrom).</descr>
+        -- <descr>ICRS RA of (xAstrom, yAstrom).</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     raAstromSigma FLOAT NULL,
@@ -2031,7 +2124,7 @@ CREATE TABLE Source
         -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     declAstrom DOUBLE NULL,
-        -- <descr>Dec of (xAstrom, yAstrom).</descr>
+        -- <descr>ICRS Dec of (xAstrom, yAstrom).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     declAstromSigma FLOAT NULL,
@@ -2049,7 +2142,7 @@ CREATE TABLE Source
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     taiMidPoint DOUBLE NOT NULL,
-        -- <descr>Middle of exposure time (TAI).</descr>
+        -- <descr>Middle of exposure time (MJD, TAI).</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     taiRange FLOAT NULL,
@@ -2058,86 +2151,98 @@ CREATE TABLE Source
         -- <unit>s</unit>
     psfFlux DOUBLE NULL,
         -- <descr>Uncalibrated PSF flux of source.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     psfFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of psfFlux.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     apFlux DOUBLE NULL,
         -- <descr>Uncalibrated aperture flux of source.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     apFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of apFlux.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     modelFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     modelFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     petroFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     petroFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     instFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     instFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     nonGrayCorrFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     nonGrayCorrFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     atmCorrFlux DOUBLE NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     atmCorrFluxSigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     apDia FLOAT NULL,
         -- <descr>Not set for PT1.2</descr>
     Ixx FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
+        -- <unit>pixel^2</unit>
     IxxSigma FLOAT NULL,
         -- <descr>Uncertainty of Ixx.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>pixel^2</unit>
     Iyy FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
+        -- <unit>pixel^2</unit>
     IyySigma FLOAT NULL,
         -- <descr>Uncertainty of Iyy.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>pixel^2</unit>
     Ixy FLOAT NULL,
         -- <descr>Adaptive second moment.</descr>
+        -- <unit>pixel^2</unit>
     IxySigma FLOAT NULL,
         -- <descr>Uncertainty of Ixy.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>pixel^2</unit>
     psfIxx FLOAT NULL,
         -- <descr>PSF adaptive second moment.</descr>
     psfIxxSigma FLOAT NULL,
         -- <descr>ncertainty of psfIxx.</descr>
+        -- <ucd>stat.error</ucd>
     psfIyy FLOAT NULL,
         -- <descr>PSF adaptive second moment.</descr>
     psfIyySigma FLOAT NULL,
         -- <descr>Uncertainty of psfIyy.</descr>
+        -- <ucd>stat.error</ucd>
     psfIxy FLOAT NULL,
         -- <descr>PSF adaptive second moment.</descr>
     psfIxySigma FLOAT NULL,
         -- <descr>Uncertainty of psfIxy.</descr>
+        -- <ucd>stat.error</ucd>
     e1_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Ellipticity for the Small Galaxy described
         -- through e1/e2.</descr>
@@ -2193,31 +2298,33 @@ CREATE TABLE Source
         -- <descr>Not set for PT1.2.</descr>
     skySigma FLOAT NULL,
         -- <descr>Not set for PT1.2.</descr>
+        -- <ucd>stat.error</ucd>
     extendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
         -- object. Valid range: 0-10,000 (divide by 100 to get the actual
         -- probability in the range 0-100% with 2 digit precision).</descr>
     flux_Gaussian DOUBLE NULL,
         -- <descr>Uncalibrated flux estimated using an elliptical Gaussian model.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     flux_Gaussian_Sigma FLOAT NULL,
         -- <descr>Uncertainty of flux_Gaussian.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     flux_ESG DOUBLE NULL,
         -- <descr>Uncalibrated flux for Experimental Small Galaxy model.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     flux_ESG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of flux_ESG.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
         -- <unit>adu</unit>
     sersicN_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Sersic index for Small Galaxy model.
         -- </descr>
     sersicN_SG_Sigma FLOAT NULL,
         -- <descr>Not set for PT1.2. Uncertainty of sersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     radius_SG FLOAT NULL,
         -- <descr>Not set for PT1.2. Size of Small Galaxy model.</descr>
         -- <ucd>phys.angSize</ucd>
@@ -2227,48 +2334,63 @@ CREATE TABLE Source
     flux_flux_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and flux for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_e1_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and e1 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_e2_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and e2 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of flux and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_e1_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and e1 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_e2_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and e2 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e1 and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e2_e2_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e2 and e2 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e2_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e2 and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e2_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of e2 and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     radius_radius_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of radius and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     radius_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance of radius and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     sersicN_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Not set for PT1.2. Covariance for sersicN and sersicN for
         -- Small Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flagForAssociation SMALLINT NULL,
         -- <descr>Not set for PT1.2.</descr>
         -- <ucd>meta.code</ucd>

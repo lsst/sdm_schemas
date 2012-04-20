@@ -87,7 +87,7 @@ CREATE TABLE prv_Filter
 (
     filterId TINYINT NOT NULL,
         -- <descr>Unique id.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     focalPlaneId TINYINT NOT NULL,
         -- <descr>Pointer to FocalPlane - focal plane this filter belongs to.
         -- </descr>
@@ -309,9 +309,9 @@ CREATE TABLE AmpMap
     -- <descr>Mapping table to translate amp names to numbers.</descr>
 (
     ampNum TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     ampName CHAR(3) NOT NULL,
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     PRIMARY KEY (ampNum),
     UNIQUE UQ_AmpMap_ampName(ampName)
 ) ;
@@ -321,7 +321,7 @@ CREATE TABLE Ccd_Detector
 (
     ccdDetectorId INTEGER NOT NULL DEFAULT 1,
         -- <descr>from file name (required for raw science images)</descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     biasSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
         -- <descr>Bias section (ex: '[2045:2108,1:4096]')</descr>
     trimSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
@@ -340,9 +340,9 @@ CREATE TABLE CcdMap
     -- <descr>Mapping table to translate ccd names to numbers.</descr>
 (
     ccdNum TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     ccdName CHAR(3) NOT NULL,
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     PRIMARY KEY (ccdNum),
     UNIQUE UQ_CcdMap_ccdName(ccdName)
 ) ;
@@ -376,18 +376,18 @@ CREATE TABLE Durations
 CREATE TABLE Filter
 (
     filterId TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     filterName CHAR(255) NOT NULL,
         -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y'
         -- </descr>
         -- <ucd>instr.bandpass</ucd>
     photClam FLOAT(0) NOT NULL,
         -- <descr>Filter centroid wavelength</descr>
-        -- <ucd>em.wl.effective;inst.filter</ucd>
+        -- <ucd>em.wl.effective;instr.filter</ucd>
         -- <unit>nm</unit>
     photBW FLOAT(0) NOT NULL,
         -- <descr>System effective bandwidth</descr>
-        -- <ucd>inst.bandwidth</ucd>
+        -- <ucd>instr.bandwidth</ucd>
         -- <unit>nm</unit>
     PRIMARY KEY (filterId)
 ) ENGINE=MyISAM;
@@ -482,9 +482,9 @@ CREATE TABLE RaftMap
     -- <descr>Mapping table to translate raft names to numbers.</descr>
 (
     raftNum TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     raftName CHAR(3) NOT NULL,
-        -- <ucd>inst.det</ucd>
+        -- <ucd>instr.det</ucd>
     PRIMARY KEY (raftNum),
     UNIQUE UQ_RaftMap_raftName(raftName)
 ) ;
@@ -1194,7 +1194,7 @@ CREATE TABLE RaftMetadata
 (
     raftId BIGINT NOT NULL,
         -- <descr>tbd</descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     metadataKey VARCHAR(255) NOT NULL,
     metadataValue VARCHAR(255) NULL,
     PRIMARY KEY (raftId)
@@ -1218,16 +1218,16 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>meta.code.multip;obs.sequence</ucd>
     raft TINYINT NOT NULL,
         -- <descr>Raft id from RaftTable this exposure belongs to.</descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     ccd TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     amp TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the AmpMap table.</descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of amp center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -1257,11 +1257,11 @@ CREATE TABLE Raw_Amp_Exposure
         -- <unit>pixel</unit>
     crval1 DOUBLE NOT NULL,
         -- <descr>Coordinate value 1 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     crval2 DOUBLE NOT NULL,
         -- <descr>Coordinate value 2 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
@@ -1280,35 +1280,54 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
     llcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     ulcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     ulcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     urcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     urcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     lrcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     lrcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     taiMjd DOUBLE NOT NULL,
-        -- <descr>Date of the start of the exposure.</descr>
+        -- <descr>Time (MJD, TAI) at the start of the exposure</descr>
         -- <ucd>time.start</ucd>
         -- <unit>d</unit>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        -- <descr>Time (UTC, 1s precision) at the start of the
+        -- exposure.</descr>
         -- <ucd>time.start</ucd>
     expMidpt VARCHAR(30) NOT NULL,
+        -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
+        -- exposure.</descr>
         -- <ucd>time.epoch</ucd>
     expTime FLOAT(0) NOT NULL,
         -- <descr>Duration of exposure.</descr>
@@ -1355,7 +1374,7 @@ CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
     snap TINYINT NOT NULL,
         -- <ucd>meta.code.multip;obs.sequence</ucd>
     amp TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     PRIMARY KEY (rawAmpExposureId),
     INDEX scienceCcdExposureId (scienceCcdExposureId ASC)
 ) ENGINE=MyISAM;
@@ -1366,7 +1385,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
     rawAmpExposureId BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     amp TINYINT NOT NULL,
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     snapCcdExposureId BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     PRIMARY KEY (rawAmpExposureId),
@@ -1388,7 +1407,7 @@ CREATE TABLE Raw_Ccd_Exposure
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     filterId INTEGER NOT NULL,
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     equinox FLOAT(0) NOT NULL,
         -- <descr>Equinox of World Coordinate System.</descr>
         -- <ucd>pos.equinox</ucd>
@@ -1421,11 +1440,11 @@ CREATE TABLE Raw_Ccd_Exposure
         -- <unit>pixel</unit>
     crval1 DOUBLE NOT NULL,
         -- <descr>Coordinate value 1 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     crval2 DOUBLE NOT NULL,
         -- <descr>Coordinate value 2 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
@@ -1526,13 +1545,13 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>meta.id;obs.exposure</ucd>
     raft TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the RaftMap table.</descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     ccd TINYINT NOT NULL,
         -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
-        -- <ucd>meta.id;inst.det</ucd>
+        -- <ucd>meta.id;instr.det</ucd>
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     ra DOUBLE NOT NULL,
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -1560,11 +1579,11 @@ CREATE TABLE Science_Ccd_Exposure
         -- <unit>pixel</unit>
     crval1 DOUBLE NOT NULL,
         -- <descr>Coordinate value 1 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     crval2 DOUBLE NOT NULL,
         -- <descr>Coordinate value 2 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crvar</ucd>
+        -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     cd1_1 DOUBLE NOT NULL,
         -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
@@ -1583,28 +1602,54 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     llcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates (0.5, 0.5)</descr>
+        -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     llcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates (0.5, 0.5)</descr>
+        -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     ulcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
+        -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     ulcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (0.5, NAXIS2 + 0.5)</descr>
+        -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     urcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
+        -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     urcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
+        -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     lrcRa DOUBLE NOT NULL,
+        -- <descr>ICRS RA of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
+        -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     lrcDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of FITS pixel coordinates
+        -- (NAXIS1 + 0.5, 0.5)</descr>
+        -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     taiMjd DOUBLE NOT NULL,
-        -- <descr>Date of the start of the exposure</descr>
-        -- <ucd>time.epoch</ucd>
+        -- <descr>Time (MJD, TAI) at the start of the exposure.</descr>
+        -- <ucd>time.start</ucd>
         -- <unit>d</unit>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        -- <descr>Time (UTC, 1s precision) at the start of the
+        -- exposure.</descr>
         -- <ucd>time.start</ucd>
     expMidpt VARCHAR(30) NOT NULL,
+        -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
+        -- combined exposure.</descr>
         -- <ucd>time.epoch</ucd>
     expTime FLOAT(0) NOT NULL,
         -- <descr>Duration of exposure.</descr>
@@ -1623,21 +1668,21 @@ CREATE TABLE Science_Ccd_Exposure
         -- <unit>pixel</unit>
     readNoise FLOAT(0) NOT NULL,
         -- <descr>Read noise of the ccd.</descr>
-        -- <ucd>inst.det.noise</ucd>
+        -- <ucd>instr.det.noise</ucd>
         -- <unit>adu</unit>
     saturationLimit INTEGER NOT NULL,
         -- <descr>Saturation limit for the ccd (average of the amplifiers).
         -- </descr>
-        -- <ucd>inst.saturation</ucd>
+        -- <ucd>instr.saturation</ucd>
     gainEff DOUBLE NOT NULL,
-        -- <ucd>arith.factor;inst.det</ucd>
+        -- <ucd>arith.factor;instr.det</ucd>
         -- <unit>electron/adu</unit>
     fluxMag0 FLOAT(0) NOT NULL,
         -- <ucd>phot.flux.density</ucd>
     fluxMag0Sigma FLOAT(0) NOT NULL,
         -- <ucd>stat.error;phot.flux.density</ucd>
     fwhm DOUBLE NOT NULL,
-        -- <ucd>inst.obsty.seeing</ucd>
+        -- <ucd>instr.obsty.seeing</ucd>
         -- <unit>arcsec</unit>
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
@@ -1702,7 +1747,7 @@ CREATE TABLE CalibSource
     filterId TINYINT NULL,
         -- <descr>Pointer to an entry in Filter table: filter used to take the
         -- Exposure where this Source was measured.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     astroRefCatId BIGINT NULL,
         -- <descr>Pointer to the corresponding object from the Astrometric
         -- Reference Catalog.</descr>
@@ -1803,7 +1848,7 @@ CREATE TABLE DiaSource
     filterId TINYINT NOT NULL,
         -- <descr>Pointer to an entry in Filter table: filter used to take
         -- Exposure where this diaSource was measured.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     objectId BIGINT NULL,
         -- <descr>Pointer to Object table. Might be NULL (each diaSource will
         -- point to either MovingObject or Object)</descr>
@@ -1914,7 +1959,7 @@ CREATE TABLE DiaSource
         -- <descr>Uncertainty of flux_SG.</descr>
         -- <ucd>stat.error;phot.count</ucd>
     flux_CSG FLOAT(0) NOT NULL,
-        -- <descr>Uncalibrated flux for Cannonical Small Galaxy model.
+        -- <descr>Uncalibrated flux for Canonical Small Galaxy model.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>adu</unit>
@@ -2304,35 +2349,35 @@ CREATE TABLE Object
     muRa_PS DOUBLE NULL,
         -- <descr>Proper motion (ra) for the Point Source model.</descr>
         -- <ucd>pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muRa_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of muRa_PS.</descr>
         -- <ucd>stat.error;pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muDecl_PS DOUBLE NULL,
         -- <descr>Proper motion (decl) for the Point Source model.</descr>
         -- <ucd>pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muDecl_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of muDecl_PS.</descr>
         -- <ucd>stat.error;pos.pm</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas/yr</unit>
     muRaDecl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of muRa_PS and muDecl_PS.</descr>
         -- <ucd>stat.covariance;pos.eq</ucd>
-        -- <unit>(deg/yr)^2</unit>
+        -- <unit>(mas/yr)^2</unit>
     parallax_PS DOUBLE NULL,
         -- <descr>Parallax for Point Source model.</descr>
         -- <ucd>pos.parallax</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas</unit>
     parallax_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of parallax_PS.</descr>
         -- <ucd>stat.error;pos.parallax</ucd>
-        -- <unit>deg/yr</unit>
+        -- <unit>mas</unit>
     canonicalFilterId TINYINT NULL,
         -- <descr>Id of the filter which is the canonical filter for size,
         -- ellipticity and Sersic index parameters.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     extendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object. Valid
         -- range: 0-1, where 1 indicates an extended object with 100%
@@ -2342,22 +2387,22 @@ CREATE TABLE Object
         -- where 1 indicates a variable object with 100% probability.
         -- </descr>
     earliestObsTime DOUBLE NULL,
-        -- <descr>Time when this object was observed for the first time
-        -- (taiMidPoint of the first Source)</descr>
+        -- <descr>Time when this object was observed for the first time,
+        -- MJD TAI (taiMidPoint of the first Source)</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>TAI</unit>
+        -- <unit>d</unit>
     latestObsTime DOUBLE NULL,
-        -- <descr>The latest time when this object was observed 
-        -- (taiMidPoint of the last Source).</descr>
+        -- <descr>The latest time when this object was observed,
+        -- MJD TAI (taiMidPoint of the last Source).</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>TAI</unit>
+        -- <unit>d</unit>
     flags INTEGER NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
     uNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for u
         -- filter.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     uExtendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object for u
         -- filter. Valid range: 0-1, where 1 indicates an extended object with
@@ -2370,22 +2415,28 @@ CREATE TABLE Object
         -- <descr>Center correction of ra_PS for u filter.</descr>
     uRaOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     uDeclOffset_PS FLOAT(0) NULL,
         -- <descr>Center correction of decl_PS for u filter.</descr>
     uDeclOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     uRaDeclOffset_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of uRaOffset_PS and uDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRaOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of raOffset_SG for u filter.</descr>
     uRaOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     uDeclOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of decl_SG for u filter.</descr>
     uDeclOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     uRaDeclOffset_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of uRaOffset_SG and uDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     uLnL_PS FLOAT(0) NULL,
         -- <descr>Log-likelihood of being a Point Source for u filter.
         -- </descr>
@@ -2394,28 +2445,28 @@ CREATE TABLE Object
         -- </descr>
     uFlux_PS FLOAT(0) NULL,
         -- <descr>Calibrated flux for Point Source model for u filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     uFlux_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uFlux_PS.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     uFlux_SG FLOAT(0) NULL,
         -- <descr>Calibrated flux for Small Galaxy model for u filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     uFlux_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uFlux_SG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     uFlux_CSG FLOAT(0) NULL,
-        -- <descr>Calibrated flux for Cannonical Small Galaxy model 
+        -- <descr>Calibrated flux for Canonical Small Galaxy model 
         -- for u filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     uFlux_CSG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uFlux_CSG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     uTimescale FLOAT(0) NULL,
         -- <descr>Characteristic timescale of flux variations for u filter.
@@ -2423,17 +2474,18 @@ CREATE TABLE Object
         -- <unit>d</unit>
     uEarliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time in u
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>TAI</unit>
+        -- <unit>d</unit>
     uLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in u
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
     uSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for u filter.</descr>
     uSersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of uSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     uE1_SG FLOAT(0) NULL,
         -- <descr>Ellipticity for Small Galaxy model for u filter.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
@@ -2460,7 +2512,7 @@ CREATE TABLE Object
     gNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for g
         -- filter.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     gExtendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object for g
         -- filter. Valid range: 0-1, where 1 indicates an extended object with
@@ -2473,22 +2525,28 @@ CREATE TABLE Object
         -- <descr>Center correction of ga_PS for g filter.</descr>
     gRaOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     gDeclOffset_PS FLOAT(0) NULL,
         -- <descr>Center correction of decl_PS for g filter.</descr>
     gDeclOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     gRaDeclOffset_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of gRaOffset_PS and gDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRaOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of gaOffset_SG for g filter.</descr>
     gRaOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     gDeclOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of decl_SG for g filter.</descr>
     gDeclOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     gRaDeclOffset_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of gRaOffset_SG and gDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     gLnL_PS FLOAT(0) NULL,
         -- <descr>Log-likelihood of being a Point Source for g filter.
         -- </descr>
@@ -2497,28 +2555,28 @@ CREATE TABLE Object
         -- </descr>
     gFlux_PS FLOAT(0) NULL,
         -- <descr>Calibrated flux for Point Source model for g filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     gFlux_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gFlux_PS.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     gFlux_SG FLOAT(0) NULL,
         -- <descr>Calibrated flux for Small Galaxy model for g filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     gFlux_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gFlux_SG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     gFlux_CSG FLOAT(0) NULL,
-        -- <descr>Calibrated flux for Cannonical Small Galaxy model 
+        -- <descr>Calibrated flux for Canonical Small Galaxy model 
         -- for g filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     gFlux_CSG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gFlux_CSG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     gTimescale FLOAT(0) NULL,
         -- <descr>Characteristic timescale of flux variations for g filter.
@@ -2526,17 +2584,18 @@ CREATE TABLE Object
         -- <unit>d</unit>
     gEarliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>TAI</unit>
+        -- <unit>d</unit>
     gLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
     gSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for g filter.</descr>
     gSersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of gSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     gE1_SG FLOAT(0) NULL,
         -- <descr>Ellipticity for Small Galaxy model for g filter.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
@@ -2563,7 +2622,7 @@ CREATE TABLE Object
     rNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for r
         -- filter.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     rExtendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object for r
         -- filter. Valid range: 0-1, where 1 indicates an extended object with
@@ -2576,22 +2635,28 @@ CREATE TABLE Object
         -- <descr>Center correction of ra_PS for r filter.</descr>
     rRaOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     rDeclOffset_PS FLOAT(0) NULL,
         -- <descr>Center correction of decl_PS for r filter.</descr>
     rDeclOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     rRaDeclOffset_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of rRaOffset_PS and gDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRaOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of raOffset_SG for r filter.</descr>
     rRaOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     rDeclOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of decl_SG for r filter.</descr>
     rDeclOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     rRaDeclOffset_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of rRaOffset_SG and gDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     rLnL_PS FLOAT(0) NULL,
         -- <descr>Log-likelihood of being a Point Source for r filter.
         -- </descr>
@@ -2600,28 +2665,28 @@ CREATE TABLE Object
         -- </descr>
     rFlux_PS FLOAT(0) NULL,
         -- <descr>Calibrated flux for Point Source model for r filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     rFlux_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rFlux_PS.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     rFlux_SG FLOAT(0) NULL,
         -- <descr>Calibrated flux for Small Galaxy model for r filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     rFlux_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rFlux_SG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     rFlux_CSG FLOAT(0) NULL,
-        -- <descr>Calibrated flux for Cannonical Small Galaxy model 
+        -- <descr>Calibrated flux for Canonical Small Galaxy model 
         -- for r filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     rFlux_CSG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rFlux_CSG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     rTimescale FLOAT(0) NULL,
         -- <descr>Characteristic timescale of flux variations for r filter.
@@ -2629,17 +2694,18 @@ CREATE TABLE Object
         -- <unit>d</unit>
     rEarliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>TAI</unit>
+        -- <unit>d</unit>
     rLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
     rSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for r filter.</descr>
     rSersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of rSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     rE1_SG FLOAT(0) NULL,
         -- <descr>Ellipticity for Small Galaxy model for r filter.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
@@ -2666,7 +2732,7 @@ CREATE TABLE Object
     iNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for i
         -- filter.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     iExtendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object for i
         -- filter. Valid range: 0-1, where 1 indicates an extended object with
@@ -2679,22 +2745,28 @@ CREATE TABLE Object
         -- <descr>Center correction of ia_PS for i filter.</descr>
     iRaOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     iDeclOffset_PS FLOAT(0) NULL,
         -- <descr>Center correction of decl_PS for i filter.</descr>
     iDeclOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     iRaDeclOffset_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of iRaOffset_PS and gDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRaOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of iaOffset_SG for i filter.</descr>
     iRaOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     iDeclOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of decl_SG for i filter.</descr>
     iDeclOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     iRaDeclOffset_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of iRaOffset_SG and gDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     iLnL_PS FLOAT(0) NULL,
         -- <descr>Log-likelihood of being a Point Source for i filter.
         -- </descr>
@@ -2703,28 +2775,28 @@ CREATE TABLE Object
         -- </descr>
     iFlux_PS FLOAT(0) NULL,
         -- <descr>Calibrated flux for Point Source model for i filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     iFlux_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iFlux_PS.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     iFlux_SG FLOAT(0) NULL,
         -- <descr>Calibrated flux for Small Galaxy model for i filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     iFlux_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iFlux_SG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     iFlux_CSG FLOAT(0) NULL,
-        -- <descr>Calibrated flux for Cannonical Small Galaxy model 
+        -- <descr>Calibrated flux for Canonical Small Galaxy model 
         -- for i filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     iFlux_CSG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iFlux_CSG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     iTimescale FLOAT(0) NULL,
         -- <descr>Characteristic timescale of flux variations for i filter.
@@ -2732,17 +2804,18 @@ CREATE TABLE Object
         -- <unit>d</unit>
     iEarliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>TAI</unit>
+        -- <unit>d</unit>
     iLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
     iSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for i filter.</descr>
     iSersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of iSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     iE1_SG FLOAT(0) NULL,
         -- <descr>Ellipticity for Small Galaxy model for i filter.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
@@ -2769,7 +2842,7 @@ CREATE TABLE Object
     zNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for z
         -- filter.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     zExtendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object for z
         -- filter. Valid range: 0-1, where 1 indicates an extended object with
@@ -2782,22 +2855,28 @@ CREATE TABLE Object
         -- <descr>Center correction of za_PS for z filter.</descr>
     zRaOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     zDeclOffset_PS FLOAT(0) NULL,
         -- <descr>Center correction of decl_PS for z filter.</descr>
     zDeclOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     zRaDeclOffset_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of zRaOffset_PS and gDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRaOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of zaOffset_SG for z filter.</descr>
     zRaOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     zDeclOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of decl_SG for z filter.</descr>
     zDeclOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     zRaDeclOffset_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of zRaOffset_SG and gDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     zLnL_PS FLOAT(0) NULL,
         -- <descr>Log-likelihood of being a Point Source for z filter.
         -- </descr>
@@ -2806,28 +2885,28 @@ CREATE TABLE Object
         -- </descr>
     zFlux_PS FLOAT(0) NULL,
         -- <descr>Calibrated flux for Point Source model for z filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     zFlux_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zFlux_PS.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     zFlux_SG FLOAT(0) NULL,
         -- <descr>Calibrated flux for Small Galaxy model for z filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     zFlux_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zFlux_SG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     zFlux_CSG FLOAT(0) NULL,
-        -- <descr>Calibrated flux for Cannonical Small Galaxy model 
+        -- <descr>Calibrated flux for Canonical Small Galaxy model 
         -- for z filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     zFlux_CSG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zFlux_CSG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     zTimescale FLOAT(0) NULL,
         -- <descr>Characteristic timescale of flux variations for z filter.
@@ -2835,17 +2914,18 @@ CREATE TABLE Object
         -- <unit>d</unit>
     zEarliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
-        -- <unit>TAI</unit>
+        -- <unit>d</unit>
     zLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
     zSersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for z filter.</descr>
     zSersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of zSersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     zE1_SG FLOAT(0) NULL,
         -- <descr>Ellipticity for Small Galaxy model for z filter.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
@@ -2872,7 +2952,7 @@ CREATE TABLE Object
     yNumObs INTEGER NULL,
         -- <descr>Number of forced sources associated with this object for y
         -- filter.</descr>
-        -- <ucd>stat.value</ucd>
+        -- <ucd>meta.number;stat.value</ucd>
     yExtendedness FLOAT(0) NULL,
         -- <descr>Probability that this object is an extended object for y
         -- filter. Valid range: 0-1, where 1 indicates an extended object with
@@ -2885,22 +2965,28 @@ CREATE TABLE Object
         -- <descr>Center correction of ya_PS for y filter.</descr>
     yRaOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yRaOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     yDeclOffset_PS FLOAT(0) NULL,
         -- <descr>Center correction of decl_PS for y filter.</descr>
     yDeclOffset_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yDeclOffset_PS.</descr>
+        -- <ucd>stat.error</ucd>
     yRaDeclOffset_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of yRaOffset_PS and gDeclOffset_PS.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRaOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of yaOffset_SG for y filter.</descr>
     yRaOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yRaOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     yDeclOffset_SG FLOAT(0) NULL,
         -- <descr>Center correction of decl_SG for y filter.</descr>
     yDeclOffset_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yDeclOffset_SG.</descr>
+        -- <ucd>stat.error</ucd>
     yRaDeclOffset_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of yRaOffset_SG and gDeclOffset_SG.</descr>
+        -- <ucd>stat.covariance</ucd>
     yLnL_PS FLOAT(0) NULL,
         -- <descr>Log-likelihood of being a Point Source for y filter.
         -- </descr>
@@ -2909,28 +2995,28 @@ CREATE TABLE Object
         -- </descr>
     yFlux_PS FLOAT(0) NULL,
         -- <descr>Calibrated flux for Point Source model for y filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     yFlux_PS_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yFlux_PS.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     yFlux_SG FLOAT(0) NULL,
         -- <descr>Calibrated flux for Small Galaxy model for y filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     yFlux_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yFlux_SG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     yFlux_CSG FLOAT(0) NULL,
-        -- <descr>Calibrated flux for Cannonical Small Galaxy model 
+        -- <descr>Calibrated flux for Canonical Small Galaxy model 
         -- for y filter.</descr>
-        -- <ucd>photo.flux.density;em.opt</ucd>
+        -- <ucd>phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     yFlux_CSG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of yFlux_CSG.</descr>
-        -- <ucd>stat.error;photo.flux.density;em.opt</ucd>
+        -- <ucd>stat.error;phot.flux.density;em.opt</ucd>
         -- <unit>erg/s/cm^2</unit>
     yTimescale FLOAT(0) NULL,
         -- <descr>Characteristic timescale of flux variations for y filter.
@@ -2938,17 +3024,18 @@ CREATE TABLE Object
         -- <unit>d</unit>
     yEarliestObsTime DOUBLE NULL,
         -- <descr>Time when this object was observed for the first time in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     yLatestObsTime DOUBLE NULL,
         -- <descr>The latest time when this object was observed in g
-        -- filter.</descr>
+        -- filter, MJD TAI.</descr>
         -- <ucd>time.epoch</ucd>
     ySersicN_SG FLOAT(0) NULL,
         -- <descr>Sersic index for Small Galaxy model for y filter.</descr>
     ySersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of ySersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     yE1_SG FLOAT(0) NULL,
         -- <descr>Ellipticity for Small Galaxy model for y filter.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
@@ -2990,432 +3077,575 @@ CREATE TABLE ObjectExtras
     uFlux_ra_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Point Source model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uFlux_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Point Source model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRa_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and decl for Point Source model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uFlux_ra_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uFlux_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uFlux_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and SersicN for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uFlux_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e1 for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uFlux_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e2 for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uFlux_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and radius for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRa_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and decl for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRa_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and SersicN for Small Galaxy for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRa_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and e1 for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRa_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and e2 for Small Galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uRa_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and radius for small galaxy model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uDecl_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and SersicN for Small Galaxy for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uDecl_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e1 for Small Galaxy for u filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     uDecl_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e2 for Small Galaxy for u filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     uDecl_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and radius for Small Galaxy for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uSersicN_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e1 for Small Galaxy Model for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uSersicN_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e2 for Small Galaxy for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uSersicN_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and radius for Small Galaxy for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uE1_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and e2 for Small Galaxy for u filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     uE1_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and radius for Small Galaxy for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     uE2_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e2 and radius for Small Galaxy for u
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_ra_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Point Source model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Point Source model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRa_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ga and decl for Point Source model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_ra_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and SersicN for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e1 for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e2 for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gFlux_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and radius for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRa_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ga and decl for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRa_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ga and SersicN for Small Galaxy for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRa_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ga and e1 for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRa_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ga and e2 for Small Galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gRa_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ga and radius for small galaxy model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gDecl_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and SersicN for Small Galaxy for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gDecl_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e1 for Small Galaxy for g filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     gDecl_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e2 for Small Galaxy for g filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     gDecl_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and radius for Small Galaxy for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gSersicN_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e1 for Small Galaxy Model for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gSersicN_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e2 for Small Galaxy for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gSersicN_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and radius for Small Galaxy for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gE1_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and e2 for Small Galaxy for g filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     gE1_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and radius for Small Galaxy for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     gE2_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e2 and radius for Small Galaxy for g
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_ra_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Point Source model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Point Source model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRa_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and decl for Point Source model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_ra_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and SersicN for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e1 for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e2 for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rFlux_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and radius for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRa_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and decl for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRa_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and SersicN for Small Galaxy for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRa_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and e1 for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRa_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and e2 for Small Galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rRa_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ra and radius for small galaxy model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rDecl_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and SersicN for Small Galaxy for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rDecl_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e1 for Small Galaxy for r filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     rDecl_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e2 for Small Galaxy for r filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     rDecl_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and radius for Small Galaxy for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rSersicN_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e1 for Small Galaxy Model for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rSersicN_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e2 for Small Galaxy for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rSersicN_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and radius for Small Galaxy for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rE1_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and e2 for Small Galaxy for r filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     rE1_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and radius for Small Galaxy for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     rE2_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e2 and radius for Small Galaxy for r
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_ra_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Point Source model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Point Source model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRa_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ia and decl for Point Source model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_ra_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and SersicN for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e1 for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e2 for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iFlux_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and radius for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRa_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ia and decl for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRa_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ia and SersicN for Small Galaxy for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRa_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ia and e1 for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRa_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ia and e2 for Small Galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iRa_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ia and radius for small galaxy model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iDecl_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and SersicN for Small Galaxy for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iDecl_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e1 for Small Galaxy for i filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     iDecl_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e2 for Small Galaxy for i filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     iDecl_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and radius for Small Galaxy for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iSersicN_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e1 for Small Galaxy Model for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iSersicN_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e2 for Small Galaxy for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iSersicN_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and radius for Small Galaxy for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iE1_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and e2 for Small Galaxy for i filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     iE1_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and radius for Small Galaxy for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     iE2_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e2 and radius for Small Galaxy for i
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_ra_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Point Source model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Point Source model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRa_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of za and decl for Point Source model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_ra_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and SersicN for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e1 for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e2 for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zFlux_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and radius for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRa_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of za and decl for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRa_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of za and SersicN for Small Galaxy for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRa_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of za and e1 for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRa_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of za and e2 for Small Galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zRa_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of za and radius for small galaxy model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zDecl_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and SersicN for Small Galaxy for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zDecl_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e1 for Small Galaxy for z filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     zDecl_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e2 for Small Galaxy for z filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     zDecl_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and radius for Small Galaxy for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zSersicN_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e1 for Small Galaxy Model for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zSersicN_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e2 for Small Galaxy for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zSersicN_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and radius for Small Galaxy for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zE1_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and e2 for Small Galaxy for z filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     zE1_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and radius for Small Galaxy for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     zE2_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e2 and radius for Small Galaxy for z
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_ra_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Point Source model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Point Source model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRa_decl_PS_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ya and decl for Point Source model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_ra_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and ra for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and decl for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and SersicN for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e1 for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and e2 for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yFlux_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of flux and radius for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRa_decl_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ya and decl for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRa_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ya and SersicN for Small Galaxy for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRa_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ya and e1 for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRa_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ya and e2 for Small Galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yRa_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of ya and radius for small galaxy model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yDecl_SersicN_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and SersicN for Small Galaxy for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yDecl_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e1 for Small Galaxy for y filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     yDecl_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and e2 for Small Galaxy for y filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     yDecl_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of decl and radius for Small Galaxy for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     ySersicN_e1_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e1 for Small Galaxy Model for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     ySersicN_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and e2 for Small Galaxy for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     ySersicN_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of SersicN and radius for Small Galaxy for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yE1_e2_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and e2 for Small Galaxy for y filter.
         -- </descr>
+        -- <ucd>stat.covariance</ucd>
     yE1_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e1 and radius for Small Galaxy for y
         -- filter.</descr>
+        -- <ucd>stat.covariance</ucd>
     yE2_radius_SG_Cov FLOAT(0) NULL,
         -- <descr>Covariance of e2 and radius for Small Galaxy for y
         -- filter.</descr>
@@ -3443,7 +3673,7 @@ CREATE TABLE Source
     filterId TINYINT NOT NULL,
         -- <descr>Pointer to an entry in Filter table: filter used to take
         -- Exposure where this Source was measured.</descr>
-        -- <ucd>meta.id;inst.filter</ucd>
+        -- <ucd>meta.id;instr.filter</ucd>
     objectId BIGINT NULL,
         -- <descr>Pointer to Object table. Might be NULL (each Source will 
         -- point to either MovingObject or Object)</descr>
@@ -3453,7 +3683,7 @@ CREATE TABLE Source
         -- point to either MovingObject or Object)</descr>
         -- <ucd>meta.id;src</ucd>
     ra DOUBLE NOT NULL,
-        -- <descr>RA-coordinate of the center of the source.</descr>
+        -- <descr>ICRS RA-coordinate of the center of the source.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     raSigmaForDetection FLOAT NULL,
@@ -3467,7 +3697,7 @@ CREATE TABLE Source
         -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
-        -- <descr>Decl-coordinate of the center of the source.</descr>
+        -- <descr>ICRS Decl-coordinate of the center of the source.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     declSigmaForDetection FLOAT NULL,
@@ -3500,7 +3730,7 @@ CREATE TABLE Source
         -- <unit>pixel</unit>
     xyAstromCov FLOAT(0) NOT NULL,
         -- <descr>Covariance between the xAstrom and the yAstrom.</descr>
-        -- <ucd>pos.cartesian</ucd>
+        -- <ucd>stat.covariance;pos.cartesian</ucd>
         -- <unit>pixel^2</unit>
     astromRefrRa FLOAT(0) NULL,
         -- <descr>Astrometric refraction in ra.</descr>
@@ -3525,12 +3755,13 @@ CREATE TABLE Source
         -- <descr>Sky background.</descr>
     skySigma FLOAT(0) NOT NULL,
         -- <descr>Uncertainty of sky.</descr>
+        -- <ucd>stat.error</ucd>
     psfLnL FLOAT(0) NULL,
         -- <descr>ln(likelihood) of being a PSF.</descr>
     lnL_SG FLOAT(0) NULL,
         -- <descr>Log-likelihood of being a Small Galaxy.</descr>
     taiMidPoint DOUBLE NOT NULL,
-        -- <descr>Middle of exposure time (TAI).</descr>
+        -- <descr>Middle of exposure time (MJD, TAI).</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     taiRange FLOAT NULL,
@@ -3538,17 +3769,17 @@ CREATE TABLE Source
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
     xFlux DOUBLE NULL,
-        -- <ucd>phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>pos.cartesian.x</ucd>
+        -- <unit>pixel</unit>
     xFluxSigma FLOAT(0) NULL,
-        -- <ucd>stat.error;phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>stat.error;pos.cartesian.x</ucd>
+        -- <unit>pixel</unit>
     yFlux DOUBLE NULL,
-        -- <ucd>phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>pos.cartesian.y</ucd>
+        -- <unit>pixel</unit>
     yFluxSigma FLOAT(0) NULL,
-        -- <ucd>stat.error;phot.count</ucd>
-        -- <unit>adu</unit>
+        -- <ucd>stat.error;pos.cartesian.y</ucd>
+        -- <unit>pixel</unit>
     xPeak DOUBLE NULL,
     yPeak DOUBLE NULL,
     raPeak DOUBLE NULL,
@@ -3570,7 +3801,7 @@ CREATE TABLE Source
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>adu</unit>
     flux_CSG FLOAT(0) NULL,
-        -- <descr>Calibrated flux for Cannonical Small Galaxy model.
+        -- <descr>Calibrated flux for Canonical Small Galaxy model.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>adu</unit>
@@ -3633,6 +3864,7 @@ CREATE TABLE Source
         -- <descr>Sersic index for Small Galaxy model.</descr>
     sersicN_SG_Sigma FLOAT(0) NULL,
         -- <descr>Uncertainty of sersicN_SG.</descr>
+        -- <ucd>stat.error</ucd>
     e1_SG FLOAT(0) NULL,
         -- <descr>Ellipticity for Small Galaxy model.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
@@ -3652,7 +3884,7 @@ CREATE TABLE Source
         -- <descr>Uncertainty of radius_SG.</descr>
         -- <ucd>stat.error;phys.angSize</ucd>
     midPoint FLOAT(0) NOT NULL,
-        -- <descr>Corrected midPoint of the exposure (tai).</descr>
+        -- <descr>Corrected midPoint of the exposure (TAI).</descr>
     apCorrection FLOAT(0) NOT NULL,
         -- <descr>Photometric correction: aperture correction.</descr>
     grayExtinction FLOAT(0) NOT NULL,
@@ -3665,67 +3897,87 @@ CREATE TABLE Source
         -- cosmics, etc. too.</descr>
     momentIxSigma FLOAT(0) NULL,
         -- <descr>Uncertainty of momentIx.</descr>
+        -- <ucd>stat.error</ucd>
     momentIy FLOAT(0) NULL,
         -- <descr>Adaptive first moment.</descr>
     momentIySigma FLOAT(0) NULL,
         -- <descr>Uncertainty of momentIy.</descr>
+        -- <ucd>stat.error</ucd>
     momentIxx FLOAT(0) NULL,
         -- <descr>Adaptive second moment.</descr>
     momentIxxSigma FLOAT(0) NULL,
         -- <descr>Uncertainty of momentIxx.</descr>
+        -- <ucd>stat.error</ucd>
     momentIyy FLOAT(0) NULL,
         -- <descr>Adaptive second moment.</descr>
     momentIyySigma FLOAT(0) NULL,
         -- <descr>Uncertainty of momentIyy.</descr>
+        -- <ucd>stat.error</ucd>
     momentIxy FLOAT(0) NULL,
         -- <descr>Adaptive second moment.</descr>
     momentIxySigma FLOAT(0) NULL,
         -- <descr>Uncertainty of momentIxy.</descr>
+        -- <ucd>stat.error</ucd>
     flux_flux_SG_Cov FLOAT NULL,
         -- <descr>Covariance of flux and flux for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_e1_SG_Cov FLOAT NULL,
         -- <descr>Covariance of flux and e1 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_e2_SG_Cov FLOAT NULL,
         -- <descr>Covariance of flux and e2 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_radius_SG_Cov FLOAT NULL,
         -- <descr>Covariance of flux and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flux_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Covariance of flux and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_e1_SG_Cov FLOAT NULL,
         -- <descr>Covariance of e1 and e1 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_e2_SG_Cov FLOAT NULL,
         -- <descr>Covariance of e1 and e2 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_radius_SG_Cov FLOAT NULL,
         -- <descr>Covariance of e1 and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e1_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Covariance of e1 and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e2_e2_SG_Cov FLOAT NULL,
         -- <descr>Covariance of e2 and e2 for Small Galaxy
         -- model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e2_radius_SG_Cov FLOAT NULL,
         -- <descr>Covariance of e2 and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     e2_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Covariance of e2 and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     radius_radius_SG_Cov FLOAT NULL,
         -- <descr>Covariance of radius and radius for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     radius_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Covariance of radius and sersicN for Small
         -- Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     sersicN_sersicN_SG_Cov FLOAT NULL,
         -- <descr>Covariance for sersicN and sersicN for
         -- Small Galaxy model.</descr>
+        -- <ucd>stat.covariance</ucd>
     flagsForAssociation INT NULL DEFAULT 0,
         -- <descr>Flags related to association.</descr>
         -- <ucd>meta.code</ucd>
