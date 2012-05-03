@@ -1094,7 +1094,6 @@ CREATE TABLE Object
     PER_FILTER_OBJECT_COLUMNS(`i')
     PER_FILTER_OBJECT_COLUMNS(`z')
     PER_FILTER_OBJECT_COLUMNS(`y')
-    PER_FILTER_OBJECT_COLUMNS(`y4')
 
     chunkId INTEGER NOT NULL DEFAULT 0,
         -- <descr>Internal column used by qserv.</descr>
