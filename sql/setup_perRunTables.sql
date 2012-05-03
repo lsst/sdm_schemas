@@ -159,11 +159,11 @@ UPDATE LeapSeconds
 --     DROP KEY objectId;
 
 -- This should be a permanent table, but copy it from Object for now.
-CREATE TABLE NonVarObject LIKE Object;
+-- CREATE TABLE NonVarObject LIKE Object;
 
-CREATE TABLE _tmpl_InMemoryObject LIKE Object;
+-- CREATE TABLE _tmpl_InMemoryObject LIKE Object;
 
-ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
+-- ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
 
 -- CREATE TABLE _tmpl_InMemoryMatchPair LIKE _tmpl_MatchPair;
 -- ALTER TABLE _tmpl_InMemoryMatchPair ENGINE=MEMORY;

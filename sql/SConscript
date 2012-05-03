@@ -1,0 +1,3 @@
+from lsst.sconsUtils import env, targets
+
+targets["sql"] = env.M4("schema_mysql_S12_lsstSim.sql", "schema_mysql_S12_lsstSim.sql.m4")
