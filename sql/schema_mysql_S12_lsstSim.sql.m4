@@ -466,6 +466,9 @@ CREATE TABLE Raw_Amp_Exposure
         -- piexl coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
+    htmId20 BIGINT NOT NULL,
+        -- <descr>Level 20 HTM ID of (ra, decl)</descr>
+        -- <ucd>pos.HTM</ucd>
     equinox FLOAT NOT NULL,
         -- <ucd>pos.equinox</ucd>
     raDeSys VARCHAR(20) NOT NULL,
@@ -568,7 +571,8 @@ CREATE TABLE Raw_Amp_Exposure
         -- <unit>deg</unit>
     poly BINARY(120) NOT NULL,
         -- <descr>binary representation of the 4-corner polygon for the amp.</descr>
-    PRIMARY KEY (rawAmpExposureId)
+    PRIMARY KEY (rawAmpExposureId),
+    KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
 
 
@@ -677,6 +681,9 @@ CREATE TABLE Science_Ccd_Exposure
         -- piexl coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
+    htmId20 BIGINT NOT NULL,
+        -- <descr>Level 20 HTM ID of (ra, decl)</descr>
+        -- <ucd>pos.HTM</ucd>
     equinox FLOAT NOT NULL,
         -- <descr>Equinox of World Coordinate System.</descr>
         -- <ucd>pos.equinox</ucd>
@@ -820,7 +827,8 @@ CREATE TABLE Science_Ccd_Exposure
         --       scatter</li>
         -- </ul></descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY (scienceCcdExposureId)
+    PRIMARY KEY (scienceCcdExposureId),
+    KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
 
 
@@ -1336,7 +1344,7 @@ CREATE TABLE Source
         -- succeed.</descr>
         -- <ucd>meta.code.error</ucd>
     PRIMARY KEY (sourceId),
-    KEY IDX_parentId (parentId ASC),
+    KEY IDX_parentSourceId (parentSourceId ASC),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
     KEY IDX_filterId (filterId ASC),
     KEY IDX_objectId (objectId ASC),
