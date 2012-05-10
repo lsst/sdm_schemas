@@ -198,7 +198,7 @@ CREATE TABLE RefObjMatch
         -- object.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
-    refDec DOUBLE NULL,
+    refDecl DOUBLE NULL,
         -- <descr>ICRS reference object Dec at mean epoch of sources assigned to
         -- object.</descr>
         -- <ucd>pos.eq.dec</ucd>
@@ -251,7 +251,7 @@ CREATE TABLE RefSrcMatch
         -- <descr>ICRS reference object RA at epoch of source.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
-    refDec DOUBLE NULL,
+    refDecl DOUBLE NULL,
         -- <descr>ICRS reference object Dec at epoch of source.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
