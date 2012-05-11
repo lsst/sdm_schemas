@@ -21,19 +21,6 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
-
-CREATE TABLE ZZZ_Db_Description 
-    -- <descr>Internal table used for storing database description</descr>
-(
-    f VARCHAR(255),
-        -- <descr>The schema file name.</descr>
-    r VARCHAR(255)
-        -- <descr>Captures information from 'git describe'.</descr>
-) ENGINE=MyISAM;
-
-INSERT INTO ZZZ_Db_Description(f) VALUES('setup_DB_dataChallenge.sql');
-
-
 CREATE TABLE prv_Activity
 (
     activityId BIGINT NOT NULL,
