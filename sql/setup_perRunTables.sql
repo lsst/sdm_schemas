@@ -147,6 +147,9 @@ UPDATE LeapSeconds
 --  Create tables using existing templates, adjust engine types etc --
 -- ================================================================ --
 
+-- This is to speed up ingest of log messages during pipeline execution
+ALTER TABLE Logs DISABLE KEYS;
+
 -- CREATE TABLE DiaSourceForMovingObject LIKE DiaSource;
 
 
