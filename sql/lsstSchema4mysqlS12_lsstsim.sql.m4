@@ -152,8 +152,7 @@ CREATE TABLE Logs
     PUBTIME BIGINT NULL,
     usertime FLOAT NULL,
     systemtime FLOAT NULL,
-    PRIMARY KEY (id),
-    INDEX a (RUNID ASC)
+    PRIMARY KEY (id)
 ) ENGINE=MyISAM;
 
 
