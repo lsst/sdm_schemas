@@ -421,6 +421,100 @@ CREATE TABLE SimRefObject
 ) ENGINE=MyISAM;
 
 
+CREATE TABLE Stripe82RefObject
+    -- <descr>Stores properties of Stripe82 reference objects as defined
+    --        by the DR7-published detections from Annis et al. catalog
+    -- </descr>
+(
+    sdssObjectId BIGINT NOT NULL,
+        -- <descr>Unique reference object ID.</descr>
+        -- <ucd>meta.id;src</ucd>
+
+    flags BIGINT NOT NULL DEFAULT 0,
+        -- <descr>SDSS flags</descr>
+
+    run SMALLINT NOT NULL,
+        -- <descr>SDSS run</descr>
+    rerun SMALLINT NOT NULL,
+        -- <descr>SDSS rerun</descr>
+    camcol TINYINT NOT NULL,
+        -- <descr>SDSS camcol</descr>
+    field SMALLINT NOT NULL,
+        -- <descr>SDSS field</descr>
+    obj SMALLINT NOT NULL,
+        -- <descr>SDSS obj</descr>
+    mode SMALLINT NOT NULL,
+        -- <descr>SDSS mode</descr>
+    type SMALLINT NOT NULL,
+        -- <descr>SDSS morphological type (STAR=6, GALAXY=3; see http://cas.sdss.org/dr7/en/help/browser/enum.asp?n=PhotoType)</descr>
+
+    isStar TINYINT NOT NULL,
+        -- <descr>1 for stars, 0 for galaxies.</descr>
+        -- <ucd>src.class.starGalaxy</ucd>
+
+    ra DOUBLE NOT NULL,
+        -- <descr>ICRS R.A. of object.</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    decl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec. of object.</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    htmId20 BIGINT NOT NULL,
+        -- <descr>Level 20 HTM ID of (ra, decl)</descr>
+        -- <ucd>pos.HTM</ucd>
+
+    uMag DOUBLE NOT NULL,
+        -- <descr>SDSS model u-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    gMag DOUBLE NOT NULL,
+        -- <descr>SDSS model g-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    rMag DOUBLE NOT NULL,
+        -- <descr>SDSS model r-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    iMag DOUBLE NOT NULL,
+        -- <descr>SDSS model i-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    zMag DOUBLE NOT NULL,
+        -- <descr>SDSS model z-band AB magnitude.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+
+    uErr DOUBLE NOT NULL,
+        -- <descr>SDSS model u-band AB magnitude error.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    gErr DOUBLE NOT NULL,
+        -- <descr>SDSS model g-band AB magnitude error.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    rErr DOUBLE NOT NULL,
+        -- <descr>SDSS model r-band AB magnitude error.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    iErr DOUBLE NOT NULL,
+        -- <descr>SDSS model i-band AB magnitude error.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    zErr DOUBLE NOT NULL,
+        -- <descr>SDSS model z-band AB magnitude error.</descr>
+        -- <ucd>phot.mag</ucd>
+        -- <unit>mag</unit>
+    PRIMARY KEY (sdssObjectId),
+    KEY IDX_decl (decl ASC),
+    KEY IDX_htmId20 (htmId20 ASC)
+) ENGINE=MyISAM;
+
+
+
+
+
+
 CREATE TABLE Raw_Amp_Exposure
 (
     rawAmpExposureId BIGINT NOT NULL,
