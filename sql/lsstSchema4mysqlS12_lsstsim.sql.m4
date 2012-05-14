@@ -183,10 +183,10 @@ CREATE TABLE RaftMap
 
 CREATE TABLE RefObjMatch
     -- <descr>Table containing the results of a spatial match between
-    -- SimRefObject and Object.</descr>
+    -- RefObject and Object.</descr>
 (
     refObjectId BIGINT NULL,
-        -- <descr>Reference object id (pointer to SimRefObject). NULL if
+        -- <descr>Reference object id (pointer to RefObject). NULL if
         -- reference object has no matches.</descr>
         -- <ucd>meta.id</ucd>
     objectId BIGINT NULL,
@@ -237,10 +237,10 @@ CREATE TABLE RefObjMatch
 
 CREATE TABLE RefSrcMatch
     -- <descr>Table containing the results of a spatial match between
-    -- SimRefObject and Source.</descr>
+    -- RefObject and Source.</descr>
 (
     refObjectId BIGINT NULL,
-        -- <descr>Reference object id (pointer to SimRefObject). NULL if
+        -- <descr>Reference object id (pointer to RefObject). NULL if
         -- reference object has no matches.</descr>
         -- <ucd>meta.id</ucd>
     sourceId BIGINT NULL,
@@ -287,7 +287,7 @@ CREATE TABLE RefSrcMatch
 ) ENGINE=MyISAM;
 
 
-CREATE TABLE SimRefObject
+CREATE TABLE RefObject
     -- <descr>Stores properties of ImSim reference objects that fall within
     --        at least one CCD. Includes both stars and galaxies.
     -- </descr>
@@ -1363,8 +1363,8 @@ CREATE TABLE SkyTile
 SET FOREIGN_KEY_CHECKS=1;
 
 
-ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_SimRefObject
-    FOREIGN KEY (refObjectId) REFERENCES SimRefObject (refObjectId);
+ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_RefObject
+    FOREIGN KEY (refObjectId) REFERENCES RefObject (refObjectId);
 
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
