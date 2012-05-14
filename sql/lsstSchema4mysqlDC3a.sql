@@ -24,7 +24,7 @@
 
 CREATE TABLE AAA_Version_3_0_24 (version CHAR);
 
-CREATE TABLE ZZZ_Db_Description 
+CREATE TABLE IF NOT EXISTS ZZZ_Db_Description 
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
