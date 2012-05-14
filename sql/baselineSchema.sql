@@ -28,7 +28,7 @@ CREATE TABLE AAA_Version_3_2_4 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE TABLE ZZZ_Db_Description 
+CREATE TABLE IF NOT EXISTS ZZZ_Db_Description 
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),

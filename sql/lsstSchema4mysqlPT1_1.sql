@@ -24,7 +24,7 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE TABLE ZZZ_Db_Description 
+CREATE TABLE IF NOT EXISTS ZZZ_Db_Description 
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
