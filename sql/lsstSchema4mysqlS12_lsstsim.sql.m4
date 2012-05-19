@@ -396,22 +396,22 @@ CREATE TABLE RefObject
         -- <descr>Semi-minor axis length of galaxy disk. NULL for stars.</descr>
         -- <ucd>src.morph.scLength</ucd>
         -- <unit>arcsec</unit>
-    uCov SMALLINT NOT NULL,
+    uExposureCount SMALLINT NOT NULL,
         -- <descr>Number of u-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
-    gCov SMALLINT NOT NULL,
+    gExposureCount SMALLINT NOT NULL,
         -- <descr>Number of g-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
-    rCov SMALLINT NOT NULL,
+    rExposureCount SMALLINT NOT NULL,
         -- <descr>Number of r-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
-    iCov SMALLINT NOT NULL,
+    iExposureCount SMALLINT NOT NULL,
         -- <descr>Number of i-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
-    zCov SMALLINT NOT NULL,
+    zExposureCount SMALLINT NOT NULL,
         -- <descr>Number of z-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
-    yCov SMALLINT NOT NULL,
+    yExposureCount SMALLINT NOT NULL,
         -- <descr>Number of y-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
     PRIMARY KEY (refObjectId),
