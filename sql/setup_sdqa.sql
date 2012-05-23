@@ -23,6 +23,66 @@
 -- Created: 24 October 2008, R. Laher (laher@ipac.caltech.edu)
 
 
+DELIMITER //
+
+-- Created: 24 October 2008, R. Laher (laher@ipac.caltech.edu)
+--
+-- Insert a new record into the SDQA_Threshold table. 
+--
+-- Modifications: 
+--
+-- 8 December 2008, R. Laher (laher@ipac.caltech.edu)
+-- Removed code associated with versioning of SDQA_Threshold records,
+-- since is to be handled by provenance.
+--
+
+-- Returns number of elements inserted.
+-- Negative value indicates an error:
+-- -1: metric not found
+-- -2: insert failed
+CREATE FUNCTION addSdqaThresholdRecord (
+    metricName_      VARCHAR(30),
+    upperThreshold_  DOUBLE,
+    lowerThreshold_  DOUBLE
+) RETURNS INT
+  SQL SECURITY INVOKER
+BEGIN
+
+    DECLARE sdqa_thresholdId_ SMALLINT;
+    DECLARE sdqa_metricId_    SMALLINT;
+
+
+    -- Get sdqa_metricId.
+    SELECT sdqa_metricId INTO sdqa_metricId_
+    FROM   sdqa_Metric
+    WHERE  metricName = metricName_;
+
+    IF sdqa_metricId_ IS NULL THEN
+        RETURN -1;
+    END IF;
+
+    -- Insert SDQA_Threshold record.
+    INSERT INTO sdqa_Threshold ( sdqa_metricId,
+                                 upperThreshold,
+                                 lowerThreshold,
+                                 createdDate )
+    VALUES ( sdqa_metricId_,
+             upperThreshold_,
+             lowerThreshold_,
+             now() );
+
+    SELECT LAST_INSERT_ID() INTO sdqa_thresholdId_;
+
+    IF sdqa_thresholdId_ IS NULL THEN
+        RETURN -2;
+    END IF;
+
+    RETURN sdqa_thresholdId_;
+END
+//
+
+DELIMITER ;
+
 -- initialize sdqa_Metric table --
 
 INSERT INTO sdqa_Metric (metricName, physicalUnits, dataType, definition)

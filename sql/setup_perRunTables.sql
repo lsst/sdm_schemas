@@ -147,6 +147,9 @@ UPDATE LeapSeconds
 --  Create tables using existing templates, adjust engine types etc --
 -- ================================================================ --
 
+-- This is to speed up ingest of log messages during pipeline execution
+ALTER TABLE Logs DISABLE KEYS;
+
 -- CREATE TABLE DiaSourceForMovingObject LIKE DiaSource;
 
 
@@ -159,11 +162,11 @@ UPDATE LeapSeconds
 --     DROP KEY objectId;
 
 -- This should be a permanent table, but copy it from Object for now.
-CREATE TABLE NonVarObject LIKE Object;
+-- CREATE TABLE NonVarObject LIKE Object;
 
-CREATE TABLE _tmpl_InMemoryObject LIKE Object;
+-- CREATE TABLE _tmpl_InMemoryObject LIKE Object;
 
-ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
+-- ALTER TABLE _tmpl_InMemoryObject ENGINE=MEMORY;
 
 -- CREATE TABLE _tmpl_InMemoryMatchPair LIKE _tmpl_MatchPair;
 -- ALTER TABLE _tmpl_InMemoryMatchPair ENGINE=MEMORY;
