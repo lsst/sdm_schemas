@@ -1199,10 +1199,9 @@ CREATE TABLE Source
         -- <descr>Middle of exposure time (MJD, TAI).</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
-    timeRange FLOAT NOT NULL,
+    expTime FLOAT NOT NULL,
         -- <descr>Exposure time (TAI) or, in case of measurement on coadded
-        -- exposure pairs, the end time of the later exposure minus the start
-        -- time of the earlier exposure.</descr>
+        -- snap exposure pairs, the sum of snap exposure times.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
     psfFlux DOUBLE NULL,
@@ -1300,9 +1299,9 @@ CREATE TABLE Source
     flagNegative BIT(1) NOT NULL,
         -- <descr>Set if source was detected as significantly negative.</descr>
         -- <ucd>meta.code</ucd>
-    flagBadCentroid BIT(1) NOT NULL,
+    flagBadMeasCentroid BIT(1) NOT NULL,
         -- <descr>Set if the centroid algorithm used to feed centers to other
-        -- algorithms failed.</descr>
+        -- measurement algorithms failed.</descr>
         -- <ucd>meta.code.error</ucd>
     flagPixEdge BIT(1) NOT NULL,
         -- <descr>Set if source is in region labeled EDGE.</descr>
@@ -1323,22 +1322,22 @@ CREATE TABLE Source
         -- <descr>Set if source's center is close to
         -- saturated pixels.</descr>
         -- <ucd>meta.code</ucd>
-    flagPsfFlux BIT(1) NOT NULL,
+    flagBadPsfFlux BIT(1) NOT NULL,
         -- <descr>Set if the psfFlux measurement failed.</descr>
         -- <ucd>meta.code.error</ucd>
-    flagApFlux BIT(1) NOT NULL,
+    flagBadApFlux BIT(1) NOT NULL,
         -- <descr>Set if the apFlux measurement failed.</descr>
         -- <ucd>meta.code.error</ucd>
-    flagModelFlux BIT(1) NOT NULL,
+    flagBadModelFlux BIT(1) NOT NULL,
         -- <descr>Set if the modelFlux measurement failed.</descr>
         -- <ucd>meta.code.error</ucd>
-    flagInstFlux BIT(1) NOT NULL,
+    flagBadInstFlux BIT(1) NOT NULL,
         -- <descr>Set if the instFlux measurement failed.</descr>
         -- <ucd>meta.code.error</ucd>
-    flagCentroid BIT(1) NOT NULL,
+    flagBadCentroid BIT(1) NOT NULL,
         -- <descr>Set if the centroid measurement failed.</descr>
         -- <ucd>meta.code.error</ucd>
-    flagShape BIT(1) NOT NULL,
+    flagBadShape BIT(1) NOT NULL,
         -- <descr>Set if the shape measurement did not completely
         -- succeed.</descr>
         -- <ucd>meta.code.error</ucd>
