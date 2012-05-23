@@ -39,7 +39,7 @@ CREATE TABLE ZZZ_Db_Description
         -- <descr>Captures information from 'git describe'.</descr>
 ) ENGINE=MyISAM;
 
-INSERT INTO ZZZ_Db_Description(f) VALUES('schema_mysql_S12_lsstSim.sql');
+INSERT INTO ZZZ_Db_Description(f) VALUES('lsstSchema4mysqlS12_lsstsim.sql');
 
 
 CREATE TABLE AmpMap
@@ -457,12 +457,12 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>instr.bandpass</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of amplifier center, corresponding to FITS
-        -- piexl coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
+        -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
         -- <descr>ICRS Dec. of amplifier center, corresponding to FITS
-        -- piexl coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
+        -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     htmId20 BIGINT NOT NULL,
@@ -510,37 +510,37 @@ CREATE TABLE Raw_Amp_Exposure
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner1Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 1, orresponding to
+        -- <descr>ICRS Dec of image corner 1, corresponding to
         -- FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     corner2Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 2, orresponding to
+        -- <descr>ICRS RA of image corner 2, corresponding to
         -- FITS pixel coordinates (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner2Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 2, orresponding to
+        -- <descr>ICRS Dec of image corner 2, corresponding to
         -- FITS pixel coordinates (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     corner3Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 3, orresponding to
+        -- <descr>ICRS RA of image corner 3, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner3Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 3, orresponding to
+        -- <descr>ICRS Dec of image corner 3, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     corner4Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 4, orresponding to
+        -- <descr>ICRS RA of image corner 4, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner4Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 4, orresponding to
+        -- <descr>ICRS Dec of image corner 4, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
@@ -672,12 +672,12 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>instr.bandpass</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of CCD center, corresponding to FITS
-        -- piexl coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
+        -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
         -- <descr>ICRS Dec. of CCD center, corresponding to FITS
-        -- piexl coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
+        -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     htmId20 BIGINT NOT NULL,
@@ -732,37 +732,37 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner1Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 1, orresponding to
+        -- <descr>ICRS Dec of image corner 1, corresponding to
         -- FITS pixel coordinates (0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     corner2Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 2, orresponding to
+        -- <descr>ICRS RA of image corner 2, corresponding to
         -- FITS pixel coordinates (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner2Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 2, orresponding to
+        -- <descr>ICRS Dec of image corner 2, corresponding to
         -- FITS pixel coordinates (0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     corner3Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 3, orresponding to
+        -- <descr>ICRS RA of image corner 3, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner3Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 3, orresponding to
+        -- <descr>ICRS Dec of image corner 3, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     corner4Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 4, orresponding to
+        -- <descr>ICRS RA of image corner 4, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     corner4Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 4, orresponding to
+        -- <descr>ICRS Dec of image corner 4, corresponding to
         -- FITS pixel coordinates (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
@@ -1122,7 +1122,7 @@ CREATE TABLE Source
         -- <descr>Primary key (unique identifier)</descr>
         -- <ucd>meta.id;src</ucd>
     parentSourceId BIGINT NULL,
-        -- <descr>sourceId of parent source; NULL for orphans</descr>
+        -- <descr>sourceId of parent if source is deblended, otherwise NULL.</descr>
         -- <ucd>meta.id.parent;src</ucd>
     scienceCcdExposureId BIGINT NOT NULL,
         -- <descr>ID of CCD the source was detected and measured on
@@ -1133,9 +1133,9 @@ CREATE TABLE Source
         -- was detected and measured on.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     objectId BIGINT NULL,
-        -- <descr>ID of object this source was assigned to. NULL if the S12
-        -- clustering algorithm generated a single-source object for this
-        -- source.</descr>
+        -- <descr>ID of object this source was assigned to. NULL if the source
+        -- did not participate in spatial clustering, or if the clustering
+        -- algorithm considered the source to be a "noise" source.</descr>
         -- <ucd>meta.id;src</ucd>
     objectRa DOUBLE NULL,
         -- <descr>ICRS RA of object associated with this source, or ra if the
