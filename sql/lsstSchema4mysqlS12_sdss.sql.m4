@@ -258,25 +258,26 @@ CREATE TABLE RefObject
     refObjectId BIGINT NOT NULL,
         -- <descr>Unique reference object ID.</descr>
         -- <ucd>meta.id;src</ucd>
+    flags BIGINT NOT NULL,
+        -- <descr>SDSS flags</descr>
+    run SMALLINT NOT NULL,
+        -- <descr>SDSS run</descr>
+    rerun SMALLINT NOT NULL,
+        -- <descr>SDSS rerun</descr>
+    camcol TINYINT NOT NULL,
+        -- <descr>SDSS camcol</descr>
+    field SMALLINT NOT NULL,
+        -- <descr>SDSS field</descr>
+    obj SMALLINT NOT NULL,
+        -- <descr>SDSS obj</descr>
+    mode SMALLINT NOT NULL,
+        -- <descr>SDSS mode</descr>
+    type SMALLINT NOT NULL,
+        -- <descr>SDSS morphological type (STAR=6, GALAXY=3; see
+        -- http://cas.sdss.org/dr7/en/help/browser/enum.asp?n=PhotoType)</descr>
     isStar TINYINT NOT NULL,
         -- <descr>1 for stars, 0 for galaxies.</descr>
         -- <ucd>src.class.starGalaxy</ucd>
-    varClass TINYINT NOT NULL,
-        -- <descr>Variability classification code:
-        -- <ul>
-        --    <li>0 = Non-variable</li>
-        --    <li>1 = RR-Lyrae</li>
-        --    <li>2 = Active galactic nucleus</li>
-        --    <li>3 = Lensed Quasar</li>
-        --    <li>4 = M-Dwarf flares</li>
-        --    <li>5 = Eclipsing binary</li>
-        --    <li>6 = Microlensing</li>
-        --    <li>7 = Long duration microlensing</li>
-        --    <li>8 = AM CVn</li>
-        --    <li>9 = Cepheid</li>
-        -- </ul>
-        -- </descr>
-        -- <ucd>meta.code;src.class</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of object.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -288,77 +289,46 @@ CREATE TABLE RefObject
     htmId20 BIGINT NOT NULL,
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
         -- <ucd>pos.HTM</ucd>
-    gLat DOUBLE NULL,
-        -- <descr>Galactic latitude of star. NULL for galaxies.</descr>
-        -- <ucd>pos.galactic.lat</ucd>
-        -- <unit>deg</unit>
-
-    gLon DOUBLE NULL,
-        -- <descr>Galactic longitude of star. NULL for galaxies.</descr>
-        -- <ucd>pos.galactic.lon</ucd>
-        -- <unit>deg</unit>
-    sedName VARCHAR(255) NULL,
-        -- <descr>Best-fit SED name. NULL for galaxies.</descr>
-        -- <ucd>src.sec</ucd>
     uMag DOUBLE NOT NULL,
-        -- <descr>u-band AB magnitude.</descr>
+        -- <descr>SDSS model u-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     gMag DOUBLE NOT NULL,
-        -- <descr>g-band AB magnitude.</descr>
+        -- <descr>SDSS model g-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     rMag DOUBLE NOT NULL,
-        -- <descr>r-band AB magnitude.</descr>
+        -- <descr>SDSS model r-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     iMag DOUBLE NOT NULL,
-        -- <descr>i-band AB magnitude.</descr>
+        -- <descr>SDSS model i-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     zMag DOUBLE NOT NULL,
-        -- <descr>z-band AB magnitude.</descr>
+        -- <descr>SDSS model z-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
-    yMag DOUBLE NOT NULL,
-        -- <descr>y-band AB magnitude.</descr>
-        -- <ucd>phot.mag</ucd>
+    uMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model u-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
         -- <unit>mag</unit>
-    muRa DOUBLE NULL,
-        -- <descr>Proper motion: dRA/dt*cos(decl). NULL for galaxies.</descr>
-        -- <ucd>pos.pm</ucd>
-        -- <unit>mas/yr</unit>
-    muDecl DOUBLE NULL,
-        -- <descr>Proper motion: dDec/dt. NULL for galaxies.</descr>
-        -- <ucd>pos.pm</ucd>
-        -- <unit>mas/yr</unit>
-    parallax DOUBLE NULL,
-        -- <descr>Stellar parallax. NULL for galaxies.</descr>
-        -- <ucd>pos.parallax</ucd>
-        -- <unit>mas</unit>
-    vRad DOUBLE NULL,
-        -- <descr>Radial velocity of star. NULL for galaxies.</descr>
-        -- <ucd>spect.dopplerVeloc.opt</ucd>
-        -- <unit>km/s</unit>
-    redshift DOUBLE NULL,
-        -- <descr>Redshift. NULL for stars.</descr>
-        -- <ucd>src.redshift</ucd>
-    semiMajorBulge DOUBLE NULL,
-        -- <descr>Semi-major axis length of galaxy bulge. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
-    semiMinorBulge DOUBLE NULL,
-        -- <descr>Semi-minor axis length of galaxy bulge. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
-    semiMajorDisk DOUBLE NULL,
-        -- <descr>Semi-major axis length of galaxy disk. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
-    semiMinorDisk DOUBLE NULL,
-        -- <descr>Semi-minor axis length of galaxy disk. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
+    gMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model g-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
+    rMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model r-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
+    iMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model i-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
+    zMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model z-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
     uExposureCount SMALLINT NOT NULL,
         -- <descr>Number of u-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
@@ -374,8 +344,6 @@ CREATE TABLE RefObject
     zExposureCount SMALLINT NOT NULL,
         -- <descr>Number of z-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
-    yExposureCount SMALLINT NOT NULL,
-        -- <descr>Number of y-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
     PRIMARY KEY (refObjectId),
     KEY IDX_decl (decl ASC),
