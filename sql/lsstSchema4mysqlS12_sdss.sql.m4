@@ -390,8 +390,6 @@ CREATE TABLE Science_Ccd_Exposure
         -- <ucd>meta.id;obs.image</ucd>
     run INTEGER NOT NULL,
         -- <descr>Run number.</descr>
-    rerun INTEGER NOT NULL,
-        -- <descr>Rerun (processing) number.</descr>
     camcol TINYINT NOT NULL,
         -- <descr>Camera column.</descr>
     filterId TINYINT NOT NULL,
@@ -400,7 +398,7 @@ CREATE TABLE Science_Ccd_Exposure
     frame INTEGER NOT NULL,
         -- <descr>Frame number.</descr>
     band CHAR(3) NOT NULL,
-        -- <descr>Band.</descr>
+        -- <descr>Name of band.</descr>
         -- <ucd>instr.bandpass</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of CCD center, corresponding to FITS
@@ -524,19 +522,6 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Binning of the ccd in y.</descr>
         -- <ucd>meta.number</ucd>
         -- <unit>pixel</unit>
-    readNoise FLOAT NOT NULL,
-        -- <descr>Read noise of the ccd.</descr>
-        -- <ucd>instr.det.noise</ucd>
-        -- <unit>adu</unit>
-    saturationLimit INTEGER NOT NULL,
-        -- <descr>Saturation limit for the ccd (average of the amplifiers).
-        -- </descr>
-        -- <ucd>instr.saturation</ucd>
-        -- <ucd>arith.factor;instr.det</ucd>
-        -- <unit>electron/adu</unit>
-    gainEff DOUBLE NOT NULL,
-        -- <ucd>arith.factor;instr.det</ucd>
-        -- <unit>electron/adu</unit>
     fluxMag0 FLOAT NOT NULL,
         -- <ucd>phot.flux.density</ucd>
     fluxMag0Sigma FLOAT NOT NULL,
