@@ -639,7 +639,7 @@ CREATE TABLE Raw_Amp_Exposure_To_Htm11
         -- For each amp exposure, there will be one row for every overlapping
         -- triangle.</descr>
         -- <ucd>pos.HTM</ucd>
-    PRIMARY KEY (htmId11, rawAmpExposureId),
+    KEY IDX_htmId11 (htmId11 ASC),
     KEY IDX_rawAmpExposureId (rawAmpExposureId ASC)
 ) ENGINE=MyISAM;
 
@@ -877,7 +877,7 @@ CREATE TABLE Science_Ccd_Exposure_To_Htm10
         -- For each CCD exposure, there will be one row for every overlapping
         -- triangle.</descr>
         -- <ucd>pos.HTM</ucd>
-    PRIMARY KEY (htmId10, scienceCcdExposureId),
+    KEY IDX_htmId10 (htmId10 ASC),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC)
 ) ENGINE=MyISAM;
 

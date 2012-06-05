@@ -363,10 +363,10 @@ CREATE TABLE Science_Ccd_Exposure
     filterId TINYINT NOT NULL,
         -- <descr>Id of the filter for the band.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
-    frame INTEGER NOT NULL,
-        -- <descr>Frame number.</descr>
-    band CHAR(3) NOT NULL,
-        -- <descr>Name of band.</descr>
+    field INTEGER NOT NULL,
+        -- <descr>Field number.</descr>
+    filterName CHAR(3) NOT NULL,
+        -- <descr>Filter name, pulled in from the Filter table.</descr>
         -- <ucd>instr.bandpass</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of CCD center, corresponding to FITS
@@ -548,7 +548,7 @@ CREATE TABLE Science_Ccd_Exposure_To_Htm10
         -- For each CCD exposure, there will be one row for every overlapping
         -- triangle.</descr>
         -- <ucd>pos.HTM</ucd>
-    PRIMARY KEY (htmId10, scienceCcdExposureId),
+    KEY IDX_htmId10 (htmId10 ASC),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC)
 ) ENGINE=MyISAM;
 
