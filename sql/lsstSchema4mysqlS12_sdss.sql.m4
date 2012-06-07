@@ -39,31 +39,7 @@ CREATE TABLE IF NOT EXISTS ZZZ_Db_Description
         -- <descr>Captures information from 'git describe'.</descr>
 ) ENGINE=MyISAM;
 
-INSERT INTO ZZZ_Db_Description(f) VALUES('lsstSchema4mysqlS12_lsstsim.sql');
-
-
-CREATE TABLE AmpMap
-    -- <descr>Mapping table to translate amp names to numbers.</descr>
-(
-    ampNum TINYINT NOT NULL,
-        -- <ucd>meta.id;instr.det</ucd>
-    ampName CHAR(3) NOT NULL,
-        -- <ucd>instr.det</ucd>
-    PRIMARY KEY (ampNum),
-    UNIQUE UQ_AmpMap_ampName(ampName)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE CcdMap
-    -- <descr>Mapping table to translate ccd names to numbers.</descr>
-(
-    ccdNum TINYINT NOT NULL,
-        -- <ucd>meta.id;instr.det</ucd>
-    ccdName CHAR(3) NOT NULL,
-        -- <ucd>instr.det</ucd>
-    PRIMARY KEY (ccdNum),
-    UNIQUE UQ_CcdMap_ccdName(ccdName)
-) ENGINE=MyISAM;
+INSERT INTO ZZZ_Db_Description(f) VALUES('lsstSchema4mysqlS12_sdss.sql');
 
 
 CREATE TABLE Filter
@@ -72,8 +48,7 @@ CREATE TABLE Filter
         -- <descr>Unique id (primary key).</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     filterName CHAR(3) NOT NULL,
-        -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y', 
-        -- 'w', 'V'.</descr>
+        -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z'</descr>
         -- <ucd>instr.bandpass</ucd>
     photClam FLOAT NOT NULL,
         -- <descr>Filter centroid wavelength.</descr>
@@ -166,18 +141,6 @@ CREATE TABLE ObjectType
     description VARCHAR(255) NULL,
         -- <ucd>meta.note</ucd>
     PRIMARY KEY (typeId)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE RaftMap
-    -- <descr>Mapping table to translate raft names to numbers.</descr>
-(
-    raftNum TINYINT NOT NULL,
-        -- <ucd>meta.id;instr.det</ucd>
-    raftName CHAR(3) NOT NULL,
-        -- <ucd>instr.det</ucd>
-    PRIMARY KEY (raftNum),
-    UNIQUE UQ_RaftMap_raftName(raftName)
 ) ENGINE=MyISAM;
 
 
@@ -295,25 +258,26 @@ CREATE TABLE RefObject
     refObjectId BIGINT NOT NULL,
         -- <descr>Unique reference object ID.</descr>
         -- <ucd>meta.id;src</ucd>
+    flags BIGINT NOT NULL,
+        -- <descr>SDSS flags</descr>
+    run SMALLINT NOT NULL,
+        -- <descr>SDSS run</descr>
+    rerun SMALLINT NOT NULL,
+        -- <descr>SDSS rerun</descr>
+    camcol TINYINT NOT NULL,
+        -- <descr>SDSS camcol</descr>
+    field SMALLINT NOT NULL,
+        -- <descr>SDSS field</descr>
+    obj SMALLINT NOT NULL,
+        -- <descr>SDSS obj</descr>
+    mode SMALLINT NOT NULL,
+        -- <descr>SDSS mode</descr>
+    type SMALLINT NOT NULL,
+        -- <descr>SDSS morphological type (STAR=6, GALAXY=3; see
+        -- http://cas.sdss.org/dr7/en/help/browser/enum.asp?n=PhotoType)</descr>
     isStar TINYINT NOT NULL,
         -- <descr>1 for stars, 0 for galaxies.</descr>
         -- <ucd>src.class.starGalaxy</ucd>
-    varClass TINYINT NOT NULL,
-        -- <descr>Variability classification code:
-        -- <ul>
-        --    <li>0 = Non-variable</li>
-        --    <li>1 = RR-Lyrae</li>
-        --    <li>2 = Active galactic nucleus</li>
-        --    <li>3 = Lensed Quasar</li>
-        --    <li>4 = M-Dwarf flares</li>
-        --    <li>5 = Eclipsing binary</li>
-        --    <li>6 = Microlensing</li>
-        --    <li>7 = Long duration microlensing</li>
-        --    <li>8 = AM CVn</li>
-        --    <li>9 = Cepheid</li>
-        -- </ul>
-        -- </descr>
-        -- <ucd>meta.code;src.class</ucd>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of object.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -325,77 +289,46 @@ CREATE TABLE RefObject
     htmId20 BIGINT NOT NULL,
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
         -- <ucd>pos.HTM</ucd>
-    gLat DOUBLE NULL,
-        -- <descr>Galactic latitude of star. NULL for galaxies.</descr>
-        -- <ucd>pos.galactic.lat</ucd>
-        -- <unit>deg</unit>
-
-    gLon DOUBLE NULL,
-        -- <descr>Galactic longitude of star. NULL for galaxies.</descr>
-        -- <ucd>pos.galactic.lon</ucd>
-        -- <unit>deg</unit>
-    sedName VARCHAR(255) NULL,
-        -- <descr>Best-fit SED name. NULL for galaxies.</descr>
-        -- <ucd>src.sec</ucd>
     uMag DOUBLE NOT NULL,
-        -- <descr>u-band AB magnitude.</descr>
+        -- <descr>SDSS model u-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     gMag DOUBLE NOT NULL,
-        -- <descr>g-band AB magnitude.</descr>
+        -- <descr>SDSS model g-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     rMag DOUBLE NOT NULL,
-        -- <descr>r-band AB magnitude.</descr>
+        -- <descr>SDSS model r-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     iMag DOUBLE NOT NULL,
-        -- <descr>i-band AB magnitude.</descr>
+        -- <descr>SDSS model i-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
     zMag DOUBLE NOT NULL,
-        -- <descr>z-band AB magnitude.</descr>
+        -- <descr>SDSS model z-band AB magnitude.</descr>
         -- <ucd>phot.mag</ucd>
         -- <unit>mag</unit>
-    yMag DOUBLE NOT NULL,
-        -- <descr>y-band AB magnitude.</descr>
-        -- <ucd>phot.mag</ucd>
+    uMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model u-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
         -- <unit>mag</unit>
-    muRa DOUBLE NULL,
-        -- <descr>Proper motion: dRA/dt*cos(decl). NULL for galaxies.</descr>
-        -- <ucd>pos.pm</ucd>
-        -- <unit>mas/yr</unit>
-    muDecl DOUBLE NULL,
-        -- <descr>Proper motion: dDec/dt. NULL for galaxies.</descr>
-        -- <ucd>pos.pm</ucd>
-        -- <unit>mas/yr</unit>
-    parallax DOUBLE NULL,
-        -- <descr>Stellar parallax. NULL for galaxies.</descr>
-        -- <ucd>pos.parallax</ucd>
-        -- <unit>mas</unit>
-    vRad DOUBLE NULL,
-        -- <descr>Radial velocity of star. NULL for galaxies.</descr>
-        -- <ucd>spect.dopplerVeloc.opt</ucd>
-        -- <unit>km/s</unit>
-    redshift DOUBLE NULL,
-        -- <descr>Redshift. NULL for stars.</descr>
-        -- <ucd>src.redshift</ucd>
-    semiMajorBulge DOUBLE NULL,
-        -- <descr>Semi-major axis length of galaxy bulge. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
-    semiMinorBulge DOUBLE NULL,
-        -- <descr>Semi-minor axis length of galaxy bulge. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
-    semiMajorDisk DOUBLE NULL,
-        -- <descr>Semi-major axis length of galaxy disk. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
-    semiMinorDisk DOUBLE NULL,
-        -- <descr>Semi-minor axis length of galaxy disk. NULL for stars.</descr>
-        -- <ucd>src.morph.scLength</ucd>
-        -- <unit>arcsec</unit>
+    gMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model g-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
+    rMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model r-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
+    iMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model i-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
+    zMagSigma DOUBLE NOT NULL,
+        -- <descr>SDSS model z-band AB magnitude error.</descr>
+        -- <ucd>stat.error;phot.mag</ucd>
+        -- <unit>mag</unit>
     uExposureCount SMALLINT NOT NULL,
         -- <descr>Number of u-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
@@ -411,236 +344,10 @@ CREATE TABLE RefObject
     zExposureCount SMALLINT NOT NULL,
         -- <descr>Number of z-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
-    yExposureCount SMALLINT NOT NULL,
-        -- <descr>Number of y-band science CCDs containing reference object.</descr>
         -- <ucd>meta.number</ucd>
     PRIMARY KEY (refObjectId),
     KEY IDX_decl (decl ASC),
     KEY IDX_htmId20 (htmId20 ASC)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE Raw_Amp_Exposure
-(
-    rawAmpExposureId BIGINT NOT NULL,
-        -- <descr>Primary key (unique identifier).</descr>
-        -- <ucd>meta.id;obs.image</ucd>
-    visit INTEGER NOT NULL,
-        -- <descr>Visit id from Visit table this exposure belongs to.</descr>
-        -- <ucd>meta.id;obs.image</ucd>
-    snap TINYINT NOT NULL,
-        -- <descr>Snap id this exposure belongs to.</descr>
-        -- <ucd>meta.code.multip;obs.sequence</ucd>
-    raft TINYINT NOT NULL,
-        -- <descr>Raft id from RaftTable this exposure belongs to.</descr>
-        -- <ucd>meta.id</ucd>
-    raftName CHAR(3) NOT NULL,
-        -- <descr>Raft name, pulled in from the RaftMap table.</descr>
-        -- <ucd>instr.det</ucd>
-    ccd TINYINT NOT NULL,
-        -- <descr>ccd id from CcdMap table this exposure belongs to.</descr>
-        -- <ucd>meta.id</ucd>
-    ccdName CHAR(3) NOT NULL,
-        -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
-        -- <ucd>instr.det</ucd>
-    amp TINYINT NOT NULL,
-        -- <descr>Reference to the corresponding entry in the AmpMap table.</descr>
-        -- <ucd>meta.id</ucd>
-    ampName CHAR(3) NOT NULL,
-        -- <descr>Amp name, pulled in from the AmpMap table.</descr>
-        -- <ucd>instr.det</ucd>
-    filterId TINYINT NOT NULL,
-        -- <descr>Id of the filter used for this exposure.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
-    filterName CHAR(3) NOT NULL,
-        -- <descr>Filter name, pulled in from the Filter table.</descr>
-        -- <ucd>instr.bandpass</ucd>
-    ra DOUBLE NOT NULL,
-        -- <descr>ICRS R.A. of amplifier center, corresponding to FITS
-        -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec. of amplifier center, corresponding to FITS
-        -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    htmId20 BIGINT NOT NULL,
-        -- <descr>Level 20 HTM ID of (ra, decl)</descr>
-        -- <ucd>pos.HTM</ucd>
-    equinox FLOAT NOT NULL,
-        -- <ucd>pos.equinox</ucd>
-    raDeSys VARCHAR(20) NOT NULL,
-        -- <ucd>pos.frame</ucd>
-    ctype1 VARCHAR(20) NOT NULL,
-        -- <ucd>pos.wcs.ctype</ucd>
-    ctype2 VARCHAR(20) NOT NULL,
-        -- <ucd>pos.wcs.ctype</ucd>
-    crpix1 FLOAT NOT NULL,
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crpix2 FLOAT NOT NULL,
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crval1 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.crval</ucd>
-        -- <unit>deg</unit>
-    crval2 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.crval</ucd>
-        -- <unit>deg</unit>
-    cd1_1 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd1_2 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_1 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_2 DOUBLE NOT NULL,
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    corner1Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 1, corresponding to
-        -- FITS pixel coordinates (0.5, 0.5)</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    corner1Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 1, corresponding to
-        -- FITS pixel coordinates (0.5, 0.5)</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    corner2Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 2, corresponding to
-        -- FITS pixel coordinates (0.5, NAXIS2 + 0.5)</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    corner2Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 2, corresponding to
-        -- FITS pixel coordinates (0.5, NAXIS2 + 0.5)</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    corner3Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 3, corresponding to
-        -- FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    corner3Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 3, corresponding to
-        -- FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5)</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    corner4Ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of image corner 4, corresponding to
-        -- FITS pixel coordinates (NAXIS1 + 0.5, 0.5)</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    corner4Decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of image corner 4, corresponding to
-        -- FITS pixel coordinates (NAXIS1 + 0.5, 0.5)</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    taiMjd DOUBLE NOT NULL,
-        -- <descr>Time (MJD, TAI) at the start of the exposure.</descr>
-        -- <ucd>time.start</ucd>
-        -- <unit>d</unit>
-    obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        -- <descr>Time (UTC, 1s precision) at the start of the
-        -- exposure.</descr>
-        -- <ucd>time.start</ucd>
-    expMidpt VARCHAR(30) NOT NULL,
-        -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
-        -- exposure.</descr>
-        -- <ucd>time.epoch</ucd>
-    expTime FLOAT NOT NULL,
-        -- <descr>Duration of exposure.</descr>
-        -- <ucd>time.duration</ucd>
-        -- <unit>s</unit>
-    airmass FLOAT NOT NULL,
-        -- <ucd>obs.airmass</ucd>
-    darkTime FLOAT NOT NULL,
-        -- <ucd>time.duration</ucd>
-        -- <unit>s</unit>
-    zd FLOAT NULL,
-        -- <ucd>pos.az.zd</ucd>
-        -- <unit>deg</unit>
-    poly BINARY(120) NOT NULL,
-        -- <descr>binary representation of the 4-corner polygon for the amp.</descr>
-    PRIMARY KEY (rawAmpExposureId),
-    KEY IDX_htmId20 (htmId20 ASC)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE Raw_Amp_Exposure_Metadata
-    -- <descr>Generic key-value pair metadata for Raw_Amp_Exposure.</descr>
-(
-    rawAmpExposureId BIGINT NOT NULL,
-        -- <descr>Id of the corresponding Raw_Amp_Exposure.</descr>
-        -- <ucd>meta.id;obs.image</ucd>
-    metadataKey VARCHAR(255) NOT NULL,
-    exposureType TINYINT NOT NULL,
-        -- <descr>Meaning of the bits:
-        --  <ul>
-        --    <li>0x1: rawAmp</li>
-        --    <li>0x2: postIsrAmp</li>
-        --    <li>more tbd.</li>
-        --  </ul></descr>
-    intValue INTEGER NULL,
-    doubleValue DOUBLE NULL,
-    stringValue VARCHAR(255) NULL,
-    PRIMARY KEY (rawAmpExposureId, metadataKey),
-    KEY IDX_metadataKey (metadataKey ASC)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE Raw_Amp_To_Science_Ccd_Exposure
-(
-    rawAmpExposureId BIGINT NOT NULL,
-        -- <ucd>meta.id;obs.image</ucd>
-    scienceCcdExposureId BIGINT NOT NULL,
-        -- <descr>Pointer to the Science_Ccd_Exposure.</descr>
-        -- <ucd>meta.id;obs.image</ucd>
-    snap TINYINT NOT NULL,
-        -- <ucd>meta.code.multip;obs.sequence</ucd>
-    amp TINYINT NOT NULL,
-        -- <descr>Reference to the corresponding entry in the AmpMap table.
-        -- </descr>
-        -- <ucd>meta.id;instr.det</ucd>
-    PRIMARY KEY (rawAmpExposureId),
-    KEY scienceCcdExposureId (scienceCcdExposureId ASC)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
-(
-    rawAmpExposureId BIGINT NOT NULL,
-        -- <ucd>meta.id;obs.image</ucd>
-    amp TINYINT NOT NULL,
-        -- <ucd>meta.id;instr.det</ucd>
-    snapCcdExposureId BIGINT NOT NULL,
-        -- <ucd>meta.id;obs.image</ucd>
-    PRIMARY KEY (rawAmpExposureId),
-    KEY snapCcdExposureId (snapCcdExposureId ASC)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE Raw_Amp_Exposure_To_Htm11
-    -- <descr>Stores a mapping between raw amplifier exposures and the IDs of 
-    -- spatially overlapping level-11 HTM triangles.</descr>
-(
-    rawAmpExposureId BIGINT NOT NULL,
-        -- <descr>Pointer to Raw_Amp_Exposure.</descr>
-    htmId11 INTEGER NOT NULL,
-        -- <descr>ID for Level 11 HTM triangle overlapping raw amp exposure.
-        -- For each amp exposure, there will be one row for every overlapping
-        -- triangle.</descr>
-        -- <ucd>pos.HTM</ucd>
-    KEY IDX_htmId11 (htmId11 ASC),
-    KEY IDX_rawAmpExposureId (rawAmpExposureId ASC)
 ) ENGINE=MyISAM;
 
 
@@ -649,24 +356,15 @@ CREATE TABLE Science_Ccd_Exposure
     scienceCcdExposureId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier).</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    visit INTEGER NOT NULL,
-        -- <descr>Reference to the corresponding entry in the Visit table.</descr>
-        -- <ucd>obs.exposure</ucd>
-    raft TINYINT NOT NULL,
-        -- <descr>Reference to the corresponding entry in the RaftMap table.</descr>
-        -- <ucd>meta.id</ucd>
-    raftName CHAR(3) NOT NULL,
-        -- <descr>Raft name, pulled in from the RaftMap table.</descr>
-        -- <ucd>instr.det</ucd>
-    ccd TINYINT NOT NULL,
-        -- <descr>Reference to the corresponding entry in the CcdMap table.</descr>
-        -- <ucd>meta.id</ucd>
-    ccdName CHAR(3) NOT NULL,
-        -- <descr>Ccd name, pulled in from the CcdMap table.</descr>
-        -- <ucd>instr.det</ucd>
+    run INTEGER NOT NULL,
+        -- <descr>Run number.</descr>
+    camcol TINYINT NOT NULL,
+        -- <descr>Camera column.</descr>
     filterId TINYINT NOT NULL,
-        -- <descr>Id of the filter used for this exposure.</descr>
+        -- <descr>Id of the filter for the band.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
+    field INTEGER NOT NULL,
+        -- <descr>Field number.</descr>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
         -- <ucd>instr.bandpass</ucd>
@@ -792,19 +490,6 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Binning of the ccd in y.</descr>
         -- <ucd>meta.number</ucd>
         -- <unit>pixel</unit>
-    readNoise FLOAT NOT NULL,
-        -- <descr>Read noise of the ccd.</descr>
-        -- <ucd>instr.det.noise</ucd>
-        -- <unit>adu</unit>
-    saturationLimit INTEGER NOT NULL,
-        -- <descr>Saturation limit for the ccd (average of the amplifiers).
-        -- </descr>
-        -- <ucd>instr.saturation</ucd>
-        -- <ucd>arith.factor;instr.det</ucd>
-        -- <unit>electron/adu</unit>
-    gainEff DOUBLE NOT NULL,
-        -- <ucd>arith.factor;instr.det</ucd>
-        -- <unit>electron/adu</unit>
     fluxMag0 FLOAT NOT NULL,
         -- <ucd>phot.flux.density</ucd>
     fluxMag0Sigma FLOAT NOT NULL,
@@ -852,20 +537,6 @@ CREATE TABLE Science_Ccd_Exposure_Metadata
 ) ENGINE=MyISAM;
 
 
-CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
-(
-    snapCcdExposureId BIGINT NOT NULL,
-        -- <ucd>meta.id;obs.image</ucd>
-    snap TINYINT NOT NULL,
-        -- <ucd>meta.code.multip;obs.sequence</ucd>
-    scienceCcdExposureId BIGINT NOT NULL,
-        -- <descr>Reference to the corresponding entry in the Science_Ccd_Exposure table.</descr>
-        -- <ucd>meta.id;obs.image</ucd>
-    PRIMARY KEY (snapCcdExposureId),
-    KEY scienceCcdExposureId (scienceCcdExposureId ASC)
-) ENGINE=MyISAM;
-
-
 CREATE TABLE Science_Ccd_Exposure_To_Htm10
     -- <descr>Stores a mapping between science CCD exposures and the IDs of 
     -- spatially overlapping level-10 HTM triangles.</descr>
@@ -879,16 +550,6 @@ CREATE TABLE Science_Ccd_Exposure_To_Htm10
         -- <ucd>pos.HTM</ucd>
     KEY IDX_htmId10 (htmId10 ASC),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC)
-) ENGINE=MyISAM;
-
-
-CREATE TABLE Visit
-    -- <descr>Defines a single Visit. 1 row per LSST visit.</descr>
-(
-    visitId INTEGER NOT NULL,
-        -- <descr>Unique identifier.</descr>
-        -- <ucd>meta.id;obs.image</ucd>
-    PRIMARY KEY (visitId)
 ) ENGINE=MyISAM;
 
 
@@ -1368,50 +1029,8 @@ ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_RefObject
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
 
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_filterId
-    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
-
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_visit
-    FOREIGN KEY (visit) REFERENCES Visit (visitId);
-
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_raft
-    FOREIGN KEY (raft) REFERENCES RaftMap (raftNum);
-
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_ccd
-    FOREIGN KEY (ccd) REFERENCES CcdMap (ccdNum);
-
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_amp
-    FOREIGN KEY (amp) REFERENCES AmpMap (ampNum);
-
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_RawAmpExposure_filterId
-    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
-
-ALTER TABLE Raw_Amp_Exposure_Metadata ADD CONSTRAINT FK_RawAmpExposureMetadata_rawAmpExposureId
-    FOREIGN KEY (rawAmpExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
-
-ALTER TABLE Raw_Amp_Exposure_To_Htm11 ADD CONSTRAINT FK_RawAmpExposureToHtm11_rawAmpExposureId
-    FOREIGN KEY (rawAmpExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
-
-ALTER TABLE Raw_Amp_To_Science_Ccd_Exposure ADD CONSTRAINT FK_RawAmpToScienceExposure_scienceCcdExposureId
-    FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
-
-ALTER TABLE Raw_Amp_To_Science_Ccd_Exposure ADD CONSTRAINT FK_RawAmpToScienceExposure_amp
-    FOREIGN KEY (amp) REFERENCES AmpMap (ampNum);
-
-ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_visit
-    FOREIGN KEY (visit) REFERENCES Visit (visitId);
-
-ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_raft
-    FOREIGN KEY (raft) REFERENCES RaftMap (raftNum);
-
-ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_ccd
-    FOREIGN KEY (ccd) REFERENCES CcdMap (ccdNum);
-
 ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);
-
-ALTER TABLE Snap_Ccd_To_Science_Ccd_Exposure ADD CONSTRAINT FK_SnapCcdToScienceCcdExposure_scienceCcdExposureId
-    FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
 
 ALTER TABLE Science_Ccd_Exposure_To_Htm10 ADD CONSTRAINT FK_ScienceCcdExposureToHtm10_scienceCcdExposureId
     FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
