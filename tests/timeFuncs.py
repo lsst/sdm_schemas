@@ -51,7 +51,7 @@ class TimeFuncTestCase(unittest.TestCase):
         SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
             "lsstSchema4mysqlPT1_2.sql"), dbUrl)
         SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
-            "setup_perRunTables.sql"), dbUrl)
+            "setup_perRunTablesS12_lsstsim.sql"), dbUrl)
         SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
             "setup_storedFunctions.sql"), dbUrl)
 
