@@ -258,23 +258,27 @@ CREATE TABLE RefObject
     refObjectId BIGINT NOT NULL,
         -- <descr>Unique reference object ID.</descr>
         -- <ucd>meta.id;src</ucd>
-    flags BIGINT NOT NULL,
-        -- <descr>SDSS flags</descr>
-    run SMALLINT NOT NULL,
+    run SMALLINT DEFAULT NULL,
         -- <descr>SDSS run</descr>
-    rerun SMALLINT NOT NULL,
+    rerun SMALLINT DEFAULT NULL,
         -- <descr>SDSS rerun</descr>
-    camcol TINYINT NOT NULL,
+    camcol TINYINT DEFAULT NULL,
         -- <descr>SDSS camcol</descr>
-    field SMALLINT NOT NULL,
+    field SMALLINT DEFAULT NULL,
         -- <descr>SDSS field</descr>
-    obj SMALLINT NOT NULL,
+    obj SMALLINT DEFAULT NULL,
         -- <descr>SDSS obj</descr>
-    mode SMALLINT NOT NULL,
+    mode SMALLINT DEFAULT NULL,
         -- <descr>SDSS mode</descr>
-    type SMALLINT NOT NULL,
+    type SMALLINT DEFAULT NULL,
         -- <descr>SDSS morphological type (STAR=6, GALAXY=3; see
         -- http://cas.sdss.org/dr7/en/help/browser/enum.asp?n=PhotoType)</descr>
+    flags BIGINT DEFAULT NULL,
+        -- <descr>SDSS flags</descr>
+    nChild SMALLINT DEFAULT NULL,
+        -- <descr>SDSS nChild</descr>
+    parentId BIGINT DEFAULT NULL,
+        -- <descr>SDSS parentID</descr>
     isStar TINYINT NOT NULL,
         -- <descr>1 for stars, 0 for galaxies.</descr>
         -- <ucd>src.class.starGalaxy</ucd>
