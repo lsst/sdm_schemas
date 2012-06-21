@@ -355,7 +355,7 @@ CREATE TABLE RefObject
 ) ENGINE=MyISAM;
 
 
-m4def(`KEY_VALUE_TABLE',
+m4def(`M4_KEY_VALUE_TABLE',
 `CREATE TABLE $1_Metadata
     -- <descr>Generic key-value pair metadata for $1.</descr>
 (
@@ -379,7 +379,7 @@ m4def(`KEY_VALUE_TABLE',
     KEY IDX_metadataKey (metadataKey ASC)
 ) ENGINE=MyISAM;')dnl
 
-m4def(`HTM_MAPPING_TABLE',
+m4def(`M4_HTM_MAPPING_TABLE',
 `CREATE TABLE $1_To_Htm$3
     -- <descr>Stores a mapping between exposures in $1 and the IDs of
     -- spatially overlapping level-$3 HTM triangles.</descr>
@@ -395,7 +395,7 @@ m4def(`HTM_MAPPING_TABLE',
     KEY IDX_$2 ($2 ASC)
 ) ENGINE=MyISAM;')dnl
 
-m4def(`SPATIAL_EXPOSURE_COLUMNS',
+m4def(`M4_SPATIAL_EXPOSURE_COLUMNS',
 `ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of image center, corresponding to FITS
         -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
@@ -489,7 +489,7 @@ m4def(`SPATIAL_EXPOSURE_COLUMNS',
         -- <descr>binary representation of the 4-corner polygon
         -- for the exposure.</descr>')dnl
 
-m4def(`SOURCE_COLUMNS',
+m4def(`M4_SOURCE_COLUMNS',
 `ra DOUBLE NOT NULL,
         -- <descr>ICRS RA of $1 centroid (x, y).</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -698,7 +698,7 @@ CREATE TABLE Science_Ccd_Exposure
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
         -- <ucd>instr.bandpass</ucd>
-    SPATIAL_EXPOSURE_COLUMNS()
+    M4_SPATIAL_EXPOSURE_COLUMNS()
     taiMjd DOUBLE NOT NULL,
         -- <descr>Time (MJD, TAI) at the start of the exposure</descr>
         -- <ucd>time.start</ucd>
@@ -739,14 +739,14 @@ CREATE TABLE Science_Ccd_Exposure
     KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
 
-KEY_VALUE_TABLE(`Science_Ccd_Exposure', `scienceCcdExposureId')
+M4_KEY_VALUE_TABLE(`Science_Ccd_Exposure', `scienceCcdExposureId')
 
-HTM_MAPPING_TABLE(`Science_Ccd_Exposure', `scienceCcdExposureId', `10')
+M4_HTM_MAPPING_TABLE(`Science_Ccd_Exposure', `scienceCcdExposureId', `10')
 
-m4def(`COADD_TABLES',
-`KEY_VALUE_TABLE(`$1Coadd', `$2CoaddId')
+m4def(`M4_COADD_TABLES',
+`M4_KEY_VALUE_TABLE(`$1Coadd', `$2CoaddId')
 
-HTM_MAPPING_TABLE(`$1Coadd', `$2CoaddId',`$3')
+M4_HTM_MAPPING_TABLE(`$1Coadd', `$2CoaddId',`$3')
 
 CREATE TABLE $1Object
     -- <descr>Table to store high signal-to-noise &quot;sources&quot;
@@ -766,7 +766,7 @@ CREATE TABLE $1Object
         -- <descr>ID of filter used for the coadd the object
         -- was detected and measured on.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
-    SOURCE_COLUMNS(`object')
+    M4_SOURCE_COLUMNS(`object')
     PRIMARY KEY ($2ObjectId),
     KEY IDX_$2CoaddId ($2CoaddId ASC),
     KEY IDX_htmId20 (htmId20 ASC)
@@ -810,7 +810,7 @@ CREATE TABLE $1ForcedSource
         -- of this forced-source.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    SOURCE_COLUMNS(`source')
+    M4_SOURCE_COLUMNS(`source')
     PRIMARY KEY ($2ForcedSourceId),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
     KEY IDX_filterId (filterId ASC),
@@ -820,7 +820,7 @@ CREATE TABLE $1ForcedSource
 ) ENGINE=MyISAM;
 ')dnl
 
-m4def(`LSST_COADD_TABLES',
+m4def(`M4_COADD',
 `CREATE TABLE $1Coadd
 (
     $2CoaddId BIGINT NOT NULL,
@@ -836,7 +836,7 @@ m4def(`LSST_COADD_TABLES',
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
         -- <ucd>instr.bandpass</ucd>
-    SPATIAL_EXPOSURE_COLUMNS()
+    M4_SPATIAL_EXPOSURE_COLUMNS()
     fluxMag0 FLOAT NOT NULL,
         -- <ucd>phot.flux.density</ucd>
     fluxMag0Sigma FLOAT NOT NULL,
@@ -852,14 +852,16 @@ m4def(`LSST_COADD_TABLES',
     KEY IDX_tract_patch_filterName (tract ASC, patch ASC, filterName ASC)
 ) ENGINE=MyISAM;
 
-COADD_TABLES(`$1', `$2', `$3')
 ')dnl
 
-LSST_COADD_TABLES(`GoodSeeing', `goodSeeing', `10')
+M4_COADD(`GoodSeeing', `goodSeeing')
+M4_COADD_TABLES(`GoodSeeing', `goodSeeing', `10')
 
-LSST_COADD_TABLES(`Deep', `deep', `10')
+M4_COADD(`Deep', `deep')
+M4_COADD_TABLES(`Deep', `deep', `10')
 
-LSST_COADD_TABLES(`ChiSquared', `chiSquared', `10')
+M4_COADD(`ChiSquared', `chiSquared')
+M4_COADD_TABLES(`ChiSquared', `chiSquared', `10')
 
 CREATE TABLE KeithCoadd
 (
@@ -880,7 +882,7 @@ CREATE TABLE KeithCoadd
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
         -- <ucd>instr.bandpass</ucd>
-    SPATIAL_EXPOSURE_COLUMNS()
+    M4_SPATIAL_EXPOSURE_COLUMNS()
     fluxMag0 FLOAT NOT NULL,
         -- <ucd>phot.flux.density</ucd>
     fluxMag0Sigma FLOAT NOT NULL,
@@ -896,10 +898,10 @@ CREATE TABLE KeithCoadd
     KEY IDX_sdssIdComponents (run, camcol, field, filterName, rerun)
 ) ENGINE=MyISAM;
 
-COADD_TABLES(`Keith', `keith', `10')
+M4_COADD_TABLES(`Keith', `keith', `10')
 
 
-m4def(`PER_FILTER_OBJECT_COLUMNS',
+m4def(`M4_PER_FILTER_OBJECT_COLUMNS',
 `$1ObsCount INTEGER NOT NULL,
         -- <descr>Number of $1-filter sources associated with this object.</descr>
         -- <ucd>meta.number;stat.value</ucd>
@@ -1102,12 +1104,12 @@ CREATE TABLE Object
         -- <descr>Set if cluster was created from a single noise source.</descr>
         -- <ucd>meta.code</ucd>
 
-    PER_FILTER_OBJECT_COLUMNS(`u')
-    PER_FILTER_OBJECT_COLUMNS(`g')
-    PER_FILTER_OBJECT_COLUMNS(`r')
-    PER_FILTER_OBJECT_COLUMNS(`i')
-    PER_FILTER_OBJECT_COLUMNS(`z')
-    PER_FILTER_OBJECT_COLUMNS(`y')
+    M4_PER_FILTER_OBJECT_COLUMNS(`u')
+    M4_PER_FILTER_OBJECT_COLUMNS(`g')
+    M4_PER_FILTER_OBJECT_COLUMNS(`r')
+    M4_PER_FILTER_OBJECT_COLUMNS(`i')
+    M4_PER_FILTER_OBJECT_COLUMNS(`z')
+    M4_PER_FILTER_OBJECT_COLUMNS(`y')
 
     chunkId INTEGER NOT NULL DEFAULT 0,
         -- <descr>Internal column used by qserv.</descr>
@@ -1163,7 +1165,7 @@ CREATE TABLE Source
         -- source was not associated with any object (objectId is NULL).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    SOURCE_COLUMNS(`source')
+    M4_SOURCE_COLUMNS(`source')
     PRIMARY KEY (sourceId),
     KEY IDX_parentSourceId (parentSourceId ASC),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
@@ -1184,7 +1186,7 @@ CREATE TABLE SkyTile
 
 SET FOREIGN_KEY_CHECKS=1;
 
-m4def(`EXPOSURE_CONSTRAINTS',
+m4def(`M4_EXPOSURE_CONSTRAINTS',
 `ALTER TABLE $1 ADD CONSTRAINT FK_$1_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);
 
@@ -1194,8 +1196,8 @@ ALTER TABLE $1_To_Htm$3 ADD CONSTRAINT FK_$1_To_Htm$3_$2
 ALTER TABLE $1_Metadata ADD CONSTRAINT FK_$1_Metadata_$2
     FOREIGN KEY ($2) REFERENCES $1 ($2);')dnl
 
-m4def(`COADD_CONSTRAINTS',
-`EXPOSURE_CONSTRAINTS(`$1Coadd', `$2CoaddId', `$3')
+m4def(`M4_COADD_CONSTRAINTS',
+`M4_EXPOSURE_CONSTRAINTS(`$1Coadd', `$2CoaddId', `$3')
 
 ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_$2CoaddId
     FOREIGN KEY ($2CoaddId) REFERENCES $1Coadd ($2CoaddId);
@@ -1221,15 +1223,15 @@ ALTER TABLE RefSrcMatch ADD CONSTRAINT FK_RefSrcMatch_refObjectId
 ALTER TABLE RefSrcMatch ADD CONSTRAINT FK_RefSrcMatch_sourceId
     FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
 
-EXPOSURE_CONSTRAINTS(`Science_Ccd_Exposure', `scienceCcdExposureId', `10')
+M4_EXPOSURE_CONSTRAINTS(`Science_Ccd_Exposure', `scienceCcdExposureId', `10')
 
-COADD_CONSTRAINTS(`GoodSeeing', `goodSeeing', `10')
+M4_COADD_CONSTRAINTS(`GoodSeeing', `goodSeeing', `10')
 
-COADD_CONSTRAINTS(`Deep', `deep', `10')
+M4_COADD_CONSTRAINTS(`Deep', `deep', `10')
 
-COADD_CONSTRAINTS(`ChiSquared', `chiSquared', `10')
+M4_COADD_CONSTRAINTS(`ChiSquared', `chiSquared', `10')
 
-COADD_CONSTRAINTS(`Keith', `keith', `10')
+M4_COADD_CONSTRAINTS(`Keith', `keith', `10')
 
 ALTER TABLE Source ADD CONSTRAINT FK_Source_scienceCcdExposureId
     FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
