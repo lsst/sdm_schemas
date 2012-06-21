@@ -355,30 +355,54 @@ CREATE TABLE RefObject
 ) ENGINE=MyISAM;
 
 
-CREATE TABLE Science_Ccd_Exposure
+m4def(`KEY_VALUE_TABLE',
+`CREATE TABLE $1_Metadata
+    -- <descr>Generic key-value pair metadata for $1.</descr>
 (
-    scienceCcdExposureId BIGINT NOT NULL,
-        -- <descr>Primary key (unique identifier).</descr>
+    $2 BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
-    run INTEGER NOT NULL,
-        -- <descr>Run number.</descr>
-    camcol TINYINT NOT NULL,
-        -- <descr>Camera column.</descr>
-    filterId TINYINT NOT NULL,
-        -- <descr>Id of the filter for the band.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
-    field INTEGER NOT NULL,
-        -- <descr>Field number.</descr>
-    filterName CHAR(3) NOT NULL,
-        -- <descr>Filter name, pulled in from the Filter table.</descr>
-        -- <ucd>instr.bandpass</ucd>
-    ra DOUBLE NOT NULL,
-        -- <descr>ICRS R.A. of CCD center, corresponding to FITS
+    metadataKey VARCHAR(255) NOT NULL,
+    exposureType TINYINT NOT NULL,
+        -- <descr>Type of exposure
+        --  <ul>
+        --    <li>1: Science CCD</li>
+        --    <li>2: Differenced CCD</li>
+        --    <li>3: Good-seeing coadd</li>
+        --    <li>4: Deep coadd</li>
+        --    <li>5: Chi-squared coadd</li>
+        --    <li>6: Keith coadd</li>
+        --  </ul></descr>
+    intValue INTEGER NULL,
+    doubleValue DOUBLE NULL,
+    stringValue VARCHAR(255) NULL,
+    PRIMARY KEY ($2, metadataKey),
+    KEY IDX_metadataKey (metadataKey ASC)
+) ENGINE=MyISAM;')dnl
+
+m4def(`HTM_MAPPING_TABLE',
+`CREATE TABLE $1_To_Htm$3
+    -- <descr>Stores a mapping between exposures in $1 and the IDs of
+    -- spatially overlapping level-$3 HTM triangles.</descr>
+(
+    $2 BIGINT NOT NULL,
+        -- <descr>Pointer to $1.</descr>
+    htmId$3 INTEGER NOT NULL,
+        -- <descr>ID for Level $3 HTM triangle overlapping exposure.
+        -- For each exposure in $1, there will be one row for every
+        -- overlapping triangle.</descr>
+        -- <ucd>pos.HTM</ucd>
+    KEY IDX_htmId$3 (htmId$3 ASC),
+    KEY IDX_$2 ($2 ASC)
+) ENGINE=MyISAM;')dnl
+
+m4def(`SPATIAL_EXPOSURE_COLUMNS',
+`ra DOUBLE NOT NULL,
+        -- <descr>ICRS R.A. of image center, corresponding to FITS
         -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec. of CCD center, corresponding to FITS
+        -- <descr>ICRS Dec. of image center, corresponding to FITS
         -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
@@ -386,46 +410,39 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
         -- <ucd>pos.HTM</ucd>
     equinox FLOAT NOT NULL,
-        -- <descr>Equinox of World Coordinate System.</descr>
         -- <ucd>pos.equinox</ucd>
     raDeSys VARCHAR(20) NOT NULL,
         -- <ucd>pos.frame</ucd>
     ctype1 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 1.</descr>
         -- <ucd>pos.wcs.ctype</ucd>
     ctype2 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 2.</descr>
         -- <ucd>pos.wcs.ctype</ucd>
     crpix1 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 1.</descr>
         -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crpix2 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 2.</descr>
         -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crval1 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 1 @reference pixel.</descr>
         -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     crval2 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 2 @reference pixel.</descr>
         -- <ucd>pos.wcs.crval</ucd>
         -- <unit>deg</unit>
     cd1_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     cd1_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     cd2_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     cd2_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
+        -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <ucd>pos.wcs.cdmatrix</ucd>
         -- <unit>deg/pixel</unit>
     corner1Ra DOUBLE NOT NULL,
@@ -468,6 +485,220 @@ CREATE TABLE Science_Ccd_Exposure
         -- FITS pixel coordinates (NAXIS1 + 0.5, 0.5)</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
+    poly BINARY(120) NOT NULL,
+        -- <descr>binary representation of the 4-corner polygon
+        -- for the exposure.</descr>')dnl
+
+m4def(`SOURCE_COLUMNS',
+`ra DOUBLE NOT NULL,
+        -- <descr>ICRS RA of $1 centroid (x, y).</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    decl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec of $1 centroid (x, y).</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    raVar DOUBLE NULL,
+        -- <descr>Variance of ra due to centroid uncertainty
+        -- (xVar, xyCov, yVar).</descr>
+        -- <ucd>stat.variance;pos.eq.ra</ucd>
+        -- <unit>arcsec^2</unit>
+    declVar DOUBLE NULL,
+        -- <descr>Variance of decl due to centroid uncertainty
+        -- (xVar, xyCov, yVar).</descr>
+        -- <ucd>stat.variance;pos.eq.dec</ucd>
+        -- <unit>arcsec^2</unit>
+    radeclCov DOUBLE NULL,
+        -- <descr>Covariance of ra, decl due to centroid uncertainty
+        -- (xVar, xyCov, yVar).</descr>
+        -- <ucd>stat.covariance;pos.eq</ucd>
+        -- <unit>arcsec^2</unit>
+    htmId20 BIGINT NOT NULL,
+        -- <descr>Level 20 HTM ID of (ra, decl)</descr>
+        -- <ucd>pos.HTM</ucd>
+    x DOUBLE NOT NULL,
+        -- <descr>Pixel axis 1 coordinate of $1 centroid,
+        -- LSST pixel coordinate conventions.</descr>
+        -- <ucd>pos.cartesian.x</ucd>
+        -- <unit>pixel</unit>
+    y DOUBLE NOT NULL,
+        -- <descr>Pixel axis 2 coordinate of $1 centroid,
+        -- LSST pixel coordinate conventions.</descr>
+        -- <ucd>pos.cartesian.y</ucd>
+        -- <unit>pixel</unit>
+    xVar DOUBLE NULL,
+        -- <descr>Variance of x.</descr>
+        -- <ucd>stat.variance;pos.cartesian.x</ucd>
+        -- <unit>pixel^2</unit>
+    yVar DOUBLE NULL,
+        -- <descr>Variance of y.</descr>
+        -- <ucd>stat.variance;pos.cartesian.y</ucd>
+        -- <unit>pixel^2</unit>
+    xyCov DOUBLE NULL,
+        -- <descr>Covariance of x and y</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>pixel^2</unit>
+    psfFlux DOUBLE NULL,
+        -- <descr>Uncalibrated PSF flux of $1.</descr>
+        -- <ucd>phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    psfFluxSigma DOUBLE NULL,
+        -- <descr>Uncertainty of psfFlux.</descr>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    apFlux DOUBLE NULL,
+        -- <descr>Uncalibrated aperture flux of $1.</descr>
+        -- <ucd>phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    apFluxSigma DOUBLE NULL,
+        -- <descr>Uncertainty of apFlux.</descr>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    modelFlux DOUBLE NULL,
+        -- <descr>Uncalibrated model flux of $1.</descr>
+        -- <ucd>phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    modelFluxSigma DOUBLE NULL,
+        -- <descr>Uncertainty of modelFlux</descr>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    instFlux DOUBLE NULL,
+        -- <descr>Uncalibrated instrumental flux of $1.</descr>
+        -- <ucd>phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    instFluxSigma DOUBLE NULL,
+        -- <descr>Uncertainty of instFlux.</descr>
+        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
+        -- <unit>adu</unit>
+    apCorrection DOUBLE NULL,
+        -- <descr>Aperture correction factor applied to fluxes</descr>
+        -- <ucd>arith.factor</ucd>
+    apCorrectionSigma DOUBLE NULL,
+        -- <descr>Aperture correction uncertainty</descr>
+        -- <ucd>stat.error</ucd>
+    shapeIx DOUBLE NULL,
+        -- <descr>First moment.</descr>
+        -- <unit>pixel</unit>
+    shapeIy DOUBLE NULL,
+        -- <descr>First moment.</descr>
+        -- <unit>pixel</unit>
+    shapeIxVar DOUBLE NULL,
+         -- <descr>Variance of momentIx.</descr>
+         -- <ucd>stat.variance</ucd>
+         -- <unit>pixel</unit>
+    shapeIyVar DOUBLE NULL,
+         -- <descr>Variance of momentIy.</descr>
+         -- <ucd>stat.variance</ucd>
+         -- <unit>pixel</unit>
+    shapeIxIyCov DOUBLE NULL,
+         -- <descr>Covariance of momentIx and momentIy.</descr>
+         -- <ucd>stat.variance</ucd>
+         -- <unit>pixel</unit>
+    shapeIxx DOUBLE NULL,
+        -- <descr>Second moment.</descr>
+        -- <unit>pixel^2</unit>
+    shapeIyy DOUBLE NULL,
+        -- <descr>Second moment.</descr>
+        -- <unit>pixel^2</unit>
+    shapeIxy DOUBLE NULL,
+        -- <descr>Second moment.</descr>
+        -- <unit>pixel^2</unit>
+    shapeIxxVar DOUBLE NULL,
+        -- <descr>Variance of shapeIxx.</descr>
+        -- <ucd>stat.variance</ucd>
+        -- <unit>pixel^4</unit>
+    shapeIyyVar DOUBLE NULL,
+        -- <descr>Variance of shapeIyy.</descr>
+        -- <ucd>stat.variance</ucd>
+        -- <unit>pixel^4</unit>
+    shapeIxyVar DOUBLE NULL,
+        -- <descr>Variance of shapeIyy.</descr>
+        -- <ucd>stat.variance</ucd>
+        -- <unit>pixel^4</unit>
+    shapeIxxIyyCov DOUBLE NULL,
+        -- <descr>Covariance of shapeIxx and shapeIyy.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>pixel^4</unit>
+    shapeIxxIxyCov DOUBLE NULL,
+        -- <descr>Covariance of shapeIxx and shapeIxy.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>pixel^4</unit>
+    shapeIyyIxyCov DOUBLE NULL,
+        -- <descr>Covariance of shapeIyy and shapeIxy.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>pixel^4</unit>
+    extendedness FLOAT NULL,
+        -- <descr>Probability of being extended.<descr>
+        -- <ucd>stat.probability</ucd>
+    flagNegative BIT(1) NOT NULL,
+        -- <descr>Set if $1 was detected as significantly negative.</descr>
+        -- <ucd>meta.code</ucd>
+    flagBadMeasCentroid BIT(1) NOT NULL,
+        -- <descr>Set if the centroid algorithm used to feed centers to other
+        -- measurement algorithms failed.</descr>
+        -- <ucd>meta.code.error</ucd>
+    flagPixEdge BIT(1) NOT NULL,
+        -- <descr>Set if $1 is in region labeled EDGE.</descr>
+        -- <ucd>meta.code</ucd>
+    flagPixInterpAny BIT(1) NOT NULL,
+        -- <descr>Set if $1 footprint includes
+        -- interpolated pixels.</descr>
+        -- <ucd>meta.code</ucd>
+    flagPixInterpCen BIT(1) NOT NULL,
+        -- <descr>Set if $1 center is close to
+        -- interpolated pixels.</descr>
+        -- <ucd>meta.code</ucd>
+    flagPixSaturAny BIT(1) NOT NULL,
+        -- <descr>Set if $1 footprint includes
+        -- saturated pixels.</descr>
+        -- <ucd>meta.code</ucd>
+    flagPixSaturCen BIT(1) NOT NULL,
+        -- <descr>Set if $1 center is close to
+        -- saturated pixels.</descr>
+        -- <ucd>meta.code</ucd>
+    flagBadPsfFlux BIT(1) NOT NULL,
+        -- <descr>Set if the psfFlux measurement failed.</descr>
+        -- <ucd>meta.code.error</ucd>
+    flagBadApFlux BIT(1) NOT NULL,
+        -- <descr>Set if the apFlux measurement failed.</descr>
+        -- <ucd>meta.code.error</ucd>
+    flagBadModelFlux BIT(1) NOT NULL,
+        -- <descr>Set if the modelFlux measurement failed.</descr>
+        -- <ucd>meta.code.error</ucd>
+    flagBadInstFlux BIT(1) NOT NULL,
+        -- <descr>Set if the instFlux measurement failed.</descr>
+        -- <ucd>meta.code.error</ucd>
+    flagBadCentroid BIT(1) NOT NULL,
+        -- <descr>Set if the centroid measurement failed.</descr>
+        -- <ucd>meta.code.error</ucd>
+    flagBadShape BIT(1) NOT NULL,
+        -- <descr>Set if the shape measurement did not completely
+        -- succeed.</descr>
+        -- <ucd>meta.code.error</ucd>
+    chunkId INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Internal column used by qserv.</descr>
+    subChunkId INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Internal column used by qserv.</descr>')dnl
+
+
+CREATE TABLE Science_Ccd_Exposure
+(
+    scienceCcdExposureId BIGINT NOT NULL,
+        -- <descr>Primary key (unique identifier).</descr>
+        -- <ucd>meta.id;obs.image</ucd>
+    run INTEGER NOT NULL,
+        -- <descr>Run number.</descr>
+    camcol TINYINT NOT NULL,
+        -- <descr>Camera column.</descr>
+    filterId TINYINT NOT NULL,
+        -- <descr>Id of the filter for the band.</descr>
+        -- <ucd>meta.id;instr.filter</ucd>
+    field INTEGER NOT NULL,
+        -- <descr>Field number.</descr>
+    filterName CHAR(3) NOT NULL,
+        -- <descr>Filter name, pulled in from the Filter table.</descr>
+        -- <ucd>instr.bandpass</ucd>
+    SPATIAL_EXPOSURE_COLUMNS()
     taiMjd DOUBLE NOT NULL,
         -- <descr>Time (MJD, TAI) at the start of the exposure</descr>
         -- <ucd>time.start</ucd>
@@ -487,11 +718,11 @@ CREATE TABLE Science_Ccd_Exposure
     nCombine INTEGER NOT NULL,
         -- <descr>Number of images co-added to create a deeper image.</descr>
     binX INTEGER NOT NULL,
-        -- <descr>Binning of the ccd in x.</descr>
+        -- <descr>Binning of the CCD in x.</descr>
         -- <ucd>meta.number</ucd>
         -- <unit>pixel</unit>
     binY INTEGER NOT NULL,
-        -- <descr>Binning of the ccd in y.</descr>
+        -- <descr>Binning of the CCD in y.</descr>
         -- <ucd>meta.number</ucd>
         -- <unit>pixel</unit>
     fluxMag0 FLOAT NOT NULL,
@@ -501,60 +732,171 @@ CREATE TABLE Science_Ccd_Exposure
     fwhm DOUBLE NOT NULL,
         -- <ucd>instr.obsty.seeing</ucd>
         -- <unit>arcsec</unit>
-    poly BINARY(120) NOT NULL,
-        -- <descr>Binary representation of the 4-corner polygon for the ccd.
-        -- </descr>
-    flags INTEGER NOT NULL DEFAULT 0,
-        -- <descr>Flags, meaning of the bits:
-        -- <ul>
-        --   <li>0x01 PROCESSING_FAILED: The pipeline failed to process this 
-        --       CCD</li>
-	--   <li>0x02 BAD_PSF_ZEROPOINT: The PSF flux zero-point appears to 
-        --       be bad</li>
-	--   <li>0x04 BAD_PSF_SCATTER: The PSF flux for stars shows excess 
-        --       scatter</li>
-        -- </ul></descr>
-        -- <ucd>meta.code</ucd>
+    path VARCHAR(255) NOT NULL,
+        -- <descr>CCD FITS file path relative to the SFM pipeline output
+        -- directory.</descr>
     PRIMARY KEY (scienceCcdExposureId),
     KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
 
+KEY_VALUE_TABLE(`Science_Ccd_Exposure', `scienceCcdExposureId')
 
-CREATE TABLE Science_Ccd_Exposure_Metadata
-    -- <descr>Generic key-value pair metadata for Science_Ccd_Exposure.</descr>
+HTM_MAPPING_TABLE(`Science_Ccd_Exposure', `scienceCcdExposureId', `10')
+
+m4def(`COADD_TABLES',
+`KEY_VALUE_TABLE(`$1Coadd', `$2CoaddId')
+
+HTM_MAPPING_TABLE(`$1Coadd', `$2CoaddId',`$3')
+
+CREATE TABLE $1Object
+    -- <descr>Table to store high signal-to-noise &quot;sources&quot;
+    -- measured on the coadd exposures in $1Coadd.</descr>
 (
-    scienceCcdExposureId BIGINT NOT NULL,
+    $2ObjectId BIGINT NOT NULL,
+        -- <descr>Primary key (unique identifier)</descr>
+        -- <ucd>meta.id;src</ucd>
+    parent$1ObjectId BIGINT NULL,
+        -- <descr>$2ObjectId of parent if object is deblended, otherwise NULL.</descr>
+        -- <ucd>meta.id.parent;src</ucd>
+    $2CoaddId BIGINT NOT NULL,
+        -- <descr>ID of the coadd the object was detected and measured on
+        -- (pointer to $1Coadd).</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    metadataKey VARCHAR(255) NOT NULL,
-    exposureType TINYINT NOT NULL,
-        -- <descr>Meaning of the bits:
-        --  <ul>
-        --    <li>0x1: scienceCcd</li>
-        --    <li>0x2: diffCcd</li>
-        --    <li>more tbd.</li>
-        --  </ul></descr>
-    intValue INTEGER NULL,
-    doubleValue DOUBLE NULL,
-    stringValue VARCHAR(255) NULL,
-    PRIMARY KEY (scienceCcdExposureId, metadataKey),
-    KEY IDX_metadataKey (metadataKey ASC)
+    filterId TINYINT NOT NULL,
+        -- <descr>ID of filter used for the coadd the object
+        -- was detected and measured on.</descr>
+        -- <ucd>meta.id;instr.filter</ucd>
+    SOURCE_COLUMNS(`object')
+    PRIMARY KEY ($2ObjectId),
+    KEY IDX_$2CoaddId ($2CoaddId ASC),
+    KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
 
-
-CREATE TABLE Science_Ccd_Exposure_To_Htm10
-    -- <descr>Stores a mapping between science CCD exposures and the IDs of 
-    -- spatially overlapping level-10 HTM triangles.</descr>
+CREATE TABLE $1ForcedSource
+    -- <descr>Table of forced-photometry sources, measured using
+    -- positions of objects from $1Object.</descr>
 (
+    $2ForcedSourceId BIGINT NOT NULL,
+        -- <descr>Primary key (unique identifier)</descr>
+        -- <ucd>meta.id;src</ucd>
     scienceCcdExposureId BIGINT NOT NULL,
-        -- <descr>Pointer to Science_Ccd_Exposure.</descr>
-    htmId10 INTEGER NOT NULL,
-        -- <descr>ID for Level 10 HTM triangle overlapping science CCD exposure.
-        -- For each CCD exposure, there will be one row for every overlapping
-        -- triangle.</descr>
-        -- <ucd>pos.HTM</ucd>
-    KEY IDX_htmId10 (htmId10 ASC),
-    KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC)
+        -- <descr>ID of CCD the forced-source was detected and measured on
+        -- (pointer to Science_Ccd_Exposure).</descr>
+        -- <ucd>meta.id;obs.image</ucd>
+    filterId TINYINT NOT NULL,
+        -- <descr>ID of filter used for the exposure the source
+        -- was detected and measured on.</descr>
+        -- <ucd>meta.id;instr.filter</ucd>
+    timeMid DOUBLE NOT NULL,
+        -- <descr>Middle of exposure time (MJD, TAI).</descr>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>d</unit>
+    expTime FLOAT NOT NULL,
+        -- <descr>Exposure time (TAI) or, in case of measurement on coadded
+        -- snap exposure pairs, the sum of snap exposure times.</descr>
+        -- <ucd>time.duration</ucd>
+        -- <unit>s</unit>
+    $2ObjectId BIGINT NOT NULL,
+        -- <descr>ID of object that triggered measurement
+        -- of this forced-source (pointer to $1Object).</descr>
+        -- <ucd>meta.id;src</ucd>
+    $2ObjectRa DOUBLE NOT NULL,
+        -- <descr>ICRS R.A. of object that triggered measurement
+        -- of this forced-source.</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    $2ObjectDecl DOUBLE NOT NULL,
+        -- <descr>ICRS Dec. of object that triggered measurement
+        -- of this forced-source.</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    SOURCE_COLUMNS(`source')
+    PRIMARY KEY ($2ForcedSourceId),
+    KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
+    KEY IDX_filterId (filterId ASC),
+    KEY IDX_objectId ($2ObjectId ASC),
+    KEY IDX_decl (decl ASC),
+    KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
+')dnl
+
+m4def(`LSST_COADD_TABLES',
+`CREATE TABLE $1Coadd
+(
+    $2CoaddId BIGINT NOT NULL,
+        -- <descr>Primary key (unique identifier).</descr>
+        -- <ucd>meta.id;obs.image</ucd>
+    tract INTEGER NOT NULL,
+        -- <descr>Sky-tract number.</descr>
+    patch CHAR(16) NOT NULL,
+        -- <descr>Sky-patch.</descr>
+    filterId TINYINT NOT NULL,
+        -- <descr>Id of the filter for the band.</descr>
+        -- <ucd>meta.id;instr.filter</ucd>
+    filterName CHAR(3) NOT NULL,
+        -- <descr>Filter name, pulled in from the Filter table.</descr>
+        -- <ucd>instr.bandpass</ucd>
+    SPATIAL_EXPOSURE_COLUMNS()
+    fluxMag0 FLOAT NOT NULL,
+        -- <ucd>phot.flux.density</ucd>
+    fluxMag0Sigma FLOAT NOT NULL,
+        -- <ucd>stat.error;phot.flux.density</ucd>
+    fwhm DOUBLE NOT NULL,
+        -- <ucd>instr.obsty.seeing</ucd>
+        -- <unit>arcsec</unit>
+    path VARCHAR(255) NOT NULL,
+        -- <descr>FITS file path relative to the SFM pipeline output
+        -- directory.</descr>
+    PRIMARY KEY($2CoaddId),
+    KEY IDX_htmId20 (htmId20 ASC),
+    KEY IDX_tract_patch_filterName (tract ASC, patch ASC, filterName ASC)
+) ENGINE=MyISAM;
+
+COADD_TABLES(`$1', `$2', `$3')
+')dnl
+
+LSST_COADD_TABLES(`GoodSeeing', `goodSeeing', `10')
+
+LSST_COADD_TABLES(`Deep', `deep', `10')
+
+LSST_COADD_TABLES(`ChiSquared', `chiSquared', `10')
+
+CREATE TABLE KeithCoadd
+(
+    keithCoaddId BIGINT NOT NULL,
+        -- <descr>Primary key (unique identifier).</descr>
+        -- <ucd>meta.id;obs.image</ucd>
+    run SMALLINT NOT NULL,
+        -- <descr>SDSS run</descr>
+    rerun SMALLINT NOT NULL,
+        -- <descr>SDSS rerun</descr>
+    camcol TINYINT NOT NULL,
+        -- <descr>SDSS camcol</descr>
+    field SMALLINT NOT NULL,
+        -- <descr>SDSS field</descr>
+    filterId TINYINT NOT NULL,
+        -- <descr>Id of the filter for the band.</descr>
+        -- <ucd>meta.id;instr.filter</ucd>
+    filterName CHAR(3) NOT NULL,
+        -- <descr>Filter name, pulled in from the Filter table.</descr>
+        -- <ucd>instr.bandpass</ucd>
+    SPATIAL_EXPOSURE_COLUMNS()
+    fluxMag0 FLOAT NOT NULL,
+        -- <ucd>phot.flux.density</ucd>
+    fluxMag0Sigma FLOAT NOT NULL,
+        -- <ucd>stat.error;phot.flux.density</ucd>
+    fwhm DOUBLE NOT NULL,
+        -- <ucd>instr.obsty.seeing</ucd>
+        -- <unit>arcsec</unit>
+    path VARCHAR(255) NOT NULL,
+        -- <descr>FITS file path relative to the SFM pipeline output
+        -- directory.</descr>
+    PRIMARY KEY(keithCoaddId),
+    KEY IDX_htmId20 (htmId20 ASC),
+    KEY IDX_sdssIdComponents (run, camcol, field, filterName, rerun)
+) ENGINE=MyISAM;
+
+COADD_TABLES(`Keith', `keith', `10')
 
 
 m4def(`PER_FILTER_OBJECT_COLUMNS',
@@ -797,6 +1139,15 @@ CREATE TABLE Source
         -- <descr>ID of filter used for the exposure the source
         -- was detected and measured on.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
+    timeMid DOUBLE NOT NULL,
+        -- <descr>Middle of exposure time (MJD, TAI).</descr>
+        -- <ucd>time.epoch</ucd>
+        -- <unit>d</unit>
+    expTime FLOAT NOT NULL,
+        -- <descr>Exposure time (TAI) or, in case of measurement on coadded
+        -- snap exposure pairs, the sum of snap exposure times.</descr>
+        -- <ucd>time.duration</ucd>
+        -- <unit>s</unit>
     objectId BIGINT NULL,
         -- <descr>ID of object this source was assigned to. NULL if the source
         -- did not participate in spatial clustering, or if the clustering
@@ -812,200 +1163,7 @@ CREATE TABLE Source
         -- source was not associated with any object (objectId is NULL).</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    ra DOUBLE NOT NULL,
-        -- <descr>ICRS RA of source centroid (x, y).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    decl DOUBLE NOT NULL,
-        -- <descr>ICRS Dec of source centroid (x, y).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    raVar DOUBLE NULL,
-        -- <descr>Variance of ra due to centroid uncertainty
-        -- (xVar, xyCov, yVar).</descr>
-        -- <ucd>stat.variance;pos.eq.ra</ucd>
-        -- <unit>arcsec^2</unit>
-    declVar DOUBLE NULL,
-        -- <descr>Variance of decl due to centroid uncertainty
-        -- (xVar, xyCov, yVar).</descr>
-        -- <ucd>stat.variance;pos.eq.dec</ucd>
-        -- <unit>arcsec^2</unit>
-    radeclCov DOUBLE NULL,
-        -- <descr>Covariance of ra, decl due to centroid uncertainty
-        -- (xVar, xyCov, yVar).</descr>
-        -- <ucd>stat.covariance;pos.eq</ucd>
-        -- <unit>arcsec^2</unit>
-    htmId20 BIGINT NOT NULL,
-        -- <descr>Level 20 HTM ID of (ra, decl)</descr>
-        -- <ucd>pos.HTM</ucd>
-    x DOUBLE NOT NULL,
-        -- <descr>CCD pixel axis 1 coordinate of source centroid,
-        -- LSST pixel coordinate conventions.</descr>
-        -- <ucd>pos.cartesian.x</ucd>
-        -- <unit>pixel</unit>
-    y DOUBLE NOT NULL,
-        -- <descr>CCD pixel axis 2 coordinate of source centroid,
-        -- LSST pixel coordinate conventions.</descr>
-        -- <ucd>pos.cartesian.y</ucd>
-        -- <unit>pixel</unit>
-    xVar DOUBLE NULL,
-        -- <descr>Variance of x.</descr>
-        -- <ucd>stat.variance;pos.cartesian.x</ucd>
-        -- <unit>pixel^2</unit>
-    yVar DOUBLE NULL,
-        -- <descr>Variance of y.</descr>
-        -- <ucd>stat.variance;pos.cartesian.y</ucd>
-        -- <unit>pixel^2</unit>
-    xyCov DOUBLE NULL,
-        -- <descr>Covariance of x and y</descr>
-        -- <ucd>stat.covariance</ucd>
-        -- <unit>pixel^2</unit>
-    timeMid DOUBLE NOT NULL,
-        -- <descr>Middle of exposure time (MJD, TAI).</descr>
-        -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
-    expTime FLOAT NOT NULL,
-        -- <descr>Exposure time (TAI) or, in case of measurement on coadded
-        -- snap exposure pairs, the sum of snap exposure times.</descr>
-        -- <ucd>time.duration</ucd>
-        -- <unit>s</unit>
-    psfFlux DOUBLE NULL,
-        -- <descr>Uncalibrated PSF flux of source.</descr>
-        -- <ucd>phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    psfFluxSigma DOUBLE NULL,
-        -- <descr>Uncertainty of psfFlux.</descr>
-        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    apFlux DOUBLE NULL,
-        -- <descr>Uncalibrated aperture flux of source.</descr>
-        -- <ucd>phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    apFluxSigma DOUBLE NULL,
-        -- <descr>Uncertainty of apFlux.</descr>
-        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    modelFlux DOUBLE NULL,
-        -- <descr>Uncalibrated model flux of source.</descr>
-        -- <ucd>phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    modelFluxSigma DOUBLE NULL,
-        -- <descr>Uncertainty of modelFlux</descr>
-        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    instFlux DOUBLE NULL,
-        -- <descr>Uncalibrated instrumental flux of source.</descr>
-        -- <ucd>phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    instFluxSigma DOUBLE NULL,
-        -- <descr>Uncertainty of instFlux.</descr>
-        -- <ucd>stat.error;phot.count;stat.uncalib</ucd>
-        -- <unit>adu</unit>
-    apCorrection DOUBLE NULL,
-        -- <descr>Aperture correction factor applied to fluxes</descr>
-        -- <ucd>arith.factor</ucd>
-    apCorrectionSigma DOUBLE NULL,
-        -- <descr>Aperture correction uncertainty</descr>
-        -- <ucd>stat.error</ucd>
-    shapeIx DOUBLE NULL,
-        -- <descr>First moment.</descr>
-        -- <unit>pixel</unit>
-    shapeIy DOUBLE NULL,
-        -- <descr>First moment.</descr>
-        -- <unit>pixel</unit>
-    shapeIxVar DOUBLE NULL,
-         -- <descr>Variance of momentIx.</descr>
-         -- <ucd>stat.variance</ucd>
-         -- <unit>pixel</unit>
-    shapeIyVar DOUBLE NULL,
-         -- <descr>Variance of momentIy.</descr>
-         -- <ucd>stat.variance</ucd>
-         -- <unit>pixel</unit>
-    shapeIxIyCov DOUBLE NULL,
-         -- <descr>Covariance of momentIx and momentIy.</descr>
-         -- <ucd>stat.variance</ucd>
-         -- <unit>pixel</unit>
-    shapeIxx DOUBLE NULL,
-        -- <descr>Second moment.</descr>
-        -- <unit>pixel^2</unit>
-    shapeIyy DOUBLE NULL,
-        -- <descr>Second moment.</descr>
-        -- <unit>pixel^2</unit>
-    shapeIxy DOUBLE NULL,
-        -- <descr>Second moment.</descr>
-        -- <unit>pixel^2</unit>
-    shapeIxxVar DOUBLE NULL,
-        -- <descr>Variance of shapeIxx.</descr>
-        -- <ucd>stat.variance</ucd>
-        -- <unit>pixel^4</unit>
-    shapeIyyVar DOUBLE NULL,
-        -- <descr>Variance of shapeIyy.</descr>
-        -- <ucd>stat.variance</ucd>
-        -- <unit>pixel^4</unit>
-    shapeIxyVar DOUBLE NULL,
-        -- <descr>Variance of shapeIyy.</descr>
-        -- <ucd>stat.variance</ucd>
-        -- <unit>pixel^4</unit>
-    shapeIxxIyyCov DOUBLE NULL,
-        -- <descr>Covariance of shapeIxx and shapeIyy.</descr>
-        -- <ucd>stat.covariance</ucd>
-        -- <unit>pixel^4</unit>
-    shapeIxxIxyCov DOUBLE NULL,
-        -- <descr>Covariance of shapeIxx and shapeIxy.</descr>
-        -- <ucd>stat.covariance</ucd>
-        -- <unit>pixel^4</unit>
-    shapeIyyIxyCov DOUBLE NULL,
-        -- <descr>Covariance of shapeIyy and shapeIxy.</descr>
-        -- <ucd>stat.covariance</ucd>
-        -- <unit>pixel^4</unit>
-    extendedness FLOAT NULL,
-        -- <descr>Probability of being extended.<descr>
-        -- <ucd>stat.probability</ucd>
-    flagNegative BIT(1) NOT NULL,
-        -- <descr>Set if source was detected as significantly negative.</descr>
-        -- <ucd>meta.code</ucd>
-    flagBadMeasCentroid BIT(1) NOT NULL,
-        -- <descr>Set if the centroid algorithm used to feed centers to other
-        -- measurement algorithms failed.</descr>
-        -- <ucd>meta.code.error</ucd>
-    flagPixEdge BIT(1) NOT NULL,
-        -- <descr>Set if source is in region labeled EDGE.</descr>
-        -- <ucd>meta.code</ucd>
-    flagPixInterpAny BIT(1) NOT NULL,
-        -- <descr>Set if source's footprint includes
-        -- interpolated pixels.</descr>
-        -- <ucd>meta.code</ucd>
-    flagPixInterpCen BIT(1) NOT NULL,
-        -- <descr>Set if source's center is close to
-        -- interpolated pixels.</descr>
-        -- <ucd>meta.code</ucd>
-    flagPixSaturAny BIT(1) NOT NULL,
-        -- <descr>Set if source's footprint includes
-        -- saturated pixels.</descr>
-        -- <ucd>meta.code</ucd>
-    flagPixSaturCen BIT(1) NOT NULL,
-        -- <descr>Set if source's center is close to
-        -- saturated pixels.</descr>
-        -- <ucd>meta.code</ucd>
-    flagBadPsfFlux BIT(1) NOT NULL,
-        -- <descr>Set if the psfFlux measurement failed.</descr>
-        -- <ucd>meta.code.error</ucd>
-    flagBadApFlux BIT(1) NOT NULL,
-        -- <descr>Set if the apFlux measurement failed.</descr>
-        -- <ucd>meta.code.error</ucd>
-    flagBadModelFlux BIT(1) NOT NULL,
-        -- <descr>Set if the modelFlux measurement failed.</descr>
-        -- <ucd>meta.code.error</ucd>
-    flagBadInstFlux BIT(1) NOT NULL,
-        -- <descr>Set if the instFlux measurement failed.</descr>
-        -- <ucd>meta.code.error</ucd>
-    flagBadCentroid BIT(1) NOT NULL,
-        -- <descr>Set if the centroid measurement failed.</descr>
-        -- <ucd>meta.code.error</ucd>
-    flagBadShape BIT(1) NOT NULL,
-        -- <descr>Set if the shape measurement did not completely
-        -- succeed.</descr>
-        -- <ucd>meta.code.error</ucd>
+    SOURCE_COLUMNS(`source')
     PRIMARY KEY (sourceId),
     KEY IDX_parentSourceId (parentSourceId ASC),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
@@ -1027,27 +1185,51 @@ CREATE TABLE SkyTile
 SET FOREIGN_KEY_CHECKS=1;
 
 
+m4def(`EXPOSURE_CONSTRAINTS',
+`ALTER TABLE $1 ADD CONSTRAINT FK_$1_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+ALTER TABLE $1_To_Htm$3 ADD CONSTRAINT FK_$1_To_Htm$3_$2
+    FOREIGN KEY ($2) REFERENCES $1 ($2);
+ALTER TABLE $1_Metadata ADD CONSTRAINT FK_$1_Metadata_$2
+    FOREIGN KEY ($2) REFERENCES $1 ($2);')dnl
+
+m4def(`COADD_CONSTRAINTS',
+`EXPOSURE_CONSTRAINTS(`$1Coadd', `$2CoaddId', `$3')
+ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_$2CoaddId
+    FOREIGN KEY ($2CoaddId) REFERENCES $1Coadd ($2CoaddId);
+ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_parent$1ObjectId
+    FOREIGN KEY (parent$1ObjectId) REFERENCES $1Object ($2ObjectId);
+ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_scienceCcdExposureId
+    FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_$2ObjectId
+    FOREIGN KEY ($2ObjectId) REFERENCES $1Object ($2ObjectId); 
+')dnl
+
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_RefObject
     FOREIGN KEY (refObjectId) REFERENCES RefObject (refObjectId);
-
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
 
-ALTER TABLE Science_Ccd_Exposure ADD CONSTRAINT FK_ScienceCcdExposure_filterId
-    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+EXPOSURE_CONSTRAINTS(`Science_Ccd_Exposure', `scienceCcdExposureId', `10')
 
-ALTER TABLE Science_Ccd_Exposure_To_Htm10 ADD CONSTRAINT FK_ScienceCcdExposureToHtm10_scienceCcdExposureId
-    FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
+COADD_CONSTRAINTS(`GoodSeeing', `goodSeeing', `10')
+
+COADD_CONSTRAINTS(`Deep', `deep', `10')
+
+COADD_CONSTRAINTS(`ChiSquared', `chiSquared', `10')
+
+COADD_CONSTRAINTS(`Keith', `keith', `10')
 
 ALTER TABLE Source ADD CONSTRAINT FK_Source_scienceCcdExposureId
     FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
-
 ALTER TABLE Source ADD CONSTRAINT FK_Source_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);
-
 ALTER TABLE Source ADD CONSTRAINT FK_Source_objectId
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
-
 ALTER TABLE Source ADD CONSTRAINT FK_Source_parentSourceId
     FOREIGN KEY (parentSourceId) REFERENCES Source (sourceId);
 
