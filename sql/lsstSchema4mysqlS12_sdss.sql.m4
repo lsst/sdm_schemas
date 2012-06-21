@@ -366,7 +366,7 @@ m4def(`KEY_VALUE_TABLE',
         -- <descr>Type of exposure
         --  <ul>
         --    <li>1: Science CCD</li>
-        --    <li>2: Differenced CCD</li>
+        --    <li>2: Difference Imaging CCD</li>
         --    <li>3: Good-seeing coadd</li>
         --    <li>4: Deep coadd</li>
         --    <li>5: Chi-squared coadd</li>
@@ -1184,35 +1184,42 @@ CREATE TABLE SkyTile
 
 SET FOREIGN_KEY_CHECKS=1;
 
-
 m4def(`EXPOSURE_CONSTRAINTS',
 `ALTER TABLE $1 ADD CONSTRAINT FK_$1_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);
+
 ALTER TABLE $1_To_Htm$3 ADD CONSTRAINT FK_$1_To_Htm$3_$2
     FOREIGN KEY ($2) REFERENCES $1 ($2);
+
 ALTER TABLE $1_Metadata ADD CONSTRAINT FK_$1_Metadata_$2
     FOREIGN KEY ($2) REFERENCES $1 ($2);')dnl
 
 m4def(`COADD_CONSTRAINTS',
 `EXPOSURE_CONSTRAINTS(`$1Coadd', `$2CoaddId', `$3')
+
 ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_$2CoaddId
     FOREIGN KEY ($2CoaddId) REFERENCES $1Coadd ($2CoaddId);
 ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);
 ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_parent$1ObjectId
     FOREIGN KEY (parent$1ObjectId) REFERENCES $1Object ($2ObjectId);
+
 ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_scienceCcdExposureId
     FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
 ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);
 ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_$2ObjectId
-    FOREIGN KEY ($2ObjectId) REFERENCES $1Object ($2ObjectId); 
-')dnl
+    FOREIGN KEY ($2ObjectId) REFERENCES $1Object ($2ObjectId);')dnl
 
-ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_RefObject
+ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_refObjectId
     FOREIGN KEY (refObjectId) REFERENCES RefObject (refObjectId);
-ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
+ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_objectId
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE RefSrcMatch ADD CONSTRAINT FK_RefSrcMatch_refObjectId
+    FOREIGN KEY (refObjectId) REFERENCES RefObject (refObjectId);
+ALTER TABLE RefSrcMatch ADD CONSTRAINT FK_RefSrcMatch_sourceId
+    FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
 
 EXPOSURE_CONSTRAINTS(`Science_Ccd_Exposure', `scienceCcdExposureId', `10')
 
