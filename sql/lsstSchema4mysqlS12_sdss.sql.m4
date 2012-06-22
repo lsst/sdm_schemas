@@ -748,33 +748,33 @@ m4def(`M4_COADD_TABLES',
 
 M4_HTM_MAPPING_TABLE(`$1Coadd', `$2CoaddId',`$3')
 
-CREATE TABLE $1Object
+CREATE TABLE $1Source
     -- <descr>Table to store high signal-to-noise &quot;sources&quot;
     -- measured on the coadd exposures in $1Coadd.</descr>
 (
-    $2ObjectId BIGINT NOT NULL,
+    $2SourceId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier)</descr>
         -- <ucd>meta.id;src</ucd>
-    parent$1ObjectId BIGINT NULL,
-        -- <descr>$2ObjectId of parent if object is deblended, otherwise NULL.</descr>
+    parent$1SourceId BIGINT NULL,
+        -- <descr>$2SourceId of parent if source is deblended, otherwise NULL.</descr>
         -- <ucd>meta.id.parent;src</ucd>
     $2CoaddId BIGINT NOT NULL,
-        -- <descr>ID of the coadd the object was detected and measured on
+        -- <descr>ID of the coadd the source was detected and measured on
         -- (pointer to $1Coadd).</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    filterId TINYINT NOT NULL,
-        -- <descr>ID of filter used for the coadd the object
+    ifelse(`$1', `ChiSquared', `', `filterId TINYINT NOT NULL,
+        -- <descr>ID of filter used for the coadd the source
         -- was detected and measured on.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
-    M4_SOURCE_COLUMNS(`object')
-    PRIMARY KEY ($2ObjectId),
+        -- <ucd>meta.id;instr.filter</ucd>')
+    M4_SOURCE_COLUMNS(`source')
+    PRIMARY KEY ($2SourceId),
     KEY IDX_$2CoaddId ($2CoaddId ASC),
     KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
 
 CREATE TABLE $1ForcedSource
     -- <descr>Table of forced-photometry sources, measured using
-    -- positions of objects from $1Object.</descr>
+    -- positions of objects from $1Source.</descr>
 (
     $2ForcedSourceId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier)</descr>
@@ -796,25 +796,25 @@ CREATE TABLE $1ForcedSource
         -- snap exposure pairs, the sum of snap exposure times.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
-    $2ObjectId BIGINT NOT NULL,
+    $2SourceId BIGINT NOT NULL,
         -- <descr>ID of object that triggered measurement
-        -- of this forced-source (pointer to $1Object).</descr>
+        -- of this forced-source (pointer to $1Source).</descr>
         -- <ucd>meta.id;src</ucd>
-    $2ObjectRa DOUBLE NOT NULL,
+    $2SourceRa DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of object that triggered measurement
         -- of this forced-source.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
-    $2ObjectDecl DOUBLE NOT NULL,
+    $2SourceDecl DOUBLE NOT NULL,
         -- <descr>ICRS Dec. of object that triggered measurement
         -- of this forced-source.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    M4_SOURCE_COLUMNS(`source')
+    M4_SOURCE_COLUMNS(`forced-source')
     PRIMARY KEY ($2ForcedSourceId),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId ASC),
     KEY IDX_filterId (filterId ASC),
-    KEY IDX_objectId ($2ObjectId ASC),
+    KEY IDX_objectId ($2SourceId ASC),
     KEY IDX_decl (decl ASC),
     KEY IDX_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
@@ -830,12 +830,12 @@ m4def(`M4_COADD',
         -- <descr>Sky-tract number.</descr>
     patch CHAR(16) NOT NULL,
         -- <descr>Sky-patch.</descr>
-    filterId TINYINT NOT NULL,
+    ifelse(`$1', `ChiSquared', `', `filterId TINYINT NOT NULL,
         -- <descr>Id of the filter for the band.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     filterName CHAR(3) NOT NULL,
         -- <descr>Filter name, pulled in from the Filter table.</descr>
-        -- <ucd>instr.bandpass</ucd>
+        -- <ucd>instr.bandpass</ucd>')
     M4_SPATIAL_EXPOSURE_COLUMNS()
     fluxMag0 FLOAT NOT NULL,
         -- <ucd>phot.flux.density</ucd>
@@ -849,7 +849,9 @@ m4def(`M4_COADD',
         -- directory.</descr>
     PRIMARY KEY($2CoaddId),
     KEY IDX_htmId20 (htmId20 ASC),
-    KEY IDX_tract_patch_filterName (tract ASC, patch ASC, filterName ASC)
+    ifelse(`$1', `ChiSquared',
+    `KEY IDX_tract_patch (tract ASC, patch ASC)',
+    `KEY IDX_tract_patch_filterName (tract ASC, patch ASC, filterName ASC)')
 ) ENGINE=MyISAM;
 
 ')dnl
@@ -1187,31 +1189,32 @@ CREATE TABLE SkyTile
 SET FOREIGN_KEY_CHECKS=1;
 
 m4def(`M4_EXPOSURE_CONSTRAINTS',
-`ALTER TABLE $1 ADD CONSTRAINT FK_$1_filterId
-    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
-
-ALTER TABLE $1_To_Htm$3 ADD CONSTRAINT FK_$1_To_Htm$3_$2
+`ALTER TABLE $1_To_Htm$3 ADD CONSTRAINT FK_$1_To_Htm$3_$2
     FOREIGN KEY ($2) REFERENCES $1 ($2);
 
 ALTER TABLE $1_Metadata ADD CONSTRAINT FK_$1_Metadata_$2
-    FOREIGN KEY ($2) REFERENCES $1 ($2);')dnl
+    FOREIGN KEY ($2) REFERENCES $1 ($2);
+
+ifelse(`$1',`ChiSquaredCoadd', `',
+`ALTER TABLE $1 ADD CONSTRAINT FK_$1_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);')')dnl
 
 m4def(`M4_COADD_CONSTRAINTS',
 `M4_EXPOSURE_CONSTRAINTS(`$1Coadd', `$2CoaddId', `$3')
 
-ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_$2CoaddId
+ALTER TABLE $1Source ADD CONSTRAINT FK_$1Source_$2CoaddId
     FOREIGN KEY ($2CoaddId) REFERENCES $1Coadd ($2CoaddId);
-ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_filterId
-    FOREIGN KEY (filterId) REFERENCES Filter (filterId);
-ALTER TABLE $1Object ADD CONSTRAINT FK_$1Object_parent$1ObjectId
-    FOREIGN KEY (parent$1ObjectId) REFERENCES $1Object ($2ObjectId);
+ALTER TABLE $1Source ADD CONSTRAINT FK_$1Source_parent$1SourceId
+    FOREIGN KEY (parent$1SourceId) REFERENCES $1Source ($2SourceId);
+ifelse(`$1', `ChiSquared', `', `ALTER TABLE $1Source ADD CONSTRAINT FK_$1Source_filterId
+    FOREIGN KEY (filterId) REFERENCES Filter (filterId);')
 
 ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_scienceCcdExposureId
     FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
 ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);
-ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_$2ObjectId
-    FOREIGN KEY ($2ObjectId) REFERENCES $1Object ($2ObjectId);')dnl
+ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_$2SourceId
+    FOREIGN KEY ($2SourceId) REFERENCES $1Source ($2SourceId);')dnl
 
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_refObjectId
     FOREIGN KEY (refObjectId) REFERENCES RefObject (refObjectId);
