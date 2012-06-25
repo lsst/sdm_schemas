@@ -936,7 +936,15 @@ m4def(`M4_COADD_TABLES',
         -- <ucd>phot.flux.density</ucd>
     fluxMag0Sigma FLOAT NOT NULL,
         -- <ucd>stat.error;phot.flux.density</ucd>
-    fwhm DOUBLE NOT NULL,
+    matchedFwhm DOUBLE NULL,
+        -- <descr>FWHM computed from PSF that was matched to during coaddition.
+        -- NULL if coadds were created with PSF-matching turned off.</descr>
+        -- <ucd>instr.obsty.seeing</ucd>
+        -- <unit>arcsec</unit>
+    measuredFwhm DOUBLE NULL,
+        -- <descr>FWHM computed from measured PSF. NULL if coadds were
+        -- created with PSF-matching turned on and the pipeline was
+        -- configured to use the matched-to PSF.</descr>
         -- <ucd>instr.obsty.seeing</ucd>
         -- <unit>arcsec</unit>
     path VARCHAR(255) NOT NULL,
