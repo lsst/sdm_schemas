@@ -334,19 +334,19 @@ CREATE TABLE RefObject
         -- <ucd>stat.error;phot.mag</ucd>
         -- <unit>mag</unit>
     uExposureCount SMALLINT NOT NULL,
-        -- <descr>Number of u-band science CCDs containing reference object.</descr>
+        -- <descr>Number of u-band exposures containing reference object.</descr>
         -- <ucd>meta.number</ucd>
     gExposureCount SMALLINT NOT NULL,
-        -- <descr>Number of g-band science CCDs containing reference object.</descr>
+        -- <descr>Number of g-band exposures containing reference object.</descr>
         -- <ucd>meta.number</ucd>
     rExposureCount SMALLINT NOT NULL,
-        -- <descr>Number of r-band science CCDs containing reference object.</descr>
+        -- <descr>Number of r-band exposures containing reference object.</descr>
         -- <ucd>meta.number</ucd>
     iExposureCount SMALLINT NOT NULL,
-        -- <descr>Number of i-band science CCDs containing reference object.</descr>
+        -- <descr>Number of i-band exposures containing reference object.</descr>
         -- <ucd>meta.number</ucd>
     zExposureCount SMALLINT NOT NULL,
-        -- <descr>Number of z-band science CCDs containing reference object.</descr>
+        -- <descr>Number of z-band exposures containing reference object.</descr>
         -- <ucd>meta.number</ucd>
         -- <ucd>meta.number</ucd>
     PRIMARY KEY (refObjectId),
@@ -770,6 +770,40 @@ CREATE TABLE $1Source
     PRIMARY KEY ($2SourceId),
     KEY IDX_$2CoaddId ($2CoaddId ASC),
     KEY IDX_htmId20 (htmId20 ASC)
+) ENGINE=MyISAM;
+
+CREATE TABLE Ref$1SrcMatch
+    -- <descr>Table containing the results of a spatial match between
+    -- RefObject and $1Source.</descr>
+(
+    refObjectId BIGINT NULL,
+        -- <descr>Reference object id (pointer to RefObject). NULL if
+        -- reference object has no matches.</descr>
+        -- <ucd>meta.id</ucd>
+    $2SourceId BIGINT NULL,
+        -- <descr>Coadd-source id. NULL if source has no matches.</descr>
+        -- <ucd>meta.id</ucd>
+    angSep DOUBLE NULL,
+        -- <descr>Angular separation between reference object and coadd-source.
+        -- </descr>
+        -- <unit>arcsec</unit>
+        -- <ucd>pos.angDistance</ucd>
+    nRefMatches INTEGER NULL,
+        -- <descr>Total number of matches for reference object.</descr>
+        -- <ucd>meta.number</ucd>
+    nSrcMatches INTEGER NULL,
+        -- <descr>Total number of matches for source.</descr>
+        -- <ucd>meta.number</ucd>
+    closestToRef TINYINT NULL,
+        -- <descr>1 if source is the closest match for reference object, 0
+        -- otherwise.</descr>
+        -- <ucd>meta.code</ucd>
+    closestToSrc TINYINT NULL,
+        -- <descr>1 if reference object is the closest match for source, 0
+        -- otherwise.</descr>
+        -- <ucd>meta.code</ucd>
+    KEY ($2SourceId),
+    KEY (refObjectId)
 ) ENGINE=MyISAM;
 
 CREATE TABLE $1ForcedSource
@@ -1216,6 +1250,11 @@ ALTER TABLE $1Source ADD CONSTRAINT FK_$1Source_parent$1SourceId
     FOREIGN KEY (parent$1SourceId) REFERENCES $1Source ($2SourceId);
 ifelse(`$1', `ChiSquared', `', `ALTER TABLE $1Source ADD CONSTRAINT FK_$1Source_filterId
     FOREIGN KEY (filterId) REFERENCES Filter (filterId);')
+
+ALTER TABLE Ref$1SrcMatch ADD CONSTRAINT FK_Ref$1SrcMatch_$2SourceId
+    FOREIGN KEY ($2SourceId) REFERENCES $1Source ($2SourceId);
+ALTER TABLE Ref$1SrcMatch ADD CONSTRAINT FK_Ref$1SrcMatch_refObjectId
+    FOREIGN KEY (refObjectId) REFERENCES RefObject (refObjectId);
 
 ALTER TABLE $1ForcedSource ADD CONSTRAINT FK_$1ForcedSource_scienceCcdExposureId
     FOREIGN KEY (scienceCcdExposureId) REFERENCES Science_Ccd_Exposure (scienceCcdExposureId);
