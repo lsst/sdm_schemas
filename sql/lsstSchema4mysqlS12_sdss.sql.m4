@@ -1197,7 +1197,7 @@ CREATE TABLE Source
     objectId BIGINT NULL,
         -- <descr>ID of object this source was assigned to. NULL if the source
         -- did not participate in spatial clustering, or if the clustering
-        -- algorithm considered the source to be a "noise" source.</descr>
+        -- algorithm considered the source to be a 'noise' source.</descr>
         -- <ucd>meta.id;src</ucd>
     objectRa DOUBLE NULL,
         -- <descr>ICRS RA of object associated with this source, or ra if the
