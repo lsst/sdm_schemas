@@ -246,7 +246,8 @@ CREATE TABLE RefSrcMatch
         -- </ul></descr>
         -- <ucd>meta.code</ucd>
     KEY (sourceId),
-    KEY (refObjectId)
+    KEY (refObjectId),
+    KEY (refObjectId, sourceId)
 ) ENGINE=MyISAM;
 
 
@@ -803,7 +804,9 @@ CREATE TABLE Ref$1SrcMatch
         -- otherwise.</descr>
         -- <ucd>meta.code</ucd>
     KEY ($2SourceId),
-    KEY (refObjectId)
+    KEY (refObjectId),
+    KEY (refObjectId, $2SourceId),
+    KEY ($2SourceId, refObjectId)
 ) ENGINE=MyISAM;
 
 CREATE TABLE $1ForcedSource
