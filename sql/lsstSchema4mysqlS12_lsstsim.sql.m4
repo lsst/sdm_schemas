@@ -989,7 +989,7 @@ CREATE TABLE $1Source
 ) ENGINE=MyISAM;
 
 CREATE TABLE Ref$1SrcMatch
-    -- <descr>ifelse(`$1', `ChiSquaredCoadd', `Not filled. ')ifelse(`$1', `DeepCoadd', `Not filled. ')ifelse(`$1', `KeithCoadd', `Not filled. ')Table containing the results of a spatial match between
+    -- <descr>ifelse(`$1', `ChiSquared', `Not filled. ')ifelse(`$1', `Deep', `Not filled. ')ifelse(`$1', `Keith', `Not filled. ')Table containing the results of a spatial match between
     -- RefObject and $1Source.</descr>
 (
     refObjectId BIGINT NULL,
