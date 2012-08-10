@@ -913,6 +913,7 @@ M4_COADD(`ChiSquared', `chiSquared')
 M4_COADD_TABLES(`ChiSquared', `chiSquared', `10')
 
 CREATE TABLE KeithCoadd
+    -- <descr>Not filled.</descr>
 (
     keithCoaddId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier).</descr>
