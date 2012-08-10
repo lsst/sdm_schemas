@@ -132,6 +132,7 @@ CREATE TABLE Logs
 
 
 CREATE TABLE ObjectType
+    -- <descr>Not filled. 
     -- <descr>Table to store description of object types. It includes all object
     -- types: static, variables, Solar System objects, etc.</descr>
 (
@@ -358,7 +359,7 @@ CREATE TABLE RefObject
 
 m4def(`M4_KEY_VALUE_TABLE',
 `CREATE TABLE $1_Metadata
-    -- <descr>Generic key-value pair metadata for $1.</descr>
+    -- <descr>ifelse(`$1', `ChiSquaredCoadd', `Not filled. ')ifelse(`$1', `DeepCoadd', `Not filled. ')ifelse(`$1', `KeithCoadd', `Not filled. ')Generic key-value pair metadata for $1.</descr>
 (
     $2 BIGINT NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
@@ -382,7 +383,7 @@ m4def(`M4_KEY_VALUE_TABLE',
 
 m4def(`M4_HTM_MAPPING_TABLE',
 `CREATE TABLE $1_To_Htm$3
-    -- <descr>Stores a mapping between exposures in $1 and the IDs of
+    -- <descr>ifelse(`$1', `ChiSquaredCoadd', `Not filled. ')ifelse(`$1', `DeepCoadd', `Not filled. ')ifelse(`$1', `KeithCoadd',  `Not filled. ')Stores a mapping between exposures in $1 and the IDs of
     -- spatially overlapping level-$3 HTM triangles.</descr>
 (
     $2 BIGINT NOT NULL,
@@ -750,7 +751,7 @@ m4def(`M4_COADD_TABLES',
 M4_HTM_MAPPING_TABLE(`$1Coadd', `$2CoaddId',`$3')
 
 CREATE TABLE $1Source
-    -- <descr>Table to store high signal-to-noise &quot;sources&quot;
+    -- <descr>ifelse(`$1', `ChiSquared', `Not filled. ')ifelse(`$1', `Deep', `Not filled. ')ifelse(`$1', `Keith', `Not filled. ')Table to store high signal-to-noise &quot;sources&quot;
     -- measured on the coadd exposures in $1Coadd.</descr>
 (
     $2SourceId BIGINT NOT NULL,
@@ -774,7 +775,7 @@ CREATE TABLE $1Source
 ) ENGINE=MyISAM;
 
 CREATE TABLE Ref$1SrcMatch
-    -- <descr>Table containing the results of a spatial match between
+    -- <descr>ifelse(`$1', `ChiSquaredCoadd', `Not filled. ')ifelse(`$1', `DeepCoadd', `Not filled. ')ifelse(`$1', `KeithCoadd', `Not filled. ')Table containing the results of a spatial match between
     -- RefObject and $1Source.</descr>
 (
     refObjectId BIGINT NULL,
@@ -810,7 +811,7 @@ CREATE TABLE Ref$1SrcMatch
 ) ENGINE=MyISAM;
 
 CREATE TABLE $1ForcedSource
-    -- <descr>Table of forced-photometry sources, measured using
+    -- <descr>ifelse(`$1', `ChiSquared', `Not filled. ')ifelse(`$1', `Deep', `Not filled. ')ifelse(`$1', `Keith', `Not filled. ')Table of forced-photometry sources, measured using
     -- positions of objects from $1Source.</descr>
 (
     $2ForcedSourceId BIGINT NOT NULL,
@@ -859,6 +860,7 @@ CREATE TABLE $1ForcedSource
 
 m4def(`M4_COADD',
 `CREATE TABLE $1Coadd
+    ifelse(`$1', `ChiSquared', `-- <descr>Not filled.</descr>')ifelse(`$1', `Deep', `-- <descr>Not filled.</descr>')ifelse(`$1', `Keith', `-- <descr>Not filled.</descr>')
 (
     $2CoaddId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier).</descr>
