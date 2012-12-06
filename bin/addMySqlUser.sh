@@ -18,5 +18,6 @@ GRANT EXECUTE ON FUNCTION GlobalDB.extendRun TO 'znewuser'@'%' ;
 GRANT EXECUTE ON FUNCTION GlobalDB.checkIfUserCanStartRun TO 'znewuser'@'%' ; 
 GRANT EXECUTE, SELECT ON \`%\_%\`.* TO 'znewuser'@'%' ; 
 GRANT SELECT ON Test.* TO 'znewuser'@'%' ; 
+GRANT SHOW VIEW ON *.* TO 'znewuser'@'%' ; 
 CALL scisql.scisql_grantPermissions('znewuser', '%');
 ZZEND
