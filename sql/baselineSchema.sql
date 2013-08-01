@@ -140,13 +140,13 @@ CREATE TABLE prv_cnf_TaskGraph2Run
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_TaskConfig
+CREATE TABLE prv_cnf_TaskExecutionConfig
 (
-    cTaskConfigId MEDIUMINT NOT NULL,
+    cTaskExecutionConfigId MEDIUMINT NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTaskConfigId),
+    PRIMARY KEY (cTaskExecutionConfigId),
     KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
@@ -163,7 +163,7 @@ CREATE TABLE prv_cnf_Raft
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Task
+CREATE TABLE prv_cnf_TaskExecution
 (
     nodeId INTEGER NOT NULL,
     taskId MEDIUMINT NOT NULL,
@@ -197,13 +197,13 @@ CREATE TABLE prv_cnf_Stage2TaskGraph
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Stage2Task
+CREATE TABLE prv_cnf_Stage2TaskExecution
 (
-    cStage2TaskId MEDIUMINT NOT NULL,
+    cStage2TaskExecutionId MEDIUMINT NOT NULL,
     stage2taskId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cStage2TaskId),
+    PRIMARY KEY (cStage2TaskExecutionId),
     KEY (stage2taskId)
 ) ENGINE=InnoDB;
 
@@ -300,7 +300,7 @@ CREATE TABLE prv_TaskGraph2Run
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_TaskConfig
+CREATE TABLE prv_TaskExecutionConfig
 (
     taskConfigId MEDIUMINT NOT NULL,
     taskConfigName VARCHAR(80) NOT NULL,
@@ -324,7 +324,7 @@ CREATE TABLE prv_Run
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Task
+CREATE TABLE prv_TaskExecution
 (
     taskId MEDIUMINT NOT NULL,
     PRIMARY KEY (taskId)
@@ -373,12 +373,12 @@ CREATE TABLE prv_Stage2ProcHistory
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Stage2Task
+CREATE TABLE prv_Stage2TaskExecution
 (
-    stage2TaskId MEDIUMINT NOT NULL,
+    stage2TaskExecutionId MEDIUMINT NOT NULL,
     stageId SMALLINT NOT NULL,
     taskId MEDIUMINT NOT NULL,
-    PRIMARY KEY (stage2TaskId),
+    PRIMARY KEY (stage2TaskExecutionId),
     KEY (taskId),
     KEY (stageId)
 ) ENGINE=InnoDB;
@@ -3070,23 +3070,23 @@ ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_Config_Node_Node
 ALTER TABLE prv_cnf_TaskGraph2Run ADD CONSTRAINT FK_Config_TaskGraph2Run_TaskGraph2Run 
 	FOREIGN KEY (taskGraph2runId) REFERENCES prv_TaskGraph2Run (taskGraph2runId);
 
-ALTER TABLE prv_cnf_Task ADD CONSTRAINT FK_Config_Task_Node 
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_Config_TaskExecution_Node 
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
-ALTER TABLE prv_cnf_Task ADD CONSTRAINT FK_Config_Task_Task 
-	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_Config_TaskExecution_TaskExecution 
+	FOREIGN KEY (taskId) REFERENCES prv_TaskExecution (taskId);
 
 ALTER TABLE prv_cnf_Stage2TaskGraph ADD CONSTRAINT FK_Config_Stage2TaskGraph_Stage2TaskGraph 
 	FOREIGN KEY (stage2taskGraphId) REFERENCES prv_Stage2TaskGraph (stage2taskGraphId);
 
-ALTER TABLE prv_cnf_Stage2Task ADD CONSTRAINT FK_Config_Stage2Task_Stage2Task 
-	FOREIGN KEY (stage2taskId) REFERENCES prv_Stage2Task (stage2TaskId);
+ALTER TABLE prv_cnf_Stage2TaskExecution ADD CONSTRAINT FK_Config_Stage2TaskExecution_Stage2TaskExecution 
+	FOREIGN KEY (stage2taskId) REFERENCES prv_Stage2TaskExecution (stage2TaskExecutionId);
 
-ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_TaskConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
+ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_TaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
 
-ALTER TABLE prv_TaskGraph ADD CONSTRAINT FK_TaskGraph_TaskConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
+ALTER TABLE prv_TaskGraph ADD CONSTRAINT FK_TaskGraph_TaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
 
 ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_TaskGraph2Run_TaskGraph 
 	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
@@ -3094,14 +3094,14 @@ ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_TaskGraph2Run_TaskGraph
 ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_TaskGraph2Run_Run 
 	FOREIGN KEY (runId) REFERENCES prv_Run (runId);
 
-ALTER TABLE prv_Run ADD CONSTRAINT FK_Run_TaskConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
+ALTER TABLE prv_Run ADD CONSTRAINT FK_Run_TaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
 
-ALTER TABLE prv_Stage ADD CONSTRAINT FK_Stage_TaskConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
+ALTER TABLE prv_Stage ADD CONSTRAINT FK_Stage_TaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
 
-ALTER TABLE prv_Stage2Task ADD CONSTRAINT FK_ProcStep2Stage_ProcStep 
-	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
+ALTER TABLE prv_Stage2TaskExecution ADD CONSTRAINT FK_ProcStep2Stage_ProcStep 
+	FOREIGN KEY (taskId) REFERENCES prv_TaskExecution (taskId);
 
 ALTER TABLE prv_Stage2UpdatableColumn ADD CONSTRAINT FK_Stage2UpdatableColumn_Config_Stage2UpdatableColumn 
 	FOREIGN KEY (cStage2UpdateColumnId) REFERENCES prv_cnf_Stage2UpdatableColumn (c_stage2UpdatableColumn);
