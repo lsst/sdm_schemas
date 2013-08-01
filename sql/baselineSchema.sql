@@ -109,8 +109,8 @@ CREATE TABLE prv_cnf_Fpa
 
 CREATE TABLE prv_cnf_InputDataSet
 (
-    cInputDataSetId SMALLINT NOT NULL,
-    inputDataSetId SMALLINT NOT NULL,
+    cInputDataSetId INTEGER NOT NULL,
+    inputDataSetId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     PRIMARY KEY (cInputDataSetId),
@@ -183,6 +183,21 @@ CREATE TABLE prv_cnf_Slice
     validityEnd DATETIME NOT NULL,
     KEY (nodeId),
     KEY (sliceId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_Stage
+(
+    cStageId MEDIUMINT NOT NULL,
+    stageId SMALLINT NOT NULL,
+    nodeId INTEGER NOT NULL,
+        -- <descr>Node on which this stage was executed.</descr>
+    inputDataSetId INTEGER NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    PRIMARY KEY (cStage2PipelineId),
+    KEY (stageId),
+    KEY (inputDataSetId)
 ) ENGINE=InnoDB;
 
 
@@ -266,7 +281,7 @@ CREATE TABLE prv_InputDataSet
 (
     inputDataSetId INTEGER NOT NULL,
     name VARCHAR(80) NOT NULL,    
-    PRIMARY KEy (inputDataSetId)
+    PRIMARY KEY (inputDataSetId)
 ) ENGINE=InnoDB;
 
 
@@ -346,8 +361,6 @@ CREATE TABLE prv_Stage
     stageId SMALLINT NOT NULL,
     policyId MEDIUMINT NOT NULL,
     stageName VARCHAR(255) NULL,
-    nodeId INTEGER NOT NULL,
-        -- <descr>Node o which this stage was executed.</descr>
     PRIMARY KEY (stageId),
     KEY (policyId)
 ) ENGINE=InnoDB;
@@ -2979,7 +2992,7 @@ CREATE TABLE Object_Extra
         -- depending on how well the object’s likelihood function 
         -- is approximated by a Gaussian. We are assuming on 
         -- average FLOAT[19][200].</descr>
-    PRIMARY KEY PK_Object (objectId),
+    PRIMARY KEY PK_Object (objectId)
 ) ENGINE=MyISAM;
 
 
