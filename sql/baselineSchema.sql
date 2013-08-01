@@ -129,25 +129,25 @@ CREATE TABLE prv_cnf_Node
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Pipeline2Run
+CREATE TABLE prv_cnf_TaskGraph2Run
 (
-    cPipeline2RunId MEDIUMINT NOT NULL,
-    pipeline2runId MEDIUMINT NOT NULL,
+    cTaskGraph2RunId MEDIUMINT NOT NULL,
+    taskGraph2runId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cPipeline2RunId),
-    KEY (pipeline2runId)
+    PRIMARY KEY (cTaskGraph2RunId),
+    KEY (taskGraph2runId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Policy
+CREATE TABLE prv_cnf_TaskConfig
 (
-    cPolicyId MEDIUMINT NOT NULL,
-    policyId MEDIUMINT NOT NULL,
+    cTaskConfigId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cPolicyId),
-    KEY (policyId)
+    PRIMARY KEY (cTaskConfigId),
+    KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -163,14 +163,15 @@ CREATE TABLE prv_cnf_Raft
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Slice
+CREATE TABLE prv_cnf_Task
 (
     nodeId INTEGER NOT NULL,
-    sliceId MEDIUMINT NOT NULL,
+    taskId MEDIUMINT NOT NULL,
+    inputDataSetId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     KEY (nodeId),
-    KEY (sliceId)
+    KEY (taskId)
 ) ENGINE=InnoDB;
 
 
@@ -178,36 +179,32 @@ CREATE TABLE prv_cnf_Stage
 (
     cStageId MEDIUMINT NOT NULL,
     stageId SMALLINT NOT NULL,
-    nodeId INTEGER NOT NULL,
-        -- <descr>Node on which this stage was executed.</descr>
-    inputDataSetId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cStage2PipelineId),
-    KEY (stageId),
-    KEY (inputDataSetId)
+    PRIMARY KEY (cStageId),
+    KEY (stageId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Stage2Pipeline
+CREATE TABLE prv_cnf_Stage2TaskGraph
 (
-    cStage2PipelineId MEDIUMINT NOT NULL,
-    stage2pipelineId MEDIUMINT NOT NULL,
+    cStage2TaskGraphId MEDIUMINT NOT NULL,
+    stage2taskGraphId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cStage2PipelineId),
-    KEY (stage2pipelineId)
+    PRIMARY KEY (cStage2TaskGraphId),
+    KEY (stage2taskGraphId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Stage2Slice
+CREATE TABLE prv_cnf_Stage2Task
 (
-    cStage2SliceId MEDIUMINT NOT NULL,
-    stage2sliceId MEDIUMINT NOT NULL,
+    cStage2TaskId MEDIUMINT NOT NULL,
+    stage2taskId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cStage2SliceId),
-    KEY (stage2sliceId)
+    PRIMARY KEY (cStage2TaskId),
+    KEY (stage2taskId)
 ) ENGINE=InnoDB;
 
 
@@ -276,38 +273,38 @@ CREATE TABLE prv_InputDataSet
 CREATE TABLE prv_Node
 (
     nodeId INTEGER NOT NULL,
-    policyId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
     PRIMARY KEY (nodeId),
-    KEY (policyId)
+    KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Pipeline
+CREATE TABLE prv_TaskGraph
 (
-    pipelineId SMALLINT NOT NULL,
-    policyId MEDIUMINT NOT NULL,
-    pipelineName VARCHAR(64) NULL,
-    PRIMARY KEY (pipelineId),
-    KEY (policyId)
+    taskGraphId SMALLINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
+    taskGraphName VARCHAR(64) NULL,
+    PRIMARY KEY (taskGraphId),
+    KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Pipeline2Run
+CREATE TABLE prv_TaskGraph2Run
 (
-    pipeline2runId MEDIUMINT NOT NULL,
+    taskGraph2runId MEDIUMINT NOT NULL,
     runId MEDIUMINT NOT NULL,
-    pipelineId SMALLINT NOT NULL,
-    PRIMARY KEY (pipeline2runId),
-    KEY (pipelineId),
+    taskGraphId SMALLINT NOT NULL,
+    PRIMARY KEY (taskGraph2runId),
+    KEY (taskGraphId),
     KEY (runId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Policy
+CREATE TABLE prv_TaskConfig
 (
-    policyId MEDIUMINT NOT NULL,
-    policyName VARCHAR(80) NOT NULL,
-    PRIMARY KEY (policyId)
+    taskConfigId MEDIUMINT NOT NULL,
+    taskConfigName VARCHAR(80) NOT NULL,
+    PRIMARY KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -321,16 +318,16 @@ CREATE TABLE prv_Raft
 CREATE TABLE prv_Run
 (
     runId MEDIUMINT NOT NULL,
-    policyId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
     PRIMARY KEY (runId),
-    KEY (policyId)
+    KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Slice
+CREATE TABLE prv_Task
 (
-    sliceId MEDIUMINT NOT NULL,
-    PRIMARY KEY (sliceId)
+    taskId MEDIUMINT NOT NULL,
+    PRIMARY KEY (taskId)
 ) ENGINE=InnoDB;
 
 
@@ -347,20 +344,20 @@ CREATE TABLE prv_Snapshot
 CREATE TABLE prv_Stage
 (
     stageId SMALLINT NOT NULL,
-    policyId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
     stageName VARCHAR(255) NULL,
     PRIMARY KEY (stageId),
-    KEY (policyId)
+    KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Stage2Pipeline
+CREATE TABLE prv_Stage2TaskGraph
 (
-    stage2pipelineId MEDIUMINT NOT NULL,
-    pipelineId SMALLINT NOT NULL,
+    stage2taskGraphId MEDIUMINT NOT NULL,
+    taskGraphId SMALLINT NOT NULL,
     stageId SMALLINT NOT NULL,
-    PRIMARY KEY (stage2pipelineId),
-    KEY (pipelineId),
+    PRIMARY KEY (stage2taskGraphId),
+    KEY (taskGraphId),
     KEY (stageId)
 ) ENGINE=InnoDB;
 
@@ -376,13 +373,13 @@ CREATE TABLE prv_Stage2ProcHistory
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Stage2Slice
+CREATE TABLE prv_Stage2Task
 (
-    stage2SliceId MEDIUMINT NOT NULL,
+    stage2TaskId MEDIUMINT NOT NULL,
     stageId SMALLINT NOT NULL,
-    sliceId MEDIUMINT NOT NULL,
-    PRIMARY KEY (stage2SliceId),
-    KEY (sliceId),
+    taskId MEDIUMINT NOT NULL,
+    PRIMARY KEY (stage2TaskId),
+    KEY (taskId),
     KEY (stageId)
 ) ENGINE=InnoDB;
 
@@ -532,19 +529,19 @@ CREATE TABLE Durations
     theName VARCHAR(80) NULL,
     workerid VARCHAR(80) NULL,
     stagename VARCHAR(80) NULL,
-    SLICEID INTEGER NULL DEFAULT -1,
+    TASKID INTEGER NULL DEFAULT -1,
     duration BIGINT NULL,
     HOSTID VARCHAR(80) NULL,
     LOOPNUM INTEGER NULL DEFAULT -1,
     STAGEID INTEGER NULL DEFAULT -1,
-    PIPELINE VARCHAR(80) NULL,
+    TASKGRAPH VARCHAR(80) NULL,
     COMMENT VARCHAR(255) NULL,
     start VARCHAR(80) NULL,
     userduration FLOAT NULL,
     systemduration FLOAT NULL,
     PRIMARY KEY (id),
     INDEX dur_runid (RUNID ASC),
-    INDEX idx_durations_pipeline (PIPELINE ASC),
+    INDEX idx_durations_taskGraph (TASKGRAPH ASC),
     INDEX idx_durations_theName (theName ASC)
 ) ENGINE=MyISAM;
 
@@ -602,39 +599,6 @@ CREATE TABLE LeapSeconds
         -- </descr>
         -- <ucd>time</ucd>
         -- <unit>ns</unit>
-) ENGINE=MyISAM;
-
-
-CREATE TABLE Logs
-    -- <descr>Per-run logs.</descr>
-(
-    id INTEGER NOT NULL AUTO_INCREMENT,
-    HOSTID VARCHAR(80) NULL,
-    RUNID VARCHAR(80) NULL,
-    LOG VARCHAR(80) NULL,
-    workerid VARCHAR(80) NULL,
-    stagename VARCHAR(80) NULL,
-    SLICEID INTEGER NULL,
-    STAGEID INTEGER NULL,
-    LOOPNUM INTEGER NULL,
-    STATUS VARCHAR(80) NULL,
-    LEVEL INTEGER NULL DEFAULT 9999,
-    DATE VARCHAR(30) NULL,
-    TIMESTAMP BIGINT NULL,
-    node INTEGER NULL,
-    custom VARCHAR(4096) NULL,
-    timereceived TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    visitid INTEGER NULL,
-        -- <ucd>meta.id;obs.image</ucd>
-    COMMENT TEXT NULL,
-    PIPELINE VARCHAR(80) NULL,
-    TYPE VARCHAR(5) NULL,
-    EVENTTIME BIGINT NULL,
-    PUBTIME BIGINT NULL,
-    usertime FLOAT NULL,
-    systemtime FLOAT NULL,
-    PRIMARY KEY (id),
-    INDEX a (RUNID ASC)
 ) ENGINE=MyISAM;
 
 
@@ -1889,8 +1853,7 @@ CREATE TABLE ForcedDiaSource
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_ForcedDiaSource (objectId, ccdName, visitId),
-    INDEX IDX_ForcedDiaSource_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_ForcedDiaSource (objectId, ccdName, visitId)
 ) ENGINE=MyISAM;
 
 
@@ -3256,47 +3219,44 @@ CREATE TABLE DiaObject_To_Object_Match
 SET FOREIGN_KEY_CHECKS=1;
 
 
-ALTER TABLE prv_Stage ADD CONSTRAINT FK_Stage_Node_Node_nodeId
-	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
-
 ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_Config_Node_Node 
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
-ALTER TABLE prv_cnf_Pipeline2Run ADD CONSTRAINT FK_Config_Pipeline2Run_Pipeline2Run 
-	FOREIGN KEY (pipeline2runId) REFERENCES prv_Pipeline2Run (pipeline2runId);
+ALTER TABLE prv_cnf_TaskGraph2Run ADD CONSTRAINT FK_Config_TaskGraph2Run_TaskGraph2Run 
+	FOREIGN KEY (taskGraph2runId) REFERENCES prv_TaskGraph2Run (taskGraph2runId);
 
-ALTER TABLE prv_cnf_Slice ADD CONSTRAINT FK_Config_Slice_Node 
+ALTER TABLE prv_cnf_Task ADD CONSTRAINT FK_Config_Task_Node 
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
-ALTER TABLE prv_cnf_Slice ADD CONSTRAINT FK_Config_Slice_Slice 
-	FOREIGN KEY (sliceId) REFERENCES prv_Slice (sliceId);
+ALTER TABLE prv_cnf_Task ADD CONSTRAINT FK_Config_Task_Task 
+	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
 
-ALTER TABLE prv_cnf_Stage2Pipeline ADD CONSTRAINT FK_Config_Stage2Pipeline_Stage2Pipeline 
-	FOREIGN KEY (stage2pipelineId) REFERENCES prv_Stage2Pipeline (stage2pipelineId);
+ALTER TABLE prv_cnf_Stage2TaskGraph ADD CONSTRAINT FK_Config_Stage2TaskGraph_Stage2TaskGraph 
+	FOREIGN KEY (stage2taskGraphId) REFERENCES prv_Stage2TaskGraph (stage2taskGraphId);
 
-ALTER TABLE prv_cnf_Stage2Slice ADD CONSTRAINT FK_Config_Stage2Slice_Stage2Slice 
-	FOREIGN KEY (stage2sliceId) REFERENCES prv_Stage2Slice (stage2SliceId);
+ALTER TABLE prv_cnf_Stage2Task ADD CONSTRAINT FK_Config_Stage2Task_Stage2Task 
+	FOREIGN KEY (stage2taskId) REFERENCES prv_Stage2Task (stage2TaskId);
 
-ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_Policy 
-	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
+ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_TaskConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
 
-ALTER TABLE prv_Pipeline ADD CONSTRAINT FK_Pipeline_Policy 
-	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
+ALTER TABLE prv_TaskGraph ADD CONSTRAINT FK_TaskGraph_TaskConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
 
-ALTER TABLE prv_Pipeline2Run ADD CONSTRAINT FK_Pipeline2Run_Pipeline 
-	FOREIGN KEY (pipelineId) REFERENCES prv_Pipeline (pipelineId);
+ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_TaskGraph2Run_TaskGraph 
+	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
 
-ALTER TABLE prv_Pipeline2Run ADD CONSTRAINT FK_Pipeline2Run_Run 
+ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_TaskGraph2Run_Run 
 	FOREIGN KEY (runId) REFERENCES prv_Run (runId);
 
-ALTER TABLE prv_Run ADD CONSTRAINT FK_Run_Policy 
-	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
+ALTER TABLE prv_Run ADD CONSTRAINT FK_Run_TaskConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
 
-ALTER TABLE prv_Stage ADD CONSTRAINT FK_Stage_Policy 
-	FOREIGN KEY (policyId) REFERENCES prv_Policy (policyId);
+ALTER TABLE prv_Stage ADD CONSTRAINT FK_Stage_TaskConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
 
-ALTER TABLE prv_Stage2Slice ADD CONSTRAINT FK_ProcStep2Stage_ProcStep 
-	FOREIGN KEY (sliceId) REFERENCES prv_Slice (sliceId);
+ALTER TABLE prv_Stage2Task ADD CONSTRAINT FK_ProcStep2Stage_ProcStep 
+	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
 
 ALTER TABLE prv_Stage2UpdatableColumn ADD CONSTRAINT FK_Stage2UpdatableColumn_Config_Stage2UpdatableColumn 
 	FOREIGN KEY (cStage2UpdateColumnId) REFERENCES prv_cnf_Stage2UpdatableColumn (c_stage2UpdatableColumn);
