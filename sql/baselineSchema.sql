@@ -1675,6 +1675,8 @@ CREATE TABLE ForcedDiaSource
         -- Note that we are allowing a forcedSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
+    procHistoryId BIGINT NOT NULL,
+        -- <descr>Pointer to ProcessingHistory table.</descr>
     x FLOAT NOT NULL,
         -- <descr>x position computed using an algorithm similar 
         -- to that used by SDSS.</descr>
