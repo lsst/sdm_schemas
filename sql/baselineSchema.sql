@@ -118,18 +118,6 @@ CREATE TABLE prv_cnf_InputDataSet
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_MaskAmpImage
-(
-    cMaskAmpImageId BIGINT NOT NULL,
-    ampName CHAR(3) NOT NULL,
-    url VARCHAR(255) NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cMaskAmpImageId),
-    KEY (ampName)
-) ENGINE=InnoDB;
-
-
 CREATE TABLE prv_cnf_Node
 (
     cNodeId INTEGER NOT NULL,
@@ -650,9 +638,9 @@ CREATE TABLE Logs
 ) ENGINE=MyISAM;
 
 
-CREATE TABLE Bin
-    -- <descr>Definition of bins (these are guaranteed to be
-    -- the same for both the Object and Source tables.</descr>
+CREATE TABLE ApertureBins
+    -- <descr>Definition of aperture bins (for both the 
+    -- Object and Source tables.)</descr>
 (
     binN TINYINT NOT NULL,
         -- <descr>A bin in radius at which the aperture
@@ -1877,8 +1865,16 @@ CREATE TABLE ForcedDiaSource
         -- Note that we are allowing a forcedSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
+    x FLOAT NOT NULL,
+        -- <descr>x position computed using an algorithm similar 
+        -- to that used by SDSS.</descr>
+        -- <ucd>pos.cartesian.x</ucd>
+        -- <unit>pixel</unit>
+    y FLOAT NOT NULL,
+        -- <descr>y position computed using an algorithm similar 
+        -- to that used by SDSS.</descr>
+        -- <ucd>pos.cartesian.y</ucd>
+        -- <unit>pixel</unit>
     psFlux FLOAT NOT NULL,
         -- <descr>Point Source model flux.</descr>
         -- <ucd>phot.count</ucd>
@@ -3322,9 +3318,6 @@ ALTER TABLE prv_cnf_Ccd ADD CONSTRAINT FK_Config_Ccd_Ccd
 
 ALTER TABLE prv_cnf_Filter ADD CONSTRAINT FK_Config_Filter_Filter 
 	FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
-
-ALTER TABLE prv_cnf_MaskAmpImage ADD CONSTRAINT FK_Config_MaskAmpImage_Amp 
-	FOREIGN KEY (ampName) REFERENCES prv_Amp (ampName);
 
 ALTER TABLE prv_cnf_Raft ADD CONSTRAINT FK_Config_Raft_Raft 
 	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
