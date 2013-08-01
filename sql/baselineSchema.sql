@@ -239,7 +239,7 @@ CREATE TABLE prv_Ccd
 CREATE TABLE prv_Filter
     -- <descr>One row per color - the table will have 6 rows</descr>
 (
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Filter name. Unique id.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     url VARCHAR(255) NULL,
@@ -780,7 +780,7 @@ CREATE TABLE RawAmpExposure
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name.</descr>
         -- <ucd>meta.id;instr.det</ucd>
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Filter name.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     procHistoryId BIGINT NOT NULL,
@@ -941,7 +941,7 @@ CREATE TABLE RawCcdExposure
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name.</descr>
         -- <ucd>meta.id;instr.det</ucd>
-    filterName CHAR NULL,
+    filterName CHAR(1) NULL,
         -- <descr>Filter name.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     procHistoryId BIGINT NOT NULL,
@@ -1062,7 +1062,7 @@ CREATE TABLE CcdVisit
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name.</descr>
         -- <ucd>meta.id;instr.det</ucd>
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Filter name used for this exposure.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     procHistoryId BIGINT NOT NULL,
@@ -1270,7 +1270,7 @@ CREATE TABLE DiaSource
         -- If not, it is set to NULL (each diaSource will be associated with
         -- either a diaObject or ssObject).</descr>
         -- <ucd>meta.id;src</ucd>
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter used to take the Visit where this
         -- diaSource was measured.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
@@ -2431,7 +2431,7 @@ CREATE TABLE Object
     yPetroRadSigma FLOAT NULL,
         -- <descr>Uncertainty of yPetroRad</descr>
         -- <unit>arcsec</unit>
-    petroFilter CHAR NOT NULL,
+    petroFilter CHAR(1) NOT NULL,
         -- <descr>Name of the filter of the canonical petroRad.</descr>
     uPetroFlux FLOAT NULL,
         -- <descr>Petrosian flux within a defined multiple of 
@@ -2761,11 +2761,6 @@ CREATE TABLE Object
         -- a high degree of confidence that the source is extended.
         -- extendedness = 0 implies a high degree of confidence
         -- that the source is point-like.</descr>
-    photoZ BLOB NOT NULL,
-        -- <descr>Photometric redshift likelihood samp<les – pairs of 
-        -- (z, logL) – computed using a to-be-determined published
-        -- and widely accepted algorithm at the time of LSST
-        -- Commissioning. FLOAT[2x100].</descr>
     FLAGS1 BIGINT NOT NULL,
         -- <descr>Flags, tbd.</descr>
     FLAGS2 BIGINT NOT NULL,
@@ -2796,6 +2791,11 @@ CREATE TABLE Object_Extra
         -- depending on how well the object’s likelihood function 
         -- is approximated by a Gaussian. We are assuming on 
         -- average FLOAT[19][200].</descr>
+    photoZ BLOB NOT NULL,
+        -- <descr>Photometric redshift likelihood samp<les – pairs of 
+        -- (z, logL) – computed using a to-be-determined published
+        -- and widely accepted algorithm at the time of LSST
+        -- Commissioning. FLOAT[2x100].</descr>
     PRIMARY KEY PK_Object (objectId)
 ) ENGINE=MyISAM;
 
@@ -2807,7 +2807,7 @@ CREATE TABLE Object_APMean
     objectId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;src</ucd>
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter.</descr>
     binN TINYINT NOT NULL,
         -- <descr>A bin in radius at which the aperture
@@ -2830,7 +2830,7 @@ CREATE TABLE Object_Periodic
     objectId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;src</ucd>
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter.</descr>
     n TINYINT NOT NULL,
         -- <descr>The position in the light-curve of this
@@ -2849,12 +2849,12 @@ CREATE TABLE Object_NonPeriodic
     objectId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;src</ucd>
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter.</descr>
     n TINYINT NOT NULL,
         -- <descr>The position in the light-curve of this
         -- non-periodic feature.</descr>
-    lcPeriodic FLOAT NOT NULL,
+    lcNonPeriodic FLOAT NOT NULL,
         -- <descr>Non-periodic features extracted from light-curves 
         -- using generalized Lomb-Scargle periodogram.</descr>
     INDEX IDX_ObjectPeriodic_objectId (objectId)
@@ -2877,7 +2877,7 @@ CREATE TABLE Source
         -- Note that we are allowing a source to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    filterName CHAR NOT NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter used to take the two exposures where 
         -- this source was measured.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
