@@ -1039,10 +1039,10 @@ CREATE TABLE RawCcdExposureMetadata
 
 
 CREATE TABLE RawExposure
-    -- <descr>Raw exposure (entire exposure, all ccds)
+    -- <descr>Raw exposure (entire exposure, all ccds).</descr>
 (
     rawExposureId BIGINT NOT NULL,
-        -- <descr>Primary key (unique identifier.</descr>
+        -- <descr>Primary key (unique identifier.)</descr>
         -- <ucd>meta.id;obs.image</ucd>
     PRIMARY KEY PK_RawExposure (rawExposureId)
 ) ENGINE=MyISAM;
@@ -1244,7 +1244,7 @@ CREATE TABLE VisitMetadata
 
 
 CREATE TABLE DiaSource
-    -- <descr>Table to store &quot;difference image sources&quot; - sources
+    -- <descr>Table to store 'difference image sources'; - sources
     -- detected at SNR >=5 on difference images.</descr>
 (
     diaSourceId BIGINT NOT NULL,
@@ -1360,7 +1360,7 @@ CREATE TABLE DiaSource
         -- <descr>Natural log likelihood of the observed data 
         -- given the trailed source model.</descr>
     trailFlux_trailLength_Cov FLOAT NULL,
-        -- <descr>Covariance of trailFlux and trailLength</desccr>
+        -- <descr>Covariance of trailFlux and trailLength</descr>
     trailFlux_trailAngle_Cov FLOAT NULL,
         -- <descr>Covariance of trailFlux and trailAngle</descr>
     trailLength_trailAngle_Cov FLOAT NULL,
@@ -1652,9 +1652,6 @@ CREATE TABLE ForcedSource
         -- <descr>Uncertainty of psFlux.</descr>
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
-        -- <descr>x position computed by a centroiding algorithm.</descr>
-        -- <ucd>pos.cartesian.x</ucd>
-        -- <unit>pixel</unit>
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
@@ -1696,9 +1693,6 @@ CREATE TABLE ForcedDiaSource
         -- <descr>Uncertainty of psFlux.</descr>
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
-        -- <descr>x position computed by a centroiding algorithm.</descr>
-        -- <ucd>pos.cartesian.x</ucd>
-        -- <unit>pixel</unit>
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
