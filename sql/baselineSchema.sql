@@ -174,7 +174,7 @@ CREATE TABLE prv_cnf_TaskExecution
     KEY (nodeId),
     KEY (taskExecutionId),
     KEY (inputDataSetId),
-    KEY (procHistoryId
+    KEY (procHistoryId)
 ) ENGINE=InnoDB;
 
 
@@ -1621,7 +1621,7 @@ CREATE TABLE DiaObject
     PRIMARY KEY PK_DiaObject (diaObjectId, validityStart),
     INDEX IDX_DiaObject_validityStart (validityStart),
     INDEX IDX_DiaObject_procHistoryId (procHistoryId),
-    INDEX IDX_DiaObject_htmId20 (htmId20),
+    INDEX IDX_DiaObject_htmId20 (htmId20)
 ) ENGINE=MyISAM;
 
 
