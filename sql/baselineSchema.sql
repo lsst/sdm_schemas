@@ -166,12 +166,15 @@ CREATE TABLE prv_cnf_Raft
 CREATE TABLE prv_cnf_TaskExecution
 (
     nodeId INTEGER NOT NULL,
-    taskId MEDIUMINT NOT NULL,
+    taskExecutionId MEDIUMINT NOT NULL,
     inputDataSetId INTEGER NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     KEY (nodeId),
-    KEY (taskId)
+    KEY (taskExecutionId),
+    KEY (inputDataSetId),
+    KEY (procHistoryId
 ) ENGINE=InnoDB;
 
 
@@ -200,11 +203,11 @@ CREATE TABLE prv_cnf_Stage2TaskGraph
 CREATE TABLE prv_cnf_Stage2TaskExecution
 (
     cStage2TaskExecutionId MEDIUMINT NOT NULL,
-    stage2taskId MEDIUMINT NOT NULL,
+    stage2taskExecutionId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     PRIMARY KEY (cStage2TaskExecutionId),
-    KEY (stage2taskId)
+    KEY (stage2taskExecutionId)
 ) ENGINE=InnoDB;
 
 
@@ -326,8 +329,8 @@ CREATE TABLE prv_Run
 
 CREATE TABLE prv_TaskExecution
 (
-    taskId MEDIUMINT NOT NULL,
-    PRIMARY KEY (taskId)
+    taskExecutionId MEDIUMINT NOT NULL,
+    PRIMARY KEY (taskExecutionId)
 ) ENGINE=InnoDB;
 
 
@@ -362,25 +365,14 @@ CREATE TABLE prv_Stage2TaskGraph
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Stage2ProcHistory
-(
-    stageId SMALLINT NOT NULL,
-    procHistoryId BIGINT NOT NULL,
-    stageStart DATETIME NOT NULL,
-    stageEnd DATETIME NOT NULL,
-    KEY (stageId),
-    KEY (procHistoryId)
-) ENGINE=InnoDB;
-
-
 CREATE TABLE prv_Stage2TaskExecution
 (
     stage2TaskExecutionId MEDIUMINT NOT NULL,
     stageId SMALLINT NOT NULL,
-    taskId MEDIUMINT NOT NULL,
+    taskExecutionId MEDIUMINT NOT NULL,
     PRIMARY KEY (stage2TaskExecutionId),
-    KEY (taskId),
-    KEY (stageId)
+    KEY (stageId),
+    KEY (taskExecutionId)
 ) ENGINE=InnoDB;
 
 
@@ -1406,12 +1398,15 @@ CREATE TABLE DiaSource
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
         -- <ucd>meta.code</ucd>
+    htmId20 BIGINT NOT NULL,
+        -- <descr>HTM index.</descr>
     PRIMARY KEY PK_DiaSource (diaSourceId),
     INDEX IDX_DiaSource_procHistoryId (procHistoryId),
     INDEX IDX_DiaSource_visitId (visitId),
     INDEX IDX_DiaSource_diaObjectId (diaObjectId),
     INDEX IDX_DiaSource_ccObjectId (ssObjectId),
-    INDEX IDX_DiaSource_filterName (filterName)
+    INDEX IDX_DiaSource_filterName (filterName),
+    INDEX IDX_DiaObject_htmId20 (htmId20)
 ) ENGINE=MyISAM;
 
 
@@ -1621,9 +1616,12 @@ CREATE TABLE DiaObject
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
         -- <ucd>meta.code</ucd>
+    htmId20 BIGINT NOT NULL,
+        -- <descr>HTM index.</descr>
     PRIMARY KEY PK_DiaObject (diaObjectId, validityStart),
     INDEX IDX_DiaObject_validityStart (validityStart),
-    INDEX IDX_DiaObject_procHistoryId (procHistoryId)
+    INDEX IDX_DiaObject_procHistoryId (procHistoryId),
+    INDEX IDX_DiaObject_htmId20 (htmId20),
 ) ENGINE=MyISAM;
 
 
@@ -3074,13 +3072,13 @@ ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_Config_TaskExecution_Node
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
 ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_Config_TaskExecution_TaskExecution 
-	FOREIGN KEY (taskId) REFERENCES prv_TaskExecution (taskId);
+	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
 
 ALTER TABLE prv_cnf_Stage2TaskGraph ADD CONSTRAINT FK_Config_Stage2TaskGraph_Stage2TaskGraph 
 	FOREIGN KEY (stage2taskGraphId) REFERENCES prv_Stage2TaskGraph (stage2taskGraphId);
 
 ALTER TABLE prv_cnf_Stage2TaskExecution ADD CONSTRAINT FK_Config_Stage2TaskExecution_Stage2TaskExecution 
-	FOREIGN KEY (stage2taskId) REFERENCES prv_Stage2TaskExecution (stage2TaskExecutionId);
+	FOREIGN KEY (stage2taskExecutionId) REFERENCES prv_Stage2TaskExecution (stage2TaskExecutionId);
 
 ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_TaskExecutionConfig 
 	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
@@ -3100,8 +3098,8 @@ ALTER TABLE prv_Run ADD CONSTRAINT FK_Run_TaskExecutionConfig
 ALTER TABLE prv_Stage ADD CONSTRAINT FK_Stage_TaskExecutionConfig 
 	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
 
-ALTER TABLE prv_Stage2TaskExecution ADD CONSTRAINT FK_ProcStep2Stage_ProcStep 
-	FOREIGN KEY (taskId) REFERENCES prv_TaskExecution (taskId);
+ALTER TABLE prv_Stage2TaskExecution ADD CONSTRAINT FK_Stage2TaskExecution_TaskExecution_taskExecutionId
+	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
 
 ALTER TABLE prv_Stage2UpdatableColumn ADD CONSTRAINT FK_Stage2UpdatableColumn_Config_Stage2UpdatableColumn 
 	FOREIGN KEY (cStage2UpdateColumnId) REFERENCES prv_cnf_Stage2UpdatableColumn (c_stage2UpdatableColumn);
@@ -3128,9 +3126,6 @@ ALTER TABLE prv_cnf_Raft ADD CONSTRAINT FK_Config_Raft_Raft
 	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
 
 ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_Snapshot_ProcessingHistory 
-	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
-ALTER TABLE prv_Stage2ProcHistory ADD CONSTRAINT FK_prv_Stage2ProcHistory_prv_ProcHistory 
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
 ALTER TABLE prv_UpdatableColumn ADD CONSTRAINT FK_UpdatableColumn_UpdatableTable 
