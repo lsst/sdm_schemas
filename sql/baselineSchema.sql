@@ -1658,7 +1658,7 @@ CREATE TABLE ForcedSource
 ) ENGINE=MyISAM;
 
 
-CREATE TABLE ForcedDiaSource
+CREATE TABLE DiaForcedSource
     -- <descr>Forced-photometry source measurement on an individual 
     -- difference Exposure based on a Multifit shape model derived 
     -- from a deep detection.</descr>
@@ -1696,7 +1696,7 @@ CREATE TABLE ForcedDiaSource
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_ForcedDiaSource (objectId, ccdName, visitId)
+    PRIMARY KEY PK_DiaForcedSource (objectId, ccdName, visitId)
 ) ENGINE=MyISAM;
 
 
