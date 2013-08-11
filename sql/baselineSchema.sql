@@ -80,7 +80,7 @@ CREATE TABLE prv_cnf_Ccd
     validityEnd DATETIME NOT NULL,
     serialN INTEGER NOT NULL,
     PRIMARY KEY PK_prvCnfCcd (cCcdId),
-    INDEX IDX_prvCnfCcd (ccdName)
+    INDEX IDX_prvCnfCcd_ccdName (ccdName)
 ) ENGINE=InnoDB;
 
 
@@ -197,8 +197,8 @@ CREATE TABLE prv_cnf_TaskConfig
 CREATE TABLE prv_cnf_TaskExecution
 (
     cTaskExecutionId MEDIUMINT NOT NULL,
-    nodeId INTEGER NOT NULL,
     taskExecutionId MEDIUMINT NOT NULL,
+    nodeId INTEGER NOT NULL,
     inputDataSetId INTEGER NOT NULL,
     procHistoryId BIGINT NOT NULL,
     validityBegin DATETIME NOT NULL,
@@ -343,8 +343,8 @@ CREATE TABLE prv_Task
 CREATE TABLE prv_Task2TaskExecution
 (
     task2TaskExecutionId MEDIUMINT NOT NULL,
-    taskId SMALLINT NOT NULL,
     taskExecutionId MEDIUMINT NOT NULL,
+    taskId SMALLINT NOT NULL,
     PRIMARY KEY (task2TaskExecutionId),
     INDEX PK_prvTask2TaskExecution (taskId),
     INDEX IDX_prvTask2TaskExecution_taskExecutionId(taskExecutionId)
@@ -354,8 +354,8 @@ CREATE TABLE prv_Task2TaskExecution
 CREATE TABLE prv_Task2TaskGraph
 (
     task2taskGraphId MEDIUMINT NOT NULL,
-    taskGraphId SMALLINT NOT NULL,
     taskId SMALLINT NOT NULL,
+    taskGraphId SMALLINT NOT NULL,
     PRIMARY KEY PK_prvTask2TaskGraph (task2taskGraphId),
     INDEX IDX_prvTask2TaskGraph_taskGraphId (taskGraphId),
     INDEX IDX_prvTask2TaskGraph_taskId (taskId)
@@ -364,10 +364,8 @@ CREATE TABLE prv_Task2TaskGraph
 
 CREATE TABLE prv_TaskConfig
 (
-    cTaskConfigId MEDIUMINT NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY PK_prvTaskConfig (cTaskConfigId),
-    INDEX IDX_prvTaskConfig_taskConfigId (taskConfigId)
+    PRIMARY KEY PK_prvTaskConfig (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -1251,13 +1249,8 @@ CREATE TABLE DiaSource
     diaSourceId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
-    ccdName CHAR(3) NOT NULL,
-        -- <descr>Name of ccd where this diaSource was measured.</descr>
-        -- <ucd>meta.id;instr.det</ucd>
-    visitId BIGINT NOT NULL,
-        -- <descr>Id of the visit where this diaSource was measured.
+    ccdVisitId BIGINT NOT NULL,
+        -- <descr>Id of the ccdVisit where this diaSource was measured.
         -- Note that we are allowing a diaSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
@@ -1275,6 +1268,8 @@ CREATE TABLE DiaSource
         -- <descr>Name of the filter used to take the Visit where this
         -- diaSource was measured.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
+    procHistoryId BIGINT NOT NULL,
+        -- <descr>Pointer to ProcessingHistory table.</descr>
     ssObjectReassocTime DATETIME NULL,
         -- <descr>Time when this diaSource was reassociated from diaObject
         -- to ssObject (if such reassociation happens, otherwise NULL).</descr>
@@ -1411,7 +1406,7 @@ CREATE TABLE DiaSource
         -- <descr>HTM index.</descr>
     PRIMARY KEY PK_DiaSource (diaSourceId),
     INDEX IDX_DiaSource_procHistoryId (procHistoryId),
-    INDEX IDX_DiaSource_visitId (visitId),
+    INDEX IDX_DiaSource_ccdVisitId (ccdVisitId),
     INDEX IDX_DiaSource_diaObjectId (diaObjectId),
     INDEX IDX_DiaSource_ssObjectId (ssObjectId),
     INDEX IDX_DiaSource_filterName (filterName),
@@ -1641,11 +1636,8 @@ CREATE TABLE ForcedSource
 (
     objectId BIGINT NOT NULL,
         -- <ucd>meta.id;src</ucd>
-    ccdName CHAR(3) NOT NULL,
-        -- <descr>Name of the CCD where this forcedSource was measured.</descr>
-        -- <ucd>meta.id;instr.det</ucd>
-    visitId BIGINT NOT NULL,
-        -- <descr>Id of the visit where this forcedSource was measured.
+    ccdVisitId BIGINT NOT NULL,
+        -- <descr>Id of the ccd visit where this forcedSource was measured.
         -- Note that we are allowing a forcedSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
@@ -1662,7 +1654,7 @@ CREATE TABLE ForcedSource
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_ForcedSource (objectId, ccdName, visitId),
+    PRIMARY KEY PK_ForcedSource (objectId, ccdVisitId),
     INDEX IDX_ForcedSource_procHistoryId (procHistoryId)
 ) ENGINE=MyISAM;
 
@@ -1672,12 +1664,9 @@ CREATE TABLE DiaForcedSource
     -- difference Exposure based on a Multifit shape model derived 
     -- from a deep detection.</descr>
 (
-    objectId BIGINT NOT NULL,
+    diaObjectId BIGINT NOT NULL,
         -- <ucd>meta.id;src</ucd>
-    ccdName CHAR(3) NOT NULL,
-        -- <descr>Name of the CCD where this forcedSource was measured.</descr>
-        -- <ucd>meta.id;instr.det</ucd>
-    visitId BIGINT NOT NULL,
+    ccdVisitId BIGINT NOT NULL,
         -- <descr>Id of the visit where this forcedSource was measured.
         -- Note that we are allowing a forcedSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
@@ -1705,7 +1694,8 @@ CREATE TABLE DiaForcedSource
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_DiaForcedSource (objectId, ccdName, visitId)
+    PRIMARY KEY PK_DiaForcedSource (diaObjectId, ccdVisitId),
+    INDEX IDX_DiaForcedSource_ccdVisitId (ccdVisitId)
 ) ENGINE=MyISAM;
 
 
@@ -1906,11 +1896,11 @@ CREATE TABLE Object
     objectId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;src</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     parentObjectId BIGINT NULL,
         -- <descr>Id of the parent object this object has been deblended
         -- from, if any.</descr>
+    procHistoryId BIGINT NOT NULL,
+        -- <descr>Pointer to ProcessingHistory table.</descr>
     psEpoch DOUBLE,
         -- <descr>Point Source model: Time at which the object was at
         -- position (psRa, psDecl).</descr>
@@ -2876,11 +2866,8 @@ CREATE TABLE Source
     sourceId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;src</ucd>
-    ccdName CHAR(3) NOT NULL,
-        -- <descr>Name of the CCD where this source was measured.</descr>
-        -- <ucd>meta.id;instr.det</ucd>
-    visitId BIGINT NOT NULL,
-        -- <descr>Id of the visit where this source was measured.
+    ccdVisitId BIGINT NOT NULL,
+        -- <descr>Id of the ccdVisit where this source was measured.
         -- Note that we are allowing a source to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
@@ -3023,7 +3010,7 @@ CREATE TABLE Source
     flags BIGINT NOT NULL,
         -- <descr>Flags. Tbd.</descr>
     PRIMARY KEY PK_Source (sourceId),
-    INDEX IDX_Source_visitId (visitId),
+    INDEX IDX_Source_ccdVisitId (ccdVisitId),
     INDEX IDX_Source_objectId (objectId),
     INDEX IDX_Source_ssObjectId (ssObjectId),
     INDEX IDX_Source_procHistoryId (procHistoryId),
@@ -3073,65 +3060,218 @@ CREATE TABLE DiaObject_To_Object_Match
 SET FOREIGN_KEY_CHECKS=1;
 
 
-ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_Config_Node_Node 
-	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
-
-ALTER TABLE prv_cnf_TaskGraph2Run ADD CONSTRAINT FK_Config_TaskGraph2Run_TaskGraph2Run 
-	FOREIGN KEY (taskGraph2runId) REFERENCES prv_TaskGraph2Run (taskGraph2runId);
-
-ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_Config_TaskExecution_Node 
-	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
-
-ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_Config_TaskExecution_TaskExecution 
-	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
-
-ALTER TABLE prv_cnf_Task2TaskGraph ADD CONSTRAINT FK_Config_Task2TaskGraph_Task2TaskGraph 
-	FOREIGN KEY (task2taskGraphId) REFERENCES prv_Task2TaskGraph (task2taskGraphId);
-
-ALTER TABLE prv_cnf_Task2TaskExecution ADD CONSTRAINT FK_Config_Task2TaskExecution_Task2TaskExecution 
-	FOREIGN KEY (task2taskExecutionId) REFERENCES prv_Task2TaskExecution (task2TaskExecutionId);
-
-ALTER TABLE prv_Node ADD CONSTRAINT FK_Node_TaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
-
-ALTER TABLE prv_TaskGraph ADD CONSTRAINT FK_TaskGraph_TaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
-
-ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_TaskGraph2Run_TaskGraph 
-	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
-
-ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_TaskGraph2Run_Run 
-	FOREIGN KEY (runId) REFERENCES prv_Run (runId);
-
-ALTER TABLE prv_Run ADD CONSTRAINT FK_Run_TaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
-
-ALTER TABLE prv_Task ADD CONSTRAINT FK_Task_TaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
-
-ALTER TABLE prv_Task2TaskExecution ADD CONSTRAINT FK_Task2TaskExecution_TaskExecution_taskExecutionId
-	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
-
-ALTER TABLE prv_Amp ADD CONSTRAINT FK_Amp_Ccd
-	FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
-
-ALTER TABLE prv_Ccd ADD CONSTRAINT FK_CCD_Raft 
-	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
-
-ALTER TABLE prv_cnf_Amp ADD CONSTRAINT FK_Config_Amp_Amp 
+ALTER TABLE prv_cnf_Amp ADD CONSTRAINT FK_prvCnfAmp_prvAmp 
 	FOREIGN KEY (ampName) REFERENCES prv_Amp (ampName);
 
-ALTER TABLE prv_cnf_Ccd ADD CONSTRAINT FK_Config_Ccd_Ccd
+ALTER TABLE prv_cnf_Ccd ADD CONSTRAINT FK_prvCnfCcd_prvCcd
 	FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
 
-ALTER TABLE prv_cnf_Filter ADD CONSTRAINT FK_Config_Filter_Filter 
+ALTER TABLE prv_cnf_Filter ADD CONSTRAINT FK_prvCnfFilter_prvFilter
 	FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
 
-ALTER TABLE prv_cnf_Raft ADD CONSTRAINT FK_Config_Raft_Raft 
+ALTER TABLE prv_cnf_Fpa ADD CONSTRAINT FK_prvCnfFpa_prvFpa
+	FOREIGN KEY (fpaId) REFERENCES prv_Fpa (fpaId);
+
+ALTER TABLE prv_cnf_InputDataSet ADD CONSTRAINT FK_prvCnfInputDataSet_prvInputDataSet
+	FOREIGN KEY (inputDataSetId) REFERENCES prv_InputDataSet (inputDataSetId);
+
+ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_prvCnfNode_prvNode 
+	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
+
+ALTER TABLE prv_cnf_Raft ADD CONSTRAINT FK_prvCnfRaft_prvRaft 
 	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
 
-ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_Snapshot_ProcessingHistory 
+ALTER TABLE prv_cnf_Run ADD CONSTRAINT FK_prvCnfRun_prvRun
+	FOREIGN KEY (runId) REFERENCES prv_Run (runId);
+
+ALTER TABLE prv_cnf_Task ADD CONSTRAINT FK_prvCnfTask_prvTask
+	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
+
+ALTER TABLE prv_cnf_Task2TaskExecution ADD CONSTRAINT FK_prvCnfTask2TaskExecution_prvTask2TaskExecution 
+	FOREIGN KEY (task2taskExecutionId) REFERENCES prv_Task2TaskExecution (task2TaskExecutionId);
+
+ALTER TABLE prv_cnf_Task2TaskGraph ADD CONSTRAINT FK_prvCnfTask2TaskGraph_prvTask2TaskGraph 
+	FOREIGN KEY (task2taskGraphId) REFERENCES prv_Task2TaskGraph (task2taskGraphId);
+
+ALTER TABLE prv_cnf_TaskConfig ADD CONSTRAINT FK_prvCnfTaskConfig_prvTaskConfig
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
+
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvTaskExecution 
+	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
+
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvNode 
+	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
+
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvInputDataSet 
+	FOREIGN KEY (inputDataSetId) REFERENCES prv_InputDataSet (inputDataSetId);
+
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvProcHistory 
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE prv_cnf_TaskExecutionConfig ADD CONSTRAINT FK_prvCnfTaskExecutionConfig_prvTaskConfig
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
+
+ALTER TABLE prv_cnf_TaskGraph ADD CONSTRAINT FK_prvCnfTaskGraph_prvTaskGraph 
+	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
+
+ALTER TABLE prv_cnf_TaskGraph2Run ADD CONSTRAINT FK_prvCnfTaskGraph2Run_prvTaskGraph2Run 
+	FOREIGN KEY (taskGraph2runId) REFERENCES prv_TaskGraph2Run (taskGraph2runId);
+
+ALTER TABLE prv_Amp ADD CONSTRAINT FK_prvAmp_prvCcd
+	FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
+
+ALTER TABLE prv_Ccd ADD CONSTRAINT FK_prvCcd_prvRaft 
+	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
+
+ALTER TABLE prv_Node ADD CONSTRAINT FK_prvNode_prvTaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
+
+ALTER TABLE prv_Run ADD CONSTRAINT FK_prvRun_prvTaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
+
+ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_prvSnapshot_prvProcessingHistory 
+	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE prv_Task ADD CONSTRAINT FK_prvTask_prvTaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
+
+ALTER TABLE prv_Task2TaskExecution ADD CONSTRAINT FK_prvTask2TaskExecution_prvTask
+	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
+
+ALTER TABLE prv_Task2TaskExecution ADD CONSTRAINT FK_prvTask2TaskExecution_prvTaskExecution
+	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
+
+ALTER TABLE prv_Task2TaskGraph ADD CONSTRAINT FK_prvTask2TaskGraph_prvTask
+	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
+
+ALTER TABLE prv_Task2TaskGraph ADD CONSTRAINT FK_prvTask2TaskGraph_prvTaskGraph
+	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
+
+ALTER TABLE prv_TaskGraph ADD CONSTRAINT FK_prvTaskGraph_prvTaskExecutionConfig 
+	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
+
+ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_prvTaskGraph2Run_prvRun 
+	FOREIGN KEY (runId) REFERENCES prv_Run (runId);
+
+ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_prvTaskGraph2Run_prvTaskGraph 
+	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
+
+ALTER TABLE DiaForcedSource ADD CONSTRAINT FK_DiaForcedSource_CcdVisit
+        FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
+
+ALTER TABLE DiaForcedSource ADD CONSTRAINT FK_DiaForcedSource_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE DiaObject ADD CONSTRAINT FK_DiaObject_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE DiaSource ADD CONSTRAINT FK_DiaSource_CcdVisit
+        FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
+
+ALTER TABLE DiaSource ADD CONSTRAINT FK_DiaSource_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE DiaSource ADD CONSTRAINT FK_DiaSource_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_Visit
+        FOREIGN KEY (visitId) REFERENCES Visit (visitId);
+
+ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_prvCcd
+        FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
+
+ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_prvRaft
+        FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
+
+ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE CcdVisitMetadata ADD CONSTRAINT FK_CcdVisitMetadata_CcdVisit
+        FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
+
+ALTER TABLE DiaObject_To_Object_Match ADD CONSTRAINT FK_DiaObjectToObjectMatch_DiaObject
+        FOREIGN KEY (diaObjectId) REFERENCES DiaObject (diaObjectId);
+
+ALTER TABLE DiaObject_To_Object_Match ADD CONSTRAINT FK_DiaObjectToObjectMatch_Object
+        FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE ForcedSource ADD CONSTRAINT FK_ForcedSource_Object
+        FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE ForcedSource ADD CONSTRAINT FK_ForcedSource_CcdVisit
+        FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
+
+ALTER TABLE ForcedSource ADD CONSTRAINT FK_ForcedSource_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE Object ADD CONSTRAINT FK_Object_Object
+        FOREIGN KEY (parentObjectId) REFERENCES Object (objectId);
+
+ALTER TABLE Object ADD CONSTRAINT FK_Object_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE Object_Extra ADD CONSTRAINT FK_ObjectExtra_Object
+        FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE Object_APMean ADD CONSTRAINT FK_ObjectAPMean_Object
+        FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE Object_APMean ADD CONSTRAINT FK_ObjectAPMean_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE Object_APMean ADD CONSTRAINT FK_ObjectAPMean_ApertureBins
+        FOREIGN KEY (binN) REFERENCES ApertureBins (binN);
+
+ALTER TABLE Object_Periodic ADD CONSTRAINT FK_ObjectPeriodic_Object
+        FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE Object_Periodic ADD CONSTRAINT FK_ObjectPeriodic_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE Object_NonPeriodic ADD CONSTRAINT FK_ObjectNonPeriodic_Object
+        FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE Object_NonPeriodic ADD CONSTRAINT FK_ObjectNonPeriodic_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE RawAmpExposure ADD CONSTRAINT FK_RawAmpExposure_RawCcdExposure
+        FOREIGN KEY (rawCcdExposureId) REFERENCES RawCcdExposure (rawCcdExposureId);
+
+ALTER TABLE RawAmpExposure ADD CONSTRAINT FK_RawAmpExposure_prvAmp
+        FOREIGN KEY (ampName) REFERENCES prv_Amp (ampName);
+
+ALTER TABLE RawAmpExposure ADD CONSTRAINT FK_RawAmpExposure_prvCcd
+        FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
+
+ALTER TABLE RawAmpExposure ADD CONSTRAINT FK_RawAmpExposure_prvRaft
+        FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
+
+ALTER TABLE RawAmpExposure ADD CONSTRAINT FK_RawAmpExposure_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE RawAmpExposureMetadata ADD CONSTRAINT FK_RawAmpExposure_RawAmpExposure
+        FOREIGN KEY (rawAmpExposureId) REFERENCES RawAmpExposure (rawAmpExposureId);
+
+ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_RawExposure
+        FOREIGN KEY (rawExposureId) REFERENCES RawExposure (rawExposureId);
+
+ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_prvCcd
+        FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
+
+ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_prvRaft
+        FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
+
+ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE RawCcdExposureMetadata ADD CONSTRAINT FK_RawCcdExposureMetadata_RawCcdExposure
+        FOREIGN KEY (rawCcdExposureId) REFERENCES RawCcdExposure (rawCcdExposureId);
 
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
@@ -3139,3 +3279,38 @@ ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_SimRefObject
     FOREIGN KEY (refObjectId) REFERENCES SimRefObject (refObjectId);
 
+ALTER TABLE Source ADD CONSTRAINT FK_Source_CcdVisit
+        FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_prvFilter
+        FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_Object
+        FOREIGN KEY (objectId) REFERENCES Object (objectId);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_SSObject
+        FOREIGN KEY (ssObjectId) REFERENCES SSObject (ssObjectId);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_Source
+        FOREIGN KEY (parentSourceId) REFERENCES Source (sourceId);
+
+ALTER TABLE Source ADD CONSTRAINT FK_Source_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE Source_APMean ADD CONSTRAINT FK_SourceAPMean_Source
+        FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
+
+ALTER TABLE Source_APMean ADD CONSTRAINT FK_SourceAPMean_ApertureBins
+        FOREIGN KEY (binN) REFERENCES ApertureBins (binN);
+
+ALTER TABLE SSObject ADD CONSTRAINT FK_SSObject_prvProcHistory
+        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
+
+ALTER TABLE Visit_To_RawExposure ADD CONSTRAINT FK_VisitToRawExposure_Visit
+        FOREIGN KEY (visitId) REFERENCES Visit (visitId);
+
+ALTER TABLE Visit_To_RawExposure ADD CONSTRAINT FK_VisitToRawExposure_RawExposure
+        FOREIGN KEY (rawExposureId) REFERENCES RawExposure (rawExposureId);
+
+ALTER TABLE VisitMetadata ADD CONSTRAINT FK_VisitMetadata_Visit
+        FOREIGN KEY (visitId) REFERENCES Visit (visitId);
