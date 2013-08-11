@@ -47,7 +47,7 @@ CREATE TABLE prv_ProcHistory
     procHistoryId BIGINT NOT NULL AUTO_INCREMENT,
         -- <descr>Unique id</descr>
         -- <ucd>meta.id;src</ucd>
-    PRIMARY KEY (procHistoryId)
+    PRIMARY KEY PK_prvProcHistory (procHistoryId)
 ) ENGINE=InnoDB;
 
 
@@ -67,8 +67,8 @@ CREATE TABLE prv_cnf_Amp
         -- <descr>Read noise for detector/amplifier</descr>
     saturate FLOAT NULL,
         -- <descr>Maximum data value for A/D converter</descr>
-    PRIMARY KEY (cAmpId),
-    KEY (ampName)
+    PRIMARY KEY PK_prvCnfAmp (cAmpId),
+    INDEX IDX_prvCnfAmp_ampName (ampName)
 ) ENGINE=InnoDB;
 
 
@@ -79,8 +79,8 @@ CREATE TABLE prv_cnf_Ccd
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     serialN INTEGER NOT NULL,
-    PRIMARY KEY (cCcdId),
-    KEY (ccdName)
+    PRIMARY KEY PK_prvCnfCcd (cCcdId),
+    INDEX IDX_prvCnfCcd (ccdName)
 ) ENGINE=InnoDB;
 
 
@@ -90,8 +90,8 @@ CREATE TABLE prv_cnf_Filter
     filterName CHAR,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cFilterId),
-    KEY (filterName)
+    PRIMARY KEY PK_prvCnfFilter (cFilterId),
+    INDEX IDX_prvCnfFilter_filterName (filterName)
 ) ENGINE=InnoDB;
 
 
@@ -102,8 +102,8 @@ CREATE TABLE prv_cnf_Fpa
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     versionN SMALLINT NOT NULL,
-    PRIMARY KEY (cFpaId),
-    KEY (fpaId)
+    PRIMARY KEY PK_prvCnfFpa (cFpaId),
+    INDEX IDX_prvCnfFpa_fpaId (fpaId)
 ) ENGINE=InnoDB;
 
 
@@ -113,8 +113,8 @@ CREATE TABLE prv_cnf_InputDataSet
     inputDataSetId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cInputDataSetId),
-    KEY (inputDataSetId)
+    PRIMARY KEY PK_prvCnfInputDataSet (cInputDataSetId),
+    INDEX IDX_prvCnfInputDataSet (inputDataSetId)
 ) ENGINE=InnoDB;
 
 
@@ -124,8 +124,8 @@ CREATE TABLE prv_cnf_Node
     nodeId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cNodeId),
-    KEY (nodeId)
+    PRIMARY KEY PK_prvCnfNode (cNodeId),
+    INDEX IDX_prvCnfNode_nodeId (nodeId)
 ) ENGINE=InnoDB;
 
 
@@ -136,8 +136,8 @@ CREATE TABLE prv_cnf_Raft
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     serialN INTEGER NOT NULL,
-    PRIMARY KEY (cRaftId),
-    KEY (raftName)
+    PRIMARY KEY PK_prvCnfRaft (cRaftId),
+    INDEX IDX_prvCnfRaft_raftName (raftName)
 ) ENGINE=InnoDB;
 
 
@@ -145,8 +145,8 @@ CREATE TABLE prv_cnf_Run
 (
     cRunId MEDIUMINT NOT NULL,
     runId MEDIUMINT NOT NULL,
-    PRIMARY KEY (cRunId),
-    KEY (runId)
+    PRIMARY KEY PK_prvCnfRun (cRunId),
+    INDEX IDX_prvCnfRun_runId (runId)
 ) ENGINE=InnoDB;
 
 
@@ -156,8 +156,8 @@ CREATE TABLE prv_cnf_Task
     taskId SMALLINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTaskId),
-    KEY (taskId)
+    PRIMARY KEY PK_prvCnfTask (cTaskId),
+    INDEX IDX_prvCnfTask_taskId (taskId)
 ) ENGINE=InnoDB;
 
 
@@ -167,8 +167,8 @@ CREATE TABLE prv_cnf_Task2TaskExecution
     task2taskExecutionId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTask2TaskExecutionId),
-    KEY (task2taskExecutionId)
+    PRIMARY KEY PK_prvCnfTask2TaskExecution (cTask2TaskExecutionId),
+    INDEX IDX_prvCnfTask2TaskExecution_task2taskExecutionId (task2taskExecutionId)
 ) ENGINE=InnoDB;
 
 
@@ -178,8 +178,8 @@ CREATE TABLE prv_cnf_Task2TaskGraph
     task2taskGraphId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTask2TaskGraphId),
-    KEY (task2taskGraphId)
+    PRIMARY KEY PK_prvCnfTask2TaskGraph (cTask2TaskGraphId),
+    INDEX IDX_prvCnfTask2TaskGraph_task2taskGraphId (task2taskGraphId)
 ) ENGINE=InnoDB;
 
 
@@ -188,7 +188,7 @@ CREATE TABLE prv_cnf_Task2UpdatableColumn
     c_task2UpdatableColumn SMALLINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (c_task2UpdatableColumn)
+    PRIMARY KEY PK_prvCnfTask2UpdatableColumn (c_task2UpdatableColumn)
 ) ENGINE=InnoDB;
 
 
@@ -198,23 +198,25 @@ CREATE TABLE prv_cnf_TaskConfig
     taskConfigId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTaskConfigId),
-    KEY (taskConfigId)
+    PRIMARY KEY PK_prvCnfTaskConfig (cTaskConfigId),
+    INDEX IDX_prvCnfTaskConfig_taskConfigId (taskConfigId)
 ) ENGINE=InnoDB;
 
 
 CREATE TABLE prv_cnf_TaskExecution
 (
+    cTaskExecutionId MEDIUMINT NOT NULL,
     nodeId INTEGER NOT NULL,
     taskExecutionId MEDIUMINT NOT NULL,
     inputDataSetId INTEGER NOT NULL,
     procHistoryId BIGINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    KEY (nodeId),
-    KEY (taskExecutionId),
-    KEY (inputDataSetId),
-    KEY (procHistoryId)
+    PRIMARY KEY PK_prvCnfTaskExecution (cTaskExecutionId),
+    INDEX IDX_prvCnfTaskExecution_nodeId (nodeId),
+    INDEX IDX_prvCnfTaskExecution_taskExecutionId (taskExecutionId),
+    INDEX IDX_prvCnfTaskExecution_inputDataSetId (inputDataSetId),
+    INDEX IDX_prvCnfTaskExecution_procHistoryId (procHistoryId)
 ) ENGINE=InnoDB;
 
 
@@ -224,8 +226,8 @@ CREATE TABLE prv_cnf_TaskExecutionConfig
     taskConfigId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTaskExecutionConfigId),
-    KEY (taskConfigId)
+    PRIMARY KEY PK_prvCnfTaskExecutionConfig (cTaskExecutionConfigId),
+    INDEX IDX_prvCnfTaskExecutionConfig (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -233,8 +235,8 @@ CREATE TABLE prv_cnf_TaskGraph
 (
     cTaskGraphId SMALLINT NOT NULL,
     taskGraphId SMALLINT NOT NULL,
-    PRIMARY KEY (cTaskGraphId),
-    KEY (taskGraphId)
+    PRIMARY KEY PK_prvCnfTaskGraph (cTaskGraphId),
+    INDEX IDX_prvCnfTaskGraph_taskGraphId (taskGraphId)
 ) ENGINE=InnoDB;
 
 
@@ -244,8 +246,8 @@ CREATE TABLE prv_cnf_TaskGraph2Run
     taskGraph2runId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTaskGraph2RunId),
-    KEY (taskGraph2runId)
+    PRIMARY KEY PK_prvCnfTaskGraph2Run (cTaskGraph2RunId),
+    INDEX IDX_prvCnfTaskGraph2Run_taskGraph2runId (taskGraph2runId)
 ) ENGINE=InnoDB;
 
 
@@ -254,8 +256,8 @@ CREATE TABLE prv_Amp
     ampName CHAR(3) NOT NULL,
     ccdName CHAR(3) NOT NULL,
     raftName CHAR(3) NOT NULL,
-    PRIMARY KEY (raftName, ccdName, ampName),
-    KEY (ampName)
+    PRIMARY KEY PK_prvAmp (raftName, ccdName, ampName),
+    INDEX IDX_prvAmp_ampName (ampName)
 ) ENGINE=InnoDB;
 
 
@@ -263,8 +265,8 @@ CREATE TABLE prv_Ccd
 (
     ccdName CHAR(3) NOT NULL,
     raftName CHAR(3) NOT NULL,
-    PRIMARY KEY (raftName, ccdName),
-    KEY (ccdName)
+    PRIMARY KEY PK_prvCcd (raftName, ccdName),
+    INDEX IDX_prvCcd_ccdName (ccdName)
 ) ENGINE=InnoDB;
 
 
@@ -283,14 +285,14 @@ CREATE TABLE prv_Filter
     bw FLOAT NOT NULL,
         -- <descr>Filter effective bandwidth (Angstroms). (Added from archive
         -- specs for LSST precursor data).</descr>
-    PRIMARY KEY (filterName)
+    PRIMARY KEY PK_prvFilter (filterName)
 ) ENGINE=InnoDB;
 
 
 CREATE TABLE prv_Fpa
 (
     fpaId TINYINT NOT NULL,
-    PRIMARY KEY (fpaId)
+    PRIMARY KEY PK_prvFpa (fpaId)
 ) ENGINE=InnoDB;
 
 
@@ -298,7 +300,7 @@ CREATE TABLE prv_InputDataSet
 (
     inputDataSetId INTEGER NOT NULL,
     name VARCHAR(80) NOT NULL,    
-    PRIMARY KEY (inputDataSetId)
+    PRIMARY KEY PK_prvInputDataSet (inputDataSetId)
 ) ENGINE=InnoDB;
 
 
@@ -306,15 +308,15 @@ CREATE TABLE prv_Node
 (
     nodeId INTEGER NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY (nodeId),
-    KEY (taskConfigId)
+    PRIMARY KEY PK_prvNode (nodeId),
+    INDEX IDX_prvNode_taskConfigId (taskConfigId)
 ) ENGINE=InnoDB;
 
 
 CREATE TABLE prv_Raft
 (
     raftName CHAR(3) NOT NULL,
-    PRIMARY KEY (raftName)
+    PRIMARY KEY PK_prvRaft (raftName)
 ) ENGINE=InnoDB;
 
 
@@ -322,8 +324,8 @@ CREATE TABLE prv_Run
 (
     runId MEDIUMINT NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY (runId),
-    KEY (taskConfigId)
+    PRIMARY KEY PK_prvRun (runId),
+    INDEX IDX_prvRun_taskConfigId (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -332,8 +334,8 @@ CREATE TABLE prv_Snapshot
     snapshotId MEDIUMINT NOT NULL,
     procHistoryId BIGINT NOT NULL,
     snapshotDescr VARCHAR(255) NULL,
-    PRIMARY KEY (snapshotId),
-    KEY (procHistoryId)
+    PRIMARY KEY PK_prvSnapshot (snapshotId),
+    INDEX IDX_prvSnapshot_procHistoryId (procHistoryId)
 ) ENGINE=InnoDB;
 
 
@@ -342,8 +344,8 @@ CREATE TABLE prv_Task
     taskId SMALLINT NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
     taskName VARCHAR(255) NULL,
-    PRIMARY KEY (taskId),
-    KEY (taskConfigId)
+    PRIMARY KEY PK_prvTask (taskId),
+    INDEX IDX_prvTask_taskConfigId (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -353,8 +355,8 @@ CREATE TABLE prv_Task2TaskExecution
     taskId SMALLINT NOT NULL,
     taskExecutionId MEDIUMINT NOT NULL,
     PRIMARY KEY (task2TaskExecutionId),
-    KEY (taskId),
-    KEY (taskExecutionId)
+    INDEX PK_prvTask2TaskExecution (taskId),
+    INDEX IDX_prvTask2TaskExecution_taskExecutionId(taskExecutionId)
 ) ENGINE=InnoDB;
 
 
@@ -363,9 +365,9 @@ CREATE TABLE prv_Task2TaskGraph
     task2taskGraphId MEDIUMINT NOT NULL,
     taskGraphId SMALLINT NOT NULL,
     taskId SMALLINT NOT NULL,
-    PRIMARY KEY (task2taskGraphId),
-    KEY (taskGraphId),
-    KEY (taskId)
+    PRIMARY KEY PK_prvTask2TaskGraph (task2taskGraphId),
+    INDEX IDX_prvTask2TaskGraph_taskGraphId (taskGraphId),
+    INDEX IDX_prvTask2TaskGraph_taskId (taskId)
 ) ENGINE=InnoDB;
 
 
@@ -374,9 +376,9 @@ CREATE TABLE prv_Task2UpdatableColumn
     taskId SMALLINT NOT NULL,
     columnId SMALLINT NOT NULL,
     cTask2UpdateColumnId SMALLINT NOT NULL,
-    KEY (cTask2UpdateColumnId),
-    KEY (taskId),
-    KEY (columnId)
+    INDEX PK_prvTask2UpdatableColumn (cTask2UpdateColumnId),
+    INDEX IDX_prvTask2UpdatableColumn_taskId (taskId),
+    INDEX IDX_prvTask2UpdatableColumn_columnId (columnId)
 ) ENGINE=InnoDB;
 
 
@@ -384,15 +386,15 @@ CREATE TABLE prv_TaskConfig
 (
     cTaskConfigId MEDIUMINT NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY (cTaskConfigId),
-    KEY (taskConfigId)
+    PRIMARY KEY PK_prvTaskConfig (cTaskConfigId),
+    INDEX IDX_prvTaskConfig_taskConfigId (taskConfigId)
 ) ENGINE=InnoDB;
 
 
 CREATE TABLE prv_TaskExecution
 (
     taskExecutionId MEDIUMINT NOT NULL,
-    PRIMARY KEY (taskExecutionId)
+    PRIMARY KEY PK_prvTaskExecution (taskExecutionId)
 ) ENGINE=InnoDB;
 
 
@@ -400,7 +402,7 @@ CREATE TABLE prv_TaskExecutionConfig
 (
     taskConfigId MEDIUMINT NOT NULL,
     taskConfigName VARCHAR(80) NOT NULL,
-    PRIMARY KEY (taskConfigId)
+    PRIMARY KEY PK_prvTaskExecutionConfig (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -409,8 +411,8 @@ CREATE TABLE prv_TaskGraph
     taskGraphId SMALLINT NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
     taskGraphName VARCHAR(64) NULL,
-    PRIMARY KEY (taskGraphId),
-    KEY (taskConfigId)
+    PRIMARY KEY PK_prvTaskGraph (taskGraphId),
+    INDEX IDX_prvTaskGraph_taskConfigId (taskConfigId)
 ) ENGINE=InnoDB;
 
 
@@ -420,8 +422,8 @@ CREATE TABLE prv_TaskGraph2Run
     runId MEDIUMINT NOT NULL,
     taskGraphId SMALLINT NOT NULL,
     PRIMARY KEY (taskGraph2runId),
-    KEY (taskGraphId),
-    KEY (runId)
+    INDEX PK_prvTaskGraph2Run (taskGraphId),
+    INDEX IDX_prvTaskGraph2Run_runId (runId)
 ) ENGINE=InnoDB;
 
 
@@ -430,8 +432,8 @@ CREATE TABLE prv_UpdatableColumn
     columnId SMALLINT NOT NULL,
     tableId SMALLINT NOT NULL,
     columnName VARCHAR(64) NOT NULL,
-    PRIMARY KEY (columnId),
-    KEY (tableId)
+    PRIMARY KEY PK_prvUpdatableColumn (columnId),
+    INDEX IDX_prvUpdatableColumn_tableId (tableId)
 ) ENGINE=InnoDB;
 
 
@@ -439,7 +441,7 @@ CREATE TABLE prv_UpdatableTable
 (
     tableId SMALLINT NOT NULL,
     tableName VARCHAR(64) NOT NULL,
-    PRIMARY KEY (tableId)
+    PRIMARY KEY PK_prvUpdatableTable (tableId)
 ) ENGINE=InnoDB;
 
 
@@ -492,7 +494,7 @@ CREATE TABLE ApertureBins
         -- <descr>Minimum aperture radii of bin.</descr>
     radiusMax FLOAt NOT NULL,
         -- <descr>Maximum aperture radii of bin.</descr>
-    PRIMARY KEY PK_ObjecteBin (binN)
+    PRIMARY KEY PK_ApertureBins (binN)
 ) ENGINE=MyISAM;
 
 
@@ -543,8 +545,8 @@ CREATE TABLE RefObjMatch
         --       set when matching against sources.</li>
         --  </ul></descr>
         -- <ucd>meta.code</ucd>
-    INDEX (objectId),
-    INDEX (refObjectId)
+    INDEX IDX_RefObjMatch_objectId (objectId),
+    INDEX IDX_RefObjMatch_refObjectId (refObjectId)
 ) ENGINE=MyISAM;
 
 
@@ -649,14 +651,14 @@ CREATE TABLE SimRefObject
         -- <descr>Number of y-band science CCDs containing reference object.
         -- </descr>
         -- <ucd>meta.number</ucd>
-    PRIMARY KEY (refObjectId),
-    INDEX IDX_decl (decl ASC)
+    PRIMARY KEY PK_SimRefObject (refObjectId),
+    INDEX IDX_SimRefObject_decl (decl ASC)
 ) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_ImageStatus
     -- <descr>Unique set of status names and their definitions, e.g.
-    -- &quot;passed&quot;, &quot;failed&quot;, etc.</descr>
+    -- 'passed', 'failed', etc.</descr>
 (
     sdqa_imageStatusId SMALLINT NOT NULL AUTO_INCREMENT,
         -- <descr>Primary key</descr>
@@ -665,13 +667,13 @@ CREATE TABLE sdqa_ImageStatus
         -- status (e.g., passedAuto, marginallyPassedManual, etc.)</descr>
     definition VARCHAR(255) NOT NULL,
         -- <descr>Detailed Definition of the image status</descr>
-    PRIMARY KEY (sdqa_imageStatusId)
+    PRIMARY KEY PK_sdqaImageStatus (sdqa_imageStatusId)
 ) ENGINE=MyISAM;
 
 
 CREATE TABLE sdqa_Metric
     -- <descr>Unique set of metric names and associated metadata (e.g.,
-    -- &quot;nDeadPix&quot;, &quot;median&quot;, etc.). There will be
+    -- 'nDeadPix';, 'median';, etc.). There will be
     -- approximately 30 records total in this table.</descr>
 (
     sdqa_metricId SMALLINT NOT NULL AUTO_INCREMENT,
@@ -685,8 +687,8 @@ CREATE TABLE sdqa_Metric
         -- <descr>Flag indicating whether data type of the metric value is
         -- integer (0) or float (1)</descr>
     definition VARCHAR(255) NOT NULL,
-    PRIMARY KEY (sdqa_metricId),
-    UNIQUE UQ_sdqaMetric_metricName(metricName)
+    PRIMARY KEY PK_sdqaMetric (sdqa_metricId),
+    UNIQUE UQ_sdqaMetric_metricName (metricName)
 ) ENGINE=MyISAM;
 
 
@@ -708,11 +710,11 @@ CREATE TABLE sdqa_Rating_ForAmpVisit
         -- <descr>Value of this SDQA metric.</descr>
     metricSigma DOUBLE NOT NULL,
         -- <descr>Uncertainty of the value of this metric.</descr>
-    PRIMARY KEY (sdqa_ratingId),
-    UNIQUE UQ_sdqaRating_ForAmpVisit_metricId_ampVisitId(sdqa_metricId, ampVisitId),
-    INDEX (sdqa_metricId),
-    INDEX (sdqa_thresholdId),
-    INDEX (ampVisitId)
+    PRIMARY KEY PK_sdqaRatingForAmpVisit (sdqa_ratingId),
+    UNIQUE UQ_sdqaRatingForAmpVisit_metricId_ampVisitId (sdqa_metricId, ampVisitId),
+    INDEX IDX_sdqaRatingForAmpVisit_metricId (sdqa_metricId),
+    INDEX IDX_sdqaRatingForAmpVisit_thresholdId (sdqa_thresholdId),
+    INDEX IDX_sdqaRatingForAmpVisit_ampVisitId (ampVisitId)
 ) ENGINE=MyISAM;
 
 
@@ -733,11 +735,11 @@ CREATE TABLE sdqa_Rating_CcdVisit
         -- <descr>Value of this SDQA metric.</descr>
     metricSigma DOUBLE NOT NULL,
         -- <descr>Uncertainty of the value of this metric.</descr>
-    PRIMARY KEY (sdqa_ratingId),
-    UNIQUE UQ_sdqa_Rating_ForCcdVisit_metricId_ccdVisitId(sdqa_metricId, ccdVisitId),
-    INDEX (sdqa_metricId),
-    INDEX (sdqa_thresholdId),
-    INDEX (ccdVisitId)
+    PRIMARY KEY PK_sdqaRatingCcdVisit (sdqa_ratingId),
+    UNIQUE UQ_sdqaRatingCcdVisit_metricId_ccdVisitId(sdqa_metricId, ccdVisitId),
+    INDEX IDX_sdqaRatingCcdVisit_metricId (sdqa_metricId),
+    INDEX IDX_sdqaRatingCcdVisit_thresholdId (sdqa_thresholdId),
+    INDEX IDX_sdqaRatingCcdVisit_ccdVisitId (ccdVisitId)
 ) ENGINE=MyISAM;
 
 
@@ -760,9 +762,8 @@ CREATE TABLE sdqa_Threshold
         -- </descr>
     createdDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         -- <descr>Database timestamp when the record is inserted.</descr>
-    PRIMARY KEY (sdqa_thresholdId),
-    UNIQUE UQ_sdqa_Threshold_sdqa_metricId(sdqa_metricId),
-    INDEX (sdqa_metricId)
+    PRIMARY KEY PK_sdqaThreshold (sdqa_thresholdId),
+    INDEX IDX_sdqaThreshold_metricId (sdqa_metricId)
 ) ENGINE=MyISAM;
 
 
@@ -787,7 +788,7 @@ CREATE TABLE RaftMetadata
         -- <ucd>meta.id;instr.det</ucd>
     metadataKey VARCHAR(255) NOT NULL,
     metadataValue VARCHAR(255) NULL,
-    PRIMARY KEY (raftName)
+    PRIMARY KEY PK_raftMetadata (raftName)
 ) ENGINE=MyISAM;
 
 
@@ -951,8 +952,8 @@ CREATE TABLE RawAmpExposureMetadata
     intValue INTEGER NULL,
     doubleValue DOUBLE NULL,
     stringValue VARCHAR(255) NULL,
-    PRIMARY KEY (rawAmpExposureId, metadataKey),
-    INDEX IDX_metadataKey (metadataKey ASC)
+    PRIMARY KEY PK_rawAmpExposureMetadata (rawAmpExposureId, metadataKey),
+    INDEX IDX_rawAmpExposureMetadata_metadataKey (metadataKey ASC)
 ) ENGINE=MyISAM;
 
 
@@ -1051,7 +1052,7 @@ CREATE TABLE RawCcdExposure
     expTime FLOAT NOT NULL,
         -- <descr>Duration of exposure.</descr>
         -- <unit>s</unit>
-    PRIMARY KEY (rawCcdExposureId),
+    PRIMARY KEY PK_RawCcdExposure (rawCcdExposureId),
     INDEX IDX_RawCcdExposure_procHistoryId (procHistoryId)
 ) ENGINE=MyISAM;
 
@@ -1232,8 +1233,8 @@ CREATE TABLE CcdVisit
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_Visit (ccdVisitId),
-    INDEX IDX_Visit_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_CcdVisit (ccdVisitId),
+    INDEX IDX_CcdVisit_procHistoryId (procHistoryId)
 ) ENGINE=MyISAM;
 
 
@@ -1269,7 +1270,7 @@ CREATE TABLE VisitMetadata
         -- <ucd>meta.id;obs.image</ucd>
     metadataKey VARCHAR(255) NOT NULL,
     metadataValue VARCHAR(255) NULL,
-    PRIMARY KEY (visitId)
+    PRIMARY KEY PK_VisitMetadata (visitId)
 ) ENGINE=MyISAM;
 
 
@@ -1442,7 +1443,7 @@ CREATE TABLE DiaSource
     INDEX IDX_DiaSource_procHistoryId (procHistoryId),
     INDEX IDX_DiaSource_visitId (visitId),
     INDEX IDX_DiaSource_diaObjectId (diaObjectId),
-    INDEX IDX_DiaSource_ccObjectId (ssObjectId),
+    INDEX IDX_DiaSource_ssObjectId (ssObjectId),
     INDEX IDX_DiaSource_filterName (filterName),
     INDEX IDX_DiaObject_htmId20 (htmId20)
 ) ENGINE=MyISAM;
@@ -2832,7 +2833,7 @@ CREATE TABLE Object_Extra
         -- (z, logL) – computed using a to-be-determined published
         -- and widely accepted algorithm at the time of LSST
         -- Commissioning. FLOAT[2x100].</descr>
-    PRIMARY KEY PK_Object (objectId)
+    PRIMARY KEY PK_ObjectExtra (objectId)
 ) ENGINE=MyISAM;
 
 
@@ -2893,7 +2894,7 @@ CREATE TABLE Object_NonPeriodic
     lcNonPeriodic FLOAT NOT NULL,
         -- <descr>Non-periodic features extracted from light-curves 
         -- using generalized Lomb-Scargle periodogram.</descr>
-    INDEX IDX_ObjectPeriodic_objectId (objectId)
+    INDEX IDX_ObjectNonPeriodic_objectId (objectId)
 ) ENGINE=MyISAM;
 
 
@@ -3091,9 +3092,11 @@ CREATE TABLE DiaObject_To_Object_Match
     objectId BIGINT NOT NULL,
         -- <descr>Id of a nearby object.</descr>
         -- <ucd>meta.id;src</ucd>
-    dist FLOAT NOT NULL
+    dist FLOAT NOT NULL,
         -- <descr>The distance between the diaObject and the object.</descr>
         -- <unit>arcsec</unit>
+    INDEX IDX_DiaObjectToObjectMatch_diaObjectId (diaObjectId),
+    INDEX IDX_DiaObjectToObjectMatch_objectId (objectId)
 ) ENGINE=MyISAM;
 
 
