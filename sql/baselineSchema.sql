@@ -129,6 +129,35 @@ CREATE TABLE prv_cnf_Node
 ) ENGINE=InnoDB;
 
 
+CREATE TABLE prv_cnf_Run
+(
+    cRunId MEDIUMINT NOT NULL,
+    runId MEDIUMINT NOT NULL,
+    PRIMARY KEY (cRunId),
+    KEY (runId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_TaskConfig
+(
+    cTaskConfigId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    PRIMARY KEY (cTaskConfigId),
+    KEY (taskConfigId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_TaskGraph
+(
+    cTaskGraphId SMALLINT NOT NULL,
+    taskGraphId SMALLINT NOT NULL,
+    PRIMARY KEY (cTaskGraphId),
+    KEY (taskGraphId)
+) ENGINE=InnoDB;
+
+
 CREATE TABLE prv_cnf_TaskGraph2Run
 (
     cTaskGraph2RunId MEDIUMINT NOT NULL,
@@ -278,6 +307,15 @@ CREATE TABLE prv_Node
     nodeId INTEGER NOT NULL,
     taskConfigId MEDIUMINT NOT NULL,
     PRIMARY KEY (nodeId),
+    KEY (taskConfigId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_TaskConfig
+(
+    cTaskConfigId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
+    PRIMARY KEY (cTaskConfigId),
     KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
