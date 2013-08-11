@@ -183,15 +183,6 @@ CREATE TABLE prv_cnf_Task2TaskGraph
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_cnf_Task2UpdatableColumn
-(
-    c_task2UpdatableColumn SMALLINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY PK_prvCnfTask2UpdatableColumn (c_task2UpdatableColumn)
-) ENGINE=InnoDB;
-
-
 CREATE TABLE prv_cnf_TaskConfig
 (
     cTaskConfigId MEDIUMINT NOT NULL,
@@ -371,17 +362,6 @@ CREATE TABLE prv_Task2TaskGraph
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Task2UpdatableColumn
-(
-    taskId SMALLINT NOT NULL,
-    columnId SMALLINT NOT NULL,
-    cTask2UpdateColumnId SMALLINT NOT NULL,
-    INDEX PK_prvTask2UpdatableColumn (cTask2UpdateColumnId),
-    INDEX IDX_prvTask2UpdatableColumn_taskId (taskId),
-    INDEX IDX_prvTask2UpdatableColumn_columnId (columnId)
-) ENGINE=InnoDB;
-
-
 CREATE TABLE prv_TaskConfig
 (
     cTaskConfigId MEDIUMINT NOT NULL,
@@ -424,16 +404,6 @@ CREATE TABLE prv_TaskGraph2Run
     PRIMARY KEY (taskGraph2runId),
     INDEX PK_prvTaskGraph2Run (taskGraphId),
     INDEX IDX_prvTaskGraph2Run_runId (runId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_UpdatableColumn
-(
-    columnId SMALLINT NOT NULL,
-    tableId SMALLINT NOT NULL,
-    columnName VARCHAR(64) NOT NULL,
-    PRIMARY KEY PK_prvUpdatableColumn (columnId),
-    INDEX IDX_prvUpdatableColumn_tableId (tableId)
 ) ENGINE=InnoDB;
 
 
@@ -3142,12 +3112,6 @@ ALTER TABLE prv_Task ADD CONSTRAINT FK_Task_TaskExecutionConfig
 ALTER TABLE prv_Task2TaskExecution ADD CONSTRAINT FK_Task2TaskExecution_TaskExecution_taskExecutionId
 	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
 
-ALTER TABLE prv_Task2UpdatableColumn ADD CONSTRAINT FK_Task2UpdatableColumn_Config_Task2UpdatableColumn 
-	FOREIGN KEY (cTask2UpdateColumnId) REFERENCES prv_cnf_Task2UpdatableColumn (c_task2UpdatableColumn);
-
-ALTER TABLE prv_Task2UpdatableColumn ADD CONSTRAINT FK_Task2UpdatableColumn_UpdatableColumn 
-	FOREIGN KEY (columnId) REFERENCES prv_UpdatableColumn (columnId);
-
 ALTER TABLE prv_Amp ADD CONSTRAINT FK_Amp_Ccd
 	FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
 
@@ -3168,9 +3132,6 @@ ALTER TABLE prv_cnf_Raft ADD CONSTRAINT FK_Config_Raft_Raft
 
 ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_Snapshot_ProcessingHistory 
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
-ALTER TABLE prv_UpdatableColumn ADD CONSTRAINT FK_UpdatableColumn_UpdatableTable 
-	FOREIGN KEY (tableId) REFERENCES prv_UpdatableTable (tableId);
 
 ALTER TABLE RefObjMatch ADD CONSTRAINT FK_RefObjMatch_Object
     FOREIGN KEY (objectId) REFERENCES Object (objectId);
