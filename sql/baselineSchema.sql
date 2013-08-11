@@ -129,12 +129,66 @@ CREATE TABLE prv_cnf_Node
 ) ENGINE=InnoDB;
 
 
+CREATE TABLE prv_cnf_Raft
+(
+    cRaftId SMALLINT NOT NULL,
+    raftName CHAR(3) NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    serialN INTEGER NOT NULL,
+    PRIMARY KEY (cRaftId),
+    KEY (raftName)
+) ENGINE=InnoDB;
+
+
 CREATE TABLE prv_cnf_Run
 (
     cRunId MEDIUMINT NOT NULL,
     runId MEDIUMINT NOT NULL,
     PRIMARY KEY (cRunId),
     KEY (runId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_Task
+(
+    cTaskId MEDIUMINT NOT NULL,
+    taskId SMALLINT NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    PRIMARY KEY (cTaskId),
+    KEY (taskId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_Task2TaskExecution
+(
+    cTask2TaskExecutionId MEDIUMINT NOT NULL,
+    task2taskExecutionId MEDIUMINT NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    PRIMARY KEY (cTask2TaskExecutionId),
+    KEY (task2taskExecutionId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_Task2TaskGraph
+(
+    cTask2TaskGraphId MEDIUMINT NOT NULL,
+    task2taskGraphId MEDIUMINT NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    PRIMARY KEY (cTask2TaskGraphId),
+    KEY (task2taskGraphId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_Task2UpdatableColumn
+(
+    c_task2UpdatableColumn SMALLINT NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    PRIMARY KEY (c_task2UpdatableColumn)
 ) ENGINE=InnoDB;
 
 
@@ -145,6 +199,32 @@ CREATE TABLE prv_cnf_TaskConfig
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     PRIMARY KEY (cTaskConfigId),
+    KEY (taskConfigId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_TaskExecution
+(
+    nodeId INTEGER NOT NULL,
+    taskExecutionId MEDIUMINT NOT NULL,
+    inputDataSetId INTEGER NOT NULL,
+    procHistoryId BIGINT NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    KEY (nodeId),
+    KEY (taskExecutionId),
+    KEY (inputDataSetId),
+    KEY (procHistoryId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_cnf_TaskExecutionConfig
+(
+    cTaskExecutionConfigId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
+    validityBegin DATETIME NOT NULL,
+    validityEnd DATETIME NOT NULL,
+    PRIMARY KEY (cTaskExecutionConfigId),
     KEY (taskConfigId)
 ) ENGINE=InnoDB;
 
@@ -166,86 +246,6 @@ CREATE TABLE prv_cnf_TaskGraph2Run
     validityEnd DATETIME NOT NULL,
     PRIMARY KEY (cTaskGraph2RunId),
     KEY (taskGraph2runId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_cnf_TaskExecutionConfig
-(
-    cTaskExecutionConfigId MEDIUMINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTaskExecutionConfigId),
-    KEY (taskConfigId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_cnf_Raft
-(
-    cRaftId SMALLINT NOT NULL,
-    raftName CHAR(3) NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    serialN INTEGER NOT NULL,
-    PRIMARY KEY (cRaftId),
-    KEY (raftName)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_cnf_TaskExecution
-(
-    nodeId INTEGER NOT NULL,
-    taskExecutionId MEDIUMINT NOT NULL,
-    inputDataSetId INTEGER NOT NULL,
-    procHistoryId BIGINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    KEY (nodeId),
-    KEY (taskExecutionId),
-    KEY (inputDataSetId),
-    KEY (procHistoryId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_cnf_Task
-(
-    cTaskId MEDIUMINT NOT NULL,
-    taskId SMALLINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTaskId),
-    KEY (taskId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_cnf_Task2TaskGraph
-(
-    cTask2TaskGraphId MEDIUMINT NOT NULL,
-    task2taskGraphId MEDIUMINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTask2TaskGraphId),
-    KEY (task2taskGraphId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_cnf_Task2TaskExecution
-(
-    cTask2TaskExecutionId MEDIUMINT NOT NULL,
-    task2taskExecutionId MEDIUMINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (cTask2TaskExecutionId),
-    KEY (task2taskExecutionId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_cnf_Task2UpdatableColumn
-(
-    c_task2UpdatableColumn SMALLINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY (c_task2UpdatableColumn)
 ) ENGINE=InnoDB;
 
 
@@ -311,44 +311,6 @@ CREATE TABLE prv_Node
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_TaskConfig
-(
-    cTaskConfigId MEDIUMINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY (cTaskConfigId),
-    KEY (taskConfigId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_TaskGraph
-(
-    taskGraphId SMALLINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
-    taskGraphName VARCHAR(64) NULL,
-    PRIMARY KEY (taskGraphId),
-    KEY (taskConfigId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_TaskGraph2Run
-(
-    taskGraph2runId MEDIUMINT NOT NULL,
-    runId MEDIUMINT NOT NULL,
-    taskGraphId SMALLINT NOT NULL,
-    PRIMARY KEY (taskGraph2runId),
-    KEY (taskGraphId),
-    KEY (runId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_TaskExecutionConfig
-(
-    taskConfigId MEDIUMINT NOT NULL,
-    taskConfigName VARCHAR(80) NOT NULL,
-    PRIMARY KEY (taskConfigId)
-) ENGINE=InnoDB;
-
-
 CREATE TABLE prv_Raft
 (
     raftName CHAR(3) NOT NULL,
@@ -362,13 +324,6 @@ CREATE TABLE prv_Run
     taskConfigId MEDIUMINT NOT NULL,
     PRIMARY KEY (runId),
     KEY (taskConfigId)
-) ENGINE=InnoDB;
-
-
-CREATE TABLE prv_TaskExecution
-(
-    taskExecutionId MEDIUMINT NOT NULL,
-    PRIMARY KEY (taskExecutionId)
 ) ENGINE=InnoDB;
 
 
@@ -392,17 +347,6 @@ CREATE TABLE prv_Task
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE prv_Task2TaskGraph
-(
-    task2taskGraphId MEDIUMINT NOT NULL,
-    taskGraphId SMALLINT NOT NULL,
-    taskId SMALLINT NOT NULL,
-    PRIMARY KEY (task2taskGraphId),
-    KEY (taskGraphId),
-    KEY (taskId)
-) ENGINE=InnoDB;
-
-
 CREATE TABLE prv_Task2TaskExecution
 (
     task2TaskExecutionId MEDIUMINT NOT NULL,
@@ -414,6 +358,17 @@ CREATE TABLE prv_Task2TaskExecution
 ) ENGINE=InnoDB;
 
 
+CREATE TABLE prv_Task2TaskGraph
+(
+    task2taskGraphId MEDIUMINT NOT NULL,
+    taskGraphId SMALLINT NOT NULL,
+    taskId SMALLINT NOT NULL,
+    PRIMARY KEY (task2taskGraphId),
+    KEY (taskGraphId),
+    KEY (taskId)
+) ENGINE=InnoDB;
+
+
 CREATE TABLE prv_Task2UpdatableColumn
 (
     taskId SMALLINT NOT NULL,
@@ -422,6 +377,51 @@ CREATE TABLE prv_Task2UpdatableColumn
     KEY (cTask2UpdateColumnId),
     KEY (taskId),
     KEY (columnId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_TaskConfig
+(
+    cTaskConfigId MEDIUMINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
+    PRIMARY KEY (cTaskConfigId),
+    KEY (taskConfigId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_TaskExecution
+(
+    taskExecutionId MEDIUMINT NOT NULL,
+    PRIMARY KEY (taskExecutionId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_TaskExecutionConfig
+(
+    taskConfigId MEDIUMINT NOT NULL,
+    taskConfigName VARCHAR(80) NOT NULL,
+    PRIMARY KEY (taskConfigId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_TaskGraph
+(
+    taskGraphId SMALLINT NOT NULL,
+    taskConfigId MEDIUMINT NOT NULL,
+    taskGraphName VARCHAR(64) NULL,
+    PRIMARY KEY (taskGraphId),
+    KEY (taskConfigId)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE prv_TaskGraph2Run
+(
+    taskGraph2runId MEDIUMINT NOT NULL,
+    runId MEDIUMINT NOT NULL,
+    taskGraphId SMALLINT NOT NULL,
+    PRIMARY KEY (taskGraph2runId),
+    KEY (taskGraphId),
+    KEY (runId)
 ) ENGINE=InnoDB;
 
 
