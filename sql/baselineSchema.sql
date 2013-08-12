@@ -2518,18 +2518,6 @@ CREATE TABLE prv_cnf_TaskExecution
 
 -- ############################################################################
 
-CREATE TABLE prv_cnf_TaskExecutionConfig
-(
-    cTaskExecutionConfigId MEDIUMINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY PK_prvCnfTaskExecutionConfig (cTaskExecutionConfigId),
-    INDEX IDX_prvCnfTaskExecutionConfig (taskConfigId)
-) ENGINE=InnoDB;
-
--- ############################################################################
-
 CREATE TABLE prv_cnf_TaskGraph
 (
     cTaskGraphId SMALLINT NOT NULL,
@@ -2684,27 +2672,10 @@ CREATE TABLE prv_Task2TaskGraph
 
 -- ############################################################################
 
-CREATE TABLE prv_TaskConfig
-(
-    taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY PK_prvTaskConfig (taskConfigId)
-) ENGINE=InnoDB;
-
--- ############################################################################
-
 CREATE TABLE prv_TaskExecution
 (
     taskExecutionId MEDIUMINT NOT NULL,
     PRIMARY KEY PK_prvTaskExecution (taskExecutionId)
-) ENGINE=InnoDB;
-
--- ############################################################################
-
-CREATE TABLE prv_TaskExecutionConfig
-(
-    taskConfigId MEDIUMINT NOT NULL,
-    taskConfigName VARCHAR(80) NOT NULL,
-    PRIMARY KEY PK_prvTaskExecutionConfig (taskConfigId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -3106,9 +3077,6 @@ ALTER TABLE prv_cnf_Task2TaskExecution ADD CONSTRAINT FK_prvCnfTask2TaskExecutio
 ALTER TABLE prv_cnf_Task2TaskGraph ADD CONSTRAINT FK_prvCnfTask2TaskGraph_prvTask2TaskGraph 
 	FOREIGN KEY (task2taskGraphId) REFERENCES prv_Task2TaskGraph (task2taskGraphId);
 
-ALTER TABLE prv_cnf_TaskConfig ADD CONSTRAINT FK_prvCnfTaskConfig_prvTaskConfig
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
-
 ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvTaskExecution 
 	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
 
@@ -3120,9 +3088,6 @@ ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvInput
 
 ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvProcHistory 
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
-ALTER TABLE prv_cnf_TaskExecutionConfig ADD CONSTRAINT FK_prvCnfTaskExecutionConfig_prvTaskConfig
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskConfig (taskConfigId);
 
 ALTER TABLE prv_cnf_TaskGraph ADD CONSTRAINT FK_prvCnfTaskGraph_prvTaskGraph 
 	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
@@ -3136,17 +3101,8 @@ ALTER TABLE prv_Amp ADD CONSTRAINT FK_prvAmp_prvCcd
 ALTER TABLE prv_Ccd ADD CONSTRAINT FK_prvCcd_prvRaft 
 	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
 
-ALTER TABLE prv_Node ADD CONSTRAINT FK_prvNode_prvTaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
-
-ALTER TABLE prv_Run ADD CONSTRAINT FK_prvRun_prvTaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
-
 ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_prvSnapshot_prvProcessingHistory 
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
-ALTER TABLE prv_Task ADD CONSTRAINT FK_prvTask_prvTaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
 
 ALTER TABLE prv_Task2TaskExecution ADD CONSTRAINT FK_prvTask2TaskExecution_prvTask
 	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
@@ -3159,9 +3115,6 @@ ALTER TABLE prv_Task2TaskGraph ADD CONSTRAINT FK_prvTask2TaskGraph_prvTask
 
 ALTER TABLE prv_Task2TaskGraph ADD CONSTRAINT FK_prvTask2TaskGraph_prvTaskGraph
 	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
-
-ALTER TABLE prv_TaskGraph ADD CONSTRAINT FK_prvTaskGraph_prvTaskExecutionConfig 
-	FOREIGN KEY (taskConfigId) REFERENCES prv_TaskExecutionConfig (taskConfigId);
 
 ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_prvTaskGraph2Run_prvRun 
 	FOREIGN KEY (runId) REFERENCES prv_Run (runId);
