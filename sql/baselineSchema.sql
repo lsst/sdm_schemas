@@ -2488,18 +2488,6 @@ CREATE TABLE prv_cnf_Task2TaskGraph
 
 -- ############################################################################
 
-CREATE TABLE prv_cnf_TaskConfig
-(
-    cTaskConfigId MEDIUMINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
-    validityBegin DATETIME NOT NULL,
-    validityEnd DATETIME NOT NULL,
-    PRIMARY KEY PK_prvCnfTaskConfig (cTaskConfigId),
-    INDEX IDX_prvCnfTaskConfig_taskConfigId (taskConfigId)
-) ENGINE=InnoDB;
-
--- ############################################################################
-
 CREATE TABLE prv_cnf_TaskExecution
 (
     cTaskExecutionId MEDIUMINT NOT NULL,
@@ -2601,9 +2589,7 @@ CREATE TABLE prv_InputDataSet
 CREATE TABLE prv_Node
 (
     nodeId INTEGER NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY PK_prvNode (nodeId),
-    INDEX IDX_prvNode_taskConfigId (taskConfigId)
+    PRIMARY KEY PK_prvNode (nodeId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -2611,6 +2597,7 @@ CREATE TABLE prv_Node
 CREATE TABLE prv_Raft
 (
     raftName CHAR(3) NOT NULL,
+    fpaId TINYINT NOT NULL,
     PRIMARY KEY PK_prvRaft (raftName)
 ) ENGINE=InnoDB;
 
@@ -2619,9 +2606,7 @@ CREATE TABLE prv_Raft
 CREATE TABLE prv_Run
 (
     runId MEDIUMINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
-    PRIMARY KEY PK_prvRun (runId),
-    INDEX IDX_prvRun_taskConfigId (taskConfigId)
+    PRIMARY KEY PK_prvRun (runId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -2640,10 +2625,8 @@ CREATE TABLE prv_Snapshot
 CREATE TABLE prv_Task
 (
     taskId SMALLINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
     taskName VARCHAR(255) NULL,
-    PRIMARY KEY PK_prvTask (taskId),
-    INDEX IDX_prvTask_taskConfigId (taskConfigId)
+    PRIMARY KEY PK_prvTask (taskId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -2683,10 +2666,8 @@ CREATE TABLE prv_TaskExecution
 CREATE TABLE prv_TaskGraph
 (
     taskGraphId SMALLINT NOT NULL,
-    taskConfigId MEDIUMINT NOT NULL,
     taskGraphName VARCHAR(64) NULL,
-    PRIMARY KEY PK_prvTaskGraph (taskGraphId),
-    INDEX IDX_prvTaskGraph_taskConfigId (taskConfigId)
+    PRIMARY KEY PK_prvTaskGraph (taskGraphId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -2699,15 +2680,6 @@ CREATE TABLE prv_TaskGraph2Run
     PRIMARY KEY (taskGraph2runId),
     INDEX PK_prvTaskGraph2Run (taskGraphId),
     INDEX IDX_prvTaskGraph2Run_runId (runId)
-) ENGINE=InnoDB;
-
--- ############################################################################
-
-CREATE TABLE prv_UpdatableTable
-(
-    tableId SMALLINT NOT NULL,
-    tableName VARCHAR(64) NOT NULL,
-    PRIMARY KEY PK_prvUpdatableTable (tableId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -3100,6 +3072,9 @@ ALTER TABLE prv_Amp ADD CONSTRAINT FK_prvAmp_prvCcd
 
 ALTER TABLE prv_Ccd ADD CONSTRAINT FK_prvCcd_prvRaft 
 	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
+
+ALTER TABLE prv_Raft ADD CONSTRAINT FK_prvRaft_prvFpa
+	FOREIGN KEY (fpaId) REFERENCES prv_Fpa (fpaId);
 
 ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_prvSnapshot_prvProcessingHistory 
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
