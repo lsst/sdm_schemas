@@ -1543,12 +1543,12 @@ CREATE TABLE Object_Extra
         -- digits of precision. The number of samples will vary from object to
         -- object, depending on how well the object’s likelihood function 
         -- is approximated by a Gaussian. We are assuming on average
-        -- FLOAT[19][200].</descr>
+        -- [19x200 FLOAT].</descr>
     photoZ BLOB NOT NULL,
         -- <descr>Photometric redshift likelihood samp<les – pairs of 
         -- (z, logL) – computed using a to-be-determined published and widely
         -- accepted algorithm at the time of LSST Commissioning.
-        -- FLOAT[2x100].</descr>
+        -- [2x100 FLOAT].</descr>
     PRIMARY KEY PK_ObjectExtra (objectId)
 ) ENGINE=MyISAM;
 
@@ -1865,112 +1865,66 @@ CREATE TABLE RawAmpExposure
         -- <descr>Decl of amp center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    gain FLOAT NULL,
-        -- <descr>Detector/amplifier gain</descr>
-    rdNoise FLOAT NULL,
-        -- <descr>Read noise for detector/amplifier</descr>
-    saturate FLOAT NULL,
-        -- <descr>Maximum data value for A/D converter</descr>
-    equinox FLOAT NOT NULL,
-        -- <descr>Equinox of World Coordinate System.</descr>
-        -- <ucd>pos.equinox</ucd>
-    raDeSys VARCHAR(20) NOT NULL,
-        -- <ucd>pos.frame</ucd>
-    ctype1 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 1.</descr>
-        -- <ucd>pos.wcs.ctype</ucd>
-    ctype2 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 2.</descr>
-        -- <ucd>pos.wcs.ctype</ucd>
-    crpix1 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 1.</descr>
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crpix2 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 2.</descr>
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crval1 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 1 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crval</ucd>
-        -- <unit>deg</unit>
-    crval2 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 2 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crval</ucd>
-        -- <unit>deg</unit>
-    cd1_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd1_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    llcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (0.5, 0.5).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    llcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (0.5, 0.5).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    ulcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (0.5, NAXIS2 + 0.5).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    ulcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (0.5, NAXIS2 + 0.5).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    urcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5).
-        -- </descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    urcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5).
-        -- </descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    lrcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (NAXIS1 + 0.5, 0.5).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    lrcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (NAXIS1 + 0.5, 0.5).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    taiMjd DOUBLE NOT NULL,
-        -- <descr>Time (MJD, TAI) at the start of the exposure.</descr>
-        -- <ucd>time.start</ucd>
-        -- <unit>d</unit>
+    bias FLOAT NOT NULL,
+        -- <descr>Bias as measured from overscan columns.</descr>
+        -- <unit>DN</unit>
+    biasNom FLOAT NOT NULL,
+        -- <descr>Preset bias.</descr>
+        -- <unit>DN</unit>
+    gain FLOAT NOT NULL,
+        -- <descr>Measured gain value.</descr>
+        -- <unit>electrons/DN</unit>
+    gainNom FLOAT NOT NULL,
+        -- <descr>Preset gain.</descr>
+        -- <unit>DN</unit>
+    rdNoise FLOAT NOT NULL,
+        -- <descr>Read noise for detector/amplifier.</descr>
+        -- <unit>DN</unit>
+    saturation INTEGER NOT NULL,
+        -- <descr>Maximum data value for A/D converter.</descr>
+        -- <unit>DN</unit>
+    llcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5).</descr>
+        -- <unit>pixels</unit>
+    llcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5).</descr>
+        -- <unit>pixels</unit>
+    ulcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5+NAXIS2).</descr>
+        -- <unit>pixels</unit>
+    ulcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5+NAXIS2).</descr>
+        -- <unit>pixels</unit>
+    urcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+NAXIS1, 0.5+NAXIS2).</descr>
+        -- <unit>pixels</unit>
+    urcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+NAXIS1, 0.5+NAXIS2).</descr>
+        -- <unit>pixels</unit>
+    lrcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+NAXIS1, 0.5).</descr>
+        -- <unit>pixels</unit>
+    lrcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+NAXIS1, 0.5).</descr>
+        -- <unit>pixels</unit>
+    xSize INTEGER NOT NULL,
+        -- <descr>Number of columns in the image.</descr>
+    ySize INTEGER NOT NULL,
+        -- <descr>Number of rows in the image.</descr>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        -- <descr>Time (UTC, 1s precision) at the start of the exposure.</descr>
+        -- <descr>Start of the exposure, TAI, accurate to 10ms.</descr>
         -- <ucd>time.start</ucd>
-    expMidpt VARCHAR(30) NOT NULL,
-        -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
-        -- exposure.</descr>
+    expMidpt DOUBLE NOT NULL,
+        -- <descr>Midpoint for exposure. TAI, accurate to 10ms.</descr>
         -- <ucd>time.epoch</ucd>
-    expTime FLOAT NOT NULL,
-        -- <descr>Duration of exposure.</descr>
+    expTime DOUBLE NOT NULL,
+        -- <descr>Duration of exposure, accurate to 10ms.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
-    airmass FLOAT NOT NULL,
-        -- <ucd>obs.airmass</ucd>
-    darkTime FLOAT NOT NULL,
+    darkTime DOUBLE NOT NULL,
+        -- <descr>Dark current accumulation time, accurate to 10ms.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
-    zd FLOAT NULL,
-        -- <ucd>pos.az.zd</ucd>
-        -- <unit>deg</unit>
     flags INTEGER NOT NULL DEFAULT 0,
         -- <ucd>meta.code</ucd>
     PRIMARY KEY PK_RawAmpExposure (rawAmpExposureId),
@@ -2010,86 +1964,83 @@ CREATE TABLE RawCcdExposure
     raftName CHAR(3) NOT NULL,
         -- <descr>Raft name.</descr>
         -- <ucd>meta.id;instr.det</ucd>
-    filterName CHAR(1) NULL,
+    filterName CHAR(1) NOT NULL,
         -- <descr>Filter name.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     procHistoryId BIGINT NOT NULL,
         -- <descr>Pointer to ProcessingHistory table.</descr>
     ra DOUBLE NOT NULL,
-        -- <descr>Right Ascension of aperture center.</descr>
+        -- <descr>RA of field of view center.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
-        -- <descr>Declination of aperture center.</descr>
+        -- <descr>Declination of field of view center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    equinox FLOAT NOT NULL,
-        -- <descr>Equinox of World Coordinate System.</descr>
-        -- <ucd>pos.equinox</ucd>
-    radecSys VARCHAR(20) NULL,
-        -- <descr>Coordinate system type. (Allowed systems: FK5, ICRS)</descr>
-        -- <ucd>pos.frame</ucd>
-    dateObs TIMESTAMP NOT NULL DEFAULT 0,
-        -- <descr>Date/Time of observation start (UTC).</descr>
-    url VARCHAR(255) NOT NULL,
-        -- <descr>Logical URL to the actual raw image.</descr>
-    ctype1 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 1.</descr>
-        -- <ucd>pos.wcs.ctype</ucd>
-    ctype2 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 2.</descr>
-        -- <ucd>pos.wcs.ctype</ucd>
-    mjdObs DOUBLE NULL,
-        -- <descr>MJD of observation start.</descr>
-    airmass FLOAT NULL,
-        -- <descr>Airmass value for the Amp reference pixel (preferably center,
-        -- but not guaranteed). Range: [-99.999, 99.999] is enough to accomodate
-        -- ZD in [0, 89.433].</descr>
-    crpix1 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 1.</descr>
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crpix2 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 2.</descr>
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crval1 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 1 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crval</ucd>
-        -- <unit>deg</unit>
-    crval2 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 2 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crval</ucd>
-        -- <unit>deg</unit>
-    cd1_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd1_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    darkTime FLOAT NULL,
-        -- <descr>Total elapsed time from exposure start to end of read.</descr>
-        -- <unit>s</unit>
-    zd FLOAT NULL,
+    zenithDistance FLOAT NOT NULL,
         -- <descr>Zenith distance at observation mid-point.</descr>
         -- <ucd>pos.az.zd</ucd>
         -- <unit>deg</unit>
-    taiObs TIMESTAMP NOT NULL DEFAULT 0,
-        -- <descr>TAI-OBS = UTC + offset, offset = 32 s from 1/1/1999 to
-        -- 1/1/2006</descr>
-    expTime FLOAT NOT NULL,
-        -- <descr>Duration of exposure.</descr>
+    airmass FLOAT NOT NULL,
+        -- <descr>Airmass at the observed line of sight.</descr>
+    llcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5).</descr>
+        -- <unit>pixels</unit>
+    llcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5).</descr>
+        -- <unit>pixels</unit>
+    ulcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    ulcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    urcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    urcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    lrcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5).</descr>
+        -- <unit>pixels</unit>
+    lrcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5).</descr>
+        -- <unit>pixels</unit>
+    xSize INTEGER NOT NULL,
+        -- <descr>Number of rows in the image.</descr>
+    ySize INTEGER NOT NULL,
+        -- <descr>Number of columns in the image.</descr>
+    obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        -- <descr>Start of the exposure, TAI, accurate to 10ms.</descr>
+        -- <ucd>time.start</ucd>
+    expMidpt DOUBLE NOT NULL,
+        -- <descr>Midpoint for exposure. TAI, accurate to 10ms.</descr>
+        -- <ucd>time.epoch</ucd>
+    expTime DOUBLE NOT NULL,
+        -- <descr>Duration of exposure, accurate to 10ms.</descr>
+        -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
+    darkTime DOUBLE NOT NULL,
+        -- <descr>Dark current accumulation time, accurate to 10ms.</descr>
+        -- <ucd>time.duration</ucd>
+        -- <unit>s</unit>
+    ccdTemp FLOAT NOT NULL,
+        -- <descr>Temperature measured on the Ccd.</descr>
+    binX INTEGER NOT NULL,
+        -- <descr>Binning of the ccd in x (row) direction.</descr>
+        -- <ucd>meta.number</ucd>
+        -- <unit>pixel</unit>
+    binY INTEGER NOT NULL,
+        -- <descr>Binning of the ccd in y (column) direction.</descr>
+        -- <ucd>meta.number</ucd>
+        -- <unit>pixel</unit>
+    WCS BLOB NULL,
+        -- <descr>A nominal WCS derives from telescope pointing information
+        -- (not fitted). [10x8 BYTES].
+    flags INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
+        -- <ucd>meta.code</ucd>
     PRIMARY KEY PK_RawCcdExposure (rawCcdExposureId),
     INDEX IDX_RawCcdExposure_procHistoryId (procHistoryId)
 ) ENGINE=MyISAM;
@@ -2115,6 +2066,80 @@ CREATE TABLE RawExposure
     rawExposureId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier.)</descr>
         -- <ucd>meta.id;obs.image</ucd>
+    filterName CHAR(1) NOT NULL,
+        -- <descr>Filter name.</descr>
+        -- <ucd>meta.id;instr.filter</ucd>
+    ra DOUBLE NOT NULL,
+        -- <descr>Right Ascension of focal plane center.</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    decl DOUBLE NOT NULL,
+        -- <descr>Declination of focal plane center.</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    altitude DOUBLE NOT NULL,
+        -- <descr>Altitude of focal plane center.</descr>
+        -- <unit>deg</unit>
+    azimuth DOUBLE NOT NULL,
+        -- <descr>Azimuth of focal plane center.</descr>
+        -- <unit>deg</unit>
+    rotation DOUBLE NOT NULL,
+        -- <descr>Rotation of the camera.</descr>
+        -- <unit>deg</unit>
+    programId INT NOT NULL,
+        -- <descr>Observing program id (e.g., universal cadence, or one of 
+        -- the deep drilling programs, etc.).</descr>
+    exposureType TINYINT NOT NULL,
+        -- <descr>Type of exposure (science exposure, dark, flat, etc.).
+        -- </descr>
+    zenithDistance FLOAT NOT NULL,
+        -- <descr>Zenith distance at observation mid-point.</descr>
+        -- <ucd>pos.az.zd</ucd>
+        -- <unit>deg</unit>
+    airmass FLOAT NOT NULL,
+        -- <Airmass of the observed line of sight.</descr>
+    obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        -- <descr>Start of the exposure, TAI, accurate to 10ms.</descr>
+        -- <ucd>time.start</ucd>
+    expMidpt DOUBLE NOT NULL,
+        -- <descr>Midpoint for exposure. TAI, accurate to 10ms.</descr>
+        -- <ucd>time.epoch</ucd>
+    expTime DOUBLE NOT NULL,
+        -- <descr>Duration of exposure, accurate to 10ms.</descr>
+        -- <ucd>time.duration</ucd>
+        -- <unit>s</unit>
+    cameraTemp FLOAT NOT NULL,
+        -- <descr>Temperature measured of the camera.</descr>
+        -- <unit>K</unit>
+    mirror1Temp FLOAT NOT NULL,
+        -- <descr>Primary mirror temperature.</descr>
+        -- <unit>K</unit>
+    mirror2Temp FLOAT NOT NULL,
+        -- <descr>Secondary mirror temperature.</descr>
+        -- <unit>K</unit>
+    mirror3Temp FLOAT NOT NULL,
+        -- <descr>Tertiary mirror temperature.</descr>
+        -- <unit>K</unit>
+    domeTemp FLOAT NOT NULL,
+        -- <descr>Dome temperature.</descr>
+        -- <unit>K</unit>
+    externalTemp FLOAT NOT NULL,
+        -- <descr>Temperature outside the dome.</descr>
+        -- <unit>K</unit>
+    dimmSeeing FLOAT NOT NULL, 
+        -- <descr>Seeing measured by the differential image motion monitor.
+        -- </descr>
+        -- <unit>arcsec</unit>
+    pwvGPS FLOAT NOT NULL,
+        -- <descr> GPS-based measurement of precipitable water vapor (PVW).
+        -- </descr>
+        -- <unit>mm</unit>
+    pwvMW FLOAT NOT NULL,
+        -- <descr>Microwave radiometer measurement of PVW.</descr>
+        -- <unit>mm</unit>
+    flags INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
+        -- <ucd>meta.code</ucd>
     PRIMARY KEY PK_RawExposure (rawExposureId)
 ) ENGINE=MyISAM;
 
@@ -2140,134 +2165,86 @@ CREATE TABLE CcdVisit
         -- <ucd>meta.id;instr.filter</ucd>
     procHistoryId BIGINT NOT NULL,
         -- <descr>Pointer to ProcessingHistory table.</descr>
+    nExposures INT NOT NULL,
+        -- <descr>Number of exposures combined to produce this visit.</descr>
     ra DOUBLE NOT NULL,
+        -- <descr>RA of Ccd center.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
+        -- <descr>Decl of Ccd center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    equinox FLOAT NOT NULL,
-        -- <descr>Equinox of World Coordinate System.</descr>
-        -- <ucd>pos.equinox</ucd>
-    raDeSys VARCHAR(20) NOT NULL,
-        -- <ucd>pos.frame</ucd>
-    ctype1 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 1.</descr>
-        -- <ucd>pos.wcs.ctype</ucd>
-    ctype2 VARCHAR(20) NOT NULL,
-        -- <descr>Coordinate projection type, axis 2.</descr>
-        -- <ucd>pos.wcs.ctype</ucd>
-    crpix1 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 1.</descr>
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crpix2 FLOAT NOT NULL,
-        -- <descr>Coordinate reference pixel, axis 2.</descr>
-        -- <ucd>pos.wcs.crpix</ucd>
-        -- <unit>pixel</unit>
-    crval1 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 1 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crval</ucd>
+    zenithDistance FLOAT NOT NULL,
+        -- <descr>Zenith distance at observation mid-point.</descr>
+        -- <ucd>pos.az.zd</ucd>
         -- <unit>deg</unit>
-    crval2 DOUBLE NOT NULL,
-        -- <descr>Coordinate value 2 @reference pixel.</descr>
-        -- <ucd>pos.wcs.crval</ucd>
-        -- <unit>deg</unit>
-    cd1_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 1.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd1_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 1 w.r.t. axis 2.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_1 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 1.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    cd2_2 DOUBLE NOT NULL,
-        -- <descr>First derivative of coordinate 2 w.r.t. axis 2.</descr>
-        -- <ucd>pos.wcs.cdmatrix</ucd>
-        -- <unit>deg/pixel</unit>
-    llcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (0.5, 0.5).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    llcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (0.5, 0.5).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    ulcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (0.5, NAXIS2 + 0.5).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    ulcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (0.5, NAXIS2 + 0.5).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    urcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5).
-        -- </descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    urcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (NAXIS1 + 0.5, NAXIS2 + 0.5).
-        -- </descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    lrcRa DOUBLE NOT NULL,
-        -- <descr>Ra of FITS pixel coordinates (NAXIS1 + 0.5, 0.5).</descr>
-        -- <ucd>pos.eq.ra</ucd>
-        -- <unit>deg</unit>
-    lrcDecl DOUBLE NOT NULL,
-        -- <descr>Decl of FITS pixel coordinates (NAXIS1 + 0.5, 0.5).</descr>
-        -- <ucd>pos.eq.dec</ucd>
-        -- <unit>deg</unit>
-    taiMjd DOUBLE NOT NULL,
-        -- <descr>Time (MJD, TAI) at the start of the exposure.</descr>
-        -- <ucd>time.start</ucd>
-        -- <unit>d</unit>
+    llcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5).</descr>
+        -- <unit>pixels</unit>
+    llcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5).</descr>
+        -- <unit>pixels</unit>
+    ulcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    ulcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    urcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    urcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5+ySize).</descr>
+        -- <unit>pixels</unit>
+    lrcx INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5).</descr>
+        -- <unit>pixels</unit>
+    lrcy INTEGER NOT NULL,
+        -- <descr>FITS pixel coordinates (0.5+xSize, 0.5).</descr>
+        -- <unit>pixels</unit>
+    xSize INTEGER NOT NULL,
+        -- <descr>Number of columns in the image.</descr>
+    ySize INTEGER NOT NULL,
+        -- <descr>Number of rows in the image.</descr>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        -- <descr>Time (UTC, 1s precision) at the start of the exposure.
-        -- </descr>
+        -- <descr>Start of the exposure, TAI, accurate to 10ms.</descr>
         -- <ucd>time.start</ucd>
-    expMidpt VARCHAR(30) NOT NULL,
-        -- <descr>Time (ISO8601 format, UTC) at the mid-point of the
-        -- combined exposure.</descr>
+    expMidpt DOUBLE NOT NULL,
+        -- <descr>Midpoint for exposure. TAI, accurate to 10ms.</descr>
         -- <ucd>time.epoch</ucd>
-    expTime FLOAT NOT NULL,
-        -- <descr>Duration of exposure.</descr>
+    expTime DOUBLE NOT NULL,
+        -- <descr>Average duration of exposure, accurate to 10ms.</descr>
         -- <ucd>time.duration</ucd>
         -- <unit>s</unit>
-    nCombine INTEGER NOT NULL,
-        -- <descr>Number of images co-added to create a deeper image</descr>
-        -- <ucd>meta.number</ucd>
+    darkTime DOUBLE NOT NULL,
+        -- <descr>Average dark current accumulation time, accurate to 10ms.
+        -- </descr>
+        -- <ucd>time.duration</ucd>
+        -- <unit>s</unit>
+    ccdTemp FLOAT NOT NULL,
+        -- <descr>Temperature measured on the Ccd.</descr>
     binX INTEGER NOT NULL,
-        -- <descr>Binning of the ccd in x.</descr>
+        -- <descr>Binning of the ccd in x (row) direction.</descr>
         -- <ucd>meta.number</ucd>
         -- <unit>pixel</unit>
     binY INTEGER NOT NULL,
-        -- <descr>Binning of the ccd in y.</descr>
+        -- <descr>Binning of the ccd in y (column) direction.</descr>
         -- <ucd>meta.number</ucd>
         -- <unit>pixel</unit>
-    readNoise FLOAT NOT NULL,
-        -- <descr>Read noise of the ccd.</descr>
-        -- <ucd>instr.det.noise</ucd>
-        -- <unit>adu</unit>
-    saturationLimit INTEGER NOT NULL,
-        -- <descr>Saturation limit for the ccd (average of the amplifiers).
-        -- </descr>
-        -- <ucd>instr.saturation</ucd>
-    gainEff DOUBLE NOT NULL,
-        -- <ucd>arith.factor;instr.det</ucd>
-        -- <unit>electron/adu</unit>
-    fluxMag0 FLOAT NOT NULL,
-        -- <ucd>phot.flux.density</ucd>
-    fluxMag0Sigma FLOAT NOT NULL,
-        -- <ucd>stat.error;phot.flux.density</ucd>
-    fwhm DOUBLE NOT NULL,
-        -- <ucd>instr.obsty.seeing</ucd>
+    WCS BLOB NULL,
+        -- <descr>Precise WCS solution for the Ccd. [100x4 BYTES].</descr>
+    zeroPoint FLOAT NOT NULL,
+        -- <descr>Zero-point for the Ccd, estimated at Ccd center.</descr>
+    seeing FLOAT NOT NULL,
+        -- <descr>Mean measured FWHM of the PSF.</descr>
         -- <unit>arcsec</unit>
+    skyBg FLOAT NOT NULL,
+        -- <descr>Average sky background.</descr>
+        -- <unit>DN</unit>
+    skyNoise FLOAT NOT NULL,
+        -- <descr>RMS noise of the sky background.</descr>
+        -- <unit>DN</unit>
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
@@ -2298,6 +2275,84 @@ CREATE TABLE Visit
     visitId INTEGER NOT NULL,
         -- <descr>Unique identifier.</descr>
         -- <ucd>meta.id;obs.image</ucd>
+    filterName CHAR(1) NOT NULL,
+        -- <descr>Filter name.</descr>
+        -- <ucd>meta.id;instr.filter</ucd>
+    nExposures INT NOT NULL,
+        -- <descr>Number of exposures combined to produce this visit.</descr>
+    ra DOUBLE NOT NULL,
+        -- <descr>RA of focal plane center.</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    decl DOUBLE NOT NULL,
+        -- <descr>Decl of focal plane center.</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    altitude DOUBLE NOT NULL,
+        -- <descr>Altitude of focal plane center.</descr>
+        -- <unit>deg</unit>
+    azimuth DOUBLE NOT NULL,
+        -- <descr>Azimuth of focal plane center.</descr>
+        -- <unit>deg</unit>
+    rotation DOUBLE NOT NULL,
+        -- <descr>Rotation of the camera.</descr>
+        -- <unit>deg</unit>
+    programId INT NOT NULL,
+        -- <descr>Observing program id (e.g., universal cadence, or one of 
+        -- the deep drilling programs, etc.).</descr>
+    exposureType TINYINT NOT NULL,
+        -- <descr>Type of exposure (science exposure, dark, flat, etc.).
+        -- </descr>
+    zenithDistance FLOAT NOT NULL,
+        -- <descr>Zenith distance at observation mid-point.</descr>
+        -- <ucd>pos.az.zd</ucd>
+        -- <unit>deg</unit>
+    airmass FLOAT NOT NULL,
+        -- <Airmass of the observed line of sight.</descr>
+    obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        -- <descr>Start of the exposure at the fiducial center of the
+       -- focal plane array, TAI, accurate to 10ms.</descr>
+        -- <ucd>time.start</ucd>
+    expMidpt DOUBLE NOT NULL,
+        -- <descr>Midpoint for exposure at the fiducial center of the
+        -- focal plane array. TAI, accurate to 10ms.</descr>
+        -- <ucd>time.epoch</ucd>
+    expTime DOUBLE NOT NULL,
+        -- <descr>Average duration of exposure, accurate to 10ms.</descr>
+        -- <ucd>time.duration</ucd>
+        -- <unit>s</unit>
+    cameraTemp FLOAT NOT NULL,
+        -- <descr>Temperature measured of the camera.</descr>
+        -- <unit>K</unit>
+    mirror1Temp FLOAT NOT NULL,
+        -- <descr>Primary mirror temperature.</descr>
+        -- <unit>K</unit>
+    mirror2Temp FLOAT NOT NULL,
+        -- <descr>Secondary mirror temperature.</descr>
+        -- <unit>K</unit>
+    mirror3Temp FLOAT NOT NULL,
+        -- <descr>Tertiary mirror temperature.</descr>
+        -- <unit>K</unit>
+    domeTemp FLOAT NOT NULL,
+        -- <descr>Dome temperature.</descr>
+        -- <unit>K</unit>
+    externalTemp FLOAT NOT NULL,
+        -- <descr>Temperature outside the dome.</descr>
+        -- <unit>K</unit>
+    dimmSeeing FLOAT NOT NULL, 
+        -- <descr>Seeing measured by the differential image motion monitor.
+        -- </descr>
+        -- <unit>arcsec</unit>
+    pwvGPS FLOAT NOT NULL,
+        -- <descr> GPS-based measurement of precipitable water vapor (PVW).
+        -- </descr>
+        -- <unit>mm</unit>
+    pwvMW FLOAT NOT NULL,
+        -- <descr>Microwave radiometer measurement of PVW.</descr>
+        -- <unit>mm</unit>
+    flags INTEGER NOT NULL DEFAULT 0,
+        -- <descr>Flags, bitwise OR tbd</descr>
+        -- <ucd>meta.code</ucd>
     PRIMARY KEY PK_Visit (visitId)
 ) ENGINE=MyISAM;
 
