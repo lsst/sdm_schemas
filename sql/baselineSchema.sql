@@ -740,12 +740,52 @@ CREATE TABLE Object
         -- <descr>Uncertainty of psParallax.</descr>
         -- <ucd>stat.error;pos.parallax</ucd>
         -- <unit>mas</unit>
-    psFlux FLOAT NULL,
-        -- <descr>Calibrated flux for Point Source model.</descr>
+    uPsFlux FLOAT NULL,
+        -- <descr>Calibrated flux for Point Source model for u filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    psFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of psFlux.</descr>
+    uPsFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of uPsFlux.</descr>
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>nmgy</unit>
+    gPsFlux FLOAT NULL,
+        -- <descr>Calibrated flux for Point Source model for g filter.</descr>
+        -- <ucd>phot.count</ucd>
+        -- <unit>nmgy</unit>
+    gPsFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of gPsFlux.</descr>
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>nmgy</unit>
+    rPsFlux FLOAT NULL,
+        -- <descr>Calibrated flux for Point Source model for r filter.</descr>
+        -- <ucd>phot.count</ucd>
+        -- <unit>nmgy</unit>
+    rPsFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of rPsFlux.</descr>
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>nmgy</unit>
+    iPsFlux FLOAT NULL,
+        -- <descr>Calibrated flux for Point Source model for i filter.</descr>
+        -- <ucd>phot.count</ucd>
+        -- <unit>nmgy</unit>
+    iPsFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of iPsFlux.</descr>
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>nmgy</unit>
+    zPsFlux FLOAT NULL,
+        -- <descr>Calibrated flux for Point Source model for z filter.</descr>
+        -- <ucd>phot.count</ucd>
+        -- <unit>nmgy</unit>
+    zPsFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of zPsFlux.</descr>
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>nmgy</unit>
+    yPsFlux FLOAT NULL,
+        -- <descr>Calibrated flux for Point Source model for y filter.</descr>
+        -- <ucd>phot.count</ucd>
+        -- <unit>nmgy</unit>
+    yPsFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of yPsFlux.</descr>
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
     psLnL FLOAT NULL,
@@ -1545,9 +1585,9 @@ CREATE TABLE Object_Extra
         -- is approximated by a Gaussian. We are assuming on average
         -- [19x200 FLOAT].</descr>
     photoZ BLOB NOT NULL,
-        -- <descr>Photometric redshift likelihood samp<les – pairs of 
+        -- <descr>Photometric redshift likelihood samples – pairs of 
         -- (z, logL) – computed using a to-be-determined published and widely
-        -- accepted algorithm at the time of LSST Commissioning.
+        -- accepted algorithm at the time of LSST Commissioning. 
         -- [2x100 FLOAT].</descr>
     PRIMARY KEY PK_ObjectExtra (objectId)
 ) ENGINE=MyISAM;
@@ -2037,7 +2077,7 @@ CREATE TABLE RawCcdExposure
         -- <unit>pixel</unit>
     WCS BLOB NULL,
         -- <descr>A nominal WCS derives from telescope pointing information
-        -- (not fitted). [10x8 BYTES].
+        -- (not fitted). [10x8 BYTES].</descr>
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
@@ -2097,7 +2137,7 @@ CREATE TABLE RawExposure
         -- <ucd>pos.az.zd</ucd>
         -- <unit>deg</unit>
     airmass FLOAT NOT NULL,
-        -- <Airmass of the observed line of sight.</descr>
+        -- <descr>Airmass of the observed line of sight.</descr>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         -- <descr>Start of the exposure, TAI, accurate to 10ms.</descr>
         -- <ucd>time.start</ucd>
@@ -2308,7 +2348,7 @@ CREATE TABLE Visit
         -- <ucd>pos.az.zd</ucd>
         -- <unit>deg</unit>
     airmass FLOAT NOT NULL,
-        -- <Airmass of the observed line of sight.</descr>
+        -- <descr>Airmass of the observed line of sight.</descr>
     obsStart TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         -- <descr>Start of the exposure at the fiducial center of the
        -- focal plane array, TAI, accurate to 10ms.</descr>
