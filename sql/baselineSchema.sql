@@ -445,109 +445,109 @@ CREATE TABLE SSObject
     uH FLOAT NULL,
         -- <descr>Mean absolute magnitude for u filter.</descr>
         -- <unit>mag</unit>
-    uHSigma FLOAT NULL,
+    uHErr FLOAT NULL,
         -- <descr>Uncertainty of uH.</descr>
         -- <unit>mag</unit>
     uG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for u filter.</descr>
         -- <unit>mag</unit>
-    uG1Sigma FLOAT NULL,
+    uG1Err FLOAT NULL,
         -- <descr>Uncertainty of uG1.</descr>
         -- <unit>mag</unit>
     uG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for u filter.</descr>
         -- <unit>mag</unit>
-    uG2Sigma FLOAT NULL,
+    uG2Err FLOAT NULL,
         -- <descr>Uncertainty of uG2.</descr>
         -- <unit>mag</unit>
     gH FLOAT NULL,
         -- <descr>Mean absolute magnitude for g filter.</descr>
         -- <unit>mag</unit>
-    gHSigma FLOAT NULL,
+    gHErr FLOAT NULL,
         -- <descr>Uncertainty of gH.</descr>
         -- <unit>mag</unit>
     gG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for g filter.</descr>
         -- <unit>mag</unit>
-    gG1Sigma FLOAT NULL,
+    gG1Err FLOAT NULL,
         -- <descr>Uncertainty of gG1.</descr>
         -- <unit>mag</unit>
     gG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for g filter.</descr>
         -- <unit>mag</unit>
-    gG2Sigma FLOAT NULL,
+    gG2Err FLOAT NULL,
         -- <descr>Uncertainty of gG2.</descr>
         -- <unit>mag</unit>
     rH FLOAT NULL,
         -- <descr>Mean absolute magnitude for r filter.</descr>
         -- <unit>mag</unit>
-    rHSigma FLOAT NULL,
+    rHErr FLOAT NULL,
         -- <descr>Uncertainty of rH.</descr>
         -- <unit>mag</unit>
     rG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for r filter.</descr>
         -- <unit>mag</unit>
-    rG1Sigma FLOAT NULL,
+    rG1Err FLOAT NULL,
         -- <descr>Uncertainty of rG1.</descr>
         -- <unit>mag</unit>
     rG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for r filter.</descr>
         -- <unit>mag</unit>
-    rG2Sigma FLOAT NULL,
+    rG2Err FLOAT NULL,
         -- <descr>Uncertainty of rG2.</descr>
         -- <unit>mag</unit>
     iH FLOAT NULL,
         -- <descr>Mean absolute magnitude for i filter.</descr>
         -- <unit>mag</unit>
-    iHSigma FLOAT NULL,
+    iHErr FLOAT NULL,
         -- <descr>Uncertainty of iH.</descr>
         -- <unit>mag</unit>
     iG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for i filter.</descr>
         -- <unit>mag</unit>
-    iG1Sigma FLOAT NULL,
+    iG1Err FLOAT NULL,
         -- <descr>Uncertainty of iG1.</descr>
         -- <unit>mag</unit>
     iG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for i filter.</descr>
         -- <unit>mag</unit>
-    iG2Sigma FLOAT NULL,
+    iG2Err FLOAT NULL,
         -- <descr>Uncertainty of iG2.</descr>
         -- <unit>mag</unit>
     zH FLOAT NULL,
         -- <descr>Mean absolute magnitude for z filter.</descr>
         -- <unit>mag</unit>
-    zHSigma FLOAT NULL,
+    zHErr FLOAT NULL,
         -- <descr>Uncertainty of zH.</descr>
         -- <unit>mag</unit>
     zG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for z filter.</descr>
         -- <unit>mag</unit>
-    zG1Sigma FLOAT NULL,
+    zG1Err FLOAT NULL,
         -- <descr>Uncertainty of zG1.</descr>
         -- <unit>mag</unit>
     zG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for z filter.</descr>
         -- <unit>mag</unit>
-    zG2Sigma FLOAT NULL,
+    zG2Err FLOAT NULL,
         -- <descr>Uncertainty of zG2.</descr>
         -- <unit>mag</unit>
     yH FLOAT NULL,
         -- <descr>Mean absolute magnitude for y filter.</descr>
         -- <unit>mag</unit>
-    yHSigma FLOAT NULL,
+    yHErr FLOAT NULL,
         -- <descr>Uncertainty of yH.</descr>
         -- <unit>mag</unit>
     yG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for y filter.</descr>
        -- <unit>mag</unit>
-    yG1Sigma FLOAT NULL,
+    yG1Err FLOAT NULL,
         -- <descr>Uncertainty of yG1.</descr>
         -- <unit>mag</unit>
     yG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for y filter.</descr>
        -- <unit>mag</unit>
-    yG2Sigma FLOAT NULL,
+    yG2Err FLOAT NULL,
         -- <descr>Uncertainty of yG2.</descr>
         -- <unit>mag</unit>
     flags BIGINT NOT NULL DEFAULT 0,
@@ -1902,7 +1902,7 @@ CREATE TABLE Object_Extra
         -- digits of precision. The number of samples will vary from object to
         -- object, depending on how well the object’s likelihood function 
         -- is approximated by a Gaussian. We are assuming on average
-        -- [9x200 FLOAT16].</descr>
+        -- [9x200x4 FLOAT16].</descr>
     photoZ BLOB NOT NULL,
         -- <descr>Photometric redshift likelihood samples (pairs of 
         -- {z, logL}) computed using a to-be-determined published and widely
@@ -2137,7 +2137,7 @@ CREATE TABLE Source
     m4 FLOAT NULL,
         -- <descr>Fourth order adaptive moment.</descr>
     apN TINYINT NOT NULL,
-        -- <descr>Number of elliptical annuli (see below).</descr>
+        -- <descr>Number of elliptical annuli.</descr>
     flags BIGINT NOT NULL,
         -- <descr>Flags. Tbd.</descr>
     PRIMARY KEY PK_Source (sourceId),
