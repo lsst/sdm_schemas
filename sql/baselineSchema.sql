@@ -743,6 +743,66 @@ CREATE TABLE DiaSource
         -- implies a high degree of confidence that the source is extended.
         -- extendedness = 0 implies a high degree of confidence that the
         -- source is point-like.</descr>
+    apMeanSb01 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb01Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb02 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb02Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb03 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb03Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb04 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb04Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb05 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb05Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb06 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb06Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb07 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb07Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb08 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb08Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb09 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb09Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
+    apMeanSb10 FLOAT NULL,
+        -- <descr>Mean surface brightness at which the aperture measurement is
+        -- being performed.</descr>
+    apMeanSb10Sigma FLOAT NULL,
+        -- <descr>Standard deviation of pixel surface brightness in annulus.
+        -- </descr>
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
         -- <ucd>meta.code</ucd>
@@ -1844,8 +1904,8 @@ CREATE TABLE Object_Extra
         -- is approximated by a Gaussian. We are assuming on average
         -- [9x200 FLOAT16].</descr>
     photoZ BLOB NOT NULL,
-        -- <descr>Photometric redshift likelihood samples – pairs of 
-        -- (z, logL) – computed using a to-be-determined published and widely
+        -- <descr>Photometric redshift likelihood samples (pairs of 
+        -- {z, logL}) computed using a to-be-determined published and widely
         -- accepted algorithm at the time of LSST Commissioning. 
         -- [2x100 FLOAT].</descr>
     PRIMARY KEY PK_ObjectExtra (objectId)
