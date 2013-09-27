@@ -72,13 +72,9 @@ CREATE TABLE DiaObject
         -- <descr>Uncertainty of decl.</descr>
         -- <ucd>stat.error;pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    ra_Decl_Cov FLOAT NOT NULL,
+    ra_decl_Cov FLOAT NOT NULL,
         -- <descr>Covariance between ra and decl.</descr>
         -- <unit>deg^2</unit>
-    epoch DOUBLE NOT NULL,
-        -- <descr>Time at which the object was at a position ra/decl.</descr>
-        -- <ucd>time.epoch</ucd>
-        -- <unit>d</unit>
     muRa FLOAT NOT NULL,
         -- <descr>Proper motion (ra).</descr>
         -- <ucd>pos.pm</ucd>
@@ -109,12 +105,16 @@ CREATE TABLE DiaObject
         -- <unit>mas</unit>
     muRa_parallax_Cov FLOAT NOT NULL,
         -- <descr>Covariance of muRa and parallax.</descr>
-        -- <ucd>FIXME</ucd>
-        -- <unit>FIXME</unit>
     muDecl_parallax_Cov FLOAT NOT NULL,
         -- <descr>Covariance of muDecl and parallax.</descr>
-        -- <ucd>FIXME</ucd>
-        -- <unit>FIXME</unit>
+    parallaxLnL FLOAT NOT NULL,
+        -- <descr>Natural log of the likelihood of the linear
+        -- proper motion parallax fit.</descr>
+    parallaxChi2 FLOAT NOT NULL,
+        -- <descr>Chi^2 static of the model fit.</descr>
+    parallaxN INT NOT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- </descr>
     uPSFlux FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for 
         -- u filter.</descr>
@@ -245,6 +245,81 @@ CREATE TABLE DiaObject
         -- <descr>Uncertainty of yFPFlux.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
+    uLcPeriodic BLOB NULL,
+        -- <descr>Periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for u filter.
+        -- [32 FLOAT].</descr>
+    gLcPeriodic BLOB NULL,
+        -- <descr>Periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for g filter.
+        -- [32 FLOAT].</descr>
+    rLcPeriodic BLOB NULL,
+        -- <descr>Periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for r filter.
+        -- [32 FLOAT].</descr>
+    iLcPeriodic BLOB NULL,
+        -- <descr>Periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for i filter.
+        -- [32 FLOAT].</descr>
+    zLcPeriodic BLOB NULL,
+        -- <descr>Periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for z filter.
+        -- [32 FLOAT].</descr>
+    yLcPeriodic BLOB NULL,
+        -- <descr>Periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for y filter.
+        -- [32 FLOAT].</descr>
+    uLcNonPeriodic BLOB NULL,
+        -- <descr>Non-periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for u filter.
+        -- [20 FLOAT].</descr>
+    gLcNonPeriodic BLOB NULL,
+        -- <descr>Non-periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for g filter.
+        -- [20 FLOAT].</descr>
+    rLcNonPeriodic BLOB NULL,
+        -- <descr>Non-periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for r filter.
+        -- [20 FLOAT].</descr>
+    iLcNonPeriodic BLOB NULL,
+        -- <descr>Non-periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for i filter.
+        -- [20 FLOAT].</descr>
+    zLcNonPeriodic BLOB NULL,
+        -- <descr>Non-periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for z filter.
+        -- [20 FLOAT].</descr>
+    yLcNonPeriodic BLOB NULL,
+        -- <descr>Non-periodic features extracted from light-curves using
+        -- generalized Lomb-Scargle periodogram for y filter.
+        -- [20 FLOAT].</descr>
+    nearbyObj1 BIGINT NULL,
+        -- <descr>Id of the closest nearby object.</descr>
+        -- <ucd>meta.id;src</ucd>
+    nearbyObj1Dist FLOAT NULL,
+        -- <descr>Distance to nearbyObj1.</descr>
+        -- <unit>arcsec</unit>
+    nearbyObj1LnP FLOAT NULL,
+        -- <descr>Natural log of the probability that the observed diaObject
+        -- is the same as the nearbyObj1.</descr>
+    nearbyObj2 BIGINT NULL,
+        -- <descr>Id of the second-closest nearby object.</descr>
+        -- <ucd>meta.id;src</ucd>
+    nearbyObj2Dist FLOAT NULL,
+        -- <descr>Distance to nearbyObj2.</descr>
+        -- <unit>arcsec</unit>
+    nearbyObj2LnP FLOAT NULL,
+        -- <descr>Natural log of the probability that the observed diaObject
+        -- is the same as the nearbyObj2.</descr>
+    nearbyObj3 BIGINT NULL,
+        -- <descr>Id of the third-closest nearby object.</descr>
+        -- <ucd>meta.id;src</ucd>
+    nearbyObj3Dist FLOAT NULL,
+        -- <descr>Distance to nearbyObj3.</descr>
+        -- <unit>arcsec</unit>
+    nearbyObj3LnP FLOAT NULL,
+        -- <descr>Natural log of the probability that the observed diaObject
+        -- is the same as the nearbyObj3.</descr>
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
         -- <ucd>meta.code</ucd>
@@ -350,7 +425,10 @@ CREATE TABLE SSObject
     orbFitLnL FLOAT NULL,
         -- <descr>Natural log of the likelihood of the orbital 
         -- elements fit.</descr>
-    nOrbFit INTEGER NULL,
+    orbFitChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic of the orbital elements fit.
+        -- </descr>
+    orbFitN INTEGER NULL,
         -- <descr>Number of observations used in the fit.</descr>
     MOID1 FLOAT NULL,
         -- <descr>Minimum orbit intersection distance.</descr>
@@ -370,11 +448,17 @@ CREATE TABLE SSObject
     uHSigma FLOAT NULL,
         -- <descr>Uncertainty of uH.</descr>
         -- <unit>mag</unit>
-    uG FLOAT NULL,
-        -- <descr>Fitted slope parameter for u filter.</descr>
+    uG1 FLOAT NULL,
+        -- <descr>Fitted G1 slope parameter for u filter.</descr>
         -- <unit>mag</unit>
-    uGSigma FLOAT NULL,
-        -- <descr>Uncertainty of uG.</descr>
+    uG1Sigma FLOAT NULL,
+        -- <descr>Uncertainty of uG1.</descr>
+        -- <unit>mag</unit>
+    uG2 FLOAT NULL,
+        -- <descr>Fitted G2 slope parameter for u filter.</descr>
+        -- <unit>mag</unit>
+    uG2Sigma FLOAT NULL,
+        -- <descr>Uncertainty of uG2.</descr>
         -- <unit>mag</unit>
     gH FLOAT NULL,
         -- <descr>Mean absolute magnitude for g filter.</descr>
@@ -382,11 +466,17 @@ CREATE TABLE SSObject
     gHSigma FLOAT NULL,
         -- <descr>Uncertainty of gH.</descr>
         -- <unit>mag</unit>
-    gG FLOAT NULL,
-        -- <descr>Fitted slope parameter for g filter.</descr>
+    gG1 FLOAT NULL,
+        -- <descr>Fitted G1 slope parameter for g filter.</descr>
         -- <unit>mag</unit>
-    gGSigma FLOAT NULL,
-        -- <descr>Uncertainty of gG.</descr>
+    gG1Sigma FLOAT NULL,
+        -- <descr>Uncertainty of gG1.</descr>
+        -- <unit>mag</unit>
+    gG2 FLOAT NULL,
+        -- <descr>Fitted G2 slope parameter for g filter.</descr>
+        -- <unit>mag</unit>
+    gG2Sigma FLOAT NULL,
+        -- <descr>Uncertainty of gG2.</descr>
         -- <unit>mag</unit>
     rH FLOAT NULL,
         -- <descr>Mean absolute magnitude for r filter.</descr>
@@ -394,11 +484,17 @@ CREATE TABLE SSObject
     rHSigma FLOAT NULL,
         -- <descr>Uncertainty of rH.</descr>
         -- <unit>mag</unit>
-    rG FLOAT NULL,
-        -- <descr>Fitted slope parameter for r filter.</descr>
+    rG1 FLOAT NULL,
+        -- <descr>Fitted G1 slope parameter for r filter.</descr>
         -- <unit>mag</unit>
-    rGSigma FLOAT NULL,
-        -- <descr>Uncertainty of rG.</descr>
+    rG1Sigma FLOAT NULL,
+        -- <descr>Uncertainty of rG1.</descr>
+        -- <unit>mag</unit>
+    rG2 FLOAT NULL,
+        -- <descr>Fitted G2 slope parameter for r filter.</descr>
+        -- <unit>mag</unit>
+    rG2Sigma FLOAT NULL,
+        -- <descr>Uncertainty of rG2.</descr>
         -- <unit>mag</unit>
     iH FLOAT NULL,
         -- <descr>Mean absolute magnitude for i filter.</descr>
@@ -406,11 +502,17 @@ CREATE TABLE SSObject
     iHSigma FLOAT NULL,
         -- <descr>Uncertainty of iH.</descr>
         -- <unit>mag</unit>
-    iG FLOAT NULL,
-        -- <descr>Fitted slope parameter for i filter.</descr>
+    iG1 FLOAT NULL,
+        -- <descr>Fitted G1 slope parameter for i filter.</descr>
         -- <unit>mag</unit>
-    iGSigma FLOAT NULL,
-        -- <descr>Uncertainty of iG.</descr>
+    iG1Sigma FLOAT NULL,
+        -- <descr>Uncertainty of iG1.</descr>
+        -- <unit>mag</unit>
+    iG2 FLOAT NULL,
+        -- <descr>Fitted G2 slope parameter for i filter.</descr>
+        -- <unit>mag</unit>
+    iG2Sigma FLOAT NULL,
+        -- <descr>Uncertainty of iG2.</descr>
         -- <unit>mag</unit>
     zH FLOAT NULL,
         -- <descr>Mean absolute magnitude for z filter.</descr>
@@ -418,11 +520,17 @@ CREATE TABLE SSObject
     zHSigma FLOAT NULL,
         -- <descr>Uncertainty of zH.</descr>
         -- <unit>mag</unit>
-    zG FLOAT NULL,
-        -- <descr>Fitted slope parameter for z filter.</descr>
+    zG1 FLOAT NULL,
+        -- <descr>Fitted G1 slope parameter for z filter.</descr>
         -- <unit>mag</unit>
-    zGSigma FLOAT NULL,
-        -- <descr>Uncertainty of zG.</descr>
+    zG1Sigma FLOAT NULL,
+        -- <descr>Uncertainty of zG1.</descr>
+        -- <unit>mag</unit>
+    zG2 FLOAT NULL,
+        -- <descr>Fitted G2 slope parameter for z filter.</descr>
+        -- <unit>mag</unit>
+    zG2Sigma FLOAT NULL,
+        -- <descr>Uncertainty of zG2.</descr>
         -- <unit>mag</unit>
     yH FLOAT NULL,
         -- <descr>Mean absolute magnitude for y filter.</descr>
@@ -430,11 +538,17 @@ CREATE TABLE SSObject
     yHSigma FLOAT NULL,
         -- <descr>Uncertainty of yH.</descr>
         -- <unit>mag</unit>
-    yG FLOAT NULL,
-        -- <descr>Fitted slope parameter for y filter.</descr>
+    yG1 FLOAT NULL,
+        -- <descr>Fitted G1 slope parameter for y filter.</descr>
        -- <unit>mag</unit>
-    yGSigma FLOAT NULL,
-        -- <descr>Uncertainty of yG.</descr>
+    yG1Sigma FLOAT NULL,
+        -- <descr>Uncertainty of yG1.</descr>
+        -- <unit>mag</unit>
+    yG2 FLOAT NULL,
+        -- <descr>Fitted G2 slope parameter for y filter.</descr>
+       -- <unit>mag</unit>
+    yG2Sigma FLOAT NULL,
+        -- <descr>Uncertainty of yG2.</descr>
         -- <unit>mag</unit>
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
@@ -467,6 +581,10 @@ CREATE TABLE DiaSource
         -- If not, it is set to NULL (each diaSource will be associated with
         -- either a diaObject or ssObject).</descr>
         -- <ucd>meta.id;src</ucd>
+    parentDiaSourceId BIGINT NULL,
+        -- <descr>Id of the parent diaSource this diaObject has been deblended
+        -- from, if any.</descr>
+        -- <ucd>meta.id;src</ucd>
     filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter used to take the Visit where this
         -- diaSource was measured.</descr>
@@ -496,7 +614,7 @@ CREATE TABLE DiaSource
         -- <descr>Uncertainty of decl.</descr>
         -- <ucd>stat.error;pos.eq.dec</ucd>
         -- <unit>deg</unit>
-    ra_Decl_Cov FLOAT NOT NULL,
+    ra_decl_Cov FLOAT NOT NULL,
         -- <descr>Covariance between ra and decl.</descr>
         -- <unit>deg^2</unit>
     x FLOAT NOT NULL,
@@ -533,6 +651,11 @@ CREATE TABLE DiaSource
     psLnL FLOAT NULL,
         -- <descr>Natural log likelihood of the observed data given the Point
         -- Source model.</descr>
+    psChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit.</descr>
+    psN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- </descr>
     trailFlux FLOAT NULL,
         -- <descr>Calibrated flux for a trailed source model. Note this
         -- actually measures the flux difference between the template and the
@@ -554,15 +677,20 @@ CREATE TABLE DiaSource
     trailAngleSigma FLOAT NULL,
         -- <descr>Uncertainty of trailAngle.</descr>
         -- <unit>nmgy</unit>
-    trailLnL FLOAT NULL,
-        -- <descr>Natural log likelihood of the observed data given the trailed
-        -- Point Source model.</descr>
     trailFlux_trailLength_Cov FLOAT NULL,
         -- <descr>Covariance of trailFlux and trailLength</descr>
     trailFlux_trailAngle_Cov FLOAT NULL,
         -- <descr>Covariance of trailFlux and trailAngle</descr>
     trailLength_trailAngle_Cov FLOAT NULL,
         -- <descr>Covariance of trailLength and trailAngle</descr>
+    trailLnL FLOAT NULL,
+        -- <descr>Natural log likelihood of the observed data given the trailed
+        -- Point Source model.</descr>
+    trailChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit.</descr>
+    trailN INT NULL,
+        -- <descr>The number of data points (pixels) used to fix the model.
+        -- </descr>
     fpFlux FLOAT NULL,
         -- <descr>Calibrated flux for Point Source model measured on the visit
         -- image centered at the centroid measured on the difference image
@@ -573,6 +701,21 @@ CREATE TABLE DiaSource
         -- <descr>Uncertainty of fpFlux</descr>
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
+    diffFlux FLOAT NULL,
+        -- <descr>Calibrated flux for Point Source model centered on radec but
+        -- measured on the difference of snaps comprising this visit.</descr>
+        -- <unit>nmgy</unit>
+    diffFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of diffFlux</descr>
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>nmgy</unit>
+    fpSky FLOAT NULL,
+        -- <descr>Estimated sky background at the position (centroid) of the
+        -- object.</descr>
+        -- <unit>nmgy/asec^2</unit>
+    fpSkySigma FLOAT NULL,
+        -- <descr>Uncertainty of fpSky.</descr>
+        -- <unit>nmgy/asec^2</unit>
     E1 FLOAT NULL,
         -- <descr>Adaptive e1 shape measure of the source as measured on the
         -- difference image.</descr>
@@ -694,10 +837,6 @@ CREATE TABLE Object
         -- if any.</descr>
     procHistoryId BIGINT NOT NULL,
         -- <descr>Pointer to ProcessingHistory table.</descr>
-    psEpoch DOUBLE,
-        -- <descr>Point Source model: Time at which the object was at position
-        -- (psRa, psDecl).</descr>
-        -- <unit>time</unit>
     psRa DOUBLE NULL,
         -- <descr>RA-coordinate of the center of the object for the Point 
         -- Source model at time 'psEpoch'.</descr>
@@ -732,7 +871,7 @@ CREATE TABLE Object
         -- <descr>Uncertainty of psMuDecl.</descr>
         -- <ucd>stat.error;pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    psParallax DOUBLE NULL,
+    psParallax FLOAT NULL,
         -- <descr>Stellar parallax. for the Point Source model.</descr>
         -- <ucd>pos.parallax</ucd>
         -- <unit>mas</unit>
@@ -791,6 +930,11 @@ CREATE TABLE Object
     psLnL FLOAT NULL,
         -- <descr>Natural log likelihood of the observed data given 
         -- the Point Source model.</descr>
+    psChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit.</descr>
+    psN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- </descr>
     bdRa DOUBLE NULL,
         -- <descr>RA-coordinate of the center of the object for the 
         -- Bulge+Disk model at time radecTai.</descr>
@@ -835,6 +979,28 @@ CREATE TABLE Object
     uBdFluxDSigma FLOAT NULL,
         -- <descr>Uncertainty of uBdFluxD.</descr>
         -- <unit>nmgy</unit>
+    uBdReB FLOAT NULL,
+        -- <descr>Effective radius of the de Vaucouleurs profile component for
+        -- the Bulge+Disk model. For u filter.</descr>
+        -- <unit>arcsec</unit>
+    uBdReBSigma FLOAT NULL,
+        -- <descr>Uncertainty of uBdReB.</descr>
+        -- <unit>arcsec</unit>
+    uBdReD FLOAT NULL,
+        -- <descr>Effective radius of the exponential profile component for the
+        -- Bulge+Disk model. For u filter.</descr>
+        -- <unit>arcsec</unit>
+    uBdReDSigma FLOAT NULL,
+        -- <descr>Uncertainty of uBdReD.</descr>
+        -- <unit>arcsec</unit>
+    uBdLnL FLOAT NULL,
+        -- <descr>Natural log likelihood of the observed data given the
+        -- Bulge+Disk model. For u filter.</descr>
+    uBdChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit. For u filter.</descr>
+    uBdN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- For u filter.</descr>
     gBdFluxB FLOAT  NULL,
         -- <descr>Integrated flux of the de Vaucouleurs component for the
         -- Bulge+Disk model. For g filter.</descr>
@@ -849,6 +1015,28 @@ CREATE TABLE Object
     gBdFluxDSigma FLOAT NULL,
         -- <descr>Uncertainty of gBdFluxD.</descr>
         -- <unit>nmgy</unit>
+    gBdReB FLOAT NULL,
+        -- <descr>Effective radius of the de Vaucouleurs profile component for
+        -- the Bulge+Disk model. For g filter.</descr>
+        -- <unit>arcsec</unit>
+    gBdReBSigma FLOAT NULL,
+        -- <descr>Uncertainty of gBdReB.</descr>
+        -- <unit>arcsec</unit>
+    gBdReD FLOAT NULL,
+        -- <descr>Effective radius of the exponential profile component for the
+        -- Bulge+Disk model. For g filter.</descr>
+        -- <unit>arcsec</unit>
+    gBdReDSigma FLOAT NULL,
+        -- <descr>Uncertainty of gBdReD.</descr>
+        -- <unit>arcsec</unit>
+    gBdLnL FLOAT NULL,
+        -- <descr>Natural log likelihood of the observed data given the
+        -- Bulge+Disk model. For g filter.</descr>
+    gBdChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit. For g filter.</descr>
+    gBdN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- For g filter.</descr>
     rBdFluxB FLOAT NULL,
         -- <descr>Integrated flux of the de Vaucouleurs component for the
         -- Bulge+Disk model. For r filter.</descr>
@@ -863,6 +1051,28 @@ CREATE TABLE Object
     rBdFluxDSigma FLOAT NULL,
         -- <descr>Uncertainty of rBdFluxD.</descr>
         -- <unit>nmgy</unit>
+    rBdReB FLOAT NULL,
+        -- <descr>Effective radius of the de Vaucouleurs profile component for
+        -- the Bulge+Disk model. For r filter.</descr>
+        -- <unit>arcsec</unit>
+    rBdReBSigma FLOAT NULL,
+        -- <descr>Uncertainty of rBdReB.</descr>
+        -- <unit>arcsec</unit>
+    rBdReD FLOAT NULL,
+        -- <descr>Effective radius of the exponential profile component for the
+        -- Bulge+Disk model. For r filter.</descr>
+        -- <unit>arcsec</unit>
+    rBdReDSigma FLOAT NULL,
+        -- <descr>Uncertainty of rBdReD.</descr>
+        -- <unit>arcsec</unit>
+    rBdLnL FLOAT NULL,
+        -- <descr>Natural log likelihood of the observed data given the
+        -- Bulge+Disk model. For r filter.</descr>
+    rBdChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit. For r filter.</descr>
+    rBdN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- For r filter.</descr>
     iBdFluxB FLOAT NULL,
         -- <descr>Integrated flux of the de Vaucouleurs component for the
         -- Bulge+Disk model. For i filter.</descr>
@@ -877,6 +1087,28 @@ CREATE TABLE Object
     iBdFluxDSigma FLOAT NULL,
         -- <descr>Uncertainty of iBdFluxD.</descr>
         -- <unit>nmgy</unit>
+    iBdReB FLOAT NULL,
+        -- <descr>Effective radius of the de Vaucouleurs profile component for
+        -- the Bulge+Disk model. For i filter.</descr>
+        -- <unit>arcsec</unit>
+    iBdReBSigma FLOAT NULL,
+        -- <descr>Uncertainty of iBdReB.</descr>
+        -- <unit>arcsec</unit>
+    iBdReD FLOAT NULL,
+        -- <descr>Effective radius of the exponential profile component for the
+        -- Bulge+Disk model. For i filter.</descr>
+        -- <unit>arcsec</unit>
+    iBdReDSigma FLOAT NULL,
+        -- <descr>Uncertainty of iBdReD.</descr>
+        -- <unit>arcsec</unit>
+    iBdLnL FLOAT NULL,
+        -- <descr>Natural log likelihood of the observed data given the
+        -- Bulge+Disk model. For i filter.</descr>
+    iBdChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit. For i filter.</descr>
+    iBdN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- For i filter.</descr>
     zBdFluxB FLOAT NULL,
         -- <descr>Integrated flux of the de Vaucouleurs component for the
         -- Bulge+Disk model. For z filter.</descr>
@@ -891,6 +1123,28 @@ CREATE TABLE Object
     zBdFluxDSigma FLOAT NULL,
         -- <descr>Uncertainty of zBdFluxD.</descr>
         -- <unit>nmgy</unit>
+    zBdReB FLOAT NULL,
+        -- <descr>Effective radius of the de Vaucouleurs profile component for
+        -- the Bulge+Disk model. For z filter.</descr>
+        -- <unit>arcsec</unit>
+    zBdReBSigma FLOAT NULL,
+        -- <descr>Uncertainty of zBdReB.</descr>
+        -- <unit>arcsec</unit>
+    zBdReD FLOAT NULL,
+        -- <descr>Effective radius of the exponential profile component for the
+        -- Bulge+Disk model. For z filter.</descr>
+        -- <unit>arcsec</unit>
+    zBdReDSigma FLOAT NULL,
+        -- <descr>Uncertainty of zBdReD.</descr>
+        -- <unit>arcsec</unit>
+    zBdLnL FLOAT NULL,
+        -- <descr>Natural log likelihood of the observed data given the
+        -- Bulge+Disk model. For z filter.</descr>
+    zBdChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit. For z filter.</descr>
+    zBdN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- For z filter.</descr>
     yBdFluxB FLOAT NULL,
         -- <descr>Integrated flux of the de Vaucouleurs component for the
         -- Bulge+Disk model. For y filter.</descr>
@@ -905,23 +1159,28 @@ CREATE TABLE Object
     yBdFluxDSigma FLOAT NULL,
         -- <descr>Uncertainty of yBdFluxD.</descr>
         -- <unit>nmgy</unit>
-    bdReB FLOAT NULL,
+    yBdReB FLOAT NULL,
         -- <descr>Effective radius of the de Vaucouleurs profile component for
-        -- the Bulge+Disk model.</descr>
+        -- the Bulge+Disk model. For y filter.</descr>
         -- <unit>arcsec</unit>
-    bdReBSigma FLOAT NULL,
-        -- <descr>Uncertainty of bdReB.</descr>
+    yBdReBSigma FLOAT NULL,
+        -- <descr>Uncertainty of yBdReB.</descr>
         -- <unit>arcsec</unit>
-    bdReD FLOAT NULL,
+    yBdReD FLOAT NULL,
         -- <descr>Effective radius of the exponential profile component for the
-        -- Bulge+Disk model.</descr>
+        -- Bulge+Disk model. For y filter.</descr>
         -- <unit>arcsec</unit>
-    bdReDSigma FLOAT NULL,
-        -- <descr>Uncertainty of bdReD.</descr>
+    yBdReDSigma FLOAT NULL,
+        -- <descr>Uncertainty of yBdReD.</descr>
         -- <unit>arcsec</unit>
-    bdLnL FLOAT NULL,
+    yBdLnL FLOAT NULL,
         -- <descr>Natural log likelihood of the observed data given the
-        -- Bulge+Disk model.</descr>
+        -- Bulge+Disk model. For y filter.</descr>
+    yBdChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit. For y filter.</descr>
+    yBdN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- For y filter.</descr>
     ugStd FLOAT NOT NULL,
         -- <descr>Color of the object measured in 'standard seeing'. While
         -- the exact algorithm is yet to be determined, this color is
@@ -1419,7 +1678,7 @@ CREATE TABLE Object
     yKronRadSigma FLOAT NULL,
         -- <descr>Uncertainty of yKronRad.</descr>
         -- <unit>arcsec</unit>
-    kronFilter INT NOT NULL,
+    kronFilter CHAR(1) NOT NULL,
         -- <descr>The filter of the canonical kronRad.</descr>
     uKronFlux FLOAT NULL,
         -- <descr>Kron flux within a defined multiple of the canonical kronRad
@@ -1535,17 +1794,17 @@ CREATE TABLE Object
     yKronRad90Sigma FLOAT NULL,
         -- <descr>Uncertainty of yKronRad90.</descr>
         -- <unit>arcsec</unit>
-    uApN INT NOT NULL,
+    uApN TINYINT NOT NULL,
         -- <descr>Number of elliptical annuli (see below) for u filter.</descr>
-    gApN INT NOT NULL,
+    gApN TINYINT NOT NULL,
         -- <descr>Number of elliptical annuli (see below) for g filter.</descr>
-    rApN INT NOT NULL,
+    rApN TINYINT NOT NULL,
         -- <descr>Number of elliptical annuli (see below) for r filter.</descr>
-    iApN INT NOT NULL,
+    iApN TINYINT NOT NULL,
         -- <descr>Number of elliptical annuli (see below) for i filter.</descr>
-    zApN INT NOT NULL,
+    zApN TINYINT NOT NULL,
         -- <descr>Number of elliptical annuli (see below) for z filter.</descr>
-    yApN INT NOT NULL,
+    yApN TINYINT NOT NULL,
         -- <descr>Number of elliptical annuli (see below) for y filter.</descr>
     extendedness FLOAT NOT NULL,
         -- <descr>A measure of extendedness, computed using a combination of
@@ -1572,7 +1831,7 @@ CREATE TABLE Object_Extra
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;src</ucd>
     psCov BLOB NULL,
-        -- <descr>Various covariances for Point Source model. 60 TINYINTs.
+        -- <descr>Various covariances for Point Source model. 66 TINYINTs.
         -- </descr>
     bdCov BLOB NULL,
         -- <descr>Covariance matrix for the Bulge+Disk model. 153 TINYINTs.
@@ -1583,7 +1842,7 @@ CREATE TABLE Object_Extra
         -- digits of precision. The number of samples will vary from object to
         -- object, depending on how well the object’s likelihood function 
         -- is approximated by a Gaussian. We are assuming on average
-        -- [19x200 FLOAT].</descr>
+        -- [9x200 FLOAT16].</descr>
     photoZ BLOB NOT NULL,
         -- <descr>Photometric redshift likelihood samples – pairs of 
         -- (z, logL) – computed using a to-be-determined published and widely
@@ -1690,6 +1949,13 @@ CREATE TABLE Source
         -- <descr>Pointer to ProcessingHistory table.</descr>
     htmId20 BIGINT NOT NULL,
         -- <descr>HTM index.</descr>
+    sky FLOAT NULL,
+        -- <descr>Estimated sky background at the position (centroid) of the
+        -- source.</descr>
+        -- <unit>nmgy/asec^2</unit>
+    skySigma FLOAT NULL,
+        -- <descr>Uncertainty of sky.</descr>
+        -- <unit>nmgy/asec^2</unit>
     psFlux FLOAT NULL,
         -- <descr>Calibrated flux for Point Source model.</descr>
         -- <ucd>phot.count</ucd>
@@ -1719,6 +1985,11 @@ CREATE TABLE Source
     psLnL FLOAT NULL,
         -- <descr>Natural log likelihood of the observed data given the 
         -- Point Source model.</descr>
+    psChi2 FLOAT NULL,
+        -- <descr>Chi^2 static of the model fit.</descr>
+    psN INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- </descr>
     psRa DOUBLE NULL,
         -- <descr>RA-coordinate of the center of the object for the Point 
         -- Source model at time radecTai.</descr>
@@ -1805,7 +2076,7 @@ CREATE TABLE Source
         -- <descr>Uncertainty of mSum.</descr>
     m4 FLOAT NULL,
         -- <descr>Fourth order adaptive moment.</descr>
-    apN INT NOT NULL,
+    apN TINYINT NOT NULL,
         -- <descr>Number of elliptical annuli (see below).</descr>
     flags BIGINT NOT NULL,
         -- <descr>Flags. Tbd.</descr>
