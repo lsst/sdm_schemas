@@ -105,7 +105,7 @@ CREATE TABLE md_Table (
 	name VARCHAR(255) NOT NULL UNIQUE,
 	engine VARCHAR(255),
 	description TEXT
-);
+) ENGINE=MyISAM;
 
 CREATE TABLE md_Column (
 	columnId INTEGER NOT NULL PRIMARY KEY,
@@ -119,7 +119,7 @@ CREATE TABLE md_Column (
 	ucd VARCHAR(255),
         displayOrder INTEGER NOT NULL,
 	INDEX md_Column_idx (tableId, name)
-);
+) ENGINE=MyISAM;
 
 CREATE TABLE md_Index (
 	indexId INTEGER NOT NULL PRIMARY KEY,
@@ -127,12 +127,12 @@ CREATE TABLE md_Index (
 	type VARCHAR(64) NOT NULL,
 	columns VARCHAR(255) NOT NULL,
 	INDEX md_Column_idx (tableId)
-) ;
+) ENGINE=MyISAM;
 
 CREATE TABLE md_DbDescr (
 	schemaFile VARCHAR(255),
 	revision VARCHAR(64)
-);
+) ENGINE=MyISAM;
 
 """
 
