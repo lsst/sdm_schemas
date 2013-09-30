@@ -293,6 +293,33 @@ CREATE TABLE DiaObject
         -- <descr>Non-periodic features extracted from light-curves using
         -- generalized Lomb-Scargle periodogram for y filter.
         -- [20 FLOAT].</descr>
+    nearbyObj1 BIGINT NULL,
+        -- <descr>Id of the closest nearby object.</descr>
+        -- <ucd>meta.id;src</ucd>
+    nearbyObj1Dist FLOAT NULL,
+        -- <descr>Distance to nearbyObj1.</descr>
+        -- <unit>arcsec</unit>
+    nearbyObj1LnP FLOAT NULL,
+        -- <descr>Natural log of the probability that the observed diaObject
+        -- is the same as the nearbyObj1.</descr>
+    nearbyObj2 BIGINT NULL,
+        -- <descr>Id of the second-closest nearby object.</descr>
+        -- <ucd>meta.id;src</ucd>
+    nearbyObj2Dist FLOAT NULL,
+        -- <descr>Distance to nearbyObj2.</descr>
+        -- <unit>arcsec</unit>
+    nearbyObj2LnP FLOAT NULL,
+        -- <descr>Natural log of the probability that the observed diaObject
+        -- is the same as the nearbyObj2.</descr>
+    nearbyObj3 BIGINT NULL,
+        -- <descr>Id of the third-closest nearby object.</descr>
+        -- <ucd>meta.id;src</ucd>
+    nearbyObj3Dist FLOAT NULL,
+        -- <descr>Distance to nearbyObj3.</descr>
+        -- <unit>arcsec</unit>
+    nearbyObj3LnP FLOAT NULL,
+        -- <descr>Natural log of the probability that the observed diaObject
+        -- is the same as the nearbyObj3.</descr>
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
         -- <ucd>meta.code</ucd>
@@ -2071,9 +2098,9 @@ CREATE TABLE Object_Periodic
         -- <ucd>meta.id;src</ucd>
     filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter.</descr>
-    feature TINYINT NOT NULL,
+    theFeature TINYINT NOT NULL,
         -- <descr>Feature/metric identifier.</descr>
-    value FLOAT NOT NULL,
+    theValue FLOAT NOT NULL,
         -- <descr>Feature/metric value.</descr>
     INDEX IDX_ObjectPeriodic_objectId (objectId)
 ) ENGINE=MyISAM;
@@ -2089,9 +2116,9 @@ CREATE TABLE Object_NonPeriodic
         -- <ucd>meta.id;src</ucd>
     filterName CHAR(1) NOT NULL,
         -- <descr>Name of the filter.</descr>
-    feature TINYINT NOT NULL,
+    theFeature TINYINT NOT NULL,
         -- <descr>Feature/metric identifier.</descr>
-    value FLOAT NOT NULL,
+    theValue FLOAT NOT NULL,
         -- <descr>Feature/metric value.</descr>
     INDEX IDX_ObjectNonPeriodic_objectId (objectId)
 ) ENGINE=MyISAM;
