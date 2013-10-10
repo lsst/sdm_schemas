@@ -2047,7 +2047,7 @@ CREATE TABLE Object_Extra
         -- </descr>
     bdCov BLOB NULL,
         -- <descr>Covariance matrix for the Bulge+Disk model. 168 TINYINTs.
-        -- [((8x9/2)-8)*6]-</descr>
+        -- [((8x9/2)-8)*6].</descr>
     bdSamples BLOB NULL,
         -- <descr>Independent samples of Bulge+Disk likelihood surface. All
         -- sampled quantities will be stored with at lease ~3 significant
