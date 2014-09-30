@@ -157,8 +157,14 @@ CREATE TABLE Science_Ccd_Exposure
         -- <descr>Date.</descr>
     filterId TINYINT NOT NULL,
         -- <descr>Filter Id.</descr>
+    filterName CHAR(2) NOT NULL,
+        -- <descr>Filter Name.</descr>
     visit BIGINT NOT NULL,
         -- <descr>Visit Id.</descr>
+    ccd SMALLINT NOT NULL,
+        -- <descr>CCD Nbr.</descr>
+    ccdName CHAR(5) NOT NULL,
+        -- <descr>CCD Name.</descr>
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of image center, corresponding to FITS
         -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
