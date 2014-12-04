@@ -31,6 +31,9 @@ import time
 import lsst.daf.persistence as dafPersist
 import lsst.cat.SqlScript as SqlScript
 
+DbHost = "lsst10.ncsa.illinois.edu"
+DbPort = 3306
+
 class TimeFuncTestCase(unittest.TestCase):
     """A test case for SQL time functions."""
 
@@ -38,12 +41,12 @@ class TimeFuncTestCase(unittest.TestCase):
         testId = int(time.time() * 10.0)
 
         self.dbName = "test_%d" % testId
-        dbUrl = "mysql://lsst10.ncsa.uiuc.edu:3306/" + self.dbName
+        dbUrl = "mysql://{}:{}/".format(DbHost, DbPort) + self.dbName
 
         self.db = dafPersist.DbStorage()
 
         self.db.setRetrieveLocation(dafPersist.LogicalLocation(
-            "mysql://lsst10.ncsa.uiuc.edu:3306/test"))
+            "mysql://{}:{}/test".format(DbHost, DbPort)))
         self.db.startTransaction()
         self.db.executeSql("CREATE DATABASE " + self.dbName)
         self.db.endTransaction()
@@ -142,4 +145,8 @@ def suite():
     return unittest.makeSuite(TimeFuncTestCase)
 
 if __name__ == '__main__':
-    unittest.main()
+    if os.uname()[1].endswith(".ncsa.illinois.edu") and \
+            dafPersist.DbAuth.available(DbHost, str(DbPort)):
+        unittest.main()
+    else:
+        print "Skipping test: not at NCSA or no database credentials."
