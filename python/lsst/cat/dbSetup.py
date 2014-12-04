@@ -34,18 +34,23 @@ class DbSetup(MySQLBase):
     This file contains a set of utilities to manage per-user databases
     """
 
-    def __init__(self, dbHostName, portNo, userName, userPwd):
+    def __init__(self, dbHostName, portNo, userName, userPwd,
+                 dirEnviron="CAT_DIR", subDir="sql", userDb=""):
+        '''
+        This defaults to values for the cat database.
+        '''
         MySQLBase.__init__(self, dbHostName, portNo)
-
+        self.userName = userName
         if self.userName == "":
             raise RuntimeError("Invalid (empty) userName")
-        self.userName = userName
         self.userPwd = userPwd
-        self.sqlDir = os.path.join(os.environ["CAT_DIR"], "sql")
+        self.sqlDir = os.path.join(os.environ[dirEnviron], subDir)
         if not os.path.exists(self.sqlDir):
             raise RuntimeError("Directory '%s' not found" % self.sqlDir)
-        self.userDb = '%s_dev' % userName
-
+        if (userDb == ""):
+            self.userDb = '%s_dev' % userName
+        else:
+            self.userDb = userDb
 
     def setupUserDb(self):
         """
@@ -53,15 +58,25 @@ class DbSetup(MySQLBase):
         Database name: <userName>_dev.
         If the database exists, it will remove it first.
         """
+        scripts = ("lsstSchema4mysqlDC3a.sql", "setup_storedFunctions.sql")
+        self.setupDb(scripts)
 
-        # prepare list of sql scripts to load and verify they exist
-        dbScripts = [os.path.join(self.sqlDir, "lsstSchema4mysql.sql"),
-                     os.path.join(self.sqlDir, "setup_storedFunctions.sql")]
+    def setupDb(self, scriptFiles):
+        '''
+        Setup a user database using the user and database information provided to
+        the constructor and the schema provided by the scriptFiles.
+        If the database already exists, it will be destroyed first.
+        '''
+        dbScripts = []
+        for script in scriptFiles:
+            dbScripts.append(os.path.join(self.sqlDir, script))
+        # Check that scripts exist
         for f in dbScripts:
             if not os.path.exists(f):
                 raise RuntimeError("Can't find file '%s'" % f)
 
-        # (re-)create database
+        # Delete and (re-)create database
+        print self.userName, self.dbHostName, self.userDb
         self.connect(self.userName, self.userPwd)
         if self.dbExists(self.userDb):
             self.dropDb(self.userDb)
@@ -69,9 +84,9 @@ class DbSetup(MySQLBase):
         self.disconnect()
 
         # load the scripts
+        self.connect(self.userName, self.userPwd, dbName=self.userDb)
         for f in dbScripts:
             self.loadSqlScript(f, self.userName, self.userPwd, self.userDb)
-
 
     def dropUserDb(self):
         self.connect(self.userName, self.userPwd)
