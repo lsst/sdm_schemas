@@ -9,5 +9,5 @@ setupRequired(daf_persistence)
 setupRequired(utils)
 setupRequired(pex_exceptions)
 
-envAppend(PATH, ${PRODUCT_DIR}/bin)
-envAppend(PYTHONPATH, ${PRODUCT_DIR}/python)
+envPrepend(PATH, ${PRODUCT_DIR}/bin)
+envPrepend(PYTHONPATH, ${PRODUCT_DIR}/python)
