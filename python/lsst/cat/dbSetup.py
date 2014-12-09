@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# 
+#
 # LSST Data Management System
-# Copyright 2008, 2009, 2010 LSST Corporation.
-# 
+# Copyright 2008-2014 AURA/LSST.
+#
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
 #
@@ -11,22 +11,24 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
-# You should have received a copy of the LSST License Statement and 
-# the GNU General Public License along with this program.  If not, 
-# see <http://www.lsstcorp.org/LegalNotices/>.
+#
+# You should have received a copy of the LSST License Statement and
+# the GNU General Public License along with this program.  If not,
+# see <https://www.lsstcorp.org/LegalNotices/>.
 #
 
-
-from lsst.cat.MySQLBase import MySQLBase
 import os
 import subprocess
 import sys
+
+import lsst.log as log
+
+from lsst.cat.MySQLBase import MySQLBase
 
 
 class DbSetup(MySQLBase):
@@ -40,6 +42,7 @@ class DbSetup(MySQLBase):
         This defaults to values for the cat database.
         '''
         MySQLBase.__init__(self, dbHostName, portNo)
+        self._logger = log
         self.userName = userName
         if self.userName == "":
             raise RuntimeError("Invalid (empty) userName")
@@ -51,6 +54,7 @@ class DbSetup(MySQLBase):
             self.userDb = '%s_dev' % userName
         else:
             self.userDb = userDb
+        self._logger.info("DbSetup '%s' '%s' '%s'" % (self.dbHostName, self.userDb, self.sqlDir))
 
     def setupUserDb(self):
         """
@@ -76,7 +80,7 @@ class DbSetup(MySQLBase):
                 raise RuntimeError("Can't find file '%s'" % f)
 
         # Delete and (re-)create database
-        print self.userName, self.dbHostName, self.userDb
+        self._logger.info("setupDb '%s', '%s', '%s'" % (self.userName, self.dbHostName, self.userDb))
         self.connect(self.userName, self.userPwd)
         if self.dbExists(self.userDb):
             self.dropDb(self.userDb)
