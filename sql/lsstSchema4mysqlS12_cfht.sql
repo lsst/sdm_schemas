@@ -1,6 +1,6 @@
 -- LSST Data Management System
 -- Copyright 2012 LSST Corporation.
--- 
+--
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
 --
@@ -8,14 +8,14 @@
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
--- You should have received a copy of the LSST License Statement and 
--- the GNU General Public License along with this program.  If not, 
+--
+-- You should have received a copy of the LSST License Statement and
+-- the GNU General Public License along with this program.  If not,
 -- see <http://www.lsstcorp.org/LegalNotices/>.
 
 
@@ -28,7 +28,7 @@
 SET FOREIGN_KEY_CHECKS=0;
 
 
-CREATE TABLE IF NOT EXISTS ZZZ_Db_Description 
+CREATE TABLE IF NOT EXISTS ZZZ_Db_Description
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
@@ -130,7 +130,7 @@ CREATE TABLE Logs
 
 
 CREATE TABLE ObjectType
-    -- <descr>Not filled. 
+    -- <descr>Not filled.
     -- <descr>Table to store description of object types. It includes all object
     -- types: static, variables, Solar System objects, etc.</descr>
 (
@@ -332,7 +332,7 @@ CREATE TABLE Science_Ccd_Exposure_To_Htm10
 
 
 CREATE TABLE GoodSeeingCoadd
-    
+
 (
     goodSeeingCoaddId BIGINT NOT NULL,
         -- <descr>Primary key (unique identifier).</descr>
@@ -1579,7 +1579,7 @@ CREATE TABLE ChiSquaredCoadd
         -- <descr>Sky-tract number.</descr>
     patch CHAR(16) NOT NULL,
         -- <descr>Sky-patch.</descr>
-    
+
     ra DOUBLE NOT NULL,
         -- <descr>ICRS R.A. of image center, corresponding to FITS
         -- pixel coordinates ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).</descr>
@@ -1748,7 +1748,7 @@ CREATE TABLE ChiSquaredSource
         -- <descr>ID of the coadd the source was detected and measured on
         -- (pointer to ChiSquaredCoadd).</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    
+
     ra DOUBLE NOT NULL,
         -- <descr>ICRS RA of source centroid (x, y).</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -2872,7 +2872,7 @@ CREATE TABLE Object
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     obsTimeMax DOUBLE NULL,
-        -- <descr>The latest time when this object was observed, MJD TAI 
+        -- <descr>The latest time when this object was observed, MJD TAI
         -- (timeMid of the last Source).</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -2990,7 +2990,7 @@ CREATE TABLE Object
         -- <ucd>stat.covariance</ucd>
         -- <unit>arcsec^4</unit>
     uShapeCount INTEGER NOT NULL,
-        -- <descr>Number of sources used to compute 
+        -- <descr>Number of sources used to compute
         -- the uShape columns.</descr>
         -- <ucd>meta.number;stat.value</ucd>
 
@@ -3099,7 +3099,7 @@ CREATE TABLE Object
         -- <ucd>stat.covariance</ucd>
         -- <unit>arcsec^4</unit>
     gShapeCount INTEGER NOT NULL,
-        -- <descr>Number of sources used to compute 
+        -- <descr>Number of sources used to compute
         -- the gShape columns.</descr>
         -- <ucd>meta.number;stat.value</ucd>
 
@@ -3208,7 +3208,7 @@ CREATE TABLE Object
         -- <ucd>stat.covariance</ucd>
         -- <unit>arcsec^4</unit>
     rShapeCount INTEGER NOT NULL,
-        -- <descr>Number of sources used to compute 
+        -- <descr>Number of sources used to compute
         -- the rShape columns.</descr>
         -- <ucd>meta.number;stat.value</ucd>
 
@@ -3317,7 +3317,7 @@ CREATE TABLE Object
         -- <ucd>stat.covariance</ucd>
         -- <unit>arcsec^4</unit>
     iShapeCount INTEGER NOT NULL,
-        -- <descr>Number of sources used to compute 
+        -- <descr>Number of sources used to compute
         -- the iShape columns.</descr>
         -- <ucd>meta.number;stat.value</ucd>
 
@@ -3426,7 +3426,7 @@ CREATE TABLE Object
         -- <ucd>stat.covariance</ucd>
         -- <unit>arcsec^4</unit>
     zShapeCount INTEGER NOT NULL,
-        -- <descr>Number of sources used to compute 
+        -- <descr>Number of sources used to compute
         -- the zShape columns.</descr>
         -- <ucd>meta.number;stat.value</ucd>
 
@@ -3535,7 +3535,7 @@ CREATE TABLE Object
         -- <ucd>stat.covariance</ucd>
         -- <unit>arcsec^4</unit>
     yShapeCount INTEGER NOT NULL,
-        -- <descr>Number of sources used to compute 
+        -- <descr>Number of sources used to compute
         -- the yShape columns.</descr>
         -- <ucd>meta.number;stat.value</ucd>
 

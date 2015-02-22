@@ -14,7 +14,7 @@ import sys
 """
 
 
-usage = """%prog [-f {policyFile}] [-c {clientHost}] 
+usage = """%prog [-f {policyFile}] [-c {clientHost}]
 Where:
   - clientHost:      host names authorized to access mysql server,
                      wildcards are allowed. Default: "%" (all hosts)
@@ -58,7 +58,7 @@ for u in users:
     toStr = "TO `%s`@`%%`" % u
     # admin.execCommand0("GRANT ALL ON `%s\_%%`.* %s" % (userName, toStr))
 
-    for ff in ["angSepArcsec", 
+    for ff in ["angSepArcsec",
                "dnToAbMag",
                "dnToAbMagSigma",
                "dnToFlux",

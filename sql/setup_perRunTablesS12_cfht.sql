@@ -1,6 +1,6 @@
 -- LSST Data Management System
 -- Copyright 2008, 2009, 2010 LSST Corporation.
--- 
+--
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
 --
@@ -8,14 +8,14 @@
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
--- You should have received a copy of the LSST License Statement and 
--- the GNU General Public License along with this program.  If not, 
+--
+-- You should have received a copy of the LSST License Statement and
+-- the GNU General Public License along with this program.  If not,
 -- see <http://www.lsstcorp.org/LegalNotices/>.
 
 
@@ -126,7 +126,7 @@ ALTER TABLE Logs DISABLE KEYS;
 
 -- CREATE TABLE _tmpl_DiaSource LIKE DiaSource;
 
--- ALTER TABLE _tmpl_DiaSource 
+-- ALTER TABLE _tmpl_DiaSource
 --     DROP KEY ccdExposureId,
 --     DROP KEY filterId,
 --     DROP KEY movingObjectId,
@@ -148,7 +148,7 @@ ALTER TABLE Logs DISABLE KEYS;
 -- Create tables that accumulate data from per-visit tables
 -- CREATE TABLE _mops_Prediction LIKE _tmpl_mops_Prediction;
 -- ALTER TABLE _mops_Prediction
---     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD COLUMN visitId INTEGER NOT NULL,
 --     ADD INDEX  idx_visitId (visitId);
 
 -- CREATE TABLE _ap_DiaSourceToObjectMatches LIKE _tmpl_MatchPair;
@@ -158,12 +158,12 @@ ALTER TABLE Logs DISABLE KEYS;
 
 -- CREATE TABLE _ap_PredToDiaSourceMatches LIKE _tmpl_MatchPair;
 -- ALTER TABLE _ap_PredToDiaSourceMatches
---     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD COLUMN visitId INTEGER NOT NULL,
 --     ADD INDEX  idx_visitId (visitId);
 
 -- CREATE TABLE _ap_DiaSourceToNewObject LIKE _tmpl_IdPair;
 -- ALTER TABLE _ap_DiaSourceToNewObject
---     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD COLUMN visitId INTEGER NOT NULL,
 --     ADD INDEX  idx_visitId (visitId);
 
 -- CREATE TABLE BadSource LIKE Source;

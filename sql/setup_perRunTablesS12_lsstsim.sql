@@ -1,6 +1,6 @@
 -- LSST Data Management System
 -- Copyright 2008, 2009, 2010 LSST Corporation.
--- 
+--
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
 --
@@ -8,14 +8,14 @@
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
--- You should have received a copy of the LSST License Statement and 
--- the GNU General Public License along with this program.  If not, 
+--
+-- You should have received a copy of the LSST License Statement and
+-- the GNU General Public License along with this program.  If not,
 -- see <http://www.lsstcorp.org/LegalNotices/>.
 
 
@@ -62,14 +62,14 @@ INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (7,  'V', 0.0,
 INSERT INTO Filter(filterId, filterName, photClam, photBW) VALUES (-99, 'DD', 0.0, 0.0);
 
 
-INSERT INTO RaftMap(raftNum, raftName) VALUES 
+INSERT INTO RaftMap(raftNum, raftName) VALUES
                  ( 1,'0,1'), ( 2,'0,2'), ( 3,'0,3'),
-     ( 5,'1,0'), ( 6,'1,1'), ( 7,'1,2'), ( 8,'1,3'), ( 9,'1,4'), 
+     ( 5,'1,0'), ( 6,'1,1'), ( 7,'1,2'), ( 8,'1,3'), ( 9,'1,4'),
      (10,'2,0'), (11,'2,1'), (12,'2,2'), (13,'2,3'), (14,'2,4'),
      (15,'3,0'), (16,'3,1'), (17,'3,2'), (18,'3,3'), (19,'3,4'),
                  (21,'4,1'), (22,'4,2'), (23,'4,3');
 
-INSERT INTO CcdMap VALUES 
+INSERT INTO CcdMap VALUES
      (0,'0,0'), (1,'0,1'), (2,'0,2'),
      (3,'1,0'), (4,'1,1'), (5,'1,2'),
      (6,'2,0'), (7,'2,1'), (8,'2,2');
@@ -157,7 +157,7 @@ ALTER TABLE Logs DISABLE KEYS;
 
 -- CREATE TABLE _tmpl_DiaSource LIKE DiaSource;
 
--- ALTER TABLE _tmpl_DiaSource 
+-- ALTER TABLE _tmpl_DiaSource
 --     DROP KEY ccdExposureId,
 --     DROP KEY filterId,
 --     DROP KEY movingObjectId,
@@ -179,7 +179,7 @@ ALTER TABLE Logs DISABLE KEYS;
 -- Create tables that accumulate data from per-visit tables
 -- CREATE TABLE _mops_Prediction LIKE _tmpl_mops_Prediction;
 -- ALTER TABLE _mops_Prediction
---     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD COLUMN visitId INTEGER NOT NULL,
 --     ADD INDEX  idx_visitId (visitId);
 
 -- CREATE TABLE _ap_DiaSourceToObjectMatches LIKE _tmpl_MatchPair;
@@ -189,12 +189,12 @@ ALTER TABLE Logs DISABLE KEYS;
 
 -- CREATE TABLE _ap_PredToDiaSourceMatches LIKE _tmpl_MatchPair;
 -- ALTER TABLE _ap_PredToDiaSourceMatches
---     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD COLUMN visitId INTEGER NOT NULL,
 --     ADD INDEX  idx_visitId (visitId);
 
 -- CREATE TABLE _ap_DiaSourceToNewObject LIKE _tmpl_IdPair;
 -- ALTER TABLE _ap_DiaSourceToNewObject
---     ADD COLUMN visitId INTEGER NOT NULL, 
+--     ADD COLUMN visitId INTEGER NOT NULL,
 --     ADD INDEX  idx_visitId (visitId);
 
 -- CREATE TABLE BadSource LIKE Source;

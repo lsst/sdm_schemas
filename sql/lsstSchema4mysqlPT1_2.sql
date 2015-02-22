@@ -1,6 +1,6 @@
 -- LSST Data Management System
 -- Copyright 2008, 2009, 2010 LSST Corporation.
--- 
+--
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
 --
@@ -8,14 +8,14 @@
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
--- You should have received a copy of the LSST License Statement and 
--- the GNU General Public License along with this program.  If not, 
+--
+-- You should have received a copy of the LSST License Statement and
+-- the GNU General Public License along with this program.  If not,
 -- see <http://www.lsstcorp.org/LegalNotices/>.
 
 
@@ -28,7 +28,7 @@
 SET FOREIGN_KEY_CHECKS=0;
 
 
-CREATE TABLE IF NOT EXISTS ZZZ_Db_Description 
+CREATE TABLE IF NOT EXISTS ZZZ_Db_Description
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
@@ -70,7 +70,7 @@ CREATE TABLE Filter
         -- <descr>Unique id (primary key).</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     filterName CHAR(3) NOT NULL,
-        -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y', 
+        -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z', 'y',
         -- 'w', 'V'.</descr>
         -- <ucd>instr.bandpass</ucd>
     photClam FLOAT NOT NULL,
@@ -225,7 +225,7 @@ CREATE TABLE RefObjMatch
         -- <ul>
         --   <li>0x1: the reference object has proper motion.</li>
         --   <li>0x2: the reference object has parallax.</li>
-        --   <li>0x4: a reduction for parallax from barycentric to geocentric 
+        --   <li>0x4: a reduction for parallax from barycentric to geocentric
         --       place was applied prior to matching the reference object.</li>
         -- </ul></descr>
         -- <ucd>meta.code</ucd>
@@ -277,7 +277,7 @@ CREATE TABLE RefSrcMatch
         -- <ul>
         --   <li>0x1: the reference object has proper motion.</li>
         --   <li>0x2: the reference object has parallax.</li>
-        --   <li>0x4: a reduction for parallax from barycentric to geocentric 
+        --   <li>0x4: a reduction for parallax from barycentric to geocentric
         --       place was applied prior to matching the reference object.</li>
         -- </ul></descr>
         -- <ucd>meta.code</ucd>
@@ -729,7 +729,7 @@ CREATE TABLE Raw_Amp_To_Snap_Ccd_Exposure
 
 
 CREATE TABLE Raw_Amp_Exposure_To_Htm11
-    -- <descr>Stores a mapping between raw amplifier exposures and the IDs of 
+    -- <descr>Stores a mapping between raw amplifier exposures and the IDs of
     -- spatially overlapping level-11 HTM triangles.</descr>
 (
     rawAmpExposureId BIGINT NOT NULL,
@@ -911,11 +911,11 @@ CREATE TABLE Science_Ccd_Exposure
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, meaning of the bits:
         -- <ul>
-        --   <li>0x01 PROCESSING_FAILED: The pipeline failed to process this 
+        --   <li>0x01 PROCESSING_FAILED: The pipeline failed to process this
         --       CCD</li>
-	--   <li>0x02 BAD_PSF_ZEROPOINT: The PSF flux zero-point appears to 
+	--   <li>0x02 BAD_PSF_ZEROPOINT: The PSF flux zero-point appears to
         --       be bad</li>
-	--   <li>0x04 BAD_PSF_SCATTER: The PSF flux for stars shows excess 
+	--   <li>0x04 BAD_PSF_SCATTER: The PSF flux for stars shows excess
         --       scatter</li>
         -- </ul></descr>
         -- <ucd>meta.code</ucd>
@@ -959,7 +959,7 @@ CREATE TABLE Snap_Ccd_To_Science_Ccd_Exposure
 
 
 CREATE TABLE Science_Ccd_Exposure_To_Htm10
-    -- <descr>Stores a mapping between science CCD exposures and the IDs of 
+    -- <descr>Stores a mapping between science CCD exposures and the IDs of
     -- spatially overlapping level-10 HTM triangles.</descr>
 (
     scienceCcdExposureId BIGINT NOT NULL,
@@ -1116,7 +1116,7 @@ CREATE TABLE Object
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
     latestObsTime DOUBLE NULL,
-        -- <descr>The latest time when this object was observed, MJD TAI 
+        -- <descr>The latest time when this object was observed, MJD TAI
         -- (taiMidPoint of the last Source).</descr>
         -- <ucd>time.epoch</ucd>
         -- <unit>d</unit>
@@ -1133,7 +1133,7 @@ CREATE TABLE Object
         -- <ucd>meta.number;stat.value</ucd>
     uExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for u filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- object for u filter. Valid range: 0-10,000 (divide by 100 to get the
         -- actual probability in the range 0-100% with 2 digit precision).
         -- </descr>
     uVarProb FLOAT NULL,
@@ -1265,7 +1265,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute uFlux_Gaussian.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     uEllipticity_Num SMALLINT NULL,
-        -- <descr>Number of sources used to compute uE1_SG, uE2_SG, and 
+        -- <descr>Number of sources used to compute uE1_SG, uE2_SG, and
         -- uRadius_SG.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     uFlags INTEGER NULL,
@@ -1276,7 +1276,7 @@ CREATE TABLE Object
         -- <ucd>meta.number;stat.value</ucd>
     gExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for g filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- object for g filter. Valid range: 0-10,000 (divide by 100 to get the
         -- actual probability in the range 0-100% with 2 digit precision).
         -- </descr>
     gVarProb FLOAT NULL,
@@ -1408,7 +1408,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute gFlux_Gaussian.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     gEllipticity_Num SMALLINT NULL,
-        -- <descr>Number of sources used to compute gE1_SG, gE2_SG, and 
+        -- <descr>Number of sources used to compute gE1_SG, gE2_SG, and
         -- gRadius_SG.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     gFlags INTEGER NULL,
@@ -1419,7 +1419,7 @@ CREATE TABLE Object
         -- <ucd>meta.number;stat.value</ucd>
     rExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for r filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- object for r filter. Valid range: 0-10,000 (divide by 100 to get the
         -- actual probability in the range 0-100% with 2 digit precision).
         -- </descr>
     rVarProb FLOAT NULL,
@@ -1551,7 +1551,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute rFlux_Gaussian.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     rEllipticity_Num SMALLINT NULL,
-        -- <descr>Number of sources used to compute rE1_SG, rE2_SG, and 
+        -- <descr>Number of sources used to compute rE1_SG, rE2_SG, and
         -- rRadius_SG.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     rFlags INTEGER NULL,
@@ -1562,7 +1562,7 @@ CREATE TABLE Object
         -- <ucd>meta.number;stat.value</ucd>
     iExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for i filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- object for i filter. Valid range: 0-10,000 (divide by 100 to get the
         -- actual probability in the range 0-100% with 2 digit precision).
         -- </descr>
     iVarProb FLOAT NULL,
@@ -1694,7 +1694,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute iFlux_Gaussian.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     iEllipticity_Num SMALLINT NULL,
-        -- <descr>Number of sources used to compute iE1_SG, iE2_SG, and 
+        -- <descr>Number of sources used to compute iE1_SG, iE2_SG, and
         -- iRadius_SG.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     iFlags INTEGER NULL,
@@ -1705,7 +1705,7 @@ CREATE TABLE Object
         -- <ucd>meta.number;stat.value</ucd>
     zExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for z filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- object for z filter. Valid range: 0-10,000 (divide by 100 to get the
         -- actual probability in the range 0-100% with 2 digit precision).
         -- </descr>
     zVarProb FLOAT NULL,
@@ -1837,7 +1837,7 @@ CREATE TABLE Object
         -- <descr>Number of sources used to compute zFlux_Gaussian.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     zEllipticity_Num SMALLINT NULL,
-        -- <descr>Number of sources used to compute zE1_SG, zE2_SG, and 
+        -- <descr>Number of sources used to compute zE1_SG, zE2_SG, and
         -- zRadius_SG.</descr>
         -- <ucd>meta.number;stat.value</ucd>
     zFlags INTEGER NULL,
@@ -1848,7 +1848,7 @@ CREATE TABLE Object
         -- <ucd>meta.number;stat.value</ucd>
     yExtendedness SMALLINT NULL,
         -- <descr>Not set for PT1.2. Probability that this object is an extended
-        -- object for y filter. Valid range: 0-10,000 (divide by 100 to get the 
+        -- object for y filter. Valid range: 0-10,000 (divide by 100 to get the
         -- actual probability in the range 0-100% with 2 digit precision).
         -- </descr>
     yVarProb FLOAT NULL,
@@ -2251,7 +2251,7 @@ CREATE TABLE Source
         -- <descr>Not set for PT1.2. Uncertainty of e1_SG.</descr>
         -- <ucd>stat.error;phys.size.axisRatio</ucd>
     e2_SG FLOAT NULL,
-        -- <descr>Not set for PT1.2. Ellipticity for the Small Galaxy described 
+        -- <descr>Not set for PT1.2. Ellipticity for the Small Galaxy described
         -- through e1/e2.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
     e2_SG_Sigma FLOAT NULL,
@@ -2259,18 +2259,18 @@ CREATE TABLE Source
         -- <ucd>stat.error;phys.size.axisRatio</ucd>
     resolution_SG FLOAT NULL,
         -- <descr>Diagnostic output of shape measurement for the Small Galaxy
-        -- model. It represents how well resolved the measured source was 
-        -- compared to the psf.  0 = unresolved, 1 = well resolved. 
+        -- model. It represents how well resolved the measured source was
+        -- compared to the psf.  0 = unresolved, 1 = well resolved.
         -- Effectively, it's: 1-(psfSize)/(psf-convolvedImageSize).</descr>
     shear1_SG FLOAT NULL,
-        -- <descr>Ellipticity for the Small Galaxy model described through 
+        -- <descr>Ellipticity for the Small Galaxy model described through
         -- shear1/shear2.</descr>
         -- <ucd>src.ellipticity</ucd>
     shear1_SG_Sigma FLOAT NULL,
         -- <descr>Uncertainty of shear1_SG.</descr>
         -- <ucd>stat.error;src.ellipticity</ucd>
     shear2_SG FLOAT NULL,
-        -- <descr>Ellipticity for the Small Galaxy model described through 
+        -- <descr>Ellipticity for the Small Galaxy model described through
         -- shear1/shear2.</descr>
         -- <ucd>src.ellipticity</ucd>
     shear2_SG_Sigma FLOAT NULL,
@@ -2398,28 +2398,28 @@ CREATE TABLE Source
         -- <descr>Bitwise-or of detection flags.
         -- <ul>
         --   <li>0x000001 EDGE: source is in region labelled EDGE.</li>
-        --   <li>0x000002 SHAPE_SHIFT: centroid shifted while estimating 
+        --   <li>0x000002 SHAPE_SHIFT: centroid shifted while estimating
         --       adaptive moments.</li>
-        --   <li>0x000004 SHAPE_MAXITER: too many iterations for adaptive 
+        --   <li>0x000004 SHAPE_MAXITER: too many iterations for adaptive
         --       moments.</li>
         --   <li>0x000008 SHAPE_UNWEIGHTED: &quot;adaptive&quot; moments are
         --       unweighted.</li>
-        --   <li>0x000010 SHAPE_UNWEIGHTED_PSF: the PSF's &quot;adaptive&quot; 
+        --   <li>0x000010 SHAPE_UNWEIGHTED_PSF: the PSF's &quot;adaptive&quot;
         --       moments are unweighted.</li>
         --   <li>0x000020 SHAPE_UNWEIGHTED_BAD: even the unweighted moments were
         --       bad.</li>
         --   <li>0x000040 PEAKCENTER: given centre is position of peak pixel.
         --       </li>
         --   <li>0x000080 BINNED1: source was found in 1x1 binned image.</li>
-        --   <li>0x000100 INTERP: source's footprint includes interpolated 
+        --   <li>0x000100 INTERP: source's footprint includes interpolated
         --       pixels.</li>
-        --   <li>0x000200 INTERP_CENTER: source's centre is close to 
+        --   <li>0x000200 INTERP_CENTER: source's centre is close to
         --       interpolated pixels.</li>
         --   <li>0x000400 SATUR: source's footprint includes saturated pixels.
         --       </li>
-        --   <li>0x000800 SATUR_CENTER: source's centre is close to saturated 
+        --   <li>0x000800 SATUR_CENTER: source's centre is close to saturated
         --       pixels.</li>
-        --   <li>0x001000 DETECT_NEGATIVE: source was detected as being 
+        --   <li>0x001000 DETECT_NEGATIVE: source was detected as being
         --       significantly negative.</li>
         --   <li>0x002000 STAR: source is thought to be point-like.</li>
         --   <li>0x004000 NO_EXPOSURE</li>

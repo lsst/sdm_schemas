@@ -1,6 +1,6 @@
 -- LSST Data Management System
 -- Copyright 2008-2013 LSST Corporation.
--- 
+--
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
 --
@@ -8,14 +8,14 @@
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
--- You should have received a copy of the LSST License Statement and 
--- the GNU General Public License along with this program.  If not, 
+--
+-- You should have received a copy of the LSST License Statement and
+-- the GNU General Public License along with this program.  If not,
 -- see <http://www.lsstcorp.org/LegalNotices/>.
 
 -- LSST Database Baseline Schema
@@ -27,7 +27,7 @@ CREATE TABLE AAA_Version_3_2_4 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE TABLE ZZZ_Db_Description 
+CREATE TABLE ZZZ_Db_Description
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
@@ -43,7 +43,7 @@ INSERT INTO ZZZ_Db_Description(f) VALUES('baselineSchema.sql');
 -- ############################################################################
 
 CREATE TABLE DiaObject
-    -- <descr>The DiaObject table contains descriptions of the 
+    -- <descr>The DiaObject table contains descriptions of the
     -- astronomical objects detected on one or more difference images.
     -- </descr>
 (
@@ -116,7 +116,7 @@ CREATE TABLE DiaObject
         -- <descr>The number of data points (pixels) used to fit the model.
         -- </descr>
     uPSFlux FLOAT NULL,
-        -- <descr>Weighted mean point-source model magnitude for 
+        -- <descr>Weighted mean point-source model magnitude for
         -- u filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
@@ -343,37 +343,37 @@ CREATE TABLE SSObject
     procHistoryId BIGINT NOT NULL,
         -- <descr>Pointer to ProcessingHistory table.</descr>
     q DOUBLE NULL,
-        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop, 
+        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     qSigma DOUBLE NULL,
         -- <descr>Uncertainty of q.</descr>
     e DOUBLE NULL,
-        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop, 
+        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     eSigma DOUBLE NULL,
         -- <descr>Uncertainty of e.</descr>
     i DOUBLE NULL,
-        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop, 
+        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     iSigma DOUBLE NULL,
         -- <descr>Uncertainty of i.</descr>
     lan DOUBLE NULL,
-        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop, 
+        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     lanSigma DOUBLE NULL,
         -- <descr>Uncertainty of lan.</descr>
     aop DOUBLE NULL,
-        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop, 
+        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     oepSigma DOUBLE NULL,
         -- <descr>Uncertainty of aop.</descr>
     M DOUBLE NULL,
-        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop, 
+        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     MSigma DOUBLE NULL,
         -- <descr>Uncertainty of oe6.</descr>
     epoch DOUBLE NULL,
-        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop, 
+        -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     epochSigma DOUBLE NULL,
         -- <descr>Uncertainty of oe7.</descr>
@@ -423,7 +423,7 @@ CREATE TABLE SSObject
         -- <descr>Arc of observation.</descr>
         -- <unit>days</unit>
     orbFitLnL FLOAT NULL,
-        -- <descr>Natural log of the likelihood of the orbital 
+        -- <descr>Natural log of the likelihood of the orbital
         -- elements fit.</descr>
     orbFitChi2 FLOAT NULL,
         -- <descr>Chi^2 statistic of the orbital elements fit.
@@ -637,7 +637,7 @@ CREATE TABLE DiaSource
         -- <descr>Covariance between x and y.</descr>
         -- <unit>pixel^2</unit>
     snr FLOAT NOT NULL,
-        -- <descr>The signal-to-noise ratio at which this source was 
+        -- <descr>The signal-to-noise ratio at which this source was
         -- detected in the difference image.</descr>
     psFlux FLOAT NULL,
         -- <descr>Calibrated flux for Point Source model. Note this actually
@@ -827,7 +827,7 @@ CREATE TABLE DiaForcedSource
     diaObjectId BIGINT NOT NULL,
         -- <ucd>meta.id;src</ucd>
     ccdVisitId BIGINT NOT NULL,
-        -- <descr>Id of the visit where this forcedSource was measured. Note 
+        -- <descr>Id of the visit where this forcedSource was measured. Note
         -- that we are allowing a forcedSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
@@ -900,7 +900,7 @@ CREATE TABLE Object
     procHistoryId BIGINT NOT NULL,
         -- <descr>Pointer to ProcessingHistory table.</descr>
     psRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the Point 
+        -- <descr>RA-coordinate of the center of the object for the Point
         -- Source model at time 'psEpoch'.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -909,7 +909,7 @@ CREATE TABLE Object
         -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     psDecl DOUBLE NULL,
-        -- <descr>Decl-coordinate of the center of the object for the Point 
+        -- <descr>Decl-coordinate of the center of the object for the Point
         -- Source model at time 'psEpoch'.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
@@ -990,7 +990,7 @@ CREATE TABLE Object
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
     psLnL FLOAT NULL,
-        -- <descr>Natural log likelihood of the observed data given 
+        -- <descr>Natural log likelihood of the observed data given
         -- the Point Source model.</descr>
     psChi2 FLOAT NULL,
         -- <descr>Chi^2 static of the model fit.</descr>
@@ -998,7 +998,7 @@ CREATE TABLE Object
         -- <descr>The number of data points (pixels) used to fit the model.
         -- </descr>
     uBbdRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the 
+        -- <descr>RA-coordinate of the center of the object for the
         -- Bulge+Disk model at time radecTai. For u filter.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -1064,7 +1064,7 @@ CREATE TABLE Object
         -- <descr>The number of data points (pixels) used to fit the model.
         -- For u filter.</descr>
     gBbdRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the 
+        -- <descr>RA-coordinate of the center of the object for the
         -- Bulge+Disk model at time radecTai. For g filter.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -1130,7 +1130,7 @@ CREATE TABLE Object
         -- <descr>The number of data points (pixels) used to fit the model.
         -- For g filter.</descr>
     rBbdRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the 
+        -- <descr>RA-coordinate of the center of the object for the
         -- Bulge+Disk model at time radecTai. For r filter.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -1196,7 +1196,7 @@ CREATE TABLE Object
         -- <descr>The number of data points (pixels) used to fit the model.
         -- For r filter.</descr>
     iBbdRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the 
+        -- <descr>RA-coordinate of the center of the object for the
         -- Bulge+Disk model at time radecTai. For i filter.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -1262,7 +1262,7 @@ CREATE TABLE Object
         -- <descr>The number of data points (pixels) used to fit the model.
         -- For i filter.</descr>
     zBbdRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the 
+        -- <descr>RA-coordinate of the center of the object for the
         -- Bulge+Disk model at time radecTai. For z filter.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -1328,7 +1328,7 @@ CREATE TABLE Object
         -- <descr>The number of data points (pixels) used to fit the model.
         -- For z filter.</descr>
     yBbdRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the 
+        -- <descr>RA-coordinate of the center of the object for the
         -- Bulge+Disk model at time radecTai. For y filter.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -1620,7 +1620,7 @@ CREATE TABLE Object
         -- <descr>Covariance of iE1 and iE2.</descr>
     zE1 FLOAT NULL,
         -- <descr>Adaptive e1 shape measure for z filter. See Bernstein and
-        -- Jarvis (2002) for detailed discussion of all adaptive-moment 
+        -- Jarvis (2002) for detailed discussion of all adaptive-moment
         -- related quantities.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
     zE1Sigma FLOAT NULL,
@@ -1628,7 +1628,7 @@ CREATE TABLE Object
         -- <ucd>stat.error;phys.size.axisRatio</ucd>
     zE2 FLOAT NULL,
         -- <descr>Adaptive e2 shape measure for z filter. See Bernstein and
-        -- Jarvis (2002) for detailed discussion of all adaptive-moment 
+        -- Jarvis (2002) for detailed discussion of all adaptive-moment
         -- related quantities.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
     zE2Sigma FLOAT NULL,
@@ -1638,7 +1638,7 @@ CREATE TABLE Object
         -- <descr>Covariance of zE1 and zE2.</descr>
     yE1 FLOAT NULL,
         -- <descr>Adaptive e1 shape measure for y filter. See Bernstein and
-        -- Jarvis (2002) for detailed discussion of all adaptive-moment 
+        -- Jarvis (2002) for detailed discussion of all adaptive-moment
         -- related quantities.</descr>
         -- <ucd>phys.size.axisRatio</ucd>
     yE1Sigma FLOAT NULL,
@@ -1691,42 +1691,42 @@ CREATE TABLE Object
     yM4 FLOAT NULL,
         -- <descr>Fourth order adaptive moment for y filter.</descr>
     uPetroRad FLOAT NULL,
-        -- <descr>Petrosian radius, computed using elliptical apertures 
+        -- <descr>Petrosian radius, computed using elliptical apertures
         -- defined by the adaptive moments for u filter.</descr>
         -- <unit>arcsec</unit>
     uPetroRadSigma FLOAT NULL,
         -- <descr>Uncertainty of uPetroRad</descr>
         -- <unit>arcsec</unit>
     gPetroRad FLOAT NULL,
-        -- <descr>Petrosian radius, computed using elliptical apertures 
+        -- <descr>Petrosian radius, computed using elliptical apertures
         -- defined by the adaptive moments for g filter.</descr>
         -- <unit>arcsec</unit>
     gPetroRadSigma FLOAT NULL,
         -- <descr>Uncertainty of gPetroRad</descr>
         -- <unit>arcsec</unit>
     rPetroRad FLOAT NULL,
-        -- <descr>Petrosian radius, computed using elliptical apertures 
+        -- <descr>Petrosian radius, computed using elliptical apertures
         -- defined by the adaptive moments for r filter.</descr>
         -- <unit>arcsec</unit>
     rPetroRadSigma FLOAT NULL,
         -- <descr>Uncertainty of rPetroRad</descr>
         -- <unit>arcsec</unit>
     iPetroRad FLOAT NULL,
-        -- <descr>Petrosian radius, computed using elliptical apertures 
+        -- <descr>Petrosian radius, computed using elliptical apertures
         -- defined by the adaptive moments for i filter.</descr>
         -- <unit>arcsec</unit>
     iPetroRadSigma FLOAT NULL,
         -- <descr>Uncertainty of iPetroRad</descr>
         -- <unit>arcsec</unit>
     zPetroRad FLOAT NULL,
-        -- <descr>Petrosian radius, computed using elliptical apertures 
+        -- <descr>Petrosian radius, computed using elliptical apertures
         -- defined by the adaptive moments for z filter.</descr>
         -- <unit>arcsec</unit>
     zPetroRadSigma FLOAT NULL,
         -- <descr>Uncertainty of zPetroRad</descr>
         -- <unit>arcsec</unit>
     yPetroRad FLOAT NULL,
-        -- <descr>Petrosian radius, computed using elliptical apertures 
+        -- <descr>Petrosian radius, computed using elliptical apertures
         -- defined by the adaptive moments for y filter.</descr>
         -- <unit>arcsec</unit>
     yPetroRadSigma FLOAT NULL,
@@ -1742,7 +1742,7 @@ CREATE TABLE Object
         -- <descr>Uncertainty of uPetroFlux.</descr>
         -- <unit>nmgy</unit>
     gPetroFlux FLOAT NULL,
-        -- <descr>Petrosian flux within a defined multiple of the canonical 
+        -- <descr>Petrosian flux within a defined multiple of the canonical
         -- petroRad for g filter.</descr>
         -- <unit>nmgy</unit>
     gPetroFluxSigma FLOAT NULL,
@@ -2023,7 +2023,7 @@ CREATE TABLE Object
         -- available moments and model fluxes or from a likelihood ratio of
         -- point/trailed source models (exact algorithm TBD). extendedness = 1
         -- implies a high degree of confidence that the source is extended.
-        -- extendedness = 0 implies a high degree of confidence that the 
+        -- extendedness = 0 implies a high degree of confidence that the
         -- source is point-like.</descr>
     FLAGS1 BIGINT NOT NULL,
         -- <descr>Flags, tbd.</descr>
@@ -2052,13 +2052,13 @@ CREATE TABLE Object_Extra
         -- <descr>Independent samples of Bulge+Disk likelihood surface. All
         -- sampled quantities will be stored with at lease ~3 significant
         -- digits of precision. The number of samples will vary from object to
-        -- object, depending on how well the object’s likelihood function 
+        -- object, depending on how well the object’s likelihood function
         -- is approximated by a Gaussian. We are assuming on average
         -- [9x200x4 FLOAT16].</descr>
     photoZ BLOB NOT NULL,
-        -- <descr>Photometric redshift likelihood samples (pairs of 
+        -- <descr>Photometric redshift likelihood samples (pairs of
         -- {z, logL}) computed using a to-be-determined published and widely
-        -- accepted algorithm at the time of LSST Commissioning. 
+        -- accepted algorithm at the time of LSST Commissioning.
         -- [2x100 FLOAT].</descr>
     PRIMARY KEY PK_ObjectExtra (objectId)
 ) ENGINE=MyISAM;
@@ -2126,8 +2126,8 @@ CREATE TABLE Object_NonPeriodic
 -- ############################################################################
 
 CREATE TABLE Source
-    -- <descr>Table to store high signal-to-noise &quot;sources&quot;. 
-    -- A source is a measurement of Object's properties from a single 
+    -- <descr>Table to store high signal-to-noise &quot;sources&quot;.
+    -- A source is a measurement of Object's properties from a single
     -- image that contains its footprint on the sky.</descr>
 (
     sourceId BIGINT NOT NULL,
@@ -2191,7 +2191,7 @@ CREATE TABLE Source
     psX_Y_Cov FLOAT NULL,
         -- <descr>Covariance of psX and psY.</descr>
     psLnL FLOAT NULL,
-        -- <descr>Natural log likelihood of the observed data given the 
+        -- <descr>Natural log likelihood of the observed data given the
         -- Point Source model.</descr>
     psChi2 FLOAT NULL,
         -- <descr>Chi^2 static of the model fit.</descr>
@@ -2199,7 +2199,7 @@ CREATE TABLE Source
         -- <descr>The number of data points (pixels) used to fit the model.
         -- </descr>
     psRa DOUBLE NULL,
-        -- <descr>RA-coordinate of the center of the object for the Point 
+        -- <descr>RA-coordinate of the center of the object for the Point
         -- Source model at time radecTai.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
@@ -2208,7 +2208,7 @@ CREATE TABLE Source
         -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     psDecl DOUBLE NULL,
-        -- <descr>Decl-coordinate of the center of the object for the Point 
+        -- <descr>Decl-coordinate of the center of the object for the Point
         -- Source model at time radecTai.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
@@ -2309,7 +2309,7 @@ CREATE TABLE Source_APMean
         -- <descr>A bin in radius at which the aperture measurement is being
         -- performed.</descr>
     sbMean FLOAT NOT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement 
+        -- <descr>Mean surface brightness at which the aperture measurement
         -- is being performed.</descr>
         -- <unit>nmgy/arcsec^2</unit>
     sbSigma FLOAT NOT NULL,
@@ -2606,7 +2606,7 @@ CREATE TABLE RawExposure
         -- <descr>Rotation of the camera.</descr>
         -- <unit>deg</unit>
     programId INT NOT NULL,
-        -- <descr>Observing program id (e.g., universal cadence, or one of 
+        -- <descr>Observing program id (e.g., universal cadence, or one of
         -- the deep drilling programs, etc.).</descr>
     exposureType TINYINT NOT NULL,
         -- <descr>Type of exposure (science exposure, dark, flat, etc.).
@@ -2645,7 +2645,7 @@ CREATE TABLE RawExposure
     externalTemp FLOAT NOT NULL,
         -- <descr>Temperature outside the dome.</descr>
         -- <unit>K</unit>
-    dimmSeeing FLOAT NOT NULL, 
+    dimmSeeing FLOAT NOT NULL,
         -- <descr>Seeing measured by the differential image motion monitor.
         -- </descr>
         -- <unit>arcsec</unit>
@@ -2817,7 +2817,7 @@ CREATE TABLE Visit
         -- <descr>Rotation of the camera.</descr>
         -- <unit>deg</unit>
     programId INT NOT NULL,
-        -- <descr>Observing program id (e.g., universal cadence, or one of 
+        -- <descr>Observing program id (e.g., universal cadence, or one of
         -- the deep drilling programs, etc.).</descr>
     exposureType TINYINT NOT NULL,
         -- <descr>Type of exposure (science exposure, dark, flat, etc.).
@@ -2858,7 +2858,7 @@ CREATE TABLE Visit
     externalTemp FLOAT NOT NULL,
         -- <descr>Temperature outside the dome.</descr>
         -- <unit>K</unit>
-    dimmSeeing FLOAT NOT NULL, 
+    dimmSeeing FLOAT NOT NULL,
         -- <descr>Seeing measured by the differential image motion monitor.
         -- </descr>
         -- <unit>arcsec</unit>
@@ -2907,7 +2907,7 @@ CREATE TABLE Visit_To_RawExposure
 -- ##### CREATE TABLES: P R O V E N A N C E
 -- ############################################################################
 
-CREATE TABLE prv_ProcHistory 
+CREATE TABLE prv_ProcHistory
     -- <descr>This table is responsible for producing a new procHistoryId
     -- whenever something changes in the configuration.</descr>
 (
@@ -3154,7 +3154,7 @@ CREATE TABLE prv_Fpa
 CREATE TABLE prv_InputDataSet
 (
     inputDataSetId INTEGER NOT NULL,
-    name VARCHAR(80) NOT NULL,    
+    name VARCHAR(80) NOT NULL,
     PRIMARY KEY PK_prvInputDataSet (inputDataSetId)
 ) ENGINE=InnoDB;
 
@@ -3418,7 +3418,7 @@ CREATE TABLE LeapSeconds
 -- ############################################################################
 
 CREATE TABLE ApertureBins
-    -- <descr>Definition of aperture bins (for both the 
+    -- <descr>Definition of aperture bins (for both the
     -- Object and Source tables.)</descr>
 (
     binN TINYINT NOT NULL,
@@ -3590,7 +3590,7 @@ ALTER TABLE Visit_To_RawExposure ADD CONSTRAINT FK_VisitToRawExposure_Visit
 ALTER TABLE Visit_To_RawExposure ADD CONSTRAINT FK_VisitToRawExposure_RawExposure
         FOREIGN KEY (rawExposureId) REFERENCES RawExposure (rawExposureId);
 
-ALTER TABLE prv_cnf_Amp ADD CONSTRAINT FK_prvCnfAmp_prvAmp 
+ALTER TABLE prv_cnf_Amp ADD CONSTRAINT FK_prvCnfAmp_prvAmp
 	FOREIGN KEY (ampName) REFERENCES prv_Amp (ampName);
 
 ALTER TABLE prv_cnf_Ccd ADD CONSTRAINT FK_prvCnfCcd_prvCcd
@@ -3605,10 +3605,10 @@ ALTER TABLE prv_cnf_Fpa ADD CONSTRAINT FK_prvCnfFpa_prvFpa
 ALTER TABLE prv_cnf_InputDataSet ADD CONSTRAINT FK_prvCnfInputDataSet_prvInputDataSet
 	FOREIGN KEY (inputDataSetId) REFERENCES prv_InputDataSet (inputDataSetId);
 
-ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_prvCnfNode_prvNode 
+ALTER TABLE prv_cnf_Node ADD CONSTRAINT FK_prvCnfNode_prvNode
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
-ALTER TABLE prv_cnf_Raft ADD CONSTRAINT FK_prvCnfRaft_prvRaft 
+ALTER TABLE prv_cnf_Raft ADD CONSTRAINT FK_prvCnfRaft_prvRaft
 	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
 
 ALTER TABLE prv_cnf_Run ADD CONSTRAINT FK_prvCnfRun_prvRun
@@ -3617,40 +3617,40 @@ ALTER TABLE prv_cnf_Run ADD CONSTRAINT FK_prvCnfRun_prvRun
 ALTER TABLE prv_cnf_Task ADD CONSTRAINT FK_prvCnfTask_prvTask
 	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
 
-ALTER TABLE prv_cnf_Task2TaskExecution ADD CONSTRAINT FK_prvCnfTask2TaskExecution_prvTask2TaskExecution 
+ALTER TABLE prv_cnf_Task2TaskExecution ADD CONSTRAINT FK_prvCnfTask2TaskExecution_prvTask2TaskExecution
 	FOREIGN KEY (task2taskExecutionId) REFERENCES prv_Task2TaskExecution (task2TaskExecutionId);
 
-ALTER TABLE prv_cnf_Task2TaskGraph ADD CONSTRAINT FK_prvCnfTask2TaskGraph_prvTask2TaskGraph 
+ALTER TABLE prv_cnf_Task2TaskGraph ADD CONSTRAINT FK_prvCnfTask2TaskGraph_prvTask2TaskGraph
 	FOREIGN KEY (task2taskGraphId) REFERENCES prv_Task2TaskGraph (task2taskGraphId);
 
-ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvTaskExecution 
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvTaskExecution
 	FOREIGN KEY (taskExecutionId) REFERENCES prv_TaskExecution (taskExecutionId);
 
-ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvNode 
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvNode
 	FOREIGN KEY (nodeId) REFERENCES prv_Node (nodeId);
 
-ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvInputDataSet 
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvInputDataSet
 	FOREIGN KEY (inputDataSetId) REFERENCES prv_InputDataSet (inputDataSetId);
 
-ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvProcHistory 
+ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvProcHistory
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
-ALTER TABLE prv_cnf_TaskGraph ADD CONSTRAINT FK_prvCnfTaskGraph_prvTaskGraph 
+ALTER TABLE prv_cnf_TaskGraph ADD CONSTRAINT FK_prvCnfTaskGraph_prvTaskGraph
 	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
 
-ALTER TABLE prv_cnf_TaskGraph2Run ADD CONSTRAINT FK_prvCnfTaskGraph2Run_prvTaskGraph2Run 
+ALTER TABLE prv_cnf_TaskGraph2Run ADD CONSTRAINT FK_prvCnfTaskGraph2Run_prvTaskGraph2Run
 	FOREIGN KEY (taskGraph2runId) REFERENCES prv_TaskGraph2Run (taskGraph2runId);
 
 ALTER TABLE prv_Amp ADD CONSTRAINT FK_prvAmp_prvCcd
 	FOREIGN KEY (ccdName) REFERENCES prv_Ccd (ccdName);
 
-ALTER TABLE prv_Ccd ADD CONSTRAINT FK_prvCcd_prvRaft 
+ALTER TABLE prv_Ccd ADD CONSTRAINT FK_prvCcd_prvRaft
 	FOREIGN KEY (raftName) REFERENCES prv_Raft (raftName);
 
 ALTER TABLE prv_Raft ADD CONSTRAINT FK_prvRaft_prvFpa
 	FOREIGN KEY (fpaId) REFERENCES prv_Fpa (fpaId);
 
-ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_prvSnapshot_prvProcessingHistory 
+ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_prvSnapshot_prvProcessingHistory
 	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
 ALTER TABLE prv_Task2TaskExecution ADD CONSTRAINT FK_prvTask2TaskExecution_prvTask
@@ -3665,8 +3665,8 @@ ALTER TABLE prv_Task2TaskGraph ADD CONSTRAINT FK_prvTask2TaskGraph_prvTask
 ALTER TABLE prv_Task2TaskGraph ADD CONSTRAINT FK_prvTask2TaskGraph_prvTaskGraph
 	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
 
-ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_prvTaskGraph2Run_prvRun 
+ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_prvTaskGraph2Run_prvRun
 	FOREIGN KEY (runId) REFERENCES prv_Run (runId);
 
-ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_prvTaskGraph2Run_prvTaskGraph 
+ALTER TABLE prv_TaskGraph2Run ADD CONSTRAINT FK_prvTaskGraph2Run_prvTaskGraph
 	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);

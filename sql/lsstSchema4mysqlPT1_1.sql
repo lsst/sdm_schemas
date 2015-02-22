@@ -1,6 +1,6 @@
 -- LSST Data Management System
 -- Copyright 2008, 2009, 2010 LSST Corporation.
--- 
+--
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
 --
@@ -8,14 +8,14 @@
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
--- You should have received a copy of the LSST License Statement and 
--- the GNU General Public License along with this program.  If not, 
+--
+-- You should have received a copy of the LSST License Statement and
+-- the GNU General Public License along with this program.  If not,
 -- see <http://www.lsstcorp.org/LegalNotices/>.
 
 
@@ -24,7 +24,7 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE TABLE IF NOT EXISTS ZZZ_Db_Description 
+CREATE TABLE IF NOT EXISTS ZZZ_Db_Description
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
@@ -1538,27 +1538,27 @@ CREATE TABLE Source
         -- <descr>Bitwise-or of detection flags.
         -- <ul>
         --   <li>0x0001 EDGE: source is in region labelled EDGE.</li>
-        --   <li>0x0002 SHAPE_SHIFT: centroid shifted while estimating 
+        --   <li>0x0002 SHAPE_SHIFT: centroid shifted while estimating
         --       adaptive moments.</li>
-        --   <li>0x0004 SHAPE_MAXITER: too many iterations for adaptive 
+        --   <li>0x0004 SHAPE_MAXITER: too many iterations for adaptive
         --       moments.</li>
         --   <li>0x0008 SHAPE_UNWEIGHTED: &quot;adaptive&quot; moments are
         --       unweighted.</li>
-        --   <li>0x0010 SHAPE_UNWEIGHTED_PSF: the PSF's &quot;adaptive&quot; 
+        --   <li>0x0010 SHAPE_UNWEIGHTED_PSF: the PSF's &quot;adaptive&quot;
         --       moments are unweighted.</li>
         --   <li>0x0020 SHAPE_UNWEIGHTED_BAD: even the unweighted moments were
         --       bad.</li>
         --   <li>0x0040 PEAKCENTER: given centre is position of peak pixel.</li>
         --   <li>0x0080 BINNED1: source was found in 1x1 binned image.</li>
-        --   <li>0x0100 INTERP: source's footprint includes interpolated 
+        --   <li>0x0100 INTERP: source's footprint includes interpolated
         --       pixels.</li>
         --   <li>0x0200 INTERP_CENTER: source's centre is close to interpolated
         --       pixels.</li>
         --   <li>0x0400 SATUR: source's footprint includes saturated pixels.
         --       </li>
-        --   <li>0x0800 SATUR_CENTER: source's centre is close to saturated 
+        --   <li>0x0800 SATUR_CENTER: source's centre is close to saturated
         --       pixels.</li>
-        --   <li>0x1000 DETECT_NEGATIVE: source was detected as being 
+        --   <li>0x1000 DETECT_NEGATIVE: source was detected as being
         --       significantly negative.</li>
         --   <li>0x2000 STAR: source is thought to be point-like.</ul></descr>
     flagForWcs SMALLINT NULL,

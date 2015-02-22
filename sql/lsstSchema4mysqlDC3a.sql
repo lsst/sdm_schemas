@@ -1,6 +1,6 @@
 -- LSST Data Management System
 -- Copyright 2008, 2009, 2010 LSST Corporation.
--- 
+--
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
 --
@@ -8,14 +8,14 @@
 -- it under the terms of the GNU General Public License as published by
 -- the Free Software Foundation, either version 3 of the License, or
 -- (at your option) any later version.
--- 
+--
 -- This program is distributed in the hope that it will be useful,
 -- but WITHOUT ANY WARRANTY; without even the implied warranty of
 -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 -- GNU General Public License for more details.
--- 
--- You should have received a copy of the LSST License Statement and 
--- the GNU General Public License along with this program.  If not, 
+--
+-- You should have received a copy of the LSST License Statement and
+-- the GNU General Public License along with this program.  If not,
 -- see <http://www.lsstcorp.org/LegalNotices/>.
 
 
@@ -24,7 +24,7 @@
 
 CREATE TABLE AAA_Version_3_0_24 (version CHAR);
 
-CREATE TABLE IF NOT EXISTS ZZZ_Db_Description 
+CREATE TABLE IF NOT EXISTS ZZZ_Db_Description
     -- <descr>Internal table used for storing database description</descr>
 (
     f VARCHAR(255),
@@ -977,62 +977,62 @@ CREATE TABLE prv_Filter
 
 
 
-ALTER TABLE _mops_MoidQueue ADD CONSTRAINT FK__mops_MoidQueue_MovingObject 
+ALTER TABLE _mops_MoidQueue ADD CONSTRAINT FK__mops_MoidQueue_MovingObject
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
 
-ALTER TABLE _mops_EonQueue ADD CONSTRAINT FK__mopsEonQueue_MovingObject 
+ALTER TABLE _mops_EonQueue ADD CONSTRAINT FK__mopsEonQueue_MovingObject
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
 
-ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Science_FPA_Exposure 
+ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Science_FPA_Exposure
 	FOREIGN KEY (scienceFPAExposureId) REFERENCES Science_FPA_Exposure (scienceFPAExposureId);
 
-ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Raw_Amp_Exposure 
+ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Raw_Amp_Exposure
 	FOREIGN KEY (rawAmpExposureId) REFERENCES Raw_Amp_Exposure (rawAmpExposureId);
 
-ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Science_CCD_Exposure 
+ALTER TABLE Science_Amp_Exposure ADD CONSTRAINT FK_Science_Amp_Exposure_Science_CCD_Exposure
 	FOREIGN KEY (scienceCCDExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
-ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mops_Tracklet_Science_CCD_Exposure 
+ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mops_Tracklet_Science_CCD_Exposure
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
-ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_mopsSSM 
+ALTER TABLE mops_Tracklet ADD CONSTRAINT FK_mopsTracklets_mopsSSM
 	FOREIGN KEY (ssmId) REFERENCES mops_SSM (ssmId);
 
-ALTER TABLE mops_Event ADD CONSTRAINT FK_mops_Event_Science_CCD_Exposure 
+ALTER TABLE mops_Event ADD CONSTRAINT FK_mops_Event_Science_CCD_Exposure
 	FOREIGN KEY (ccdExposureId) REFERENCES Science_CCD_Exposure (scienceCCDExposureId);
 
-ALTER TABLE prv_cnf_PolicyKey ADD CONSTRAINT FK_prv_cnf_PolicyKey_prv_PolicyKey 
+ALTER TABLE prv_cnf_PolicyKey ADD CONSTRAINT FK_prv_cnf_PolicyKey_prv_PolicyKey
 	FOREIGN KEY (policyKeyId) REFERENCES prv_PolicyKey (policyKeyId);
 
-ALTER TABLE DIASource ADD CONSTRAINT FK_DIASource_MovingObject 
+ALTER TABLE DIASource ADD CONSTRAINT FK_DIASource_MovingObject
 	FOREIGN KEY (movingObjectId) REFERENCES MovingObject (movingObjectId);
 
-ALTER TABLE Visit ADD CONSTRAINT FK_Visit_Raw_FPA_Exposure 
+ALTER TABLE Visit ADD CONSTRAINT FK_Visit_Raw_FPA_Exposure
 	FOREIGN KEY (exposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
-ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Raw_CCD_Exposure 
+ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Raw_CCD_Exposure
 	FOREIGN KEY (rawCCDExposureId) REFERENCES Raw_CCD_Exposure (rawCCDExposureId);
 
-ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Science_FPA_Exposure 
+ALTER TABLE Science_CCD_Exposure ADD CONSTRAINT FK_Science_CCD_Exposure_Science_FPA_Exposure
 	FOREIGN KEY (scienceFPAExposureId) REFERENCES Science_FPA_Exposure (scienceFPAExposureId);
 
-ALTER TABLE Raw_CCD_Exposure ADD CONSTRAINT FK_Raw_CCD_Exposure_Raw_FPA_Exposure 
+ALTER TABLE Raw_CCD_Exposure ADD CONSTRAINT FK_Raw_CCD_Exposure_Raw_FPA_Exposure
 	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_Raw_Amp_Exposure_Raw_FPA_Exposure 
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_Raw_Amp_Exposure_Raw_FPA_Exposure
 	FOREIGN KEY (rawFPAExposureId) REFERENCES Raw_FPA_Exposure (rawFPAExposureId);
 
-ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_Raw_Amp_Exposure_Raw_CCD_Exposure 
+ALTER TABLE Raw_Amp_Exposure ADD CONSTRAINT FK_Raw_Amp_Exposure_Raw_CCD_Exposure
 	FOREIGN KEY (rawCCDExposureId) REFERENCES Raw_CCD_Exposure (rawCCDExposureId);
 
-ALTER TABLE mops_SSM ADD CONSTRAINT FK_mopsSSM_mopsSSMDesc 
+ALTER TABLE mops_SSM ADD CONSTRAINT FK_mopsSSM_mopsSSMDesc
 	FOREIGN KEY (ssmDescId) REFERENCES mops_SSMDesc (ssmDescId);
 
-ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqa_Threshold_sdqa_Metric 
+ALTER TABLE sdqa_Threshold ADD CONSTRAINT FK_sdqa_Threshold_sdqa_Metric
 	FOREIGN KEY (sdqa_metricId) REFERENCES sdqa_Metric (sdqa_metricId);
 
-ALTER TABLE prv_PolicyKey ADD CONSTRAINT FK_prv_PolicyKey_prv_PolicyFile 
+ALTER TABLE prv_PolicyKey ADD CONSTRAINT FK_prv_PolicyKey_prv_PolicyFile
 	FOREIGN KEY (policyFileId) REFERENCES prv_PolicyFile (policyFileId);
 
-ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_prv_SoftwarePackage 
+ALTER TABLE prv_cnf_SoftwarePackage ADD CONSTRAINT FK_prv_cnf_SoftwarePackage_prv_SoftwarePackage
 	FOREIGN KEY (packageId) REFERENCES prv_SoftwarePackage (packageId);

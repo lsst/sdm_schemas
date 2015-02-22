@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# 
+#
 # LSST Data Management System
 # Copyright 2008, 2009, 2010 LSST Corporation.
-# 
+#
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
 #
@@ -11,14 +11,14 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
-# You should have received a copy of the LSST License Statement and 
-# the GNU General Public License along with this program.  If not, 
+#
+# You should have received a copy of the LSST License Statement and
+# the GNU General Public License along with this program.  If not,
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
@@ -51,7 +51,7 @@ if not options.f:
 class CleanupExpiredRuns(MySQLBase):
 
     def __init__(self, dbHost, dbPort, gDb,
-                 rootU, rootP, 
+                 rootU, rootP,
                  dFirstNotice, dFinalNotice):
         MySQLBase.__init__(self, dbHost, dbPort)
         if gDb == "":
@@ -69,15 +69,15 @@ class CleanupExpiredRuns(MySQLBase):
         # to the users at least 24 hours ago.
         # Returns a list of database names for deletion"""
         self.cmdGetExpiredRuns = """
-  SELECT dbName 
-  FROM   RunInfo 
+  SELECT dbName
+  FROM   RunInfo
   WHERE  TIMESTAMPDIFF(HOUR, expDate, %s) > 23 # run definitely expired
     AND  delDate IS NULL                       # and it is not deleted yet
     AND  finalNotifDate IS NOT NULL            # and notification was sent
     AND  TIMESTAMPDIFF(HOUR, finalNotifDate, %s)>23 # ...at least 24 hours ago
 """ % (now, now)
 
-        # find all runs that will expire in <daysFirstNotice> or less days, 
+        # find all runs that will expire in <daysFirstNotice> or less days,
         # and send first notification if it was not sent
         self.cmdGetRunsFirstNotice = """
   SELECT runInfoId, runName, dbName, expDate, initiator, dbName, dcVersion
@@ -113,7 +113,7 @@ class CleanupExpiredRuns(MySQLBase):
 Hello,
 
 This is an automated notification listing runs
-that will be deleted from the mysql database on 
+that will be deleted from the mysql database on
 lsst10. Information about each run is in the form
 [runName, dcVersion, initiator, dbName]
 
@@ -125,7 +125,7 @@ First notification (runs to be deleted in %s day(s)):
 
 %s
 
-To prevent a run from being deleted, extend 
+To prevent a run from being deleted, extend
 it by running the following mysql commands:
 
   USE %s
@@ -236,6 +236,6 @@ print """\n\n
 rootU = raw_input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
-xx = CleanupExpiredRuns(host, port, gDb, rootU, rootP, 
+xx = CleanupExpiredRuns(host, port, gDb, rootU, rootP,
                         dFirstNotice, dFinalNotice)
 xx.run()

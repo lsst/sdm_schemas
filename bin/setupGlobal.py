@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# 
+#
 # LSST Data Management System
 # Copyright 2008, 2009, 2010 LSST Corporation.
-# 
+#
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
 #
@@ -11,14 +11,14 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
-# You should have received a copy of the LSST License Statement and 
-# the GNU General Public License along with this program.  If not, 
+#
+# You should have received a copy of the LSST License Statement and
+# the GNU General Public License along with this program.  If not,
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
@@ -36,7 +36,7 @@ usage = """
 
 %prog [-f policyFile]
 
-Initializes the LSST Global database and per-data-challenge database. 
+Initializes the LSST Global database and per-data-challenge database.
 
 Requires $CAT_ENV environment variable.
 
@@ -76,7 +76,7 @@ class SetupGlobal(MySQLBase):
     def run(self):
         """
         setupGlobal creates and per-data-challenge database,
-        and optionally (if it does not exist) the Global database. 
+        and optionally (if it does not exist) the Global database.
         """
         self.connect(self.dbSUName, self.dbSUPwd)
         # create & configure Global database (if doesn't exist)
@@ -85,7 +85,7 @@ class SetupGlobal(MySQLBase):
         else:
             self.__setupOnce__(self.globalDbName, 'setup_DB_global.sql')
             print "Setup '%s' succeeded." % self.globalDbName
-            
+
         # create and configure per-data-challange database (if doesn't exist)
         if self.dbExists(self.dcDbName):
             print "'%s' exists." % self.dcDbName
