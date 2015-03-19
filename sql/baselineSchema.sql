@@ -1,5 +1,5 @@
 -- LSST Data Management System
--- Copyright 2008-2013 LSST Corporation.
+-- Copyright 2008-2015 LSST Corporation.
 --
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
@@ -23,20 +23,21 @@
 -- UCD definitions based on:
 -- http://www.ivoa.net/Documents/cover/UCDlist-20070402.html
 
-CREATE TABLE AAA_Version_3_2_4 (version CHAR);
 
 SET FOREIGN_KEY_CHECKS=0;
 
-CREATE TABLE ZZZ_Db_Description
-    -- <descr>Internal table used for storing database description</descr>
+CREATE TABLE ZZZ_Schema_Description
+    -- <descr>Internal table used for storing schema version and description.
+    -- </descr>
 (
-    f VARCHAR(255),
-        -- <descr>The schema file name.</descr>
-    r VARCHAR(255)
-        -- <descr>Captures information from 'git describe'.</descr>
+    version VARCHAR(255),
+        -- <descr>The schema version.</descr>
+    descr VARCHAR(255)
+        -- <descr>Description of the schema.</descr>
 ) ENGINE=MyISAM;
 
-INSERT INTO ZZZ_Db_Description(f) VALUES('baselineSchema.sql');
+INSERT INTO ZZZ_Schema_Description(version, descr) VALUES (
+       '3.2.4', 'LSST baseline schema - schema we expect to use in production.');
 
 -- ############################################################################
 -- ##### CREATE TABLES: C O R E,    L E V E L 1
@@ -3290,7 +3291,7 @@ CREATE TABLE sdqa_Metric
         -- <descr>Physical units of metric.</descr>
     dataType CHAR(1) NOT NULL,
         -- <descr>Flag indicating whether data type of the metric value is
-        -- integer (0) or float (1)</descr>
+        -- integer (0) or float (1).</descr>
     definition VARCHAR(255) NOT NULL,
     PRIMARY KEY PK_sdqaMetric (sdqa_metricId),
     UNIQUE UQ_sdqaMetric_metricName (metricName)
