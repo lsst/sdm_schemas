@@ -34,10 +34,20 @@ import lsst.cat.SqlScript as SqlScript
 DB_HOST = "lsst10.ncsa.illinois.edu"
 DB_PORT = 3306
 
+if os.uname()[1].endswith(".ncsa.illinois.edu") and \
+    dafPersist.DbAuth.available(DB_HOST, str(DB_PORT)):
+    HAVE_DB = True
+else:
+    HAVE_DB = False
+
 class TimeFuncTestCase(unittest.TestCase):
     """A test case for SQL time functions."""
 
     def setUp(self):
+
+        if not HAVE_DB:
+            raise unittest.SkipTest("not at NCSA or no database credentials.")
+
         testId = int(time.time() * 10.0)
 
         self.dbName = "test_%d" % testId
@@ -141,12 +151,6 @@ class TimeFuncTestCase(unittest.TestCase):
         haveRow = self.db.next()
         self.assert_(not haveRow)
 
-def suite():
-    return unittest.makeSuite(TimeFuncTestCase)
-
 if __name__ == '__main__':
-    if os.uname()[1].endswith(".ncsa.illinois.edu") and \
-            dafPersist.DbAuth.available(DB_HOST, str(DB_PORT)):
-        unittest.main()
-    else:
-        print "Skipping test: not at NCSA or no database credentials."
+    unittest.main()
+
