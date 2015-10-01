@@ -2926,6 +2926,7 @@ CREATE TABLE prv_cnf_Amp
     ampName CHAR(3) NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     biasSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
         -- <descr>Bias section (ex: '[2045:2108,1:4096]')</descr>
     trimSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
@@ -2948,6 +2949,7 @@ CREATE TABLE prv_cnf_Ccd
     ccdName CHAR(3) NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     serialN INTEGER NOT NULL,
     PRIMARY KEY PK_prvCnfCcd (cCcdId),
     INDEX IDX_prvCnfCcd_ccdName (ccdName)
@@ -2961,6 +2963,7 @@ CREATE TABLE prv_cnf_Filter
     filterName CHAR,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfFilter (cFilterId),
     INDEX IDX_prvCnfFilter_filterName (filterName)
 ) ENGINE=InnoDB;
@@ -2973,6 +2976,7 @@ CREATE TABLE prv_cnf_Fpa
     fpaId TINYINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     versionN SMALLINT NOT NULL,
     PRIMARY KEY PK_prvCnfFpa (cFpaId),
     INDEX IDX_prvCnfFpa_fpaId (fpaId)
@@ -2986,6 +2990,7 @@ CREATE TABLE prv_cnf_InputDataSet
     inputDataSetId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfInputDataSet (cInputDataSetId),
     INDEX IDX_prvCnfInputDataSet (inputDataSetId)
 ) ENGINE=InnoDB;
@@ -2998,6 +3003,7 @@ CREATE TABLE prv_cnf_Node
     nodeId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfNode (cNodeId),
     INDEX IDX_prvCnfNode_nodeId (nodeId)
 ) ENGINE=InnoDB;
@@ -3010,6 +3016,7 @@ CREATE TABLE prv_cnf_Raft
     raftName CHAR(3) NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     serialN INTEGER NOT NULL,
     PRIMARY KEY PK_prvCnfRaft (cRaftId),
     INDEX IDX_prvCnfRaft_raftName (raftName)
@@ -3021,6 +3028,7 @@ CREATE TABLE prv_cnf_Run
 (
     cRunId MEDIUMINT NOT NULL,
     runId MEDIUMINT NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfRun (cRunId),
     INDEX IDX_prvCnfRun_runId (runId)
 ) ENGINE=InnoDB;
@@ -3033,6 +3041,7 @@ CREATE TABLE prv_cnf_Task
     taskId SMALLINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTask (cTaskId),
     INDEX IDX_prvCnfTask_taskId (taskId)
 ) ENGINE=InnoDB;
@@ -3045,6 +3054,7 @@ CREATE TABLE prv_cnf_Task2TaskExecution
     task2taskExecutionId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTask2TaskExecution (cTask2TaskExecutionId),
     INDEX IDX_prvCnfTask2TaskExecution_task2taskExecutionId (task2taskExecutionId)
 ) ENGINE=InnoDB;
@@ -3057,6 +3067,7 @@ CREATE TABLE prv_cnf_Task2TaskGraph
     task2taskGraphId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTask2TaskGraph (cTask2TaskGraphId),
     INDEX IDX_prvCnfTask2TaskGraph_task2taskGraphId (task2taskGraphId)
 ) ENGINE=InnoDB;
@@ -3085,6 +3096,7 @@ CREATE TABLE prv_cnf_TaskGraph
 (
     cTaskGraphId SMALLINT NOT NULL,
     taskGraphId SMALLINT NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTaskGraph (cTaskGraphId),
     INDEX IDX_prvCnfTaskGraph_taskGraphId (taskGraphId)
 ) ENGINE=InnoDB;
@@ -3097,6 +3109,7 @@ CREATE TABLE prv_cnf_TaskGraph2Run
     taskGraph2runId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
+    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTaskGraph2Run (cTaskGraph2RunId),
     INDEX IDX_prvCnfTaskGraph2Run_taskGraph2runId (taskGraph2runId)
 ) ENGINE=InnoDB;
