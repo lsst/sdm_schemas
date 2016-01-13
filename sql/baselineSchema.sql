@@ -1,5 +1,5 @@
 -- LSST Data Management System
--- Copyright 2008-2015 LSST Corporation.
+-- Copyright 2008-2016 LSST Corporation.
 --
 -- This product includes software developed by the
 -- LSST Project (http://www.lsst.org/).
@@ -592,6 +592,9 @@ CREATE TABLE DiaSource
         -- <ucd>meta.id;instr.filter</ucd>
     procHistoryId BIGINT NOT NULL,
         -- <descr>Pointer to ProcessingHistory table.</descr>
+    prv_procOrder INT NOT NULL,
+        -- <descr>Position of this diaSource in the processing order relative
+        -- to other diaSources within a given diaObjectId or ssObjectId.</descr>
     ssObjectReassocTime DATETIME NULL,
         -- <descr>Time when this diaSource was reassociated from diaObject
         -- to ssObject (if such reassociation happens, otherwise NULL).</descr>
@@ -900,6 +903,9 @@ CREATE TABLE Object
         -- if any.</descr>
     procHistoryId BIGINT NOT NULL,
         -- <descr>Pointer to ProcessingHistory table.</descr>
+    prv_inputId INT NOT NULL,
+        -- <descr>Pointer to prv_InputType. Indicates which input was used
+        -- to produce a given object.
     psRa DOUBLE NULL,
         -- <descr>RA-coordinate of the center of the object for the Point
         -- Source model at time 'psEpoch'.</descr>
@@ -2916,6 +2922,19 @@ CREATE TABLE prv_ProcHistory
         -- <descr>Unique id</descr>
         -- <ucd>meta.id;src</ucd>
     PRIMARY KEY PK_prvProcHistory (procHistoryId)
+) ENGINE=InnoDB;
+
+-- ############################################################################
+
+CREATE TABLE prv_InputType
+    -- <descr>This table defines input types that are used to generate objects.
+(
+    inputTypeId INT NOT NULL AUTO_INCREMENT,
+        -- <descr>Unique id</descr>
+        -- <ucd>meta.id;src</ucd>
+    descr VARCHAR(255),
+        -- <descr>Decription of the input</descr>
+    PRIMARY KEY PK_prvInputType (inputTypeId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
