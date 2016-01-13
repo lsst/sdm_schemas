@@ -51,8 +51,6 @@ CREATE TABLE DiaObject
     diaObjectId BIGINT NOT NULL,
         -- <descr>Unique id.</descr>
         -- <ucd>meta.id;src</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     validityStart DATETIME NOT NULL,
         -- <descr>Time when validity of this diaObject starts.</descr>
     validityEnd DATETIME NOT NULL,
@@ -328,7 +326,6 @@ CREATE TABLE DiaObject
         -- <descr>HTM index.</descr>
     PRIMARY KEY PK_DiaObject (diaObjectId, validityStart),
     INDEX IDX_DiaObject_validityStart (validityStart),
-    INDEX IDX_DiaObject_procHistoryId (procHistoryId),
     INDEX IDX_DiaObject_htmId20 (htmId20)
 ) ENGINE=MyISAM;
 
@@ -341,8 +338,6 @@ CREATE TABLE SSObject
     ssObjectId BIGINT NOT NULL,
         -- <descr>Unique identifier.</descr>
         -- <ucd>meta.id;src</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     q DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
@@ -554,8 +549,7 @@ CREATE TABLE SSObject
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_SSObject (ssObjectId),
-    INDEX IDX_SSObject_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_SSObject (ssObjectId)
 ) ENGINE=MyISAM;
 
 -- ############################################################################
@@ -590,8 +584,6 @@ CREATE TABLE DiaSource
         -- <descr>Name of the filter used to take the Visit where this
         -- diaSource was measured.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     prv_procOrder INT NOT NULL,
         -- <descr>Position of this diaSource in the processing order relative
         -- to other diaSources within a given diaObjectId or ssObjectId.</descr>
@@ -813,7 +805,6 @@ CREATE TABLE DiaSource
     htmId20 BIGINT NOT NULL,
         -- <descr>HTM index.</descr>
     PRIMARY KEY PK_DiaSource (diaSourceId),
-    INDEX IDX_DiaSource_procHistoryId (procHistoryId),
     INDEX IDX_DiaSource_ccdVisitId (ccdVisitId),
     INDEX IDX_DiaSource_diaObjectId (diaObjectId),
     INDEX IDX_DiaSource_ssObjectId (ssObjectId),
@@ -835,8 +826,6 @@ CREATE TABLE DiaForcedSource
         -- that we are allowing a forcedSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     psFlux FLOAT NOT NULL,
         -- <descr>Point Source model flux.</descr>
         -- <ucd>phot.count</ucd>
@@ -901,8 +890,6 @@ CREATE TABLE Object
     parentObjectId BIGINT NULL,
         -- <descr>Id of the parent object this object has been deblended from,
         -- if any.</descr>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     prv_inputId INT NOT NULL,
         -- <descr>Pointer to prv_InputType. Indicates which input was used
         -- to produce a given object.
@@ -2037,7 +2024,6 @@ CREATE TABLE Object
     FLAGS2 BIGINT NOT NULL,
         -- <descr>Flags, tbd.</descr>
     PRIMARY KEY PK_Object (objectId),
-    INDEX IDX_Object_procHistoryId (procHistoryId),
     INDEX IDX_Object_decl (psDecl ASC)
 ) ENGINE=MyISAM;
 
@@ -2160,8 +2146,6 @@ CREATE TABLE Source
     parentSourceId BIGINT NULL,
         -- <descr>Id of the parent source this source has been deblended from,
         -- if any.</descr>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     htmId20 BIGINT NOT NULL,
         -- <descr>HTM index.</descr>
     sky FLOAT NULL,
@@ -2299,7 +2283,6 @@ CREATE TABLE Source
     INDEX IDX_Source_ccdVisitId (ccdVisitId),
     INDEX IDX_Source_objectId (objectId),
     INDEX IDX_Source_ssObjectId (ssObjectId),
-    INDEX IDX_Source_procHistoryId (procHistoryId),
     INDEX IDX_Source_htmId20 (htmId20 ASC)
 ) ENGINE=MyISAM;
 
@@ -2338,8 +2321,6 @@ CREATE TABLE ForcedSource
         -- Note that we are allowing a forcedSource to belong to multiple
         -- amplifiers, but it may not span multiple ccds.</descr>
         -- <ucd>meta.id;obs.image</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     psFlux FLOAT NOT NULL,
         -- <descr>Point Source model flux.</descr>
         -- <ucd>phot.count</ucd>
@@ -2351,8 +2332,7 @@ CREATE TABLE ForcedSource
     flags TINYINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_ForcedSource (objectId, ccdVisitId),
-    INDEX IDX_ForcedSource_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_ForcedSource (objectId, ccdVisitId)
 ) ENGINE=MyISAM;
 
 -- ############################################################################
@@ -2381,8 +2361,6 @@ CREATE TABLE RawAmpExposure
     filterName CHAR(1) NOT NULL,
         -- <descr>Filter name.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     ra DOUBLE NOT NULL,
         -- <descr>Ra of amp center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -2453,8 +2431,7 @@ CREATE TABLE RawAmpExposure
         -- <unit>s</unit>
     flags INTEGER NOT NULL DEFAULT 0,
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_RawAmpExposure (rawAmpExposureId),
-    INDEX IDX_RawAmpExposure_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_RawAmpExposure (rawAmpExposureId)
 ) ENGINE=MyISAM;
 
 -- ############################################################################
@@ -2493,8 +2470,6 @@ CREATE TABLE RawCcdExposure
     filterName CHAR(1) NOT NULL,
         -- <descr>Filter name.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     ra DOUBLE NOT NULL,
         -- <descr>RA of field of view center.</descr>
         -- <ucd>pos.eq.ra</ucd>
@@ -2567,8 +2542,7 @@ CREATE TABLE RawCcdExposure
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_RawCcdExposure (rawCcdExposureId),
-    INDEX IDX_RawCcdExposure_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_RawCcdExposure (rawCcdExposureId)
 ) ENGINE=MyISAM;
 
 -- ############################################################################
@@ -2689,8 +2663,6 @@ CREATE TABLE CcdVisit
     filterName CHAR(1) NOT NULL,
         -- <descr>Filter name used for this exposure.</descr>
         -- <ucd>meta.id;instr.filter</ucd>
-    procHistoryId BIGINT NOT NULL,
-        -- <descr>Pointer to ProcessingHistory table.</descr>
     nExposures INT NOT NULL,
         -- <descr>Number of exposures combined to produce this visit.</descr>
     ra DOUBLE NOT NULL,
@@ -2774,8 +2746,7 @@ CREATE TABLE CcdVisit
     flags INTEGER NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
-    PRIMARY KEY PK_CcdVisit (ccdVisitId),
-    INDEX IDX_CcdVisit_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_CcdVisit (ccdVisitId)
 ) ENGINE=MyISAM;
 
 -- ############################################################################
@@ -2945,7 +2916,6 @@ CREATE TABLE prv_cnf_Amp
     ampName CHAR(3) NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     biasSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
         -- <descr>Bias section (ex: '[2045:2108,1:4096]')</descr>
     trimSec VARCHAR(20) NOT NULL DEFAULT '[0:0,0:0]',
@@ -2968,7 +2938,6 @@ CREATE TABLE prv_cnf_Ccd
     ccdName CHAR(3) NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     serialN INTEGER NOT NULL,
     PRIMARY KEY PK_prvCnfCcd (cCcdId),
     INDEX IDX_prvCnfCcd_ccdName (ccdName)
@@ -2982,7 +2951,6 @@ CREATE TABLE prv_cnf_Filter
     filterName CHAR,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfFilter (cFilterId),
     INDEX IDX_prvCnfFilter_filterName (filterName)
 ) ENGINE=InnoDB;
@@ -2995,7 +2963,6 @@ CREATE TABLE prv_cnf_Fpa
     fpaId TINYINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     versionN SMALLINT NOT NULL,
     PRIMARY KEY PK_prvCnfFpa (cFpaId),
     INDEX IDX_prvCnfFpa_fpaId (fpaId)
@@ -3009,7 +2976,6 @@ CREATE TABLE prv_cnf_InputDataSet
     inputDataSetId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfInputDataSet (cInputDataSetId),
     INDEX IDX_prvCnfInputDataSet (inputDataSetId)
 ) ENGINE=InnoDB;
@@ -3022,7 +2988,6 @@ CREATE TABLE prv_cnf_Node
     nodeId INTEGER NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfNode (cNodeId),
     INDEX IDX_prvCnfNode_nodeId (nodeId)
 ) ENGINE=InnoDB;
@@ -3035,7 +3000,6 @@ CREATE TABLE prv_cnf_Raft
     raftName CHAR(3) NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     serialN INTEGER NOT NULL,
     PRIMARY KEY PK_prvCnfRaft (cRaftId),
     INDEX IDX_prvCnfRaft_raftName (raftName)
@@ -3047,7 +3011,6 @@ CREATE TABLE prv_cnf_Run
 (
     cRunId MEDIUMINT NOT NULL,
     runId MEDIUMINT NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfRun (cRunId),
     INDEX IDX_prvCnfRun_runId (runId)
 ) ENGINE=InnoDB;
@@ -3060,7 +3023,6 @@ CREATE TABLE prv_cnf_Task
     taskId SMALLINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTask (cTaskId),
     INDEX IDX_prvCnfTask_taskId (taskId)
 ) ENGINE=InnoDB;
@@ -3073,7 +3035,6 @@ CREATE TABLE prv_cnf_Task2TaskExecution
     task2taskExecutionId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTask2TaskExecution (cTask2TaskExecutionId),
     INDEX IDX_prvCnfTask2TaskExecution_task2taskExecutionId (task2taskExecutionId)
 ) ENGINE=InnoDB;
@@ -3086,7 +3047,6 @@ CREATE TABLE prv_cnf_Task2TaskGraph
     task2taskGraphId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTask2TaskGraph (cTask2TaskGraphId),
     INDEX IDX_prvCnfTask2TaskGraph_task2taskGraphId (task2taskGraphId)
 ) ENGINE=InnoDB;
@@ -3099,14 +3059,12 @@ CREATE TABLE prv_cnf_TaskExecution
     taskExecutionId MEDIUMINT NOT NULL,
     nodeId INTEGER NOT NULL,
     inputDataSetId INTEGER NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
     PRIMARY KEY PK_prvCnfTaskExecution (cTaskExecutionId),
     INDEX IDX_prvCnfTaskExecution_nodeId (nodeId),
     INDEX IDX_prvCnfTaskExecution_taskExecutionId (taskExecutionId),
-    INDEX IDX_prvCnfTaskExecution_inputDataSetId (inputDataSetId),
-    INDEX IDX_prvCnfTaskExecution_procHistoryId (procHistoryId)
+    INDEX IDX_prvCnfTaskExecution_inputDataSetId (inputDataSetId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -3115,7 +3073,6 @@ CREATE TABLE prv_cnf_TaskGraph
 (
     cTaskGraphId SMALLINT NOT NULL,
     taskGraphId SMALLINT NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTaskGraph (cTaskGraphId),
     INDEX IDX_prvCnfTaskGraph_taskGraphId (taskGraphId)
 ) ENGINE=InnoDB;
@@ -3128,7 +3085,6 @@ CREATE TABLE prv_cnf_TaskGraph2Run
     taskGraph2runId MEDIUMINT NOT NULL,
     validityBegin DATETIME NOT NULL,
     validityEnd DATETIME NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     PRIMARY KEY PK_prvCnfTaskGraph2Run (cTaskGraph2RunId),
     INDEX IDX_prvCnfTaskGraph2Run_taskGraph2runId (taskGraph2runId)
 ) ENGINE=InnoDB;
@@ -3221,10 +3177,8 @@ CREATE TABLE prv_Run
 CREATE TABLE prv_Snapshot
 (
     snapshotId MEDIUMINT NOT NULL,
-    procHistoryId BIGINT NOT NULL,
     snapshotDescr VARCHAR(255) NULL,
-    PRIMARY KEY PK_prvSnapshot (snapshotId),
-    INDEX IDX_prvSnapshot_procHistoryId (procHistoryId)
+    PRIMARY KEY PK_prvSnapshot (snapshotId)
 ) ENGINE=InnoDB;
 
 -- ############################################################################
@@ -3470,26 +3424,14 @@ CREATE TABLE ApertureBins
 
 SET FOREIGN_KEY_CHECKS=1;
 
-ALTER TABLE DiaObject ADD CONSTRAINT FK_DiaObject_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
-ALTER TABLE SSObject ADD CONSTRAINT FK_SSObject_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
 ALTER TABLE DiaSource ADD CONSTRAINT FK_DiaSource_CcdVisit
         FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
 
 ALTER TABLE DiaSource ADD CONSTRAINT FK_DiaSource_prvFilter
         FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
 
-ALTER TABLE DiaSource ADD CONSTRAINT FK_DiaSource_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
 ALTER TABLE DiaForcedSource ADD CONSTRAINT FK_DiaForcedSource_CcdVisit
         FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
-
-ALTER TABLE DiaForcedSource ADD CONSTRAINT FK_DiaForcedSource_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
 ALTER TABLE DiaObject_To_Object_Match ADD CONSTRAINT FK_DiaObjectToObjectMatch_DiaObject
         FOREIGN KEY (diaObjectId) REFERENCES DiaObject (diaObjectId);
@@ -3499,9 +3441,6 @@ ALTER TABLE DiaObject_To_Object_Match ADD CONSTRAINT FK_DiaObjectToObjectMatch_O
 
 ALTER TABLE Object ADD CONSTRAINT FK_Object_Object
         FOREIGN KEY (parentObjectId) REFERENCES Object (objectId);
-
-ALTER TABLE Object ADD CONSTRAINT FK_Object_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
 ALTER TABLE Object_Extra ADD CONSTRAINT FK_ObjectExtra_Object
         FOREIGN KEY (objectId) REFERENCES Object (objectId);
@@ -3542,9 +3481,6 @@ ALTER TABLE Source ADD CONSTRAINT FK_Source_SSObject
 ALTER TABLE Source ADD CONSTRAINT FK_Source_Source
         FOREIGN KEY (parentSourceId) REFERENCES Source (sourceId);
 
-ALTER TABLE Source ADD CONSTRAINT FK_Source_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
 ALTER TABLE Source_APMean ADD CONSTRAINT FK_SourceAPMean_Source
         FOREIGN KEY (sourceId) REFERENCES Source (sourceId);
 
@@ -3556,9 +3492,6 @@ ALTER TABLE ForcedSource ADD CONSTRAINT FK_ForcedSource_Object
 
 ALTER TABLE ForcedSource ADD CONSTRAINT FK_ForcedSource_CcdVisit
         FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
-
-ALTER TABLE ForcedSource ADD CONSTRAINT FK_ForcedSource_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
 ALTER TABLE RawAmpExposure ADD CONSTRAINT FK_RawAmpExposure_RawCcdExposure
         FOREIGN KEY (rawCcdExposureId) REFERENCES RawCcdExposure (rawCcdExposureId);
@@ -3590,9 +3523,6 @@ ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_prvRaft
 ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_prvFilter
         FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
 
-ALTER TABLE RawCcdExposure ADD CONSTRAINT FK_RawCcdExposure_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
 ALTER TABLE RawCcdExposureMetadata ADD CONSTRAINT FK_RawCcdExposureMetadata_RawCcdExposure
         FOREIGN KEY (rawCcdExposureId) REFERENCES RawCcdExposure (rawCcdExposureId);
 
@@ -3607,9 +3537,6 @@ ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_prvRaft
 
 ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_prvFilter
         FOREIGN KEY (filterName) REFERENCES prv_Filter (filterName);
-
-ALTER TABLE CcdVisit ADD CONSTRAINT FK_CcdVisit_prvProcHistory
-        FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
 ALTER TABLE CcdVisitMetadata ADD CONSTRAINT FK_CcdVisitMetadata_CcdVisit
         FOREIGN KEY (ccdVisitId) REFERENCES CcdVisit (ccdVisitId);
@@ -3665,9 +3592,6 @@ ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvNode
 ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvInputDataSet
 	FOREIGN KEY (inputDataSetId) REFERENCES prv_InputDataSet (inputDataSetId);
 
-ALTER TABLE prv_cnf_TaskExecution ADD CONSTRAINT FK_prvCnfTaskExecution_prvProcHistory
-	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
-
 ALTER TABLE prv_cnf_TaskGraph ADD CONSTRAINT FK_prvCnfTaskGraph_prvTaskGraph
 	FOREIGN KEY (taskGraphId) REFERENCES prv_TaskGraph (taskGraphId);
 
@@ -3682,9 +3606,6 @@ ALTER TABLE prv_Ccd ADD CONSTRAINT FK_prvCcd_prvRaft
 
 ALTER TABLE prv_Raft ADD CONSTRAINT FK_prvRaft_prvFpa
 	FOREIGN KEY (fpaId) REFERENCES prv_Fpa (fpaId);
-
-ALTER TABLE prv_Snapshot ADD CONSTRAINT FK_prvSnapshot_prvProcessingHistory
-	FOREIGN KEY (procHistoryId) REFERENCES prv_ProcHistory (procHistoryId);
 
 ALTER TABLE prv_Task2TaskExecution ADD CONSTRAINT FK_prvTask2TaskExecution_prvTask
 	FOREIGN KEY (taskId) REFERENCES prv_Task (taskId);
