@@ -2369,6 +2369,9 @@ CREATE TABLE RawAmpExposure
         -- <descr>Decl of amp center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
+    skyRotation DOUBLE NOT NULL,
+        -- <descr>Sky rotation angle.</descr>
+        -- <unit>deg</unit>
     bias FLOAT NOT NULL,
         -- <descr>Bias as measured from overscan columns.</descr>
         -- <unit>DN</unit>
@@ -2478,6 +2481,9 @@ CREATE TABLE RawCcdExposure
         -- <descr>Declination of field of view center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
+    skyRotation DOUBLE NOT NULL,
+        -- <descr>Sky rotation angle.</descr>
+        -- <unit>deg</unit>
     zenithDistance FLOAT NOT NULL,
         -- <descr>Zenith distance at observation mid-point.</descr>
         -- <ucd>pos.az.zd</ucd>
@@ -2577,14 +2583,14 @@ CREATE TABLE RawExposure
         -- <descr>Declination of focal plane center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
+    skyRotation DOUBLE NOT NULL,
+        -- <descr>Sky rotation angle.</descr>
+        -- <unit>deg</unit>
     altitude DOUBLE NOT NULL,
         -- <descr>Altitude of focal plane center.</descr>
         -- <unit>deg</unit>
     azimuth DOUBLE NOT NULL,
         -- <descr>Azimuth of focal plane center.</descr>
-        -- <unit>deg</unit>
-    rotation DOUBLE NOT NULL,
-        -- <descr>Rotation of the camera.</descr>
         -- <unit>deg</unit>
     programId INT NOT NULL,
         -- <descr>Observing program id (e.g., universal cadence, or one of
@@ -2672,6 +2678,9 @@ CREATE TABLE CcdVisit
     decl DOUBLE NOT NULL,
         -- <descr>Decl of Ccd center.</descr>
         -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    skyRotation DOUBLE NOT NULL,
+        -- <descr>Sky rotation angle.</descr>
         -- <unit>deg</unit>
     zenithDistance FLOAT NOT NULL,
         -- <descr>Zenith distance at observation mid-point.</descr>
@@ -2785,14 +2794,14 @@ CREATE TABLE Visit
         -- <descr>Decl of focal plane center.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
+    skyRotation DOUBLE NOT NULL,
+        -- <descr>Sky rotation angle.</descr>
+        -- <unit>deg</unit>
     altitude DOUBLE NOT NULL,
         -- <descr>Altitude of focal plane center.</descr>
         -- <unit>deg</unit>
     azimuth DOUBLE NOT NULL,
         -- <descr>Azimuth of focal plane center.</descr>
-        -- <unit>deg</unit>
-    rotation DOUBLE NOT NULL,
-        -- <descr>Rotation of the camera.</descr>
         -- <unit>deg</unit>
     programId INT NOT NULL,
         -- <descr>Observing program id (e.g., universal cadence, or one of
