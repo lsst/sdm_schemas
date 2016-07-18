@@ -24,7 +24,7 @@
 
 from builtins import object
 from lsst.cat.MySQLBase import MySQLBase
-from lsst.pex.logging import Log
+from lsst.log import Log
 import lsst.pex.policy as pexPolicy
 
 import os
@@ -39,8 +39,8 @@ class PolicyReader(object):
                 raise RuntimeError('CAT_DIR env var required')
             fullPath = os.path.join(pDir, 'policy/defaultProdCatPolicy.paf')
         self.policyObj = pexPolicy.Policy.createPolicy(fullPath)
-        log = Log(Log.getDefaultLog(), "cat")
-        log.log(Log.DEBUG, 'Reading policy from %s' % fullPath)
+        log = Log.getLogger("cat")
+        log.debug('Reading policy from %s', fullPath)
 
     def readAuthInfo(self):
         subP = self.policyObj.getPolicy('database.authinfo')

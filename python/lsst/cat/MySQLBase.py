@@ -28,7 +28,7 @@ import os
 import subprocess
 import sys
 
-from lsst.pex.logging import Log
+from lsst.log import Log
 
 
 class MySQLBase(object):
@@ -44,8 +44,8 @@ class MySQLBase(object):
         self.dbHostPort = portNo
         self.db = None
         self.dbOpened = None
-        self.log = Log(Log.getDefaultLog(), "cat")
-        # self.log.setThreshold(Log.DEBUG)
+        self.log = Log.getLogger("cat")
+        # self.log.setLevel(Log.DEBUG)
 
     def __del__(self):
         self.disconnect()
@@ -73,8 +73,8 @@ class MySQLBase(object):
                                (e.args[0], e.args[1], self.dbHostName, self.dbHostPort, dbUser))
         if dbName != "":
             self.dbOpened = dbName
-        self.log.log(Log.DEBUG, "User %s connected to mysql://%s:%s/%s" %
-                     (dbUser, self.dbHostName, self.dbHostPort, dbName))
+        self.log.debug("User %s connected to mysql://%s:%s/%s",
+                       dbUser, self.dbHostName, self.dbHostPort, dbName)
 
     def disconnect(self):
         if self.db == None:
@@ -84,7 +84,7 @@ class MySQLBase(object):
             self.db.close()
         except MySQLdb.Error as e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
-        self.log.log(Log.DEBUG, "Disconnected from db %s" % self.dbOpened)
+        self.log.debug("Disconnected from db %s", self.dbOpened)
         self.db = None
         self.dbOpened = None
 
@@ -154,16 +154,16 @@ class MySQLBase(object):
             raise RuntimeError("No connection (command: '%s')" % command)
 
         cursor = self.db.cursor()
-        self.log.log(Log.DEBUG, "Executing %s" % command)
+        self.log.debug("Executing %s", command)
         cursor.execute(command)
         if nRowsRet == 0:
             ret = ""
         elif nRowsRet == 1:
             ret = cursor.fetchone()
-            self.log.log(Log.DEBUG, "Got: %s" % ret)
+            self.log.debug("Got: %s", ret)
         else:
             ret = cursor.fetchall()
-            self.log.log(Log.DEBUG, "Got: %s" % ret)
+            self.log.debug("Got: %s", ret)
         cursor.close()
         return ret
 
@@ -179,9 +179,8 @@ class MySQLBase(object):
                 (self.dbHostName, self.dbHostPort, dbUser, dbName)
 
         with file(scriptPath) as scriptFile:
-            self.log.log(Log.DEBUG,
-                         "Loading %s into db=%s on %s:%s, user=%s" %
-                         (scriptPath, dbName, self.dbHostName, self.dbHostPort, dbUser))
+            self.log.debug("Loading %s into db=%s on %s:%s, user=%s",
+                           scriptPath, dbName, self.dbHostName, self.dbHostPort, dbUser)
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
                 raise RuntimeError("Failed to execute %s < %s" %
                                    (cmd, scriptPath))
