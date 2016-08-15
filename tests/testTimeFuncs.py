@@ -25,11 +25,11 @@
 
 import unittest
 import os
-import re
 import time
 
 import lsst.daf.persistence as dafPersist
 import lsst.cat.SqlScript as SqlScript
+import lsst.utils.tests
 
 DB_HOST = "lsst10.ncsa.illinois.edu"
 DB_PORT = 3306
@@ -40,7 +40,7 @@ if os.uname()[1].endswith(".ncsa.illinois.edu") and \
 else:
     HAVE_DB = False
 
-class TimeFuncTestCase(unittest.TestCase):
+class TimeFuncTestCase(lsst.utils.tests.TestCase):
     """A test case for SQL time functions."""
 
     def setUp(self):
@@ -151,6 +151,12 @@ class TimeFuncTestCase(unittest.TestCase):
         haveRow = self.db.next()
         self.assert_(not haveRow)
 
-if __name__ == '__main__':
-    unittest.main()
+class MemoryTester(lsst.utils.tests.MemoryTestCase):
+    pass
 
+def setup_module(module):
+    lsst.utils.tests.init()
+
+if __name__ == "__main__":
+    lsst.utils.tests.init()
+    unittest.main()
