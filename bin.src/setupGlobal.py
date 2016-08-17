@@ -22,6 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -82,21 +83,21 @@ class SetupGlobal(MySQLBase):
         self.connect(self.dbSUName, self.dbSUPwd)
         # create & configure Global database (if doesn't exist)
         if self.dbExists(self.globalDbName):
-            print "'%s' exists." % self.globalDbName
+            print("'%s' exists." % self.globalDbName)
         else:
             self.__setupOnce__(self.globalDbName, 'setup_DB_global.sql')
-            print "Setup '%s' succeeded." % self.globalDbName
+            print("Setup '%s' succeeded." % self.globalDbName)
 
         # create and configure per-data-challange database (if doesn't exist)
         if self.dbExists(self.dcDbName):
-            print "'%s' exists." % self.dcDbName
+            print("'%s' exists." % self.dcDbName)
         else:
             self.__setupOnce__(self.dcDbName, 'setup_DB_dataChallenge.sql')
             # also load the regular per-run schema
             fN = "lsstSchema4mysql%s.sql" % self.dcVersion
             p = os.path.join(self.sqlDir, fN)
             self.loadSqlScript(p, self.dbSUName, self.dbSUPwd, self.dcDbName)
-            print "Setup '%s' succeeded." % self.dcDbName
+            print("Setup '%s' succeeded." % self.dcDbName)
 
         self.disconnect()
 

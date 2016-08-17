@@ -22,6 +22,8 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
+
 import lsst.pex.policy as pexPolicy
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -103,7 +105,7 @@ admin.connect(rootU, rootP, globalDbName)
 
 toStr = "TO `%s`@`%s`" % (userName, clientHost)
 if admin.userExists(userName, clientHost):
-    print 'This account already exists, upgrading priviledges. User password will not change.'
+    print('This account already exists, upgrading priviledges. User password will not change.')
 else:
     toStr += " IDENTIFIED BY '%s'" % userPass
 
@@ -133,4 +135,4 @@ admin.execCommand0("GRANT SHOW VIEW ON *.* %s" % toStr)
 
 admin.execCommand0("CALL scisql.scisql_grantPermissions('%s', '%s')" % (userName, clientHost))
 
-print "User '%s' added." % userName
+print("User '%s' added." % userName)

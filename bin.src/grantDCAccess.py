@@ -22,6 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -77,9 +78,9 @@ for u in users:
         if grantAll.match(g[0]):
             isSU = 1
     if isSU:
-        print "Skipping superuser ", u[0]
+        print("Skipping superuser ", u[0])
     else:
         toStr = "TO `%s`@`%s`" % (u[0], clientHost)
         cmd = "GRANT SELECT, INSERT ON `%s\_DB`.* %s" % (dcVersion, toStr)
         admin.execCommand0(cmd)
-        print "Executed command: ", cmd
+        print("Executed command: ", cmd)

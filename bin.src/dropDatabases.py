@@ -22,6 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -90,7 +91,7 @@ class DropDatabases(MySQLBase):
 """ % pattern
         dbs = self.execCommandN(cmd)
         for dbN in dbs:
-            print 'Deleting %s' % dbN
+            print('Deleting %s' % dbN)
             self.dropDb(dbN)
             self.execCommand0("SELECT setRunDeleted('%s')" % dbN)
         self.disconnect()

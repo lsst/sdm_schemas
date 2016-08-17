@@ -28,6 +28,9 @@ printed to stdout. Errors are reported to stderr. To use:
 
 ./measureTable.py <schema.sql
 """
+
+from __future__ import print_function
+
 import sys
 import math
 import re
@@ -288,30 +291,30 @@ def run():
 
         try:
             tableInfo.addCol(line)
-        except Exception, e:
-            print "Error on line %d: %s; line=\n%s" % (lineNum, e, line)
+        except Exception as e:
+            print("Error on line %d: %s; line=\n%s" % (lineNum, e, line))
             raise
 
     for tableInfo in tableList:
-        print "Details for table %s" % (tableInfo.name)
-        print "Simple fields (# of each):"
+        print("Details for table %s" % (tableInfo.name))
+        print("Simple fields (# of each):")
         keys = tableInfo.simpleColInfo.keys()
         keys.sort()
         for key in keys:
-            print "  %s\t%s" % (key, tableInfo.simpleColInfo[key])
-        print "User-set width fields (sizes of each):"
+            print("  %s\t%s" % (key, tableInfo.simpleColInfo[key]))
+        print("User-set width fields (sizes of each):")
         keys = tableInfo.userColInfo.keys()
         keys.sort()
         for key in keys:
-            print "  %s\t%s" % (key, tableInfo.userColInfo[key])
-        print
+            print("  %s\t%s" % (key, tableInfo.userColInfo[key]))
+        print()
 
-    print "Summary"
-    print "Table\tFixedBytes\tFixedCols\tMinVarBytes\tMaxVarBytes\tVarCols"
+    print("Summary")
+    print("Table\tFixedBytes\tFixedCols\tMinVarBytes\tMaxVarBytes\tVarCols")
     for tableInfo in tableList:
-        print "%s\t%s\t%s\t%s\t%s\t%s" % (tableInfo.name,
+        print("%s\t%s\t%s\t%s\t%s\t%s" % (tableInfo.name,
                                           tableInfo.fixedBytes, tableInfo.numFixedCols,
-                                          tableInfo.minVarBytes, tableInfo.maxVarBytes, tableInfo.numVarCols)
+                                          tableInfo.minVarBytes, tableInfo.maxVarBytes, tableInfo.numVarCols))
 
 if __name__ == "__main__":
     run()

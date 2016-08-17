@@ -22,6 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
 
 import MySQLdb
 
@@ -49,7 +50,7 @@ cursor = db.cursor()
 
 
 for n in xrange(0, 1000):
-    print n
+    print(n)
 
     cmd = 'CREATE TABLE xxtmp ENGINE=MEMORY SELECT * FROM x1m where subChunkId=%s' % n
     cursor.execute(cmd)

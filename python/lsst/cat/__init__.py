@@ -20,5 +20,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
-from MySQLBase import *
+from __future__ import absolute_import
+
+from .MySQLBase import *
 from .version import *

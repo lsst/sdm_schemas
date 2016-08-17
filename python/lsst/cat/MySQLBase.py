@@ -22,8 +22,6 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
-
-from __future__ import with_statement
 import MySQLdb
 import os
 import subprocess
@@ -69,7 +67,7 @@ class MySQLBase(object):
                                       user=dbUser,
                                       passwd=dbPassword,
                                       db=dbName)
-        except MySQLdb.Error, e:
+        except MySQLdb.Error as e:
             raise RuntimeError("DB Error %d: %s. host=%s, port=%s, user=%s, pass=<hidden>" %
                                (e.args[0], e.args[1], self.dbHostName, self.dbHostPort, dbUser))
         if dbName != "":
@@ -83,7 +81,7 @@ class MySQLBase(object):
         try:
             self.db.commit()
             self.db.close()
-        except MySQLdb.Error, e:
+        except MySQLdb.Error as e:
             raise RuntimeError("DB Error %d: %s" % (e.args[0], e.args[1]))
         self.log.log(Log.DEBUG, "Disconnected from db %s" % self.dbOpened)
         self.db = None

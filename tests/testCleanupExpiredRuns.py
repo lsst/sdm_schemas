@@ -22,6 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
 
 from lsst.cat.administerRuns import AdminRuns
 from lsst.cat.policyReader import PolicyReader
@@ -111,7 +112,7 @@ outLogFile = open("./_cleanup.log", "w")
 # u1 starts regularly one run per day, extend a couple of runs
 # u2 starts regularly one run every 3 days
 for n in range(1, maxNIter):
-    print "\n\n************** doing ", n, " **************\n"
+    print("\n\n************** doing ", n, " **************\n")
 
     a1.prepareForNewRun("myRun_%02i"%n, u1, p1)
 
@@ -152,20 +153,20 @@ for n in range(1, maxNIter):
 """ % (n, n, n, u2))
     bSU.disconnect()
 
-    print "Currently have:"
+    print("Currently have:")
     a2.connect(u2, p2, gDb)
     res = a2.execCommandN("SELECT * FROM RunInfo")
     a2.disconnect()
 
     for r in res:
-        print r
+        print(r)
 
-    print "\n\n******** now running cleanup script **********\n"
+    print("\n\n******** now running cleanup script **********\n")
 
     x = os.path.join(catDir, 'bin/cleanupExpiredRuns.py')
     cmd = '%s -f %s -d 2008-05-%i -g %s' % (x, policyF, n, gDb)
 
-    print "calling ", cmd
+    print("calling ", cmd)
     subprocess.call(cmd.split(), stdout=outLogFile)
 
 

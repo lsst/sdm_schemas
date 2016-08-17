@@ -23,8 +23,6 @@
 #
 
 
-from __future__ import with_statement
-
 import optparse
 import os
 import re
@@ -48,7 +46,7 @@ def parse(filename):
                 delimiter = m.group(1)
                 continue
             if re.search(delimiter + r'\s*\S', l):
-                raise RuntimeError, "Non-comment text after delimiter: %s" % l
+                raise RuntimeError("Non-comment text after delimiter: %s" % l)
             if re.search(delimiter + r'\s*$', l):
                 l = re.sub(delimiter + r'\s*$', "", l)
                 statements.append(statement + l)

@@ -22,6 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -97,7 +98,7 @@ class CleanupExpiredRuns(MySQLBase):
 """ % (now, self.daysFinalNotice)
 
     def emailNotices(self, firstN, finalN):
-        print "emailNotices(%s, %s)" % (firstN, finalN)
+        print("emailNotices(%s, %s)" % (firstN, finalN))
 
         if not firstN and not finalN:
             return
@@ -136,13 +137,13 @@ The LSST Database Team
 
         subject = "Purging expired runs"
 
-        print """
+        print("""
 *************
 Email to: lsst-data
 Subject: %s
 %s
 *************
-""" % (subject, contents)
+""" % (subject, contents))
 
     def run(self):
         # Connect to database
@@ -154,7 +155,7 @@ Subject: %s
         # Find expired runs, delete them and record this
         dbNames = self.execCommandN(self.cmdGetExpiredRuns)
         for dbN in dbNames:
-            print "  --> Deleting ", dbN[0], " <--"
+            print("  --> Deleting ", dbN[0], " <--")
             self.execCommand0("DROP DATABASE IF EXISTS %s" % dbN[0])
             self.execCommand0(
                 "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
@@ -224,10 +225,10 @@ r = PolicyReader(options.f)
 (gDb, dcVer, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 (dFirstNotice, dFinalNotice) = r.readRunCleanup()
 
-print """\n\n
+print("""\n\n
   ******************************************************************
   *** Executing cleanupExpiredRun, now=%s, globalDB=%s
-""" % (now, gDb)
+""" % (now, gDb))
 
 # TODO: fetch mysql root user/password from file
 rootU = raw_input("Enter mysql superuser account name: ")

@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
 
@@ -48,9 +50,9 @@ def showGrantsForAllUsers():
     users = admin.execCommandN('SELECT user from mysql.user')
     for u in users:
         grants = admin.execCommandN("SHOW GRANTS FOR '%s'" % u)
-        print 'grants for user %s ' % u
+        print('grants for user %s ' % u)
         for g in grants:
-            print '   ', g
+            print('   ', g)
 
 
 users = admin.execCommandN('SELECT DISTINCT(user) FROM mysql.tables_priv')
