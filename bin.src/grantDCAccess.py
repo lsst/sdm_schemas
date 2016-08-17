@@ -69,7 +69,7 @@ admin.connect(rootU, rootP, globalDbName)
 
 grantAll = re.compile('GRANT ALL PRIVILEGES ON \*.\* TO')
 
-users = admin.execCommandN('SELECT user from mysql.user WHERE user != "root" AND user != "sysbench"' AND user != 'test')
+users = admin.execCommandN("SELECT user from mysql.user WHERE user != 'root' AND user != 'sysbench' AND user != 'test'")
 for u in users:
     grants = admin.execCommandN("SHOW GRANTS FOR '%s'" % u)
     isSU = 0
