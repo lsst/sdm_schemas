@@ -35,6 +35,7 @@ import re
 MaxEnumItems = 65535
 MaxSetItems = 64
 
+
 class TableInfo(object):
     """Collect information about a MySQL database table.
 
@@ -50,32 +51,32 @@ class TableInfo(object):
     ))
 
     SimpleFixedSizes = dict(
-        tinyint = 1,
-        smallint = 2,
-        mediumint = 3,
-        int = 4,
-        integer = 4,
-        bigint = 8,
-        float = 4,
-        double = 8,
-        real = 8,
-        bit = 1,
-        date = 3,
-        datetime = 4,
-        timestamp = 4,
-        time = 3,
-        year = 1,
+        tinyint=1,
+        smallint=2,
+        mediumint=3,
+        int=4,
+        integer=4,
+        bigint=8,
+        float=4,
+        double=8,
+        real=8,
+        bit=1,
+        date=3,
+        datetime=4,
+        timestamp=4,
+        time=3,
+        year=1,
     )
 
     SimpleVarSizes = dict(
-        tinyblob = (1, 1 + 2**8),
-        tinytext = (1, 1 + 2**8),
-        blob= (2, 2 + 2**16),
-        text= (2, 2 + 2**16),
-        mediumblob= (3, 3 + 2**24),
-        mediumtext= (3, 3 + 2**24),
-        longblob= (4, 4 + 2**32),
-        longtext= (4, 4 + 2**32),
+        tinyblob=(1, 1 + 2**8),
+        tinytext=(1, 1 + 2**8),
+        blob=(2, 2 + 2**16),
+        text=(2, 2 + 2**16),
+        mediumblob=(3, 3 + 2**24),
+        mediumtext=(3, 3 + 2**24),
+        longblob=(4, 4 + 2**32),
+        longtext=(4, 4 + 2**32),
     )
 
     DecimalCols = set((
@@ -162,8 +163,8 @@ class TableInfo(object):
         """
         dataType = dataType.lower()
         if dataType not in self.DecimalCols:
-            raise RuntimeError("%s not in DecimalCols = %s" % \
-            (dataType, self.DecimalCols))
+            raise RuntimeError("%s not in DecimalCols = %s" %
+                               (dataType, self.DecimalCols))
         m = int(m)
         d = int(d)
         if m < d:
@@ -179,8 +180,8 @@ class TableInfo(object):
         """Add an enum column"""
         numItems = int(numItems)
         if numItems > MaxEnumItems:
-            raise RuntimeError("Invalid enum %s: more than %s items." % \
-                (firstWord, MaxEnumItems))
+            raise RuntimeError("Invalid enum %s: more than %s items." %
+                               (firstWord, MaxEnumItems))
         self.numFixedCols += 1
         if numItems <= 255:
             self.fixedBytes += 1
@@ -192,8 +193,8 @@ class TableInfo(object):
         """Add a set column"""
         numItems = int(numItems)
         if numItems > MaxSetItems:
-            raise RuntimeError("Invalid set %s: more than %s items." % \
-                (firstWord, MaxSetItems))
+            raise RuntimeError("Invalid set %s: more than %s items." %
+                               (firstWord, MaxSetItems))
 
         numBytes = int(math.ceil(numItems + 7.0) / 8.0)
         if numBytes > 4:
@@ -257,7 +258,8 @@ class TableInfo(object):
     def __str__(self):
         return "Table %s: %s fixed bytes in %s cols; %s-%s var bytes in %d cols" % \
             (self.name, self.fixedBytes, self.numFixedCols,
-            self.minVarBytes, self.maxVarBytes, self.numVarCols)
+             self.minVarBytes, self.maxVarBytes, self.numVarCols)
+
 
 def run():
     lineNum = 0
@@ -308,8 +310,8 @@ def run():
     print "Table\tFixedBytes\tFixedCols\tMinVarBytes\tMaxVarBytes\tVarCols"
     for tableInfo in tableList:
         print "%s\t%s\t%s\t%s\t%s\t%s" % (tableInfo.name,
-        tableInfo.fixedBytes, tableInfo.numFixedCols,
-        tableInfo.minVarBytes, tableInfo.maxVarBytes, tableInfo.numVarCols)
+                                          tableInfo.fixedBytes, tableInfo.numFixedCols,
+                                          tableInfo.minVarBytes, tableInfo.maxVarBytes, tableInfo.numVarCols)
 
 if __name__ == "__main__":
     run()

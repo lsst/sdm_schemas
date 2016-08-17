@@ -61,6 +61,7 @@ print """
 dbSUName = raw_input("Enter mysql superuser account name: ")
 dbSUPwd = getpass.getpass()
 
+
 def destroyOne(x, dbName):
     if x.dbExists(dbName):
         x.execCommand0("DROP DATABASE IF EXISTS " + dbName)

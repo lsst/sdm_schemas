@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# 
+#
 # LSST Data Management System
 # Copyright 2008, 2009, 2010 LSST Corporation.
-# 
+#
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
 #
@@ -11,14 +11,14 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
-# You should have received a copy of the LSST License Statement and 
-# the GNU General Public License along with this program.  If not, 
+#
+# You should have received a copy of the LSST License Statement and
+# the GNU General Public License along with this program.  If not,
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
@@ -38,7 +38,6 @@ policyF = os.path.join(catDir, 'policy/defaultTestCatPolicy.paf')
 r = PolicyReader(policyF)
 (host, port) = r.readAuthInfo()
 (gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife) = r.readGlobalSetup()
-
 
 
 sqlDir = os.path.join(catDir, "sql")
@@ -66,6 +65,7 @@ def dropTestDbs():
         admin.dropDb("%s_%s_u_myRun_%02i" % (u1, dcV, n))
         admin.dropDb("%s_%s_u_myRun_%02i" % (u2, dcV, n))
 
+
 def resetGlobalDb():
     x = os.path.join(catDir, 'bin/destroyGlobal.py')
     cmd = '%s -f %s' % (x, policyF)
@@ -74,7 +74,6 @@ def resetGlobalDb():
     x = os.path.join(catDir, 'bin/setupGlobal.py')
     cmd = '%s -f %s' % (x, policyF)
     subprocess.call(cmd.split())
-
 
 
 def createDummyUserAccounts():
@@ -100,8 +99,8 @@ a1 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
 a2 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
 
 
-a1.checkStatus(u1, p1, 'dummy') # non-superuser name and password
-a2.checkStatus(u2, p2, 'dummy') # non-superuser name and password
+a1.checkStatus(u1, p1, 'dummy')  # non-superuser name and password
+a2.checkStatus(u2, p2, 'dummy')  # non-superuser name and password
 
 
 b = MySQLBase(host, port)
@@ -139,7 +138,7 @@ for n in range(1, maxNIter):
         b.disconnect()
 
     if n % 3 == 1:
-        a2.prepareForNewRun("myRun_%02i"%n, u2, p2);
+        a2.prepareForNewRun("myRun_%02i"%n, u2, p2)
 
     # manually adjust the run start time
     bSU.connect(rootU, rootP, gDb)

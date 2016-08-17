@@ -47,6 +47,7 @@ one will be used: $CAT_DIR/policy/defaultProdCatPolicy.paf
 
 
 class SetupGlobal(MySQLBase):
+
     def __init__(self, dbHostName, portNo, globalDbName, dcVersion, dcDb):
         MySQLBase.__init__(self, dbHostName, portNo)
 

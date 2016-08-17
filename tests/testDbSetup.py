@@ -43,4 +43,3 @@ x.setupUserDb()
 assert(x.tableExists("MovingObject") == True)
 
 x.disconnect()
-

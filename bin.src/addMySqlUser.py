@@ -116,14 +116,14 @@ admin.execCommand0("GRANT ALL ON `%s\_%%`.* %s" % (userName, toStr))
 
 admin.execCommand0("GRANT SELECT, INSERT ON `%s\_DB`.* %s" % (dcVersion, toStr))
 
-admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
+admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" %
                    (globalDbName, toStr))
 
-admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
+admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" %
                    (globalDbName, toStr))
 
-admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.checkIfUserCanStartRun %s" % \
-                                      (globalDbName, toStr))
+admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.checkIfUserCanStartRun %s" %
+                   (globalDbName, toStr))
 
 admin.execCommand0("GRANT EXECUTE, SELECT ON `%%\_%%`.* %s" % toStr)
 

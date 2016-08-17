@@ -48,7 +48,7 @@ def showGrantsForAllUsers():
     users = admin.execCommandN('SELECT user from mysql.user')
     for u in users:
         grants = admin.execCommandN("SHOW GRANTS FOR '%s'" % u)
-        print 'grants for user %s ' %u
+        print 'grants for user %s ' % u
         for g in grants:
             print '   ', g
 
@@ -73,7 +73,4 @@ for u in users:
                "utcToTai"]:
         cmd = "GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt11final`.`%s` %s" % (ff, toStr)
         print(cmd)
-        #admin.execCommand0(cmd)
-
-
-
+        # admin.execCommand0(cmd)

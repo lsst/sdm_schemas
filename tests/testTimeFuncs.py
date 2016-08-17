@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# 
+#
 # LSST Data Management System
 # Copyright 2008-14 AURA/LSST.
-# 
+#
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
 #
@@ -11,14 +11,14 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
-# You should have received a copy of the LSST License Statement and 
-# the GNU General Public License along with this program.  If not, 
+#
+# You should have received a copy of the LSST License Statement and
+# the GNU General Public License along with this program.  If not,
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
@@ -35,10 +35,11 @@ DB_HOST = "lsst10.ncsa.illinois.edu"
 DB_PORT = 3306
 
 if os.uname()[1].endswith(".ncsa.illinois.edu") and \
-    dafPersist.DbAuth.available(DB_HOST, str(DB_PORT)):
+        dafPersist.DbAuth.available(DB_HOST, str(DB_PORT)):
     HAVE_DB = True
 else:
     HAVE_DB = False
+
 
 class TimeFuncTestCase(lsst.utils.tests.TestCase):
     """A test case for SQL time functions."""
@@ -62,11 +63,11 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.endTransaction()
 
         SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
-            "lsstSchema4mysqlPT1_2.sql"), dbUrl)
+                                   "lsstSchema4mysqlPT1_2.sql"), dbUrl)
         SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
-            "setup_perRunTablesS12_lsstsim.sql"), dbUrl)
+                                   "setup_perRunTablesS12_lsstsim.sql"), dbUrl)
         SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
-            "setup_storedFunctions.sql"), dbUrl)
+                                   "setup_storedFunctions.sql"), dbUrl)
 
         self.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
 
@@ -93,7 +94,7 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.assertEqual(self.db.getColumnByPosInt64(1), 399006021000000000L)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 45205.125)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(3),
-                45205.125 + 21.0 / 86400.0)
+                               45205.125 + 21.0 / 86400.0)
         haveRow = self.db.next()
         self.assert_(not haveRow)
 
@@ -151,8 +152,10 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         haveRow = self.db.next()
         self.assert_(not haveRow)
 
+
 class MemoryTester(lsst.utils.tests.MemoryTestCase):
     pass
+
 
 def setup_module(module):
     lsst.utils.tests.init()

@@ -47,7 +47,6 @@ if not options.f:
     sys.exit(1)
 
 
-
 class CleanupExpiredRuns(MySQLBase):
 
     def __init__(self, dbHost, dbPort, gDb,
@@ -97,7 +96,6 @@ class CleanupExpiredRuns(MySQLBase):
     AND  finalNotifDate IS NULL
 """ % (now, self.daysFinalNotice)
 
-
     def emailNotices(self, firstN, finalN):
         print "emailNotices(%s, %s)" % (firstN, finalN)
 
@@ -146,7 +144,6 @@ Subject: %s
 *************
 """ % (subject, contents)
 
-
     def run(self):
         # Connect to database
         self.connect(self.rootU, self.rootP, self.globalDbName)
@@ -160,7 +157,7 @@ Subject: %s
             print "  --> Deleting ", dbN[0], " <--"
             self.execCommand0("DROP DATABASE IF EXISTS %s" % dbN[0])
             self.execCommand0(
-             "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
+                "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
 
         # re-check disk space
         dataDirSpaceAvailAfter = self.getDataDirSpaceAvail()
@@ -177,9 +174,9 @@ Subject: %s
                 runIds += "%i," % runInfoId
                 finalN += " - %s, %s, %s, %s\n" % \
                     (row[1], row[6], row[4], row[5])
-                    # runName, dcVer, initiator, dbName
+                # runName, dcVer, initiator, dbName
 
-            #Remember the final notices where sent
+            # Remember the final notices where sent
             cmd = """
   UPDATE RunInfo
   SET    finalNotifDate=%s
@@ -197,9 +194,9 @@ Subject: %s
                 runIds += "%i," % runInfoId
                 firstN += " - %s, %s, %s, %s\n" % \
                     (row[1], row[6], row[4], row[5])
-                    # runName, dcVer, initiator, dbName
+                # runName, dcVer, initiator, dbName
 
-            #Remember the first notices where sent
+            # Remember the first notices where sent
             cmd = """
   UPDATE RunInfo
   SET    firstNotifDate=%s
@@ -217,7 +214,7 @@ Subject: %s
 
 ##########################################################
 
-if options.d: # format: YYYY:MM:DD
+if options.d:  # format: YYYY:MM:DD
     now = "'%s 00:00:01'" % options.d
 else:
     now = "NOW()"

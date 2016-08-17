@@ -1,9 +1,9 @@
 #!/usr/local/bin/python
 
-# 
+#
 # LSST Data Management System
 # Copyright 2008, 2009, 2010 LSST Corporation.
-# 
+#
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
 #
@@ -11,14 +11,14 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
-# You should have received a copy of the LSST License Statement and 
-# the GNU General Public License along with this program.  If not, 
+#
+# You should have received a copy of the LSST License Statement and
+# the GNU General Public License along with this program.  If not,
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
@@ -47,14 +47,13 @@ db = MySQLdb.connect(host='localhost',
 cursor = db.cursor()
 
 
-for n in xrange(0,1000):
+for n in xrange(0, 1000):
     print n
 
-    cmd = 'select count(*) from x1m o1, x1m o2 WHERE o1.subChunkId=%s and o2.subChunkId=%s and ABS(o1.ra - o2.ra) < 0.00083 / o2.cosRadDecl AND ABS(o1.decl - o2.decl) < 0.00083 AND  o1.objectId <> o2.objectId' % (n,n)
+    cmd = 'select count(*) from x1m o1, x1m o2 WHERE o1.subChunkId=%s and o2.subChunkId=%s and ABS(o1.ra - o2.ra) < 0.00083 / o2.cosRadDecl AND ABS(o1.decl - o2.decl) < 0.00083 AND  o1.objectId <> o2.objectId' % (n, n)
     cursor.execute(cmd)
 
 db.close()
-
 
 
 # Dec 03, 2009, lsst-dev01:

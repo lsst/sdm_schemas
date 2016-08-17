@@ -46,7 +46,7 @@ import sys
 ###############################################################################
 
 # Fields for tables in the metadata (values obtained with custom code).
-tableFields = ["engine",  "description"]
+tableFields = ["engine", "description"]
 
 columnFields = ["description", "type", "notNull", "defaultValue",
                 "unit", "ucd", "displayOrder"]
@@ -170,48 +170,60 @@ oF.write(tableDDL)
 # Parse sql
 ###############################################################################
 
+
 def isIndexDefinition(c):
     return c in ["PRIMARY", "KEY", "INDEX", "UNIQUE"]
+
 
 def isCommentLine(str):
     return re.match('[\s]*--', str) is not None
 
+
 def isUnitLine(str):
     return re.search(r'<unit>(.+)</unit>', str) is not None
 
+
 def isUcdLine(str):
     return re.search(r'<ucd>(.+)</ucd>', str) is not None
+
 
 def retrieveUnit(str):
     xx = re.compile(r'<unit>(.+)</unit>')
     x = xx.search(str)
     return x.group(1)
 
+
 def retrieveUcd(str):
     xx = re.compile(r'<ucd>(.+)</ucd>')
     x = xx.search(str)
     return x.group(1)
 
+
 def containsDescrTagStart(str):
     return re.search(r'<descr>', str) is not None
 
+
 def containsDescrTagEnd(str):
     return re.search(r'</descr>', str) is not None
+
 
 def retrieveDescr(str):
     xx = re.compile(r'<descr>(.+)</descr>')
     x = xx.search(str)
     return x.group(1)
 
+
 def retrieveDescrStart(str):
     xx = re.compile('<descr>(.+)')
     x = xx.search(str)
     return x.group(1)
 
+
 def retrieveDescrMid(str):
     xx = re.compile('[\s]*--(.+)')
     x = xx.search(str)
     return x.group(1)
+
 
 def retrieveDescrEnd(str):
     if re.search('-- </descr>', str):
@@ -220,10 +232,12 @@ def retrieveDescrEnd(str):
     x = xx.search(str)
     return x.group(1)
 
+
 def retrieveIsNotNull(str):
     if re.search('NOT NULL', str):
         return '1'
     return '0'
+
 
 def retrieveType(str):
     arr = str.split()
@@ -231,6 +245,7 @@ def retrieveType(str):
     if t == "FLOAT(0)":
         return "FLOAT"
     return t
+
 
 def retrieveDefaultValue(str):
     if re.search(' DEFAULT ', str) is None:
@@ -243,16 +258,17 @@ def retrieveDefaultValue(str):
         if a == 'DEFAULT':
             returnNext = 1
 
-#example strings:
+# example strings:
 #"    PRIMARY KEY (id),",
 #"    KEY IDX_sId (sId ASC),",
 #"    KEY IDX_d (decl DESC)",
 #"    UNIQUE UQ_AmpMap_ampName(ampName)"
 #"    UNIQUE UQ_x(xx DESC, yy),"
 
+
 def retrieveColumns(str):
     xx = re.search('[\s\w_]+\(([\w ,]+)\)', str.rstrip())
-    xx = xx.group(1).split() # skip " ASC", " DESC" etc
+    xx = xx.group(1).split()  # skip " ASC", " DESC" etc
     s = ''
     for x in xx:
         if not x == 'ASC' and not x == 'DESC':
@@ -282,11 +298,11 @@ zzDbDescrF = re.compile(r'INSERT INTO ZZZ_Db_Description\(f\) VALUES\(\'([\w.]+)
 
 colNum = 1
 
-tableNumber = 1000 # just for hashing, not really needed by schema browser
+tableNumber = 1000  # just for hashing, not really needed by schema browser
 
 iF = open(options.i, mode='r')
 for line in iF:
-    #print "processing ", line
+    # print "processing ", line
     m = tableStart.search(line)
     if m is not None:
         tableName = m.group(1)
@@ -296,16 +312,16 @@ for line in iF:
         in_table = table[tableNumber]
         tableNumber += 1
         in_col = None
-        #print "Found table ", in_table
+        # print "Found table ", in_table
     elif tableEnd.match(line):
         m = engineLine.match(line)
         if m is not None:
             engineName = m.group(2)
             in_table["engine"] = engineName
-        #print "end of the table"
-        #print in_table
+        # print "end of the table"
+        # print in_table
         in_table = None
-    elif in_table is not None: # process columns for given table
+    elif in_table is not None:  # process columns for given table
         m = columnLine.match(line)
         if m is not None:
             firstWord = m.group(1)
@@ -315,17 +331,17 @@ for line in iF:
                     t = "PRIMARY KEY"
                 elif firstWord == "UNIQUE":
                     t = "UNIQUE"
-                idxInfo = {"type" : t,
-                           "columns" : retrieveColumns(line)
+                idxInfo = {"type": t,
+                           "columns": retrieveColumns(line)
                            }
                 if "indexes" not in in_table:
                     in_table["indexes"] = []
                 in_table["indexes"].append(idxInfo)
             else:
-                in_col = {"name" : firstWord,
-                          "displayOrder" : str(colNum),
-                          "type" : retrieveType(line),
-                          "notNull" : retrieveIsNotNull(line),
+                in_col = {"name": firstWord,
+                          "displayOrder": str(colNum),
+                          "type": retrieveType(line),
+                          "notNull": retrieveIsNotNull(line),
                           }
                 dv = retrieveDefaultValue(line)
                 if dv is not None:
@@ -334,8 +350,8 @@ for line in iF:
                 if "columns" not in in_table:
                     in_table["columns"] = []
                 in_table["columns"].append(in_col)
-            #print "found col: ", in_col
-        elif isCommentLine(line): # handle comments
+            # print "found col: ", in_col
+        elif isCommentLine(line):  # handle comments
             if in_col is None:    # table comment
 
                 if containsDescrTagStart(line):
@@ -364,25 +380,26 @@ for line in iF:
                     else:
                         in_col["description"] += retrieveDescrMid(line)
 
-                                  # units
+                        # units
                 if isUnitLine(line):
                     in_col["unit"] = retrieveUnit(line)
 
-                                  # ucds
+                    # ucds
                 if isUcdLine(line):
                     in_col["ucd"] = retrieveUcd(line)
 
-    elif zzDbDescrF.match(line): # process "INSERT INTO ZZZ_Db_Description"
+    elif zzDbDescrF.match(line):  # process "INSERT INTO ZZZ_Db_Description"
         m = zzDbDescrF.search(line)
         dbDescr_file = m.group(1)
         dbDescr_rev = commands.getoutput("git describe --dirty")
 
 iF.close()
-#print table
+# print table
 
 ###############################################################################
 # Output DML
 ###############################################################################
+
 
 def handleField(ptr, field, indent):
     if field not in ptr:
@@ -398,8 +415,8 @@ def handleField(ptr, field, indent):
 if dbDescr_file and dbDescr_rev:
     oF.write("".join(["-- " for i in xrange(25)]) + "\n\n")
     oF.write("INSERT INTO md_DbDescr\n")
-    oF.write('SET schemaFile = "%s", revision = "%s"' % \
-                 (dbDescr_file, dbDescr_rev))
+    oF.write('SET schemaFile = "%s", revision = "%s"' %
+             (dbDescr_file, dbDescr_rev))
     oF.write(";\n\n")
 
 
@@ -421,7 +438,7 @@ for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
             colId += 1
             oF.write("\tINSERT INTO md_Column\n")
             oF.write('\tSET columnId = %d, tableId = %d, name = "%s"' %
-                    (colId, tableId, c["name"]))
+                     (colId, tableId, c["name"]))
             for f in columnFields:
                 handleField(c, f, 2)
             oF.write(";\n\n")
