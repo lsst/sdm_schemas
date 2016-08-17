@@ -23,6 +23,7 @@
 #
 
 
+from builtins import next
 import unittest
 import os
 import time

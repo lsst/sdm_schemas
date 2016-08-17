@@ -22,6 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from builtins import object
 import MySQLdb
 import os
 import subprocess
@@ -159,10 +160,10 @@ class MySQLBase(object):
             ret = ""
         elif nRowsRet == 1:
             ret = cursor.fetchone()
-            self.log.log(Log.DEBUG, "Got: %s" % str(ret))
+            self.log.log(Log.DEBUG, "Got: %s" % ret)
         else:
             ret = cursor.fetchall()
-            self.log.log(Log.DEBUG, "Got: %s" % str(ret))
+            self.log.log(Log.DEBUG, "Got: %s" % ret)
         cursor.close()
         return ret
 

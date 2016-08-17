@@ -46,7 +46,7 @@ db = MySQLdb.connect(host='localhost',
 
 cursor = db.cursor()
 
-for n in xrange(1, 100):
+for n in range(1, 100):
     cmd = 'CREATE TABLE sp_%s ENGINE=MEMORY SELECT * FROM x100k where subChunkId=%s' % (n, n)
     #cmd = 'DROP TABLE sp_%s' % (n)
     cursor.execute(cmd)

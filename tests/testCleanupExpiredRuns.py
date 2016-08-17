@@ -23,6 +23,7 @@
 #
 
 from __future__ import print_function
+from builtins import input
 
 from lsst.cat.administerRuns import AdminRuns
 from lsst.cat.policyReader import PolicyReader
@@ -51,7 +52,7 @@ u2 = "jacek_test2"
 p2 = "j2"
 
 
-rootU = raw_input("Enter mysql superuser account name: ")
+rootU = input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
 

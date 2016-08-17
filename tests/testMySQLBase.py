@@ -23,6 +23,7 @@
 #
 
 
+from builtins import input
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
 import getpass
@@ -32,7 +33,7 @@ import os
 r = PolicyReader()
 (host, port) = r.readAuthInfo()
 
-usr = raw_input('Enter mysql user name: ')
+usr = input('Enter mysql user name: ')
 pwd = getpass.getpass()
 
 dbn = 'dummy_Test_DB_375Ef_4DRf56'

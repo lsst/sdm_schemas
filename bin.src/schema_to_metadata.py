@@ -34,12 +34,14 @@
 #   <unit>...</unit>
 #   <ucd>...</ucd>
 
-
-import commands
 import optparse
 import os
 import re
 import sys
+try:
+    from commands import getoutput
+except ImportError:
+    from subprocess import getoutput
 
 ###############################################################################
 # Configuration information
@@ -391,7 +393,7 @@ for line in iF:
     elif zzDbDescrF.match(line):  # process "INSERT INTO ZZZ_Db_Description"
         m = zzDbDescrF.search(line)
         dbDescr_file = m.group(1)
-        dbDescr_rev = commands.getoutput("git describe --dirty")
+        dbDescr_rev = getoutput("git describe --dirty")
 
 iF.close()
 # print table
@@ -408,12 +410,12 @@ def handleField(ptr, field, indent):
     if field in numericFields:
         q = ''
     oF.write(",\n")
-    oF.write("".join(["\t" for i in xrange(indent)]))
+    oF.write("\t" * indent)
     oF.write(field + " = " + q + ptr[field] + q)
 
 
 if dbDescr_file and dbDescr_rev:
-    oF.write("".join(["-- " for i in xrange(25)]) + "\n\n")
+    oF.write(("-- " * 25) + "\n\n")
     oF.write("INSERT INTO md_DbDescr\n")
     oF.write('SET schemaFile = "%s", revision = "%s"' %
              (dbDescr_file, dbDescr_rev))
@@ -426,7 +428,7 @@ idxId = 0
 for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
     t = table[k]
     tableId += 1
-    oF.write("".join(["-- " for i in xrange(25)]) + "\n\n")
+    oF.write(("-- " * 25) + "\n\n")
     oF.write("INSERT INTO md_Table\n")
     oF.write('SET tableId = %d, name = "%s"' % (tableId, t["name"]))
     for f in tableFields:

@@ -30,6 +30,7 @@ printed to stdout. Errors are reported to stderr. To use:
 """
 
 from __future__ import print_function
+from builtins import object
 
 import sys
 import math
@@ -298,15 +299,11 @@ def run():
     for tableInfo in tableList:
         print("Details for table %s" % (tableInfo.name))
         print("Simple fields (# of each):")
-        keys = tableInfo.simpleColInfo.keys()
-        keys.sort()
-        for key in keys:
-            print("  %s\t%s" % (key, tableInfo.simpleColInfo[key]))
+        for key, val in sorted(tableInfo.simpleColInfo.items()):
+            print("  %s\t%s" % (key, val))
         print("User-set width fields (sizes of each):")
-        keys = tableInfo.userColInfo.keys()
-        keys.sort()
-        for key in keys:
-            print("  %s\t%s" % (key, tableInfo.userColInfo[key]))
+        for key, val in sorted(tableInfo.userColInfo.items()):
+            print("  %s\t%s" % (key, val))
         print()
 
     print("Summary")

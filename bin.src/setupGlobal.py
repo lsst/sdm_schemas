@@ -23,6 +23,7 @@
 #
 
 from __future__ import print_function
+from builtins import input
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -72,7 +73,7 @@ class SetupGlobal(MySQLBase):
         if not os.path.exists(self.sqlDir):
             raise RuntimeError("Directory '%s' not found" % self.sqlDir)
 
-        self.dbSUName = raw_input("Enter mysql superuser account name: ")
+        self.dbSUName = input("Enter mysql superuser account name: ")
         self.dbSUPwd = getpass.getpass()
 
     def run(self):

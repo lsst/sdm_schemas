@@ -23,6 +23,7 @@
 #
 
 from __future__ import print_function
+from builtins import input
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -59,7 +60,7 @@ print("""
 """ % (globalDbName, dcDbName))
 
 
-dbSUName = raw_input("Enter mysql superuser account name: ")
+dbSUName = input("Enter mysql superuser account name: ")
 dbSUPwd = getpass.getpass()
 
 

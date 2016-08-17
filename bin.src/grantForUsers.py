@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
+from builtins import input
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -39,7 +40,7 @@ r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
 (globalDbName, dcVersion, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 
-rootU = raw_input("Enter mysql superuser account name: ")
+rootU = input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
 admin = MySQLBase(serverHost, serverPort)

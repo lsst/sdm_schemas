@@ -23,6 +23,7 @@
 #
 
 from __future__ import print_function
+from builtins import input
 
 import lsst.pex.policy as pexPolicy
 from lsst.cat.MySQLBase import MySQLBase
@@ -94,7 +95,7 @@ if os.path.isfile(dbAuthPolicy):
     rootU = subP.getString('admU')
     rootP = subP.getString('password')
 else:
-    rootU = raw_input("Enter mysql superuser account name: ")
+    rootU = input("Enter mysql superuser account name: ")
     rootP = getpass.getpass()
     (host, port) = r.readAuthInfo()
 

@@ -22,7 +22,7 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
-
+from builtins import object
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.pex.logging import Log
 import lsst.pex.policy as pexPolicy

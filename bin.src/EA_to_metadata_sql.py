@@ -236,7 +236,7 @@ def handleField(ptr, field, indent):
     if field in numericFields:
         q = ''
     dest.write(",\n")
-    dest.write("".join(["\t" for i in xrange(indent)]))
+    dest.write("\t" * indent)
     dest.write(field + " = " + q + ptr[field] + q)
 
 tableId = 0
@@ -244,7 +244,7 @@ colId = 0
 for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
     t = table[k]
     tableId += 1
-    dest.write("".join(["-- " for i in xrange(25)]) + "\n\n")
+    dest.write("-- " * 25 + "\n\n")
     dest.write("INSERT INTO md_Table\n")
     dest.write('SET tableId = %d, name = "%s"' % (tableId, t["name"]))
     for f in tableFields:

@@ -48,7 +48,7 @@ db = MySQLdb.connect(host='localhost',
 cursor = db.cursor()
 
 
-for n in xrange(0, 1000):
+for n in range(0, 1000):
     print(n)
 
     cmd = 'select count(*) from x1m o1, x1m o2 WHERE o1.subChunkId=%s and o2.subChunkId=%s and ABS(o1.ra - o2.ra) < 0.00083 / o2.cosRadDecl AND ABS(o1.decl - o2.decl) < 0.00083 AND  o1.objectId <> o2.objectId' % (n, n)

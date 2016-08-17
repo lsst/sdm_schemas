@@ -49,7 +49,7 @@ db = MySQLdb.connect(host='localhost',
 cursor = db.cursor()
 
 
-for n in xrange(0, 1000):
+for n in range(0, 1000):
     print(n)
 
     cmd = 'CREATE TABLE xxtmp ENGINE=MEMORY SELECT * FROM x1m where subChunkId=%s' % n

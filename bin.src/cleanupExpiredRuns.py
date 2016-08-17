@@ -23,6 +23,7 @@
 #
 
 from __future__ import print_function
+from builtins import input
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -231,7 +232,7 @@ print("""\n\n
 """ % (now, gDb))
 
 # TODO: fetch mysql root user/password from file
-rootU = raw_input("Enter mysql superuser account name: ")
+rootU = input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
 xx = CleanupExpiredRuns(host, port, gDb, rootU, rootP,
