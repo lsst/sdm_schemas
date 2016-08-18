@@ -22,6 +22,8 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
+from builtins import input
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -45,7 +47,6 @@ options, arguments = parser.parse_args()
 if not options.f:
     sys.stderr.write(os.path.basename(sys.argv[0]) + usage[5:])
     sys.exit(1)
-
 
 
 class CleanupExpiredRuns(MySQLBase):
@@ -97,9 +98,8 @@ class CleanupExpiredRuns(MySQLBase):
     AND  finalNotifDate IS NULL
 """ % (now, self.daysFinalNotice)
 
-
     def emailNotices(self, firstN, finalN):
-        print "emailNotices(%s, %s)" % (firstN, finalN)
+        print("emailNotices(%s, %s)" % (firstN, finalN))
 
         if not firstN and not finalN:
             return
@@ -138,14 +138,13 @@ The LSST Database Team
 
         subject = "Purging expired runs"
 
-        print """
+        print("""
 *************
 Email to: lsst-data
 Subject: %s
 %s
 *************
-""" % (subject, contents)
-
+""" % (subject, contents))
 
     def run(self):
         # Connect to database
@@ -157,10 +156,10 @@ Subject: %s
         # Find expired runs, delete them and record this
         dbNames = self.execCommandN(self.cmdGetExpiredRuns)
         for dbN in dbNames:
-            print "  --> Deleting ", dbN[0], " <--"
+            print("  --> Deleting ", dbN[0], " <--")
             self.execCommand0("DROP DATABASE IF EXISTS %s" % dbN[0])
             self.execCommand0(
-             "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
+                "UPDATE RunInfo SET delDate=%s WHERE dbName='%s'" % (now, dbN[0]))
 
         # re-check disk space
         dataDirSpaceAvailAfter = self.getDataDirSpaceAvail()
@@ -177,9 +176,9 @@ Subject: %s
                 runIds += "%i," % runInfoId
                 finalN += " - %s, %s, %s, %s\n" % \
                     (row[1], row[6], row[4], row[5])
-                    # runName, dcVer, initiator, dbName
+                # runName, dcVer, initiator, dbName
 
-            #Remember the final notices where sent
+            # Remember the final notices where sent
             cmd = """
   UPDATE RunInfo
   SET    finalNotifDate=%s
@@ -197,9 +196,9 @@ Subject: %s
                 runIds += "%i," % runInfoId
                 firstN += " - %s, %s, %s, %s\n" % \
                     (row[1], row[6], row[4], row[5])
-                    # runName, dcVer, initiator, dbName
+                # runName, dcVer, initiator, dbName
 
-            #Remember the first notices where sent
+            # Remember the first notices where sent
             cmd = """
   UPDATE RunInfo
   SET    firstNotifDate=%s
@@ -217,7 +216,7 @@ Subject: %s
 
 ##########################################################
 
-if options.d: # format: YYYY:MM:DD
+if options.d:  # format: YYYY:MM:DD
     now = "'%s 00:00:01'" % options.d
 else:
     now = "NOW()"
@@ -227,13 +226,13 @@ r = PolicyReader(options.f)
 (gDb, dcVer, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 (dFirstNotice, dFinalNotice) = r.readRunCleanup()
 
-print """\n\n
+print("""\n\n
   ******************************************************************
   *** Executing cleanupExpiredRun, now=%s, globalDB=%s
-""" % (now, gDb)
+""" % (now, gDb))
 
 # TODO: fetch mysql root user/password from file
-rootU = raw_input("Enter mysql superuser account name: ")
+rootU = input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
 xx = CleanupExpiredRuns(host, port, gDb, rootU, rootP,

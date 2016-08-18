@@ -22,6 +22,8 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
+from builtins import input
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -51,22 +53,23 @@ r = PolicyReader(options.f)
 (globalDbName, dcVersion, dcDbName, dummy1, dummy2) = r.readGlobalSetup()
 
 
-print """
+print("""
    ** WARNING **
    You are attempting to destroy the '%s' database
    and the '%s' database - think twice before proceeding!
-""" % (globalDbName, dcDbName)
+""" % (globalDbName, dcDbName))
 
 
-dbSUName = raw_input("Enter mysql superuser account name: ")
+dbSUName = input("Enter mysql superuser account name: ")
 dbSUPwd = getpass.getpass()
+
 
 def destroyOne(x, dbName):
     if x.dbExists(dbName):
         x.execCommand0("DROP DATABASE IF EXISTS " + dbName)
-        print "Destroyed '%s'." % dbName
+        print("Destroyed '%s'." % dbName)
     else:
-        print "Db '%s' does not exist." % dbName
+        print("Db '%s' does not exist." % dbName)
 
 x = MySQLBase(serverHost, serverPort)
 x.connect(dbSUName, dbSUPwd)

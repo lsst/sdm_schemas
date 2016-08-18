@@ -97,4 +97,3 @@ class DbSetup(MySQLBase):
         if self.dbExists(self.userDb):
             self.dropDb(self.userDb)
         self.disconnect()
-

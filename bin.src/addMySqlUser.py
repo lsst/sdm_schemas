@@ -22,6 +22,9 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
+from builtins import input
+
 import lsst.pex.policy as pexPolicy
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -92,7 +95,7 @@ if os.path.isfile(dbAuthPolicy):
     rootU = subP.getString('admU')
     rootP = subP.getString('password')
 else:
-    rootU = raw_input("Enter mysql superuser account name: ")
+    rootU = input("Enter mysql superuser account name: ")
     rootP = getpass.getpass()
     (host, port) = r.readAuthInfo()
 
@@ -103,7 +106,7 @@ admin.connect(rootU, rootP, globalDbName)
 
 toStr = "TO `%s`@`%s`" % (userName, clientHost)
 if admin.userExists(userName, clientHost):
-    print 'This account already exists, upgrading priviledges. User password will not change.'
+    print('This account already exists, upgrading priviledges. User password will not change.')
 else:
     toStr += " IDENTIFIED BY '%s'" % userPass
 
@@ -116,14 +119,14 @@ admin.execCommand0("GRANT ALL ON `%s\_%%`.* %s" % (userName, toStr))
 
 admin.execCommand0("GRANT SELECT, INSERT ON `%s\_DB`.* %s" % (dcVersion, toStr))
 
-admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" % \
+admin.execCommand0("GRANT SELECT, INSERT ON %s.RunInfo %s" %
                    (globalDbName, toStr))
 
-admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" % \
+admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.extendRun %s" %
                    (globalDbName, toStr))
 
-admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.checkIfUserCanStartRun %s" % \
-                                      (globalDbName, toStr))
+admin.execCommand0("GRANT EXECUTE ON FUNCTION %s.checkIfUserCanStartRun %s" %
+                   (globalDbName, toStr))
 
 admin.execCommand0("GRANT EXECUTE, SELECT ON `%%\_%%`.* %s" % toStr)
 
@@ -133,4 +136,4 @@ admin.execCommand0("GRANT SHOW VIEW ON *.* %s" % toStr)
 
 admin.execCommand0("CALL scisql.scisql_grantPermissions('%s', '%s')" % (userName, clientHost))
 
-print "User '%s' added." % userName
+print("User '%s' added." % userName)

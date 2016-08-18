@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-# 
+#
 # LSST Data Management System
 # Copyright 2008, 2009, 2010 LSST Corporation.
-# 
+#
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
 #
@@ -11,17 +11,19 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
-# You should have received a copy of the LSST License Statement and 
-# the GNU General Public License along with this program.  If not, 
+#
+# You should have received a copy of the LSST License Statement and
+# the GNU General Public License along with this program.  If not,
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
+from builtins import input
 
 from lsst.cat.administerRuns import AdminRuns
 from lsst.cat.policyReader import PolicyReader
@@ -40,7 +42,6 @@ r = PolicyReader(policyF)
 (gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife) = r.readGlobalSetup()
 
 
-
 sqlDir = os.path.join(catDir, "sql")
 
 
@@ -51,7 +52,7 @@ u2 = "jacek_test2"
 p2 = "j2"
 
 
-rootU = raw_input("Enter mysql superuser account name: ")
+rootU = input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
 
@@ -66,6 +67,7 @@ def dropTestDbs():
         admin.dropDb("%s_%s_u_myRun_%02i" % (u1, dcV, n))
         admin.dropDb("%s_%s_u_myRun_%02i" % (u2, dcV, n))
 
+
 def resetGlobalDb():
     x = os.path.join(catDir, 'bin/destroyGlobal.py')
     cmd = '%s -f %s' % (x, policyF)
@@ -74,7 +76,6 @@ def resetGlobalDb():
     x = os.path.join(catDir, 'bin/setupGlobal.py')
     cmd = '%s -f %s' % (x, policyF)
     subprocess.call(cmd.split())
-
 
 
 def createDummyUserAccounts():
@@ -100,8 +101,8 @@ a1 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
 a2 = AdminRuns(host, port, gDb, dcV, dcDb, minPercDiskSpaceReq, userRunLife)
 
 
-a1.checkStatus(u1, p1, 'dummy') # non-superuser name and password
-a2.checkStatus(u2, p2, 'dummy') # non-superuser name and password
+a1.checkStatus(u1, p1, 'dummy')  # non-superuser name and password
+a2.checkStatus(u2, p2, 'dummy')  # non-superuser name and password
 
 
 b = MySQLBase(host, port)
@@ -112,7 +113,7 @@ outLogFile = open("./_cleanup.log", "w")
 # u1 starts regularly one run per day, extend a couple of runs
 # u2 starts regularly one run every 3 days
 for n in range(1, maxNIter):
-    print "\n\n************** doing ", n, " **************\n"
+    print("\n\n************** doing ", n, " **************\n")
 
     a1.prepareForNewRun("myRun_%02i"%n, u1, p1)
 
@@ -139,7 +140,7 @@ for n in range(1, maxNIter):
         b.disconnect()
 
     if n % 3 == 1:
-        a2.prepareForNewRun("myRun_%02i"%n, u2, p2);
+        a2.prepareForNewRun("myRun_%02i"%n, u2, p2)
 
     # manually adjust the run start time
     bSU.connect(rootU, rootP, gDb)
@@ -153,20 +154,20 @@ for n in range(1, maxNIter):
 """ % (n, n, n, u2))
     bSU.disconnect()
 
-    print "Currently have:"
+    print("Currently have:")
     a2.connect(u2, p2, gDb)
     res = a2.execCommandN("SELECT * FROM RunInfo")
     a2.disconnect()
 
     for r in res:
-        print r
+        print(r)
 
-    print "\n\n******** now running cleanup script **********\n"
+    print("\n\n******** now running cleanup script **********\n")
 
     x = os.path.join(catDir, 'bin/cleanupExpiredRuns.py')
     cmd = '%s -f %s -d 2008-05-%i -g %s' % (x, policyF, n, gDb)
 
-    print "calling ", cmd
+    print("calling ", cmd)
     subprocess.call(cmd.split(), stdout=outLogFile)
 
 

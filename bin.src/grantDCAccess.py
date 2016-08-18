@@ -22,6 +22,8 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
+from __future__ import print_function
+from builtins import input
 
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
@@ -61,7 +63,7 @@ r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
 (globalDbName, dcVersion, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 
-rootU = raw_input("Enter mysql superuser account name: ")
+rootU = input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
 admin = MySQLBase(serverHost, serverPort)
@@ -69,7 +71,7 @@ admin.connect(rootU, rootP, globalDbName)
 
 grantAll = re.compile('GRANT ALL PRIVILEGES ON \*.\* TO')
 
-users = admin.execCommandN('SELECT user from mysql.user WHERE user != "root" AND user != "sysbench"' AND user != 'test')
+users = admin.execCommandN("SELECT user from mysql.user WHERE user != 'root' AND user != 'sysbench' AND user != 'test'")
 for u in users:
     grants = admin.execCommandN("SHOW GRANTS FOR '%s'" % u)
     isSU = 0
@@ -77,9 +79,9 @@ for u in users:
         if grantAll.match(g[0]):
             isSU = 1
     if isSU:
-        print "Skipping superuser ", u[0]
+        print("Skipping superuser ", u[0])
     else:
         toStr = "TO `%s`@`%s`" % (u[0], clientHost)
         cmd = "GRANT SELECT, INSERT ON `%s\_DB`.* %s" % (dcVersion, toStr)
         admin.execCommand0(cmd)
-        print "Executed command: ", cmd
+        print("Executed command: ", cmd)

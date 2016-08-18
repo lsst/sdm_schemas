@@ -36,15 +36,15 @@ import sys
 columnTags = ["description", "type", "ucd", "unit"]
 
 # Tagged values for columns in EA that need renaming.
-remapTags = {"duplicates" : "notNull"}
+remapTags = {"duplicates": "notNull"}
 
 # Fields for tables in the metadata (values obtained with custom code).
-tableFields = ["engine",  "description"]
+tableFields = ["engine", "description"]
 
 # Fields for columns in the metadata.  Any not listed in the Tags variables
 # are generated using custom code.
 columnFields = ["description", "type", "notNull", "defaultValue",
-    "unit", "ucd", "displayOrder"]
+                "unit", "ucd", "displayOrder"]
 
 # Fields with numeric contents.
 numericFields = ["notNull", "displayOrder"]
@@ -167,7 +167,7 @@ attrEnd = re.compile(r'</UML:Attribute>')
 tag = re.compile(r'<UML:TaggedValue tag="(.+?)" value="(.+?)"')
 expr = re.compile(r'<UML:Expression body="(.+?)"')
 engineTag = re.compile(
-  r'<UML:TaggedValue tag="(Type|ENGINE)" .* value="(.+?)" modelElement="(\w+)"')
+    r'<UML:TaggedValue tag="(Type|ENGINE)" .* value="(.+?)" modelElement="(\w+)"')
 
 colNum = 1
 line = src.readline()
@@ -194,7 +194,7 @@ while line != "":
 
         m = attrStart.search(line)
         if m is not None:
-            in_attr = {"name" : m.group(1)}
+            in_attr = {"name": m.group(1)}
             in_attr["displayOrder"] = str(colNum)
             colNum += 1
             if "columns" not in in_class:
@@ -228,6 +228,7 @@ while line != "":
 # Output DML
 ###############################################################################
 
+
 def handleField(ptr, field, indent):
     if field not in ptr:
         return
@@ -235,7 +236,7 @@ def handleField(ptr, field, indent):
     if field in numericFields:
         q = ''
     dest.write(",\n")
-    dest.write("".join(["\t" for i in xrange(indent)]))
+    dest.write("\t" * indent)
     dest.write(field + " = " + q + ptr[field] + q)
 
 tableId = 0
@@ -243,7 +244,7 @@ colId = 0
 for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
     t = table[k]
     tableId += 1
-    dest.write("".join(["-- " for i in xrange(25)]) + "\n\n")
+    dest.write("-- " * 25 + "\n\n")
     dest.write("INSERT INTO md_Table\n")
     dest.write('SET tableId = %d, name = "%s"' % (tableId, t["name"]))
     for f in tableFields:
@@ -255,7 +256,7 @@ for k in sorted(table.keys(), key=lambda x: table[x]["name"]):
             colId += 1
             dest.write("\tINSERT INTO md_Column\n")
             dest.write('\tSET columnId = %d, tableId = %d, name = "%s"' %
-                    (colId, tableId, c["name"]))
+                       (colId, tableId, c["name"]))
             for f in columnFields:
                 handleField(c, f, 2)
             dest.write(";\n\n")

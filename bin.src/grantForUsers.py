@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+from builtins import input
+
 from lsst.cat.MySQLBase import MySQLBase
 from lsst.cat.policyReader import PolicyReader
 
@@ -37,7 +40,7 @@ r = PolicyReader(options.f)
 (serverHost, serverPort) = r.readAuthInfo()
 (globalDbName, dcVersion, dcDb, dummy1, dummy2) = r.readGlobalSetup()
 
-rootU = raw_input("Enter mysql superuser account name: ")
+rootU = input("Enter mysql superuser account name: ")
 rootP = getpass.getpass()
 
 admin = MySQLBase(serverHost, serverPort)
@@ -48,9 +51,9 @@ def showGrantsForAllUsers():
     users = admin.execCommandN('SELECT user from mysql.user')
     for u in users:
         grants = admin.execCommandN("SHOW GRANTS FOR '%s'" % u)
-        print 'grants for user %s ' %u
+        print('grants for user %s ' % u)
         for g in grants:
-            print '   ', g
+            print('   ', g)
 
 
 users = admin.execCommandN('SELECT DISTINCT(user) FROM mysql.tables_priv')
@@ -73,7 +76,4 @@ for u in users:
                "utcToTai"]:
         cmd = "GRANT EXECUTE ON FUNCTION `rplante_DC3b_u_pt11final`.`%s` %s" % (ff, toStr)
         print(cmd)
-        #admin.execCommand0(cmd)
-
-
-
+        # admin.execCommand0(cmd)
