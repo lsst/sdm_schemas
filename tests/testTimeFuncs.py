@@ -23,7 +23,6 @@
 #
 
 
-from builtins import next
 import unittest
 import os
 import time
@@ -89,14 +88,14 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.outColumn("taiToMjdTai(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 399006000000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 399006021000000000)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 45205.125)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(3),
                                45205.125 + 21.0 / 86400.0)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testNsecs(self):
@@ -105,12 +104,12 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
         self.db.outColumn("taiToMjdUtc(utcToTai(%d))" % nsecsUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 1192755473000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testBoundaryMJD(self):
@@ -119,12 +118,12 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc, True)
         self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 631152000000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 631152025000000000)
         self.assertEqual(self.db.getColumnByPosDouble(2), 47892.0)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testCrossBoundaryNsecs(self):
@@ -132,11 +131,11 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc, True)
         self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 631151998000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 631152022000000000)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testNsecsTAI(self):
@@ -145,12 +144,12 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("utcToTai(taiToUtc(%d))" % nsecsTai, True)
         self.db.outColumn("taiToMjdUtc(%d)" % nsecsTai, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 1192755473000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(not haveRow)
 
 
