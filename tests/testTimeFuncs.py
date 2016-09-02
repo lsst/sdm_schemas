@@ -150,7 +150,7 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
         haveRow = self.db.next()
-        self.assertFalse(not haveRow)
+        self.assertFalse(haveRow)
 
 
 class MemoryTester(lsst.utils.tests.MemoryTestCase):
