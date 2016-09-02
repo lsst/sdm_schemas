@@ -80,6 +80,7 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.startTransaction()
         self.db.executeSql("DROP DATABASE " + self.dbName)
         self.db.endTransaction()
+        del self.db
 
     def testMJD(self):
         mjdUtc = 45205.125
