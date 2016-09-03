@@ -31,7 +31,7 @@ import lsst.daf.persistence as dafPersist
 import lsst.cat.SqlScript as SqlScript
 import lsst.utils.tests
 
-DB_HOST = "lsst10.ncsa.illinois.edu"
+DB_HOST = "lsst-db.ncsa.illinois.edu"
 DB_PORT = 3306
 
 if os.uname()[1].endswith(".ncsa.illinois.edu") and \
