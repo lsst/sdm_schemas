@@ -43,24 +43,27 @@ else:
 
 class TimeFuncTestCase(lsst.utils.tests.TestCase):
     """A test case for SQL time functions."""
+    db = None
+    dbName = None
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
 
         if not HAVE_DB:
             raise unittest.SkipTest("not at NCSA or no database credentials.")
 
         testId = int(time.time() * 10.0)
 
-        self.dbName = "test_%d" % testId
-        dbUrl = "mysql://{}:{}/".format(DB_HOST, DB_PORT) + self.dbName
+        cls.dbName = "test_%d" % testId
+        dbUrl = "mysql://{}:{}/".format(DB_HOST, DB_PORT) + cls.dbName
 
-        self.db = dafPersist.DbStorage()
+        cls.db = dafPersist.DbStorage()
 
-        self.db.setRetrieveLocation(dafPersist.LogicalLocation(
+        cls.db.setRetrieveLocation(dafPersist.LogicalLocation(
             "mysql://{}:{}/test".format(DB_HOST, DB_PORT)))
-        self.db.startTransaction()
-        self.db.executeSql("CREATE DATABASE " + self.dbName)
-        self.db.endTransaction()
+        cls.db.startTransaction()
+        cls.db.executeSql("CREATE DATABASE " + cls.dbName)
+        cls.db.endTransaction()
 
 
         sqldir = os.path.join(lsst.utils.getPackageDir("cat"), "sql")
@@ -71,18 +74,21 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         SqlScript.run(os.path.join(sqldir,
                                    "setup_storedFunctions.sql"), dbUrl)
 
-        self.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
+        cls.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
 
+    @classmethod
+    def tearDownClass(cls):
+        cls.db.startTransaction()
+        cls.db.executeSql("DROP DATABASE " + cls.dbName)
+        cls.db.endTransaction()
+        del cls.db
+
+    def setUp(self):
         self.db.startTransaction()
         self.db.setTableForQuery("DUAL", True)
 
     def tearDown(self):
         self.db.endTransaction()
-
-        self.db.startTransaction()
-        self.db.executeSql("DROP DATABASE " + self.dbName)
-        self.db.endTransaction()
-        del self.db
 
     def testMJD(self):
         mjdUtc = 45205.125
