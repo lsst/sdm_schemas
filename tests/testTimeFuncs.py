@@ -62,11 +62,13 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.executeSql("CREATE DATABASE " + self.dbName)
         self.db.endTransaction()
 
-        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+
+        sqldir = os.path.join(lsst.utils.getPackageDir("cat"), "sql")
+        SqlScript.run(os.path.join(sqldir,
                                    "lsstSchema4mysqlPT1_2.sql"), dbUrl)
-        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+        SqlScript.run(os.path.join(sqldir,
                                    "setup_perRunTablesS12_lsstsim.sql"), dbUrl)
-        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+        SqlScript.run(os.path.join(sqldir,
                                    "setup_storedFunctions.sql"), dbUrl)
 
         self.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
