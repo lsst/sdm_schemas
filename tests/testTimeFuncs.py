@@ -23,7 +23,6 @@
 #
 
 
-from builtins import next
 import unittest
 import os
 import time
@@ -32,7 +31,7 @@ import lsst.daf.persistence as dafPersist
 import lsst.cat.SqlScript as SqlScript
 import lsst.utils.tests
 
-DB_HOST = "lsst10.ncsa.illinois.edu"
+DB_HOST = "lsst-db.ncsa.illinois.edu"
 DB_PORT = 3306
 
 if os.uname()[1].endswith(".ncsa.illinois.edu") and \
@@ -44,42 +43,51 @@ else:
 
 class TimeFuncTestCase(lsst.utils.tests.TestCase):
     """A test case for SQL time functions."""
+    db = None
+    dbName = None
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
 
         if not HAVE_DB:
             raise unittest.SkipTest("not at NCSA or no database credentials.")
 
         testId = int(time.time() * 10.0)
 
-        self.dbName = "test_%d" % testId
-        dbUrl = "mysql://{}:{}/".format(DB_HOST, DB_PORT) + self.dbName
+        cls.dbName = "test_%d" % testId
+        dbUrl = "mysql://{}:{}/".format(DB_HOST, DB_PORT) + cls.dbName
 
-        self.db = dafPersist.DbStorage()
+        cls.db = dafPersist.DbStorage()
 
-        self.db.setRetrieveLocation(dafPersist.LogicalLocation(
+        cls.db.setRetrieveLocation(dafPersist.LogicalLocation(
             "mysql://{}:{}/test".format(DB_HOST, DB_PORT)))
-        self.db.startTransaction()
-        self.db.executeSql("CREATE DATABASE " + self.dbName)
-        self.db.endTransaction()
+        cls.db.startTransaction()
+        cls.db.executeSql("CREATE DATABASE " + cls.dbName)
+        cls.db.endTransaction()
 
-        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+
+        sqldir = os.path.join(lsst.utils.getPackageDir("cat"), "sql")
+        SqlScript.run(os.path.join(sqldir,
                                    "lsstSchema4mysqlPT1_2.sql"), dbUrl)
-        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+        SqlScript.run(os.path.join(sqldir,
                                    "setup_perRunTablesS12_lsstsim.sql"), dbUrl)
-        SqlScript.run(os.path.join(os.environ['CAT_DIR'], "sql",
+        SqlScript.run(os.path.join(sqldir,
                                    "setup_storedFunctions.sql"), dbUrl)
 
-        self.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
+        cls.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
 
+    @classmethod
+    def tearDownClass(cls):
+        cls.db.startTransaction()
+        cls.db.executeSql("DROP DATABASE " + cls.dbName)
+        cls.db.endTransaction()
+        del cls.db
+
+    def setUp(self):
         self.db.startTransaction()
         self.db.setTableForQuery("DUAL", True)
 
     def tearDown(self):
-        self.db.endTransaction()
-
-        self.db.startTransaction()
-        self.db.executeSql("DROP DATABASE " + self.dbName)
         self.db.endTransaction()
 
     def testMJD(self):
@@ -89,14 +97,14 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.outColumn("taiToMjdTai(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 399006000000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 399006021000000000)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 45205.125)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(3),
                                45205.125 + 21.0 / 86400.0)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testNsecs(self):
@@ -105,12 +113,12 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
         self.db.outColumn("taiToMjdUtc(utcToTai(%d))" % nsecsUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 1192755473000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testBoundaryMJD(self):
@@ -119,12 +127,12 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc, True)
         self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 631152000000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 631152025000000000)
         self.assertEqual(self.db.getColumnByPosDouble(2), 47892.0)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testCrossBoundaryNsecs(self):
@@ -132,11 +140,11 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc, True)
         self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 631151998000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 631152022000000000)
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertFalse(haveRow)
 
     def testNsecsTAI(self):
@@ -145,13 +153,13 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
         self.db.outColumn("utcToTai(taiToUtc(%d))" % nsecsTai, True)
         self.db.outColumn("taiToMjdUtc(%d)" % nsecsTai, True)
         self.db.query()
-        haveRow = next(self.db)
+        haveRow = self.db.next()
         self.assertTrue(haveRow)
         self.assertEqual(self.db.getColumnByPosInt64(0), 1192755473000000000)
         self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000)
         self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
-        haveRow = next(self.db)
-        self.assertFalse(not haveRow)
+        haveRow = self.db.next()
+        self.assertFalse(haveRow)
 
 
 class MemoryTester(lsst.utils.tests.MemoryTestCase):
