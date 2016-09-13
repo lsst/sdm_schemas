@@ -178,7 +178,7 @@ class MySQLBase(object):
             cmd = 'mysql -h%s -P%s -u%s %s' % \
                 (self.dbHostName, self.dbHostPort, dbUser, dbName)
 
-        with file(scriptPath) as scriptFile:
+        with open(scriptPath) as scriptFile:
             self.log.debug("Loading %s into db=%s on %s:%s, user=%s",
                            scriptPath, dbName, self.dbHostName, self.dbHostPort, dbUser)
             if subprocess.call(cmd.split(), stdin=scriptFile) != 0:
