@@ -980,9 +980,9 @@ CREATE TABLE DiaForcedSource
         -- <descr>Point Source model flux.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    psFlux_Sigma FLOAT NULL,
+    psFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of psFlux.</descr>
-        -- <ucd>stat.error;phot.count</ucd>
+        -- <ucd>stat.stdev;phot.count</ucd>
         -- <unit>nmgy</unit>
     x FLOAT NOT NULL,
         -- <descr>x position at which psFlux has been measured.</descr>
@@ -990,7 +990,6 @@ CREATE TABLE DiaForcedSource
         -- <unit>pixel</unit>
     y FLOAT NOT NULL,
         -- <descr>y position at which psFlux has been measured.</descr>
-        -- by SDSS.</descr>
         -- <ucd>pos.cartesian.y</ucd>
         -- <unit>pixel</unit>
     flags TINYINT NOT NULL DEFAULT 0,
