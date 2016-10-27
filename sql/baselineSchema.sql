@@ -414,89 +414,119 @@ CREATE TABLE SSObject
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     qSigma DOUBLE NULL,
-        -- <descr>Uncertainty of q.</descr>
+        -- <descr>Standard deviation of q.</descr>
+        -- <ucd>stat.stdev</ucd>
     e DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     eSigma DOUBLE NULL,
-        -- <descr>Uncertainty of e.</descr>
+        -- <descr>Standard deviation of e.</descr>
+        -- <ucd>stat.stdev</ucd>
     i DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     iSigma DOUBLE NULL,
-        -- <descr>Uncertainty of i.</descr>
+        -- <descr>Standard deviation of i.</descr>
+        -- <ucd>stat.stdev</ucd>
     lan DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     lanSigma DOUBLE NULL,
-        -- <descr>Uncertainty of lan.</descr>
+        -- <descr>Standard deviation of lan.</descr>
+        -- <ucd>stat.stdev</ucd>
     aop DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
-    oepSigma DOUBLE NULL,
-        -- <descr>Uncertainty of aop.</descr>
+    aopSigma DOUBLE NULL,
+        -- <descr>Standard deviation of aop.</descr>
+        -- <ucd>stat.stdev</ucd>
     M DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     MSigma DOUBLE NULL,
-        -- <descr>Uncertainty of oe6.</descr>
+        -- <descr>Standard deviation of M.</descr>
+        -- <ucd>stat.stdev</ucd>
     epoch DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     epochSigma DOUBLE NULL,
-        -- <descr>Uncertainty of oe7.</descr>
+        -- <descr>Standard deviation of epoch.</descr>
+        -- <ucd>stat.stdev</ucd>
     q_e_Cov DOUBLE NULL,
         -- <descr>Covariance of q and e.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_i_Cov DOUBLE NULL,
         -- <descr>Covariance of q and i.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_lan_Cov DOUBLE NULL,
         -- <descr>Covariance of q and lan.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of q and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_M_Cov DOUBLE NULL,
         -- <descr>Covariance of q and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of q and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_i_Cov DOUBLE NULL,
         -- <descr>Covariance of e and i.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_lan_Cov DOUBLE NULL,
         -- <descr>Covariance of e and lan.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of e and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_M_Cov DOUBLE NULL,
         -- <descr>Covariance of e and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of e and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_lan_Cov DOUBLE NULL,
         -- <descr>Covariance of i and lan.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of i and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_M_Cov DOUBLE NULL,
         -- <descr>Covariance of i and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of i and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     lan_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of lan and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     lan_M_Cov DOUBLE NULL,
         -- <descr>Covariance of lan and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     lan_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of lan and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     aop_M_Cov DOUBLE NULL,
         -- <descr>Covariance of aop and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     aop_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of aop and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     M_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of M and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     arc FLOAT NULL,
         -- <descr>Arc of observation.</descr>
         -- <unit>days</unit>
     orbFitLnL FLOAT NULL,
         -- <descr>Natural log of the likelihood of the orbital
         -- elements fit.</descr>
+        -- <ucd>stat.likelihood</ucd>
     orbFitChi2 FLOAT NULL,
         -- <descr>Chi^2 statistic of the orbital elements fit.
         -- </descr>
-    orbFitN INTEGER NULL,
+        -- <ucd>stat.fit.chi2</ucd>
+    orbFitNdata INTEGER NULL,
         -- <descr>Number of observations used in the fit.</descr>
     MOID1 FLOAT NULL,
         -- <descr>Minimum orbit intersection distance.</descr>
@@ -513,110 +543,128 @@ CREATE TABLE SSObject
     uH FLOAT NULL,
         -- <descr>Mean absolute magnitude for u filter.</descr>
         -- <unit>mag</unit>
-    uHSigma FLOAT NULL,
-        -- <descr>Uncertainty of uH.</descr>
+    uHErr FLOAT NULL,
+        -- <descr>Uncertainty of uH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     uG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for u filter.</descr>
         -- <unit>mag</unit>
-    uG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of uG1.</descr>
+    uG1Err FLOAT NULL,
+        -- <descr>Uncertainty of uG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     uG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for u filter.</descr>
         -- <unit>mag</unit>
-    uG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of uG2.</descr>
+    uG2Err FLOAT NULL,
+        -- <descr>Uncertainty of uG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     gH FLOAT NULL,
         -- <descr>Mean absolute magnitude for g filter.</descr>
         -- <unit>mag</unit>
-    gHSigma FLOAT NULL,
-        -- <descr>Uncertainty of gH.</descr>
+    gHErr FLOAT NULL,
+        -- <descr>Uncertainty of gH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     gG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for g filter.</descr>
         -- <unit>mag</unit>
-    gG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of gG1.</descr>
+    gG1Err FLOAT NULL,
+        -- <descr>Uncertainty of gG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     gG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for g filter.</descr>
         -- <unit>mag</unit>
-    gG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of gG2.</descr>
+    gG2Err FLOAT NULL,
+        -- <descr>Uncertainty of gG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     rH FLOAT NULL,
         -- <descr>Mean absolute magnitude for r filter.</descr>
         -- <unit>mag</unit>
-    rHSigma FLOAT NULL,
-        -- <descr>Uncertainty of rH.</descr>
+    rHErr FLOAT NULL,
+        -- <descr>Uncertainty of rH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     rG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for r filter.</descr>
         -- <unit>mag</unit>
-    rG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of rG1.</descr>
+    rG1Err FLOAT NULL,
+        -- <descr>Uncertainty of rG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     rG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for r filter.</descr>
         -- <unit>mag</unit>
-    rG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of rG2.</descr>
+    rG2Err FLOAT NULL,
+        -- <descr>Uncertainty of rG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     iH FLOAT NULL,
         -- <descr>Mean absolute magnitude for i filter.</descr>
         -- <unit>mag</unit>
-    iHSigma FLOAT NULL,
-        -- <descr>Uncertainty of iH.</descr>
+    iHErr FLOAT NULL,
+        -- <descr>Uncertainty of iH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     iG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for i filter.</descr>
         -- <unit>mag</unit>
-    iG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of iG1.</descr>
+    iG1Err FLOAT NULL,
+        -- <descr>Uncertainty of iG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     iG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for i filter.</descr>
         -- <unit>mag</unit>
-    iG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of iG2.</descr>
+    iG2Err FLOAT NULL,
+        -- <descr>Uncertainty of iG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     zH FLOAT NULL,
         -- <descr>Mean absolute magnitude for z filter.</descr>
         -- <unit>mag</unit>
-    zHSigma FLOAT NULL,
-        -- <descr>Uncertainty of zH.</descr>
+    zHErr FLOAT NULL,
+        -- <descr>Uncertainty of zH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     zG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for z filter.</descr>
         -- <unit>mag</unit>
-    zG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of zG1.</descr>
+    zG1Err FLOAT NULL,
+        -- <descr>Uncertainty of zG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     zG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for z filter.</descr>
         -- <unit>mag</unit>
-    zG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of zG2.</descr>
+    zG2Err FLOAT NULL,
+        -- <descr>Uncertainty of zG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     yH FLOAT NULL,
         -- <descr>Mean absolute magnitude for y filter.</descr>
         -- <unit>mag</unit>
-    yHSigma FLOAT NULL,
-        -- <descr>Uncertainty of yH.</descr>
+    yHErr FLOAT NULL,
+        -- <descr>Uncertainty of yH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     yG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for y filter.</descr>
-       -- <unit>mag</unit>
-    yG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of yG1.</descr>
+        -- <unit>mag</unit>
+    yG1Err FLOAT NULL,
+        -- <descr>Uncertainty of yG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     yG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for y filter.</descr>
-       -- <unit>mag</unit>
-    yG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of yG2.</descr>
+        -- <unit>mag</unit>
+    yG2Err FLOAT NULL,
+        -- <descr>Uncertainty of yG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
