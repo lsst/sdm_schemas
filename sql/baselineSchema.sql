@@ -56,193 +56,265 @@ CREATE TABLE DiaObject
     validityEnd DATETIME NOT NULL,
         -- <descr>Time when validity of this diaObject ends.</descr>
     ra DOUBLE NOT NULL,
-        -- <descr>RA-coordinate of the center of this diaObject.</descr>
+        -- <descr>RA-coordinate of the position of the object at time
+        -- radecTai.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     raSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of ra.</descr>
-        -- <ucd>stat.error;pos.eq.ra</ucd>
+        -- <ucd>stat.stdev;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
-        -- <descr>Decl-coordinate of the center of this diaObject.</descr>
+        -- <descr>Decl-coordinate of the position of the object at time
+        -- radecTai.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     declSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of decl.</descr>
-        -- <ucd>stat.error;pos.eq.dec</ucd>
+        -- <ucd>stat.stdev;pos.eq.dec</ucd>
         -- <unit>deg</unit>
     ra_decl_Cov FLOAT NOT NULL,
         -- <descr>Covariance between ra and decl.</descr>
         -- <unit>deg^2</unit>
-    muRa FLOAT NOT NULL,
+    radecTai DOUBLE NOT NULL,
+        -- <descr>Time at which the object was at a position ra/decl.</descr>
+        -- <ucd>time.epoch</ucd>
+    pmRa FLOAT NOT NULL,
         -- <descr>Proper motion (ra).</descr>
         -- <ucd>pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muRaSigma FLOAT NOT NULL,
-        -- <descr>Uncertainty of muRa.</descr>
-        -- <ucd>stat.error;pos.pm</ucd>
+    pmRaSigma FLOAT NOT NULL,
+        -- <descr>Standard deviation of pmRa.</descr>
+        -- <ucd>stat.stdev;pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muDecl FLOAT NOT NULL,
+    pmDecl FLOAT NOT NULL,
         -- <descr>Proper motion (decl).</descr>
         -- <ucd>pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muDecSigma FLOAT NOT NULL,
-        -- <descr>Uncertainty of muDecl.</descr>
-        -- <ucd>stat.error;pos.pm</ucd>
+    pmDeclSigma FLOAT NOT NULL,
+        -- <descr>Standard deviation of pmDecl.</descr>
+        -- <ucd>stat.stdev;pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muRa_muDeclCov FLOAT NOT NULL,
-        -- <descr>Covariance of muRa and muDecl.</descr>
-        -- <ucd>stat.covariance;pos.eq</ucd>
-        -- <unit>(mas/yr)^2</unit>
     parallax FLOAT NOT NULL,
-        -- <descr>Parallax.</descr>
+        -- <descr>Uncertainty of pmDecl.</descr>
         -- <ucd>pos.parallax</ucd>
         -- <unit>mas</unit>
     parallaxSigma FLOAT NOT NULL,
-        -- <descr>Uncertainty of parallax.</descr>
-        -- <ucd>stat.error;pos.parallax</ucd>
+        -- <descr>Standard deviation of parallax.</descr>
+        -- <ucd>stat.stdev;pos.parallax</ucd>
         -- <unit>mas</unit>
-    muRa_parallax_Cov FLOAT NOT NULL,
-        -- <descr>Covariance of muRa and parallax.</descr>
-    muDecl_parallax_Cov FLOAT NOT NULL,
-        -- <descr>Covariance of muDecl and parallax.</descr>
-    lnL FLOAT NOT NULL,
+    pmRa_pmDecl_Cov FLOAT NOT NULL,
+        -- <descr>Covariance of pmRa and pmDecl.</descr>
+        -- <ucd>stat.covariance;pos.eq</ucd>
+        -- <unit>(mas/yr)^2</unit>
+    pmRa_parallax_Cov FLOAT NOT NULL,
+        -- <descr>Covariance of pmRa and parallax.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>mas^2/yr</unit>
+    pmDecl_parallax_Cov FLOAT NOT NULL,
+        -- <descr>Covariance of pmDecl and parallax.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>mas^2/yr</unit>
+    pmParallaxLnL FLOAT NOT NULL,
         -- <descr>Natural log of the likelihood of the linear
         -- proper motion parallax fit.</descr>
-    chi2 FLOAT NOT NULL,
+        -- <ucd>stat.likelihood</ucd>
+    pmParallaxChi2 FLOAT NOT NULL,
         -- <descr>Chi^2 static of the model fit.</descr>
-    N INT NOT NULL,
-        -- <descr>The number of data points (pixels) used to fit the model.
-        -- </descr>
-    uPSFlux FLOAT NULL,
+        -- <ucd>stat.fit.chi2</ucd>
+    pmParallaxNdata INT NOT NULL,
+        -- <descr>The number of data points used to fit the model.</descr>
+    uPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for
         -- u filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    uPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of uPSFlux.</descr>
+    uPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of uPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     uPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of uPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of uPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    uFPFlux FLOAT NULL,
+    uPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of uPSFlux around uPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    uPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute uPSFluxChi2.
+        -- </descr>
+    uFPFluxMean FLOAT NULL,
         -- <descr>Weighted mean forced photometry flux for u fliter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    uFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of uFPFlux.</descr>
+    uFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of uFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     uFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of uFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of uFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    gPSFlux FLOAT NULL,
+    gPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for g filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    gPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of gPSFlux.</descr>
+    gPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of gPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     gPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of gPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of gPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    gFPFlux FLOAT NULL,
+    gPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of gPSFlux around gPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    gPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute gPSFluxChi2.
+        -- </descr>
+    gFPFluxMean FLOAT NULL,
         -- <descr>Weighted mean forced photometry flux for g fliter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    gFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of gFPFlux.</descr>
+    gFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of gFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     gFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of gFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of gFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    rPSFlux FLOAT NULL,
-        -- <descr>Weighted mean point-source model magnitude for u filter.
+    rPSFluxMean FLOAT NULL,
+        -- <descr>Weighted mean point-source model magnitude for r filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    rPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of rPSFlux.</descr>
+    rPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of rPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     rPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of rPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of rPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    rFPFlux FLOAT NULL,
+    rPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of rPSFlux around rPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    rPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute rPSFluxChi2.
+        -- </descr>
+    rFPFluxMean FLOAT NULL,
         -- <descr>Weighted mean forced photometry flux for r fliter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    rFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of rFPFlux.</descr>
+    rFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of rFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     rFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of rFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of rFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    iPSFlux FLOAT NULL,
+    iPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for i filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    iPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of iPSFlux.</descr>
+    iPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of iPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     iPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of iPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of iPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    iFPFlux FLOAT NULL,
+    iPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of iPSFlux around iPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    iPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute iPSFluxChi2.
+        -- </descr>
+    iFPFluxMean FLOAT NULL,
         -- <descr>Weighted mean forced photometry flux for i fliter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    iFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of iFPFlux.</descr>
+    iFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of iFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     iFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of uFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of iFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    zPSFlux FLOAT NULL,
+    zPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for z filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    zPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of zPSFlux.</descr>
+    zPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of zPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     zPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of zPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of zPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    zFPFlux FLOAT NULL,
+    zPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of zPSFlux around zPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    zPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute zPSFluxChi2.
+        -- </descr>
+    zFPFluxMean FLOAT NULL,
         -- <descr>Weighted mean forced photometry flux for z fliter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    zFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of zFPFlux.</descr>
+    zFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of zFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     zFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of zFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of zFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    yPSFlux FLOAT NULL,
+    yPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for y filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    yPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of yPSFlux.</descr>
-        -- <ucd>phot.count</ucd>
+    yPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of yPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     yPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of yPSFlux.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <descr>Standard deviation of the distribution of yPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    yFPFlux FLOAT NULL,
+    yPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of yPSFlux around yPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    yPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute yPSFluxChi2.
+        -- </descr>
+    yFPFluxMean FLOAT NULL,
         -- <descr>Weighted mean forced photometry flux for y fliter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    yFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of yFPFlux.</descr>
-        -- <ucd>phot.count</ucd>
+    yFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of yFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     yFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of yFPFlux.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <descr>Standard deviation of the distribution of yFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
     uLcPeriodic BLOB NULL,
         -- <descr>Periodic features extracted from light-curves using
