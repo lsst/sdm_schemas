@@ -62,7 +62,7 @@ CREATE TABLE DiaObject
         -- <unit>deg</unit>
     raSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of ra.</descr>
-        -- <ucd>stat.stdev;pos.eq.ra</ucd>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
         -- <descr>Decl-coordinate of the position of the object at time
@@ -71,7 +71,7 @@ CREATE TABLE DiaObject
         -- <unit>deg</unit>
     declSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of decl.</descr>
-        -- <ucd>stat.stdev;pos.eq.dec</ucd>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
         -- <unit>deg</unit>
     ra_decl_Cov FLOAT NOT NULL,
         -- <descr>Covariance between ra and decl.</descr>
@@ -84,24 +84,24 @@ CREATE TABLE DiaObject
         -- <ucd>pos.pm</ucd>
         -- <unit>mas/yr</unit>
     pmRaSigma FLOAT NOT NULL,
-        -- <descr>Standard deviation of pmRa.</descr>
-        -- <ucd>stat.stdev;pos.pm</ucd>
+        -- <descr>Uncertainty of pmRa.</descr>
+        -- <ucd>stat.error;pos.pm</ucd>
         -- <unit>mas/yr</unit>
     pmDecl FLOAT NOT NULL,
         -- <descr>Proper motion (decl).</descr>
         -- <ucd>pos.pm</ucd>
         -- <unit>mas/yr</unit>
     pmDeclSigma FLOAT NOT NULL,
-        -- <descr>Standard deviation of pmDecl.</descr>
-        -- <ucd>stat.stdev;pos.pm</ucd>
+        -- <descr>Uncertainty of pmDecl.</descr>
+        -- <ucd>stat.error;pos.pm</ucd>
         -- <unit>mas/yr</unit>
     parallax FLOAT NOT NULL,
-        -- <descr>Uncertainty of pmDecl.</descr>
+        -- <descr>Parallax.</descr>
         -- <ucd>pos.parallax</ucd>
         -- <unit>mas</unit>
     parallaxSigma FLOAT NOT NULL,
-        -- <descr>Standard deviation of parallax.</descr>
-        -- <ucd>stat.stdev;pos.parallax</ucd>
+        -- <descr>Uncertainty of parallax.</descr>
+        -- <ucd>stat.error;pos.parallax</ucd>
         -- <unit>mas</unit>
     pmRa_pmDecl_Cov FLOAT NOT NULL,
         -- <descr>Covariance of pmRa and pmDecl.</descr>
@@ -145,7 +145,7 @@ CREATE TABLE DiaObject
         -- <descr>The number of data points used to compute uPSFluxChi2.
         -- </descr>
     uFPFluxMean FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for u fliter.</descr>
+        -- <descr>Weighted mean forced photometry flux for u filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
     uFPFluxMeanErr FLOAT NULL,
@@ -177,7 +177,7 @@ CREATE TABLE DiaObject
         -- <descr>The number of data points used to compute gPSFluxChi2.
         -- </descr>
     gFPFluxMean FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for g fliter.</descr>
+        -- <descr>Weighted mean forced photometry flux for g filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
     gFPFluxMeanErr FLOAT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE DiaObject
         -- <descr>The number of data points used to compute rPSFluxChi2.
         -- </descr>
     rFPFluxMean FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for r fliter.</descr>
+        -- <descr>Weighted mean forced photometry flux for r filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
     rFPFluxMeanErr FLOAT NULL,
@@ -241,7 +241,7 @@ CREATE TABLE DiaObject
         -- <descr>The number of data points used to compute iPSFluxChi2.
         -- </descr>
     iFPFluxMean FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for i fliter.</descr>
+        -- <descr>Weighted mean forced photometry flux for i filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
     iFPFluxMeanErr FLOAT NULL,
@@ -273,7 +273,7 @@ CREATE TABLE DiaObject
         -- <descr>The number of data points used to compute zPSFluxChi2.
         -- </descr>
     zFPFluxMean FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for z fliter.</descr>
+        -- <descr>Weighted mean forced photometry flux for z filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
     zFPFluxMeanErr FLOAT NULL,
@@ -295,7 +295,7 @@ CREATE TABLE DiaObject
         -- <unit>nmgy</unit>
     yPSFluxSigma FLOAT NULL,
         -- <descr>Standard deviation of the distribution of yPSFlux.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     yPSFluxChi2 FLOAT NULL,
         -- <descr>Chi^2 statistic for the scatter of yPSFlux around yPSFluxMean.
@@ -305,7 +305,7 @@ CREATE TABLE DiaObject
         -- <descr>The number of data points used to compute yPSFluxChi2.
         -- </descr>
     yFPFluxMean FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for y fliter.</descr>
+        -- <descr>Weighted mean forced photometry flux for y filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
     yFPFluxMeanErr FLOAT NULL,
@@ -414,44 +414,44 @@ CREATE TABLE SSObject
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     qSigma DOUBLE NULL,
-        -- <descr>Standard deviation of q.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <descr>Uncertainty of q.</descr>
+        -- <ucd>stat.error</ucd>
     e DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     eSigma DOUBLE NULL,
-        -- <descr>Standard deviation of e.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <descr>Uncertainty of e.</descr>
+        -- <ucd>stat.error</ucd>
     i DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     iSigma DOUBLE NULL,
-        -- <descr>Standard deviation of i.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <descr>Uncertainty of i.</descr>
+        -- <ucd>stat.error</ucd>
     lan DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     lanSigma DOUBLE NULL,
-        -- <descr>Standard deviation of lan.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <descr>Uncertainty of lan.</descr>
+        -- <ucd>stat.error</ucd>
     aop DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     aopSigma DOUBLE NULL,
-        -- <descr>Standard deviation of aop.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <descr>Uncertainty of aop.</descr>
+        -- <ucd>stat.error</ucd>
     M DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     MSigma DOUBLE NULL,
-        -- <descr>Standard deviation of M.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <descr>Uncertainty of M.</descr>
+        -- <ucd>stat.error</ucd>
     epoch DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     epochSigma DOUBLE NULL,
-        -- <descr>Standard deviation of epoch.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <descr>Uncertainty of epoch.</descr>
+        -- <ucd>stat.error</ucd>
     q_e_Cov DOUBLE NULL,
         -- <descr>Covariance of q and e.</descr>
         -- <ucd>stat.covariance</ucd>
@@ -697,7 +697,7 @@ CREATE TABLE DiaSource
         -- either a diaObject or ssObject).</descr>
         -- <ucd>meta.id;src</ucd>
     parentDiaSourceId BIGINT NULL,
-        -- <descr>Id of the parent diaSource this diaObject has been deblended
+        -- <descr>Id of the parent diaSource this diaSource has been deblended
         -- from, if any.</descr>
         -- <ucd>meta.id;src</ucd>
     prv_procOrder INT NOT NULL,
@@ -716,7 +716,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     raSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of ra.</descr>
-        -- <ucd>stat.stdev;pos.eq.ra</ucd>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
         -- <descr> Decl-coordinate of the center of this diaSource.</descr>
@@ -724,7 +724,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     declSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of decl.</descr>
-        -- <ucd>stat.stdev;pos.eq.dec</ucd>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
         -- <unit>deg</unit>
     ra_decl_Cov FLOAT NOT NULL,
         -- <descr>Covariance between ra and decl.</descr>
@@ -736,7 +736,7 @@ CREATE TABLE DiaSource
         -- <unit>pixel</unit>
     xSigma FLOAT NOT NULL,
         -- <descr>Uncertainty of x.</descr>
-        -- <ucd>stat.stdev:pos.cartesian.x</ucd>
+        -- <ucd>stat.error:pos.cartesian.x</ucd>
         -- <unit>pixel</unit>
     y FLOAT NOT NULL,
         -- <descr>y position computed by a centroiding algorithm.</descr>
@@ -744,7 +744,7 @@ CREATE TABLE DiaSource
         -- <unit>pixel</unit>
     ySigma FLOAT NOT NULL,
         -- <descr>Uncertainty of y.</descr>
-        -- <ucd>stat.stdev:pos.cartesian.y</ucd>
+        -- <ucd>stat.error:pos.cartesian.y</ucd>
         -- <unit>pixel</unit>
     x_y_Cov FLOAT NOT NULL,
         -- <descr>Covariance between x and y.</descr>
@@ -757,7 +757,7 @@ CREATE TABLE DiaSource
         -- <unit>nmgy</unit>
     apFluxErr FLOAT NOT NULL,
         -- <descr>Estimated uncertainty of apFlux.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
     snr FLOAT NOT NULL,
         -- <descr>The signal-to-noise ratio at which this source was
@@ -778,7 +778,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     psRaSigma FLOAT NULL,
         -- <descr>Uncertainty of psRa.</descr>
-        -- <ucd>stat.stdev;pos.eq.ra</ucd>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     psDecl DOUBLE NULL,
         -- <descr> Decl-coordinate of centroid for point source model.</descr>
@@ -786,7 +786,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     psDeclSigma FLOAT NULL,
         -- <descr>Uncertainty of psDecl.</descr>
-        -- <ucd>stat.stdev;pos.eq.dec</ucd>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
         -- <unit>deg</unit>
     psFlux_psRa_Cov FLOAT NULL,
         -- <descr>Covariance between psFlux and psRa.</descr>
@@ -824,7 +824,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     trailRaSigma FLOAT NULL,
         -- <descr>Uncertainty of trailRa.</descr>
-        -- <ucd>stat.stdev;pos.eq.ra</ucd>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     trailDecl DOUBLE NULL,
         -- <descr> Decl-coordinate of centroid for trailed source model.</descr>
@@ -832,7 +832,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     trailDeclSigma FLOAT NULL,
         -- <descr>Uncertainty of trailDecl.</descr>
-        -- <ucd>stat.stdev;pos.eq.dec</ucd>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
         -- <unit>deg</unit>
     trailLength FLOAT NULL,
         -- <descr>Maximum likelihood fit of trail length.</descr>
@@ -893,7 +893,7 @@ CREATE TABLE DiaSource
         -- <unit>nmgy</unit>
     dipMeanFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of dipMeanFlux.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     dipFluxDiff FLOAT NULL,
         -- <descr>Maximum likelihood value for the difference of absolute
@@ -901,7 +901,7 @@ CREATE TABLE DiaSource
         -- <unit>nmgy</unit>
     dipFluxDiffSigma FLOAT NULL,
         -- <descr>Uncertainty of dipFluxDiff.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     dipRa DOUBLE NULL,
         -- <descr> RA-coordinate of centroid for dipole model.</descr>
@@ -909,7 +909,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     dipRaSigma FLOAT NULL,
         -- <descr>Uncertainty of trailRa.</descr>
-        -- <ucd>stat.stdev;pos.eq.ra</ucd>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     dipDecl DOUBLE NULL,
         -- <descr> Decl-coordinate of centroid for dipole model.</descr>
@@ -917,7 +917,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     dipDeclSigma FLOAT NULL,
         -- <descr>Uncertainty of dipDecl.</descr>
-        -- <ucd>stat.stdev;pos.eq.dec</ucd>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
         -- <unit>deg</unit>
     dipLength FLOAT NULL,
         -- <descr>Maximum likelihood value for the lobe separation in
@@ -926,7 +926,7 @@ CREATE TABLE DiaSource
         -- <unit>arcsec</unit>
     dipLengthSigma FLOAT NULL,
         -- <descr>Uncertainty of dipLength.</descr>
-        -- <ucd>stat.stdev;pos.angDistance</ucd>
+        -- <ucd>stat.error;pos.angDistance</ucd>
         -- <unit>arcsec</unit>
     dipAngle FLOAT NULL,
         -- <descr>Maximum likelihood fit of the angle between the meridian
@@ -936,7 +936,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     dipAngleSigma FLOAT NULL,
         -- <descr>Uncertainty of dipAngle.</descr>
-        -- <ucd>stat.stdev;pos.posAng</ucd>
+        -- <ucd>stat.error;pos.posAng</ucd>
         -- <unit>deg</unit>
     dipMeanFlux_dipFluxDiff_Cov FLOAT NULL,
         -- <descr>Covariance of dipMeanFlux and dipFluxDiff.</descr>
@@ -1001,7 +1001,7 @@ CREATE TABLE DiaSource
         -- <unit>nmgy</unit>
     totFluxErr FLOAT NULL,
         -- <descr>Estimated uncertainty of totFlux.</descr>
-        -- <ucd>stat.stdev;phot.count</ucd>
+        -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
     diffFlux FLOAT NULL,
         -- <descr>Calibrated flux for Point Source model centered on radec but
@@ -1009,7 +1009,7 @@ CREATE TABLE DiaSource
         -- <unit>nmgy</unit>
     diffFluxErr FLOAT NULL,
         -- <descr>Estimated uncertainty of diffFlux.</descr>
-        -- <ucd>stat.stdev;phot.count</ucd>
+        -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
     fpBkgd FLOAT NULL,
         -- <descr>Estimated sky background at the position (centroid) of the
@@ -1023,21 +1023,21 @@ CREATE TABLE DiaSource
         -- <unit>nmgy*asec^2</unit>
     ixxSigma FLOAT NULL,
         -- <descr>Uncertainty of ixx.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy*asec^2</unit>
     iyy FLOAT NULL,
         -- <descr>Adaptive second moment of the source intensity.</desc>
         -- <unit>nmgy*asec^2</unit>
     iyySigma FLOAT NULL,
         -- <descr>Uncertainty of iyy.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy*asec^2</unit>
     ixy FLOAT NULL,
         -- <descr>Adaptive second moment of the source intensity.</desc>
         -- <unit>nmgy*asec^2</unit>
     ixySigma FLOAT NULL,
         -- <descr>Uncertainty of ixy.</descr>
-        -- <ucd>stat.stdev</ucd>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy*asec^2</unit>
     ixx_iyy_Cov FLOAT NULL,
         -- <descr>Covariance of ixx and iyy.</descr>
@@ -1102,7 +1102,7 @@ CREATE TABLE DiaForcedSource
         -- <unit>nmgy</unit>
     psFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of psFlux.</descr>
-        -- <ucd>stat.stdev;phot.count</ucd>
+        -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
     x FLOAT NOT NULL,
         -- <descr>x position at which psFlux has been measured.</descr>
