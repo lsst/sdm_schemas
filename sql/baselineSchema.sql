@@ -56,7 +56,8 @@ CREATE TABLE DiaObject
     validityEnd DATETIME NOT NULL,
         -- <descr>Time when validity of this diaObject ends.</descr>
     ra DOUBLE NOT NULL,
-        -- <descr>RA-coordinate of the center of this diaObject.</descr>
+        -- <descr>RA-coordinate of the position of the object at time
+        -- radecTai.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     raSigma FLOAT NOT NULL,
@@ -64,7 +65,8 @@ CREATE TABLE DiaObject
         -- <ucd>stat.error;pos.eq.ra</ucd>
         -- <unit>deg</unit>
     decl DOUBLE NOT NULL,
-        -- <descr>Decl-coordinate of the center of this diaObject.</descr>
+        -- <descr>Decl-coordinate of the position of the object at time
+        -- radecTai.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     declSigma FLOAT NOT NULL,
@@ -74,26 +76,25 @@ CREATE TABLE DiaObject
     ra_decl_Cov FLOAT NOT NULL,
         -- <descr>Covariance between ra and decl.</descr>
         -- <unit>deg^2</unit>
-    muRa FLOAT NOT NULL,
+    radecTai DOUBLE NOT NULL,
+        -- <descr>Time at which the object was at a position ra/decl.</descr>
+        -- <ucd>time.epoch</ucd>
+    pmRa FLOAT NOT NULL,
         -- <descr>Proper motion (ra).</descr>
         -- <ucd>pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muRaSigma FLOAT NOT NULL,
-        -- <descr>Uncertainty of muRa.</descr>
+    pmRaSigma FLOAT NOT NULL,
+        -- <descr>Uncertainty of pmRa.</descr>
         -- <ucd>stat.error;pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muDecl FLOAT NOT NULL,
+    pmDecl FLOAT NOT NULL,
         -- <descr>Proper motion (decl).</descr>
         -- <ucd>pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muDecSigma FLOAT NOT NULL,
-        -- <descr>Uncertainty of muDecl.</descr>
+    pmDeclSigma FLOAT NOT NULL,
+        -- <descr>Uncertainty of pmDecl.</descr>
         -- <ucd>stat.error;pos.pm</ucd>
         -- <unit>mas/yr</unit>
-    muRa_muDeclCov FLOAT NOT NULL,
-        -- <descr>Covariance of muRa and muDecl.</descr>
-        -- <ucd>stat.covariance;pos.eq</ucd>
-        -- <unit>(mas/yr)^2</unit>
     parallax FLOAT NOT NULL,
         -- <descr>Parallax.</descr>
         -- <ucd>pos.parallax</ucd>
@@ -102,147 +103,218 @@ CREATE TABLE DiaObject
         -- <descr>Uncertainty of parallax.</descr>
         -- <ucd>stat.error;pos.parallax</ucd>
         -- <unit>mas</unit>
-    muRa_parallax_Cov FLOAT NOT NULL,
-        -- <descr>Covariance of muRa and parallax.</descr>
-    muDecl_parallax_Cov FLOAT NOT NULL,
-        -- <descr>Covariance of muDecl and parallax.</descr>
-    lnL FLOAT NOT NULL,
+    pmRa_pmDecl_Cov FLOAT NOT NULL,
+        -- <descr>Covariance of pmRa and pmDecl.</descr>
+        -- <ucd>stat.covariance;pos.eq</ucd>
+        -- <unit>(mas/yr)^2</unit>
+    pmRa_parallax_Cov FLOAT NOT NULL,
+        -- <descr>Covariance of pmRa and parallax.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>mas^2/yr</unit>
+    pmDecl_parallax_Cov FLOAT NOT NULL,
+        -- <descr>Covariance of pmDecl and parallax.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>mas^2/yr</unit>
+    pmParallaxLnL FLOAT NOT NULL,
         -- <descr>Natural log of the likelihood of the linear
         -- proper motion parallax fit.</descr>
-    chi2 FLOAT NOT NULL,
+        -- <ucd>stat.likelihood</ucd>
+    pmParallaxChi2 FLOAT NOT NULL,
         -- <descr>Chi^2 static of the model fit.</descr>
-    N INT NOT NULL,
-        -- <descr>The number of data points (pixels) used to fit the model.
-        -- </descr>
-    uPSFlux FLOAT NULL,
+        -- <ucd>stat.fit.chi2</ucd>
+    pmParallaxNdata INT NOT NULL,
+        -- <descr>The number of data points used to fit the model.</descr>
+    uPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for
         -- u filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    uPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of uPSFlux.</descr>
+    uPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of uPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     uPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of uPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of uPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    uFPFlux FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for u fliter.</descr>
+    uPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of uPSFlux around uPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    uPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute uPSFluxChi2.
+        -- </descr>
+    uFPFluxMean FLOAT NULL,
+        -- <descr>Weighted mean forced photometry flux for u filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    uFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of uFPFlux.</descr>
+    uFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of uFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     uFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of uFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of uFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    gPSFlux FLOAT NULL,
+    gPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for g filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    gPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of gPSFlux.</descr>
+    gPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of gPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     gPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of gPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of gPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    gFPFlux FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for g fliter.</descr>
+    gPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of gPSFlux around gPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    gPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute gPSFluxChi2.
+        -- </descr>
+    gFPFluxMean FLOAT NULL,
+        -- <descr>Weighted mean forced photometry flux for g filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    gFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of gFPFlux.</descr>
+    gFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of gFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     gFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of gFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of gFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    rPSFlux FLOAT NULL,
-        -- <descr>Weighted mean point-source model magnitude for u filter.
+    rPSFluxMean FLOAT NULL,
+        -- <descr>Weighted mean point-source model magnitude for r filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    rPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of rPSFlux.</descr>
+    rPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of rPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     rPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of rPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of rPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    rFPFlux FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for r fliter.</descr>
+    rPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of rPSFlux around rPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    rPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute rPSFluxChi2.
+        -- </descr>
+    rFPFluxMean FLOAT NULL,
+        -- <descr>Weighted mean forced photometry flux for r filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    rFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of rFPFlux.</descr>
+    rFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of rFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     rFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of rFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of rFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    iPSFlux FLOAT NULL,
+    iPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for i filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    iPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of iPSFlux.</descr>
+    iPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of iPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     iPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of iPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of iPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    iFPFlux FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for i fliter.</descr>
+    iPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of iPSFlux around iPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    iPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute iPSFluxChi2.
+        -- </descr>
+    iFPFluxMean FLOAT NULL,
+        -- <descr>Weighted mean forced photometry flux for i filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    iFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of iFPFlux.</descr>
+    iFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of iFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     iFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of uFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of iFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    zPSFlux FLOAT NULL,
+    zPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for z filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    zPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of zPSFlux.</descr>
+    zPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of zPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     zPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of zPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of zPSFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    zFPFlux FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for z fliter.</descr>
+    zPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of zPSFlux around zPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    zPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute zPSFluxChi2.
+        -- </descr>
+    zFPFluxMean FLOAT NULL,
+        -- <descr>Weighted mean forced photometry flux for z filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    zFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of zFPFlux.</descr>
+    zFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of zFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     zFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of zFPFlux.</descr>
+        -- <descr>Standard deviation of the distribution of zFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
-    yPSFlux FLOAT NULL,
+    yPSFluxMean FLOAT NULL,
         -- <descr>Weighted mean point-source model magnitude for y filter.
         -- </descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    yPSFluxErr FLOAT NULL,
-        -- <descr>Standard error of yPSFlux.</descr>
-        -- <ucd>phot.count</ucd>
+    yPSFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of yPSFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     yPSFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of yPSFlux.</descr>
+        -- <descr>Standard deviation of the distribution of yPSFlux.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>nmgy</unit>
+    yPSFluxChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic for the scatter of yPSFlux around yPSFluxMean.
+        -- </descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    yPSFluxNdata INT NULL,
+        -- <descr>The number of data points used to compute yPSFluxChi2.
+        -- </descr>
+    yFPFluxMean FLOAT NULL,
+        -- <descr>Weighted mean forced photometry flux for y filter.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    yFPFlux FLOAT NULL,
-        -- <descr>Weighted mean forced photometry flux for y fliter.</descr>
-        -- <ucd>phot.count</ucd>
-        -- <unit>nmgy</unit>
-    yFPFluxErr FLOAT NULL,
-        -- <descr>Standard error of yFPFlux.</descr>
-        -- <ucd>phot.count</ucd>
+    yFPFluxMeanErr FLOAT NULL,
+        -- <descr>Standard error of yFPFluxMean.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>nmgy</unit>
     yFPFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of yFPFlux.</descr>
-        -- <ucd>phot.count</ucd>
+        -- <descr>Standard deviation of the distribution of yFPFlux.</descr>
+        -- <ucd>stat.stdev</ucd>
         -- <unit>nmgy</unit>
     uLcPeriodic BLOB NULL,
         -- <descr>Periodic features extracted from light-curves using
@@ -343,88 +415,118 @@ CREATE TABLE SSObject
         -- M, epoch).</descr>
     qSigma DOUBLE NULL,
         -- <descr>Uncertainty of q.</descr>
+        -- <ucd>stat.error</ucd>
     e DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     eSigma DOUBLE NULL,
         -- <descr>Uncertainty of e.</descr>
+        -- <ucd>stat.error</ucd>
     i DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     iSigma DOUBLE NULL,
         -- <descr>Uncertainty of i.</descr>
+        -- <ucd>stat.error</ucd>
     lan DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     lanSigma DOUBLE NULL,
         -- <descr>Uncertainty of lan.</descr>
+        -- <ucd>stat.error</ucd>
     aop DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
-    oepSigma DOUBLE NULL,
+    aopSigma DOUBLE NULL,
         -- <descr>Uncertainty of aop.</descr>
+        -- <ucd>stat.error</ucd>
     M DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     MSigma DOUBLE NULL,
-        -- <descr>Uncertainty of oe6.</descr>
+        -- <descr>Uncertainty of M.</descr>
+        -- <ucd>stat.error</ucd>
     epoch DOUBLE NULL,
         -- <descr>Osculating orbital elements at epoch (q, e, i, lan, aop,
         -- M, epoch).</descr>
     epochSigma DOUBLE NULL,
-        -- <descr>Uncertainty of oe7.</descr>
+        -- <descr>Uncertainty of epoch.</descr>
+        -- <ucd>stat.error</ucd>
     q_e_Cov DOUBLE NULL,
         -- <descr>Covariance of q and e.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_i_Cov DOUBLE NULL,
         -- <descr>Covariance of q and i.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_lan_Cov DOUBLE NULL,
         -- <descr>Covariance of q and lan.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of q and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_M_Cov DOUBLE NULL,
         -- <descr>Covariance of q and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     q_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of q and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_i_Cov DOUBLE NULL,
         -- <descr>Covariance of e and i.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_lan_Cov DOUBLE NULL,
         -- <descr>Covariance of e and lan.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of e and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_M_Cov DOUBLE NULL,
         -- <descr>Covariance of e and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     e_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of e and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_lan_Cov DOUBLE NULL,
         -- <descr>Covariance of i and lan.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of i and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_M_Cov DOUBLE NULL,
         -- <descr>Covariance of i and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     i_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of i and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     lan_aop_Cov DOUBLE NULL,
         -- <descr>Covariance of lan and aop.</descr>
+        -- <ucd>stat.covariance</ucd>
     lan_M_Cov DOUBLE NULL,
         -- <descr>Covariance of lan and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     lan_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of lan and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     aop_M_Cov DOUBLE NULL,
         -- <descr>Covariance of aop and M.</descr>
+        -- <ucd>stat.covariance</ucd>
     aop_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of aop and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     M_epoch_Cov DOUBLE NULL,
         -- <descr>Covariance of M and epoch.</descr>
+        -- <ucd>stat.covariance</ucd>
     arc FLOAT NULL,
         -- <descr>Arc of observation.</descr>
         -- <unit>days</unit>
     orbFitLnL FLOAT NULL,
         -- <descr>Natural log of the likelihood of the orbital
         -- elements fit.</descr>
+        -- <ucd>stat.likelihood</ucd>
     orbFitChi2 FLOAT NULL,
         -- <descr>Chi^2 statistic of the orbital elements fit.
         -- </descr>
-    orbFitN INTEGER NULL,
+        -- <ucd>stat.fit.chi2</ucd>
+    orbFitNdata INTEGER NULL,
         -- <descr>Number of observations used in the fit.</descr>
     MOID1 FLOAT NULL,
         -- <descr>Minimum orbit intersection distance.</descr>
@@ -441,110 +543,128 @@ CREATE TABLE SSObject
     uH FLOAT NULL,
         -- <descr>Mean absolute magnitude for u filter.</descr>
         -- <unit>mag</unit>
-    uHSigma FLOAT NULL,
-        -- <descr>Uncertainty of uH.</descr>
+    uHErr FLOAT NULL,
+        -- <descr>Uncertainty of uH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     uG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for u filter.</descr>
         -- <unit>mag</unit>
-    uG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of uG1.</descr>
+    uG1Err FLOAT NULL,
+        -- <descr>Uncertainty of uG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     uG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for u filter.</descr>
         -- <unit>mag</unit>
-    uG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of uG2.</descr>
+    uG2Err FLOAT NULL,
+        -- <descr>Uncertainty of uG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     gH FLOAT NULL,
         -- <descr>Mean absolute magnitude for g filter.</descr>
         -- <unit>mag</unit>
-    gHSigma FLOAT NULL,
-        -- <descr>Uncertainty of gH.</descr>
+    gHErr FLOAT NULL,
+        -- <descr>Uncertainty of gH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     gG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for g filter.</descr>
         -- <unit>mag</unit>
-    gG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of gG1.</descr>
+    gG1Err FLOAT NULL,
+        -- <descr>Uncertainty of gG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     gG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for g filter.</descr>
         -- <unit>mag</unit>
-    gG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of gG2.</descr>
+    gG2Err FLOAT NULL,
+        -- <descr>Uncertainty of gG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     rH FLOAT NULL,
         -- <descr>Mean absolute magnitude for r filter.</descr>
         -- <unit>mag</unit>
-    rHSigma FLOAT NULL,
-        -- <descr>Uncertainty of rH.</descr>
+    rHErr FLOAT NULL,
+        -- <descr>Uncertainty of rH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     rG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for r filter.</descr>
         -- <unit>mag</unit>
-    rG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of rG1.</descr>
+    rG1Err FLOAT NULL,
+        -- <descr>Uncertainty of rG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     rG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for r filter.</descr>
         -- <unit>mag</unit>
-    rG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of rG2.</descr>
+    rG2Err FLOAT NULL,
+        -- <descr>Uncertainty of rG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     iH FLOAT NULL,
         -- <descr>Mean absolute magnitude for i filter.</descr>
         -- <unit>mag</unit>
-    iHSigma FLOAT NULL,
-        -- <descr>Uncertainty of iH.</descr>
+    iHErr FLOAT NULL,
+        -- <descr>Uncertainty of iH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     iG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for i filter.</descr>
         -- <unit>mag</unit>
-    iG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of iG1.</descr>
+    iG1Err FLOAT NULL,
+        -- <descr>Uncertainty of iG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     iG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for i filter.</descr>
         -- <unit>mag</unit>
-    iG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of iG2.</descr>
+    iG2Err FLOAT NULL,
+        -- <descr>Uncertainty of iG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     zH FLOAT NULL,
         -- <descr>Mean absolute magnitude for z filter.</descr>
         -- <unit>mag</unit>
-    zHSigma FLOAT NULL,
-        -- <descr>Uncertainty of zH.</descr>
+    zHErr FLOAT NULL,
+        -- <descr>Uncertainty of zH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     zG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for z filter.</descr>
         -- <unit>mag</unit>
-    zG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of zG1.</descr>
+    zG1Err FLOAT NULL,
+        -- <descr>Uncertainty of zG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     zG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for z filter.</descr>
         -- <unit>mag</unit>
-    zG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of zG2.</descr>
+    zG2Err FLOAT NULL,
+        -- <descr>Uncertainty of zG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     yH FLOAT NULL,
         -- <descr>Mean absolute magnitude for y filter.</descr>
         -- <unit>mag</unit>
-    yHSigma FLOAT NULL,
-        -- <descr>Uncertainty of yH.</descr>
+    yHErr FLOAT NULL,
+        -- <descr>Uncertainty of yH estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     yG1 FLOAT NULL,
         -- <descr>Fitted G1 slope parameter for y filter.</descr>
-       -- <unit>mag</unit>
-    yG1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of yG1.</descr>
+        -- <unit>mag</unit>
+    yG1Err FLOAT NULL,
+        -- <descr>Uncertainty of yG1 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     yG2 FLOAT NULL,
         -- <descr>Fitted G2 slope parameter for y filter.</descr>
-       -- <unit>mag</unit>
-    yG2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of yG2.</descr>
+        -- <unit>mag</unit>
+    yG2Err FLOAT NULL,
+        -- <descr>Uncertainty of yG2 estimate.</descr>
+        -- <ucd>stat.error</ucd>
         -- <unit>mag</unit>
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
@@ -577,13 +697,9 @@ CREATE TABLE DiaSource
         -- either a diaObject or ssObject).</descr>
         -- <ucd>meta.id;src</ucd>
     parentDiaSourceId BIGINT NULL,
-        -- <descr>Id of the parent diaSource this diaObject has been deblended
+        -- <descr>Id of the parent diaSource this diaSource has been deblended
         -- from, if any.</descr>
         -- <ucd>meta.id;src</ucd>
-    filterName CHAR(1) NOT NULL,
-        -- <descr>Name of the filter used to take the Visit where this
-        -- diaSource was measured.</descr>
-        -- <ucd>meta.id;instr.filter</ucd>
     prv_procOrder INT NOT NULL,
         -- <descr>Position of this diaSource in the processing order relative
         -- to other diaSources within a given diaObjectId or ssObjectId.</descr>
@@ -612,6 +728,7 @@ CREATE TABLE DiaSource
         -- <unit>deg</unit>
     ra_decl_Cov FLOAT NOT NULL,
         -- <descr>Covariance between ra and decl.</descr>
+        -- <ucd>stat.covariance</ucd>
         -- <unit>deg^2</unit>
     x FLOAT NOT NULL,
         -- <descr>x position computed by a centroiding algorithm.</descr>
@@ -631,10 +748,21 @@ CREATE TABLE DiaSource
         -- <unit>pixel</unit>
     x_y_Cov FLOAT NOT NULL,
         -- <descr>Covariance between x and y.</descr>
+        -- <ucd>stat.covariance</ucd>
         -- <unit>pixel^2</unit>
+    apFlux FLOAT NOT NULL,
+        -- <descr>Calibrated aperture flux. Note that this actually measures
+        -- the difference between the template and the visit image.</descr>
+        -- <ucd>phot.count</ucd>
+        -- <unit>nmgy</unit>
+    apFluxErr FLOAT NOT NULL,
+        -- <descr>Estimated uncertainty of apFlux.</descr>
+        -- <ucd>stat.error;phot.count</ucd>
+        -- <unit>nmgy</unit>
     snr FLOAT NOT NULL,
         -- <descr>The signal-to-noise ratio at which this source was
         -- detected in the difference image.</descr>
+        -- <ucd>stat.snr</ucd>
     psFlux FLOAT NULL,
         -- <descr>Calibrated flux for Point Source model. Note this actually
         -- measures the flux difference between the template and the visit
@@ -644,12 +772,42 @@ CREATE TABLE DiaSource
     psFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of psFlux.</descr>
         -- <unit>nmgy</unit>
+    psRa DOUBLE NULL,
+        -- <descr> RA-coordinate of centroid for point source model.</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    psRaSigma FLOAT NULL,
+        -- <descr>Uncertainty of psRa.</descr>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    psDecl DOUBLE NULL,
+        -- <descr> Decl-coordinate of centroid for point source model.</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    psDeclSigma FLOAT NULL,
+        -- <descr>Uncertainty of psDecl.</descr>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    psFlux_psRa_Cov FLOAT NULL,
+        -- <descr>Covariance between psFlux and psRa.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>ngmy*deg</unit>
+    psFlux_psDecl_Cov FLOAT NULL,
+        -- <descr>Covariance between psFlux and psDecl.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>ngmy*deg</unit>
+    psRa_psDecl_Cov FLOAT NULL,
+        -- <descr>Covariance between psRa and psDecl.</descr>
+        -- <ucd>stat.covariance</ucd>
+        -- <unit>deg^2</unit>
     psLnL FLOAT NULL,
         -- <descr>Natural log likelihood of the observed data given the Point
         -- Source model.</descr>
+        -- <ucd>stat.likelihood</ucd>
     psChi2 FLOAT NULL,
-        -- <descr>Chi^2 static of the model fit.</descr>
-    psN INT NULL,
+        -- <descr>Chi^2 statistic of the model fit.</descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    psNdata INT NULL,
         -- <descr>The number of data points (pixels) used to fit the model.
         -- </descr>
     trailFlux FLOAT NULL,
@@ -660,6 +818,22 @@ CREATE TABLE DiaSource
     trailFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of trailFlux.</descr>
         -- <unit>nmgy</unit>
+    trailRa DOUBLE NULL,
+        -- <descr> RA-coordinate of centroid for trailed source model.</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    trailRaSigma FLOAT NULL,
+        -- <descr>Uncertainty of trailRa.</descr>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    trailDecl DOUBLE NULL,
+        -- <descr> Decl-coordinate of centroid for trailed source model.</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    trailDeclSigma FLOAT NULL,
+        -- <descr>Uncertainty of trailDecl.</descr>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
+        -- <unit>deg</unit>
     trailLength FLOAT NULL,
         -- <descr>Maximum likelihood fit of trail length.</descr>
         -- <unit>arcsec</unit>
@@ -669,69 +843,220 @@ CREATE TABLE DiaSource
     trailAngle FLOAT NULL,
         -- <descr>Maximum likelihood fit of the angle between the meridian
         -- through the centroid and the trail direction (bearing).</descr>
-        -- <unit>degrees</unit>
+        -- <unit>deg</unit>
     trailAngleSigma FLOAT NULL,
         -- <descr>Uncertainty of trailAngle.</descr>
         -- <unit>nmgy</unit>
+    trailFlux_trailRa_Cov FLOAT NULL,
+        -- <descr>Covariance of trailFlux and trailRa.</descr>
+        -- <ucd>stat.covariance</ucd>
+    trailFlux_trailDecl_Cov FLOAT NULL,
+        -- <descr>Covariance of trailFlux and trailDecl.</descr>
+        -- <ucd>stat.covariance</ucd>
     trailFlux_trailLength_Cov FLOAT NULL,
         -- <descr>Covariance of trailFlux and trailLength</descr>
+        -- <ucd>stat.covariance</ucd>
     trailFlux_trailAngle_Cov FLOAT NULL,
         -- <descr>Covariance of trailFlux and trailAngle</descr>
+        -- <ucd>stat.covariance</ucd>
+    trailRa_trailDecl_Cov FLOAT NULL,
+        -- <descr>Covariance of trailRa and trailDecl.</descr>
+        -- <ucd>stat.covariance</ucd>
+    trailRa_trailLength_Cov FLOAT NULL,
+        -- <descr>Covariance of trailRa and trailLength.</descr>
+        -- <ucd>stat.covariance</ucd>
+    trailRa_trailAngle_Cov FLOAT NULL,
+        -- <descr>Covariance of trailRa and trailAngle.</descr>
+        -- <ucd>stat.covariance</ucd>
+    trailDecl_trailLength_Cov FLOAT NULL,
+        -- <descr>Covariance of trailDecl and trailLength.</descr>
+        -- <ucd>stat.covariance</ucd>
+    trailDecl_trailAngle_Cov FLOAT NULL,
+        -- <descr>Covariance of trailDecl and trailAngle.</descr>
+        -- <ucd>stat.covariance</ucd>
     trailLength_trailAngle_Cov FLOAT NULL,
         -- <descr>Covariance of trailLength and trailAngle</descr>
+        -- <ucd>stat.covariance</ucd>
     trailLnL FLOAT NULL,
         -- <descr>Natural log likelihood of the observed data given the trailed
-        -- Point Source model.</descr>
+        -- source model.</descr>
+        -- <ucd>stat.likelihood</ucd>
     trailChi2 FLOAT NULL,
-        -- <descr>Chi^2 static of the model fit.</descr>
-    trailN INT NULL,
-        -- <descr>The number of data points (pixels) used to fix the model.
+        -- <descr>Chi^2 statistic of the model fit.</descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    trailNdata INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
         -- </descr>
-    fpFlux FLOAT NULL,
+    dipMeanFlux FLOAT NULL,
+        -- <descr>Maximum likelihood value for the mean absolute flux of the
+        -- two lobes for a dipole model.</descr>
+        -- <unit>nmgy</unit>
+    dipMeanFluxSigma FLOAT NULL,
+        -- <descr>Uncertainty of dipMeanFlux.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>nmgy</unit>
+    dipFluxDiff FLOAT NULL,
+        -- <descr>Maximum likelihood value for the difference of absolute
+        -- fluxes of the two lobes for a dipole model.</descr>
+        -- <unit>nmgy</unit>
+    dipFluxDiffSigma FLOAT NULL,
+        -- <descr>Uncertainty of dipFluxDiff.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>nmgy</unit>
+    dipRa DOUBLE NULL,
+        -- <descr> RA-coordinate of centroid for dipole model.</descr>
+        -- <ucd>pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    dipRaSigma FLOAT NULL,
+        -- <descr>Uncertainty of trailRa.</descr>
+        -- <ucd>stat.error;pos.eq.ra</ucd>
+        -- <unit>deg</unit>
+    dipDecl DOUBLE NULL,
+        -- <descr> Decl-coordinate of centroid for dipole model.</descr>
+        -- <ucd>pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    dipDeclSigma FLOAT NULL,
+        -- <descr>Uncertainty of dipDecl.</descr>
+        -- <ucd>stat.error;pos.eq.dec</ucd>
+        -- <unit>deg</unit>
+    dipLength FLOAT NULL,
+        -- <descr>Maximum likelihood value for the lobe separation in
+        -- dipole model.</descr>
+        -- <ucd>pos.angDistance</ucd>
+        -- <unit>arcsec</unit>
+    dipLengthSigma FLOAT NULL,
+        -- <descr>Uncertainty of dipLength.</descr>
+        -- <ucd>stat.error;pos.angDistance</ucd>
+        -- <unit>arcsec</unit>
+    dipAngle FLOAT NULL,
+        -- <descr>Maximum likelihood fit of the angle between the meridian
+        -- through the centroid and the dipole direction (bearing, from
+        -- negative to positive lobe).</descr>
+        -- <ucd>pos.posAng</ucd>
+        -- <unit>deg</unit>
+    dipAngleSigma FLOAT NULL,
+        -- <descr>Uncertainty of dipAngle.</descr>
+        -- <ucd>stat.error;pos.posAng</ucd>
+        -- <unit>deg</unit>
+    dipMeanFlux_dipFluxDiff_Cov FLOAT NULL,
+        -- <descr>Covariance of dipMeanFlux and dipFluxDiff.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipMeanFlux_dipRa_Cov FLOAT NULL,
+        -- <descr>Covariance of dipMeanFlux and dipRa.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipMeanFlux_dipDecl_Cov FLOAT NULL,
+        -- <descr>Covariance of dipMeanFlux and dipDecl.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipMeanFlux_dipLength_Cov FLOAT NULL,
+        -- <descr>Covariance of dipMeanFlux and dipLength.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipMeanFlux_dipAngle_Cov FLOAT NULL,
+        -- <descr>Covariance of dipMeanFlux and dipAngle.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipFluxDiff_dipRa_Cov FLOAT NULL,
+        -- <descr>Covariance of dipFluxDiff and dipRa.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipFluxDiff_dipDecl_Cov FLOAT NULL,
+        -- <descr>Covariance of dipFluxDiff and dipDecl.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipFluxDiff_dipLength_Cov FLOAT NULL,
+        -- <descr>Covariance of dipFluxDiff and dipLength.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipFluxDiff_dipAngle_Cov FLOAT NULL,
+        -- <descr>Covariance of dipFluxDiff and dipAngle.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipRa_dipDecl_Cov FLOAT NULL,
+        -- <descr>Covariance of dipRa and dipDecl.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipRa_dipLength_Cov FLOAT NULL,
+        -- <descr>Covariance of dipRa and dipLength.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipRa_dipAngle_Cov FLOAT NULL,
+        -- <descr>Covariance of dipRa and dipAngle.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipDecl_dipLength_Cov FLOAT NULL,
+        -- <descr>Covariance of dipDecl and dipLength.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipDecl_dipAngle_Cov FLOAT NULL,
+        -- <descr>Covariance of dipDecl and dipAngle.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipLength_dipAngle_Cov FLOAT NULL,
+        -- <descr>Covariance of dipLength and dipAngle.</descr>
+        -- <ucd>stat.covariance</ucd>
+    dipLnL FLOAT NULL,
+        -- <descr>Natural log likelihood of the observed data given the dipole
+        -- source model.</descr>
+        -- <ucd>stat.likelihood</ucd>
+    dipChi2 FLOAT NULL,
+        -- <descr>Chi^2 statistic of the model fit.</descr>
+        -- <ucd>stat.fit.chi2</ucd>
+    dipNdata INT NULL,
+        -- <descr>The number of data points (pixels) used to fit the model.
+        -- </descr>
+    totFlux FLOAT NULL,
         -- <descr>Calibrated flux for Point Source model measured on the visit
         -- image centered at the centroid measured on the difference image
         -- (forced photometry flux).</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    fpFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of fpFlux</descr>
+    totFluxErr FLOAT NULL,
+        -- <descr>Estimated uncertainty of totFlux.</descr>
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
     diffFlux FLOAT NULL,
         -- <descr>Calibrated flux for Point Source model centered on radec but
         -- measured on the difference of snaps comprising this visit.</descr>
         -- <unit>nmgy</unit>
-    diffFluxSigma FLOAT NULL,
-        -- <descr>Uncertainty of diffFlux</descr>
+    diffFluxErr FLOAT NULL,
+        -- <descr>Estimated uncertainty of diffFlux.</descr>
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
-    fpSky FLOAT NULL,
+    fpBkgd FLOAT NULL,
         -- <descr>Estimated sky background at the position (centroid) of the
         -- object.</descr>
         -- <unit>nmgy/asec^2</unit>
-    fpSkySigma FLOAT NULL,
-        -- <descr>Uncertainty of fpSky.</descr>
+    fpBkgdErr FLOAT NULL,
+        -- <descr>Estimated uncertainty of fpBkgd.</descr>
         -- <unit>nmgy/asec^2</unit>
-    E1 FLOAT NULL,
-        -- <descr>Adaptive e1 shape measure of the source as measured on the
-        -- difference image.</descr>
-        -- <ucd>phys.size.axisRatio</ucd>
-    E1Sigma FLOAT NULL,
-        -- <descr>Uncertainty of E1.</descr>
-        -- <ucd>stat.error:phys.size.axisRatio</ucd>
-    E2 FLOAT NULL,
-        -- <descr>Adaptive e2 shape measure of the source as measured on the
-        -- difference image.</descr>
-        -- <ucd>phys.size.axisRatio</ucd>
-    E2Sigma FLOAT NULL,
-        -- <descr>Uncertainty of E2.</descr>
-        -- <ucd>stat.error:phys.size.axisRatio</ucd>
-    E1_E2_Cov FLOAT NULL,
-        -- <descr>Covariance of E1 and E2</descr>
-    mSum FLOAT NULL,
-        -- <descr>Sum of second adaptive moments.</descr>
-    mSumSigma FLOAT NULL,
-        -- <descr>Uncertainty of mSum.</descr>
+    ixx FLOAT NULL,
+        -- <descr>Adaptive second moment of the source intensity.</desc>
+        -- <unit>nmgy*asec^2</unit>
+    ixxSigma FLOAT NULL,
+        -- <descr>Uncertainty of ixx.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>nmgy*asec^2</unit>
+    iyy FLOAT NULL,
+        -- <descr>Adaptive second moment of the source intensity.</desc>
+        -- <unit>nmgy*asec^2</unit>
+    iyySigma FLOAT NULL,
+        -- <descr>Uncertainty of iyy.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>nmgy*asec^2</unit>
+    ixy FLOAT NULL,
+        -- <descr>Adaptive second moment of the source intensity.</desc>
+        -- <unit>nmgy*asec^2</unit>
+    ixySigma FLOAT NULL,
+        -- <descr>Uncertainty of ixy.</descr>
+        -- <ucd>stat.error</ucd>
+        -- <unit>nmgy*asec^2</unit>
+    ixx_iyy_Cov FLOAT NULL,
+        -- <descr>Covariance of ixx and iyy.</descr>
+        -- <unit>nmgy^2*asec^4</unit>
+    ixx_ixy_Cov FLOAT NULL,
+        -- <descr>Covariance of ixx and ixy.</descr>
+        -- <unit>nmgy^2*asec^4</unit>
+    iyy_ixy_Cov FLOAT NULL,
+        -- <descr>Covariance of iyy and ixy.</descr>
+        -- <unit>nmgy^2*asec^4</unit>
+    ixxPSF FLOAT NULL,
+        -- <descr>Adaptive second moment for the PSF.</desc>
+        -- <unit>nmgy*asec^2</unit>
+    iyyPSF FLOAT NULL,
+        -- <descr>Adaptive second moment for the PSF.</desc>
+        -- <unit>nmgy*asec^2</unit>
+    ixyPSF FLOAT NULL,
+        -- <descr>Adaptive second moment for the PSF.</desc>
+        -- <unit>nmgy*asec^2</unit>
     extendedness FLOAT NULL,
         -- <descr>A measure of extendedness, Computed using a combination of
         -- available moments and model fluxes or from a likelihood ratio of
@@ -739,66 +1064,11 @@ CREATE TABLE DiaSource
         -- implies a high degree of confidence that the source is extended.
         -- extendedness = 0 implies a high degree of confidence that the
         -- source is point-like.</descr>
-    apMeanSb01 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb01Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb02 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb02Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb03 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb03Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb04 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb04Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb05 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb05Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb06 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb06Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb07 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb07Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb08 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb08Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb09 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb09Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
-    apMeanSb10 FLOAT NULL,
-        -- <descr>Mean surface brightness at which the aperture measurement is
-        -- being performed.</descr>
-    apMeanSb10Sigma FLOAT NULL,
-        -- <descr>Standard deviation of pixel surface brightness in annulus.
-        -- </descr>
+    spuriousness FLOAT NULL,
+        -- <descr>A measure of spuriousness, computed using information from
+        -- the source and image characterization, as well as the information
+        -- on the Telescope and Camera system (e.g., ghost maps, defect maps,
+        -- etc.).</descr>
     flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd.</descr>
         -- <ucd>meta.code</ucd>
@@ -830,7 +1100,7 @@ CREATE TABLE DiaForcedSource
         -- <descr>Point Source model flux.</descr>
         -- <ucd>phot.count</ucd>
         -- <unit>nmgy</unit>
-    psFlux_Sigma FLOAT NULL,
+    psFluxSigma FLOAT NULL,
         -- <descr>Uncertainty of psFlux.</descr>
         -- <ucd>stat.error;phot.count</ucd>
         -- <unit>nmgy</unit>
@@ -840,7 +1110,6 @@ CREATE TABLE DiaForcedSource
         -- <unit>pixel</unit>
     y FLOAT NOT NULL,
         -- <descr>y position at which psFlux has been measured.</descr>
-        -- by SDSS.</descr>
         -- <ucd>pos.cartesian.y</ucd>
         -- <unit>pixel</unit>
     flags TINYINT NOT NULL DEFAULT 0,
