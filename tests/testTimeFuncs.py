@@ -54,7 +54,8 @@ class TimeFuncTestCase(lsst.utils.tests.TestCase):
 
         testId = int(time.time() * 10.0)
 
-        cls.dbName = "test_%d" % testId
+        cls.dbName = "%s_test_%d" % (
+                dafPersist.DbAuth.username(DB_HOST, str(DB_PORT)), testId)
         dbUrl = "mysql://{}:{}/".format(DB_HOST, DB_PORT) + cls.dbName
 
         cls.db = dafPersist.DbStorage()
