@@ -1,3 +1,3 @@
 # -*- python -*-
 from lsst.sconsUtils import scripts
-scripts.BasicSConstruct("cat", defaultTargets=("python", "sql", "tests", "version"))
+scripts.BasicSConstruct("cat", defaultTargets=("sql", "tests"))
