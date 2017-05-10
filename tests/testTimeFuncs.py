@@ -1,8 +1,18 @@
 #!/usr/bin/env python
 
+"""Unit test for time-related functions defined in
+sql/setup_storedFunctions.sql.
+
+The test requires credential file ~/.lsst/dbAuth-testTimeFuncs.ini
+with the contents which looks like (replace with actual values):
+
+[database]
+url = mysql+mysqldb://<userName>:<password>@<host>:<port>/
+"""
+
 #
 # LSST Data Management System
-# Copyright 2008-14 AURA/LSST.
+# Copyright 2008-17 AURA/LSST.
 #
 # This product includes software developed by the
 # LSST Project (http://www.lsst.org/).
@@ -27,140 +37,123 @@ import unittest
 import os
 import time
 
-import lsst.daf.persistence as dafPersist
-import lsst.cat.SqlScript as SqlScript
+from lsst.db.utils import createDb, dropDb, loadSqlScript
+from lsst.db.engineFactory import getEngineFromFile
+from sqlalchemy.sql import text
 import lsst.utils.tests
-
-DB_HOST = "lsst-db.ncsa.illinois.edu"
-DB_PORT = 3306
-
-if os.uname()[1].endswith(".ncsa.illinois.edu") and \
-        dafPersist.DbAuth.available(DB_HOST, str(DB_PORT)):
-    HAVE_DB = True
-else:
-    HAVE_DB = False
 
 
 class TimeFuncTestCase(lsst.utils.tests.TestCase):
     """A test case for SQL time functions."""
-    db = None
+
+    CREDFILE = "~/.lsst/dbAuth-testTimeFuncs.ini"
+
     dbName = None
+    engine = None
 
     @classmethod
     def setUpClass(cls):
 
-        if not HAVE_DB:
-            raise unittest.SkipTest("not at NCSA or no database credentials.")
+        try:
+            engine = getEngineFromFile(cls.CREDFILE)
+        except IOError:
+            raise unittest.SkipTest("%s: No credentials file %s, skipping tests." %
+                                    (cls.__name__, cls.CREDFILE))
 
+        username = engine.url.username
         testId = int(time.time() * 10.0)
+        cls.dbName = "%s_test_%d" % (username, testId)
 
-        cls.dbName = "%s_test_%d" % (
-                dafPersist.DbAuth.username(DB_HOST, str(DB_PORT)), testId)
-        dbUrl = "mysql://{}:{}/".format(DB_HOST, DB_PORT) + cls.dbName
+        # make temporary database
+        createDb(engine, cls.dbName)
 
-        cls.db = dafPersist.DbStorage()
+        # make engine with database name
+        cls.engine = getEngineFromFile(cls.CREDFILE, database=cls.dbName)
 
-        cls.db.setRetrieveLocation(dafPersist.LogicalLocation(
-            "mysql://{}:{}/test".format(DB_HOST, DB_PORT)))
-        cls.db.startTransaction()
-        cls.db.executeSql("CREATE DATABASE " + cls.dbName)
-        cls.db.endTransaction()
-
-
+        # load scripts
+        scripts = ["lsstSchema4mysqlPT1_2.sql",
+                   "setup_perRunTablesS12_lsstsim.sql",
+                   "setup_storedFunctions.sql"]
         sqldir = os.path.join(lsst.utils.getPackageDir("cat"), "sql")
-        SqlScript.run(os.path.join(sqldir,
-                                   "lsstSchema4mysqlPT1_2.sql"), dbUrl)
-        SqlScript.run(os.path.join(sqldir,
-                                   "setup_perRunTablesS12_lsstsim.sql"), dbUrl)
-        SqlScript.run(os.path.join(sqldir,
-                                   "setup_storedFunctions.sql"), dbUrl)
-
-        cls.db.setRetrieveLocation(dafPersist.LogicalLocation(dbUrl))
+        for script in scripts:
+            loadSqlScript(cls.engine, os.path.join(sqldir, script))
 
     @classmethod
     def tearDownClass(cls):
-        cls.db.startTransaction()
-        cls.db.executeSql("DROP DATABASE " + cls.dbName)
-        cls.db.endTransaction()
-        del cls.db
+        # drop temporary database
+        dropDb(cls.engine, cls.dbName)
+        cls.engine = None
 
     def setUp(self):
-        self.db.startTransaction()
-        self.db.setTableForQuery("DUAL", True)
+        pass
 
     def tearDown(self):
-        self.db.endTransaction()
+        pass
 
     def testMJD(self):
-        mjdUtc = 45205.125
-        self.db.outColumn("taiToUtc(mjdUtcToTai(%f))" % mjdUtc, True)
-        self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc, True)
-        self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
-        self.db.outColumn("taiToMjdTai(mjdUtcToTai(%f))" % mjdUtc, True)
-        self.db.query()
-        haveRow = self.db.next()
-        self.assertTrue(haveRow)
-        self.assertEqual(self.db.getColumnByPosInt64(0), 399006000000000000)
-        self.assertEqual(self.db.getColumnByPosInt64(1), 399006021000000000)
-        self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 45205.125)
-        self.assertAlmostEqual(self.db.getColumnByPosDouble(3),
-                               45205.125 + 21.0 / 86400.0)
-        haveRow = self.db.next()
-        self.assertFalse(haveRow)
+        with self.engine.begin() as conn:
+            mjdUtc = 45205.125
+            query = text("SELECT taiToUtc(mjdUtcToTai(:mjdUtc)), "
+                         "mjdUtcToTai(:mjdUtc), "
+                         "taiToMjdUtc(mjdUtcToTai(:mjdUtc)), "
+                         "taiToMjdTai(mjdUtcToTai(:mjdUtc))")
+            result = conn.execute(query, mjdUtc=mjdUtc)
+            row = result.fetchone()
+            self.assertIsNotNone(row)
+            self.assertEqual(row[0], 399006000000000000)
+            self.assertEqual(row[1], 399006021000000000)
+            self.assertAlmostEqual(row[2], 45205.125)
+            self.assertAlmostEqual(row[3], 45205.125 + 21.0 / 86400.0)
 
     def testNsecs(self):
-        nsecsUtc = 1192755473000000000
-        self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc, True)
-        self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
-        self.db.outColumn("taiToMjdUtc(utcToTai(%d))" % nsecsUtc, True)
-        self.db.query()
-        haveRow = self.db.next()
-        self.assertTrue(haveRow)
-        self.assertEqual(self.db.getColumnByPosInt64(0), 1192755473000000000)
-        self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000)
-        self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
-        haveRow = self.db.next()
-        self.assertFalse(haveRow)
+        with self.engine.begin() as conn:
+            nsecsUtc = 1192755473000000000
+            query = text("SELECT taiToUtc(utcToTai(:nsecsUtc)), "
+                         "utcToTai(:nsecsUtc), "
+                         "taiToMjdUtc(utcToTai(:nsecsUtc))")
+            result = conn.execute(query, nsecsUtc=nsecsUtc)
+            row = result.fetchone()
+            self.assertIsNotNone(row)
+            self.assertEqual(row[0], 1192755473000000000)
+            self.assertEqual(row[1], 1192755506000000000)
+            self.assertAlmostEqual(row[2], 54392.040196759262)
 
     def testBoundaryMJD(self):
-        mjdUtc = 47892.0
-        self.db.outColumn("taiToUtc(mjdUtcToTai(%f))" % mjdUtc, True)
-        self.db.outColumn("mjdUtcToTai(%f)" % mjdUtc, True)
-        self.db.outColumn("taiToMjdUtc(mjdUtcToTai(%f))" % mjdUtc, True)
-        self.db.query()
-        haveRow = self.db.next()
-        self.assertTrue(haveRow)
-        self.assertEqual(self.db.getColumnByPosInt64(0), 631152000000000000)
-        self.assertEqual(self.db.getColumnByPosInt64(1), 631152025000000000)
-        self.assertEqual(self.db.getColumnByPosDouble(2), 47892.0)
-        haveRow = self.db.next()
-        self.assertFalse(haveRow)
+        with self.engine.begin() as conn:
+            mjdUtc = 47892.0
+            query = text("SELECT taiToUtc(mjdUtcToTai(:mjdUtc)), "
+                         "mjdUtcToTai(:mjdUtc), "
+                         "taiToMjdUtc(mjdUtcToTai(:mjdUtc))")
+            result = conn.execute(query, mjdUtc=mjdUtc)
+            row = result.fetchone()
+            self.assertIsNotNone(row)
+            self.assertEqual(row[0], 631152000000000000)
+            self.assertEqual(row[1], 631152025000000000)
+            self.assertEqual(row[2], 47892.0)
 
     def testCrossBoundaryNsecs(self):
-        nsecsUtc = 631151998000000000
-        self.db.outColumn("taiToUtc(utcToTai(%d))" % nsecsUtc, True)
-        self.db.outColumn("utcToTai(%d)" % nsecsUtc, True)
-        self.db.query()
-        haveRow = self.db.next()
-        self.assertTrue(haveRow)
-        self.assertEqual(self.db.getColumnByPosInt64(0), 631151998000000000)
-        self.assertEqual(self.db.getColumnByPosInt64(1), 631152022000000000)
-        haveRow = self.db.next()
-        self.assertFalse(haveRow)
+        with self.engine.begin() as conn:
+            nsecsUtc = 631151998000000000
+            query = text("SELECT taiToUtc(utcToTai(:nsecsUtc)), "
+                         "utcToTai(:nsecsUtc)")
+            result = conn.execute(query, nsecsUtc=nsecsUtc)
+            row = result.fetchone()
+            self.assertIsNotNone(row)
+            self.assertEqual(row[0], 631151998000000000)
+            self.assertEqual(row[1], 631152022000000000)
 
     def testNsecsTAI(self):
-        nsecsTai = 1192755506000000000
-        self.db.outColumn("taiToUtc(%d)" % nsecsTai, True)
-        self.db.outColumn("utcToTai(taiToUtc(%d))" % nsecsTai, True)
-        self.db.outColumn("taiToMjdUtc(%d)" % nsecsTai, True)
-        self.db.query()
-        haveRow = self.db.next()
-        self.assertTrue(haveRow)
-        self.assertEqual(self.db.getColumnByPosInt64(0), 1192755473000000000)
-        self.assertEqual(self.db.getColumnByPosInt64(1), 1192755506000000000)
-        self.assertAlmostEqual(self.db.getColumnByPosDouble(2), 54392.040196759262)
-        haveRow = self.db.next()
-        self.assertFalse(haveRow)
+        with self.engine.begin() as conn:
+            nsecsTai = 1192755506000000000
+            query = text("SELECT taiToUtc(:nsecsTai), "
+                         "utcToTai(taiToUtc(:nsecsTai)), "
+                         "taiToMjdUtc(:nsecsTai)")
+            result = conn.execute(query, nsecsTai=nsecsTai)
+            row = result.fetchone()
+            self.assertIsNotNone(row)
+            self.assertEqual(row[0], 1192755473000000000)
+            self.assertEqual(row[1], 1192755506000000000)
+            self.assertAlmostEqual(row[2], 54392.040196759262)
 
 
 class MemoryTester(lsst.utils.tests.MemoryTestCase):
