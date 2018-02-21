@@ -48,7 +48,7 @@ CREATE TABLE DeepCoadd (
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
         -- <ucd>pos.HTM</ucd>
     equinox float NOT NULL,
-        -- <ucd>pos.equinox </ucd>
+        -- <ucd>pos.equinox</ucd>
     raDeSys varchar(20) NOT NULL,
         -- <ucd>pos.frame</ucd>
     ctype1 varchar(20) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE DeepCoadd (
         -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crpix2 float NOT NULL,
-        -- <ucd>pos.wcs.crpix </ucd>
+        -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crval1 double NOT NULL,
         -- <ucd>pos.wcs.crval</ucd>
@@ -435,7 +435,7 @@ CREATE TABLE RunDeepForcedSource (
     centroid_record_x double DEFAULT NULL,
     centroid_record_y double DEFAULT NULL,
     classification_extendedness double DEFAULT NULL,
-        -- <descr>Probability of being extended.<descr>
+        -- <descr>Probability of being extended.</descr>
         -- <ucd>stat.probability</ucd>
     refFlux double DEFAULT NULL,
         -- <descr>Flux of the reference deep source on coadd.</descr>
@@ -481,17 +481,17 @@ CREATE TABLE RunDeepForcedSource (
         -- combined exposure.</descr>
         -- <ucd>time.epoch</ucd>
     cluster_id bigint(20) DEFAULT NULL,
-        -- <descr> ID of a deduplication cluster.</descr>
+        -- <descr>ID of a deduplication cluster.</descr>
     cluster_coord_ra double DEFAULT NULL,
-        -- <descr> RA-coordinate of the center of cluster.</descr>
+        -- <descr>RA-coordinate of the center of cluster.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     cluster_coord_decl double DEFAULT NULL,
-        -- <descr> Decl-coordinate of the center of cluster.</descr>
+        -- <descr>Decl-coordinate of the center of cluster.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     is_primary bit(1) DEFAULT NULL,
-        -- <descr> True if does not come from de-duplication.</descr>
+        -- <descr>True if does not come from de-duplication.</descr>
     object_coord_ra double DEFAULT NULL,
         -- <descr>ICRS RA of object associated with this source, or ra if the
         -- source was not associated with any object (objectId is NULL).</descr>
@@ -1063,12 +1063,12 @@ CREATE TABLE Science_Ccd_Exposure
 
 
 CREATE TABLE Science_Ccd_Exposure_Metadata (
-        -- <descr> Generic key-value pair metadata for Science_Ccd_Exposure.</descr>
+        -- <descr>Generic key-value pair metadata for Science_Ccd_Exposure.</descr>
     scienceCcdExposureId bigint(20) NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     metadataKey varchar(255) NOT NULL,
     exposureType tinyint(4) NOT NULL,
-        -- <descr> Type of exposure.
+        -- <descr>Type of exposure.
         --
         -- values: 
         -- - 1: Science CCD
