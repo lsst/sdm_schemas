@@ -1,11 +1,13 @@
 
 
-    CREATE TABLE Filter (
+CREATE TABLE Filter (
     filterId tinyint(4) NOT NULL,
         -- <descr>Unique id (primary key).</descr>
         -- <ucd>meta.id;instr.filter</ucd>
     filterName char(3) NOT NULL,
-        -- <descr>Filter name. Valid values: 'u', 'g', 'r', 'i', 'z'</descr>
+        -- <descr>Filter name.
+        -- 
+        -- values: [u, g, r, i, z]</descr>
         -- <ucd>instr.bandpass</ucd>
     photClam float NOT NULL,
         -- <descr>Filter centroid wavelength.</descr>
@@ -46,7 +48,7 @@ CREATE TABLE DeepCoadd (
         -- <descr>Level 20 HTM ID of (ra, decl)</descr>
         -- <ucd>pos.HTM</ucd>
     equinox float NOT NULL,
-        -- <ucd>pos.equinox </ucd>
+        -- <ucd>pos.equinox</ucd>
     raDeSys varchar(20) NOT NULL,
         -- <ucd>pos.frame</ucd>
     ctype1 varchar(20) NOT NULL,
@@ -57,7 +59,7 @@ CREATE TABLE DeepCoadd (
         -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crpix2 float NOT NULL,
-        -- <ucd>pos.wcs.crpix </ucd>
+        -- <ucd>pos.wcs.crpix</ucd>
         -- <unit>pixel</unit>
     crval1 double NOT NULL,
         -- <ucd>pos.wcs.crval</ucd>
@@ -138,15 +140,14 @@ CREATE TABLE DeepCoadd_Metadata (
     metadataKey varchar(255) NOT NULL,
     exposureType tinyint(4) NOT NULL,
         -- <descr>Description of the schema.
-        -- <ul>
-        -- <li>Type of exposure</li>
-        -- <li>1: Science CCD</li>
-        -- <li>2: Difference Imaging CCD</li>
-        -- <li>3: Good-seeing coadd</li>
-        -- <li>4: Deep coadd</li>
-        -- <li>5: Chi-squared coadd</li>
-        -- <li>6: Keith coadd</li>
-        -- </ul>
+        -- 
+        -- values:
+        --  - 1: Science CCD
+        --  - 2: Difference Imaging CCD
+        --  - 3: Good-seeing coadd
+        --  - 4: Deep coadd
+        --  - 5: Chi-squared coadd
+        --  - 6: Keith coadd
         -- </descr>
     intValue int(11) DEFAULT NULL,
     doubleValue double DEFAULT NULL,
@@ -161,7 +162,8 @@ CREATE TABLE DeepCoadd_To_Htm10 (
         -- <descr>Pointer to DeepCoadd.</descr>
     htmId10 int(11) NOT NULL,
         -- <ucd>pos.HTM</ucd>
-        -- <descr>ID for Level 10 HTM triangle overlapping exposure. For each exposure in DeepCoadd, there will be one row for every overlapping triangle.</descr>
+        -- <descr>ID for Level 10 HTM triangle overlapping exposure. For each exposure in DeepCoadd, 
+        -- there will be one row for every overlapping triangle.</descr>
     KEY IDX_htmId10 (htmId10),
     KEY IDX_deepCoaddId (deepCoaddId)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -434,7 +436,7 @@ CREATE TABLE RunDeepForcedSource (
     centroid_record_x double DEFAULT NULL,
     centroid_record_y double DEFAULT NULL,
     classification_extendedness double DEFAULT NULL,
-        -- <descr>Probability of being extended.<descr>
+        -- <descr>Probability of being extended.</descr>
         -- <ucd>stat.probability</ucd>
     refFlux double DEFAULT NULL,
         -- <descr>Flux of the reference deep source on coadd.</descr>
@@ -480,17 +482,17 @@ CREATE TABLE RunDeepForcedSource (
         -- combined exposure.</descr>
         -- <ucd>time.epoch</ucd>
     cluster_id bigint(20) DEFAULT NULL,
-        -- <descr> ID of a deduplication cluster.</descr>
+        -- <descr>ID of a deduplication cluster.</descr>
     cluster_coord_ra double DEFAULT NULL,
-        -- <descr> RA-coordinate of the center of cluster.</descr>
+        -- <descr>RA-coordinate of the center of cluster.</descr>
         -- <ucd>pos.eq.ra</ucd>
         -- <unit>deg</unit>
     cluster_coord_decl double DEFAULT NULL,
-        -- <descr> Decl-coordinate of the center of cluster.</descr>
+        -- <descr>Decl-coordinate of the center of cluster.</descr>
         -- <ucd>pos.eq.dec</ucd>
         -- <unit>deg</unit>
     is_primary bit(1) DEFAULT NULL,
-        -- <descr> True if does not come from de-duplication.</descr>
+        -- <descr>True if does not come from de-duplication.</descr>
     object_coord_ra double DEFAULT NULL,
         -- <descr>ICRS RA of object associated with this source, or ra if the
         -- source was not associated with any object (objectId is NULL).</descr>
@@ -1062,18 +1064,20 @@ CREATE TABLE Science_Ccd_Exposure
 
 
 CREATE TABLE Science_Ccd_Exposure_Metadata (
-        -- <descr> Generic key-value pair metadata for Science_Ccd_Exposure.</descr>
+        -- <descr>Generic key-value pair metadata for Science_Ccd_Exposure.</descr>
     scienceCcdExposureId bigint(20) NOT NULL,
         -- <ucd>meta.id;obs.image</ucd>
     metadataKey varchar(255) NOT NULL,
     exposureType tinyint(4) NOT NULL,
-        -- <descr> Type of exposure.
-        -- 1: Science CCD
-        -- 2: Difference Imaging CCD
-        -- 3: Good-seeing coadd
-        -- 4: Deep coadd
-        -- 5: Chi-squared coadd
-        -- 6: Keith coadd </descr>
+        -- <descr>Type of exposure.
+        --
+        -- values: 
+        -- - 1: Science CCD
+        -- - 2: Difference Imaging CCD
+        -- - 3: Good-seeing coadd
+        -- - 4: Deep coadd
+        -- - 5: Chi-squared coadd
+        -- - 6: Keith coadd </descr>
     intValue int(11) DEFAULT NULL,
     doubleValue double DEFAULT NULL,
     stringValue varchar(255) DEFAULT NULL,
@@ -1102,51 +1106,6 @@ CREATE TABLE Science_Ccd_Exposure_To_Htm10 (
     KEY IDX_htmId10 (htmId10),
     KEY IDX_scienceCcdExposureId (scienceCcdExposureId)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-
--- MySQL dump 10.14  Distrib 5.5.47-MariaDB, for Linux (x86_64)
---
--- Host: localhost    Database: gapon_SDRP_Stripe82
--- ------------------------------------------------------
--- Server version	5.5.47-MariaDB
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Final view structure for view DeepSource
---
-
-/*!50001 DROP TABLE IF EXISTS DeepSource*/;
-/*!50001 DROP VIEW IF EXISTS DeepSource*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = latin1 */;
-/*!50001 SET character_set_results     = latin1 */;
-/*!50001 SET collation_connection      = latin1_swedish_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=gapon@% SQL SECURITY DEFINER */
-/*!50001 VIEW DeepSource AS select gapon_SDRP_Stripe82.RunDeepSource.id AS deepSourceId,gapon_SDRP_Stripe82.RunDeepSource.parent AS parentDeepSourceId,gapon_SDRP_Stripe82.RunDeepSource.coadd_id AS deepCoaddId,gapon_SDRP_Stripe82.RunDeepSource.coadd_filter_id AS filterId,gapon_SDRP_Stripe82.RunDeepSource.coord_ra AS ra,gapon_SDRP_Stripe82.RunDeepSource.coord_decl AS decl,gapon_SDRP_Stripe82.RunDeepSource.coord_raVar AS raVar,gapon_SDRP_Stripe82.RunDeepSource.coord_declVar AS declVar,gapon_SDRP_Stripe82.RunDeepSource.coord_radeclCov AS radeclCov,gapon_SDRP_Stripe82.RunDeepSource.coord_htmId20 AS htmId20,gapon_SDRP_Stripe82.RunDeepSource.centroid_sdss_x AS x,gapon_SDRP_Stripe82.RunDeepSource.centroid_sdss_y AS y,gapon_SDRP_Stripe82.RunDeepSource.centroid_sdss_xVar AS xVar,gapon_SDRP_Stripe82.RunDeepSource.centroid_sdss_yVar AS yVar,gapon_SDRP_Stripe82.RunDeepSource.centroid_sdss_xyCov AS xyCov,gapon_SDRP_Stripe82.RunDeepSource.flux_psf AS psfFlux,gapon_SDRP_Stripe82.RunDeepSource.flux_psf_err AS psfFluxSigma,gapon_SDRP_Stripe82.RunDeepSource.flux_sinc AS apFlux,gapon_SDRP_Stripe82.RunDeepSource.flux_sinc_err AS apFluxSigma,gapon_SDRP_Stripe82.RunDeepSource.multishapelet_combo_flux AS modelFlux,gapon_SDRP_Stripe82.RunDeepSource.multishapelet_combo_flux_err AS modelFluxSigma,gapon_SDRP_Stripe82.RunDeepSource.flux_gaussian AS instFlux,gapon_SDRP_Stripe82.RunDeepSource.flux_gaussian_err AS instFluxSigma,NULL AS apCorrection,NULL AS apCorrectionSigma,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_centroid_x AS shapeIx,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_centroid_y AS shapeIy,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_centroid_xVar AS shapeIxVar,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_centroid_yVar AS shapeIyVar,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_centroid_xyCov AS shapeIxIyCov,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_Ixx AS shapeIxx,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_Iyy AS shapeIyy,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_Ixy AS shapeIxy,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_IxxVar AS shapeIxxVar,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_IyyVar AS shapeIyyVar,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_IxyVar AS shapeIxyVar,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_IxxIyyCov AS shapeIxxIyyCov,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_IxxIxyCov AS shapeIxxIxyCov,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_IxxIxyCov AS shapeIyyIxyCov,gapon_SDRP_Stripe82.RunDeepSource.classification_extendedness AS extendedness,gapon_SDRP_Stripe82.RunDeepSource.flags_negative AS flagNegative,gapon_SDRP_Stripe82.RunDeepSource.flags_badcentroid AS flagBadMeasCentroid,gapon_SDRP_Stripe82.RunDeepSource.flags_pixel_edge AS flagPixEdge,gapon_SDRP_Stripe82.RunDeepSource.flags_pixel_interpolated_any AS flagPixInterpAny,gapon_SDRP_Stripe82.RunDeepSource.flags_pixel_interpolated_center AS flagPixInterpCen,gapon_SDRP_Stripe82.RunDeepSource.flags_pixel_saturated_any AS flagPixSaturAny,gapon_SDRP_Stripe82.RunDeepSource.flags_pixel_saturated_center AS flagPixSaturCen,gapon_SDRP_Stripe82.RunDeepSource.flux_psf_flags AS flagBadPsfFlux,gapon_SDRP_Stripe82.RunDeepSource.flux_sinc_flags AS flagBadApFlux,gapon_SDRP_Stripe82.RunDeepSource.multishapelet_combo_flux_flags AS flagBadModelFlux,gapon_SDRP_Stripe82.RunDeepSource.flux_gaussian_flags AS flagBadInstFlux,gapon_SDRP_Stripe82.RunDeepSource.centroid_sdss_flags AS flagBadCentroid,gapon_SDRP_Stripe82.RunDeepSource.shape_sdss_flags AS flagBadShape from RunDeepSource */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2016-09-19 23:37:44
 
 
 CREATE TABLE ZZZ_Db_Description (
