@@ -534,7 +534,7 @@ CREATE TABLE RunDeepSource (
     calib_detected bit(1) NOT NULL,
     flags_negative bit(1) NOT NULL,
     deblend_nchild int(11) NOT NULL,
-        -- <descr>Number of children that this source has. Zero if it's the final deblending product.</desc>
+        -- <descr>Number of children that this source has. Zero if it's the final deblending product.</descr>
     deblend_deblended_as_psf bit(1) NOT NULL,
     deblend_psf_center_x double DEFAULT NULL,
     deblend_psf_center_y double DEFAULT NULL,
