@@ -1019,21 +1019,21 @@ CREATE TABLE DiaSource
         -- <descr>Estimated uncertainty of fpBkgd.</descr>
         -- <unit>nmgy/asec^2</unit>
     ixx FLOAT NULL,
-        -- <descr>Adaptive second moment of the source intensity.</desc>
+        -- <descr>Adaptive second moment of the source intensity.</descr>
         -- <unit>nmgy*asec^2</unit>
     ixxSigma FLOAT NULL,
         -- <descr>Uncertainty of ixx.</descr>
         -- <ucd>stat.error</ucd>
         -- <unit>nmgy*asec^2</unit>
     iyy FLOAT NULL,
-        -- <descr>Adaptive second moment of the source intensity.</desc>
+        -- <descr>Adaptive second moment of the source intensity.</descr>
         -- <unit>nmgy*asec^2</unit>
     iyySigma FLOAT NULL,
         -- <descr>Uncertainty of iyy.</descr>
         -- <ucd>stat.error</ucd>
         -- <unit>nmgy*asec^2</unit>
     ixy FLOAT NULL,
-        -- <descr>Adaptive second moment of the source intensity.</desc>
+        -- <descr>Adaptive second moment of the source intensity.</descr>
         -- <unit>nmgy*asec^2</unit>
     ixySigma FLOAT NULL,
         -- <descr>Uncertainty of ixy.</descr>
@@ -1049,13 +1049,13 @@ CREATE TABLE DiaSource
         -- <descr>Covariance of iyy and ixy.</descr>
         -- <unit>nmgy^2*asec^4</unit>
     ixxPSF FLOAT NULL,
-        -- <descr>Adaptive second moment for the PSF.</desc>
+        -- <descr>Adaptive second moment for the PSF.</descr>
         -- <unit>nmgy*asec^2</unit>
     iyyPSF FLOAT NULL,
-        -- <descr>Adaptive second moment for the PSF.</desc>
+        -- <descr>Adaptive second moment for the PSF.</descr>
         -- <unit>nmgy*asec^2</unit>
     ixyPSF FLOAT NULL,
-        -- <descr>Adaptive second moment for the PSF.</desc>
+        -- <descr>Adaptive second moment for the PSF.</descr>
         -- <unit>nmgy*asec^2</unit>
     extendedness FLOAT NULL,
         -- <descr>A measure of extendedness, Computed using a combination of
@@ -1078,8 +1078,7 @@ CREATE TABLE DiaSource
     INDEX IDX_DiaSource_ccdVisitId (ccdVisitId),
     INDEX IDX_DiaSource_diaObjectId (diaObjectId),
     INDEX IDX_DiaSource_ssObjectId (ssObjectId),
-    INDEX IDX_DiaSource_filterName (filterName),
-    INDEX IDX_DiaObject_htmId20 (htmId20)
+    INDEX IDX_DiaSource_htmId20 (htmId20)
 ) ENGINE=MyISAM;
 
 -- ############################################################################
@@ -1112,7 +1111,7 @@ CREATE TABLE DiaForcedSource
         -- <descr>y position at which psFlux has been measured.</descr>
         -- <ucd>pos.cartesian.y</ucd>
         -- <unit>pixel</unit>
-    flags TINYINT NOT NULL DEFAULT 0,
+    flags BIGINT NOT NULL DEFAULT 0,
         -- <descr>Flags, bitwise OR tbd</descr>
         -- <ucd>meta.code</ucd>
     PRIMARY KEY PK_DiaForcedSource (diaObjectId, ccdVisitId),
