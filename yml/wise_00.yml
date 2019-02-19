@@ -358,10 +358,6 @@ tables:
     "@id": "#allsky_2band_p1bm_frm.qp_fact"
     description: 'quality factor qp value for scan: photometric quality'
     datatype: double
-  - name: qs_fact
-    "@id": "#allsky_2band_p1bm_frm.qs_fact"
-    description: 'quality factor qs value for scan:'
-    datatype: double
   - name: date_imgprep
     "@id": "#allsky_2band_p1bm_frm.date_imgprep"
     description: date and time of imgprep run, UTC
@@ -554,11 +550,6 @@ tables:
     description: modified julian date of mid-point of frame observation, UTC
     datatype: double
     fits:tunit: mjdate
-  - name: icaldir
-    "@id": "#allsky_3band_p1bm_frm.icaldir"
-    description: reference dir used for ICAL
-    datatype: char
-    votable:arraysize: 201
   - name: dtanneal
     "@id": "#allsky_3band_p1bm_frm.dtanneal"
     description: time since last anneal
@@ -918,11 +909,6 @@ tables:
     description: modified julian date of mid-point of frame observation, UTC
     datatype: double
     fits:tunit: mjdate
-  - name: icaldir
-    "@id": "#allsky_4band_p1bm_frm.icaldir"
-    description: reference dir used for ICAL
-    datatype: char
-    votable:arraysize: 201
   - name: dtanneal
     "@id": "#allsky_4band_p1bm_frm.dtanneal"
     description: time since last anneal
@@ -1060,11 +1046,6 @@ tables:
     description: distance from frame center to SAA boundary
     datatype: double
     fits:tunit: deg
-  - name: qa_status
-    "@id": "#allsky_4band_p1bm_frm.qa_status"
-    description: 'QA status for scan: Prelim, Reviewed, or Final'
-    datatype: char
-    votable:arraysize: 10
   - name: qual_frame
     "@id": "#allsky_4band_p1bm_frm.qual_frame"
     description: quality score value for frame
@@ -1100,10 +1081,6 @@ tables:
   - name: qp_fact
     "@id": "#allsky_4band_p1bm_frm.qp_fact"
     description: 'quality factor qp value for scan: photometric quality'
-    datatype: double
-  - name: qs_fact
-    "@id": "#allsky_4band_p1bm_frm.qs_fact"
-    description: 'quality factor qs value for scan:'
     datatype: double
   - name: date_imgprep
     "@id": "#allsky_4band_p1bm_frm.date_imgprep"
