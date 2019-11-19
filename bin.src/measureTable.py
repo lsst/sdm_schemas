@@ -29,9 +29,6 @@ printed to stdout. Errors are reported to stderr. To use:
 ./measureTable.py <schema.sql
 """
 
-from __future__ import print_function
-from builtins import object
-
 import sys
 import math
 import re
@@ -40,7 +37,7 @@ MaxEnumItems = 65535
 MaxSetItems = 64
 
 
-class TableInfo(object):
+class TableInfo:
     """Collect information about a MySQL database table.
 
     Warning: assumes latin-1 character set.
