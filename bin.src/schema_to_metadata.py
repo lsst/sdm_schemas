@@ -38,10 +38,7 @@ import optparse
 import os
 import re
 import sys
-try:
-    from commands import getoutput
-except ImportError:
-    from subprocess import getoutput
+from subprocess import getoutput
 
 ###############################################################################
 # Configuration information

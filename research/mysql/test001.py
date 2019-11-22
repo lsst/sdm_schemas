@@ -22,8 +22,6 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
-from __future__ import print_function
-
 import MySQLdb
 
 # near neighbor query by selecting rows with given subChunkId
@@ -59,7 +57,7 @@ for n in range(0, 1000):
     ABS(o1.ra - o2.ra) < 0.00083 / o2.cosRadDecl AND ABS(o1.decl - o2.decl) < 0.00083 AND
     o1.objectId <> o2.objectId""" % (n, n)
     cursor.execute(cmd)
-    
+
     cmd = 'drop table xxtmp'
     cursor.execute(cmd)
 

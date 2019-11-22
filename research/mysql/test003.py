@@ -22,8 +22,6 @@
 # see <http://www.lsstcorp.org/LegalNotices/>.
 #
 
-from __future__ import print_function
-
 import MySQLdb
 
 # near neighbor query by running mini-near neighbor once for each

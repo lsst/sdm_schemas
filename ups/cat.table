@@ -3,7 +3,6 @@ setupRequired(mariadbclient)
 setupRequired(db)
 setupRequired(sqlalchemy)
 setupRequired(utils)
-setupRequired(python_future)
 
 envPrepend(PATH, ${PRODUCT_DIR}/bin)
 envPrepend(PYTHONPATH, ${PRODUCT_DIR}/python)
