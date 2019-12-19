@@ -1,0 +1,1418 @@
+---
+name: HscSchema
+"@id": "#hscSchema"
+tables:
+- name: Object
+  "@id": "#Object"
+  description: The Object table contains descriptions of the multi-epoch static astronomical
+    objects, in particular their astrophysical properties as derived from analysis
+    of the Sources that are associated with them. Note that fast moving objects are
+    kept in the MovingObject tables. Note that less-frequently used columns are stored
+    in a separate table called Object_Extra.
+  columns:
+  - name: objectId
+    "@id": "#Object.objectId"
+    datatype: long
+    description: Unique id.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: parentObjectId
+    "@id": "#Object.parentObjectId"
+    datatype: long
+    description: Id of the parent object this object has been deblended from, if any.
+    mysql:datatype: BIGINT
+  - name: coord_ra
+    "@id": "#Object.coord_ra"
+    datatype: double
+    description: RA-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: coord_dec
+    "@id": "#Object.coord_dec"
+    datatype: double
+    description: Decl-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: Ra
+    "@id": "#Object.Ra"
+    datatype: double
+    description: RA-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: Decl
+    "@id": "#Object.Decl"
+    datatype: double
+    description: Decl-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: tractId
+    "@id": "#Object.tractId"
+    datatype: long
+    description: tract ID
+    mysql:datatype: BIGINT
+  - name: patchId
+    "@id": "#Object.patchId"
+    datatype: text
+    description: patch ID
+    mysql:datatype: TEXT
+  - name: tract
+    "@id": "#Object.tract"
+    datatype: long
+    description: Same as Tract ID
+    mysql:datatype: BIGINT
+  - name: patch
+    "@id": "#Object.patch"
+    datatype: text
+    description: Same as Patch ID
+    mysql:datatype: TEXT
+  - name: x
+    "@id": "#Object.x"
+    datatype: double
+    description: (not in the DPDD)
+    mysql:datatype: DOUBLE
+  - name: y
+    "@id": "#Object.y"
+    datatype: double
+    description: (not in the DPDD)
+    mysql:datatype: DOUBLE
+  - name: xErr
+    "@id": "#Object.xErr"
+    datatype: float
+    description: (not in the DPDD)
+    mysql:datatype: FLOAT
+  - name: yErr
+    "@id": "#Object.yErr"
+    datatype: float
+    description: (not in the DPDD)
+    mysql:datatype: FLOAT
+  - name: xy_flag
+    "@id": "#Object.xy_flag"
+    datatype: boolean
+    description: (not in the DPDD)
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags
+    "@id": "#Object.PixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_suspect
+    "@id": "#Object.PixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_edge
+    "@id": "#Object.PixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_inexact_psf
+    "@id": "#Object.PixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_clipped
+    "@id": "#Object.PixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_cr
+    "@id": "#Object.PixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_sensor_edgeCenter
+    "@id": "#Object.PixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_saturatedCenter
+    "@id": "#Object.PixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_suspectCenter
+    "@id": "#Object.PixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_inexact_psfCenter
+    "@id": "#Object.PixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_saturated
+    "@id": "#Object.PixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_bright_object
+    "@id": "#Object.PixelFlags_bright_object"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_bad
+    "@id": "#Object.PixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_interpolated
+    "@id": "#Object.PixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_bright_objectCenter
+    "@id": "#Object.PixelFlags_bright_objectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_clippedCenter
+    "@id": "#Object.PixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_crCenter
+    "@id": "#Object.PixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_interpolatedCenter
+    "@id": "#Object.PixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_sensor_edge
+    "@id": "#Object.PixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_offimage
+    "@id": "#Object.PixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_flag
+    "@id": "#Object.ApFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_flag_sincCoeffsTruncated
+    "@id": "#Object.ApFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_instFlux
+    "@id": "#Object.ApFlux_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_instFluxErr
+    "@id": "#Object.ApFlux_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_flag_apertureTruncated
+    "@id": "#Object.ApFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag
+    "@id": "#Object.KronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_used_minimum_radius
+    "@id": "#Object.KronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_edge
+    "@id": "#Object.KronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_small_radius
+    "@id": "#Object.KronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_used_psf_radius
+    "@id": "#Object.KronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_no_minimum_radius
+    "@id": "#Object.KronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_bad_shape_no_psf
+    "@id": "#Object.KronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_apCorr
+    "@id": "#Object.KronFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_apCorrErr
+    "@id": "#Object.KronFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: KronFlux_flag_no_fallback_radius
+    "@id": "#Object.KronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_apCorr
+    "@id": "#Object.KronFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: KronFlux_flag_bad_radius
+    "@id": "#Object.KronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: KronFlux_flag_bad_shape
+    "@id": "#Object.KronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ShapeRound_x
+    "@id": "#Object.ShapeRound_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ShapeRound_y
+    "@id": "#Object.ShapeRound_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ShapeRound_xx
+    "@id": "#Object.ShapeRound_xx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ShapeRound_xy
+    "@id": "#Object.ShapeRound_xy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ShapeRound_yy
+    "@id": "#Object.ShapeRound_yy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ShapeRound_Flux
+    "@id": "#Object.ShapeRound_Flux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ShapeRound_flag
+    "@id": "#Object.ShapeRound_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ShapeRound_flag_no_pixels
+    "@id": "#Object.ShapeRound_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ShapeRound_flag_not_contained
+    "@id": "#Object.ShapeRound_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ShapeRound_flag_parent_source
+    "@id": "#Object.ShapeRound_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: CalibFlux_flag
+    "@id": "#Object.CalibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: CalibFlux_flag_apertureTruncated
+    "@id": "#Object.CalibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: CalibFlux_flag_sincCoeffsTruncated
+    "@id": "#Object.CalibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: CalibFlux_instFlux
+    "@id": "#Object.CalibFlux_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: CalibFlux_instFluxErr
+    "@id": "#Object.CalibFlux_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: PsfShape_flag
+    "@id": "#Object.PsfShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfShape_flag_no_pixels
+    "@id": "#Object.PsfShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfShape_flag_not_contained
+    "@id": "#Object.PsfShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfShape_flag_parent_source
+    "@id": "#Object.PsfShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_apCorr
+    "@id": "#Object.PsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: PsfFlux_apCorrErr
+    "@id": "#Object.PsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: PsfFlux_flag
+    "@id": "#Object.PsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_noGoodPixels
+    "@id": "#Object.PsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_apCorr
+    "@id": "#Object.PsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_edge
+    "@id": "#Object.PsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: refFwhm
+    "@id": "#Object.refFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refIxx
+    "@id": "#Object.refIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refIyy
+    "@id": "#Object.refIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refIxy
+    "@id": "#Object.refIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refIxyPsf
+    "@id": "#Object.refIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refIxxPsf
+    "@id": "#Object.refIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refIyyPsf
+    "@id": "#Object.refIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refBand
+    "@id": "#Object.refBand"
+    datatype: text
+    description:
+    mysql:datatype: TEXT
+  - name: refExtendedness
+    "@id": "#Object.refExtendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: izStd
+    "@id": "#Object.izStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: zyStd
+    "@id": "#Object.zyStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: grStd
+    "@id": "#Object.grStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: riStd
+    "@id": "#Object.riStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: Shape_flag
+    "@id": "#Object.Shape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Shape_flag_not_contained
+    "@id": "#Object.Shape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Shape_flag_parent_source
+    "@id": "#Object.Shape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Shape_flag_no_pixels
+    "@id": "#Object.Shape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: calib_astrometry_used
+    "@id": "#Object.calib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: calib_photometry_used
+    "@id": "#Object.calib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: calib_photometry_reserved
+    "@id": "#Object.calib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: calib_psf_candidate
+    "@id": "#Object.calib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: calib_psf_reserved
+    "@id": "#Object.calib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: calib_psf_used
+    "@id": "#Object.calib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isPrimary
+    "@id": "#Object.detect_isPrimary"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isPatchInner
+    "@id": "#Object.detect_isPatchInner"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isTractInner
+    "@id": "#Object.detect_isTractInner"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_edge
+    "@id": "#Object.Centroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_noSecondDerivative
+    "@id": "#Object.Centroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_notAtMaximum
+    "@id": "#Object.Centroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_resetToPeak
+    "@id": "#Object.Centroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_almostNoSecondDerivative
+    "@id": "#Object.Centroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Extendedness_flag
+    "@id": "#Object.Extendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: InputCount_flag_noInputs
+    "@id": "#Object.InputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: InputCount_flag
+    "@id": "#Object.InputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gBdChi2
+    "@id": "#Object.gBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For g filter.
+    mysql:datatype: DOUBLE
+  - name: gBdE1
+    "@id": "#Object.gBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For g filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: gBdE2
+    "@id": "#Object.gBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For g filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: gBdFluxB
+    "@id": "#Object.gBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: gBdFluxBErr
+    "@id": "#Object.gBdFluxBErr"
+    datatype: double
+    description: Uncertainty of gBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: gBdFluxD
+    "@id": "#Object.gBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: gBdFluxDErr
+    "@id": "#Object.gBdFluxDErr"
+    datatype: double
+    description: Uncertainty of gBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: gBdReB
+    "@id": "#Object.gBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: gBdReD
+    "@id": "#Object.gBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: gCModelFlux
+    "@id": "#Object.gCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gCModelFluxErr
+    "@id": "#Object.gCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gExtendedness
+    "@id": "#Object.gExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: gFwhm
+    "@id": "#Object.gFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gHsmShapeRegauss_e1
+    "@id": "#Object.gHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gHsmShapeRegauss_e2
+    "@id": "#Object.gHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gHsmShapeRegauss_flag
+    "@id": "#Object.gHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gInputCount
+    "@id": "#Object.gInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: gIxx
+    "@id": "#Object.gIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIxxPsf
+    "@id": "#Object.gIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIxy
+    "@id": "#Object.gIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIxyPsf
+    "@id": "#Object.gIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIyy
+    "@id": "#Object.gIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIyyPsf
+    "@id": "#Object.gIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gKronFlux
+    "@id": "#Object.gKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: gKronFluxErr
+    "@id": "#Object.gKronFluxErr"
+    datatype: double
+    description: Uncertainty of gKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: gKronRad
+    "@id": "#Object.gKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for g filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: gPsFlux
+    "@id": "#Object.gPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gPsFluxErr
+    "@id": "#Object.gPsFluxErr"
+    datatype: double
+    description: Uncertainty of gPsFlux.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rBdChi2
+    "@id": "#Object.rBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For r filter.
+    mysql:datatype: DOUBLE
+  - name: rBdE1
+    "@id": "#Object.rBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For r filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: rBdE2
+    "@id": "#Object.rBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For r filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: rBdFluxB
+    "@id": "#Object.rBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: rBdFluxBErr
+    "@id": "#Object.rBdFluxBErr"
+    datatype: double
+    description: Uncertainty of rBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: rBdFluxD
+    "@id": "#Object.rBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: rBdFluxDErr
+    "@id": "#Object.rBdFluxDErr"
+    datatype: double
+    description: Uncertainty of rBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: rBdReB
+    "@id": "#Object.rBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: rBdReD
+    "@id": "#Object.rBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: rCModelFlux
+    "@id": "#Object.rCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rCModelFluxErr
+    "@id": "#Object.rCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rExtendedness
+    "@id": "#Object.rExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: rFwhm
+    "@id": "#Object.rFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rHsmShapeRegauss_e1
+    "@id": "#Object.rHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rHsmShapeRegauss_e2
+    "@id": "#Object.rHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rHsmShapeRegauss_flag
+    "@id": "#Object.rHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rInputCount
+    "@id": "#Object.rInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: rIxx
+    "@id": "#Object.rIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIxxPsf
+    "@id": "#Object.rIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIxy
+    "@id": "#Object.rIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIxyPsf
+    "@id": "#Object.rIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIyy
+    "@id": "#Object.rIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIyyPsf
+    "@id": "#Object.rIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rKronFlux
+    "@id": "#Object.rKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: rKronFluxErr
+    "@id": "#Object.rKronFluxErr"
+    datatype: double
+    description: Uncertainty of rKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: rKronRad
+    "@id": "#Object.rKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for r filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: rPsFlux
+    "@id": "#Object.rPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rPsFluxErr
+    "@id": "#Object.rPsFluxErr"
+    datatype: double
+    description: Uncertainty of rPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iBdChi2
+    "@id": "#Object.iBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For i filter.
+    mysql:datatype: DOUBLE
+  - name: iBdE1
+    "@id": "#Object.iBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For i filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: iBdE2
+    "@id": "#Object.iBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For i filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: iBdFluxB
+    "@id": "#Object.iBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: iBdFluxBErr
+    "@id": "#Object.iBdFluxBErr"
+    datatype: double
+    description: Uncertainty of iBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: iBdFluxD
+    "@id": "#Object.iBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: iBdFluxDErr
+    "@id": "#Object.iBdFluxDErr"
+    datatype: double
+    description: Uncertainty of iBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: iBdReB
+    "@id": "#Object.iBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: iBdReD
+    "@id": "#Object.iBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: iCModelFlux
+    "@id": "#Object.iCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iCModelFluxErr
+    "@id": "#Object.iCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iExtendedness
+    "@id": "#Object.iExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: iFwhm
+    "@id": "#Object.iFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iHsmShapeRegauss_e1
+    "@id": "#Object.iHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iHsmShapeRegauss_e2
+    "@id": "#Object.iHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iHsmShapeRegauss_flag
+    "@id": "#Object.iHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iInputCount
+    "@id": "#Object.iInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: iIxx
+    "@id": "#Object.iIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIxxPsf
+    "@id": "#Object.iIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIxy
+    "@id": "#Object.iIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIxyPsf
+    "@id": "#Object.iIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIyy
+    "@id": "#Object.iIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIyyPsf
+    "@id": "#Object.iIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iKronFlux
+    "@id": "#Object.iKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: iKronFluxErr
+    "@id": "#Object.iKronFluxErr"
+    datatype: double
+    description: Uncertainty of iKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: iKronRad
+    "@id": "#Object.iKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for i filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: iPsFlux
+    "@id": "#Object.iPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iPsFluxErr
+    "@id": "#Object.iPsFluxErr"
+    datatype: double
+    description: Uncertainty of iPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zBdChi2
+    "@id": "#Object.zBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For z filter.
+    mysql:datatype: DOUBLE
+  - name: zBdE1
+    "@id": "#Object.zBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For z filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: zBdE2
+    "@id": "#Object.zBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For z filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: zBdFluxB
+    "@id": "#Object.zBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: zBdFluxBErr
+    "@id": "#Object.zBdFluxBErr"
+    datatype: double
+    description: Uncertainty of zBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: zBdFluxD
+    "@id": "#Object.zBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: zBdFluxDErr
+    "@id": "#Object.zBdFluxDErr"
+    datatype: double
+    description: Uncertainty of zBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: zBdReB
+    "@id": "#Object.zBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: zBdReD
+    "@id": "#Object.zBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: zCModelFlux
+    "@id": "#Object.zCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zCModelFluxErr
+    "@id": "#Object.zCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zExtendedness
+    "@id": "#Object.zExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: zFwhm
+    "@id": "#Object.zFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zHsmShapeRegauss_e1
+    "@id": "#Object.zHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zHsmShapeRegauss_e2
+    "@id": "#Object.zHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zHsmShapeRegauss_flag
+    "@id": "#Object.zHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zInputCount
+    "@id": "#Object.zInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: zIxx
+    "@id": "#Object.zIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIxxPsf
+    "@id": "#Object.zIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIxy
+    "@id": "#Object.zIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIxyPsf
+    "@id": "#Object.zIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIyy
+    "@id": "#Object.zIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIyyPsf
+    "@id": "#Object.zIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zKronFlux
+    "@id": "#Object.zKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: zKronFluxErr
+    "@id": "#Object.zKronFluxErr"
+    datatype: double
+    description: Uncertainty of zKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: zKronRad
+    "@id": "#Object.zKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for z filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: zPsFlux
+    "@id": "#Object.zPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zPsFluxErr
+    "@id": "#Object.zPsFluxErr"
+    datatype: double
+    description: Uncertainty of zPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yBdChi2
+    "@id": "#Object.yBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For y filter.
+    mysql:datatype: DOUBLE
+  - name: yBdE1
+    "@id": "#Object.yBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For y filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: yBdE2
+    "@id": "#Object.yBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For y filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: yBdFluxB
+    "@id": "#Object.yBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: yBdFluxBErr
+    "@id": "#Object.yBdFluxBErr"
+    datatype: double
+    description: Uncertainty of yBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: yBdFluxD
+    "@id": "#Object.yBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: yBdFluxDErr
+    "@id": "#Object.yBdFluxDErr"
+    datatype: double
+    description: Uncertainty of yBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: yBdReB
+    "@id": "#Object.yBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: yBdReD
+    "@id": "#Object.yBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: yCModelFlux
+    "@id": "#Object.yCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yCModelFluxErr
+    "@id": "#Object.yCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yExtendedness
+    "@id": "#Object.yExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: yFwhm
+    "@id": "#Object.yFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yHsmShapeRegauss_e1
+    "@id": "#Object.yHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yHsmShapeRegauss_e2
+    "@id": "#Object.yHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yHsmShapeRegauss_flag
+    "@id": "#Object.yHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yInputCount
+    "@id": "#Object.yInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: yIxx
+    "@id": "#Object.yIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIxxPsf
+    "@id": "#Object.yIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIxy
+    "@id": "#Object.yIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIxyPsf
+    "@id": "#Object.yIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIyy
+    "@id": "#Object.yIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIyyPsf
+    "@id": "#Object.yIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yKronFlux
+    "@id": "#Object.yKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: yKronFluxErr
+    "@id": "#Object.yKronFluxErr"
+    datatype: double
+    description: Uncertainty of yKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+  - name: yKronRad
+    "@id": "#Object.yKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for y filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: yPsFlux
+    "@id": "#Object.yPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yPsFluxErr
+    "@id": "#Object.yPsFluxErr"
+    datatype: double
+    description: Uncertainty of yPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
