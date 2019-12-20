@@ -1,0 +1,2169 @@
+---
+name: sdss_stripe82_01
+"@id": "#sdss_stripe82_01"
+description: SDSS Winter 13 Reprocessing with some fixes from sdss_stripe82_00
+tables:
+- name: Filter
+  "@id": "#Filter"
+  columns:
+  - name: filterId
+    "@id": "#Filter.filterId"
+    datatype: byte
+    description: Unique id (primary key).
+    mysql:datatype: TINYINT(4)
+    ivoa:ucd: meta.id;instr.filter
+  - name: filterName
+    "@id": "#Filter.filterName"
+    datatype: char
+    description: |
+      Filter name.
+      values: [u, g, r, i, z]
+    length: 3
+    mysql:datatype: CHAR(3)
+    ivoa:ucd: instr.bandpass
+  - name: photClam
+    "@id": "#Filter.photClam"
+    datatype: float
+    description: Filter centroid wavelength.
+    mysql:datatype: FLOAT
+    fits:tunit: nm
+    ivoa:ucd: em.wl.effective;instr.filter
+  - name: photBW
+    "@id": "#Filter.photBW"
+    datatype: float
+    description: System effective bandwidth.
+    mysql:datatype: FLOAT
+    fits:tunit: nm
+    ivoa:ucd: instr.bandwidth
+  primaryKey: "#Filter.filterId"
+  mysql:charset: latin1
+- name: DeepCoadd
+  "@id": "#DeepCoadd"
+  columns:
+  - name: deepCoaddId
+    "@id": "#DeepCoadd.deepCoaddId"
+    datatype: long
+    description: Primary key (unique identifier).
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;obs.image
+  - name: tract
+    "@id": "#DeepCoadd.tract"
+    datatype: int
+    description: Sky-tract number.
+    mysql:datatype: INT(11)
+  - name: patch
+    "@id": "#DeepCoadd.patch"
+    datatype: char
+    description: Sky-patch.
+    length: 16
+    mysql:datatype: CHAR(16)
+  - name: filterId
+    "@id": "#DeepCoadd.filterId"
+    datatype: byte
+    description: Id of the filter for the band.
+    mysql:datatype: TINYINT(4)
+    ivoa:ucd: meta.id;instr.filter
+  - name: filterName
+    "@id": "#DeepCoadd.filterName"
+    datatype: char
+    description: Filter name, pulled in from the Filter table.
+    length: 3
+    mysql:datatype: CHAR(3)
+    ivoa:ucd: instr.bandpass
+  - name: ra
+    "@id": "#DeepCoadd.ra"
+    datatype: double
+    description: ICRS R.A. of image center, corresponding to FITS pixel coordinates
+      ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: decl
+    "@id": "#DeepCoadd.decl"
+    datatype: double
+    description: ICRS Dec. of image center, corresponding to FITS pixel coordinates
+      ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: htmId20
+    "@id": "#DeepCoadd.htmId20"
+    datatype: long
+    description: Level 20 HTM ID of (ra, decl)
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: pos.HTM
+  - name: equinox
+    "@id": "#DeepCoadd.equinox"
+    datatype: float
+    mysql:datatype: FLOAT
+    ivoa:ucd: pos.equinox
+  - name: raDeSys
+    "@id": "#DeepCoadd.raDeSys"
+    datatype: string
+    length: 20
+    mysql:datatype: VARCHAR(20)
+    ivoa:ucd: pos.frame
+  - name: ctype1
+    "@id": "#DeepCoadd.ctype1"
+    datatype: string
+    length: 20
+    mysql:datatype: VARCHAR(20)
+    ivoa:ucd: pos.wcs.ctype
+  - name: ctype2
+    "@id": "#DeepCoadd.ctype2"
+    datatype: string
+    length: 20
+    mysql:datatype: VARCHAR(20)
+    ivoa:ucd: pos.wcs.ctype
+  - name: crpix1
+    "@id": "#DeepCoadd.crpix1"
+    datatype: float
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.wcs.crpix
+  - name: crpix2
+    "@id": "#DeepCoadd.crpix2"
+    datatype: float
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.wcs.crpix
+  - name: crval1
+    "@id": "#DeepCoadd.crval1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.wcs.crval
+  - name: crval2
+    "@id": "#DeepCoadd.crval2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.wcs.crval
+  - name: cd1_1
+    "@id": "#DeepCoadd.cd1_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: cd1_2
+    "@id": "#DeepCoadd.cd1_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: cd2_1
+    "@id": "#DeepCoadd.cd2_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: cd2_2
+    "@id": "#DeepCoadd.cd2_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: corner1Ra
+    "@id": "#DeepCoadd.corner1Ra"
+    datatype: double
+    description: ICRS RA of image corner 1, corresponding to FITS pixel coordinates
+      (0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner1Decl
+    "@id": "#DeepCoadd.corner1Decl"
+    datatype: double
+    description: ICRS RA of image corner 1, corresponding to FITS pixel coordinates
+      (0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: corner2Ra
+    "@id": "#DeepCoadd.corner2Ra"
+    datatype: double
+    description: ICRS RA of image corner 2, corresponding to FITS pixel coordinates
+      (0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner2Decl
+    "@id": "#DeepCoadd.corner2Decl"
+    datatype: double
+    description: ICRS Dec of image corner 2, corresponding to FITS pixel coordinates
+      (0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: corner3Ra
+    "@id": "#DeepCoadd.corner3Ra"
+    datatype: double
+    description: ICRS RA of image corner 3, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner3Decl
+    "@id": "#DeepCoadd.corner3Decl"
+    datatype: double
+    description: ICRS Dec of image corner 3, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: corner4Ra
+    "@id": "#DeepCoadd.corner4Ra"
+    datatype: double
+    description: ICRS RA of image corner 4, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner4Decl
+    "@id": "#DeepCoadd.corner4Decl"
+    datatype: double
+    description: ICRS Dec of image corner 4, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: poly
+    "@id": "#DeepCoadd.poly"
+    datatype: binary
+    description: binary representation of the 4-corner polygon for the exposure.
+    length: 120
+    mysql:datatype: BINARY(120)
+  - name: fluxMag0
+    "@id": "#DeepCoadd.fluxMag0"
+    datatype: float
+    mysql:datatype: FLOAT
+    ivoa:ucd: phot.flux.density
+  - name: fluxMag0Sigma
+    "@id": "#DeepCoadd.fluxMag0Sigma"
+    datatype: float
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error;phot.flux.density
+  - name: matchedFwhm
+    "@id": "#DeepCoadd.matchedFwhm"
+    datatype: double
+    description: FWHM computed from PSF that was matched to during coaddition. NULL
+      if coadds were created with PSF-matching turned off.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+    ivoa:ucd: instr.obsty.seeing
+  - name: measuredFwhm
+    "@id": "#DeepCoadd.measuredFwhm"
+    datatype: double
+    description: FWHM computed from measured PSF. NULL if coadds were created with
+      PSF-matching turned on and the pipeline was configured to use the matched-to
+      PSF.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+    ivoa:ucd: instr.obsty.seeing
+  - name: path
+    "@id": "#DeepCoadd.path"
+    datatype: string
+    description: FITS file path relative to the SFM pipeline output directory.
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  primaryKey: "#DeepCoadd.deepCoaddId"
+  mysql:charset: latin1
+- name: DeepCoadd_Metadata
+  "@id": "#DeepCoadd_Metadata"
+  columns:
+  - name: deepCoaddId
+    "@id": "#DeepCoadd_Metadata.deepCoaddId"
+    datatype: long
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;obs.image
+  - name: metadataKey
+    "@id": "#DeepCoadd_Metadata.metadataKey"
+    datatype: string
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  - name: exposureType
+    "@id": "#DeepCoadd_Metadata.exposureType"
+    datatype: byte
+    description: |+
+      Description of the schema.
+      values:
+      - 1: Science CCD
+      - 2: Difference Imaging CCD
+      - 3: Good-seeing coadd
+      - 4: Deep coadd
+      - 5: Chi-squared coadd
+      - 6: Keith coadd
+
+    mysql:datatype: TINYINT(4)
+  - name: intValue
+    "@id": "#DeepCoadd_Metadata.intValue"
+    datatype: int
+    mysql:datatype: INT(11)
+  - name: doubleValue
+    "@id": "#DeepCoadd_Metadata.doubleValue"
+    datatype: double
+    mysql:datatype: DOUBLE
+  - name: stringValue
+    "@id": "#DeepCoadd_Metadata.stringValue"
+    datatype: string
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  primaryKey:
+  - "#DeepCoadd_Metadata.deepCoaddId"
+  - "#DeepCoadd_Metadata.metadataKey"
+  mysql:charset: latin1
+- name: DeepCoadd_To_Htm10
+  "@id": "#DeepCoadd_To_Htm10"
+  columns:
+  - name: deepCoaddId
+    "@id": "#DeepCoadd_To_Htm10.deepCoaddId"
+    datatype: long
+    description: Pointer to DeepCoadd.
+    mysql:datatype: BIGINT(20)
+  - name: htmId10
+    "@id": "#DeepCoadd_To_Htm10.htmId10"
+    datatype: int
+    description: ID for Level 10 HTM triangle overlapping exposure. For each exposure
+      in DeepCoadd,  there will be one row for every overlapping triangle.
+    mysql:datatype: INT(11)
+    ivoa:ucd: pos.HTM
+  mysql:charset: latin1
+- name: LeapSeconds
+  "@id": "#LeapSeconds"
+  columns:
+  - name: whenJd
+    "@id": "#LeapSeconds.whenJd"
+    datatype: float
+    description: JD of change in TAI-UTC difference (leap second).
+    mysql:datatype: FLOAT
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: offset
+    "@id": "#LeapSeconds.offset"
+    datatype: float
+    description: New number of leap seconds.
+    mysql:datatype: FLOAT
+    fits:tunit: s
+    ivoa:ucd: time.interval
+  - name: mjdRef
+    "@id": "#LeapSeconds.mjdRef"
+    datatype: float
+    description: Reference MJD for drift (prior to 1972-Jan-1).
+    mysql:datatype: FLOAT
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: drift
+    "@id": "#LeapSeconds.drift"
+    datatype: float
+    description: Drift in seconds per day (prior to 1972-Jan-1).
+    mysql:datatype: FLOAT
+    fits:tunit: s/d
+    ivoa:ucd: arith.rate
+  - name: whenMjdUtc
+    "@id": "#LeapSeconds.whenMjdUtc"
+    datatype: float
+    description: MJD in UTC system of change (computed).
+    mysql:datatype: FLOAT
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: whenUtc
+    "@id": "#LeapSeconds.whenUtc"
+    datatype: long
+    description: Nanoseconds from epoch in UTC system of change (computed).
+    mysql:datatype: BIGINT(20)
+    fits:tunit: ns
+    ivoa:ucd: time
+  - name: whenTai
+    "@id": "#LeapSeconds.whenTai"
+    datatype: long
+    description: Nanoseconds from epoch in TAI system of change (computed).
+    mysql:datatype: BIGINT(20)
+    fits:tunit: ns
+    ivoa:ucd: time
+  mysql:charset: latin1
+- name: RunDeepForcedSource
+  "@id": "#RunDeepForcedSource"
+  columns:
+  - name: id
+    "@id": "#RunDeepForcedSource.id"
+    datatype: long
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;src
+  - name: coord_ra
+    "@id": "#RunDeepForcedSource.coord_ra"
+    datatype: double
+    description: ICRS RA of source centroid (x, y).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: coord_decl
+    "@id": "#RunDeepForcedSource.coord_decl"
+    datatype: double
+    description: ICRS Dec of source centroid (x, y).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: coord_htmId20
+    "@id": "#RunDeepForcedSource.coord_htmId20"
+    datatype: long
+    description: Level 20 HTM ID of (ra, decl)
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: pos.HTM
+  - name: parent
+    "@id": "#RunDeepForcedSource.parent"
+    datatype: long
+    description: goodSeeingSourceId of parent if source is deblended, otherwise NULL.
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id.parent;src
+  - name: flags_badcentroid
+    "@id": "#RunDeepForcedSource.flags_badcentroid"
+    datatype: boolean
+    description: Set if the centroid measurement failed.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: centroid_sdss_x
+    "@id": "#RunDeepForcedSource.centroid_sdss_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of forced-source SDSS entroid, LSST pixel
+      coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: centroid_sdss_y
+    "@id": "#RunDeepForcedSource.centroid_sdss_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of forced-source SDSS centroid, LSST pixel
+      coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: centroid_sdss_xVar
+    "@id": "#RunDeepForcedSource.centroid_sdss_xVar"
+    datatype: float
+    description: Variance of x. of forced-source SDSS centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: centroid_sdss_xyCov
+    "@id": "#RunDeepForcedSource.centroid_sdss_xyCov"
+    datatype: float
+    description: Covariance of x and y of forced-source SDSS centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: centroid_sdss_yVar
+    "@id": "#RunDeepForcedSource.centroid_sdss_yVar"
+    datatype: float
+    description: Variance of y. forced-source SDSS centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: centroid_sdss_flags
+    "@id": "#RunDeepForcedSource.centroid_sdss_flags"
+    datatype: boolean
+    description: set if SDSS centroid is unreliable
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: centroid_gaussian_x
+    "@id": "#RunDeepForcedSource.centroid_gaussian_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of forced-source gaussian centroid, LSST
+      pixel coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: centroid_gaussian_y
+    "@id": "#RunDeepForcedSource.centroid_gaussian_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of forced-source gaussian centroid, LSST
+      pixel coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: centroid_gaussian_xVar
+    "@id": "#RunDeepForcedSource.centroid_gaussian_xVar"
+    datatype: float
+    description: Variance of x. of forced-source gaussian centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: centroid_gaussian_xyCov
+    "@id": "#RunDeepForcedSource.centroid_gaussian_xyCov"
+    datatype: float
+    description: Covariance of x and y of forced-source gaussian centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: centroid_gaussian_yVar
+    "@id": "#RunDeepForcedSource.centroid_gaussian_yVar"
+    datatype: float
+    description: Variance of y. forced-source gaussian centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: centroid_gaussian_flags
+    "@id": "#RunDeepForcedSource.centroid_gaussian_flags"
+    datatype: boolean
+    description: set if gaussian centroid is unreliable
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: centroid_naive_x
+    "@id": "#RunDeepForcedSource.centroid_naive_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of forced-source naive centroid, LSST pixel
+      coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: centroid_naive_y
+    "@id": "#RunDeepForcedSource.centroid_naive_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of forced-source naive centroid, LSST pixel
+      coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: centroid_naive_xVar
+    "@id": "#RunDeepForcedSource.centroid_naive_xVar"
+    datatype: float
+    description: Variance of x. of forced-source naive centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: centroid_naive_xyCov
+    "@id": "#RunDeepForcedSource.centroid_naive_xyCov"
+    datatype: float
+    description: Covariance of x and y of forced-source naive centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: centroid_naive_yVar
+    "@id": "#RunDeepForcedSource.centroid_naive_yVar"
+    datatype: float
+    description: Variance of y. forced-source naive centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: centroid_naive_flags
+    "@id": "#RunDeepForcedSource.centroid_naive_flags"
+    datatype: boolean
+    description: set if naive centroid is unreliable
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: flags_pixel_edge
+    "@id": "#RunDeepForcedSource.flags_pixel_edge"
+    datatype: boolean
+    description: Set if forced-source is in region labeled EDGE.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flags_pixel_interpolated_any
+    "@id": "#RunDeepForcedSource.flags_pixel_interpolated_any"
+    datatype: boolean
+    description: Set if forced-source footprint includes interpolated pixels.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flags_pixel_interpolated_center
+    "@id": "#RunDeepForcedSource.flags_pixel_interpolated_center"
+    datatype: boolean
+    description: Set if forced-source center is close to interpolated pixels.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flags_pixel_saturated_any
+    "@id": "#RunDeepForcedSource.flags_pixel_saturated_any"
+    datatype: boolean
+    description: Set if forced-source footprint includes saturated pixels.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flags_pixel_saturated_center
+    "@id": "#RunDeepForcedSource.flags_pixel_saturated_center"
+    datatype: boolean
+    description: Set if forced-source center is close to saturated pixels.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flags_pixel_cr_any
+    "@id": "#RunDeepForcedSource.flags_pixel_cr_any"
+    datatype: boolean
+    description: Set if forced-source footprint includes cosmic ray pixels
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flags_pixel_cr_center
+    "@id": "#RunDeepForcedSource.flags_pixel_cr_center"
+    datatype: boolean
+    description: Set if forced-source center is close to cosmic ray pixels
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flags_pixel_bad
+    "@id": "#RunDeepForcedSource.flags_pixel_bad"
+    datatype: boolean
+    description: 'Set if forced-source footptinyt incoudes bad pixels '
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: shape_sdss_Ixx
+    "@id": "#RunDeepForcedSource.shape_sdss_Ixx"
+    datatype: double
+    description: Second moment.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel^2
+  - name: shape_sdss_Iyy
+    "@id": "#RunDeepForcedSource.shape_sdss_Iyy"
+    datatype: double
+    description: Second moment.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel^2
+  - name: shape_sdss_Ixy
+    "@id": "#RunDeepForcedSource.shape_sdss_Ixy"
+    datatype: double
+    description: Second moment.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel^2
+  - name: shape_sdss_IxxVar
+    "@id": "#RunDeepForcedSource.shape_sdss_IxxVar"
+    datatype: float
+    description: Variance of shapeIxx.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.variance
+  - name: shape_sdss_IxxIyyCov
+    "@id": "#RunDeepForcedSource.shape_sdss_IxxIyyCov"
+    datatype: float
+    description: Covariance of shapeIxx and shapeIyy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_IxxIxyCov
+    "@id": "#RunDeepForcedSource.shape_sdss_IxxIxyCov"
+    datatype: float
+    description: Covariance of shapeIxx and shapeIxy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_IyyVar
+    "@id": "#RunDeepForcedSource.shape_sdss_IyyVar"
+    datatype: float
+    description: Variance of shapeIyy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.variance
+  - name: shape_sdss_IyyIxyCov
+    "@id": "#RunDeepForcedSource.shape_sdss_IyyIxyCov"
+    datatype: float
+    description: Covariance of shapeIyy and shapeIxy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_IxyVar
+    "@id": "#RunDeepForcedSource.shape_sdss_IxyVar"
+    datatype: float
+    description: Variance of shapeIyy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.variance
+  - name: shape_sdss_flags
+    "@id": "#RunDeepForcedSource.shape_sdss_flags"
+    datatype: boolean
+    description: set if SDSS shape measurement is unreliable
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: shape_sdss_centroid_x
+    "@id": "#RunDeepForcedSource.shape_sdss_centroid_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of forced-source shape centroid, LSST pixel
+      coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: shape_sdss_centroid_y
+    "@id": "#RunDeepForcedSource.shape_sdss_centroid_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of forced-source shape centroid, LSST pixel
+      coordinate conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: shape_sdss_centroid_xVar
+    "@id": "#RunDeepForcedSource.shape_sdss_centroid_xVar"
+    datatype: float
+    description: Variance of x. of forced-source shape centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: shape_sdss_centroid_xyCov
+    "@id": "#RunDeepForcedSource.shape_sdss_centroid_xyCov"
+    datatype: float
+    description: Covariance of x and y of forced-source shape centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_centroid_yVar
+    "@id": "#RunDeepForcedSource.shape_sdss_centroid_yVar"
+    datatype: float
+    description: Variance of y. forced-source naive centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: shape_sdss_centroid_flags
+    "@id": "#RunDeepForcedSource.shape_sdss_centroid_flags"
+    datatype: boolean
+    description: set if centroid measured by SDSS shape algorithm is unreliable
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: shape_sdss_flags_unweightedbad
+    "@id": "#RunDeepForcedSource.shape_sdss_flags_unweightedbad"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: shape_sdss_flags_unweighted
+    "@id": "#RunDeepForcedSource.shape_sdss_flags_unweighted"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: shape_sdss_flags_shift
+    "@id": "#RunDeepForcedSource.shape_sdss_flags_shift"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: shape_sdss_flags_maxiter
+    "@id": "#RunDeepForcedSource.shape_sdss_flags_maxiter"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_gaussian
+    "@id": "#RunDeepForcedSource.flux_gaussian"
+    datatype: double
+    description: Uncalibrated gaussian flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_gaussian_err
+    "@id": "#RunDeepForcedSource.flux_gaussian_err"
+    datatype: double
+    description: Uncertainty of flux_gaussian.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_gaussian_flags
+    "@id": "#RunDeepForcedSource.flux_gaussian_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_gaussian_psffactor
+    "@id": "#RunDeepForcedSource.flux_gaussian_psffactor"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: flux_gaussian_flags_psffactor
+    "@id": "#RunDeepForcedSource.flux_gaussian_flags_psffactor"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_naive
+    "@id": "#RunDeepForcedSource.flux_naive"
+    datatype: double
+    description: Uncalibrated naive flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_naive_err
+    "@id": "#RunDeepForcedSource.flux_naive_err"
+    datatype: double
+    description: Uncertainty of flux_naive.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_naive_flags
+    "@id": "#RunDeepForcedSource.flux_naive_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_psf
+    "@id": "#RunDeepForcedSource.flux_psf"
+    datatype: double
+    description: Uncalibrated PSF flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_psf_err
+    "@id": "#RunDeepForcedSource.flux_psf_err"
+    datatype: double
+    description: Uncertainty of flux_psf.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_psf_flags
+    "@id": "#RunDeepForcedSource.flux_psf_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_psf_psffactor
+    "@id": "#RunDeepForcedSource.flux_psf_psffactor"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: flux_psf_flags_psffactor
+    "@id": "#RunDeepForcedSource.flux_psf_flags_psffactor"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_sinc
+    "@id": "#RunDeepForcedSource.flux_sinc"
+    datatype: double
+    description: Uncalibrated sinc flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_sinc_err
+    "@id": "#RunDeepForcedSource.flux_sinc_err"
+    datatype: double
+    description: Uncertainty of flux_sinc.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_sinc_flags
+    "@id": "#RunDeepForcedSource.flux_sinc_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: correctfluxes_apcorr
+    "@id": "#RunDeepForcedSource.correctfluxes_apcorr"
+    datatype: float
+    description: Aperture correction factor applied to fluxes
+    mysql:datatype: FLOAT
+    ivoa:ucd: arith.factor
+  - name: correctfluxes_apcorr_flags
+    "@id": "#RunDeepForcedSource.correctfluxes_apcorr_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: centroid_record_x
+    "@id": "#RunDeepForcedSource.centroid_record_x"
+    datatype: double
+    mysql:datatype: DOUBLE
+  - name: centroid_record_y
+    "@id": "#RunDeepForcedSource.centroid_record_y"
+    datatype: double
+    mysql:datatype: DOUBLE
+  - name: classification_extendedness
+    "@id": "#RunDeepForcedSource.classification_extendedness"
+    datatype: double
+    description: Probability of being extended.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: stat.probability
+  - name: refFlux
+    "@id": "#RunDeepForcedSource.refFlux"
+    datatype: double
+    description: Flux of the reference deep source on coadd.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: refFlux_err
+    "@id": "#RunDeepForcedSource.refFlux_err"
+    datatype: double
+    description: Error of lux of the reference deep source on coadd.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: objectId
+    "@id": "#RunDeepForcedSource.objectId"
+    datatype: long
+    description: ID of object this source was assigned to. NULL if the source did
+      not participate in spatial clustering, or if the clustering algorithm considered
+      the source to be a 'noise' source.
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;src
+  - name: coord_raVar
+    "@id": "#RunDeepForcedSource.coord_raVar"
+    datatype: float
+    description: Variance of ra, taken from the sample covariance matrix of (ra, decl).
+      The standard error of the mean ra is sqrt(raVar/obsCount)
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec^2
+    ivoa:ucd: stat.variance;pos.eq.ra
+  - name: coord_radeclCov
+    "@id": "#RunDeepForcedSource.coord_radeclCov"
+    datatype: float
+    description: Sample covariance of ra and decl.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec^2
+    ivoa:ucd: stat.covariance;pos.eq
+  - name: coord_declVar
+    "@id": "#RunDeepForcedSource.coord_declVar"
+    datatype: float
+    description: Variance of decl, taken from the sample covariance matrix of (ra,
+      decl). The standard error of the mean decl is sqrt(declVar/obsCount)
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec^2
+    ivoa:ucd: stat.variance;pos.eq.dec
+  - name: exposure_id
+    "@id": "#RunDeepForcedSource.exposure_id"
+    datatype: long
+    description: Exposure identifier.
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;obs.image
+  - name: exposure_filter_id
+    "@id": "#RunDeepForcedSource.exposure_filter_id"
+    datatype: int
+    description: Id of the filter for the band.
+    mysql:datatype: INT(11)
+    ivoa:ucd: meta.id;instr.filter
+  - name: exposure_time
+    "@id": "#RunDeepForcedSource.exposure_time"
+    datatype: float
+    description: Duration of exposure.
+    mysql:datatype: FLOAT
+    fits:tunit: s
+    ivoa:ucd: time.duration
+  - name: exposure_time_mid
+    "@id": "#RunDeepForcedSource.exposure_time_mid"
+    datatype: double
+    description: Time (ISO8601 format, UTC) at the mid-point of the combined exposure.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: time.epoch
+  - name: cluster_id
+    "@id": "#RunDeepForcedSource.cluster_id"
+    datatype: long
+    description: ID of a deduplication cluster.
+    mysql:datatype: BIGINT(20)
+  - name: cluster_coord_ra
+    "@id": "#RunDeepForcedSource.cluster_coord_ra"
+    datatype: double
+    description: RA-coordinate of the center of cluster.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: cluster_coord_decl
+    "@id": "#RunDeepForcedSource.cluster_coord_decl"
+    datatype: double
+    description: Decl-coordinate of the center of cluster.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: is_primary
+    "@id": "#RunDeepForcedSource.is_primary"
+    datatype: boolean
+    description: True if does not come from de-duplication.
+    mysql:datatype: BIT(1)
+  - name: object_coord_ra
+    "@id": "#RunDeepForcedSource.object_coord_ra"
+    datatype: double
+    description: ICRS RA of object associated with this source, or ra if the source
+      was not associated with any object (objectId is NULL).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: object_coord_decl
+    "@id": "#RunDeepForcedSource.object_coord_decl"
+    datatype: double
+    description: ICRS Dec of object associated with this source, or decl if the source
+      was not associated with any object (objectId is NULL).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  primaryKey: "#RunDeepForcedSource.id"
+  mysql:charset: latin1
+- name: RunDeepSource
+  "@id": "#RunDeepSource"
+  columns:
+  - name: id
+    "@id": "#RunDeepSource.id"
+    datatype: long
+    description: Primary key (unique identifier).
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;src
+  - name: coord_ra
+    "@id": "#RunDeepSource.coord_ra"
+    datatype: double
+    description: ICRS RA of source centroid (x, y).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: coord_decl
+    "@id": "#RunDeepSource.coord_decl"
+    datatype: double
+    description: ICRS Dec of source centroid (x, y).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: coord_htmId20
+    "@id": "#RunDeepSource.coord_htmId20"
+    datatype: long
+    description: Level 20 HTM ID of (ra, decl)
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: pos.HTM
+  - name: parent
+    "@id": "#RunDeepSource.parent"
+    datatype: long
+    description: SDSS parentID
+    mysql:datatype: BIGINT(20)
+  - name: calib_detected
+    "@id": "#RunDeepSource.calib_detected"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_negative
+    "@id": "#RunDeepSource.flags_negative"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: deblend_nchild
+    "@id": "#RunDeepSource.deblend_nchild"
+    datatype: int
+    description: Number of children that this source has. Zero if it's the final deblending
+      product.
+    mysql:datatype: INT(11)
+  - name: deblend_deblended_as_psf
+    "@id": "#RunDeepSource.deblend_deblended_as_psf"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: deblend_psf_center_x
+    "@id": "#RunDeepSource.deblend_psf_center_x"
+    datatype: double
+    mysql:datatype: DOUBLE
+  - name: deblend_psf_center_y
+    "@id": "#RunDeepSource.deblend_psf_center_y"
+    datatype: double
+    mysql:datatype: DOUBLE
+  - name: deblend_psf_flux
+    "@id": "#RunDeepSource.deblend_psf_flux"
+    datatype: double
+    description: Deblended PSF flux of source.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: deblend_too_many_peaks
+    "@id": "#RunDeepSource.deblend_too_many_peaks"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: deblend_failed
+    "@id": "#RunDeepSource.deblend_failed"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_badcentroid
+    "@id": "#RunDeepSource.flags_badcentroid"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: centroid_sdss_x
+    "@id": "#RunDeepSource.centroid_sdss_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of source centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: centroid_sdss_y
+    "@id": "#RunDeepSource.centroid_sdss_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of source centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: centroid_sdss_xVar
+    "@id": "#RunDeepSource.centroid_sdss_xVar"
+    datatype: float
+    description: Variance of x.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: centroid_sdss_xyCov
+    "@id": "#RunDeepSource.centroid_sdss_xyCov"
+    datatype: float
+    description: Covariance of x and y
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: centroid_sdss_yVar
+    "@id": "#RunDeepSource.centroid_sdss_yVar"
+    datatype: float
+    description: Variance of y.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: centroid_sdss_flags
+    "@id": "#RunDeepSource.centroid_sdss_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: centroid_gaussian_x
+    "@id": "#RunDeepSource.centroid_gaussian_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of source centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: centroid_gaussian_y
+    "@id": "#RunDeepSource.centroid_gaussian_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of source centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: centroid_gaussian_xVar
+    "@id": "#RunDeepSource.centroid_gaussian_xVar"
+    datatype: float
+    description: Variance of x.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: centroid_gaussian_xyCov
+    "@id": "#RunDeepSource.centroid_gaussian_xyCov"
+    datatype: float
+    description: Covariance of x and y
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: centroid_gaussian_yVar
+    "@id": "#RunDeepSource.centroid_gaussian_yVar"
+    datatype: float
+    description: Variance of y.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: centroid_gaussian_flags
+    "@id": "#RunDeepSource.centroid_gaussian_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: centroid_naive_x
+    "@id": "#RunDeepSource.centroid_naive_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of source centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: centroid_naive_y
+    "@id": "#RunDeepSource.centroid_naive_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of source centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: centroid_naive_xVar
+    "@id": "#RunDeepSource.centroid_naive_xVar"
+    datatype: float
+    description: Variance of x.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: centroid_naive_xyCov
+    "@id": "#RunDeepSource.centroid_naive_xyCov"
+    datatype: float
+    description: Covariance of x and y
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: centroid_naive_yVar
+    "@id": "#RunDeepSource.centroid_naive_yVar"
+    datatype: float
+    description: Variance of y.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: centroid_naive_flags
+    "@id": "#RunDeepSource.centroid_naive_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: flags_pixel_edge
+    "@id": "#RunDeepSource.flags_pixel_edge"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_pixel_interpolated_any
+    "@id": "#RunDeepSource.flags_pixel_interpolated_any"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_pixel_interpolated_center
+    "@id": "#RunDeepSource.flags_pixel_interpolated_center"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_pixel_saturated_any
+    "@id": "#RunDeepSource.flags_pixel_saturated_any"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_pixel_saturated_center
+    "@id": "#RunDeepSource.flags_pixel_saturated_center"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_pixel_cr_any
+    "@id": "#RunDeepSource.flags_pixel_cr_any"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_pixel_cr_center
+    "@id": "#RunDeepSource.flags_pixel_cr_center"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flags_pixel_bad
+    "@id": "#RunDeepSource.flags_pixel_bad"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: shape_sdss_Ixx
+    "@id": "#RunDeepSource.shape_sdss_Ixx"
+    datatype: double
+    description: Second moment.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel^2
+  - name: shape_sdss_Iyy
+    "@id": "#RunDeepSource.shape_sdss_Iyy"
+    datatype: double
+    description: Second moment.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel^2
+  - name: shape_sdss_Ixy
+    "@id": "#RunDeepSource.shape_sdss_Ixy"
+    datatype: double
+    description: Second moment.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel^2
+  - name: shape_sdss_IxxVar
+    "@id": "#RunDeepSource.shape_sdss_IxxVar"
+    datatype: float
+    description: Variance of shapeIxx.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.variance
+  - name: shape_sdss_IxxIyyCov
+    "@id": "#RunDeepSource.shape_sdss_IxxIyyCov"
+    datatype: float
+    description: Covariance of shapeIxx and shapeIyy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_IxxIxyCov
+    "@id": "#RunDeepSource.shape_sdss_IxxIxyCov"
+    datatype: float
+    description: Covariance of shapeIxx and shapeIxy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_IyyVar
+    "@id": "#RunDeepSource.shape_sdss_IyyVar"
+    datatype: float
+    description: Variance of shapeIyy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.variance
+  - name: shape_sdss_IyyIxyCov
+    "@id": "#RunDeepSource.shape_sdss_IyyIxyCov"
+    datatype: float
+    description: Covariance of shapeIyy and shapeIxy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_IxyVar
+    "@id": "#RunDeepSource.shape_sdss_IxyVar"
+    datatype: float
+    description: Variance of shapeIxy.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^4
+    ivoa:ucd: stat.variance
+  - name: shape_sdss_flags
+    "@id": "#RunDeepSource.shape_sdss_flags"
+    datatype: boolean
+    description: set if SDSS shape measurement is unreliable
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: shape_sdss_centroid_x
+    "@id": "#RunDeepSource.shape_sdss_centroid_x"
+    datatype: double
+    description: Pixel axis 1 coordinate of source shape centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: shape_sdss_centroid_y
+    "@id": "#RunDeepSource.shape_sdss_centroid_y"
+    datatype: double
+    description: Pixel axis 2 coordinate of source shape centroid, LSST pixel coordinate
+      conventions.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: shape_sdss_centroid_xVar
+    "@id": "#RunDeepSource.shape_sdss_centroid_xVar"
+    datatype: float
+    description: Variance of x. of source shape centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.x
+  - name: shape_sdss_centroid_xyCov
+    "@id": "#RunDeepSource.shape_sdss_centroid_xyCov"
+    datatype: float
+    description: Covariance of x and y of source shape centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: shape_sdss_centroid_yVar
+    "@id": "#RunDeepSource.shape_sdss_centroid_yVar"
+    datatype: float
+    description: Variance of y. source naive centroid
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.variance;pos.cartesian.y
+  - name: shape_sdss_centroid_flags
+    "@id": "#RunDeepSource.shape_sdss_centroid_flags"
+    datatype: boolean
+    description: set if centroid measured by SDSS shape algorithm is unreliable
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: shape_sdss_flags_unweightedbad
+    "@id": "#RunDeepSource.shape_sdss_flags_unweightedbad"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: shape_sdss_flags_unweighted
+    "@id": "#RunDeepSource.shape_sdss_flags_unweighted"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: shape_sdss_flags_shift
+    "@id": "#RunDeepSource.shape_sdss_flags_shift"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: shape_sdss_flags_maxiter
+    "@id": "#RunDeepSource.shape_sdss_flags_maxiter"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flux_gaussian
+    "@id": "#RunDeepSource.flux_gaussian"
+    datatype: double
+    description: Gaussian flux of source.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_gaussian_err
+    "@id": "#RunDeepSource.flux_gaussian_err"
+    datatype: double
+    description: Uncertainty of gaussian flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_gaussian_flags
+    "@id": "#RunDeepSource.flux_gaussian_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: flux_gaussian_psffactor
+    "@id": "#RunDeepSource.flux_gaussian_psffactor"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: flux_gaussian_flags_psffactor
+    "@id": "#RunDeepSource.flux_gaussian_flags_psffactor"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_naive
+    "@id": "#RunDeepSource.flux_naive"
+    datatype: double
+    description: Uncalibrated naive flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_naive_err
+    "@id": "#RunDeepSource.flux_naive_err"
+    datatype: double
+    description: Uncertainty of flux_naive.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_naive_flags
+    "@id": "#RunDeepSource.flux_naive_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_psf
+    "@id": "#RunDeepSource.flux_psf"
+    datatype: double
+    description: Uncalibrated PSF flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_psf_err
+    "@id": "#RunDeepSource.flux_psf_err"
+    datatype: double
+    description: Uncertainty of flux_psf.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_psf_flags
+    "@id": "#RunDeepSource.flux_psf_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_psf_psffactor
+    "@id": "#RunDeepSource.flux_psf_psffactor"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: flux_psf_flags_psffactor
+    "@id": "#RunDeepSource.flux_psf_flags_psffactor"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: flux_sinc
+    "@id": "#RunDeepSource.flux_sinc"
+    datatype: double
+    description: Uncalibrated sinc flux.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: flux_sinc_err
+    "@id": "#RunDeepSource.flux_sinc_err"
+    datatype: double
+    description: Uncertainty of flux_sinc.
+    mysql:datatype: DOUBLE
+    fits:tunit: adu
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: flux_sinc_flags
+    "@id": "#RunDeepSource.flux_sinc_flags"
+    datatype: boolean
+    mysql:datatype: BIT(1)
+  - name: multishapelet_psf_inner_1
+    "@id": "#RunDeepSource.multishapelet_psf_inner_1"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: multishapelet_psf_outer_1
+    "@id": "#RunDeepSource.multishapelet_psf_outer_1"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: multishapelet_psf_ellipse_Ixx
+    "@id": "#RunDeepSource.multishapelet_psf_ellipse_Ixx"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: multishapelet_psf_ellipse_Iyy
+    "@id": "#RunDeepSource.multishapelet_psf_ellipse_Iyy"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: multishapelet_psf_ellipse_Ixy
+    "@id": "#RunDeepSource.multishapelet_psf_ellipse_Ixy"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: multishapelet_psf_chisq
+    "@id": "#RunDeepSource.multishapelet_psf_chisq"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: multishapelet_psf_integral
+    "@id": "#RunDeepSource.multishapelet_psf_integral"
+    datatype: float
+    mysql:datatype: FLOAT
+  - name: multishapelet_psf_flags
+    "@id": "#RunDeepSource.multishapelet_psf_flags"
+    datatype: boolean
+    description: The multishapelet PSF fit is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_psf_flags_maxiter
+    "@id": "#RunDeepSource.multishapelet_psf_flags_maxiter"
+    datatype: boolean
+    description: Set if the optimizer ran into the maximum number of iterations limit
+      for the multishapelet PSF fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_psf_flags_tinystep
+    "@id": "#RunDeepSource.multishapelet_psf_flags_tinystep"
+    datatype: boolean
+    description: Set if the optimizer step or trust region got so small no progress
+      could be made for the multishapelet PSF fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_psf_flags_constraint_r
+    "@id": "#RunDeepSource.multishapelet_psf_flags_constraint_r"
+    datatype: boolean
+    description: Set if the best-fit ellipticity was the minimum allowed by the constraint
+      (not a failure) for the multishapelet PSF fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: multishapelet_psf_flags_constraint_q
+    "@id": "#RunDeepSource.multishapelet_psf_flags_constraint_q"
+    datatype: boolean
+    description: Set if the best-fit ellipticity was the maximum allowed by the constraint
+      for the multishapelet PSF fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_dev_flux
+    "@id": "#RunDeepSource.multishapelet_dev_flux"
+    datatype: double
+    description: Uncalibrated flux from the multishapelet de Vaucouleur fit.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: multishapelet_dev_flux_err
+    "@id": "#RunDeepSource.multishapelet_dev_flux_err"
+    datatype: double
+    description: Uncertainty of multishapelet_dev_flux.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: multishapelet_dev_flux_flags
+    "@id": "#RunDeepSource.multishapelet_dev_flux_flags"
+    datatype: boolean
+    description: Flux from the multishapelet de Vaucouleur fit is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_dev_psffactor
+    "@id": "#RunDeepSource.multishapelet_dev_psffactor"
+    datatype: float
+    description: PSF factor for the multishapelet de Vaucouleur fit is unreliable.
+    mysql:datatype: FLOAT
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_dev_flags_psffactor
+    "@id": "#RunDeepSource.multishapelet_dev_flags_psffactor"
+    datatype: boolean
+    description: PSF factor for the multishapelet de Vaucouleur fit is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_dev_ellipse_Ixx
+    "@id": "#RunDeepSource.multishapelet_dev_ellipse_Ixx"
+    datatype: double
+    description: Ellipse xx moment for the multishapelet de Vaucouleur fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_dev_ellipse_Iyy
+    "@id": "#RunDeepSource.multishapelet_dev_ellipse_Iyy"
+    datatype: double
+    description: Ellipse yy moment for the multishapelet de Vaucouleur fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_dev_ellipse_Ixy
+    "@id": "#RunDeepSource.multishapelet_dev_ellipse_Ixy"
+    datatype: double
+    description: Ellipse xy moment for the multishapelet de Vaucouleur fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_dev_psffactor_ellipse_Ixx
+    "@id": "#RunDeepSource.multishapelet_dev_psffactor_ellipse_Ixx"
+    datatype: double
+    description: Ellipse xx moment for the PSF factor for the multishapelet de Vaucouleur
+      fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_dev_psffactor_ellipse_Iyy
+    "@id": "#RunDeepSource.multishapelet_dev_psffactor_ellipse_Iyy"
+    datatype: double
+    description: Ellipse yy moment for the PSF factor for the multishapelet de Vaucouleur
+      fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_dev_psffactor_ellipse_Ixy
+    "@id": "#RunDeepSource.multishapelet_dev_psffactor_ellipse_Ixy"
+    datatype: double
+    description: Ellipse xy moment for the PSF factor for the multishapelet de Vaucouleur
+      fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_dev_chisq
+    "@id": "#RunDeepSource.multishapelet_dev_chisq"
+    datatype: float
+    description: Reduced chi-square for the multishapelet de Vaucouleur fit.
+    mysql:datatype: FLOAT
+  - name: multishapelet_dev_flags_maxiter
+    "@id": "#RunDeepSource.multishapelet_dev_flags_maxiter"
+    datatype: boolean
+    description: Set if the optimizer ran into the maximum number of iterations limit
+      for the multishapelet de Vaucouleur fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_dev_flags_tinystep
+    "@id": "#RunDeepSource.multishapelet_dev_flags_tinystep"
+    datatype: boolean
+    description: Set if the optimizer step or trust region got so small no progress
+      could be made for the multishapelet de Vaucouleur fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_dev_flags_constraint_r
+    "@id": "#RunDeepSource.multishapelet_dev_flags_constraint_r"
+    datatype: boolean
+    description: Set if the best-fit ellipticity was the minimum allowed by the constraint
+      (not a failure) for the multishapelet de Vaucouleur fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: multishapelet_dev_flags_constraint_q
+    "@id": "#RunDeepSource.multishapelet_dev_flags_constraint_q"
+    datatype: boolean
+    description: Set if the best-fit ellipticity was the maximum allowed by the constraint
+      for the multishapelet de Vaucouleur fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_dev_flags_largearea
+    "@id": "#RunDeepSource.multishapelet_dev_flags_largearea"
+    datatype: boolean
+    description: Set if the best-fit half-light ellipse area is larger than the number
+      of pixels used for the multishapelet de Vaucouleur fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_exp_flux
+    "@id": "#RunDeepSource.multishapelet_exp_flux"
+    datatype: double
+    description: Uncalibrated flux from the multishapelet exponential fit.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: multishapelet_exp_flux_err
+    "@id": "#RunDeepSource.multishapelet_exp_flux_err"
+    datatype: double
+    description: Uncertainty of multishapelet_exp_flux.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: multishapelet_exp_flux_flags
+    "@id": "#RunDeepSource.multishapelet_exp_flux_flags"
+    datatype: boolean
+    description: Flux from the multishapelet exponential fit is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_exp_psffactor
+    "@id": "#RunDeepSource.multishapelet_exp_psffactor"
+    datatype: float
+    description: PSF factor for the multishapelet exponential fit.
+    mysql:datatype: FLOAT
+  - name: multishapelet_exp_flags_psffactor
+    "@id": "#RunDeepSource.multishapelet_exp_flags_psffactor"
+    datatype: boolean
+    description: PSF factor for the multishapelet combo fit is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_exp_ellipse_Ixx
+    "@id": "#RunDeepSource.multishapelet_exp_ellipse_Ixx"
+    datatype: double
+    description: Ellipse xx moment for the multishapelet exponential fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_exp_ellipse_Iyy
+    "@id": "#RunDeepSource.multishapelet_exp_ellipse_Iyy"
+    datatype: double
+    description: Ellipse yy moment for the multishapelet exponential fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_exp_ellipse_Ixy
+    "@id": "#RunDeepSource.multishapelet_exp_ellipse_Ixy"
+    datatype: double
+    description: Ellipse xy moment for the multishapelet exponential fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_exp_psffactor_ellipse_Ixx
+    "@id": "#RunDeepSource.multishapelet_exp_psffactor_ellipse_Ixx"
+    datatype: double
+    description: Ellipse xx moment for the PSF factor for the multishapelet exponential
+      fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_exp_psffactor_ellipse_Iyy
+    "@id": "#RunDeepSource.multishapelet_exp_psffactor_ellipse_Iyy"
+    datatype: double
+    description: Ellipse yy moment for the PSF factor for the multishapelet exponential
+      fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_exp_psffactor_ellipse_Ixy
+    "@id": "#RunDeepSource.multishapelet_exp_psffactor_ellipse_Ixy"
+    datatype: double
+    description: Ellipse xy moment for the PSF factor for the multishapelet exponential
+      fit.
+    mysql:datatype: DOUBLE
+  - name: multishapelet_exp_chisq
+    "@id": "#RunDeepSource.multishapelet_exp_chisq"
+    datatype: float
+    description: Reduced chi-square for the multishapelet exponential fit.
+    mysql:datatype: FLOAT
+  - name: multishapelet_exp_flags_maxiter
+    "@id": "#RunDeepSource.multishapelet_exp_flags_maxiter"
+    datatype: boolean
+    description: Set if the optimizer ran into the maximum number of iterations limit
+      for the multishapelet exponential fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_exp_flags_tinystep
+    "@id": "#RunDeepSource.multishapelet_exp_flags_tinystep"
+    datatype: boolean
+    description: Set if the optimizer step or trust region got so small no progress
+      could be made for the multishapelet exponential fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_exp_flags_constraint_r
+    "@id": "#RunDeepSource.multishapelet_exp_flags_constraint_r"
+    datatype: boolean
+    description: Set if the best-fit ellipticity was the minimum allowed by the constraint
+      (not a failure) for the multishapelet exponential fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: multishapelet_exp_flags_constraint_q
+    "@id": "#RunDeepSource.multishapelet_exp_flags_constraint_q"
+    datatype: boolean
+    description: Set if the best-fit ellipticity was the maximum allowed by the constraint
+      for the multishapelet exponential fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_exp_flags_largearea
+    "@id": "#RunDeepSource.multishapelet_exp_flags_largearea"
+    datatype: boolean
+    description: Set if the best-fit half-light ellipse area is larger than the number
+      of pixels used for the multishapelet exponential fit.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_combo_flux
+    "@id": "#RunDeepSource.multishapelet_combo_flux"
+    datatype: double
+    description: Uncalibrated flux from the multishapelet combo fit.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phot.count;stat.uncalib
+  - name: multishapelet_combo_flux_err
+    "@id": "#RunDeepSource.multishapelet_combo_flux_err"
+    datatype: double
+    description: Uncertainty of multishapelet_combo_flux.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: stat.error;phot.count;stat.uncalib
+  - name: multishapelet_combo_flux_flags
+    "@id": "#RunDeepSource.multishapelet_combo_flux_flags"
+    datatype: boolean
+    description: Flux from the multishapelet combo fit is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_combo_psffactor
+    "@id": "#RunDeepSource.multishapelet_combo_psffactor"
+    datatype: float
+    description: PSF factor for the multishapelet combo fit.
+    mysql:datatype: FLOAT
+  - name: multishapelet_combo_flags_psffactor
+    "@id": "#RunDeepSource.multishapelet_combo_flags_psffactor"
+    datatype: boolean
+    description: PSF factor for the multishapelet combo fit is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: multishapelet_combo_components_1
+    "@id": "#RunDeepSource.multishapelet_combo_components_1"
+    datatype: float
+    description: Component 1 coefficient for the multishapelet combo fit.
+    mysql:datatype: FLOAT
+  - name: multishapelet_combo_components_2
+    "@id": "#RunDeepSource.multishapelet_combo_components_2"
+    datatype: float
+    description: Component 2 coefficient for the multishapelet combo fit.
+    mysql:datatype: FLOAT
+  - name: multishapelet_combo_chisq
+    "@id": "#RunDeepSource.multishapelet_combo_chisq"
+    datatype: float
+    description: Chi-square for the multishapelet combo fit.
+    mysql:datatype: FLOAT
+  - name: correctfluxes_apcorr
+    "@id": "#RunDeepSource.correctfluxes_apcorr"
+    datatype: float
+    description: Aperture correction factor applied to fluxes.
+    mysql:datatype: FLOAT
+    ivoa:ucd: arith.factor
+  - name: correctfluxes_apcorr_flags
+    "@id": "#RunDeepSource.correctfluxes_apcorr_flags"
+    datatype: boolean
+    description: Set if aperture correction is unreliable.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code.error
+  - name: classification_extendedness
+    "@id": "#RunDeepSource.classification_extendedness"
+    datatype: double
+    description: Probability of being extended.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: stat.probability
+  - name: detect_is_patch_inner
+    "@id": "#RunDeepSource.detect_is_patch_inner"
+    datatype: boolean
+    description: Detection is in the non-overlapping region of the patch.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: detect_is_tract_inner
+    "@id": "#RunDeepSource.detect_is_tract_inner"
+    datatype: boolean
+    description: Detection is in the non-overlapping region of the tract.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: detect_is_primary
+    "@id": "#RunDeepSource.detect_is_primary"
+    datatype: boolean
+    description: Detection is the primary of a set of overlapping detections.
+    mysql:datatype: BIT(1)
+    ivoa:ucd: meta.code
+  - name: coord_raVar
+    "@id": "#RunDeepSource.coord_raVar"
+    datatype: float
+    description: Variance of ra due to centroid uncertainty (xVar, xyCov, yVar).
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.variance;pos.eq
+  - name: coord_radeclCov
+    "@id": "#RunDeepSource.coord_radeclCov"
+    datatype: float
+    description: Covariance of ra, decl due to centroid uncertainty (xVar, xyCov,
+      yVar).
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance;pos.eq
+  - name: coord_declVar
+    "@id": "#RunDeepSource.coord_declVar"
+    datatype: float
+    description: Variance of decl due to centroid uncertainty (xVar, xyCov, yVar).
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.variance;pos.eq.dec
+  - name: coadd_id
+    "@id": "#RunDeepSource.coadd_id"
+    datatype: long
+    description: ID of the coadd the source was detected and measured on (pointer
+      to DeepCoadd).
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;obs.image
+  - name: coadd_filter_id
+    "@id": "#RunDeepSource.coadd_filter_id"
+    datatype: int
+    description: ID of filter used for the coadd the source was detected and measured
+      on (pointer to DeepCoadd).
+    mysql:datatype: INT(11)
+    ivoa:ucd: meta.id;instr.filter
+  primaryKey: "#RunDeepSource.id"
+  mysql:charset: latin1
+- name: Science_Ccd_Exposure
+  "@id": "#Science_Ccd_Exposure"
+  columns:
+  - name: scienceCcdExposureId
+    "@id": "#Science_Ccd_Exposure.scienceCcdExposureId"
+    datatype: long
+    description: Primary key (unique identifier).
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;obs.image
+  - name: run
+    "@id": "#Science_Ccd_Exposure.run"
+    datatype: int
+    description: Run number.
+    mysql:datatype: INT(11)
+  - name: camcol
+    "@id": "#Science_Ccd_Exposure.camcol"
+    datatype: byte
+    description: Camera column.
+    mysql:datatype: TINYINT(4)
+  - name: filterId
+    "@id": "#Science_Ccd_Exposure.filterId"
+    datatype: byte
+    description: Id of the filter for the band.
+    mysql:datatype: TINYINT(4)
+    ivoa:ucd: meta.id;instr.filter
+  - name: field
+    "@id": "#Science_Ccd_Exposure.field"
+    datatype: int
+    description: Field number.
+    mysql:datatype: INT(11)
+  - name: filterName
+    "@id": "#Science_Ccd_Exposure.filterName"
+    datatype: char
+    description: Filter name, pulled in from the Filter table.
+    length: 3
+    mysql:datatype: CHAR(3)
+    ivoa:ucd: instr.bandpass
+  - name: ra
+    "@id": "#Science_Ccd_Exposure.ra"
+    datatype: double
+    description: ICRS R.A. of image center, corresponding to FITS pixel coordinates
+      ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: decl
+    "@id": "#Science_Ccd_Exposure.decl"
+    datatype: double
+    description: ICRS Dec. of image center, corresponding to FITS pixel coordinates
+      ((NAXIS1 + 1)/2, (NAXIS2 + 1)/2).
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: htmId20
+    "@id": "#Science_Ccd_Exposure.htmId20"
+    datatype: long
+    description: Level 20 HTM ID of (ra, decl)
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: pos.HTM
+  - name: equinox
+    "@id": "#Science_Ccd_Exposure.equinox"
+    datatype: float
+    description: Equinox of coordinates
+    mysql:datatype: FLOAT
+    ivoa:ucd: pos.equinox
+  - name: raDeSys
+    "@id": "#Science_Ccd_Exposure.raDeSys"
+    datatype: string
+    description: Coordinate system for equinox
+    length: 20
+    mysql:datatype: VARCHAR(20)
+    ivoa:ucd: pos.frame
+  - name: ctype1
+    "@id": "#Science_Ccd_Exposure.ctype1"
+    datatype: string
+    description: Coordinate type
+    length: 20
+    mysql:datatype: VARCHAR(20)
+    ivoa:ucd: pos.wcs.ctype
+  - name: ctype2
+    "@id": "#Science_Ccd_Exposure.ctype2"
+    datatype: string
+    description: Coordinate type
+    length: 20
+    mysql:datatype: VARCHAR(20)
+    ivoa:ucd: pos.wcs.ctype
+  - name: crpix1
+    "@id": "#Science_Ccd_Exposure.crpix1"
+    datatype: float
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.wcs.ctype
+  - name: crpix2
+    "@id": "#Science_Ccd_Exposure.crpix2"
+    datatype: float
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.wcs.ctype
+  - name: crval1
+    "@id": "#Science_Ccd_Exposure.crval1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.wcs.crval
+  - name: crval2
+    "@id": "#Science_Ccd_Exposure.crval2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.wcs.crval
+  - name: cd1_1
+    "@id": "#Science_Ccd_Exposure.cd1_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: cd1_2
+    "@id": "#Science_Ccd_Exposure.cd1_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: cd2_1
+    "@id": "#Science_Ccd_Exposure.cd2_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: cd2_2
+    "@id": "#Science_Ccd_Exposure.cd2_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    fits:tunit: deg/pixel
+    ivoa:ucd: pos.wcs.cdmatrix
+  - name: corner1Ra
+    "@id": "#Science_Ccd_Exposure.corner1Ra"
+    datatype: double
+    description: ICRS RA of image corner 1, corresponding to FITS pixel coordinates
+      (0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner1Decl
+    "@id": "#Science_Ccd_Exposure.corner1Decl"
+    datatype: double
+    description: ICRS Dec of image corner 1, corresponding to FITS pixel coordinates
+      (0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: corner2Ra
+    "@id": "#Science_Ccd_Exposure.corner2Ra"
+    datatype: double
+    description: ICRS RA of image corner 2, corresponding to FITS pixel coordinates
+      (0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner2Decl
+    "@id": "#Science_Ccd_Exposure.corner2Decl"
+    datatype: double
+    description: ICRS Dec of image corner 2, corresponding to FITS pixel coordinates
+      (0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: corner3Ra
+    "@id": "#Science_Ccd_Exposure.corner3Ra"
+    datatype: double
+    description: ICRS RA of image corner 3, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner3Decl
+    "@id": "#Science_Ccd_Exposure.corner3Decl"
+    datatype: double
+    description: ICRS Dec of image corner 3, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, NAXIS2 + 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: corner4Ra
+    "@id": "#Science_Ccd_Exposure.corner4Ra"
+    datatype: double
+    description: ICRS RA of image corner 4, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: corner4Decl
+    "@id": "#Science_Ccd_Exposure.corner4Decl"
+    datatype: double
+    description: ICRS Dec of image corner 4, corresponding to FITS pixel coordinates
+      (NAXIS1 + 0.5, 0.5)
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: poly
+    "@id": "#Science_Ccd_Exposure.poly"
+    datatype: binary
+    description: Binary representation of the 4-corner polygon for the exposure.
+    length: 120
+    mysql:datatype: BINARY(120)
+  - name: taiMjd
+    "@id": "#Science_Ccd_Exposure.taiMjd"
+    datatype: double
+    description: Time (MJD, TAI) at the start of the exposure.
+    mysql:datatype: DOUBLE
+    fits:tunit: d
+    ivoa:ucd: time.start
+  - name: obsStart
+    "@id": "#Science_Ccd_Exposure.obsStart"
+    datatype: timestamp
+    description: Time (UTC, 1s precision) at the start of the exposure.
+    defaultValue: CURRENT_TIMESTAMP
+    mysql:datatype: TIMESTAMP
+    ivoa:ucd: time.start
+  - name: expMidpt
+    "@id": "#Science_Ccd_Exposure.expMidpt"
+    datatype: string
+    description: Time (ISO8601 format, UTC) at the mid-point of the combined exposure.
+    length: 30
+    mysql:datatype: VARCHAR(30)
+    ivoa:ucd: time.epoch
+  - name: expTime
+    "@id": "#Science_Ccd_Exposure.expTime"
+    datatype: float
+    description: Duration of exposure.
+    mysql:datatype: FLOAT
+    fits:tunit: s
+    ivoa:ucd: time.duration
+  - name: nCombine
+    "@id": "#Science_Ccd_Exposure.nCombine"
+    datatype: int
+    description: Number of images co-added to create a deeper image.
+    mysql:datatype: INT(11)
+  - name: binX
+    "@id": "#Science_Ccd_Exposure.binX"
+    datatype: int
+    description: Binning of the CCD in x.
+    mysql:datatype: INT(11)
+    fits:tunit: pixel
+    ivoa:ucd: meta.number
+  - name: binY
+    "@id": "#Science_Ccd_Exposure.binY"
+    datatype: int
+    description: Binning of the CCD in y.
+    mysql:datatype: INT(11)
+    fits:tunit: pixel
+    ivoa:ucd: meta.number
+  - name: fluxMag0
+    "@id": "#Science_Ccd_Exposure.fluxMag0"
+    datatype: float
+    description: Flux of a zero-magnitude object.
+    mysql:datatype: FLOAT
+    ivoa:ucd: phot.flux.density
+  - name: fluxMag0Sigma
+    "@id": "#Science_Ccd_Exposure.fluxMag0Sigma"
+    datatype: float
+    description: 1-sigma error on fluxmag0.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error;phot.flux.density
+  - name: fwhm
+    "@id": "#Science_Ccd_Exposure.fwhm"
+    datatype: double
+    description: Full width at half maximum
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+    ivoa:ucd: instr.obsty.seeing
+  - name: path
+    "@id": "#Science_Ccd_Exposure.path"
+    datatype: string
+    description: CCD FITS file path relative to the SFM pipeline output directory.
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  primaryKey: "#Science_Ccd_Exposure.scienceCcdExposureId"
+  mysql:charset: latin1
+- name: Science_Ccd_Exposure_Metadata
+  "@id": "#Science_Ccd_Exposure_Metadata"
+  description: Generic key-value pair metadata for Science_Ccd_Exposure.
+  columns:
+  - name: scienceCcdExposureId
+    "@id": "#Science_Ccd_Exposure_Metadata.scienceCcdExposureId"
+    datatype: long
+    mysql:datatype: BIGINT(20)
+    ivoa:ucd: meta.id;obs.image
+  - name: metadataKey
+    "@id": "#Science_Ccd_Exposure_Metadata.metadataKey"
+    datatype: string
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  - name: exposureType
+    "@id": "#Science_Ccd_Exposure_Metadata.exposureType"
+    datatype: byte
+    description: |
+      Type of exposure.
+      values:
+      - 1: Science CCD
+      - 2: Difference Imaging CCD
+      - 3: Good-seeing coadd
+      - 4: Deep coadd
+      - 5: Chi-squared coadd
+      - 6: Keith coadd
+    mysql:datatype: TINYINT(4)
+  - name: intValue
+    "@id": "#Science_Ccd_Exposure_Metadata.intValue"
+    datatype: int
+    mysql:datatype: INT(11)
+  - name: doubleValue
+    "@id": "#Science_Ccd_Exposure_Metadata.doubleValue"
+    datatype: double
+    mysql:datatype: DOUBLE
+  - name: stringValue
+    "@id": "#Science_Ccd_Exposure_Metadata.stringValue"
+    datatype: string
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  primaryKey:
+  - "#Science_Ccd_Exposure_Metadata.scienceCcdExposureId"
+  - "#Science_Ccd_Exposure_Metadata.metadataKey"
+  mysql:charset: latin1
+- name: Science_Ccd_Exposure_NoFile
+  "@id": "#Science_Ccd_Exposure_NoFile"
+  columns:
+  - name: scienceCcdExposureId
+    "@id": "#Science_Ccd_Exposure_NoFile.scienceCcdExposureId"
+    datatype: long
+    mysql:datatype: BIGINT(20)
+  - name: run
+    "@id": "#Science_Ccd_Exposure_NoFile.run"
+    datatype: int
+    mysql:datatype: INT(11)
+  - name: filterId
+    "@id": "#Science_Ccd_Exposure_NoFile.filterId"
+    datatype: byte
+    mysql:datatype: TINYINT(4)
+  - name: camcol
+    "@id": "#Science_Ccd_Exposure_NoFile.camcol"
+    datatype: byte
+    mysql:datatype: TINYINT(4)
+  - name: field
+    "@id": "#Science_Ccd_Exposure_NoFile.field"
+    datatype: int
+    mysql:datatype: INT(11)
+  - name: path
+    "@id": "#Science_Ccd_Exposure_NoFile.path"
+    datatype: string
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  primaryKey: "#Science_Ccd_Exposure_NoFile.scienceCcdExposureId"
+  mysql:charset: latin1
+- name: Science_Ccd_Exposure_To_Htm10
+  "@id": "#Science_Ccd_Exposure_To_Htm10"
+  columns:
+  - name: scienceCcdExposureId
+    "@id": "#Science_Ccd_Exposure_To_Htm10.scienceCcdExposureId"
+    datatype: long
+    description: Pointer to Science_Ccd_Exposure.
+    mysql:datatype: BIGINT(20)
+  - name: htmId10
+    "@id": "#Science_Ccd_Exposure_To_Htm10.htmId10"
+    datatype: int
+    description: ID for Level 10 HTM triangle overlapping exposure. For each exposure
+      in DeepCoadd, there will be one row for every overlapping triangle.
+    mysql:datatype: INT(11)
+    ivoa:ucd: pos.HTM
+  mysql:charset: latin1
+- name: ZZZ_Db_Description
+  "@id": "#ZZZ_Db_Description"
+  columns:
+  - name: f
+    "@id": "#ZZZ_Db_Description.f"
+    datatype: string
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  - name: r
+    "@id": "#ZZZ_Db_Description.r"
+    datatype: string
+    length: 255
+    mysql:datatype: VARCHAR(255)
+  mysql:charset: latin1
+
