@@ -3205,3 +3205,773 @@ tables:
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
+- name: Source
+  "@id": "#Source"
+  description: Table to store high signal-to-noise sources;. A source is
+    a measurement of Object's properties from a single image that contains its footprint
+    on the sky.
+  columns:
+  - name: sourceId
+    "@id": "#Source.sourceId"
+    datatype: long
+    nullable: false
+    description: Unique id.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: coord_ra
+    "@id": "#Source.coord_ra"
+    datatype: double
+    nullable: false
+    description: RA-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: coord_dec
+    "@id": "#Source.coord_dec"
+    datatype: double
+    nullable: false
+    description: Decl-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: ccdVisitId
+    "@id": "#Source.ccdVisitId"
+    datatype: long
+    description: Id of the ccdVisit where this source was measured. Note that we are
+      allowing a source to belong to multiple amplifiers, but it may not span multiple
+      ccds.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;obs.image
+  - name: parentSourceId
+    "@id": "#Source.parentSourceId"
+    datatype: long
+    description: Id of the parent source this source has been deblended from, if any.
+    mysql:datatype: BIGINT
+  - name: visit
+    "@id": "#Source.visit"
+    datatype: long
+    description:
+    mysql:datatype: BIGINT
+  - name: ccd
+    "@id": "#Source.ccd"
+    datatype: long
+    description:
+    mysql:datatype: BIGINT
+  - name: pointing
+    "@id": "#Source.pointing"
+    datatype: long
+    description:
+    mysql:datatype: BIGINT
+  - name: filter
+    "@id": "#Source.filter"
+    datatype: string
+    description: Name of the filter used to take the exposure where this source was measured.
+    mysql:datatype: VARCHAR
+    ivoa:ucd: meta.id;instr.filter
+  - name: x
+    "@id": "#Source.x"
+    datatype: double
+    description: x position computed using an algorithm similar to that used by SDSS.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: y
+    "@id": "#Source.y"
+    datatype: double
+    description: y position computed using an algorithm similar to that used by SDSS.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: xErr
+    "@id": "#Source.xErr"
+    datatype: float
+    description: Uncertainty of x.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: stat.error:pos.cartesian.x
+  - name: yErr
+    "@id": "#Source.yErr"
+    datatype: float
+    description: Uncertainty of y.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: stat.error:pos.cartesian.y
+  - name: ra
+    "@id": "#Source.ra"
+    datatype: double
+    description: Calibrated RA-coordinate of the center of the source transformed
+      from xy.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: decl
+    "@id": "#Source.decl"
+    datatype: double
+    description: Calibated Decl-coordinate of the center of the source transformed
+      from xy.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: sky
+    "@id": "#Source.sky"
+    datatype: double
+    description: Estimated sky background at the position (centroid) of the source.
+    mysql:datatype: DOUBLE
+  - name: skyErr
+    "@id": "#Source.skyErr"
+    datatype: double
+    description: Uncertainty of sky.
+    mysql:datatype: DOUBLE
+  - name: PsFlux
+    "@id": "#Source.PsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: PsFluxErr
+    "@id": "#Source.PsFluxErr"
+    datatype: double
+    description: Uncertainty of psFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: Ixx
+    "@id": "#Source.Ixx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Iyy
+    "@id": "#Source.Iyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Ixy
+    "@id": "#Source.Ixy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: IxxPsf
+    "@id": "#Source.IxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: IyyPsf
+    "@id": "#Source.IyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: IxyPsf
+    "@id": "#Source.IxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: extendedness
+    "@id": "#Source.extendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux
+    "@id": "#Source.ApFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFluxErr
+    "@id": "#Source.ApFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: LocalPhotoCalib
+    "@id": "#Source.LocalPhotoCalib"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalPhotoCalib_flag
+    "@id": "#Source.LocalPhotoCalib_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalPhotoCalibErr
+    "@id": "#Source.LocalPhotoCalibErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_flag
+    "@id": "#Source.LocalWcs_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalWcs_CDMatrix_2_1
+    "@id": "#Source.LocalWcs_CDMatrix_2_1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_CDMatrix_1_1
+    "@id": "#Source.LocalWcs_CDMatrix_1_1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_CDMatrix_1_2
+    "@id": "#Source.LocalWcs_CDMatrix_1_2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_CDMatrix_2_2
+    "@id": "#Source.LocalWcs_CDMatrix_2_2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Blendedness_abs
+    "@id": "#Source.Blendedness_abs"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Blendedness_flag
+    "@id": "#Source.Blendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Blendedness_flag_noCentroid
+    "@id": "#Source.Blendedness_flag_noCentroid"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Blendedness_flag_noShape
+    "@id": "#Source.Blendedness_flag_noShape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_flag
+    "@id": "#Source.ApFlux_12_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_12_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_flag_sincCoeffsTruncated
+    "@id": "#Source.ApFlux_12_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_instFlux
+    "@id": "#Source.ApFlux_12_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_12_0_instFluxErr
+    "@id": "#Source.ApFlux_12_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_17_0_flag
+    "@id": "#Source.ApFlux_17_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_17_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_17_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_17_0_instFlux
+    "@id": "#Source.ApFlux_17_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_17_0_instFluxErr
+    "@id": "#Source.ApFlux_17_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_25_0_flag
+    "@id": "#Source.ApFlux_25_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_25_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_25_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_25_0_instFlux
+    "@id": "#Source.ApFlux_25_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_25_0_instFluxErr
+    "@id": "#Source.ApFlux_25_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_35_0_flag
+    "@id": "#Source.ApFlux_35_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_35_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_35_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_35_0_instFlux
+    "@id": "#Source.ApFlux_35_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_35_0_instFluxErr
+    "@id": "#Source.ApFlux_35_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_3_0_flag
+    "@id": "#Source.ApFlux_3_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_3_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_3_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_3_0_flag_sincCoeffsTruncated
+    "@id": "#Source.ApFlux_3_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_3_0_instFlux
+    "@id": "#Source.ApFlux_3_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_3_0_instFluxErr
+    "@id": "#Source.ApFlux_3_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_4_5_flag
+    "@id": "#Source.ApFlux_4_5_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_4_5_flag_apertureTruncated
+    "@id": "#Source.ApFlux_4_5_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_4_5_flag_sincCoeffsTruncated
+    "@id": "#Source.ApFlux_4_5_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_4_5_instFlux
+    "@id": "#Source.ApFlux_4_5_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_4_5_instFluxErr
+    "@id": "#Source.ApFlux_4_5_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_50_0_flag
+    "@id": "#Source.ApFlux_50_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_50_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_50_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_50_0_instFlux
+    "@id": "#Source.ApFlux_50_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_50_0_instFluxErr
+    "@id": "#Source.ApFlux_50_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_6_0_flag
+    "@id": "#Source.ApFlux_6_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_6_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_6_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_6_0_flag_sincCoeffsTruncated
+    "@id": "#Source.ApFlux_6_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_6_0_instFlux
+    "@id": "#Source.ApFlux_6_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_6_0_instFluxErr
+    "@id": "#Source.ApFlux_6_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_70_0_flag
+    "@id": "#Source.ApFlux_70_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_70_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_70_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_70_0_instFlux
+    "@id": "#Source.ApFlux_70_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_70_0_instFluxErr
+    "@id": "#Source.ApFlux_70_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_9_0_flag
+    "@id": "#Source.ApFlux_9_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_9_0_flag_apertureTruncated
+    "@id": "#Source.ApFlux_9_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_9_0_flag_sincCoeffsTruncated
+    "@id": "#Source.ApFlux_9_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_9_0_instFlux
+    "@id": "#Source.ApFlux_9_0_instFlux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: ApFlux_9_0_instFluxErr
+    "@id": "#Source.ApFlux_9_0_instFluxErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: Extendedness_flag
+    "@id": "#Source.Extendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: FootprintArea_value
+    "@id": "#Source.FootprintArea_value"
+    datatype: int
+    description:
+    mysql:datatype: INT
+  - name: Jacobian_flag
+    "@id": "#Source.Jacobian_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Jacobian_value
+    "@id": "#Source.Jacobian_value"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalBackground_flag
+    "@id": "#Source.LocalBackground_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalBackground_flag_noGoodPixels
+    "@id": "#Source.LocalBackground_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalBackground_flag_noPsf
+    "@id": "#Source.LocalBackground_flag_noPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags
+    "@id": "#Source.PixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_bad
+    "@id": "#Source.PixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_cr
+    "@id": "#Source.PixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_crCenter
+    "@id": "#Source.PixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_edge
+    "@id": "#Source.PixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_interpolated
+    "@id": "#Source.PixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_interpolatedCenter
+    "@id": "#Source.PixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_offimage
+    "@id": "#Source.PixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_saturated
+    "@id": "#Source.PixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_saturatedCenter
+    "@id": "#Source.PixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_suspect
+    "@id": "#Source.PixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_suspectCenter
+    "@id": "#Source.PixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_apCorr
+    "@id": "#Source.PsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: PsfFlux_apCorrErr
+    "@id": "#Source.PsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: PsfFlux_area
+    "@id": "#Source.PsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: PsfFlux_flag
+    "@id": "#Source.PsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_apCorr
+    "@id": "#Source.PsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_edge
+    "@id": "#Source.PsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_noGoodPixels
+    "@id": "#Source.PsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag
+    "@id": "#Source.Centroid_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_almostNoSecondDerivative
+    "@id": "#Source.Centroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_badError
+    "@id": "#Source.Centroid_flag_badError"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_edge
+    "@id": "#Source.Centroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_noSecondDerivative
+    "@id": "#Source.Centroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_notAtMaximum
+    "@id": "#Source.Centroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_resetToPeak
+    "@id": "#Source.Centroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Variance_flag
+    "@id": "#Source.Variance_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Variance_flag_emptyFootprint
+    "@id": "#Source.Variance_flag_emptyFootprint"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Variance_value
+    "@id": "#Source.Variance_value"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Calib_astrometry_used
+    "@id": "#Source.Calib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_detected
+    "@id": "#Source.Calib_detected"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_photometry_reserved
+    "@id": "#Source.Calib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_photometry_used
+    "@id": "#Source.Calib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_psf_candidate
+    "@id": "#Source.Calib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_psf_reserved
+    "@id": "#Source.Calib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_psf_used
+    "@id": "#Source.Calib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_deblendedAsPsf
+    "@id": "#Source.Deblend_deblendedAsPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_hasStrayFlux
+    "@id": "#Source.Deblend_hasStrayFlux"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_masked
+    "@id": "#Source.Deblend_masked"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_nChild
+    "@id": "#Source.Deblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INT
+  - name: Deblend_parentTooBig
+    "@id": "#Source.Deblend_parentTooBig"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_patchedTemplate
+    "@id": "#Source.Deblend_patchedTemplate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_rampedTemplate
+    "@id": "#Source.Deblend_rampedTemplate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_skipped
+    "@id": "#Source.Deblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_tooManyPeaks
+    "@id": "#Source.Deblend_tooManyPeaks"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag
+    "@id": "#Source.HsmPsfMoments_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag_no_pixels
+    "@id": "#Source.HsmPsfMoments_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag_not_contained
+    "@id": "#Source.HsmPsfMoments_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag_parent_source
+    "@id": "#Source.HsmPsfMoments_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag
+    "@id": "#Source.HsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_galsim
+    "@id": "#Source.HsmShapeRegauss_flag_galsim"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_no_pixels
+    "@id": "#Source.HsmShapeRegauss_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_not_contained
+    "@id": "#Source.HsmShapeRegauss_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_parent_source
+    "@id": "#Source.HsmShapeRegauss_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: sky_source
+    "@id": "#Source.sky_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
