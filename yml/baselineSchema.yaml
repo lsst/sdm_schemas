@@ -48,8 +48,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: raSigma
-    "@id": "#DiaObject.raSigma"
+  - name: raErr
+    "@id": "#DiaObject.raErr"
     datatype: float
     description: Uncertainty of ra.
     mysql:datatype: FLOAT
@@ -62,8 +62,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: declSigma
-    "@id": "#DiaObject.declSigma"
+  - name: declErr
+    "@id": "#DiaObject.declErr"
     datatype: float
     description: Uncertainty of decl.
     mysql:datatype: FLOAT
@@ -88,8 +88,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
-  - name: pmRaSigma
-    "@id": "#DiaObject.pmRaSigma"
+  - name: pmRaErr
+    "@id": "#DiaObject.pmRaErr"
     datatype: float
     description: Uncertainty of pmRa.
     mysql:datatype: FLOAT
@@ -102,8 +102,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
-  - name: pmDeclSigma
-    "@id": "#DiaObject.pmDeclSigma"
+  - name: pmDeclErr
+    "@id": "#DiaObject.pmDeclErr"
     datatype: float
     description: Uncertainty of pmDecl.
     mysql:datatype: FLOAT
@@ -116,8 +116,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: mas
     ivoa:ucd: pos.parallax
-  - name: parallaxSigma
-    "@id": "#DiaObject.parallaxSigma"
+  - name: parallaxErr
+    "@id": "#DiaObject.parallaxErr"
     datatype: float
     description: Uncertainty of parallax.
     mysql:datatype: FLOAT
@@ -648,8 +648,8 @@ tables:
     datatype: double
     description: Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).
     mysql:datatype: DOUBLE
-  - name: qSigma
-    "@id": "#SSObject.qSigma"
+  - name: qErr
+    "@id": "#SSObject.qErr"
     datatype: double
     description: Uncertainty of q.
     mysql:datatype: DOUBLE
@@ -659,8 +659,8 @@ tables:
     datatype: double
     description: Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).
     mysql:datatype: DOUBLE
-  - name: eSigma
-    "@id": "#SSObject.eSigma"
+  - name: eErr
+    "@id": "#SSObject.eErr"
     datatype: double
     description: Uncertainty of e.
     mysql:datatype: DOUBLE
@@ -670,8 +670,8 @@ tables:
     datatype: double
     description: Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).
     mysql:datatype: DOUBLE
-  - name: iSigma
-    "@id": "#SSObject.iSigma"
+  - name: iErr
+    "@id": "#SSObject.iErr"
     datatype: double
     description: Uncertainty of i.
     mysql:datatype: DOUBLE
@@ -681,8 +681,8 @@ tables:
     datatype: double
     description: Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).
     mysql:datatype: DOUBLE
-  - name: lanSigma
-    "@id": "#SSObject.lanSigma"
+  - name: lanErr
+    "@id": "#SSObject.lanErr"
     datatype: double
     description: Uncertainty of lan.
     mysql:datatype: DOUBLE
@@ -692,8 +692,8 @@ tables:
     datatype: double
     description: Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).
     mysql:datatype: DOUBLE
-  - name: aopSigma
-    "@id": "#SSObject.aopSigma"
+  - name: aopErr
+    "@id": "#SSObject.aopErr"
     datatype: double
     description: Uncertainty of aop.
     mysql:datatype: DOUBLE
@@ -703,8 +703,8 @@ tables:
     datatype: double
     description: Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).
     mysql:datatype: DOUBLE
-  - name: MSigma
-    "@id": "#SSObject.MSigma"
+  - name: MErr
+    "@id": "#SSObject.MErr"
     datatype: double
     description: Uncertainty of M.
     mysql:datatype: DOUBLE
@@ -714,8 +714,8 @@ tables:
     datatype: double
     description: Osculating orbital elements at epoch (q, e, i, lan, aop, M, epoch).
     mysql:datatype: DOUBLE
-  - name: epochSigma
-    "@id": "#SSObject.epochSigma"
+  - name: epochErr
+    "@id": "#SSObject.epochErr"
     datatype: double
     description: Uncertainty of epoch.
     mysql:datatype: DOUBLE
@@ -1205,8 +1205,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: raSigma
-    "@id": "#DiaSource.raSigma"
+  - name: raErr
+    "@id": "#DiaSource.raErr"
     datatype: float
     description: Uncertainty of ra.
     mysql:datatype: FLOAT
@@ -1219,8 +1219,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: declSigma
-    "@id": "#DiaSource.declSigma"
+  - name: declErr
+    "@id": "#DiaSource.declErr"
     datatype: float
     description: Uncertainty of decl.
     mysql:datatype: FLOAT
@@ -1240,8 +1240,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.x
-  - name: xSigma
-    "@id": "#DiaSource.xSigma"
+  - name: xErr
+    "@id": "#DiaSource.xErr"
     datatype: float
     description: Uncertainty of x.
     mysql:datatype: FLOAT
@@ -1254,8 +1254,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.y
-  - name: ySigma
-    "@id": "#DiaSource.ySigma"
+  - name: yErr
+    "@id": "#DiaSource.yErr"
     datatype: float
     description: Uncertainty of y.
     mysql:datatype: FLOAT
@@ -1298,8 +1298,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: psFluxSigma
-    "@id": "#DiaSource.psFluxSigma"
+  - name: psFluxErr
+    "@id": "#DiaSource.psFluxErr"
     datatype: float
     description: Uncertainty of psFlux.
     mysql:datatype: FLOAT
@@ -1311,8 +1311,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: psRaSigma
-    "@id": "#DiaSource.psRaSigma"
+  - name: psRaErr
+    "@id": "#DiaSource.psRaErr"
     datatype: float
     description: Uncertainty of psRa.
     mysql:datatype: FLOAT
@@ -1325,8 +1325,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: psDeclSigma
-    "@id": "#DiaSource.psDeclSigma"
+  - name: psDeclErr
+    "@id": "#DiaSource.psDeclErr"
     datatype: float
     description: Uncertainty of psDecl.
     mysql:datatype: FLOAT
@@ -1378,8 +1378,8 @@ tables:
       the flux difference between the template and the visit image.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: trailFluxSigma
-    "@id": "#DiaSource.trailFluxSigma"
+  - name: trailFluxErr
+    "@id": "#DiaSource.trailFluxErr"
     datatype: float
     description: Uncertainty of trailFlux.
     mysql:datatype: FLOAT
@@ -1391,8 +1391,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: trailRaSigma
-    "@id": "#DiaSource.trailRaSigma"
+  - name: trailRaErr
+    "@id": "#DiaSource.trailRaErr"
     datatype: float
     description: Uncertainty of trailRa.
     mysql:datatype: FLOAT
@@ -1405,8 +1405,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: trailDeclSigma
-    "@id": "#DiaSource.trailDeclSigma"
+  - name: trailDeclErr
+    "@id": "#DiaSource.trailDeclErr"
     datatype: float
     description: Uncertainty of trailDecl.
     mysql:datatype: FLOAT
@@ -1418,8 +1418,8 @@ tables:
     description: Maximum likelihood fit of trail length.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: trailLengthSigma
-    "@id": "#DiaSource.trailLengthSigma"
+  - name: trailLengthErr
+    "@id": "#DiaSource.trailLengthErr"
     datatype: float
     description: Uncertainty of trailLength.
     mysql:datatype: FLOAT
@@ -1431,8 +1431,8 @@ tables:
       the centroid and the trail direction (bearing).
     mysql:datatype: FLOAT
     fits:tunit: deg
-  - name: trailAngleSigma
-    "@id": "#DiaSource.trailAngleSigma"
+  - name: trailAngleErr
+    "@id": "#DiaSource.trailAngleErr"
     datatype: float
     description: Uncertainty of trailAngle.
     mysql:datatype: FLOAT
@@ -1522,8 +1522,8 @@ tables:
       for a dipole model.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: dipMeanFluxSigma
-    "@id": "#DiaSource.dipMeanFluxSigma"
+  - name: dipMeanFluxErr
+    "@id": "#DiaSource.dipMeanFluxErr"
     datatype: float
     description: Uncertainty of dipMeanFlux.
     mysql:datatype: FLOAT
@@ -1536,8 +1536,8 @@ tables:
       the two lobes for a dipole model.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: dipFluxDiffSigma
-    "@id": "#DiaSource.dipFluxDiffSigma"
+  - name: dipFluxDiffErr
+    "@id": "#DiaSource.dipFluxDiffErr"
     datatype: float
     description: Uncertainty of dipFluxDiff.
     mysql:datatype: FLOAT
@@ -1550,8 +1550,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: dipRaSigma
-    "@id": "#DiaSource.dipRaSigma"
+  - name: dipRaErr
+    "@id": "#DiaSource.dipRaErr"
     datatype: float
     description: Uncertainty of trailRa.
     mysql:datatype: FLOAT
@@ -1564,8 +1564,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: dipDeclSigma
-    "@id": "#DiaSource.dipDeclSigma"
+  - name: dipDeclErr
+    "@id": "#DiaSource.dipDeclErr"
     datatype: float
     description: Uncertainty of dipDecl.
     mysql:datatype: FLOAT
@@ -1578,8 +1578,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: arcsec
     ivoa:ucd: pos.angDistance
-  - name: dipLengthSigma
-    "@id": "#DiaSource.dipLengthSigma"
+  - name: dipLengthErr
+    "@id": "#DiaSource.dipLengthErr"
     datatype: float
     description: Uncertainty of dipLength.
     mysql:datatype: FLOAT
@@ -1593,8 +1593,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: pos.posAng
-  - name: dipAngleSigma
-    "@id": "#DiaSource.dipAngleSigma"
+  - name: dipAngleErr
+    "@id": "#DiaSource.dipAngleErr"
     datatype: float
     description: Uncertainty of dipAngle.
     mysql:datatype: FLOAT
@@ -1756,8 +1756,8 @@ tables:
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
     fits:tunit: nmgy*asec^2
-  - name: ixxSigma
-    "@id": "#DiaSource.ixxSigma"
+  - name: ixxErr
+    "@id": "#DiaSource.ixxErr"
     datatype: float
     description: Uncertainty of ixx.
     mysql:datatype: FLOAT
@@ -1769,8 +1769,8 @@ tables:
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
     fits:tunit: nmgy*asec^2
-  - name: iyySigma
-    "@id": "#DiaSource.iyySigma"
+  - name: iyyErr
+    "@id": "#DiaSource.iyyErr"
     datatype: float
     description: Uncertainty of iyy.
     mysql:datatype: FLOAT
@@ -1782,8 +1782,8 @@ tables:
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
     fits:tunit: nmgy*asec^2
-  - name: ixySigma
-    "@id": "#DiaSource.ixySigma"
+  - name: ixyErr
+    "@id": "#DiaSource.ixyErr"
     datatype: float
     description: Uncertainty of ixy.
     mysql:datatype: FLOAT
@@ -1898,8 +1898,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: psFluxSigma
-    "@id": "#DiaForcedSource.psFluxSigma"
+  - name: psFluxErr
+    "@id": "#DiaForcedSource.psFluxErr"
     datatype: float
     description: Uncertainty of psFlux.
     mysql:datatype: FLOAT
@@ -2008,8 +2008,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: psRaSigma
-    "@id": "#Object.psRaSigma"
+  - name: psRaErr
+    "@id": "#Object.psRaErr"
     datatype: float
     description: Uncertainty of psRa.
     mysql:datatype: FLOAT
@@ -2023,8 +2023,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: psDeclSigma
-    "@id": "#Object.psDeclSigma"
+  - name: psDeclErr
+    "@id": "#Object.psDeclErr"
     datatype: float
     description: Uncertainty of psDecl.
     mysql:datatype: FLOAT
@@ -2037,8 +2037,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
-  - name: psMuRaSigma
-    "@id": "#Object.psMuRaSigma"
+  - name: psMuRaErr
+    "@id": "#Object.psMuRaErr"
     datatype: float
     description: Uncertainty of psMuRa.
     mysql:datatype: FLOAT
@@ -2051,8 +2051,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
-  - name: psMuDeclSigma
-    "@id": "#Object.psMuDeclSigma"
+  - name: psMuDeclErr
+    "@id": "#Object.psMuDeclErr"
     datatype: float
     description: Uncertainty of psMuDecl.
     mysql:datatype: FLOAT
@@ -2065,8 +2065,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: mas
     ivoa:ucd: pos.parallax
-  - name: psParallaxSigma
-    "@id": "#Object.psParallaxSigma"
+  - name: psParallaxErr
+    "@id": "#Object.psParallaxErr"
     datatype: float
     description: Uncertainty of psParallax.
     mysql:datatype: FLOAT
@@ -2079,8 +2079,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: uPsFluxSigma
-    "@id": "#Object.uPsFluxSigma"
+  - name: uPsFluxErr
+    "@id": "#Object.uPsFluxErr"
     datatype: float
     description: Uncertainty of uPsFlux.
     mysql:datatype: FLOAT
@@ -2093,8 +2093,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: gPsFluxSigma
-    "@id": "#Object.gPsFluxSigma"
+  - name: gPsFluxErr
+    "@id": "#Object.gPsFluxErr"
     datatype: float
     description: Uncertainty of gPsFlux.
     mysql:datatype: FLOAT
@@ -2107,8 +2107,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: rPsFluxSigma
-    "@id": "#Object.rPsFluxSigma"
+  - name: rPsFluxErr
+    "@id": "#Object.rPsFluxErr"
     datatype: float
     description: Uncertainty of rPsFlux.
     mysql:datatype: FLOAT
@@ -2121,8 +2121,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: iPsFluxSigma
-    "@id": "#Object.iPsFluxSigma"
+  - name: iPsFluxErr
+    "@id": "#Object.iPsFluxErr"
     datatype: float
     description: Uncertainty of iPsFlux.
     mysql:datatype: FLOAT
@@ -2135,8 +2135,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: zPsFluxSigma
-    "@id": "#Object.zPsFluxSigma"
+  - name: zPsFluxErr
+    "@id": "#Object.zPsFluxErr"
     datatype: float
     description: Uncertainty of zPsFlux.
     mysql:datatype: FLOAT
@@ -2149,8 +2149,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: yPsFluxSigma
-    "@id": "#Object.yPsFluxSigma"
+  - name: yPsFluxErr
+    "@id": "#Object.yPsFluxErr"
     datatype: float
     description: Uncertainty of yPsFlux.
     mysql:datatype: FLOAT
@@ -2180,8 +2180,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: uBdRaSigma
-    "@id": "#Object.uBdRaSigma"
+  - name: uBdRaErr
+    "@id": "#Object.uBdRaErr"
     datatype: float
     description: Uncertainty of uBdRa.
     mysql:datatype: FLOAT
@@ -2195,8 +2195,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: uBdDeclSigma
-    "@id": "#Object.uBdDeclSigma"
+  - name: uBdDeclErr
+    "@id": "#Object.uBdDeclErr"
     datatype: float
     description: Uncertainty of uBdDecl.
     mysql:datatype: FLOAT
@@ -2208,8 +2208,8 @@ tables:
     description: Ellipticity for the Bulge+Disk (e1). For u filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: uBdE1Sigma
-    "@id": "#Object.uBdE1Sigma"
+  - name: uBdE1Err
+    "@id": "#Object.uBdE1Err"
     datatype: float
     description: Uncertainty of uBdE1.
     mysql:datatype: FLOAT
@@ -2220,8 +2220,8 @@ tables:
     description: Ellipticity for Bulge+Disk model (e2). For u filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: uBdE2Sigma
-    "@id": "#Object.uBdE2Sigma"
+  - name: uBdE2Err
+    "@id": "#Object.uBdE2Err"
     datatype: float
     description: Uncertainty of uBdE2.
     mysql:datatype: FLOAT
@@ -2233,8 +2233,8 @@ tables:
       model. For u filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: uBdFluxBSigma
-    "@id": "#Object.uBdFluxBSigma"
+  - name: uBdFluxBErr
+    "@id": "#Object.uBdFluxBErr"
     datatype: float
     description: Uncertainty of uBdFluxB.
     mysql:datatype: FLOAT
@@ -2246,8 +2246,8 @@ tables:
       For u filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: uBdFluxDSigma
-    "@id": "#Object.uBdFluxDSigma"
+  - name: uBdFluxDErr
+    "@id": "#Object.uBdFluxDErr"
     datatype: float
     description: Uncertainty of uBdFluxD.
     mysql:datatype: FLOAT
@@ -2259,8 +2259,8 @@ tables:
       Bulge+Disk model. For u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uBdReBSigma
-    "@id": "#Object.uBdReBSigma"
+  - name: uBdReBErr
+    "@id": "#Object.uBdReBErr"
     datatype: float
     description: Uncertainty of uBdReB.
     mysql:datatype: FLOAT
@@ -2272,8 +2272,8 @@ tables:
       model. For u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uBdReDSigma
-    "@id": "#Object.uBdReDSigma"
+  - name: uBdReDErr
+    "@id": "#Object.uBdReDErr"
     datatype: float
     description: Uncertainty of uBdReD.
     mysql:datatype: FLOAT
@@ -2302,8 +2302,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: gBdRaSigma
-    "@id": "#Object.gBdRaSigma"
+  - name: gBdRaErr
+    "@id": "#Object.gBdRaErr"
     datatype: float
     description: Uncertainty of gBdRa.
     mysql:datatype: FLOAT
@@ -2317,8 +2317,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: gBdDeclSigma
-    "@id": "#Object.gBdDeclSigma"
+  - name: gBdDeclErr
+    "@id": "#Object.gBdDeclErr"
     datatype: float
     description: Uncertainty of gBdDecl.
     mysql:datatype: FLOAT
@@ -2330,8 +2330,8 @@ tables:
     description: Ellipticity for the Bulge+Disk (e1). For g filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: gBdE1Sigma
-    "@id": "#Object.gBdE1Sigma"
+  - name: gBdE1Err
+    "@id": "#Object.gBdE1Err"
     datatype: float
     description: Uncertainty of gBdE1.
     mysql:datatype: FLOAT
@@ -2342,8 +2342,8 @@ tables:
     description: Ellipticity for Bulge+Disk model (e2). For g filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: gBdE2Sigma
-    "@id": "#Object.gBdE2Sigma"
+  - name: gBdE2Err
+    "@id": "#Object.gBdE2Err"
     datatype: float
     description: Uncertainty of gBdE2.
     mysql:datatype: FLOAT
@@ -2355,8 +2355,8 @@ tables:
       model. For g filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: gBdFluxBSigma
-    "@id": "#Object.gBdFluxBSigma"
+  - name: gBdFluxBErr
+    "@id": "#Object.gBdFluxBErr"
     datatype: float
     description: Uncertainty of gBdFluxB.
     mysql:datatype: FLOAT
@@ -2368,8 +2368,8 @@ tables:
       For g filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: gBdFluxDSigma
-    "@id": "#Object.gBdFluxDSigma"
+  - name: gBdFluxDErr
+    "@id": "#Object.gBdFluxDErr"
     datatype: float
     description: Uncertainty of gBdFluxD.
     mysql:datatype: FLOAT
@@ -2381,8 +2381,8 @@ tables:
       Bulge+Disk model. For g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gBdReBSigma
-    "@id": "#Object.gBdReBSigma"
+  - name: gBdReBErr
+    "@id": "#Object.gBdReBErr"
     datatype: float
     description: Uncertainty of gBdReB.
     mysql:datatype: FLOAT
@@ -2394,8 +2394,8 @@ tables:
       model. For g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gBdReDSigma
-    "@id": "#Object.gBdReDSigma"
+  - name: gBdReDErr
+    "@id": "#Object.gBdReDErr"
     datatype: float
     description: Uncertainty of gBdReD.
     mysql:datatype: FLOAT
@@ -2424,8 +2424,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: rBdRaSigma
-    "@id": "#Object.rBdRaSigma"
+  - name: rBdRaErr
+    "@id": "#Object.rBdRaErr"
     datatype: float
     description: Uncertainty of rBdRa.
     mysql:datatype: FLOAT
@@ -2439,8 +2439,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: rBdDeclSigma
-    "@id": "#Object.rBdDeclSigma"
+  - name: rBdDeclErr
+    "@id": "#Object.rBdDeclErr"
     datatype: float
     description: Uncertainty of rBdDecl.
     mysql:datatype: FLOAT
@@ -2452,8 +2452,8 @@ tables:
     description: Ellipticity for the Bulge+Disk (e1). For r filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: rBdE1Sigma
-    "@id": "#Object.rBdE1Sigma"
+  - name: rBdE1Err
+    "@id": "#Object.rBdE1Err"
     datatype: float
     description: Uncertainty of rBdE1.
     mysql:datatype: FLOAT
@@ -2464,8 +2464,8 @@ tables:
     description: Ellipticity for Bulge+Disk model (e2). For r filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: rBdE2Sigma
-    "@id": "#Object.rBdE2Sigma"
+  - name: rBdE2Err
+    "@id": "#Object.rBdE2Err"
     datatype: float
     description: Uncertainty of rBdE2.
     mysql:datatype: FLOAT
@@ -2477,8 +2477,8 @@ tables:
       model. For r filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: rBdFluxBSigma
-    "@id": "#Object.rBdFluxBSigma"
+  - name: rBdFluxBErr
+    "@id": "#Object.rBdFluxBErr"
     datatype: float
     description: Uncertainty of rBdFluxB.
     mysql:datatype: FLOAT
@@ -2490,8 +2490,8 @@ tables:
       For r filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: rBdFluxDSigma
-    "@id": "#Object.rBdFluxDSigma"
+  - name: rBdFluxDErr
+    "@id": "#Object.rBdFluxDErr"
     datatype: float
     description: Uncertainty of rBdFluxD.
     mysql:datatype: FLOAT
@@ -2503,8 +2503,8 @@ tables:
       Bulge+Disk model. For r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rBdReBSigma
-    "@id": "#Object.rBdReBSigma"
+  - name: rBdReBErr
+    "@id": "#Object.rBdReBErr"
     datatype: float
     description: Uncertainty of rBdReB.
     mysql:datatype: FLOAT
@@ -2516,8 +2516,8 @@ tables:
       model. For r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rBdReDSigma
-    "@id": "#Object.rBdReDSigma"
+  - name: rBdReDErr
+    "@id": "#Object.rBdReDErr"
     datatype: float
     description: Uncertainty of rBdReD.
     mysql:datatype: FLOAT
@@ -2546,8 +2546,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: iBdRaSigma
-    "@id": "#Object.iBdRaSigma"
+  - name: iBdRaErr
+    "@id": "#Object.iBdRaErr"
     datatype: float
     description: Uncertainty of iBdRa.
     mysql:datatype: FLOAT
@@ -2561,8 +2561,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: iBdDeclSigma
-    "@id": "#Object.iBdDeclSigma"
+  - name: iBdDeclErr
+    "@id": "#Object.iBdDeclErr"
     datatype: float
     description: Uncertainty of iBdDecl.
     mysql:datatype: FLOAT
@@ -2574,8 +2574,8 @@ tables:
     description: Ellipticity for the Bulge+Disk (e1). For i filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: iBdE1Sigma
-    "@id": "#Object.iBdE1Sigma"
+  - name: iBdE1Err
+    "@id": "#Object.iBdE1Err"
     datatype: float
     description: Uncertainty of iBdE1.
     mysql:datatype: FLOAT
@@ -2586,8 +2586,8 @@ tables:
     description: Ellipticity for Bulge+Disk model (e2). For i filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: iBdE2Sigma
-    "@id": "#Object.iBdE2Sigma"
+  - name: iBdE2Err
+    "@id": "#Object.iBdE2Err"
     datatype: float
     description: Uncertainty of iBdE2.
     mysql:datatype: FLOAT
@@ -2599,8 +2599,8 @@ tables:
       model. For i filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: iBdFluxBSigma
-    "@id": "#Object.iBdFluxBSigma"
+  - name: iBdFluxBErr
+    "@id": "#Object.iBdFluxBErr"
     datatype: float
     description: Uncertainty of iBdFluxB.
     mysql:datatype: FLOAT
@@ -2612,8 +2612,8 @@ tables:
       For i filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: iBdFluxDSigma
-    "@id": "#Object.iBdFluxDSigma"
+  - name: iBdFluxDErr
+    "@id": "#Object.iBdFluxDErr"
     datatype: float
     description: Uncertainty of iBdFluxD.
     mysql:datatype: FLOAT
@@ -2625,8 +2625,8 @@ tables:
       Bulge+Disk model. For i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iBdReBSigma
-    "@id": "#Object.iBdReBSigma"
+  - name: iBdReBErr
+    "@id": "#Object.iBdReBErr"
     datatype: float
     description: Uncertainty of iBdReB.
     mysql:datatype: FLOAT
@@ -2638,8 +2638,8 @@ tables:
       model. For i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iBdReDSigma
-    "@id": "#Object.iBdReDSigma"
+  - name: iBdReDErr
+    "@id": "#Object.iBdReDErr"
     datatype: float
     description: Uncertainty of iBdReD.
     mysql:datatype: FLOAT
@@ -2668,8 +2668,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: zBdRaSigma
-    "@id": "#Object.zBdRaSigma"
+  - name: zBdRaErr
+    "@id": "#Object.zBdRaErr"
     datatype: float
     description: Uncertainty of zBdRa.
     mysql:datatype: FLOAT
@@ -2683,8 +2683,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: zBdDeclSigma
-    "@id": "#Object.zBdDeclSigma"
+  - name: zBdDeclErr
+    "@id": "#Object.zBdDeclErr"
     datatype: float
     description: Uncertainty of zBdDecl.
     mysql:datatype: FLOAT
@@ -2696,8 +2696,8 @@ tables:
     description: Ellipticity for the Bulge+Disk (e1). For z filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: zBdE1Sigma
-    "@id": "#Object.zBdE1Sigma"
+  - name: zBdE1Err
+    "@id": "#Object.zBdE1Err"
     datatype: float
     description: Uncertainty of zBdE1.
     mysql:datatype: FLOAT
@@ -2708,8 +2708,8 @@ tables:
     description: Ellipticity for Bulge+Disk model (e2). For z filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: zBdE2Sigma
-    "@id": "#Object.zBdE2Sigma"
+  - name: zBdE2Err
+    "@id": "#Object.zBdE2Err"
     datatype: float
     description: Uncertainty of zBdE2.
     mysql:datatype: FLOAT
@@ -2721,8 +2721,8 @@ tables:
       model. For z filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: zBdFluxBSigma
-    "@id": "#Object.zBdFluxBSigma"
+  - name: zBdFluxBErr
+    "@id": "#Object.zBdFluxBErr"
     datatype: float
     description: Uncertainty of zBdFluxB.
     mysql:datatype: FLOAT
@@ -2734,8 +2734,8 @@ tables:
       For z filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: zBdFluxDSigma
-    "@id": "#Object.zBdFluxDSigma"
+  - name: zBdFluxDErr
+    "@id": "#Object.zBdFluxDErr"
     datatype: float
     description: Uncertainty of zBdFluxD.
     mysql:datatype: FLOAT
@@ -2747,8 +2747,8 @@ tables:
       Bulge+Disk model. For z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zBdReBSigma
-    "@id": "#Object.zBdReBSigma"
+  - name: zBdReBErr
+    "@id": "#Object.zBdReBErr"
     datatype: float
     description: Uncertainty of zBdReB.
     mysql:datatype: FLOAT
@@ -2760,8 +2760,8 @@ tables:
       model. For z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zBdReDSigma
-    "@id": "#Object.zBdReDSigma"
+  - name: zBdReDErr
+    "@id": "#Object.zBdReDErr"
     datatype: float
     description: Uncertainty of zBdReD.
     mysql:datatype: FLOAT
@@ -2790,8 +2790,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: yBdRaSigma
-    "@id": "#Object.yBdRaSigma"
+  - name: yBdRaErr
+    "@id": "#Object.yBdRaErr"
     datatype: float
     description: Uncertainty of yBdRa.
     mysql:datatype: FLOAT
@@ -2805,8 +2805,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: yBdDeclSigma
-    "@id": "#Object.yBdDeclSigma"
+  - name: yBdDeclErr
+    "@id": "#Object.yBdDeclErr"
     datatype: float
     description: Uncertainty of yBdDecl.
     mysql:datatype: FLOAT
@@ -2818,8 +2818,8 @@ tables:
     description: Ellipticity for the Bulge+Disk (e1). For y filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: yBdE1Sigma
-    "@id": "#Object.yBdE1Sigma"
+  - name: yBdE1Err
+    "@id": "#Object.yBdE1Err"
     datatype: float
     description: Uncertainty of yBdE1.
     mysql:datatype: FLOAT
@@ -2830,8 +2830,8 @@ tables:
     description: Ellipticity for Bulge+Disk model (e2). For y filter.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: yBdE2Sigma
-    "@id": "#Object.yBdE2Sigma"
+  - name: yBdE2Err
+    "@id": "#Object.yBdE2Err"
     datatype: float
     description: Uncertainty of yBdE2.
     mysql:datatype: FLOAT
@@ -2843,8 +2843,8 @@ tables:
       model. For y filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: yBdFluxBSigma
-    "@id": "#Object.yBdFluxBSigma"
+  - name: yBdFluxBErr
+    "@id": "#Object.yBdFluxBErr"
     datatype: float
     description: Uncertainty of yBdFluxB.
     mysql:datatype: FLOAT
@@ -2856,8 +2856,8 @@ tables:
       For y filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: yBdFluxDSigma
-    "@id": "#Object.yBdFluxDSigma"
+  - name: yBdFluxDErr
+    "@id": "#Object.yBdFluxDErr"
     datatype: float
     description: Uncertainty of yBdFluxD.
     mysql:datatype: FLOAT
@@ -2869,8 +2869,8 @@ tables:
       Bulge+Disk model. For y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yBdReBSigma
-    "@id": "#Object.yBdReBSigma"
+  - name: yBdReBErr
+    "@id": "#Object.yBdReBErr"
     datatype: float
     description: Uncertainty of yBdReB.
     mysql:datatype: FLOAT
@@ -2882,8 +2882,8 @@ tables:
       model. For y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yBdReDSigma
-    "@id": "#Object.yBdReDSigma"
+  - name: yBdReDErr
+    "@id": "#Object.yBdReDErr"
     datatype: float
     description: Uncertainty of yBdReD.
     mysql:datatype: FLOAT
@@ -2912,8 +2912,8 @@ tables:
       and suitable for photo-Z determinations.
     mysql:datatype: FLOAT
     fits:tunit: mag
-  - name: ugStdSigma
-    "@id": "#Object.ugStdSigma"
+  - name: ugStdErr
+    "@id": "#Object.ugStdErr"
     datatype: float
     description: Uncertainty of ugStd.
     mysql:datatype: FLOAT
@@ -2926,8 +2926,8 @@ tables:
       and suitable for photo-Z determinations.
     mysql:datatype: FLOAT
     fits:tunit: mag
-  - name: grStdSigma
-    "@id": "#Object.grStdSigma"
+  - name: grStdErr
+    "@id": "#Object.grStdErr"
     datatype: float
     description: Uncertainty of grStd.
     mysql:datatype: FLOAT
@@ -2940,8 +2940,8 @@ tables:
       and suitable for photo-Z determinations.
     mysql:datatype: FLOAT
     fits:tunit: mag
-  - name: riStdSigma
-    "@id": "#Object.riStdSigma"
+  - name: riStdErr
+    "@id": "#Object.riStdErr"
     datatype: float
     description: Uncertainty of riStd.
     mysql:datatype: FLOAT
@@ -2954,8 +2954,8 @@ tables:
       and suitable for photo-Z determinations.
     mysql:datatype: FLOAT
     fits:tunit: mag
-  - name: izStdSigma
-    "@id": "#Object.izStdSigma"
+  - name: izStdErr
+    "@id": "#Object.izStdErr"
     datatype: float
     description: Uncertainty of izStd.
     mysql:datatype: FLOAT
@@ -2968,8 +2968,8 @@ tables:
       and suitable for photo-Z determinations.
     mysql:datatype: FLOAT
     fits:tunit: mag
-  - name: zyStdSigma
-    "@id": "#Object.zyStdSigma"
+  - name: zyStdErr
+    "@id": "#Object.zyStdErr"
     datatype: float
     description: Uncertainty of zyStd.
     mysql:datatype: FLOAT
@@ -2981,8 +2981,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.ra
-  - name: uRaSigma
-    "@id": "#Object.uRaSigma"
+  - name: uRaErr
+    "@id": "#Object.uRaErr"
     datatype: double
     description: Uncertainty of uRa.
     mysql:datatype: DOUBLE
@@ -2995,8 +2995,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.dec
-  - name: uDeclSigma
-    "@id": "#Object.uDeclSigma"
+  - name: uDeclErr
+    "@id": "#Object.uDeclErr"
     datatype: double
     description: Uncertainty of uDecl.
     mysql:datatype: DOUBLE
@@ -3009,8 +3009,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.ra
-  - name: gRaSigma
-    "@id": "#Object.gRaSigma"
+  - name: gRaErr
+    "@id": "#Object.gRaErr"
     datatype: double
     description: Uncertainty of gRa.
     mysql:datatype: DOUBLE
@@ -3023,8 +3023,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.dec
-  - name: gDeclSigma
-    "@id": "#Object.gDeclSigma"
+  - name: gDeclErr
+    "@id": "#Object.gDeclErr"
     datatype: double
     description: Uncertainty of gDecl.
     mysql:datatype: DOUBLE
@@ -3037,8 +3037,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.ra
-  - name: rRaSigma
-    "@id": "#Object.rRaSigma"
+  - name: rRaErr
+    "@id": "#Object.rRaErr"
     datatype: double
     description: Uncertainty of rRa.
     mysql:datatype: DOUBLE
@@ -3051,8 +3051,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.dec
-  - name: rDeclSigma
-    "@id": "#Object.rDeclSigma"
+  - name: rDeclErr
+    "@id": "#Object.rDeclErr"
     datatype: double
     description: Uncertainty of rDecl.
     mysql:datatype: DOUBLE
@@ -3065,8 +3065,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.ra
-  - name: iRaSigma
-    "@id": "#Object.iRaSigma"
+  - name: iRaErr
+    "@id": "#Object.iRaErr"
     datatype: double
     description: Uncertainty of iRa.
     mysql:datatype: DOUBLE
@@ -3079,8 +3079,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.dec
-  - name: iDeclSigma
-    "@id": "#Object.iDeclSigma"
+  - name: iDeclErr
+    "@id": "#Object.iDeclErr"
     datatype: double
     description: Uncertainty of iDecl.
     mysql:datatype: DOUBLE
@@ -3093,8 +3093,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.ra
-  - name: zRaSigma
-    "@id": "#Object.zRaSigma"
+  - name: zRaErr
+    "@id": "#Object.zRaErr"
     datatype: double
     description: Uncertainty of zRa.
     mysql:datatype: DOUBLE
@@ -3107,8 +3107,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.dec
-  - name: zDeclSigma
-    "@id": "#Object.zDeclSigma"
+  - name: zDeclErr
+    "@id": "#Object.zDeclErr"
     datatype: double
     description: Uncertainty of zDecl.
     mysql:datatype: DOUBLE
@@ -3121,8 +3121,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.ra
-  - name: yRaSigma
-    "@id": "#Object.yRaSigma"
+  - name: yRaErr
+    "@id": "#Object.yRaErr"
     datatype: double
     description: Uncertainty of yRa.
     mysql:datatype: DOUBLE
@@ -3135,8 +3135,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.dec
-  - name: yDeclSigma
-    "@id": "#Object.yDeclSigma"
+  - name: yDeclErr
+    "@id": "#Object.yDeclErr"
     datatype: double
     description: Uncertainty of yDecl.
     mysql:datatype: DOUBLE
@@ -3149,8 +3149,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: uE1Sigma
-    "@id": "#Object.uE1Sigma"
+  - name: uE1Err
+    "@id": "#Object.uE1Err"
     datatype: float
     description: Uncertainty of uE1
     mysql:datatype: FLOAT
@@ -3162,8 +3162,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: uE2Sigma
-    "@id": "#Object.uE2Sigma"
+  - name: uE2Err
+    "@id": "#Object.uE2Err"
     datatype: float
     description: Uncertainty of uE2
     mysql:datatype: FLOAT
@@ -3180,8 +3180,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: gE1Sigma
-    "@id": "#Object.gE1Sigma"
+  - name: gE1Err
+    "@id": "#Object.gE1Err"
     datatype: float
     description: Uncertainty of gE1
     mysql:datatype: FLOAT
@@ -3193,8 +3193,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: gE2Sigma
-    "@id": "#Object.gE2Sigma"
+  - name: gE2Err
+    "@id": "#Object.gE2Err"
     datatype: float
     description: Uncertainty of gE2
     mysql:datatype: FLOAT
@@ -3211,8 +3211,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: rE1Sigma
-    "@id": "#Object.rE1Sigma"
+  - name: rE1Err
+    "@id": "#Object.rE1Err"
     datatype: float
     description: Uncertainty of rE1
     mysql:datatype: FLOAT
@@ -3224,8 +3224,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: rE2Sigma
-    "@id": "#Object.rE2Sigma"
+  - name: rE2Err
+    "@id": "#Object.rE2Err"
     datatype: float
     description: Uncertainty of rE2
     mysql:datatype: FLOAT
@@ -3242,8 +3242,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: iE1Sigma
-    "@id": "#Object.iE1Sigma"
+  - name: iE1Err
+    "@id": "#Object.iE1Err"
     datatype: float
     description: Uncertainty of iE1
     mysql:datatype: FLOAT
@@ -3255,8 +3255,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: iE2Sigma
-    "@id": "#Object.iE2Sigma"
+  - name: iE2Err
+    "@id": "#Object.iE2Err"
     datatype: float
     description: Uncertainty of iE2
     mysql:datatype: FLOAT
@@ -3273,8 +3273,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: zE1Sigma
-    "@id": "#Object.zE1Sigma"
+  - name: zE1Err
+    "@id": "#Object.zE1Err"
     datatype: float
     description: Uncertainty of zE1
     mysql:datatype: FLOAT
@@ -3286,8 +3286,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: zE2Sigma
-    "@id": "#Object.zE2Sigma"
+  - name: zE2Err
+    "@id": "#Object.zE2Err"
     datatype: float
     description: Uncertainty of zE2
     mysql:datatype: FLOAT
@@ -3304,8 +3304,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: yE1Sigma
-    "@id": "#Object.yE1Sigma"
+  - name: yE1Err
+    "@id": "#Object.yE1Err"
     datatype: float
     description: Uncertainty of yE1
     mysql:datatype: FLOAT
@@ -3317,8 +3317,8 @@ tables:
       (2002) for detailed discussion of all adaptive-moment related quantities.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: yE2Sigma
-    "@id": "#Object.yE2Sigma"
+  - name: yE2Err
+    "@id": "#Object.yE2Err"
     datatype: float
     description: Uncertainty of yE2
     mysql:datatype: FLOAT
@@ -3333,8 +3333,8 @@ tables:
     datatype: float
     description: Sum of second adaptive moments for u filter.
     mysql:datatype: FLOAT
-  - name: uMSumSigma
-    "@id": "#Object.uMSumSigma"
+  - name: uMSumErr
+    "@id": "#Object.uMSumErr"
     datatype: float
     description: Uncertainty of uMSum
     mysql:datatype: FLOAT
@@ -3343,8 +3343,8 @@ tables:
     datatype: float
     description: Sum of second adaptive moments for g filter.
     mysql:datatype: FLOAT
-  - name: gMSumSigma
-    "@id": "#Object.gMSumSigma"
+  - name: gMSumErr
+    "@id": "#Object.gMSumErr"
     datatype: float
     description: Uncertainty of gMSum
     mysql:datatype: FLOAT
@@ -3353,8 +3353,8 @@ tables:
     datatype: float
     description: Sum of second adaptive moments for r filter.
     mysql:datatype: FLOAT
-  - name: rMSumSigma
-    "@id": "#Object.rMSumSigma"
+  - name: rMSumErr
+    "@id": "#Object.rMSumErr"
     datatype: float
     description: Uncertainty of rMSum
     mysql:datatype: FLOAT
@@ -3363,8 +3363,8 @@ tables:
     datatype: float
     description: Sum of second adaptive moments for i filter.
     mysql:datatype: FLOAT
-  - name: iMSumSigma
-    "@id": "#Object.iMSumSigma"
+  - name: iMSumErr
+    "@id": "#Object.iMSumErr"
     datatype: float
     description: Uncertainty of iMSum
     mysql:datatype: FLOAT
@@ -3373,8 +3373,8 @@ tables:
     datatype: float
     description: Sum of second adaptive moments for z filter.
     mysql:datatype: FLOAT
-  - name: zMSumSigma
-    "@id": "#Object.zMSumSigma"
+  - name: zMSumErr
+    "@id": "#Object.zMSumErr"
     datatype: float
     description: Uncertainty of zMSum
     mysql:datatype: FLOAT
@@ -3383,8 +3383,8 @@ tables:
     datatype: float
     description: Sum of second adaptive moments for y filter.
     mysql:datatype: FLOAT
-  - name: yMSumSigma
-    "@id": "#Object.yMSumSigma"
+  - name: yMSumErr
+    "@id": "#Object.yMSumErr"
     datatype: float
     description: Uncertainty of yMSum
     mysql:datatype: FLOAT
@@ -3425,8 +3425,8 @@ tables:
       the adaptive moments for u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uPetroRadSigma
-    "@id": "#Object.uPetroRadSigma"
+  - name: uPetroRadErr
+    "@id": "#Object.uPetroRadErr"
     datatype: float
     description: Uncertainty of uPetroRad
     mysql:datatype: FLOAT
@@ -3438,8 +3438,8 @@ tables:
       the adaptive moments for g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gPetroRadSigma
-    "@id": "#Object.gPetroRadSigma"
+  - name: gPetroRadErr
+    "@id": "#Object.gPetroRadErr"
     datatype: float
     description: Uncertainty of gPetroRad
     mysql:datatype: FLOAT
@@ -3451,8 +3451,8 @@ tables:
       the adaptive moments for r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rPetroRadSigma
-    "@id": "#Object.rPetroRadSigma"
+  - name: rPetroRadErr
+    "@id": "#Object.rPetroRadErr"
     datatype: float
     description: Uncertainty of rPetroRad
     mysql:datatype: FLOAT
@@ -3464,8 +3464,8 @@ tables:
       the adaptive moments for i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iPetroRadSigma
-    "@id": "#Object.iPetroRadSigma"
+  - name: iPetroRadErr
+    "@id": "#Object.iPetroRadErr"
     datatype: float
     description: Uncertainty of iPetroRad
     mysql:datatype: FLOAT
@@ -3477,8 +3477,8 @@ tables:
       the adaptive moments for z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zPetroRadSigma
-    "@id": "#Object.zPetroRadSigma"
+  - name: zPetroRadErr
+    "@id": "#Object.zPetroRadErr"
     datatype: float
     description: Uncertainty of zPetroRad
     mysql:datatype: FLOAT
@@ -3490,8 +3490,8 @@ tables:
       the adaptive moments for y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yPetroRadSigma
-    "@id": "#Object.yPetroRadSigma"
+  - name: yPetroRadErr
+    "@id": "#Object.yPetroRadErr"
     datatype: float
     description: Uncertainty of yPetroRad
     mysql:datatype: FLOAT
@@ -3509,8 +3509,8 @@ tables:
       for u filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: uPetroFluxSigma
-    "@id": "#Object.uPetroFluxSigma"
+  - name: uPetroFluxErr
+    "@id": "#Object.uPetroFluxErr"
     datatype: float
     description: Uncertainty of uPetroFlux.
     mysql:datatype: FLOAT
@@ -3522,8 +3522,8 @@ tables:
       for g filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: gPetroFluxSigma
-    "@id": "#Object.gPetroFluxSigma"
+  - name: gPetroFluxErr
+    "@id": "#Object.gPetroFluxErr"
     datatype: float
     description: Uncertainty of gPetroFlux.
     mysql:datatype: FLOAT
@@ -3535,8 +3535,8 @@ tables:
       for r filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: rPetroFluxSigma
-    "@id": "#Object.rPetroFluxSigma"
+  - name: rPetroFluxErr
+    "@id": "#Object.rPetroFluxErr"
     datatype: float
     description: Uncertainty of rPetroFlux.
     mysql:datatype: FLOAT
@@ -3548,8 +3548,8 @@ tables:
       for i filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: iPetroFluxSigma
-    "@id": "#Object.iPetroFluxSigma"
+  - name: iPetroFluxErr
+    "@id": "#Object.iPetroFluxErr"
     datatype: float
     description: Uncertainty of iPetroFlux.
     mysql:datatype: FLOAT
@@ -3561,8 +3561,8 @@ tables:
       for z filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: zPetroFluxSigma
-    "@id": "#Object.zPetroFluxSigma"
+  - name: zPetroFluxErr
+    "@id": "#Object.zPetroFluxErr"
     datatype: float
     description: Uncertainty of zPetroFlux.
     mysql:datatype: FLOAT
@@ -3574,8 +3574,8 @@ tables:
       for y filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: yPetroFluxSigma
-    "@id": "#Object.yPetroFluxSigma"
+  - name: yPetroFluxErr
+    "@id": "#Object.yPetroFluxErr"
     datatype: float
     description: Uncertainty of yPetroFlux.
     mysql:datatype: FLOAT
@@ -3586,8 +3586,8 @@ tables:
     description: Radius containing 50% of Petrosian flux for u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uPetroRad50Sigma
-    "@id": "#Object.uPetroRad50Sigma"
+  - name: uPetroRad50Err
+    "@id": "#Object.uPetroRad50Err"
     datatype: float
     description: Uncertainty of uPetroRad50.
     mysql:datatype: FLOAT
@@ -3598,8 +3598,8 @@ tables:
     description: Radius containing 50% of Petrosian flux for g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gPetroRad50Sigma
-    "@id": "#Object.gPetroRad50Sigma"
+  - name: gPetroRad50Err
+    "@id": "#Object.gPetroRad50Err"
     datatype: float
     description: Uncertainty of gPetroRad50.
     mysql:datatype: FLOAT
@@ -3610,8 +3610,8 @@ tables:
     description: Radius containing 50% of Petrosian flux for r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rPetroRad50Sigma
-    "@id": "#Object.rPetroRad50Sigma"
+  - name: rPetroRad50Err
+    "@id": "#Object.rPetroRad50Err"
     datatype: float
     description: Uncertainty of rPetroRad50.
     mysql:datatype: FLOAT
@@ -3622,8 +3622,8 @@ tables:
     description: Radius containing 50% of Petrosian flux for i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iPetroRad50Sigma
-    "@id": "#Object.iPetroRad50Sigma"
+  - name: iPetroRad50Err
+    "@id": "#Object.iPetroRad50Err"
     datatype: float
     description: Uncertainty of iPetroRad50.
     mysql:datatype: FLOAT
@@ -3634,8 +3634,8 @@ tables:
     description: Radius containing 50% of Petrosian flux for z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zPetroRad50Sigma
-    "@id": "#Object.zPetroRad50Sigma"
+  - name: zPetroRad50Err
+    "@id": "#Object.zPetroRad50Err"
     datatype: float
     description: Uncertainty of zPetroRad50.
     mysql:datatype: FLOAT
@@ -3646,8 +3646,8 @@ tables:
     description: Radius containing 50% of Petrosian flux for y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yPetroRad50Sigma
-    "@id": "#Object.yPetroRad50Sigma"
+  - name: yPetroRad50Err
+    "@id": "#Object.yPetroRad50Err"
     datatype: float
     description: Uncertainty of yPetroRad50.
     mysql:datatype: FLOAT
@@ -3658,8 +3658,8 @@ tables:
     description: Radius containing 90% of Petrosian flux for u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uPetroRad90Sigma
-    "@id": "#Object.uPetroRad90Sigma"
+  - name: uPetroRad90Err
+    "@id": "#Object.uPetroRad90Err"
     datatype: float
     description: Uncertainty of uPetroRad90.
     mysql:datatype: FLOAT
@@ -3670,8 +3670,8 @@ tables:
     description: Radius containing 90% of Petrosian flux for g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gPetroRad90Sigma
-    "@id": "#Object.gPetroRad90Sigma"
+  - name: gPetroRad90Err
+    "@id": "#Object.gPetroRad90Err"
     datatype: float
     description: Uncertainty of gPetroRad90.
     mysql:datatype: FLOAT
@@ -3682,8 +3682,8 @@ tables:
     description: Radius containing 90% of Petrosian flux for r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rPetroRad90Sigma
-    "@id": "#Object.rPetroRad90Sigma"
+  - name: rPetroRad90Err
+    "@id": "#Object.rPetroRad90Err"
     datatype: float
     description: Uncertainty of rPetroRad90.
     mysql:datatype: FLOAT
@@ -3694,8 +3694,8 @@ tables:
     description: Radius containing 90% of Petrosian flux for i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iPetroRad90Sigma
-    "@id": "#Object.iPetroRad90Sigma"
+  - name: iPetroRad90Err
+    "@id": "#Object.iPetroRad90Err"
     datatype: float
     description: Uncertainty of iPetroRad90.
     mysql:datatype: FLOAT
@@ -3706,8 +3706,8 @@ tables:
     description: Radius containing 90% of Petrosian flux for z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zPetroRad90Sigma
-    "@id": "#Object.zPetroRad90Sigma"
+  - name: zPetroRad90Err
+    "@id": "#Object.zPetroRad90Err"
     datatype: float
     description: Uncertainty of zPetroRad90.
     mysql:datatype: FLOAT
@@ -3718,8 +3718,8 @@ tables:
     description: Radius containing 90% of Petrosian flux for y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yPetroRad90Sigma
-    "@id": "#Object.yPetroRad90Sigma"
+  - name: yPetroRad90Err
+    "@id": "#Object.yPetroRad90Err"
     datatype: float
     description: Uncertainty of yPetroRad90.
     mysql:datatype: FLOAT
@@ -3731,8 +3731,8 @@ tables:
       moments) for u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uKronRadSigma
-    "@id": "#Object.uKronRadSigma"
+  - name: uKronRadErr
+    "@id": "#Object.uKronRadErr"
     datatype: float
     description: Uncertainty of uKronRad.
     mysql:datatype: FLOAT
@@ -3744,8 +3744,8 @@ tables:
       moments) for g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gKronRadSigma
-    "@id": "#Object.gKronRadSigma"
+  - name: gKronRadErr
+    "@id": "#Object.gKronRadErr"
     datatype: float
     description: Uncertainty of gKronRad.
     mysql:datatype: FLOAT
@@ -3757,8 +3757,8 @@ tables:
       moments) for r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rKronRadSigma
-    "@id": "#Object.rKronRadSigma"
+  - name: rKronRadErr
+    "@id": "#Object.rKronRadErr"
     datatype: float
     description: Uncertainty of rKronRad.
     mysql:datatype: FLOAT
@@ -3770,8 +3770,8 @@ tables:
       moments) for i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iKronRadSigma
-    "@id": "#Object.iKronRadSigma"
+  - name: iKronRadErr
+    "@id": "#Object.iKronRadErr"
     datatype: float
     description: Uncertainty of iKronRad.
     mysql:datatype: FLOAT
@@ -3783,8 +3783,8 @@ tables:
       moments) for z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zKronRadSigma
-    "@id": "#Object.zKronRadSigma"
+  - name: zKronRadErr
+    "@id": "#Object.zKronRadErr"
     datatype: float
     description: Uncertainty of zKronRad.
     mysql:datatype: FLOAT
@@ -3796,8 +3796,8 @@ tables:
       moments) for y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yKronRadSigma
-    "@id": "#Object.yKronRadSigma"
+  - name: yKronRadErr
+    "@id": "#Object.yKronRadErr"
     datatype: float
     description: Uncertainty of yKronRad.
     mysql:datatype: FLOAT
@@ -3815,8 +3815,8 @@ tables:
       u filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: uKronFluxSigma
-    "@id": "#Object.uKronFluxSigma"
+  - name: uKronFluxErr
+    "@id": "#Object.uKronFluxErr"
     datatype: float
     description: Uncertainty of uKronFlux.
     mysql:datatype: FLOAT
@@ -3828,8 +3828,8 @@ tables:
       g filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: gKronFluxSigma
-    "@id": "#Object.gKronFluxSigma"
+  - name: gKronFluxErr
+    "@id": "#Object.gKronFluxErr"
     datatype: float
     description: Uncertainty of gKronFlux.
     mysql:datatype: FLOAT
@@ -3841,8 +3841,8 @@ tables:
       r filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: rKronFluxSigma
-    "@id": "#Object.rKronFluxSigma"
+  - name: rKronFluxErr
+    "@id": "#Object.rKronFluxErr"
     datatype: float
     description: Uncertainty of rKronFlux.
     mysql:datatype: FLOAT
@@ -3854,8 +3854,8 @@ tables:
       i filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: iKronFluxSigma
-    "@id": "#Object.iKronFluxSigma"
+  - name: iKronFluxErr
+    "@id": "#Object.iKronFluxErr"
     datatype: float
     description: Uncertainty of iKronFlux.
     mysql:datatype: FLOAT
@@ -3867,8 +3867,8 @@ tables:
       z filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: zKronFluxSigma
-    "@id": "#Object.zKronFluxSigma"
+  - name: zKronFluxErr
+    "@id": "#Object.zKronFluxErr"
     datatype: float
     description: Uncertainty of zKronFlux.
     mysql:datatype: FLOAT
@@ -3880,8 +3880,8 @@ tables:
       y filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: yKronFluxSigma
-    "@id": "#Object.yKronFluxSigma"
+  - name: yKronFluxErr
+    "@id": "#Object.yKronFluxErr"
     datatype: float
     description: Uncertainty of yKronFlux.
     mysql:datatype: FLOAT
@@ -3892,8 +3892,8 @@ tables:
     description: Radius containing 50% of Kron flux for u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uKronRad50Sigma
-    "@id": "#Object.uKronRad50Sigma"
+  - name: uKronRad50Err
+    "@id": "#Object.uKronRad50Err"
     datatype: float
     description: Uncertainty of uKronRad50.
     mysql:datatype: FLOAT
@@ -3904,8 +3904,8 @@ tables:
     description: Radius containing 50% of Kron flux for g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gKronRad50Sigma
-    "@id": "#Object.gKronRad50Sigma"
+  - name: gKronRad50Err
+    "@id": "#Object.gKronRad50Err"
     datatype: float
     description: Uncertainty of gKronRad50.
     mysql:datatype: FLOAT
@@ -3916,8 +3916,8 @@ tables:
     description: Radius containing 50% of Kron flux for r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rKronRad50Sigma
-    "@id": "#Object.rKronRad50Sigma"
+  - name: rKronRad50Err
+    "@id": "#Object.rKronRad50Err"
     datatype: float
     description: Uncertainty of rKronRad50.
     mysql:datatype: FLOAT
@@ -3928,8 +3928,8 @@ tables:
     description: Radius containing 50% of Kron flux for i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iKronRad50Sigma
-    "@id": "#Object.iKronRad50Sigma"
+  - name: iKronRad50Err
+    "@id": "#Object.iKronRad50Err"
     datatype: float
     description: Uncertainty of iKronRad50.
     mysql:datatype: FLOAT
@@ -3940,8 +3940,8 @@ tables:
     description: Radius containing 50% of Kron flux for z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zKronRad50Sigma
-    "@id": "#Object.zKronRad50Sigma"
+  - name: zKronRad50Err
+    "@id": "#Object.zKronRad50Err"
     datatype: float
     description: Uncertainty of zKronRad50.
     mysql:datatype: FLOAT
@@ -3952,8 +3952,8 @@ tables:
     description: Radius containing 50% of Kron flux for y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yKronRad50Sigma
-    "@id": "#Object.yKronRad50Sigma"
+  - name: yKronRad50Err
+    "@id": "#Object.yKronRad50Err"
     datatype: float
     description: Uncertainty of yKronRad50.
     mysql:datatype: FLOAT
@@ -3964,8 +3964,8 @@ tables:
     description: Radius containing 90% of Kron flux for u filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: uKronRad90Sigma
-    "@id": "#Object.uKronRad90Sigma"
+  - name: uKronRad90Err
+    "@id": "#Object.uKronRad90Err"
     datatype: float
     description: Uncertainty of uKronRad90.
     mysql:datatype: FLOAT
@@ -3976,8 +3976,8 @@ tables:
     description: Radius containing 90% of Kron flux for g filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: gKronRad90Sigma
-    "@id": "#Object.gKronRad90Sigma"
+  - name: gKronRad90Err
+    "@id": "#Object.gKronRad90Err"
     datatype: float
     description: Uncertainty of gKronRad90.
     mysql:datatype: FLOAT
@@ -3988,8 +3988,8 @@ tables:
     description: Radius containing 90% of Kron flux for r filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: rKronRad90Sigma
-    "@id": "#Object.rKronRad90Sigma"
+  - name: rKronRad90Err
+    "@id": "#Object.rKronRad90Err"
     datatype: float
     description: Uncertainty of rKronRad90.
     mysql:datatype: FLOAT
@@ -4000,8 +4000,8 @@ tables:
     description: Radius containing 90% of Kron flux for i filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: iKronRad90Sigma
-    "@id": "#Object.iKronRad90Sigma"
+  - name: iKronRad90Err
+    "@id": "#Object.iKronRad90Err"
     datatype: float
     description: Uncertainty of iKronRad90.
     mysql:datatype: FLOAT
@@ -4012,8 +4012,8 @@ tables:
     description: Radius containing 90% of Kron flux for z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zKronRad90Sigma
-    "@id": "#Object.zKronRad90Sigma"
+  - name: zKronRad90Err
+    "@id": "#Object.zKronRad90Err"
     datatype: float
     description: Uncertainty of zKronRad90.
     mysql:datatype: FLOAT
@@ -4024,8 +4024,8 @@ tables:
     description: Radius containing 90% of Kron flux for y filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: yKronRad90Sigma
-    "@id": "#Object.yKronRad90Sigma"
+  - name: yKronRad90Err
+    "@id": "#Object.yKronRad90Err"
     datatype: float
     description: Uncertainty of yKronRad90.
     mysql:datatype: FLOAT
@@ -4293,8 +4293,8 @@ tables:
     description: Estimated sky background at the position (centroid) of the source.
     mysql:datatype: FLOAT
     fits:tunit: nmgy/asec^2
-  - name: skySigma
-    "@id": "#Source.skySigma"
+  - name: skyErr
+    "@id": "#Source.skyErr"
     datatype: float
     description: Uncertainty of sky.
     mysql:datatype: FLOAT
@@ -4306,8 +4306,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: psFluxSigma
-    "@id": "#Source.psFluxSigma"
+  - name: psFluxErr
+    "@id": "#Source.psFluxErr"
     datatype: float
     description: Uncertainty of psFlux.
     mysql:datatype: FLOAT
@@ -4318,8 +4318,8 @@ tables:
     description: Point source model (x) position of the object on the CCD.
     mysql:datatype: FLOAT
     fits:tunit: pixels
-  - name: psXSigma
-    "@id": "#Source.psXSigma"
+  - name: psXErr
+    "@id": "#Source.psXErr"
     datatype: float
     description: Uncertainty of psX.
     mysql:datatype: FLOAT
@@ -4329,8 +4329,8 @@ tables:
     datatype: float
     description: Point source model (y) position of the object on the CCD.
     mysql:datatype: FLOAT
-  - name: psYSigma
-    "@id": "#Source.psYSigma"
+  - name: psYErr
+    "@id": "#Source.psYErr"
     datatype: float
     description: Uncertainty of psY.
     mysql:datatype: FLOAT
@@ -4374,8 +4374,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: psRaSigma
-    "@id": "#Source.psRaSigma"
+  - name: psRaErr
+    "@id": "#Source.psRaErr"
     datatype: float
     description: Uncertainty of psRa.
     mysql:datatype: FLOAT
@@ -4389,8 +4389,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: psDeclSigma
-    "@id": "#Source.psDeclSigma"
+  - name: psDeclErr
+    "@id": "#Source.psDeclErr"
     datatype: float
     description: Uncertainty of psDecl.
     mysql:datatype: FLOAT
@@ -4413,8 +4413,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.x
-  - name: xSigma
-    "@id": "#Source.xSigma"
+  - name: xErr
+    "@id": "#Source.xErr"
     datatype: float
     description: Uncertainty of x.
     mysql:datatype: FLOAT
@@ -4427,8 +4427,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.y
-  - name: ySigma
-    "@id": "#Source.ySigma"
+  - name: yErr
+    "@id": "#Source.yErr"
     datatype: float
     description: Uncertainty of y.
     mysql:datatype: FLOAT
@@ -4448,8 +4448,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.ra
-  - name: raSigma
-    "@id": "#Source.raSigma"
+  - name: raErr
+    "@id": "#Source.raErr"
     datatype: float
     description: Uncertainty of ra.
     mysql:datatype: FLOAT
@@ -4463,8 +4463,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: arcsec
     ivoa:ucd: pos.eq.dec
-  - name: declSigma
-    "@id": "#Source.declSigma"
+  - name: declErr
+    "@id": "#Source.declErr"
     datatype: float
     description: Uncertainty of decl.
     mysql:datatype: FLOAT
@@ -4483,8 +4483,8 @@ tables:
       image.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: E1Sigma
-    "@id": "#Source.E1Sigma"
+  - name: E1Err
+    "@id": "#Source.E1Err"
     datatype: float
     description: Uncertainty of E1.
     mysql:datatype: FLOAT
@@ -4496,8 +4496,8 @@ tables:
       image.
     mysql:datatype: FLOAT
     ivoa:ucd: phys.size.axisRatio
-  - name: E2Sigma
-    "@id": "#Source.E2Sigma"
+  - name: E2Err
+    "@id": "#Source.E2Err"
     datatype: float
     description: Uncertainty of E2.
     mysql:datatype: FLOAT
@@ -4512,8 +4512,8 @@ tables:
     datatype: float
     description: Sum of second adaptive moments.
     mysql:datatype: FLOAT
-  - name: mSumSigma
-    "@id": "#Source.mSumSigma"
+  - name: mSumErr
+    "@id": "#Source.mSumErr"
     datatype: float
     description: Uncertainty of mSum.
     mysql:datatype: FLOAT
@@ -4612,8 +4612,8 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: psFlux_Sigma
-    "@id": "#ForcedSource.psFlux_Sigma"
+  - name: psFlux_Err
+    "@id": "#ForcedSource.psFlux_Err"
     datatype: float
     description: Uncertainty of psFlux.
     mysql:datatype: FLOAT
@@ -6396,8 +6396,8 @@ tables:
     datatype: double
     description: Value of this SDQA metric.
     mysql:datatype: DOUBLE
-  - name: metricSigma
-    "@id": "#sdqa_Rating_ForAmpVisit.metricSigma"
+  - name: metricErr
+    "@id": "#sdqa_Rating_ForAmpVisit.metricErr"
     datatype: double
     description: Uncertainty of the value of this metric.
     mysql:datatype: DOUBLE
@@ -6454,8 +6454,8 @@ tables:
     datatype: double
     description: Value of this SDQA metric.
     mysql:datatype: DOUBLE
-  - name: metricSigma
-    "@id": "#sdqa_Rating_CcdVisit.metricSigma"
+  - name: metricErr
+    "@id": "#sdqa_Rating_CcdVisit.metricErr"
     datatype: double
     description: Uncertainty of the value of this metric.
     mysql:datatype: DOUBLE
