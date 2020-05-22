@@ -3685,6 +3685,16 @@ tables:
     datatype: double
     description:
     mysql:datatype: DOUBLE
+  - name: LocalBackground_instFlux
+    "@id": "#Source.LocalBackground_instFlux"
+    datatype: float
+    description: Estimate of local background residual flux computed from a large annulus
+    mysql:datatype: FLOAT
+  - name: LocalBackground_instFluxErr
+    "@id": "#Source.LocalBackground_instFluxErr"
+    datatype: float
+    description: Error in local background residual flux
+    mysql:datatype: FLOAT
   - name: LocalBackground_flag
     "@id": "#Source.LocalBackground_flag"
     datatype: boolean
