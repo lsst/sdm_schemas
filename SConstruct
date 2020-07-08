@@ -1,3 +1,3 @@
 # -*- python -*-
 from lsst.sconsUtils import scripts
-scripts.BasicSConstruct("cat", defaultTargets=("sql", "tests"))
+scripts.BasicSConstruct("sdm_schemas", defaultTargets=("sql", "tests"))
