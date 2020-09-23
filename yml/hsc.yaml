@@ -43,6 +43,7 @@ tables:
   - name: patchId
     "@id": "#Object.patchId"
     datatype: text
+    length: 3
     description: patch ID
     mysql:datatype: TEXT
   - name: tract
@@ -53,6 +54,7 @@ tables:
   - name: patch
     "@id": "#Object.patch"
     datatype: text
+    length: 3
     description: Same as Patch ID
     mysql:datatype: TEXT
   - name: x
@@ -88,6 +90,7 @@ tables:
   - name: refBand
     "@id": "#Object.refBand"
     datatype: text
+    length: 1
     description:
     mysql:datatype: TEXT
   - name: refExtendedness
@@ -478,7 +481,7 @@ tables:
     description:
     mysql:datatype: BOOLEAN
   - name: gCalib_astrometry_used
-    "@id": "#Object.Calib_astrometry_used"
+    "@id": "#Object.gCalib_astrometry_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -1085,7 +1088,7 @@ tables:
     description:
     mysql:datatype: BOOLEAN
   - name: rCalib_astrometry_used
-    "@id": "#Object.Calib_astrometry_used"
+    "@id": "#Object.rCalib_astrometry_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -1691,7 +1694,7 @@ tables:
     description:
     mysql:datatype: BOOLEAN
   - name: iCalib_astrometry_used
-    "@id": "#Object.Calib_astrometry_used"
+    "@id": "#Object.iCalib_astrometry_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -2297,7 +2300,7 @@ tables:
     mysql:datatype: BOOLEAN
 
   - name: zCalib_astrometry_used
-    "@id": "#Object.Calib_astrometry_used"
+    "@id": "#Object.zCalib_astrometry_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -2905,7 +2908,7 @@ tables:
     mysql:datatype: BOOLEAN
 
   - name: yCalib_astrometry_used
-    "@id": "#Object.Calib_astrometry_used"
+    "@id": "#Object.yCalib_astrometry_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -3235,6 +3238,7 @@ tables:
   - name: filter
     "@id": "#Source.filter"
     datatype: string
+    length: 1
     description: Name of the filter used to take the exposure where this source was measured.
     mysql:datatype: VARCHAR
     ivoa:ucd: meta.id;instr.filter
@@ -3644,7 +3648,7 @@ tables:
     "@id": "#Source.FootprintArea_value"
     datatype: int
     description:
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: Jacobian_flag
     "@id": "#Source.Jacobian_flag"
     datatype: boolean
@@ -3879,7 +3883,7 @@ tables:
     "@id": "#Source.Deblend_nChild"
     datatype: int
     description:
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: Deblend_parentTooBig
     "@id": "#Source.Deblend_parentTooBig"
     datatype: boolean
