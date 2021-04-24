@@ -1,10 +1,11 @@
 ---
 name: dp01_dc2_catalogs
 '@id': dc2
+description: Data Preview 0 includes five tables based on the DESC’S Data Challenge 2 simulation of 300 square degrees of the wide-fast-deep LSST survey region after 5 years. All tables contain objects detected in coadded images.
 tables:
 - name: position
   '@id': '#position'
-  description: position table from IN2P3
+  description: Select astrometry-related parameters for objects detected in the coadded images, such as coordinates, footprints, patch/tract information, and deblending parameters. (29 columns)
   columns:
   - name: objectId
     '@id': '#position.objectId'
@@ -189,7 +190,7 @@ tables:
     fits:tunit: ''
 - name: reference
   '@id': '#reference'
-  description: reference table from IN2P3
+  description: Measurements for objects detected in the coadded images, including photometry, astrometry, shape, deblending, model fits, and related background and flag parameters. This table joined with the position table is very similar to the object table, but with additional columns. (236 columns)
   columns:
   - name: objectId
     '@id': '#reference.objectId'
@@ -1666,7 +1667,7 @@ tables:
     fits:tunit: ''
 - name: forced_photometry
   '@id': '#forced_photometry'
-  description: forced_photometry table from IN2P3
+  description: Forced photometry measurements for objects detected in the coadded images, at the locations defined by the position table. (747 columns)
   columns:
   - name: objectId
     '@id': '#forced_photometry.objectId'
@@ -6204,7 +6205,7 @@ tables:
     fits:tunit: ''
 - name: object
   '@id': '#object'
-  description: object table from DC2 Simulated Sky Survey DR6 v2
+  description: The object table from the DESC DC2 simulated sky survey as described in arXiv:2101.04855. Includes astrometric and photometric parameters for objects detected in coadded images. (137 columns)
   columns:
   - name: objectId
     '@id': '#object.objectId'
@@ -7020,7 +7021,7 @@ tables:
     description: PSF FWHM calculated from base_SdssShape
 - name: truth_match
   '@id': '#truth_match'
-  description: Truth Match table from DC2 Simulated Sky Survey DR6 v2
+  description: The truth-match table for the DESC DC2's object table as described in arXiv:2101.04855. Includes the noiseless astrometric and photometric parameters and the best matches to the object table. (30 columns)
   columns:
   - name: id
     '@id': '#truth_match.id'
