@@ -6209,6 +6209,7 @@ tables:
   - name: objectId
     '@id': '#object.objectId'
     datatype: long
+    nullable: false
     description: Unique id.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
@@ -6220,6 +6221,7 @@ tables:
   - name: ra
     '@id': '#object.ra'
     datatype: double
+    nullable: false
     description: RA-coordinate of the center of the object for the Point Source model.
     mysql:datatype: DOUBLE
     fits:tunit: deg
@@ -6227,6 +6229,7 @@ tables:
   - name: dec
     '@id': '#object.dec'
     datatype: double
+    nullable: false
     description: Decl-coordinate of the center of the object for the Point Source
       model.
     mysql:datatype: DOUBLE
@@ -7032,6 +7035,7 @@ tables:
   - name: ra
     '@id': '#truth_match.ra'
     datatype: double
+    nullable: false
     mysql:datatype: DOUBLE
     fits:tunit: deg
     description: Right Ascension
@@ -7039,6 +7043,7 @@ tables:
   - name: dec
     '@id': '#truth_match.dec'
     datatype: double
+    nullable: false
     mysql:datatype: DOUBLE
     fits:tunit: deg
     description: Declination
