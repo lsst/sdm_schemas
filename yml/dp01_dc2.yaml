@@ -7025,6 +7025,7 @@ tables:
   - name: id
     '@id': '#truth_match.id'
     datatype: char
+    length: 20
     mysql:datatype: CHAR(20)
     description: Unique object ID
   - name: host_galaxy
