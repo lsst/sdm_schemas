@@ -145,6 +145,26 @@ tables:
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
+  - name: detect_isIsolated
+    "@id": "#Object.detect_isIsolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_fromBlend
+    "@id": "#Object.detect_fromBlend"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isDeblendedSource
+    "@id": "#Object.detect_isDeblendedSource"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isDeblendedModelSource
+    "@id": "#Object.detect_isDeblendedModelSource"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
   - name: gRa
     "@id": "#Object.gRa"
     datatype: double
