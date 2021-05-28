@@ -37,9 +37,9 @@ tables:
     ivoa:ucd: pos.eq.dec
   - name: tractId
     "@id": "#Object.tractId"
-    datatype: long
+    datatype: int
     description: tract ID
-    mysql:datatype: BIGINT
+    mysql:datatype: INTEGER
   - name: patchId
     "@id": "#Object.patchId"
     datatype: text
@@ -48,9 +48,9 @@ tables:
     mysql:datatype: TEXT
   - name: tract
     "@id": "#Object.tract"
-    datatype: long
+    datatype: int
     description: Same as Tract ID
-    mysql:datatype: BIGINT
+    mysql:datatype: INTEGER
   - name: patch
     "@id": "#Object.patch"
     datatype: text
@@ -3252,9 +3252,9 @@ tables:
     mysql:datatype: BIGINT
   - name: ccd
     "@id": "#Source.ccd"
-    datatype: long
+    datatype: int
     description:
-    mysql:datatype: BIGINT
+    mysql:datatype: INTEGER
   - name: pointing
     "@id": "#Source.pointing"
     datatype: long

@@ -42,24 +42,24 @@ tables:
     mysql:datatype: CHAR(6)
   - name: tractId
     "@id": "#Object.tractId"
-    datatype: long
+    datatype: int
     description: tract ID
-    mysql:datatype: BIGINT
+    mysql:datatype: INTEGER
   - name: patchId
     "@id": "#Object.patchId"
-    datatype: long
+    datatype: int
     description: patch ID
-    mysql:datatype: BIGINT
+    mysql:datatype: INTEGER
   - name: tract
     "@id": "#Object.tract"
-    datatype: long
+    datatype: int
     description: Same as Tract ID
-    mysql:datatype: BIGINT
+    mysql:datatype: INTEGER
   - name: patch
     "@id": "#Object.patch"
-    datatype: long
+    datatype: int
     description: Same as Patch ID
-    mysql:datatype: BIGINT
+    mysql:datatype: INTEGER
   - name: x
     "@id": "#Object.x"
     datatype: double
@@ -3255,8 +3255,8 @@ tables:
     mysql:datatype: BIGINT
   - name: detector
     "@id": "#Source.detector"
-    datatype: long
-    mysql:datatype: BIGINT
+    datatype: int
+    mysql:datatype: INTEGER
   - name: band
     "@id": "#Source.band"
     datatype: char
@@ -3275,8 +3275,8 @@ tables:
     mysql:datatype: CHAR(3)
   - name: visit_system
     "@id": "#Source.visit_system"
-    datatype: long
-    mysql:datatype: BIGINT
+    datatype: int
+    mysql:datatype: INTEGER
   - name: x
     "@id": "#Source.x"
     datatype: double
