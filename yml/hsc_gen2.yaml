@@ -35,11 +35,6 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: skymap
-    "@id": "#Object.skymap"
-    datatype: char
-    length: 6
-    mysql:datatype: CHAR(6)
   - name: tractId
     "@id": "#Object.tractId"
     datatype: int
@@ -47,9 +42,10 @@ tables:
     mysql:datatype: INTEGER
   - name: patchId
     "@id": "#Object.patchId"
-    datatype: int
+    datatype: text
+    length: 3
     description: patch ID
-    mysql:datatype: INTEGER
+    mysql:datatype: TEXT
   - name: tract
     "@id": "#Object.tract"
     datatype: int
@@ -57,9 +53,10 @@ tables:
     mysql:datatype: INTEGER
   - name: patch
     "@id": "#Object.patch"
-    datatype: int
+    datatype: text
+    length: 3
     description: Same as Patch ID
-    mysql:datatype: INTEGER
+    mysql:datatype: TEXT
   - name: x
     "@id": "#Object.x"
     datatype: double
@@ -3253,30 +3250,23 @@ tables:
     datatype: long
     description:
     mysql:datatype: BIGINT
-  - name: detector
-    "@id": "#Source.detector"
+  - name: ccd
+    "@id": "#Source.ccd"
     datatype: int
+    description:
     mysql:datatype: INTEGER
-  - name: band
-    "@id": "#Source.band"
-    datatype: char
+  - name: pointing
+    "@id": "#Source.pointing"
+    datatype: long
+    description:
+    mysql:datatype: BIGINT
+  - name: filter
+    "@id": "#Source.filter"
+    datatype: string
     length: 1
-    description: Name of the band used to take the exposure where this source was measured.
-    mysql:datatype: CHAR(1)
-  - name: physical_filter
-    "@id": "#Source.physical_filter"
-    datatype: char
-    length: 5
-    mysql:datatype: CHAR(5)
-  - name: instrument
-    "@id": "#Source.instrument"
-    datatype: char
-    length: 3
-    mysql:datatype: CHAR(3)
-  - name: visit_system
-    "@id": "#Source.visit_system"
-    datatype: int
-    mysql:datatype: INTEGER
+    description: Name of the filter used to take the exposure where this source was measured.
+    mysql:datatype: VARCHAR
+    ivoa:ucd: meta.id;instr.filter
   - name: x
     "@id": "#Source.x"
     datatype: double
