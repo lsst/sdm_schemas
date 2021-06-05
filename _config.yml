@@ -1,0 +1,9 @@
+theme: jekyll-theme-cayman
+data_dir: ./yml
+layouts_dir: ./browser/_layouts
+exclude:
+  - Gemfile
+  - /tap-schema
+  - /yml
+readme_index:
+  remove_originals: true
