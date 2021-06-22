@@ -1,0 +1,14 @@
+#!/bin/bash -ex
+ENVIRONMENT="$1"
+GIT_TAG=`echo $GITHUB_REF | sed -E 's,refs/(heads|tags)/,,' | sed -E 's,/,-,g'`
+shift
+
+for file in $@
+do
+    felis load-tap --dry-run --engine-url=postgresql+psycopg2:// --tap-schema-name=tap_schema --tap-tables-postfix=11 ../yml/$file > sql/$file.sql
+done
+
+docker build . -t lsst-sqre/tap-schema-$ENVIRONMENT:$GIT_TAG
+#docker push lsst-sqre/tap-schema-$ENVIRONMENT:$GIT_TAG
+git clean -n
+git clean -f sql
