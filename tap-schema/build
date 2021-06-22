@@ -3,12 +3,19 @@ ENVIRONMENT="$1"
 GIT_TAG=`echo $GITHUB_REF | sed -E 's,refs/(heads|tags)/,,' | sed -E 's,/,-,g'`
 shift
 
+# Generate SQL files from Felis yaml files
+# Place the SQL files in the sql directory, which gets
+# copied into the docker image.
 for file in $@
 do
     felis load-tap --dry-run --engine-url=postgresql+psycopg2:// --tap-schema-name=tap_schema --tap-tables-postfix=11 ../yml/$file > sql/$file.sql
 done
 
-docker build . -t lsst-sqre/tap-schema-$ENVIRONMENT:$GIT_TAG
-#docker push lsst-sqre/tap-schema-$ENVIRONMENT:$GIT_TAG
+# Build and push docker images
+docker build . -t lsstsqre/tap-schema-$ENVIRONMENT:$GIT_TAG
+docker push lsstsqre/tap-schema-$ENVIRONMENT:$GIT_TAG
+
+# Clean up any untracked files in the sql directory
+# between the different runs of this script.
 git clean -n
 git clean -f sql

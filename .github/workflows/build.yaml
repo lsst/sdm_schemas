@@ -22,7 +22,8 @@ jobs:
 
       - name: Install felis
         id: felis
-        run: (cd felis && pip install .)
+        run: pip install .
+        working-directory: ./felis
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
@@ -32,4 +33,5 @@ jobs:
 
       - name: Run the build
         id: build
-        run: (cd tap-schema && ./build-all)
+        run: ./build-all
+        working-directory: ./tap-schema
