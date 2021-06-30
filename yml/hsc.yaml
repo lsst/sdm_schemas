@@ -383,6 +383,102 @@ tables:
     mysql:datatype: DOUBLE
     fits.tunit: nmgy
     ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_Psf
+    "@id": "#Object.gGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux with Point Source model for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_Psf
+    "@id": "#Object.gGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of gGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_Optimal
+    "@id": "#Object.gGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_Optimal
+    "@id": "#Object.gGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of gGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_0_7
+    "@id": "#Object.gGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_0_7
+    "@id": "#Object.gGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of gGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_1_0
+    "@id": "#Object.gGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_1_0
+    "@id": "#Object.gGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of gGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_Psf_apCorr
+    "@id": "#Object.gGaapFlux_Psf_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with Point Source model for g filter.
+    mysql:datatype: FLOAT
+  - name: gGaapFlux_Psf_apCorrErr
+    "@id": "#Object.gGaapFlux_Psf_apCorrErr"
+    datatype: float
+    description: Uncertainty of gGaapFlux_Psf_apCorr.
+    mysql:datatype: FLOAT
+  - name: gGaapFlux_Optimal_apCorr
+    "@id": "#Object.gGaapFlux_Optimal_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with optimal aperture for g filter.
+    mysql:datatype: FLOAT
+  - name: gGaapFlux_Optimal_apCorrErr
+    "@id": "#Object.gGaapFlux_Optimal_apCorrErr"
+    datatype: float
+    description: Uncertainty of gGaapFlux_Optimal_apCorr.
+    mysql:datatype: FLOAT
+  - name: gGaapFlux_0_7_apCorr
+    "@id": "#Object.gGaapFlux_0_7_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for g filter.
+    mysql:datatype: FLOAT
+  - name: gGaapFlux_0_7_apCorrErr
+    "@id": "#Object.gGaapFlux_0_7_apCorrErr"
+    datatype: float
+    description: Uncertainty of gGaapFlux_0_7_apCorr.
+    mysql:datatype: FLOAT
+  - name: gGaapFlux_1_0_apCorr
+    "@id": "#Object.gGaapFlux_1_0_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for g filter.
+    mysql:datatype: FLOAT
+  - name: gGaapFlux_1_0_apCorrErr
+    "@id": "#Object.gGaapFlux_1_0_apCorrErr"
+    datatype: float
+    description: Uncertainty of gGaapFlux_1_0_apCorr.
+    mysql:datatype: FLOAT
   - name: gDeblend_nChild
     "@id": "#Object.gDeblend_nChild"
     datatype: int
@@ -738,6 +834,36 @@ tables:
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
+  - name: gGaapFlux_0_7_flag_bigPsf
+    "@id": "#Object.gGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_1_0_flag_bigPsf
+    "@id": "#Object.gGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_Optimal_flag_bigPsf
+    "@id": "#Object.gGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_flag_gaussianization
+    "@id": "#Object.gGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_flag_edge
+    "@id": "#Object.gGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_flag
+    "@id": "#Object.gGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
   - name: gPsfShape_flag
     "@id": "#Object.gPsfShape_flag"
     datatype: boolean
@@ -989,6 +1115,102 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
     ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_Psf
+    "@id": "#Object.rGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux with Point Source model for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_Psf
+    "@id": "#Object.rGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of rGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_Optimal
+    "@id": "#Object.rGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_Optimal
+    "@id": "#Object.rGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of rGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_0_7
+    "@id": "#Object.rGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_0_7
+    "@id": "#Object.rGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of rGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_1_0
+    "@id": "#Object.rGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_1_0
+    "@id": "#Object.rGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of rGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_Psf_apCorr
+    "@id": "#Object.rGaapFlux_Psf_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with Point Source model for r filter.
+    mysql:datatype: FLOAT
+  - name: rGaapFlux_Psf_apCorrErr
+    "@id": "#Object.rGaapFlux_Psf_apCorrErr"
+    datatype: float
+    description: Uncertainty of rGaapFlux_Psf_apCorr.
+    mysql:datatype: FLOAT
+  - name: rGaapFlux_Optimal_apCorr
+    "@id": "#Object.rGaapFlux_Optimal_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with optimal aperture for r filter.
+    mysql:datatype: FLOAT
+  - name: rGaapFlux_Optimal_apCorrErr
+    "@id": "#Object.rGaapFlux_Optimal_apCorrErr"
+    datatype: float
+    description: Uncertainty of rGaapFlux_Optimal_apCorr.
+    mysql:datatype: FLOAT
+  - name: rGaapFlux_0_7_apCorr
+    "@id": "#Object.rGaapFlux_0_7_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for r filter.
+    mysql:datatype: FLOAT
+  - name: rGaapFlux_0_7_apCorrErr
+    "@id": "#Object.rGaapFlux_0_7_apCorrErr"
+    datatype: float
+    description: Uncertainty of rGaapFlux_0_7_apCorr.
+    mysql:datatype: FLOAT
+  - name: rGaapFlux_1_0_apCorr
+    "@id": "#Object.rGaapFlux_1_0_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for r filter.
+    mysql:datatype: FLOAT
+  - name: rGaapFlux_1_0_apCorrErr
+    "@id": "#Object.rGaapFlux_1_0_apCorrErr"
+    datatype: float
+    description: Uncertainty of rGaapFlux_1_0_apCorr.
+    mysql:datatype: FLOAT
 
   - name: rDeblend_nChild
     "@id": "#Object.rDeblend_nChild"
@@ -1345,6 +1567,36 @@ tables:
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
+  - name: rGaapFlux_0_7_flag_bigPsf
+    "@id": "#Object.rGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_1_0_flag_bigPsf
+    "@id": "#Object.rGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_Optimal_flag_bigPsf
+    "@id": "#Object.rGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_flag_gaussianization
+    "@id": "#Object.rGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_flag_edge
+    "@id": "#Object.rGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_flag
+    "@id": "#Object.rGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
   - name: rPsfShape_flag
     "@id": "#Object.rPsfShape_flag"
     datatype: boolean
@@ -1595,6 +1847,102 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
     ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_Psf
+    "@id": "#Object.iGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux with Point Source model for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_Psf
+    "@id": "#Object.iGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of iGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_Optimal
+    "@id": "#Object.iGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_Optimal
+    "@id": "#Object.iGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of iGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_0_7
+    "@id": "#Object.iGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_0_7
+    "@id": "#Object.iGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of iGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_1_0
+    "@id": "#Object.iGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_1_0
+    "@id": "#Object.iGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of iGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_Psf_apCorr
+    "@id": "#Object.iGaapFlux_Psf_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with Point Source model for i filter.
+    mysql:datatype: FLOAT
+  - name: iGaapFlux_Psf_apCorrErr
+    "@id": "#Object.iGaapFlux_Psf_apCorrErr"
+    datatype: float
+    description: Uncertainty of iGaapFlux_Psf_apCorr.
+    mysql:datatype: FLOAT
+  - name: iGaapFlux_Optimal_apCorr
+    "@id": "#Object.iGaapFlux_Optimal_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with optimal aperture for i filter.
+    mysql:datatype: FLOAT
+  - name: iGaapFlux_Optimal_apCorrErr
+    "@id": "#Object.iGaapFlux_Optimal_apCorrErr"
+    datatype: float
+    description: Uncertainty of iGaapFlux_Optimal_apCorr.
+    mysql:datatype: FLOAT
+  - name: iGaapFlux_0_7_apCorr
+    "@id": "#Object.iGaapFlux_0_7_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for i filter.
+    mysql:datatype: FLOAT
+  - name: iGaapFlux_0_7_apCorrErr
+    "@id": "#Object.iGaapFlux_0_7_apCorrErr"
+    datatype: float
+    description: Uncertainty of iGaapFlux_0_7_apCorr.
+    mysql:datatype: FLOAT
+  - name: iGaapFlux_1_0_apCorr
+    "@id": "#Object.iGaapFlux_1_0_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for i filter.
+    mysql:datatype: FLOAT
+  - name: iGaapFlux_1_0_apCorrErr
+    "@id": "#Object.iGaapFlux_1_0_apCorrErr"
+    datatype: float
+    description: Uncertainty of iGaapFlux_1_0_apCorr.
+    mysql:datatype: FLOAT
 
   - name: iDeblend_nChild
     "@id": "#Object.iDeblend_nChild"
@@ -1951,6 +2299,36 @@ tables:
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
+  - name: iGaapFlux_0_7_flag_bigPsf
+    "@id": "#Object.iGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_1_0_flag_bigPsf
+    "@id": "#Object.iGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_Optimal_flag_bigPsf
+    "@id": "#Object.iGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_flag_gaussianization
+    "@id": "#Object.iGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_flag_edge
+    "@id": "#Object.iGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_flag
+    "@id": "#Object.iGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
   - name: iPsfShape_flag
     "@id": "#Object.iPsfShape_flag"
     datatype: boolean
@@ -2201,6 +2579,102 @@ tables:
       moments) for g filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
+  - name: zGaapFlux_Psf
+    "@id": "#Object.zGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux with Point Source model for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_Psf
+    "@id": "#Object.zGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of zGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_Optimal
+    "@id": "#Object.zGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_Optimal
+    "@id": "#Object.zGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of zGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_0_7
+    "@id": "#Object.zGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_0_7
+    "@id": "#Object.zGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of zGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_1_0
+    "@id": "#Object.zGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_1_0
+    "@id": "#Object.zGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of zGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_Psf_apCorr
+    "@id": "#Object.zGaapFlux_Psf_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with Point Source model for z filter.
+    mysql:datatype: FLOAT
+  - name: zGaapFlux_Psf_apCorrErr
+    "@id": "#Object.zGaapFlux_Psf_apCorrErr"
+    datatype: float
+    description: Uncertainty of zGaapFlux_Psf_apCorr.
+    mysql:datatype: FLOAT
+  - name: zGaapFlux_Optimal_apCorr
+    "@id": "#Object.zGaapFlux_Optimal_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with optimal aperture for z filter.
+    mysql:datatype: FLOAT
+  - name: zGaapFlux_Optimal_apCorrErr
+    "@id": "#Object.zGaapFlux_Optimal_apCorrErr"
+    datatype: float
+    description: Uncertainty of zGaapFlux_Optimal_apCorr.
+    mysql:datatype: FLOAT
+  - name: zGaapFlux_0_7_apCorr
+    "@id": "#Object.zGaapFlux_0_7_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for z filter.
+    mysql:datatype: FLOAT
+  - name: zGaapFlux_0_7_apCorrErr
+    "@id": "#Object.zGaapFlux_0_7_apCorrErr"
+    datatype: float
+    description: Uncertainty of zGaapFlux_0_7_apCorr.
+    mysql:datatype: FLOAT
+  - name: zGaapFlux_1_0_apCorr
+    "@id": "#Object.zGaapFlux_1_0_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for z filter.
+    mysql:datatype: FLOAT
+  - name: zGaapFlux_1_0_apCorrErr
+    "@id": "#Object.zGaapFlux_1_0_apCorrErr"
+    datatype: float
+    description: Uncertainty of zGaapFlux_1_0_apCorr.
+    mysql:datatype: FLOAT
   - name: zDeblend_nChild
     "@id": "#Object.zDeblend_nChild"
     datatype: int
@@ -2558,6 +3032,36 @@ tables:
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
+  - name: zGaapFlux_0_7_flag_bigPsf
+    "@id": "#Object.zGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_1_0_flag_bigPsf
+    "@id": "#Object.zGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_Optimal_flag_bigPsf
+    "@id": "#Object.zGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_flag_gaussianization
+    "@id": "#Object.zGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_flag_edge
+    "@id": "#Object.zGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_flag
+    "@id": "#Object.zGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
   - name: zPsfShape_flag
     "@id": "#Object.zPsfShape_flag"
     datatype: boolean
@@ -2808,6 +3312,102 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
     ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_Psf
+    "@id": "#Object.yGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux with Point Source model for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_Psf
+    "@id": "#Object.yGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of yGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_Optimal
+    "@id": "#Object.yGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_Optimal
+    "@id": "#Object.yGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of yGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_0_7
+    "@id": "#Object.yGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_0_7
+    "@id": "#Object.yGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of yGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_1_0
+    "@id": "#Object.yGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_1_0
+    "@id": "#Object.yGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of yGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_Psf_apCorr
+    "@id": "#Object.yGaapFlux_Psf_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with Point Source model for y filter.
+    mysql:datatype: FLOAT
+  - name: yGaapFlux_Psf_apCorrErr
+    "@id": "#Object.yGaapFlux_Psf_apCorrErr"
+    datatype: float
+    description: Uncertainty of yGaapFlux_Psf_apCorr.
+    mysql:datatype: FLOAT
+  - name: yGaapFlux_Optimal_apCorr
+    "@id": "#Object.yGaapFlux_Optimal_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with optimal aperture for y filter.
+    mysql:datatype: FLOAT
+  - name: yGaapFlux_Optimal_apCorrErr
+    "@id": "#Object.yGaapFlux_Optimal_apCorrErr"
+    datatype: float
+    description: Uncertainty of yGaapFlux_Optimal_apCorr.
+    mysql:datatype: FLOAT
+  - name: yGaapFlux_0_7_apCorr
+    "@id": "#Object.yGaapFlux_0_7_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for y filter.
+    mysql:datatype: FLOAT
+  - name: yGaapFlux_0_7_apCorrErr
+    "@id": "#Object.yGaapFlux_0_7_apCorrErr"
+    datatype: float
+    description: Uncertainty of yGaapFlux_0_7_apCorr.
+    mysql:datatype: FLOAT
+  - name: yGaapFlux_1_0_apCorr
+    "@id": "#Object.yGaapFlux_1_0_apCorr"
+    datatype: float
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for y filtter.
+    mysql:datatype: FLOAT
+  - name: yGaapFlux_1_0_apCorrErr
+    "@id": "#Object.yGaapFlux_1_0_apCorrErr"
+    datatype: float
+    description: Uncertainty of yGaapFlux_1_0_apCorr.
+    mysql:datatype: FLOAT
 
   - name: yDeblend_nChild
     "@id": "#Object.yDeblend_nChild"
@@ -3163,6 +3763,36 @@ tables:
     mysql:datatype: BOOLEAN
   - name: yKronFlux_flag_used_psf_radius
     "@id": "#Object.yKronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_0_7_flag_bigPsf
+    "@id": "#Object.yGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_1_0_flag_bigPsf
+    "@id": "#Object.yGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_Optimal_flag_bigPsf
+    "@id": "#Object.yGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_flag_gaussianization
+    "@id": "#Object.yGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_flag_edge
+    "@id": "#Object.yGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_flag
+    "@id": "#Object.yGaapFlux_flag"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
