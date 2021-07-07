@@ -1,6 +1,6 @@
 ---
-name: wise_00
-description: ALLWISE, All-Sky, NeoWISE
+name: wise_01
+description: ALLWISE
 tables:
 - name: allwise_p3as_mep
   "@id": "#allwise_p3as_mep"
@@ -21,8 +21,8 @@ tables:
     datatype: double
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
-  - name: decl
-    "@id": "#allwise_p3as_mep.decl"
+  - name: dec
+    "@id": "#allwise_p3as_mep.dec"
     description: declination (J2000)
     datatype: double
     ivoa:ucd: pos.eq.dec
@@ -263,8 +263,8 @@ tables:
     datatype: double
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
-  - name: decl
-    "@id": "#allwise_p3as_psd.decl"
+  - name: dec
+    "@id": "#allwise_p3as_psd.dec"
     description: declination (J2000)
     datatype: double
     ivoa:ucd: pos.eq.dec
@@ -666,7 +666,7 @@ tables:
     "@id": "#allwise_p3as_psd.best_use_cntr"
     description: "'cntr' of source to use from 'best' duplicate resolution group for
       this source"
-    datatype: int
+    datatype: long
   - name: ngrp
     "@id": "#allwise_p3as_psd.ngrp"
     description: number of additional duplicate resolution groups in which this source
