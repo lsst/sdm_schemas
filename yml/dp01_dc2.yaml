@@ -13,7 +13,7 @@ tables:
     datatype: long
     nullable: false
     mysql:datatype: BIGINT
-    tap:column_index: 999
+    tap:column_index: 1
     tap:principal: 1
     description: Unique id.
   - name: coord_ra
@@ -21,7 +21,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 2
     tap:principal: 1
     description: RA-coordinate
     fits:tunit: ''
@@ -31,7 +31,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 3
     tap:principal: 1
     description: Decl-coordinate
     fits:tunit: ''
@@ -257,7 +257,7 @@ tables:
     datatype: long
     nullable: false
     mysql:datatype: BIGINT
-    tap:column_index: 999
+    tap:column_index: 1
     tap:principal: 1
     description: Unique id.
   - name: coord_ra
@@ -265,7 +265,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 2
     tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
@@ -275,7 +275,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 3
     tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
@@ -2207,7 +2207,7 @@ tables:
     datatype: long
     nullable: false
     mysql:datatype: BIGINT
-    tap:column_index: 999
+    tap:column_index: 1
     tap:principal: 1
     description: Unique id.
   - name: coord_ra
@@ -2215,7 +2215,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 2
     tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
@@ -2225,7 +2225,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 3
     tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
@@ -8241,7 +8241,7 @@ tables:
     nullable: false
     description: Unique id.
     mysql:datatype: BIGINT
-    tap:column_index: 999
+    tap:column_index: 1
     tap:principal: 1
     ivoa:ucd: meta.id;src
   - name: parentObjectId
@@ -8249,7 +8249,7 @@ tables:
     datatype: long
     description: Id of the parent object this object has been deblended from, if any.
     mysql:datatype: BIGINT
-    tap:column_index: 999
+    tap:column_index: 2
     tap:principal: 1
   - name: ra
     '@id': '#object.ra'
@@ -8257,7 +8257,7 @@ tables:
     nullable: false
     description: RA-coordinate of the center of the object for the Point Source model.
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 3
     tap:principal: 1
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -8268,7 +8268,7 @@ tables:
     description: Decl-coordinate of the center of the object for the Point Source
       model.
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 4
     tap:principal: 1
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -9331,7 +9331,7 @@ tables:
     datatype: char
     length: 20
     mysql:datatype: CHAR(20)
-    tap:column_index: 999
+    tap:column_index: 1
     tap:principal: 1
     description: Unique object ID
   - name: host_galaxy
@@ -9346,7 +9346,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 2
     tap:principal: 1
     fits:tunit: deg
     description: Right Ascension
@@ -9356,7 +9356,7 @@ tables:
     datatype: double
     nullable: false
     mysql:datatype: DOUBLE
-    tap:column_index: 999
+    tap:column_index: 3
     tap:principal: 1
     fits:tunit: deg
     description: Declination
