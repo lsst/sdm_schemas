@@ -1,6 +1,6 @@
 ---
 name: wise_00
-description: ALLWISE, All-Sky, NeoWISE
+description: Selected catalog and image metadata tables from the AllWISE and WISE All-Sky data releases
 tables:
 - name: allsky_2band_p1bm_frm
   "@id": "#allsky_2band_p1bm_frm"
@@ -3062,8 +3062,8 @@ tables:
     description: unique entry counter (key) number
     datatype: long
 - name: allwise_p3as_mep
-  "@id": "#allwise_p3as_psd"
-  description: AllWISE Source Catalog
+  "@id": "#allwise_p3as_mep"
+  description: AllWISE Multi-Epoch Photometry Database
   columns:
   - name: cntr_mf
     "@id": "#allwise_p3as_mep.cntr_mf"
