@@ -14,7 +14,7 @@ tables:
     nullable: false
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Unique id.
   - name: coord_ra
     '@id': '#position.coord_ra'
@@ -22,7 +22,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: RA-coordinate
     fits:tunit: ''
     ivoa:ucd: pos.eq.ra
@@ -32,7 +32,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Decl-coordinate
     fits:tunit: ''
     ivoa:ucd: pos.eq.dec
@@ -42,7 +42,7 @@ tables:
     nullable: false
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: unique ID of parent source
     fits:tunit: ''
   - name: deblend_nChild
@@ -50,7 +50,7 @@ tables:
     datatype: int
     mysql:datatype: INTEGER
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Number of children this object has (defaults to 0)
     fits:tunit: ''
   - name: detect_isPrimary
@@ -58,7 +58,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: true if source has no children and is in the inner region of a coadd
       patch and is in the inner region of a coadd tract and is not "detected" in a
       pseudo-filter (see config.pseudoFilterList)
@@ -68,7 +68,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Milky Way dust extinction, E(B-V)
     fits:tunit: mag
   - name: detect_isPatchInner
@@ -258,7 +258,7 @@ tables:
     nullable: false
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Unique id.
   - name: coord_ra
     '@id': '#reference.coord_ra'
@@ -266,7 +266,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
     ivoa:ucd: pos.eq.ra
@@ -276,7 +276,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
     ivoa:ucd: pos.eq.dec
@@ -612,7 +612,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for extended sources, 0 for point sources.
     fits:tunit: ''
   - name: base_ClassificationExtendedness_flag
@@ -831,7 +831,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if the source has no flagged pixels.
   - name: ext_shapeHSM_HsmSourceMoments_x
     '@id': '#reference.ext_shapeHSM_HsmSourceMoments_x'
@@ -1375,7 +1375,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Deblender thought this source looked like a PSF
     fits:tunit: ''
   - name: deblend_tooManyPeaks
@@ -1407,7 +1407,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Deblender skipped this source
     fits:tunit: ''
   - name: deblend_rampedTemplate
@@ -2075,7 +2075,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flag set if the final cmodel fit (or any previous fit) failed
     fits:tunit: ''
   - name: modelfit_CModel_flag_region_maxArea
@@ -2208,7 +2208,7 @@ tables:
     nullable: false
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Unique id.
   - name: coord_ra
     '@id': '#forced_photometry.coord_ra'
@@ -2216,7 +2216,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
     ivoa:ucd: pos.eq.ra
@@ -2226,7 +2226,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: position in ra/dec
     fits:tunit: ''
     ivoa:ucd: pos.eq.dec
@@ -2411,14 +2411,14 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if the source has no flagged pixels.
   - name: g_base_ClassificationExtendedness_value
     '@id': '#forced_photometry.g_base_ClassificationExtendedness_value'
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for extended sources, 0 for point sources.
     fits:tunit: ''
   - name: g_base_ClassificationExtendedness_flag
@@ -2426,7 +2426,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for any fatal failure.
     fits:tunit: ''
   - name: g_modelfit_CModel_instFlux
@@ -2434,7 +2434,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux from the final cmodel fit
     fits:tunit: count
   - name: g_modelfit_CModel_instFluxErr
@@ -2442,7 +2442,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux uncertainty from the final cmodel fit
     fits:tunit: count
   - name: g_modelfit_CModel_instFlux_inner
@@ -3411,14 +3411,14 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if the source has no flagged pixels.
   - name: i_base_ClassificationExtendedness_value
     '@id': '#forced_photometry.i_base_ClassificationExtendedness_value'
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for extended sources, 0 for point sources.
     fits:tunit: ''
   - name: i_base_ClassificationExtendedness_flag
@@ -3426,7 +3426,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for any fatal failure.
     fits:tunit: ''
   - name: i_modelfit_CModel_instFlux
@@ -3434,7 +3434,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux from the final cmodel fit
     fits:tunit: count
   - name: i_modelfit_CModel_instFluxErr
@@ -3442,7 +3442,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux uncertainty from the final cmodel fit
     fits:tunit: count
   - name: i_modelfit_CModel_instFlux_inner
@@ -4411,14 +4411,14 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if the source has no flagged pixels.
   - name: r_base_ClassificationExtendedness_value
     '@id': '#forced_photometry.r_base_ClassificationExtendedness_value'
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for extended sources, 0 for point sources.
     fits:tunit: ''
   - name: r_base_ClassificationExtendedness_flag
@@ -4426,7 +4426,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for any fatal failure.
     fits:tunit: ''
   - name: r_modelfit_CModel_instFlux
@@ -4434,7 +4434,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux from the final cmodel fit
     fits:tunit: count
   - name: r_modelfit_CModel_instFluxErr
@@ -4442,7 +4442,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux uncertainty from the final cmodel fit
     fits:tunit: count
   - name: r_modelfit_CModel_instFlux_inner
@@ -5411,14 +5411,14 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if the source has no flagged pixels.
   - name: u_base_ClassificationExtendedness_value
     '@id': '#forced_photometry.u_base_ClassificationExtendedness_value'
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for extended sources, 0 for point sources.
     fits:tunit: ''
   - name: u_base_ClassificationExtendedness_flag
@@ -5426,7 +5426,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for any fatal failure.
     fits:tunit: ''
   - name: u_modelfit_CModel_instFlux
@@ -5434,7 +5434,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux from the final cmodel fit
     fits:tunit: count
   - name: u_modelfit_CModel_instFluxErr
@@ -5442,7 +5442,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux uncertainty from the final cmodel fit
     fits:tunit: count
   - name: u_modelfit_CModel_instFlux_inner
@@ -6411,14 +6411,14 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if the source has no flagged pixels.
   - name: y_base_ClassificationExtendedness_value
     '@id': '#forced_photometry.y_base_ClassificationExtendedness_value'
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for extended sources, 0 for point sources.
     fits:tunit: ''
   - name: y_base_ClassificationExtendedness_flag
@@ -6426,7 +6426,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for any fatal failure.
     fits:tunit: ''
   - name: y_modelfit_CModel_instFlux
@@ -6434,7 +6434,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux from the final cmodel fit
     fits:tunit: count
   - name: y_modelfit_CModel_instFluxErr
@@ -6442,7 +6442,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux uncertainty from the final cmodel fit
     fits:tunit: count
   - name: y_modelfit_CModel_instFlux_inner
@@ -7411,14 +7411,14 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if the source has no flagged pixels.
   - name: z_base_ClassificationExtendedness_value
     '@id': '#forced_photometry.z_base_ClassificationExtendedness_value'
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for extended sources, 0 for point sources.
     fits:tunit: ''
   - name: z_base_ClassificationExtendedness_flag
@@ -7426,7 +7426,7 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Set to 1 for any fatal failure.
     fits:tunit: ''
   - name: z_modelfit_CModel_instFlux
@@ -7434,7 +7434,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux from the final cmodel fit
     fits:tunit: count
   - name: z_modelfit_CModel_instFluxErr
@@ -7442,7 +7442,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: flux uncertainty from the final cmodel fit
     fits:tunit: count
   - name: z_modelfit_CModel_instFlux_inner
@@ -8242,7 +8242,7 @@ tables:
     description: Unique id.
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     ivoa:ucd: meta.id;src
   - name: parentObjectId
     '@id': '#object.parentObjectId'
@@ -8250,7 +8250,7 @@ tables:
     description: Id of the parent object this object has been deblended from, if any.
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
   - name: ra
     '@id': '#object.ra'
     datatype: double
@@ -8258,7 +8258,7 @@ tables:
     description: RA-coordinate of the center of the object for the Point Source model.
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: dec
@@ -8269,7 +8269,7 @@ tables:
       model.
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: tract
@@ -8278,14 +8278,14 @@ tables:
     description: tract ID
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
   - name: patch
     '@id': '#object.patch'
     datatype: char
     length: 3
     mysql:datatype: CHAR(3)
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: patch ID
   - name: x
     '@id': '#object.x'
@@ -8343,7 +8343,7 @@ tables:
     description: 0:star, 1:extended.  DM Stack `base_ClassificationExtendedness_value
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
   - name: blendedness
     '@id': '#object.blendedness'
     datatype: double
@@ -8351,7 +8351,7 @@ tables:
       (see 4.9.11 of [1705.06766](https://arxiv.org/abs/1705.06766))
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
   - name: Ixx_pixel
     '@id': '#object.Ixx_pixel'
     datatype: double
@@ -8413,7 +8413,7 @@ tables:
     description: Composite model (cModel) magnitude for g filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
   - name: mag_i_cModel
     '@id': '#object.mag_i_cModel'
@@ -8421,7 +8421,7 @@ tables:
     description: Composite model (cModel) magnitude for i filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
   - name: mag_r_cModel
     '@id': '#object.mag_r_cModel'
@@ -8429,7 +8429,7 @@ tables:
     description: Composite model (cModel) magnitude for r filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
   - name: mag_u_cModel
     '@id': '#object.mag_u_cModel'
@@ -8437,7 +8437,7 @@ tables:
     description: Composite model (cModel) magnitude for u filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
   - name: mag_y_cModel
     '@id': '#object.mag_y_cModel'
@@ -8445,7 +8445,7 @@ tables:
     description: Composite model (cModel) magnitude for y filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
   - name: mag_z_cModel
     '@id': '#object.mag_z_cModel'
@@ -8453,7 +8453,7 @@ tables:
     description: Composite model (cModel) magnitude for z filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
   - name: magerr_g_cModel
     '@id': '#object.magerr_g_cModel'
@@ -8461,7 +8461,7 @@ tables:
     description: Error on mag_g_cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
     ivoa:ucd: stat.error
   - name: magerr_i_cModel
@@ -8470,7 +8470,7 @@ tables:
     description: Error on mag_i_cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
     ivoa:ucd: stat.error
   - name: magerr_r_cModel
@@ -8479,7 +8479,7 @@ tables:
     description: Error on mag_r_cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
     ivoa:ucd: stat.error
   - name: magerr_u_cModel
@@ -8488,7 +8488,7 @@ tables:
     description: Error on mag_u_cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
     ivoa:ucd: stat.error
   - name: magerr_y_cModel
@@ -8497,7 +8497,7 @@ tables:
     description: Error on mag_y_cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
     ivoa:ucd: stat.error
   - name: magerr_z_cModel
@@ -8506,7 +8506,7 @@ tables:
     description: Error on mag_z_cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
     ivoa:ucd: stat.error
   - name: snr_g_cModel
@@ -8515,7 +8515,7 @@ tables:
     description: Signal to noise ratio for magnitude for g filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     ivoa:ucd: stat.snr
   - name: snr_i_cModel
     '@id': '#object.snr_i_cModel'
@@ -8523,7 +8523,7 @@ tables:
     description: Signal to noise ratio for magnitude for i filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     ivoa:ucd: stat.snr
   - name: snr_r_cModel
     '@id': '#object.snr_r_cModel'
@@ -8531,7 +8531,7 @@ tables:
     description: Signal to noise ratio for magnitude for r filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     ivoa:ucd: stat.snr
   - name: snr_u_cModel
     '@id': '#object.snr_u_cModel'
@@ -8539,7 +8539,7 @@ tables:
     description: Signal to noise ratio for magnitude for u filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     ivoa:ucd: stat.snr
   - name: snr_y_cModel
     '@id': '#object.snr_y_cModel'
@@ -8547,7 +8547,7 @@ tables:
     description: Signal to noise ratio for magnitude for y filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     ivoa:ucd: stat.snr
   - name: snr_z_cModel
     '@id': '#object.snr_z_cModel'
@@ -8555,7 +8555,7 @@ tables:
     description: Signal to noise ratio for magnitude for z filter fitted by cModel
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     ivoa:ucd: stat.snr
   - name: psFlux_g
     '@id': '#object.psFlux_g'
@@ -9145,14 +9145,14 @@ tables:
     description: True if the source has no flagged pixels
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
   - name: clean
     '@id': '#object.clean'
     datatype: boolean
     description: True if the source has no flagged pixels and is not deblended
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
   - name: cModelFlux_g
     '@id': '#object.cModelFlux_g'
     datatype: double
@@ -9242,42 +9242,42 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_i
     '@id': '#object.cModelFlux_flag_i'
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_r
     '@id': '#object.cModelFlux_flag_r'
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_u
     '@id': '#object.cModelFlux_flag_u'
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_y
     '@id': '#object.cModelFlux_flag_y'
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_z
     '@id': '#object.cModelFlux_flag_z'
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: psf_fwhm_g
     '@id': '#object.psf_fwhm_g'
@@ -9332,14 +9332,14 @@ tables:
     length: 20
     mysql:datatype: CHAR(20)
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Unique object ID
   - name: host_galaxy
     '@id': '#truth_match.host_galaxy'
     datatype: long
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: ID of the host galaxy for a SN/AGN entry (-1 for other truth types)
   - name: ra
     '@id': '#truth_match.ra'
@@ -9347,7 +9347,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: deg
     description: Right Ascension
     ivoa:ucd: pos.eq.ra
@@ -9357,7 +9357,7 @@ tables:
     nullable: false
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: deg
     description: Declination
     ivoa:ucd: pos.eq.dec
@@ -9366,28 +9366,28 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Redshift
   - name: is_variable
     '@id': '#truth_match.is_variable'
     datatype: int
     mysql:datatype: INTEGER
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: 1 for a variable source
   - name: is_pointsource
     '@id': '#truth_match.is_pointsource'
     datatype: int
     mysql:datatype: INTEGER
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: 1 for a point source
   - name: flux_u
     '@id': '#truth_match.flux_u'
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: nJy
     description: Static flux value in u
   - name: flux_g
@@ -9395,7 +9395,7 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: nJy
     description: Static flux value in g
   - name: flux_r
@@ -9403,7 +9403,7 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: nJy
     description: Static flux value in r
   - name: flux_i
@@ -9411,7 +9411,7 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: nJy
     description: Static flux value in i
   - name: flux_z
@@ -9419,7 +9419,7 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: nJy
     description: Static flux value in z
   - name: flux_y
@@ -9427,7 +9427,7 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: nJy
     description: Static flux value in y
   - name: flux_u_noMW
@@ -9483,7 +9483,7 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: mag
     description: Magnitude in r
   - name: tract
@@ -9491,7 +9491,7 @@ tables:
     datatype: long
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Tract ID in Sky Map
   - name: patch
     '@id': '#truth_match.patch'
@@ -9499,7 +9499,7 @@ tables:
     length: 3
     mysql:datatype: CHAR(3)
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: Patch ID in Sky Map (as a string, x,y)
   - name: cosmodc2_hp
     '@id': '#truth_match.cosmodc2_hp'
@@ -9520,21 +9520,21 @@ tables:
     datatype: long
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: 1 for galaxies, 2 for stars, and 3 for SNe
   - name: match_objectId
     '@id': '#truth_match.match_objectId'
     datatype: long
     mysql:datatype: BIGINT
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: objectId of the matching object entry (-1 for unmatched truth entries)
   - name: match_sep
     '@id': '#truth_match.match_sep'
     datatype: double
     mysql:datatype: DOUBLE
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     fits:tunit: asec
     description: On-sky angular separation of this object-truth matching pair (-1
       for unmatched truth entries)
@@ -9543,14 +9543,14 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if this object--truth matching pair satisfies all matching criteria
   - name: is_nearest_neighbor
     '@id': '#truth_match.is_nearest_neighbor'
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True if this truth entry is the nearest neighbor of the object specified
       by match_objectId
   - name: is_unique_truth_entry
@@ -9558,6 +9558,6 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     tap:column_index: 999
-    tap:principal: 0
+    tap:principal: 1
     description: True for truth entries that appear for the first time in this truth
       table
