@@ -2569,20 +2569,6 @@ tables:
       moments) for z filter.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
-  - name: zPsFlux
-    "@id": "#Object.zPsFlux"
-    datatype: double
-    description: Calibrated flux for Point Source model for z filter.
-    mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
-    ivoa:ucd: phot.count
-  - name: zPsFluxErr
-    "@id": "#Object.zPsFluxErr"
-    datatype: double
-    description: Uncertainty of zPsFlux.
-    mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
-    ivoa:ucd: stat.error;phot.count
   - name: zApFlux
     "@id": "#Object.zApFlux"
     datatype: double
@@ -2619,6 +2605,20 @@ tables:
     description: Error on the Circular Aperture Flux with 9-pixel radius for z filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
+  - name: zPsFlux
+    "@id": "#Object.zPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: zPsFluxErr
+    "@id": "#Object.zPsFluxErr"
+    datatype: double
+    description: Uncertainty of zPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: stat.error;phot.count
   - name: zGaapFlux_Psf
     "@id": "#Object.zGaapFlux_Psf"
     datatype: double
