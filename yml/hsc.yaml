@@ -396,7 +396,7 @@ tables:
   - name: gGaapFlux_Psf
     "@id": "#Object.gGaapFlux_Psf"
     datatype: double
-    description: GAaP flux with Point Source model for g filter.
+    description: GAaP flux for Point Source model for g filter.
     mysql:datatype: DOUBLE
     fits.tunit: nmgy
     ivoa:ucd: phot.count
@@ -1138,7 +1138,7 @@ tables:
   - name: rGaapFlux_Psf
     "@id": "#Object.rGaapFlux_Psf"
     datatype: double
-    description: GAaP flux with Point Source model for r filter.
+    description: GAaP flux for Point Source model for r filter.
     mysql:datatype: DOUBLE
     fits.tunit: nmgy
     ivoa:ucd: phot.count
@@ -1880,7 +1880,7 @@ tables:
   - name: iGaapFlux_Psf
     "@id": "#Object.iGaapFlux_Psf"
     datatype: double
-    description: GAaP flux with Point Source model for i filter.
+    description: GAaP flux for Point Source model for i filter.
     mysql:datatype: DOUBLE
     fits.tunit: nmgy
     ivoa:ucd: phot.count
@@ -2622,7 +2622,7 @@ tables:
   - name: zGaapFlux_Psf
     "@id": "#Object.zGaapFlux_Psf"
     datatype: double
-    description: GAaP flux with Point Source model for z filter.
+    description: GAaP flux for Point Source model for z filter.
     mysql:datatype: DOUBLE
     fits.tunit: nmgy
     ivoa:ucd: phot.count
@@ -3365,7 +3365,7 @@ tables:
   - name: yGaapFlux_Psf
     "@id": "#Object.yGaapFlux_Psf"
     datatype: double
-    description: GAaP flux with Point Source model for y filter.
+    description: GAaP flux for Point Source model for y filter.
     mysql:datatype: DOUBLE
     fits.tunit: nmgy
     ivoa:ucd: phot.count
@@ -3451,7 +3451,7 @@ tables:
   - name: yGaapFlux_1_0_apCorr
     "@id": "#Object.yGaapFlux_1_0_apCorr"
     datatype: float
-    description: Calibrated GAaP flux with 1.0 arcsec aperture for y filtter.
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for y filter.
     mysql:datatype: FLOAT
   - name: yGaapFlux_1_0_apCorrErr
     "@id": "#Object.yGaapFlux_1_0_apCorrErr"
