@@ -350,20 +350,30 @@ tables:
     "@id": "#Object.gApFluxErr"
     datatype: double
     description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for g filter.
-      moments) for g filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: gAp25Flux
     "@id": "#Object.gAp25Flux"
     datatype: double
-    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for g filter.
+    description: Circular Aperture Flux with 25-pixel radius for g filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: gAp25FluxErr
     "@id": "#Object.gAp25FluxErr"
     datatype: double
-    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for g filter.
-      moments) for g filter.
+    description: Error on the Circular Aperture Flux with 25-pixel radius for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gAp9Flux
+    "@id": "#Object.gAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gAp9FluxErr
+    "@id": "#Object.gAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for g filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: gPsFlux
@@ -1082,20 +1092,30 @@ tables:
     "@id": "#Object.rApFluxErr"
     datatype: double
     description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for r filter.
-      moments) for r filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: rAp25Flux
     "@id": "#Object.rAp25Flux"
     datatype: double
-    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for r filter.
+    description: Circular Aperture Flux with 25-pixel radius for r filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: rAp25FluxErr
     "@id": "#Object.rAp25FluxErr"
     datatype: double
-    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for r filter.
-      moments) for g filter.
+    description: Error on the Circular Aperture Flux with 25-pixel radius for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rAp9Flux
+    "@id": "#Object.rAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rAp9FluxErr
+    "@id": "#Object.rAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for r filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: rPsFlux
@@ -1814,20 +1834,30 @@ tables:
     "@id": "#Object.iApFluxErr"
     datatype: double
     description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for i filter.
-      moments) for i filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: iAp25Flux
     "@id": "#Object.iAp25Flux"
     datatype: double
-    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for i filter.
+    description: Circular Aperture Flux with 25-pixel radius for i filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: iAp25FluxErr
     "@id": "#Object.iAp25FluxErr"
     datatype: double
-    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for i filter.
-      moments) for g filter.
+    description: Error on the Circular Aperture Flux with 25-pixel radius for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iAp9Flux
+    "@id": "#Object.iAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iAp9FluxErr
+    "@id": "#Object.iAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for i filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: iPsFlux
@@ -2560,20 +2590,30 @@ tables:
     "@id": "#Object.zApFluxErr"
     datatype: double
     description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for z filter.
-      moments) for z filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: zAp25Flux
     "@id": "#Object.zAp25Flux"
     datatype: double
-    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for z filter.
+    description: Circular Aperture Flux with 25-pixel radius for z filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: zAp25FluxErr
     "@id": "#Object.zAp25FluxErr"
     datatype: double
-    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for z filter.
-      moments) for g filter.
+    description: Error on the Circular Aperture Flux with 25-pixel radius for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zAp9Flux
+    "@id": "#Object.zAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zAp9FluxErr
+    "@id": "#Object.zAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for z filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: zGaapFlux_Psf
@@ -3279,20 +3319,30 @@ tables:
     "@id": "#Object.yApFluxErr"
     datatype: double
     description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for y filter.
-      moments) for y filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: yAp25Flux
     "@id": "#Object.yAp25Flux"
     datatype: double
-    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for y filter.
+    description: Circular Aperture Flux with 25-pixel radius for y filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: yAp25FluxErr
     "@id": "#Object.yAp25FluxErr"
     datatype: double
-    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for y filter.
-      moments) for g filter.
+    description: Error on the Circular Aperture Flux with 25-pixel radius for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yAp9Flux
+    "@id": "#Object.yAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yAp9FluxErr
+    "@id": "#Object.yAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for y filter.
     mysql:datatype: DOUBLE
     fits:tunit: nanojansky
   - name: yPsFlux
