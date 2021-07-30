@@ -10,7 +10,7 @@ shift
 # copied into the docker image.
 for file in $@
 do
-    felis load-tap --dry-run --engine-url=postgresql+psycopg2:// --tap-schema-name=tap_schema --tap-tables-postfix=11 $file > sql/$file.sql
+    felis load-tap --dry-run --engine-url=postgresql+psycopg2:// --tap-schema-name=tap_schema --tap-tables-postfix=11 $file > sql/`basename $file`.sql
 done
 
 # Build and push docker images

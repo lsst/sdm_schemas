@@ -13,17 +13,10 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
 
-      - name: Check out felis
-        uses: actions/checkout@v2
-        with:
-          repository: lsst-dm/felis.git
-          ref: u/bvan/tap11_fix
-          path: felis
-
-      - name: Install felis
-        id: felis
-        run: pip install .
-        working-directory: ./felis
+      - name: Install dependencies
+        id: depend
+        run: pip install -r requirements.txt
+        working-directory: ./tap-schema
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
