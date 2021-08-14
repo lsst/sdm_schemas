@@ -1,0 +1,5421 @@
+---
+name: ImsimSchema
+"@id": "#imsimSchema"
+tables:
+- name: object
+  "@id": "#object"
+  description: The object table contains descriptions of the multi-epoch static astronomical
+    objects, in particular their astrophysical properties as derived from analysis
+    of the Sources that are associated with them. Note that fast moving objects are
+    kept in the MovingObject tables. Note that less-frequently used columns are stored
+    in a separate table called Object_Extra.
+  columns:
+  - name: objectId
+    "@id": "#object.objectId"
+    datatype: long
+    description: Unique id.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: parentObjectId
+    "@id": "#object.parentObjectId"
+    datatype: long
+    description: Id of the parent object this object has been deblended from, if any.
+    mysql:datatype: BIGINT
+  - name: coord_ra
+    "@id": "#object.coord_ra"
+    datatype: double
+    description: RA-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: coord_dec
+    "@id": "#object.coord_dec"
+    datatype: double
+    description: Decl-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: skymap
+    "@id": "#object.skymap"
+    datatype: char
+    length: 12
+    mysql:datatype: CHAR(12)
+  - name: tractId
+    "@id": "#object.tractId"
+    datatype: long
+    description: tract ID
+    mysql:datatype: BIGINT
+  - name: patchId
+    "@id": "#object.patchId"
+    datatype: long
+    description: patch ID
+    mysql:datatype: BIGINT
+  - name: tract
+    "@id": "#object.tract"
+    datatype: long
+    description: Same as Tract ID
+    mysql:datatype: BIGINT
+  - name: patch
+    "@id": "#object.patch"
+    datatype: long
+    description: Same as Patch ID
+    mysql:datatype: BIGINT
+  - name: x
+    "@id": "#object.x"
+    datatype: double
+    description: (not in the DPDD)
+    mysql:datatype: DOUBLE
+  - name: y
+    "@id": "#object.y"
+    datatype: double
+    description: (not in the DPDD)
+    mysql:datatype: DOUBLE
+  - name: xErr
+    "@id": "#object.xErr"
+    datatype: float
+    description: (not in the DPDD)
+    mysql:datatype: FLOAT
+  - name: yErr
+    "@id": "#object.yErr"
+    datatype: float
+    description: (not in the DPDD)
+    mysql:datatype: FLOAT
+  - name: xy_flag
+    "@id": "#object.xy_flag"
+    datatype: boolean
+    description: (not in the DPDD)
+    mysql:datatype: BOOLEAN
+  - name: refFwhm
+    "@id": "#object.refFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: refBand
+    "@id": "#object.refBand"
+    datatype: char
+    length: 1
+    description:
+    mysql:datatype: CHAR(1)
+  - name: refExtendedness
+    "@id": "#object.refExtendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: izStd
+    "@id": "#object.izStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: zyStd
+    "@id": "#object.zyStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: grStd
+    "@id": "#object.grStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: riStd
+    "@id": "#object.riStd"
+    datatype: double
+    description: Color of the object measured in standard seeing. While the exact
+      algorithm is yet to be determined, this color is guaranteed to be seeing-independent
+      and suitable for photo-Z determinations.
+    mysql:datatype: DOUBLE
+    fits:tunit: mag
+  - name: detect_isPrimary
+    "@id": "#object.detect_isPrimary"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isPatchInner
+    "@id": "#object.detect_isPatchInner"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isTractInner
+    "@id": "#object.detect_isTractInner"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isIsolated
+    "@id": "#object.detect_isIsolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_fromBlend
+    "@id": "#object.detect_fromBlend"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isDeblendedSource
+    "@id": "#object.detect_isDeblendedSource"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isDeblendedModelSource
+    "@id": "#object.detect_isDeblendedModelSource"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: merge_peak_sky
+    "@id": "#object.merge_peak_sky"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gRa
+    "@id": "#object.gRa"
+    datatype: double
+    description: Right Ascension coordinate for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: gDecl
+    "@id": "#object.gDecl"
+    datatype: double
+    description: Declination coordinate for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: gBdChi2
+    "@id": "#object.gBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For g filter.
+    mysql:datatype: DOUBLE
+  - name: gBdE1
+    "@id": "#object.gBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For g filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: gBdE2
+    "@id": "#object.gBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For g filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: gBdFluxB
+    "@id": "#object.gBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gBdFluxBErr
+    "@id": "#object.gBdFluxBErr"
+    datatype: double
+    description: Uncertainty of gBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gBdFluxD
+    "@id": "#object.gBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gBdFluxDErr
+    "@id": "#object.gBdFluxDErr"
+    datatype: double
+    description: Uncertainty of gBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gBdReB
+    "@id": "#object.gBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: gBdReD
+    "@id": "#object.gBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: gCModelFlux
+    "@id": "#object.gCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gCModelFluxErr
+    "@id": "#object.gCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gExtendedness
+    "@id": "#object.gExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: gFwhm
+    "@id": "#object.gFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gBlendedness
+    "@id": "#object.gBlendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gHsmShapeRegauss_e1
+    "@id": "#object.gHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gHsmShapeRegauss_e2
+    "@id": "#object.gHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gHsmShapeRegauss_flag
+    "@id": "#object.gHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gInputCount
+    "@id": "#object.gInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: gIxx
+    "@id": "#object.gIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIxxPsf
+    "@id": "#object.gIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIxy
+    "@id": "#object.gIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIxyPsf
+    "@id": "#object.gIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIyy
+    "@id": "#object.gIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gIyyPsf
+    "@id": "#object.gIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gKronFlux
+    "@id": "#object.gKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gKronFluxErr
+    "@id": "#object.gKronFluxErr"
+    datatype: double
+    description: Uncertainty of gKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gKronRad
+    "@id": "#object.gKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for g filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: gApFlux
+    "@id": "#object.gApFlux"
+    datatype: double
+    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gApFluxErr
+    "@id": "#object.gApFluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gAp25Flux
+    "@id": "#object.gAp25Flux"
+    datatype: double
+    description: Circular Aperture Flux with 25-pixel radius for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gAp25FluxErr
+    "@id": "#object.gAp25FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 25-pixel radius for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gAp9Flux
+    "@id": "#object.gAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gAp9FluxErr
+    "@id": "#object.gAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for g filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: gPsFlux
+    "@id": "#object.gPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gPsFluxErr
+    "@id": "#object.gPsFluxErr"
+    datatype: double
+    description: Uncertainty of gPsFlux.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_Psf
+    "@id": "#object.gGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux for Point Source model for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_Psf
+    "@id": "#object.gGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of gGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_Optimal
+    "@id": "#object.gGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_Optimal
+    "@id": "#object.gGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of gGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_0_7
+    "@id": "#object.gGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_0_7
+    "@id": "#object.gGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of gGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_1_0
+    "@id": "#object.gGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for g filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gGaapFluxErr_1_0
+    "@id": "#object.gGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of gGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: gGaapFlux_Psf_apCorr
+    "@id": "#object.gGaapFlux_Psf_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with Point Source model for g filter.
+    mysql:datatype: DOUBLE
+  - name: gGaapFlux_Psf_apCorrErr
+    "@id": "#object.gGaapFlux_Psf_apCorrErr"
+    datatype: double
+    description: Uncertainty of gGaapFlux_Psf_apCorr.
+    mysql:datatype: DOUBLE
+  - name: gGaapFlux_Optimal_apCorr
+    "@id": "#object.gGaapFlux_Optimal_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with optimal aperture for g filter.
+    mysql:datatype: DOUBLE
+  - name: gGaapFlux_Optimal_apCorrErr
+    "@id": "#object.gGaapFlux_Optimal_apCorrErr"
+    datatype: double
+    description: Uncertainty of gGaapFlux_Optimal_apCorr.
+    mysql:datatype: DOUBLE
+  - name: gGaapFlux_0_7_apCorr
+    "@id": "#object.gGaapFlux_0_7_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for g filter.
+    mysql:datatype: DOUBLE
+  - name: gGaapFlux_0_7_apCorrErr
+    "@id": "#object.gGaapFlux_0_7_apCorrErr"
+    datatype: double
+    description: Uncertainty of gGaapFlux_0_7_apCorr.
+    mysql:datatype: DOUBLE
+  - name: gGaapFlux_1_0_apCorr
+    "@id": "#object.gGaapFlux_1_0_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for g filter.
+    mysql:datatype: DOUBLE
+  - name: gGaapFlux_1_0_apCorrErr
+    "@id": "#object.gGaapFlux_1_0_apCorrErr"
+    datatype: double
+    description: Uncertainty of gGaapFlux_1_0_apCorr.
+    mysql:datatype: DOUBLE
+  - name: gDeblend_nChild
+    "@id": "#object.gDeblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: gBlendedness_flag
+    "@id": "#object.gBlendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gExtendedness_flag
+    "@id": "#object.gExtendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags
+    "@id": "#object.gPixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_bad
+    "@id": "#object.gPixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_clipped
+    "@id": "#object.gPixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_clippedCenter
+    "@id": "#object.gPixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_cr
+    "@id": "#object.gPixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_crCenter
+    "@id": "#object.gPixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_edge
+    "@id": "#object.gPixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_inexact_psf
+    "@id": "#object.gPixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_inexact_psfCenter
+    "@id": "#object.gPixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_interpolated
+    "@id": "#object.gPixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_interpolatedCenter
+    "@id": "#object.gPixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_offimage
+    "@id": "#object.gPixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_saturated
+    "@id": "#object.gPixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_saturatedCenter
+    "@id": "#object.gPixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_sensor_edge
+    "@id": "#object.gPixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_sensor_edgeCenter
+    "@id": "#object.gPixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_suspect
+    "@id": "#object.gPixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPixelFlags_suspectCenter
+    "@id": "#object.gPixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gInputCount_flag
+    "@id": "#object.gInputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gInputCount_flag_noInputs
+    "@id": "#object.gInputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalib_astrometry_used
+    "@id": "#object.gCalib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalib_photometry_reserved
+    "@id": "#object.gCalib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalib_photometry_used
+    "@id": "#object.gCalib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalib_psf_candidate
+    "@id": "#object.gCalib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalib_psf_reserved
+    "@id": "#object.gCalib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalib_psf_used
+    "@id": "#object.gCalib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gApFlux_flag
+    "@id": "#object.gApFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gApFlux_flag_apertureTruncated
+    "@id": "#object.gApFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gApFlux_flag_sincCoeffsTruncated
+    "@id": "#object.gApFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalibFlux_flag
+    "@id": "#object.gCalibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalibFlux_flag_apertureTruncated
+    "@id": "#object.gCalibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCalibFlux_flag_sincCoeffsTruncated
+    "@id": "#object.gCalibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCentroid_flag_almostNoSecondDerivative
+    "@id": "#object.gCentroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCentroid_flag_edge
+    "@id": "#object.gCentroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCentroid_flag_noSecondDerivative
+    "@id": "#object.gCentroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCentroid_flag_notAtMaximum
+    "@id": "#object.gCentroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gCentroid_flag_resetToPeak
+    "@id": "#object.gCentroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShapeRound_flag
+    "@id": "#object.gShapeRound_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShapeRound_flag_no_pixels
+    "@id": "#object.gShapeRound_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShapeRound_flag_not_contained
+    "@id": "#object.gShapeRound_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShapeRound_flag_parent_source
+    "@id": "#object.gShapeRound_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShapeRound_Flux
+    "@id": "#object.gShapeRound_Flux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: gShapeRound_x
+    "@id": "#object.gShapeRound_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gShapeRound_xx
+    "@id": "#object.gShapeRound_xx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gShapeRound_xy
+    "@id": "#object.gShapeRound_xy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gShapeRound_y
+    "@id": "#object.gShapeRound_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gShapeRound_yy
+    "@id": "#object.gShapeRound_yy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gPsfFlux_apCorr
+    "@id": "#object.gPsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gPsfFlux_apCorrErr
+    "@id": "#object.gPsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gPsfFlux_flag
+    "@id": "#object.gPsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfFlux_flag_apCorr
+    "@id": "#object.gPsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfFlux_flag_edge
+    "@id": "#object.gPsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfFlux_flag_noGoodPixels
+    "@id": "#object.gPsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_apCorr
+    "@id": "#object.gKronFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gKronFlux_apCorrErr
+    "@id": "#object.gKronFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: gKronFlux_flag
+    "@id": "#object.gKronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_apCorr
+    "@id": "#object.gKronFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_bad_radius
+    "@id": "#object.gKronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_bad_shape
+    "@id": "#object.gKronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_bad_shape_no_psf
+    "@id": "#object.gKronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_edge
+    "@id": "#object.gKronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_no_fallback_radius
+    "@id": "#object.gKronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_no_minimum_radius
+    "@id": "#object.gKronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_small_radius
+    "@id": "#object.gKronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_used_minimum_radius
+    "@id": "#object.gKronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gKronFlux_flag_used_psf_radius
+    "@id": "#object.gKronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_0_7_flag_bigPsf
+    "@id": "#object.gGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_1_0_flag_bigPsf
+    "@id": "#object.gGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_Optimal_flag_bigPsf
+    "@id": "#object.gGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_flag_gaussianization
+    "@id": "#object.gGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_flag_edge
+    "@id": "#object.gGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gGaapFlux_flag
+    "@id": "#object.gGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfShape_flag
+    "@id": "#object.gPsfShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfShape_flag_no_pixels
+    "@id": "#object.gPsfShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfShape_flag_not_contained
+    "@id": "#object.gPsfShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfShape_flag_parent_source
+    "@id": "#object.gPsfShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShape_flag
+    "@id": "#object.gShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShape_flag_no_pixels
+    "@id": "#object.gShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShape_flag_not_contained
+    "@id": "#object.gShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gShape_flag_parent_source
+    "@id": "#object.gShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: gPsfFlux_area
+    "@id": "#object.gPsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: gDeblend_skipped
+    "@id": "#object.gDeblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rRa
+    "@id": "#object.rRa"
+    datatype: double
+    description: Right Ascension coordinate for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: rDecl
+    "@id": "#object.rDecl"
+    datatype: double
+    description: Declination coordinate for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: rBdChi2
+    "@id": "#object.rBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For r filter.
+    mysql:datatype: DOUBLE
+  - name: rBdE1
+    "@id": "#object.rBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For r filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: rBdE2
+    "@id": "#object.rBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For r filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: rBdFluxB
+    "@id": "#object.rBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rBdFluxBErr
+    "@id": "#object.rBdFluxBErr"
+    datatype: double
+    description: Uncertainty of rBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rBdFluxD
+    "@id": "#object.rBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rBdFluxDErr
+    "@id": "#object.rBdFluxDErr"
+    datatype: double
+    description: Uncertainty of rBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rBdReB
+    "@id": "#object.rBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: rBdReD
+    "@id": "#object.rBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: rCModelFlux
+    "@id": "#object.rCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rCModelFluxErr
+    "@id": "#object.rCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rExtendedness
+    "@id": "#object.rExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: rFwhm
+    "@id": "#object.rFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rBlendedness
+    "@id": "#object.rBlendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rHsmShapeRegauss_e1
+    "@id": "#object.rHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rHsmShapeRegauss_e2
+    "@id": "#object.rHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rHsmShapeRegauss_flag
+    "@id": "#object.rHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rInputCount
+    "@id": "#object.rInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: rIxx
+    "@id": "#object.rIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIxxPsf
+    "@id": "#object.rIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIxy
+    "@id": "#object.rIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIxyPsf
+    "@id": "#object.rIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIyy
+    "@id": "#object.rIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rIyyPsf
+    "@id": "#object.rIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rKronFlux
+    "@id": "#object.rKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rKronFluxErr
+    "@id": "#object.rKronFluxErr"
+    datatype: double
+    description: Uncertainty of rKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rKronRad
+    "@id": "#object.rKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for r filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: rApFlux
+    "@id": "#object.rApFlux"
+    datatype: double
+    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rApFluxErr
+    "@id": "#object.rApFluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rAp25Flux
+    "@id": "#object.rAp25Flux"
+    datatype: double
+    description: Circular Aperture Flux with 25-pixel radius for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rAp25FluxErr
+    "@id": "#object.rAp25FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 25-pixel radius for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rAp9Flux
+    "@id": "#object.rAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rAp9FluxErr
+    "@id": "#object.rAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: rPsFlux
+    "@id": "#object.rPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for r filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: rPsFluxErr
+    "@id": "#object.rPsFluxErr"
+    datatype: double
+    description: Uncertainty of rPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_Psf
+    "@id": "#object.rGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux for Point Source model for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_Psf
+    "@id": "#object.rGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of rGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_Optimal
+    "@id": "#object.rGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_Optimal
+    "@id": "#object.rGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of rGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_0_7
+    "@id": "#object.rGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_0_7
+    "@id": "#object.rGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of rGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_1_0
+    "@id": "#object.rGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for r filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rGaapFluxErr_1_0
+    "@id": "#object.rGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of rGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: rGaapFlux_Psf_apCorr
+    "@id": "#object.rGaapFlux_Psf_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with Point Source model for r filter.
+    mysql:datatype: DOUBLE
+  - name: rGaapFlux_Psf_apCorrErr
+    "@id": "#object.rGaapFlux_Psf_apCorrErr"
+    datatype: double
+    description: Uncertainty of rGaapFlux_Psf_apCorr.
+    mysql:datatype: DOUBLE
+  - name: rGaapFlux_Optimal_apCorr
+    "@id": "#object.rGaapFlux_Optimal_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with optimal aperture for r filter.
+    mysql:datatype: DOUBLE
+  - name: rGaapFlux_Optimal_apCorrErr
+    "@id": "#object.rGaapFlux_Optimal_apCorrErr"
+    datatype: double
+    description: Uncertainty of rGaapFlux_Optimal_apCorr.
+    mysql:datatype: DOUBLE
+  - name: rGaapFlux_0_7_apCorr
+    "@id": "#object.rGaapFlux_0_7_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for r filter.
+    mysql:datatype: DOUBLE
+  - name: rGaapFlux_0_7_apCorrErr
+    "@id": "#object.rGaapFlux_0_7_apCorrErr"
+    datatype: double
+    description: Uncertainty of rGaapFlux_0_7_apCorr.
+    mysql:datatype: DOUBLE
+  - name: rGaapFlux_1_0_apCorr
+    "@id": "#object.rGaapFlux_1_0_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for r filter.
+    mysql:datatype: DOUBLE
+  - name: rGaapFlux_1_0_apCorrErr
+    "@id": "#object.rGaapFlux_1_0_apCorrErr"
+    datatype: double
+    description: Uncertainty of rGaapFlux_1_0_apCorr.
+    mysql:datatype: DOUBLE
+  - name: rDeblend_nChild
+    "@id": "#object.rDeblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: rBlendedness_flag
+    "@id": "#object.rBlendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rExtendedness_flag
+    "@id": "#object.rExtendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags
+    "@id": "#object.rPixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_bad
+    "@id": "#object.rPixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_clipped
+    "@id": "#object.rPixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_clippedCenter
+    "@id": "#object.rPixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_cr
+    "@id": "#object.rPixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_crCenter
+    "@id": "#object.rPixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_edge
+    "@id": "#object.rPixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_inexact_psf
+    "@id": "#object.rPixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_inexact_psfCenter
+    "@id": "#object.rPixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_interpolated
+    "@id": "#object.rPixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_interpolatedCenter
+    "@id": "#object.rPixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_offimage
+    "@id": "#object.rPixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_saturated
+    "@id": "#object.rPixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_saturatedCenter
+    "@id": "#object.rPixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_sensor_edge
+    "@id": "#object.rPixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_sensor_edgeCenter
+    "@id": "#object.rPixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_suspect
+    "@id": "#object.rPixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPixelFlags_suspectCenter
+    "@id": "#object.rPixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rInputCount_flag
+    "@id": "#object.rInputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rInputCount_flag_noInputs
+    "@id": "#object.rInputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalib_astrometry_used
+    "@id": "#object.rCalib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalib_photometry_reserved
+    "@id": "#object.rCalib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalib_photometry_used
+    "@id": "#object.rCalib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalib_psf_candidate
+    "@id": "#object.rCalib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalib_psf_reserved
+    "@id": "#object.rCalib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalib_psf_used
+    "@id": "#object.rCalib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rApFlux_flag
+    "@id": "#object.rApFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rApFlux_flag_apertureTruncated
+    "@id": "#object.rApFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rApFlux_flag_sincCoeffsTruncated
+    "@id": "#object.rApFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalibFlux_flag
+    "@id": "#object.rCalibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalibFlux_flag_apertureTruncated
+    "@id": "#object.rCalibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCalibFlux_flag_sincCoeffsTruncated
+    "@id": "#object.rCalibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCentroid_flag_almostNoSecondDerivative
+    "@id": "#object.rCentroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCentroid_flag_edge
+    "@id": "#object.rCentroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCentroid_flag_noSecondDerivative
+    "@id": "#object.rCentroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCentroid_flag_notAtMaximum
+    "@id": "#object.rCentroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rCentroid_flag_resetToPeak
+    "@id": "#object.rCentroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShapeRound_flag
+    "@id": "#object.rShapeRound_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShapeRound_flag_no_pixels
+    "@id": "#object.rShapeRound_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShapeRound_flag_not_contained
+    "@id": "#object.rShapeRound_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShapeRound_flag_parent_source
+    "@id": "#object.rShapeRound_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShapeRound_Flux
+    "@id": "#object.rShapeRound_Flux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: rShapeRound_x
+    "@id": "#object.rShapeRound_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rShapeRound_xx
+    "@id": "#object.rShapeRound_xx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rShapeRound_xy
+    "@id": "#object.rShapeRound_xy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rShapeRound_y
+    "@id": "#object.rShapeRound_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rShapeRound_yy
+    "@id": "#object.rShapeRound_yy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rPsfFlux_apCorr
+    "@id": "#object.rPsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rPsfFlux_apCorrErr
+    "@id": "#object.rPsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rPsfFlux_flag
+    "@id": "#object.rPsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfFlux_flag_apCorr
+    "@id": "#object.rPsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfFlux_flag_edge
+    "@id": "#object.rPsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfFlux_flag_noGoodPixels
+    "@id": "#object.rPsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_apCorr
+    "@id": "#object.rKronFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rKronFlux_apCorrErr
+    "@id": "#object.rKronFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: rKronFlux_flag
+    "@id": "#object.rKronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_apCorr
+    "@id": "#object.rKronFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_bad_radius
+    "@id": "#object.rKronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_bad_shape
+    "@id": "#object.rKronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_bad_shape_no_psf
+    "@id": "#object.rKronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_edge
+    "@id": "#object.rKronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_no_fallback_radius
+    "@id": "#object.rKronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_no_minimum_radius
+    "@id": "#object.rKronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_small_radius
+    "@id": "#object.rKronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_used_minimum_radius
+    "@id": "#object.rKronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rKronFlux_flag_used_psf_radius
+    "@id": "#object.rKronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_0_7_flag_bigPsf
+    "@id": "#object.rGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_1_0_flag_bigPsf
+    "@id": "#object.rGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_Optimal_flag_bigPsf
+    "@id": "#object.rGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_flag_gaussianization
+    "@id": "#object.rGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_flag_edge
+    "@id": "#object.rGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rGaapFlux_flag
+    "@id": "#object.rGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfShape_flag
+    "@id": "#object.rPsfShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfShape_flag_no_pixels
+    "@id": "#object.rPsfShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfShape_flag_not_contained
+    "@id": "#object.rPsfShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfShape_flag_parent_source
+    "@id": "#object.rPsfShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShape_flag
+    "@id": "#object.rShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShape_flag_no_pixels
+    "@id": "#object.rShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShape_flag_not_contained
+    "@id": "#object.rShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rShape_flag_parent_source
+    "@id": "#object.rShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: rPsfFlux_area
+    "@id": "#object.rPsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: rDeblend_skipped
+    "@id": "#object.rDeblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iRa
+    "@id": "#object.iRa"
+    datatype: double
+    description: Right Ascension coordinate for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: iDecl
+    "@id": "#object.iDecl"
+    datatype: double
+    description: Declination coordinate for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: iBdChi2
+    "@id": "#object.iBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For i filter.
+    mysql:datatype: DOUBLE
+  - name: iBdE1
+    "@id": "#object.iBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For i filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: iBdE2
+    "@id": "#object.iBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For i filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: iBdFluxB
+    "@id": "#object.iBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iBdFluxBErr
+    "@id": "#object.iBdFluxBErr"
+    datatype: double
+    description: Uncertainty of iBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iBdFluxD
+    "@id": "#object.iBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iBdFluxDErr
+    "@id": "#object.iBdFluxDErr"
+    datatype: double
+    description: Uncertainty of iBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iBdReB
+    "@id": "#object.iBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: iBdReD
+    "@id": "#object.iBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: iCModelFlux
+    "@id": "#object.iCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iCModelFluxErr
+    "@id": "#object.iCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iExtendedness
+    "@id": "#object.iExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: iFwhm
+    "@id": "#object.iFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iBlendedness
+    "@id": "#object.iBlendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iHsmShapeRegauss_e1
+    "@id": "#object.iHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iHsmShapeRegauss_e2
+    "@id": "#object.iHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iHsmShapeRegauss_flag
+    "@id": "#object.iHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iInputCount
+    "@id": "#object.iInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: iIxx
+    "@id": "#object.iIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIxxPsf
+    "@id": "#object.iIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIxy
+    "@id": "#object.iIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIxyPsf
+    "@id": "#object.iIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIyy
+    "@id": "#object.iIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iIyyPsf
+    "@id": "#object.iIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iKronFlux
+    "@id": "#object.iKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iKronFluxErr
+    "@id": "#object.iKronFluxErr"
+    datatype: double
+    description: Uncertainty of iKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iKronRad
+    "@id": "#object.iKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for i filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: iApFlux
+    "@id": "#object.iApFlux"
+    datatype: double
+    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iApFluxErr
+    "@id": "#object.iApFluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iAp25Flux
+    "@id": "#object.iAp25Flux"
+    datatype: double
+    description: Circular Aperture Flux with 25-pixel radius for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iAp25FluxErr
+    "@id": "#object.iAp25FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 25-pixel radius for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iAp9Flux
+    "@id": "#object.iAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iAp9FluxErr
+    "@id": "#object.iAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: iPsFlux
+    "@id": "#object.iPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for i filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: iPsFluxErr
+    "@id": "#object.iPsFluxErr"
+    datatype: double
+    description: Uncertainty of iPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_Psf
+    "@id": "#object.iGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux for Point Source model for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_Psf
+    "@id": "#object.iGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of iGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_Optimal
+    "@id": "#object.iGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_Optimal
+    "@id": "#object.iGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of iGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_0_7
+    "@id": "#object.iGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_0_7
+    "@id": "#object.iGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of iGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_1_0
+    "@id": "#object.iGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for i filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iGaapFluxErr_1_0
+    "@id": "#object.iGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of iGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: iGaapFlux_Psf_apCorr
+    "@id": "#object.iGaapFlux_Psf_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with Point Source model for i filter.
+    mysql:datatype: DOUBLE
+  - name: iGaapFlux_Psf_apCorrErr
+    "@id": "#object.iGaapFlux_Psf_apCorrErr"
+    datatype: double
+    description: Uncertainty of iGaapFlux_Psf_apCorr.
+    mysql:datatype: DOUBLE
+  - name: iGaapFlux_Optimal_apCorr
+    "@id": "#object.iGaapFlux_Optimal_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with optimal aperture for i filter.
+    mysql:datatype: DOUBLE
+  - name: iGaapFlux_Optimal_apCorrErr
+    "@id": "#object.iGaapFlux_Optimal_apCorrErr"
+    datatype: double
+    description: Uncertainty of iGaapFlux_Optimal_apCorr.
+    mysql:datatype: DOUBLE
+  - name: iGaapFlux_0_7_apCorr
+    "@id": "#object.iGaapFlux_0_7_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for i filter.
+    mysql:datatype: DOUBLE
+  - name: iGaapFlux_0_7_apCorrErr
+    "@id": "#object.iGaapFlux_0_7_apCorrErr"
+    datatype: double
+    description: Uncertainty of iGaapFlux_0_7_apCorr.
+    mysql:datatype: DOUBLE
+  - name: iGaapFlux_1_0_apCorr
+    "@id": "#object.iGaapFlux_1_0_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for i filter.
+    mysql:datatype: DOUBLE
+  - name: iGaapFlux_1_0_apCorrErr
+    "@id": "#object.iGaapFlux_1_0_apCorrErr"
+    datatype: double
+    description: Uncertainty of iGaapFlux_1_0_apCorr.
+    mysql:datatype: DOUBLE
+  - name: iDeblend_nChild
+    "@id": "#object.iDeblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: iBlendedness_flag
+    "@id": "#object.iBlendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iExtendedness_flag
+    "@id": "#object.iExtendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags
+    "@id": "#object.iPixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_bad
+    "@id": "#object.iPixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_clipped
+    "@id": "#object.iPixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_clippedCenter
+    "@id": "#object.iPixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_cr
+    "@id": "#object.iPixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_crCenter
+    "@id": "#object.iPixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_edge
+    "@id": "#object.iPixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_inexact_psf
+    "@id": "#object.iPixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_inexact_psfCenter
+    "@id": "#object.iPixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_interpolated
+    "@id": "#object.iPixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_interpolatedCenter
+    "@id": "#object.iPixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_offimage
+    "@id": "#object.iPixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_saturated
+    "@id": "#object.iPixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_saturatedCenter
+    "@id": "#object.iPixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_sensor_edge
+    "@id": "#object.iPixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_sensor_edgeCenter
+    "@id": "#object.iPixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_suspect
+    "@id": "#object.iPixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPixelFlags_suspectCenter
+    "@id": "#object.iPixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iInputCount_flag
+    "@id": "#object.iInputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iInputCount_flag_noInputs
+    "@id": "#object.iInputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalib_astrometry_used
+    "@id": "#object.iCalib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalib_photometry_reserved
+    "@id": "#object.iCalib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalib_photometry_used
+    "@id": "#object.iCalib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalib_psf_candidate
+    "@id": "#object.iCalib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalib_psf_reserved
+    "@id": "#object.iCalib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalib_psf_used
+    "@id": "#object.iCalib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iApFlux_flag
+    "@id": "#object.iApFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iApFlux_flag_apertureTruncated
+    "@id": "#object.iApFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iApFlux_flag_sincCoeffsTruncated
+    "@id": "#object.iApFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalibFlux_flag
+    "@id": "#object.iCalibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalibFlux_flag_apertureTruncated
+    "@id": "#object.iCalibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCalibFlux_flag_sincCoeffsTruncated
+    "@id": "#object.iCalibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCentroid_flag_almostNoSecondDerivative
+    "@id": "#object.iCentroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCentroid_flag_edge
+    "@id": "#object.iCentroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCentroid_flag_noSecondDerivative
+    "@id": "#object.iCentroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCentroid_flag_notAtMaximum
+    "@id": "#object.iCentroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iCentroid_flag_resetToPeak
+    "@id": "#object.iCentroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShapeRound_flag
+    "@id": "#object.iShapeRound_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShapeRound_flag_no_pixels
+    "@id": "#object.iShapeRound_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShapeRound_flag_not_contained
+    "@id": "#object.iShapeRound_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShapeRound_flag_parent_source
+    "@id": "#object.iShapeRound_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShapeRound_Flux
+    "@id": "#object.iShapeRound_Flux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: iShapeRound_x
+    "@id": "#object.iShapeRound_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iShapeRound_xx
+    "@id": "#object.iShapeRound_xx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iShapeRound_xy
+    "@id": "#object.iShapeRound_xy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iShapeRound_y
+    "@id": "#object.iShapeRound_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iShapeRound_yy
+    "@id": "#object.iShapeRound_yy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iPsfFlux_apCorr
+    "@id": "#object.iPsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iPsfFlux_apCorrErr
+    "@id": "#object.iPsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iPsfFlux_flag
+    "@id": "#object.iPsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfFlux_flag_apCorr
+    "@id": "#object.iPsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfFlux_flag_edge
+    "@id": "#object.iPsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfFlux_flag_noGoodPixels
+    "@id": "#object.iPsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_apCorr
+    "@id": "#object.iKronFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iKronFlux_apCorrErr
+    "@id": "#object.iKronFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: iKronFlux_flag
+    "@id": "#object.iKronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_apCorr
+    "@id": "#object.iKronFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_bad_radius
+    "@id": "#object.iKronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_bad_shape
+    "@id": "#object.iKronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_bad_shape_no_psf
+    "@id": "#object.iKronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_edge
+    "@id": "#object.iKronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_no_fallback_radius
+    "@id": "#object.iKronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_no_minimum_radius
+    "@id": "#object.iKronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_small_radius
+    "@id": "#object.iKronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_used_minimum_radius
+    "@id": "#object.iKronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iKronFlux_flag_used_psf_radius
+    "@id": "#object.iKronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_0_7_flag_bigPsf
+    "@id": "#object.iGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_1_0_flag_bigPsf
+    "@id": "#object.iGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_Optimal_flag_bigPsf
+    "@id": "#object.iGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_flag_gaussianization
+    "@id": "#object.iGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_flag_edge
+    "@id": "#object.iGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iGaapFlux_flag
+    "@id": "#object.iGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfShape_flag
+    "@id": "#object.iPsfShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfShape_flag_no_pixels
+    "@id": "#object.iPsfShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfShape_flag_not_contained
+    "@id": "#object.iPsfShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfShape_flag_parent_source
+    "@id": "#object.iPsfShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShape_flag
+    "@id": "#object.iShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShape_flag_no_pixels
+    "@id": "#object.iShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShape_flag_not_contained
+    "@id": "#object.iShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iShape_flag_parent_source
+    "@id": "#object.iShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: iPsfFlux_area
+    "@id": "#object.iPsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: iDeblend_skipped
+    "@id": "#object.iDeblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zRa
+    "@id": "#object.zRa"
+    datatype: double
+    description: Right Ascension coordinate for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: zDecl
+    "@id": "#object.zDecl"
+    datatype: double
+    description: Declination coordinate for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: zBdChi2
+    "@id": "#object.zBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For z filter.
+    mysql:datatype: DOUBLE
+  - name: zBdE1
+    "@id": "#object.zBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For z filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: zBdE2
+    "@id": "#object.zBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For z filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: zBdFluxB
+    "@id": "#object.zBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zBdFluxBErr
+    "@id": "#object.zBdFluxBErr"
+    datatype: double
+    description: Uncertainty of zBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zBdFluxD
+    "@id": "#object.zBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zBdFluxDErr
+    "@id": "#object.zBdFluxDErr"
+    datatype: double
+    description: Uncertainty of zBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zBdReB
+    "@id": "#object.zBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: zBdReD
+    "@id": "#object.zBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: zCModelFlux
+    "@id": "#object.zCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zCModelFluxErr
+    "@id": "#object.zCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zExtendedness
+    "@id": "#object.zExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: zFwhm
+    "@id": "#object.zFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zBlendedness
+    "@id": "#object.zBlendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zHsmShapeRegauss_e1
+    "@id": "#object.zHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zHsmShapeRegauss_e2
+    "@id": "#object.zHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zHsmShapeRegauss_flag
+    "@id": "#object.zHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zInputCount
+    "@id": "#object.zInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: zIxx
+    "@id": "#object.zIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIxxPsf
+    "@id": "#object.zIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIxy
+    "@id": "#object.zIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIxyPsf
+    "@id": "#object.zIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIyy
+    "@id": "#object.zIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zIyyPsf
+    "@id": "#object.zIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zKronFlux
+    "@id": "#object.zKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zKronFluxErr
+    "@id": "#object.zKronFluxErr"
+    datatype: double
+    description: Uncertainty of zKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zKronRad
+    "@id": "#object.zKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for z filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: zApFlux
+    "@id": "#object.zApFlux"
+    datatype: double
+    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zApFluxErr
+    "@id": "#object.zApFluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zAp25Flux
+    "@id": "#object.zAp25Flux"
+    datatype: double
+    description: Circular Aperture Flux with 25-pixel radius for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zAp25FluxErr
+    "@id": "#object.zAp25FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 25-pixel radius for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zAp9Flux
+    "@id": "#object.zAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zAp9FluxErr
+    "@id": "#object.zAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: zPsFlux
+    "@id": "#object.zPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for z filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: zPsFluxErr
+    "@id": "#object.zPsFluxErr"
+    datatype: double
+    description: Uncertainty of zPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_Psf
+    "@id": "#object.zGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux for Point Source model for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_Psf
+    "@id": "#object.zGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of zGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_Optimal
+    "@id": "#object.zGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_Optimal
+    "@id": "#object.zGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of zGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_0_7
+    "@id": "#object.zGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_0_7
+    "@id": "#object.zGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of zGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_1_0
+    "@id": "#object.zGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for z filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zGaapFluxErr_1_0
+    "@id": "#object.zGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of zGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: zGaapFlux_Psf_apCorr
+    "@id": "#object.zGaapFlux_Psf_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with Point Source model for z filter.
+    mysql:datatype: DOUBLE
+  - name: zGaapFlux_Psf_apCorrErr
+    "@id": "#object.zGaapFlux_Psf_apCorrErr"
+    datatype: double
+    description: Uncertainty of zGaapFlux_Psf_apCorr.
+    mysql:datatype: DOUBLE
+  - name: zGaapFlux_Optimal_apCorr
+    "@id": "#object.zGaapFlux_Optimal_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with optimal aperture for z filter.
+    mysql:datatype: DOUBLE
+  - name: zGaapFlux_Optimal_apCorrErr
+    "@id": "#object.zGaapFlux_Optimal_apCorrErr"
+    datatype: double
+    description: Uncertainty of zGaapFlux_Optimal_apCorr.
+    mysql:datatype: DOUBLE
+  - name: zGaapFlux_0_7_apCorr
+    "@id": "#object.zGaapFlux_0_7_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for z filter.
+    mysql:datatype: DOUBLE
+  - name: zGaapFlux_0_7_apCorrErr
+    "@id": "#object.zGaapFlux_0_7_apCorrErr"
+    datatype: double
+    description: Uncertainty of zGaapFlux_0_7_apCorr.
+    mysql:datatype: DOUBLE
+  - name: zGaapFlux_1_0_apCorr
+    "@id": "#object.zGaapFlux_1_0_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for z filter.
+    mysql:datatype: DOUBLE
+  - name: zGaapFlux_1_0_apCorrErr
+    "@id": "#object.zGaapFlux_1_0_apCorrErr"
+    datatype: double
+    description: Uncertainty of zGaapFlux_1_0_apCorr.
+    mysql:datatype: DOUBLE
+  - name: zDeblend_nChild
+    "@id": "#object.zDeblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: zBlendedness_flag
+    "@id": "#object.zBlendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zExtendedness_flag
+    "@id": "#object.zExtendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags
+    "@id": "#object.zPixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_bad
+    "@id": "#object.zPixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_clipped
+    "@id": "#object.zPixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_clippedCenter
+    "@id": "#object.zPixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_cr
+    "@id": "#object.zPixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_crCenter
+    "@id": "#object.zPixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_edge
+    "@id": "#object.zPixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_inexact_psf
+    "@id": "#object.zPixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_inexact_psfCenter
+    "@id": "#object.zPixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_interpolated
+    "@id": "#object.zPixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_interpolatedCenter
+    "@id": "#object.zPixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_offimage
+    "@id": "#object.zPixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_saturated
+    "@id": "#object.zPixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_saturatedCenter
+    "@id": "#object.zPixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_sensor_edge
+    "@id": "#object.zPixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_sensor_edgeCenter
+    "@id": "#object.zPixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_suspect
+    "@id": "#object.zPixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPixelFlags_suspectCenter
+    "@id": "#object.zPixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zInputCount_flag
+    "@id": "#object.zInputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zInputCount_flag_noInputs
+    "@id": "#object.zInputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+
+  - name: zCalib_astrometry_used
+    "@id": "#object.zCalib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalib_photometry_reserved
+    "@id": "#object.zCalib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalib_photometry_used
+    "@id": "#object.zCalib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalib_psf_candidate
+    "@id": "#object.zCalib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalib_psf_reserved
+    "@id": "#object.zCalib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalib_psf_used
+    "@id": "#object.zCalib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+
+  - name: zApFlux_flag
+    "@id": "#object.zApFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zApFlux_flag_apertureTruncated
+    "@id": "#object.zApFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zApFlux_flag_sincCoeffsTruncated
+    "@id": "#object.zApFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalibFlux_flag
+    "@id": "#object.zCalibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalibFlux_flag_apertureTruncated
+    "@id": "#object.zCalibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCalibFlux_flag_sincCoeffsTruncated
+    "@id": "#object.zCalibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCentroid_flag_almostNoSecondDerivative
+    "@id": "#object.zCentroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCentroid_flag_edge
+    "@id": "#object.zCentroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCentroid_flag_noSecondDerivative
+    "@id": "#object.zCentroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCentroid_flag_notAtMaximum
+    "@id": "#object.zCentroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zCentroid_flag_resetToPeak
+    "@id": "#object.zCentroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShapeRound_flag
+    "@id": "#object.zShapeRound_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShapeRound_flag_no_pixels
+    "@id": "#object.zShapeRound_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShapeRound_flag_not_contained
+    "@id": "#object.zShapeRound_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShapeRound_flag_parent_source
+    "@id": "#object.zShapeRound_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShapeRound_Flux
+    "@id": "#object.zShapeRound_Flux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: zShapeRound_x
+    "@id": "#object.zShapeRound_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zShapeRound_xx
+    "@id": "#object.zShapeRound_xx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zShapeRound_xy
+    "@id": "#object.zShapeRound_xy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zShapeRound_y
+    "@id": "#object.zShapeRound_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zShapeRound_yy
+    "@id": "#object.zShapeRound_yy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zPsfFlux_apCorr
+    "@id": "#object.zPsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zPsfFlux_apCorrErr
+    "@id": "#object.zPsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zPsfFlux_flag
+    "@id": "#object.zPsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfFlux_flag_apCorr
+    "@id": "#object.zPsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfFlux_flag_edge
+    "@id": "#object.zPsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfFlux_flag_noGoodPixels
+    "@id": "#object.zPsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_apCorr
+    "@id": "#object.zKronFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zKronFlux_apCorrErr
+    "@id": "#object.zKronFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: zKronFlux_flag
+    "@id": "#object.zKronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_apCorr
+    "@id": "#object.zKronFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_bad_radius
+    "@id": "#object.zKronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_bad_shape
+    "@id": "#object.zKronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_bad_shape_no_psf
+    "@id": "#object.zKronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_edge
+    "@id": "#object.zKronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_no_fallback_radius
+    "@id": "#object.zKronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_no_minimum_radius
+    "@id": "#object.zKronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_small_radius
+    "@id": "#object.zKronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_used_minimum_radius
+    "@id": "#object.zKronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zKronFlux_flag_used_psf_radius
+    "@id": "#object.zKronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_0_7_flag_bigPsf
+    "@id": "#object.zGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_1_0_flag_bigPsf
+    "@id": "#object.zGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_Optimal_flag_bigPsf
+    "@id": "#object.zGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_flag_gaussianization
+    "@id": "#object.zGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_flag_edge
+    "@id": "#object.zGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zGaapFlux_flag
+    "@id": "#object.zGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfShape_flag
+    "@id": "#object.zPsfShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfShape_flag_no_pixels
+    "@id": "#object.zPsfShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfShape_flag_not_contained
+    "@id": "#object.zPsfShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfShape_flag_parent_source
+    "@id": "#object.zPsfShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShape_flag
+    "@id": "#object.zShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShape_flag_no_pixels
+    "@id": "#object.zShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShape_flag_not_contained
+    "@id": "#object.zShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zShape_flag_parent_source
+    "@id": "#object.zShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: zPsfFlux_area
+    "@id": "#object.zPsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: zDeblend_skipped
+    "@id": "#object.zDeblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yRa
+    "@id": "#object.yRa"
+    datatype: double
+    description: Right Ascension coordinate for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: yDecl
+    "@id": "#object.yDecl"
+    datatype: double
+    description: Declination coordinate for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: yBdChi2
+    "@id": "#object.yBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For y filter.
+    mysql:datatype: DOUBLE
+  - name: yBdE1
+    "@id": "#object.yBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For y filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: yBdE2
+    "@id": "#object.yBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For y filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: yBdFluxB
+    "@id": "#object.yBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yBdFluxBErr
+    "@id": "#object.yBdFluxBErr"
+    datatype: double
+    description: Uncertainty of yBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yBdFluxD
+    "@id": "#object.yBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yBdFluxDErr
+    "@id": "#object.yBdFluxDErr"
+    datatype: double
+    description: Uncertainty of yBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yBdReB
+    "@id": "#object.yBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: yBdReD
+    "@id": "#object.yBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: yCModelFlux
+    "@id": "#object.yCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yCModelFluxErr
+    "@id": "#object.yCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yExtendedness
+    "@id": "#object.yExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: yFwhm
+    "@id": "#object.yFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yBlendedness
+    "@id": "#object.yBlendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yHsmShapeRegauss_e1
+    "@id": "#object.yHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yHsmShapeRegauss_e2
+    "@id": "#object.yHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yHsmShapeRegauss_flag
+    "@id": "#object.yHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yInputCount
+    "@id": "#object.yInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: yIxx
+    "@id": "#object.yIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIxxPsf
+    "@id": "#object.yIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIxy
+    "@id": "#object.yIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIxyPsf
+    "@id": "#object.yIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIyy
+    "@id": "#object.yIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yIyyPsf
+    "@id": "#object.yIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yKronFlux
+    "@id": "#object.yKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yKronFluxErr
+    "@id": "#object.yKronFluxErr"
+    datatype: double
+    description: Uncertainty of yKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yKronRad
+    "@id": "#object.yKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for y filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: yApFlux
+    "@id": "#object.yApFlux"
+    datatype: double
+    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yApFluxErr
+    "@id": "#object.yApFluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yAp25Flux
+    "@id": "#object.yAp25Flux"
+    datatype: double
+    description: Circular Aperture Flux with 25-pixel radius for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yAp25FluxErr
+    "@id": "#object.yAp25FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 25-pixel radius for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yAp9Flux
+    "@id": "#object.yAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yAp9FluxErr
+    "@id": "#object.yAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: yPsFlux
+    "@id": "#object.yPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for y filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: yPsFluxErr
+    "@id": "#object.yPsFluxErr"
+    datatype: double
+    description: Uncertainty of yPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_Psf
+    "@id": "#object.yGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux for Point Source model for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_Psf
+    "@id": "#object.yGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of yGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_Optimal
+    "@id": "#object.yGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_Optimal
+    "@id": "#object.yGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of yGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_0_7
+    "@id": "#object.yGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_0_7
+    "@id": "#object.yGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of yGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_1_0
+    "@id": "#object.yGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for y filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yGaapFluxErr_1_0
+    "@id": "#object.yGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of yGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: yGaapFlux_Psf_apCorr
+    "@id": "#object.yGaapFlux_Psf_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with Point Source model for y filter.
+    mysql:datatype: DOUBLE
+  - name: yGaapFlux_Psf_apCorrErr
+    "@id": "#object.yGaapFlux_Psf_apCorrErr"
+    datatype: double
+    description: Uncertainty of yGaapFlux_Psf_apCorr.
+    mysql:datatype: DOUBLE
+  - name: yGaapFlux_Optimal_apCorr
+    "@id": "#object.yGaapFlux_Optimal_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with optimal aperture for y filter.
+    mysql:datatype: DOUBLE
+  - name: yGaapFlux_Optimal_apCorrErr
+    "@id": "#object.yGaapFlux_Optimal_apCorrErr"
+    datatype: double
+    description: Uncertainty of yGaapFlux_Optimal_apCorr.
+    mysql:datatype: DOUBLE
+  - name: yGaapFlux_0_7_apCorr
+    "@id": "#object.yGaapFlux_0_7_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for y filter.
+    mysql:datatype: DOUBLE
+  - name: yGaapFlux_0_7_apCorrErr
+    "@id": "#object.yGaapFlux_0_7_apCorrErr"
+    datatype: double
+    description: Uncertainty of yGaapFlux_0_7_apCorr.
+    mysql:datatype: DOUBLE
+  - name: yGaapFlux_1_0_apCorr
+    "@id": "#object.yGaapFlux_1_0_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for y filter.
+    mysql:datatype: DOUBLE
+  - name: yGaapFlux_1_0_apCorrErr
+    "@id": "#object.yGaapFlux_1_0_apCorrErr"
+    datatype: double
+    description: Uncertainty of yGaapFlux_1_0_apCorr.
+    mysql:datatype: DOUBLE
+
+  - name: yDeblend_nChild
+    "@id": "#object.yDeblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: yBlendedness_flag
+    "@id": "#object.yBlendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yExtendedness_flag
+    "@id": "#object.yExtendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags
+    "@id": "#object.yPixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_bad
+    "@id": "#object.yPixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_clipped
+    "@id": "#object.yPixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_clippedCenter
+    "@id": "#object.yPixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_cr
+    "@id": "#object.yPixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_crCenter
+    "@id": "#object.yPixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_edge
+    "@id": "#object.yPixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_inexact_psf
+    "@id": "#object.yPixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_inexact_psfCenter
+    "@id": "#object.yPixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_interpolated
+    "@id": "#object.yPixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_interpolatedCenter
+    "@id": "#object.yPixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_offimage
+    "@id": "#object.yPixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_saturated
+    "@id": "#object.yPixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_saturatedCenter
+    "@id": "#object.yPixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_sensor_edge
+    "@id": "#object.yPixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_sensor_edgeCenter
+    "@id": "#object.yPixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_suspect
+    "@id": "#object.yPixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPixelFlags_suspectCenter
+    "@id": "#object.yPixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yInputCount_flag
+    "@id": "#object.yInputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yInputCount_flag_noInputs
+    "@id": "#object.yInputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+
+  - name: yCalib_astrometry_used
+    "@id": "#object.yCalib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalib_photometry_reserved
+    "@id": "#object.yCalib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalib_photometry_used
+    "@id": "#object.yCalib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalib_psf_candidate
+    "@id": "#object.yCalib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalib_psf_reserved
+    "@id": "#object.yCalib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalib_psf_used
+    "@id": "#object.yCalib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+
+  - name: yApFlux_flag
+    "@id": "#object.yApFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yApFlux_flag_apertureTruncated
+    "@id": "#object.yApFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yApFlux_flag_sincCoeffsTruncated
+    "@id": "#object.yApFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalibFlux_flag
+    "@id": "#object.yCalibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalibFlux_flag_apertureTruncated
+    "@id": "#object.yCalibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCalibFlux_flag_sincCoeffsTruncated
+    "@id": "#object.yCalibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCentroid_flag_almostNoSecondDerivative
+    "@id": "#object.yCentroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCentroid_flag_edge
+    "@id": "#object.yCentroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCentroid_flag_noSecondDerivative
+    "@id": "#object.yCentroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCentroid_flag_notAtMaximum
+    "@id": "#object.yCentroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yCentroid_flag_resetToPeak
+    "@id": "#object.yCentroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShapeRound_flag
+    "@id": "#object.yShapeRound_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShapeRound_flag_no_pixels
+    "@id": "#object.yShapeRound_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShapeRound_flag_not_contained
+    "@id": "#object.yShapeRound_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShapeRound_flag_parent_source
+    "@id": "#object.yShapeRound_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShapeRound_Flux
+    "@id": "#object.yShapeRound_Flux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: yShapeRound_x
+    "@id": "#object.yShapeRound_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yShapeRound_xx
+    "@id": "#object.yShapeRound_xx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yShapeRound_xy
+    "@id": "#object.yShapeRound_xy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yShapeRound_y
+    "@id": "#object.yShapeRound_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yShapeRound_yy
+    "@id": "#object.yShapeRound_yy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yPsfFlux_apCorr
+    "@id": "#object.yPsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yPsfFlux_apCorrErr
+    "@id": "#object.yPsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yPsfFlux_flag
+    "@id": "#object.yPsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfFlux_flag_apCorr
+    "@id": "#object.yPsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfFlux_flag_edge
+    "@id": "#object.yPsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfFlux_flag_noGoodPixels
+    "@id": "#object.yPsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_apCorr
+    "@id": "#object.yKronFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yKronFlux_apCorrErr
+    "@id": "#object.yKronFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: yKronFlux_flag
+    "@id": "#object.yKronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_apCorr
+    "@id": "#object.yKronFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_bad_radius
+    "@id": "#object.yKronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_bad_shape
+    "@id": "#object.yKronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_bad_shape_no_psf
+    "@id": "#object.yKronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_edge
+    "@id": "#object.yKronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_no_fallback_radius
+    "@id": "#object.yKronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_no_minimum_radius
+    "@id": "#object.yKronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_small_radius
+    "@id": "#object.yKronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_used_minimum_radius
+    "@id": "#object.yKronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yKronFlux_flag_used_psf_radius
+    "@id": "#object.yKronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_0_7_flag_bigPsf
+    "@id": "#object.yGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_1_0_flag_bigPsf
+    "@id": "#object.yGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_Optimal_flag_bigPsf
+    "@id": "#object.yGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_flag_gaussianization
+    "@id": "#object.yGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_flag_edge
+    "@id": "#object.yGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yGaapFlux_flag
+    "@id": "#object.yGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfShape_flag
+    "@id": "#object.yPsfShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfShape_flag_no_pixels
+    "@id": "#object.yPsfShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfShape_flag_not_contained
+    "@id": "#object.yPsfShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfShape_flag_parent_source
+    "@id": "#object.yPsfShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShape_flag
+    "@id": "#object.yShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShape_flag_no_pixels
+    "@id": "#object.yShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShape_flag_not_contained
+    "@id": "#object.yShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yShape_flag_parent_source
+    "@id": "#object.yShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: yPsfFlux_area
+    "@id": "#object.yPsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: yDeblend_skipped
+    "@id": "#object.yDeblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uRa
+    "@id": "#object.uRa"
+    datatype: double
+    description: Right Ascension coordinate for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: uDecl
+    "@id": "#object.uDecl"
+    datatype: double
+    description: Declination coordinate for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: uBdChi2
+    "@id": "#object.uBdChi2"
+    datatype: double
+    description: Chi^2 static of the model fit. For u filter.
+    mysql:datatype: DOUBLE
+  - name: uBdE1
+    "@id": "#object.uBdE1"
+    datatype: double
+    description: Ellipticity for the Bulge+Disk (e1). For u filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: uBdE2
+    "@id": "#object.uBdE2"
+    datatype: double
+    description: Ellipticity for Bulge+Disk model (e2). For u filter.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: phys.size.axisRatio
+  - name: uBdFluxB
+    "@id": "#object.uBdFluxB"
+    datatype: double
+    description: Integrated flux of the de Vaucouleurs component for the Bulge+Diski
+      model. For u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uBdFluxBErr
+    "@id": "#object.uBdFluxBErr"
+    datatype: double
+    description: Uncertainty of uBdFluxB.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uBdFluxD
+    "@id": "#object.uBdFluxD"
+    datatype: double
+    description: Integrated flux of the exponential component for the Bulge+Disk model.
+      For u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uBdFluxDErr
+    "@id": "#object.uBdFluxDErr"
+    datatype: double
+    description: Uncertainty of uBdFluxD.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uBdReB
+    "@id": "#object.uBdReB"
+    datatype: double
+    description: Effective radius of the de Vaucouleurs profile component for the
+      Bulge+Disk model. For u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: uBdReD
+    "@id": "#object.uBdReD"
+    datatype: double
+    description: Effective radius of the exponential profile component for the Bulge+Disk
+      model. For u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: arcsec
+  - name: uCModelFlux
+    "@id": "#object.uCModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uCModelFluxErr
+    "@id": "#object.uCModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uExtendedness
+    "@id": "#object.uExtendedness"
+    datatype: double
+    description: A measure of extendedness, computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: DOUBLE
+  - name: uFwhm
+    "@id": "#object.uFwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uBlendedness
+    "@id": "#object.uBlendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uHsmShapeRegauss_e1
+    "@id": "#object.uHsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uHsmShapeRegauss_e2
+    "@id": "#object.uHsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uHsmShapeRegauss_flag
+    "@id": "#object.uHsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uInputCount
+    "@id": "#object.uInputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: uIxx
+    "@id": "#object.uIxx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uIxxPsf
+    "@id": "#object.uIxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uIxy
+    "@id": "#object.uIxy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uIxyPsf
+    "@id": "#object.uIxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uIyy
+    "@id": "#object.uIyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uIyyPsf
+    "@id": "#object.uIyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uKronFlux
+    "@id": "#object.uKronFlux"
+    datatype: double
+    description: Kron flux within a defined multiple of the canonical kronRad for
+      u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uKronFluxErr
+    "@id": "#object.uKronFluxErr"
+    datatype: double
+    description: Uncertainty of uKronFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uKronRad
+    "@id": "#object.uKronRad"
+    datatype: float
+    description: Kron radius (computed using elliptical apertures defined by the adaptive
+      moments) for u filter.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: uApFlux
+    "@id": "#object.uApFlux"
+    datatype: double
+    description: Circular Aperture Flux with pixel radius used for calibration (12pix) for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uApFluxErr
+    "@id": "#object.uApFluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with pixel radius used for calibration (12pix) for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uAp25Flux
+    "@id": "#object.uAp25Flux"
+    datatype: double
+    description: Circular Aperture Flux with 25-pixel radius for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uAp25FluxErr
+    "@id": "#object.uAp25FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 25-pixel radius for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uAp9Flux
+    "@id": "#object.uAp9Flux"
+    datatype: double
+    description: Circular Aperture Flux with 9-pixel radius for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uAp9FluxErr
+    "@id": "#object.uAp9FluxErr"
+    datatype: double
+    description: Error on the Circular Aperture Flux with 9-pixel radius for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: uPsFlux
+    "@id": "#object.uPsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model for u filter.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: uPsFluxErr
+    "@id": "#object.uPsFluxErr"
+    datatype: double
+    description: Uncertainty of uPsFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: stat.error;phot.count
+  - name: uGaapFlux_Psf
+    "@id": "#object.uGaapFlux_Psf"
+    datatype: double
+    description: GAaP flux for Point Source model for u filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: uGaapFluxErr_Psf
+    "@id": "#object.uGaapFluxErr_Psf"
+    datatype: double
+    description: Uncertainty of uGaapFlux_Psf.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: uGaapFlux_Optimal
+    "@id": "#object.uGaapFlux_Optimal"
+    datatype: double
+    description: GAaP flux with optimal aperture for u filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: uGaapFluxErr_Optimal
+    "@id": "#object.uGaapFluxErr_Optimal"
+    datatype: double
+    description: Uncertainty of uGaapFlux_Optimal.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: uGaapFlux_0_7
+    "@id": "#object.uGaapFlux_0_7"
+    datatype: double
+    description: GAaP flux with 0.7 arcsec aperture for u filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: uGaapFluxErr_0_7
+    "@id": "#object.uGaapFluxErr_0_7"
+    datatype: double
+    description: Uncertainty of uGaapFlux_0_7.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: uGaapFlux_1_0
+    "@id": "#object.uGaapFlux_1_0"
+    datatype: double
+    description: GAaP flux with 1.0 arcsec aperture for u filter.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: uGaapFluxErr_1_0
+    "@id": "#object.uGaapFluxErr_1_0"
+    datatype: double
+    description: Uncertainty of uGaapFlux_1_0.
+    mysql:datatype: DOUBLE
+    fits.tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: uGaapFlux_Psf_apCorr
+    "@id": "#object.uGaapFlux_Psf_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with Point Source model for u filter.
+    mysql:datatype: DOUBLE
+  - name: uGaapFlux_Psf_apCorrErr
+    "@id": "#object.uGaapFlux_Psf_apCorrErr"
+    datatype: double
+    description: Uncertainty of uGaapFlux_Psf_apCorr.
+    mysql:datatype: DOUBLE
+  - name: uGaapFlux_Optimal_apCorr
+    "@id": "#object.uGaapFlux_Optimal_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with optimal aperture for u filter.
+    mysql:datatype: DOUBLE
+  - name: uGaapFlux_Optimal_apCorrErr
+    "@id": "#object.uGaapFlux_Optimal_apCorrErr"
+    datatype: double
+    description: Uncertainty of uGaapFlux_Optimal_apCorr.
+    mysql:datatype: DOUBLE
+  - name: uGaapFlux_0_7_apCorr
+    "@id": "#object.uGaapFlux_0_7_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 0.7 arcsec aperture for u filter.
+    mysql:datatype: DOUBLE
+  - name: uGaapFlux_0_7_apCorrErr
+    "@id": "#object.uGaapFlux_0_7_apCorrErr"
+    datatype: double
+    description: Uncertainty of uGaapFlux_0_7_apCorr.
+    mysql:datatype: DOUBLE
+  - name: uGaapFlux_1_0_apCorr
+    "@id": "#object.uGaapFlux_1_0_apCorr"
+    datatype: double
+    description: Calibrated GAaP flux with 1.0 arcsec aperture for u filter.
+    mysql:datatype: DOUBLE
+  - name: uGaapFlux_1_0_apCorrErr
+    "@id": "#object.uGaapFlux_1_0_apCorrErr"
+    datatype: double
+    description: Uncertainty of uGaapFlux_1_0_apCorr.
+    mysql:datatype: DOUBLE
+  - name: uDeblend_nChild
+    "@id": "#object.uDeblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: uBlendedness_flag
+    "@id": "#object.uBlendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uExtendedness_flag
+    "@id": "#object.uExtendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags
+    "@id": "#object.uPixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_bad
+    "@id": "#object.uPixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_clipped
+    "@id": "#object.uPixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_clippedCenter
+    "@id": "#object.uPixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_cr
+    "@id": "#object.uPixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_crCenter
+    "@id": "#object.uPixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_edge
+    "@id": "#object.uPixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_inexact_psf
+    "@id": "#object.uPixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_inexact_psfCenter
+    "@id": "#object.uPixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_interpolated
+    "@id": "#object.uPixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_interpolatedCenter
+    "@id": "#object.uPixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_offimage
+    "@id": "#object.uPixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_saturated
+    "@id": "#object.uPixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_saturatedCenter
+    "@id": "#object.uPixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_sensor_edge
+    "@id": "#object.uPixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_sensor_edgeCenter
+    "@id": "#object.uPixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_suspect
+    "@id": "#object.uPixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPixelFlags_suspectCenter
+    "@id": "#object.uPixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uInputCount_flag
+    "@id": "#object.uInputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uInputCount_flag_noInputs
+    "@id": "#object.uInputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+
+  - name: uCalib_astrometry_used
+    "@id": "#object.uCalib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalib_photometry_reserved
+    "@id": "#object.uCalib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalib_photometry_used
+    "@id": "#object.uCalib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalib_psf_candidate
+    "@id": "#object.uCalib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalib_psf_reserved
+    "@id": "#object.uCalib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalib_psf_used
+    "@id": "#object.uCalib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+
+  - name: uApFlux_flag
+    "@id": "#object.uApFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uApFlux_flag_apertureTruncated
+    "@id": "#object.uApFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uApFlux_flag_sincCoeffsTruncated
+    "@id": "#object.uApFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalibFlux_flag
+    "@id": "#object.uCalibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalibFlux_flag_apertureTruncated
+    "@id": "#object.uCalibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCalibFlux_flag_sincCoeffsTruncated
+    "@id": "#object.uCalibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCentroid_flag_almostNoSecondDerivative
+    "@id": "#object.uCentroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCentroid_flag_edge
+    "@id": "#object.uCentroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCentroid_flag_noSecondDerivative
+    "@id": "#object.uCentroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCentroid_flag_notAtMaximum
+    "@id": "#object.uCentroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uCentroid_flag_resetToPeak
+    "@id": "#object.uCentroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShapeRound_flag
+    "@id": "#object.uShapeRound_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShapeRound_flag_no_pixels
+    "@id": "#object.uShapeRound_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShapeRound_flag_not_contained
+    "@id": "#object.uShapeRound_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShapeRound_flag_parent_source
+    "@id": "#object.uShapeRound_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShapeRound_Flux
+    "@id": "#object.uShapeRound_Flux"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: uShapeRound_x
+    "@id": "#object.uShapeRound_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uShapeRound_xx
+    "@id": "#object.uShapeRound_xx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uShapeRound_xy
+    "@id": "#object.uShapeRound_xy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uShapeRound_y
+    "@id": "#object.uShapeRound_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uShapeRound_yy
+    "@id": "#object.uShapeRound_yy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uPsfFlux_apCorr
+    "@id": "#object.uPsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uPsfFlux_apCorrErr
+    "@id": "#object.uPsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uPsfFlux_flag
+    "@id": "#object.uPsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfFlux_flag_apCorr
+    "@id": "#object.uPsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfFlux_flag_edge
+    "@id": "#object.uPsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfFlux_flag_noGoodPixels
+    "@id": "#object.uPsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_apCorr
+    "@id": "#object.uKronFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uKronFlux_apCorrErr
+    "@id": "#object.uKronFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: uKronFlux_flag
+    "@id": "#object.uKronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_apCorr
+    "@id": "#object.uKronFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_bad_radius
+    "@id": "#object.uKronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_bad_shape
+    "@id": "#object.uKronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_bad_shape_no_psf
+    "@id": "#object.uKronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_edge
+    "@id": "#object.uKronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_no_fallback_radius
+    "@id": "#object.uKronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_no_minimum_radius
+    "@id": "#object.uKronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_small_radius
+    "@id": "#object.uKronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_used_minimum_radius
+    "@id": "#object.uKronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uKronFlux_flag_used_psf_radius
+    "@id": "#object.uKronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uGaapFlux_0_7_flag_bigPsf
+    "@id": "#object.uGaapFlux_0_7_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uGaapFlux_1_0_flag_bigPsf
+    "@id": "#object.uGaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uGaapFlux_Optimal_flag_bigPsf
+    "@id": "#object.uGaapFlux_Optimal_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uGaapFlux_flag_gaussianization
+    "@id": "#object.uGaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uGaapFlux_flag_edge
+    "@id": "#object.uGaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uGaapFlux_flag
+    "@id": "#object.uGaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfShape_flag
+    "@id": "#object.uPsfShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfShape_flag_no_pixels
+    "@id": "#object.uPsfShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfShape_flag_not_contained
+    "@id": "#object.uPsfShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfShape_flag_parent_source
+    "@id": "#object.uPsfShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShape_flag
+    "@id": "#object.uShape_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShape_flag_no_pixels
+    "@id": "#object.uShape_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShape_flag_not_contained
+    "@id": "#object.uShape_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uShape_flag_parent_source
+    "@id": "#object.uShape_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: uPsfFlux_area
+    "@id": "#object.uPsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: uDeblend_skipped
+    "@id": "#object.uDeblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+- name: source
+  "@id": "#source"
+  description: Table to store high signal-to-noise sources;. A source is
+    a measurement of Object's properties from a single image that contains its footprint
+    on the sky.
+  columns:
+  - name: sourceId
+    "@id": "#source.sourceId"
+    datatype: long
+    nullable: false
+    description: Unique id.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: coord_ra
+    "@id": "#source.coord_ra"
+    datatype: double
+    nullable: false
+    description: RA-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: coord_dec
+    "@id": "#source.coord_dec"
+    datatype: double
+    nullable: false
+    description: Decl-coordinate
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: ccdVisitId
+    "@id": "#source.ccdVisitId"
+    datatype: long
+    description: Id of the ccdVisit where this source was measured. Note that we are
+      allowing a source to belong to multiple amplifiers, but it may not span multiple
+      ccds.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;obs.image
+  - name: parentSourceId
+    "@id": "#source.parentSourceId"
+    datatype: long
+    description: Id of the parent source this source has been deblended from, if any.
+    mysql:datatype: BIGINT
+  - name: visit
+    "@id": "#source.visit"
+    datatype: long
+    description:
+    mysql:datatype: BIGINT
+  - name: detector
+    "@id": "#source.detector"
+    datatype: long
+    mysql:datatype: BIGINT
+  - name: band
+    "@id": "#source.band"
+    datatype: char
+    length: 1
+    description: Name of the band used to take the exposure where this source was measured.
+    mysql:datatype: CHAR(1)
+  - name: physical_filter
+    "@id": "#source.physical_filter"
+    datatype: char
+    length: 5
+    mysql:datatype: CHAR(5)
+  - name: instrument
+    "@id": "#source.instrument"
+    datatype: char
+    length: 3
+    mysql:datatype: CHAR(3)
+  - name: visit_system
+    "@id": "#source.visit_system"
+    datatype: long
+    mysql:datatype: BIGINT
+  - name: x
+    "@id": "#source.x"
+    datatype: double
+    description: x position computed using an algorithm similar to that used by SDSS.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: y
+    "@id": "#source.y"
+    datatype: double
+    description: y position computed using an algorithm similar to that used by SDSS.
+    mysql:datatype: DOUBLE
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: xErr
+    "@id": "#source.xErr"
+    datatype: float
+    description: Uncertainty of x.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: stat.error:pos.cartesian.x
+  - name: yErr
+    "@id": "#source.yErr"
+    datatype: float
+    description: Uncertainty of y.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: stat.error:pos.cartesian.y
+  - name: ra
+    "@id": "#source.ra"
+    datatype: double
+    description: Calibrated RA-coordinate of the center of the source transformed
+      from xy.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: decl
+    "@id": "#source.decl"
+    datatype: double
+    description: Calibated Decl-coordinate of the center of the source transformed
+      from xy.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: sky
+    "@id": "#source.sky"
+    datatype: double
+    description: Estimated sky background at the position (centroid) of the source.
+    mysql:datatype: DOUBLE
+  - name: skyErr
+    "@id": "#source.skyErr"
+    datatype: double
+    description: Uncertainty of sky.
+    mysql:datatype: DOUBLE
+  - name: PsFlux
+    "@id": "#source.PsFlux"
+    datatype: double
+    description: Calibrated flux for Point Source model.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+    ivoa:ucd: phot.count
+  - name: PsFluxErr
+    "@id": "#source.PsFluxErr"
+    datatype: double
+    description: Uncertainty of psFlux.
+    mysql:datatype: DOUBLE
+    fits:tunit: nanojansky
+  - name: Ixx
+    "@id": "#source.Ixx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Iyy
+    "@id": "#source.Iyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Ixy
+    "@id": "#source.Ixy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: IxxPsf
+    "@id": "#source.IxxPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: IyyPsf
+    "@id": "#source.IyyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: IxyPsf
+    "@id": "#source.IxyPsf"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: extendedness
+    "@id": "#source.extendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux
+    "@id": "#source.ApFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFluxErr
+    "@id": "#source.ApFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalPhotoCalib
+    "@id": "#source.LocalPhotoCalib"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalPhotoCalib_flag
+    "@id": "#source.LocalPhotoCalib_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalPhotoCalibErr
+    "@id": "#source.LocalPhotoCalibErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_flag
+    "@id": "#source.LocalWcs_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalWcs_CDMatrix_2_1
+    "@id": "#source.LocalWcs_CDMatrix_2_1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_CDMatrix_1_1
+    "@id": "#source.LocalWcs_CDMatrix_1_1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_CDMatrix_1_2
+    "@id": "#source.LocalWcs_CDMatrix_1_2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalWcs_CDMatrix_2_2
+    "@id": "#source.LocalWcs_CDMatrix_2_2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Blendedness_abs
+    "@id": "#source.Blendedness_abs"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Blendedness_flag
+    "@id": "#source.Blendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Blendedness_flag_noCentroid
+    "@id": "#source.Blendedness_flag_noCentroid"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Blendedness_flag_noShape
+    "@id": "#source.Blendedness_flag_noShape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_flag
+    "@id": "#source.ApFlux_12_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_12_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_flag_sincCoeffsTruncated
+    "@id": "#source.ApFlux_12_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_12_0_instFlux
+    "@id": "#source.ApFlux_12_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_12_0_instFluxErr
+    "@id": "#source.ApFlux_12_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_17_0_flag
+    "@id": "#source.ApFlux_17_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_17_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_17_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_17_0_instFlux
+    "@id": "#source.ApFlux_17_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_17_0_instFluxErr
+    "@id": "#source.ApFlux_17_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_25_0_flag
+    "@id": "#source.ApFlux_25_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_25_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_25_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_25_0_instFlux
+    "@id": "#source.ApFlux_25_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_25_0_instFluxErr
+    "@id": "#source.ApFlux_25_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_35_0_flag
+    "@id": "#source.ApFlux_35_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_35_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_35_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_35_0_instFlux
+    "@id": "#source.ApFlux_35_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_35_0_instFluxErr
+    "@id": "#source.ApFlux_35_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_3_0_flag
+    "@id": "#source.ApFlux_3_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_3_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_3_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_3_0_flag_sincCoeffsTruncated
+    "@id": "#source.ApFlux_3_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_3_0_instFlux
+    "@id": "#source.ApFlux_3_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_3_0_instFluxErr
+    "@id": "#source.ApFlux_3_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_4_5_flag
+    "@id": "#source.ApFlux_4_5_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_4_5_flag_apertureTruncated
+    "@id": "#source.ApFlux_4_5_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_4_5_flag_sincCoeffsTruncated
+    "@id": "#source.ApFlux_4_5_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_4_5_instFlux
+    "@id": "#source.ApFlux_4_5_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_4_5_instFluxErr
+    "@id": "#source.ApFlux_4_5_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_50_0_flag
+    "@id": "#source.ApFlux_50_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_50_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_50_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_50_0_instFlux
+    "@id": "#source.ApFlux_50_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_50_0_instFluxErr
+    "@id": "#source.ApFlux_50_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_6_0_flag
+    "@id": "#source.ApFlux_6_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_6_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_6_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_6_0_flag_sincCoeffsTruncated
+    "@id": "#source.ApFlux_6_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_6_0_instFlux
+    "@id": "#source.ApFlux_6_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_6_0_instFluxErr
+    "@id": "#source.ApFlux_6_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_70_0_flag
+    "@id": "#source.ApFlux_70_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_70_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_70_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_70_0_instFlux
+    "@id": "#source.ApFlux_70_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_70_0_instFluxErr
+    "@id": "#source.ApFlux_70_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_9_0_flag
+    "@id": "#source.ApFlux_9_0_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_9_0_flag_apertureTruncated
+    "@id": "#source.ApFlux_9_0_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_9_0_flag_sincCoeffsTruncated
+    "@id": "#source.ApFlux_9_0_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: ApFlux_9_0_instFlux
+    "@id": "#source.ApFlux_9_0_instFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: ApFlux_9_0_instFluxErr
+    "@id": "#source.ApFlux_9_0_instFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Extendedness_flag
+    "@id": "#source.Extendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: FootprintArea_value
+    "@id": "#source.FootprintArea_value"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: Jacobian_flag
+    "@id": "#source.Jacobian_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Jacobian_value
+    "@id": "#source.Jacobian_value"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: LocalBackground_instFlux
+    "@id": "#source.LocalBackground_instFlux"
+    datatype: double
+    description: Estimate of local background residual flux computed from a large annulus
+    mysql:datatype: DOUBLE
+  - name: LocalBackground_instFluxErr
+    "@id": "#source.LocalBackground_instFluxErr"
+    datatype: double
+    description: Error in local background residual flux
+    mysql:datatype: DOUBLE
+  - name: LocalBackground_flag
+    "@id": "#source.LocalBackground_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalBackground_flag_noGoodPixels
+    "@id": "#source.LocalBackground_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: LocalBackground_flag_noPsf
+    "@id": "#source.LocalBackground_flag_noPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags
+    "@id": "#source.PixelFlags"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_bad
+    "@id": "#source.PixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_cr
+    "@id": "#source.PixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_crCenter
+    "@id": "#source.PixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_edge
+    "@id": "#source.PixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_interpolated
+    "@id": "#source.PixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_interpolatedCenter
+    "@id": "#source.PixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_offimage
+    "@id": "#source.PixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_saturated
+    "@id": "#source.PixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_saturatedCenter
+    "@id": "#source.PixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_suspect
+    "@id": "#source.PixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PixelFlags_suspectCenter
+    "@id": "#source.PixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_apCorr
+    "@id": "#source.PsfFlux_apCorr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: PsfFlux_apCorrErr
+    "@id": "#source.PsfFlux_apCorrErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: PsfFlux_area
+    "@id": "#source.PsfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+  - name: PsfFlux_flag
+    "@id": "#source.PsfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_apCorr
+    "@id": "#source.PsfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_edge
+    "@id": "#source.PsfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: PsfFlux_flag_noGoodPixels
+    "@id": "#source.PsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag
+    "@id": "#source.Centroid_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_almostNoSecondDerivative
+    "@id": "#source.Centroid_flag_almostNoSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_badError
+    "@id": "#source.Centroid_flag_badError"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_edge
+    "@id": "#source.Centroid_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_noSecondDerivative
+    "@id": "#source.Centroid_flag_noSecondDerivative"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_notAtMaximum
+    "@id": "#source.Centroid_flag_notAtMaximum"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Centroid_flag_resetToPeak
+    "@id": "#source.Centroid_flag_resetToPeak"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Variance_flag
+    "@id": "#source.Variance_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Variance_flag_emptyFootprint
+    "@id": "#source.Variance_flag_emptyFootprint"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Variance_value
+    "@id": "#source.Variance_value"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+  - name: Calib_astrometry_used
+    "@id": "#source.Calib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_detected
+    "@id": "#source.Calib_detected"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_photometry_reserved
+    "@id": "#source.Calib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_photometry_used
+    "@id": "#source.Calib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_psf_candidate
+    "@id": "#source.Calib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_psf_reserved
+    "@id": "#source.Calib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Calib_psf_used
+    "@id": "#source.Calib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_deblendedAsPsf
+    "@id": "#source.Deblend_deblendedAsPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_hasStrayFlux
+    "@id": "#source.Deblend_hasStrayFlux"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_masked
+    "@id": "#source.Deblend_masked"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_nChild
+    "@id": "#source.Deblend_nChild"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+  - name: Deblend_parentTooBig
+    "@id": "#source.Deblend_parentTooBig"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_patchedTemplate
+    "@id": "#source.Deblend_patchedTemplate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_rampedTemplate
+    "@id": "#source.Deblend_rampedTemplate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_skipped
+    "@id": "#source.Deblend_skipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: Deblend_tooManyPeaks
+    "@id": "#source.Deblend_tooManyPeaks"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag
+    "@id": "#source.HsmPsfMoments_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag_no_pixels
+    "@id": "#source.HsmPsfMoments_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag_not_contained
+    "@id": "#source.HsmPsfMoments_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmPsfMoments_flag_parent_source
+    "@id": "#source.HsmPsfMoments_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag
+    "@id": "#source.HsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_galsim
+    "@id": "#source.HsmShapeRegauss_flag_galsim"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_no_pixels
+    "@id": "#source.HsmShapeRegauss_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_not_contained
+    "@id": "#source.HsmShapeRegauss_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: HsmShapeRegauss_flag_parent_source
+    "@id": "#source.HsmShapeRegauss_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: sky_source
+    "@id": "#source.sky_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+  - name: detect_isPrimary
+    "@id": "#source.detect_isPrimary"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
