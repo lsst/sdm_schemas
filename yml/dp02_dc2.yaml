@@ -744,12 +744,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: g_gaapFlux_Optimal_flag_bigPsf
-    "@id": "#Object.g_gaapFlux_Optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: g_gaapFlux_flag
     "@id": "#Object.g_gaapFlux_flag"
     datatype: boolean
@@ -768,12 +762,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: g_gaapFlux_optimal_flag_bigPsf
-    "@id": "#Object.g_gaapFlux_optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: g_gaapOptimalFlux
     "@id": "#Object.g_gaapOptimalFlux"
     datatype: double
@@ -786,6 +774,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: g_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.g_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: g_gaapPsfFlux
     "@id": "#Object.g_gaapPsfFlux"
     datatype: double
@@ -1710,12 +1704,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: i_gaapFlux_Optimal_flag_bigPsf
-    "@id": "#Object.i_gaapFlux_Optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: i_gaapFlux_flag
     "@id": "#Object.i_gaapFlux_flag"
     datatype: boolean
@@ -1734,12 +1722,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: i_gaapFlux_optimal_flag_bigPsf
-    "@id": "#Object.i_gaapFlux_optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: i_gaapOptimalFlux
     "@id": "#Object.i_gaapOptimalFlux"
     datatype: double
@@ -1752,6 +1734,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: i_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.i_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: i_gaapPsfFlux
     "@id": "#Object.i_gaapPsfFlux"
     datatype: double
@@ -2676,12 +2664,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: r_gaapFlux_Optimal_flag_bigPsf
-    "@id": "#Object.r_gaapFlux_Optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: r_gaapFlux_flag
     "@id": "#Object.r_gaapFlux_flag"
     datatype: boolean
@@ -2700,12 +2682,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: r_gaapFlux_optimal_flag_bigPsf
-    "@id": "#Object.r_gaapFlux_optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: r_gaapOptimalFlux
     "@id": "#Object.r_gaapOptimalFlux"
     datatype: double
@@ -2718,6 +2694,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: r_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.r_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: r_gaapPsfFlux
     "@id": "#Object.r_gaapPsfFlux"
     datatype: double
@@ -3642,12 +3624,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: u_gaapFlux_Optimal_flag_bigPsf
-    "@id": "#Object.u_gaapFlux_Optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: u_gaapFlux_flag
     "@id": "#Object.u_gaapFlux_flag"
     datatype: boolean
@@ -3666,12 +3642,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: u_gaapFlux_optimal_flag_bigPsf
-    "@id": "#Object.u_gaapFlux_optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: u_gaapOptimalFlux
     "@id": "#Object.u_gaapOptimalFlux"
     datatype: double
@@ -3684,6 +3654,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: u_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.u_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: u_gaapPsfFlux
     "@id": "#Object.u_gaapPsfFlux"
     datatype: double
@@ -4608,12 +4584,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: y_gaapFlux_Optimal_flag_bigPsf
-    "@id": "#Object.y_gaapFlux_Optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: y_gaapFlux_flag
     "@id": "#Object.y_gaapFlux_flag"
     datatype: boolean
@@ -4632,12 +4602,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: y_gaapFlux_optimal_flag_bigPsf
-    "@id": "#Object.y_gaapFlux_optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: y_gaapOptimalFlux
     "@id": "#Object.y_gaapOptimalFlux"
     datatype: double
@@ -4650,6 +4614,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: y_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.y_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: y_gaapPsfFlux
     "@id": "#Object.y_gaapPsfFlux"
     datatype: double
@@ -5574,12 +5544,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: z_gaapFlux_Optimal_flag_bigPsf
-    "@id": "#Object.z_gaapFlux_Optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: z_gaapFlux_flag
     "@id": "#Object.z_gaapFlux_flag"
     datatype: boolean
@@ -5598,12 +5562,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
-  - name: z_gaapFlux_optimal_flag_bigPsf
-    "@id": "#Object.z_gaapFlux_optimal_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: z_gaapOptimalFlux
     "@id": "#Object.z_gaapOptimalFlux"
     datatype: double
@@ -5616,6 +5574,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: z_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.z_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: z_gaapPsfFlux
     "@id": "#Object.z_gaapPsfFlux"
     datatype: double
