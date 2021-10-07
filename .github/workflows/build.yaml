@@ -25,6 +25,17 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Run the build
-        id: build
+        id: build-tap-schema
         run: ./build-all
         working-directory: ./tap-schema
+
+      - name: Build datalink release
+        id: build-datalink
+        run: ./build
+        working-directory: ./datalink
+
+      - name: Release Datalink
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: datalink/datalink-snippets.zip
