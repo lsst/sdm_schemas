@@ -628,6 +628,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
+  - name: g_gaapFluxErr_0_5
+    "@id": "#Object.g_gaapFluxErr_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
   - name: g_gaapFluxErr_0_7
     "@id": "#Object.g_gaapFluxErr_0_7"
     datatype: double
@@ -636,6 +642,24 @@ tables:
     fits.tunit:
   - name: g_gaapFluxErr_1_0
     "@id": "#Object.g_gaapFluxErr_1_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: g_gaapFluxErr_1_5
+    "@id": "#Object.g_gaapFluxErr_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: g_gaapFluxErr_2_5
+    "@id": "#Object.g_gaapFluxErr_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: g_gaapFluxErr_3_0
+    "@id": "#Object.g_gaapFluxErr_3_0"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -651,6 +675,18 @@ tables:
     datatype: double
     description:
     mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: g_gaapFlux_0_5
+    "@id": "#Object.g_gaapFlux_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaapFlux_0_5_flag_bigPsf
+    "@id": "#Object.g_gaapFlux_0_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
     fits.tunit:
   - name: g_gaapFlux_0_7
     "@id": "#Object.g_gaapFlux_0_7"
@@ -672,6 +708,42 @@ tables:
     fits.tunit: nanojansky
   - name: g_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.g_gaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: g_gaapFlux_1_5
+    "@id": "#Object.g_gaapFlux_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaapFlux_1_5_flag_bigPsf
+    "@id": "#Object.g_gaapFlux_1_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: g_gaapFlux_2_5
+    "@id": "#Object.g_gaapFlux_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaapFlux_2_5_flag_bigPsf
+    "@id": "#Object.g_gaapFlux_2_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: g_gaapFlux_3_0
+    "@id": "#Object.g_gaapFlux_3_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaapFlux_3_0_flag_bigPsf
+    "@id": "#Object.g_gaapFlux_3_0_flag_bigPsf"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -1516,6 +1588,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
+  - name: i_gaapFluxErr_0_5
+    "@id": "#Object.i_gaapFluxErr_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
   - name: i_gaapFluxErr_0_7
     "@id": "#Object.i_gaapFluxErr_0_7"
     datatype: double
@@ -1524,6 +1602,24 @@ tables:
     fits.tunit:
   - name: i_gaapFluxErr_1_0
     "@id": "#Object.i_gaapFluxErr_1_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: i_gaapFluxErr_1_5
+    "@id": "#Object.i_gaapFluxErr_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: i_gaapFluxErr_2_5
+    "@id": "#Object.i_gaapFluxErr_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: i_gaapFluxErr_3_0
+    "@id": "#Object.i_gaapFluxErr_3_0"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -1539,6 +1635,18 @@ tables:
     datatype: double
     description:
     mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: i_gaapFlux_0_5
+    "@id": "#Object.i_gaapFlux_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaapFlux_0_5_flag_bigPsf
+    "@id": "#Object.i_gaapFlux_0_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
     fits.tunit:
   - name: i_gaapFlux_0_7
     "@id": "#Object.i_gaapFlux_0_7"
@@ -1560,6 +1668,42 @@ tables:
     fits.tunit: nanojansky
   - name: i_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.i_gaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: i_gaapFlux_1_5
+    "@id": "#Object.i_gaapFlux_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaapFlux_1_5_flag_bigPsf
+    "@id": "#Object.i_gaapFlux_1_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: i_gaapFlux_2_5
+    "@id": "#Object.i_gaapFlux_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaapFlux_2_5_flag_bigPsf
+    "@id": "#Object.i_gaapFlux_2_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: i_gaapFlux_3_0
+    "@id": "#Object.i_gaapFlux_3_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaapFlux_3_0_flag_bigPsf
+    "@id": "#Object.i_gaapFlux_3_0_flag_bigPsf"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -2404,6 +2548,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
+  - name: r_gaapFluxErr_0_5
+    "@id": "#Object.r_gaapFluxErr_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
   - name: r_gaapFluxErr_0_7
     "@id": "#Object.r_gaapFluxErr_0_7"
     datatype: double
@@ -2412,6 +2562,24 @@ tables:
     fits.tunit:
   - name: r_gaapFluxErr_1_0
     "@id": "#Object.r_gaapFluxErr_1_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: r_gaapFluxErr_1_5
+    "@id": "#Object.r_gaapFluxErr_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: r_gaapFluxErr_2_5
+    "@id": "#Object.r_gaapFluxErr_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: r_gaapFluxErr_3_0
+    "@id": "#Object.r_gaapFluxErr_3_0"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -2427,6 +2595,18 @@ tables:
     datatype: double
     description:
     mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: r_gaapFlux_0_5
+    "@id": "#Object.r_gaapFlux_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaapFlux_0_5_flag_bigPsf
+    "@id": "#Object.r_gaapFlux_0_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
     fits.tunit:
   - name: r_gaapFlux_0_7
     "@id": "#Object.r_gaapFlux_0_7"
@@ -2448,6 +2628,42 @@ tables:
     fits.tunit: nanojansky
   - name: r_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.r_gaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: r_gaapFlux_1_5
+    "@id": "#Object.r_gaapFlux_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaapFlux_1_5_flag_bigPsf
+    "@id": "#Object.r_gaapFlux_1_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: r_gaapFlux_2_5
+    "@id": "#Object.r_gaapFlux_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaapFlux_2_5_flag_bigPsf
+    "@id": "#Object.r_gaapFlux_2_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: r_gaapFlux_3_0
+    "@id": "#Object.r_gaapFlux_3_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaapFlux_3_0_flag_bigPsf
+    "@id": "#Object.r_gaapFlux_3_0_flag_bigPsf"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -3292,6 +3508,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
+  - name: y_gaapFluxErr_0_5
+    "@id": "#Object.y_gaapFluxErr_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
   - name: y_gaapFluxErr_0_7
     "@id": "#Object.y_gaapFluxErr_0_7"
     datatype: double
@@ -3300,6 +3522,24 @@ tables:
     fits.tunit:
   - name: y_gaapFluxErr_1_0
     "@id": "#Object.y_gaapFluxErr_1_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: y_gaapFluxErr_1_5
+    "@id": "#Object.y_gaapFluxErr_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: y_gaapFluxErr_2_5
+    "@id": "#Object.y_gaapFluxErr_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: y_gaapFluxErr_3_0
+    "@id": "#Object.y_gaapFluxErr_3_0"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -3315,6 +3555,18 @@ tables:
     datatype: double
     description:
     mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: y_gaapFlux_0_5
+    "@id": "#Object.y_gaapFlux_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaapFlux_0_5_flag_bigPsf
+    "@id": "#Object.y_gaapFlux_0_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
     fits.tunit:
   - name: y_gaapFlux_0_7
     "@id": "#Object.y_gaapFlux_0_7"
@@ -3336,6 +3588,42 @@ tables:
     fits.tunit: nanojansky
   - name: y_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.y_gaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: y_gaapFlux_1_5
+    "@id": "#Object.y_gaapFlux_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaapFlux_1_5_flag_bigPsf
+    "@id": "#Object.y_gaapFlux_1_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: y_gaapFlux_2_5
+    "@id": "#Object.y_gaapFlux_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaapFlux_2_5_flag_bigPsf
+    "@id": "#Object.y_gaapFlux_2_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: y_gaapFlux_3_0
+    "@id": "#Object.y_gaapFlux_3_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaapFlux_3_0_flag_bigPsf
+    "@id": "#Object.y_gaapFlux_3_0_flag_bigPsf"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -4180,6 +4468,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
+  - name: z_gaapFluxErr_0_5
+    "@id": "#Object.z_gaapFluxErr_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
   - name: z_gaapFluxErr_0_7
     "@id": "#Object.z_gaapFluxErr_0_7"
     datatype: double
@@ -4188,6 +4482,24 @@ tables:
     fits.tunit:
   - name: z_gaapFluxErr_1_0
     "@id": "#Object.z_gaapFluxErr_1_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: z_gaapFluxErr_1_5
+    "@id": "#Object.z_gaapFluxErr_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: z_gaapFluxErr_2_5
+    "@id": "#Object.z_gaapFluxErr_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: z_gaapFluxErr_3_0
+    "@id": "#Object.z_gaapFluxErr_3_0"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -4203,6 +4515,18 @@ tables:
     datatype: double
     description:
     mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: z_gaapFlux_0_5
+    "@id": "#Object.z_gaapFlux_0_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaapFlux_0_5_flag_bigPsf
+    "@id": "#Object.z_gaapFlux_0_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
     fits.tunit:
   - name: z_gaapFlux_0_7
     "@id": "#Object.z_gaapFlux_0_7"
@@ -4224,6 +4548,42 @@ tables:
     fits.tunit: nanojansky
   - name: z_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.z_gaapFlux_1_0_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: z_gaapFlux_1_5
+    "@id": "#Object.z_gaapFlux_1_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaapFlux_1_5_flag_bigPsf
+    "@id": "#Object.z_gaapFlux_1_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: z_gaapFlux_2_5
+    "@id": "#Object.z_gaapFlux_2_5"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaapFlux_2_5_flag_bigPsf
+    "@id": "#Object.z_gaapFlux_2_5_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: z_gaapFlux_3_0
+    "@id": "#Object.z_gaapFlux_3_0"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaapFlux_3_0_flag_bigPsf
+    "@id": "#Object.z_gaapFlux_3_0_flag_bigPsf"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
