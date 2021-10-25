@@ -6816,3 +6816,1435 @@ tables:
     description:
     mysql:datatype: BIGINT
     fits.tunit:
+
+- name: forcedSource
+  "@id": "#ForcedSource"
+  description: The forced source table contains forced-photometry source
+     measurement on an individual Exposure based on a Multifit shape model
+     derived from a deep detection.
+  columns:
+  - name: forcedSourceId
+    "@id": "#ForcedSource.forcedSourceId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: objectId
+    "@id": "#ForcedSource.objectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: parentObjectId
+    "@id": "#ForcedSource.parentObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: coord_ra
+    "@id": "#ForcedSource.coord_ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: coord_dec
+    "@id": "#ForcedSource.coord_dec"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: skymap
+    "@id": "#ForcedSource.skymap"
+    datatype: char
+    length: 12
+    mysql:datatype: CHAR(12)
+    description:
+  - name: tract
+    "@id": "#ForcedSource.tract"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: patch
+    "@id": "#ForcedSource.patch"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: band
+    "@id": "#ForcedSource.band"
+    datatype: char
+    length: 1
+    mysql:datatype: CHAR(1)
+    description:
+  - name: ccdVisitId
+    "@id": "#ForcedSource.ccdVisitId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: detect_isPatchInner
+    "@id": "#ForcedSource.detect_isPatchInner"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: detect_isPrimary
+    "@id": "#ForcedSource.detect_isPrimary"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: detect_isTractInner
+    "@id": "#ForcedSource.detect_isTractInner"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: localBackground_instFluxErr
+    "@id": "#ForcedSource.localBackground_instFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localBackground_instFlux
+    "@id": "#ForcedSource.localBackground_instFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalibErr
+    "@id": "#ForcedSource.localPhotoCalibErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalib_flag
+    "@id": "#ForcedSource.localPhotoCalib_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: localPhotoCalib
+    "@id": "#ForcedSource.localPhotoCalib"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_1
+    "@id": "#ForcedSource.localWcs_CDMatrix_1_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_2
+    "@id": "#ForcedSource.localWcs_CDMatrix_1_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_1
+    "@id": "#ForcedSource.localWcs_CDMatrix_2_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_2
+    "@id": "#ForcedSource.localWcs_CDMatrix_2_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_flag
+    "@id": "#ForcedSource.localWcs_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_bad
+    "@id": "#ForcedSource.pixelFlags_bad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_crCenter
+    "@id": "#ForcedSource.pixelFlags_crCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_cr
+    "@id": "#ForcedSource.pixelFlags_cr"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_edge
+    "@id": "#ForcedSource.pixelFlags_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolatedCenter
+    "@id": "#ForcedSource.pixelFlags_interpolatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolated
+    "@id": "#ForcedSource.pixelFlags_interpolated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturatedCenter
+    "@id": "#ForcedSource.pixelFlags_saturatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturated
+    "@id": "#ForcedSource.pixelFlags_saturated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspectCenter
+    "@id": "#ForcedSource.pixelFlags_suspectCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspect
+    "@id": "#ForcedSource.pixelFlags_suspect"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfDiffFluxErr
+    "@id": "#ForcedSource.psfDiffFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfDiffFlux_flag
+    "@id": "#ForcedSource.psfDiffFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfDiffFlux
+    "@id": "#ForcedSource.psfDiffFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFluxErr
+    "@id": "#ForcedSource.psfFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFlux_flag
+    "@id": "#ForcedSource.psfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux
+    "@id": "#ForcedSource.psfFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+- name: diaObject
+  "@id": "#DiaObject"
+  description: this is diaObjectTable_tract in the butler repo
+  columns:
+  - name: decl
+    "@id": "#DiaObject.decl"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: diaObjectId
+    "@id": "#DiaObject.diaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: gPSFluxChi2
+    "@id": "#DiaObject.gPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxErrMean
+    "@id": "#DiaObject.gPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxLinearIntercept
+    "@id": "#DiaObject.gPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxLinearSlope
+    "@id": "#DiaObject.gPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMAD
+    "@id": "#DiaObject.gPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMax
+    "@id": "#DiaObject.gPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMaxSlope
+    "@id": "#DiaObject.gPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMean
+    "@id": "#DiaObject.gPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMeanErr
+    "@id": "#DiaObject.gPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMin
+    "@id": "#DiaObject.gPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxNdata
+    "@id": "#DiaObject.gPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile05
+    "@id": "#DiaObject.gPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile25
+    "@id": "#DiaObject.gPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile50
+    "@id": "#DiaObject.gPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile75
+    "@id": "#DiaObject.gPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile95
+    "@id": "#DiaObject.gPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxSigma
+    "@id": "#DiaObject.gPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxSkew
+    "@id": "#DiaObject.gPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxStetsonJ
+    "@id": "#DiaObject.gPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gTOTFluxMean
+    "@id": "#DiaObject.gTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gTOTFluxMeanErr
+    "@id": "#DiaObject.gTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gTOTFluxSigma
+    "@id": "#DiaObject.gTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxChi2
+    "@id": "#DiaObject.iPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxErrMean
+    "@id": "#DiaObject.iPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxLinearIntercept
+    "@id": "#DiaObject.iPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxLinearSlope
+    "@id": "#DiaObject.iPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMAD
+    "@id": "#DiaObject.iPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMax
+    "@id": "#DiaObject.iPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMaxSlope
+    "@id": "#DiaObject.iPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMean
+    "@id": "#DiaObject.iPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMeanErr
+    "@id": "#DiaObject.iPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMin
+    "@id": "#DiaObject.iPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxNdata
+    "@id": "#DiaObject.iPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile05
+    "@id": "#DiaObject.iPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile25
+    "@id": "#DiaObject.iPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile50
+    "@id": "#DiaObject.iPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile75
+    "@id": "#DiaObject.iPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile95
+    "@id": "#DiaObject.iPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxSigma
+    "@id": "#DiaObject.iPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxSkew
+    "@id": "#DiaObject.iPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxStetsonJ
+    "@id": "#DiaObject.iPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iTOTFluxMean
+    "@id": "#DiaObject.iTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iTOTFluxMeanErr
+    "@id": "#DiaObject.iTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iTOTFluxSigma
+    "@id": "#DiaObject.iTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: nDiaSources
+    "@id": "#DiaObject.nDiaSources"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: pixelId
+    "@id": "#DiaObject.pixelId"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxChi2
+    "@id": "#DiaObject.rPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxErrMean
+    "@id": "#DiaObject.rPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxLinearIntercept
+    "@id": "#DiaObject.rPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxLinearSlope
+    "@id": "#DiaObject.rPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMAD
+    "@id": "#DiaObject.rPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMax
+    "@id": "#DiaObject.rPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMaxSlope
+    "@id": "#DiaObject.rPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMean
+    "@id": "#DiaObject.rPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMeanErr
+    "@id": "#DiaObject.rPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMin
+    "@id": "#DiaObject.rPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxNdata
+    "@id": "#DiaObject.rPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile05
+    "@id": "#DiaObject.rPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile25
+    "@id": "#DiaObject.rPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile50
+    "@id": "#DiaObject.rPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile75
+    "@id": "#DiaObject.rPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile95
+    "@id": "#DiaObject.rPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxSigma
+    "@id": "#DiaObject.rPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxSkew
+    "@id": "#DiaObject.rPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxStetsonJ
+    "@id": "#DiaObject.rPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rTOTFluxMean
+    "@id": "#DiaObject.rTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rTOTFluxMeanErr
+    "@id": "#DiaObject.rTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rTOTFluxSigma
+    "@id": "#DiaObject.rTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ra
+    "@id": "#DiaObject.ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: radecTai
+    "@id": "#DiaObject.radecTai"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxChi2
+    "@id": "#DiaObject.uPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxErrMean
+    "@id": "#DiaObject.uPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxLinearIntercept
+    "@id": "#DiaObject.uPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxLinearSlope
+    "@id": "#DiaObject.uPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMAD
+    "@id": "#DiaObject.uPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMax
+    "@id": "#DiaObject.uPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMaxSlope
+    "@id": "#DiaObject.uPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMean
+    "@id": "#DiaObject.uPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMeanErr
+    "@id": "#DiaObject.uPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMin
+    "@id": "#DiaObject.uPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxNdata
+    "@id": "#DiaObject.uPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile05
+    "@id": "#DiaObject.uPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile25
+    "@id": "#DiaObject.uPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile50
+    "@id": "#DiaObject.uPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile75
+    "@id": "#DiaObject.uPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile95
+    "@id": "#DiaObject.uPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxSigma
+    "@id": "#DiaObject.uPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxSkew
+    "@id": "#DiaObject.uPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxStetsonJ
+    "@id": "#DiaObject.uPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uTOTFluxMean
+    "@id": "#DiaObject.uTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uTOTFluxMeanErr
+    "@id": "#DiaObject.uTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uTOTFluxSigma
+    "@id": "#DiaObject.uTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxChi2
+    "@id": "#DiaObject.yPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxErrMean
+    "@id": "#DiaObject.yPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxLinearIntercept
+    "@id": "#DiaObject.yPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxLinearSlope
+    "@id": "#DiaObject.yPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMAD
+    "@id": "#DiaObject.yPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMax
+    "@id": "#DiaObject.yPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMaxSlope
+    "@id": "#DiaObject.yPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMean
+    "@id": "#DiaObject.yPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMeanErr
+    "@id": "#DiaObject.yPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMin
+    "@id": "#DiaObject.yPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxNdata
+    "@id": "#DiaObject.yPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile05
+    "@id": "#DiaObject.yPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile25
+    "@id": "#DiaObject.yPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile50
+    "@id": "#DiaObject.yPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile75
+    "@id": "#DiaObject.yPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile95
+    "@id": "#DiaObject.yPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxSigma
+    "@id": "#DiaObject.yPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxSkew
+    "@id": "#DiaObject.yPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxStetsonJ
+    "@id": "#DiaObject.yPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yTOTFluxMean
+    "@id": "#DiaObject.yTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yTOTFluxMeanErr
+    "@id": "#DiaObject.yTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yTOTFluxSigma
+    "@id": "#DiaObject.yTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxChi2
+    "@id": "#DiaObject.zPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxErrMean
+    "@id": "#DiaObject.zPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxLinearIntercept
+    "@id": "#DiaObject.zPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxLinearSlope
+    "@id": "#DiaObject.zPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMAD
+    "@id": "#DiaObject.zPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMax
+    "@id": "#DiaObject.zPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMaxSlope
+    "@id": "#DiaObject.zPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMean
+    "@id": "#DiaObject.zPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMeanErr
+    "@id": "#DiaObject.zPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMin
+    "@id": "#DiaObject.zPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxNdata
+    "@id": "#DiaObject.zPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile05
+    "@id": "#DiaObject.zPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile25
+    "@id": "#DiaObject.zPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile50
+    "@id": "#DiaObject.zPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile75
+    "@id": "#DiaObject.zPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile95
+    "@id": "#DiaObject.zPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxSigma
+    "@id": "#DiaObject.zPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxSkew
+    "@id": "#DiaObject.zPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxStetsonJ
+    "@id": "#DiaObject.zPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zTOTFluxMean
+    "@id": "#DiaObject.zTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zTOTFluxMeanErr
+    "@id": "#DiaObject.zTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zTOTFluxSigma
+    "@id": "#DiaObject.zTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+- name: diaSource
+  "@id": "#DiaSource"
+  description: this is diaSourceTable_tract in the butler repo
+  columns:
+  - name: apFlux
+    "@id": "#DiaSource.apFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: apFluxErr
+    "@id": "#DiaSource.apFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: apFlux_flag
+    "@id": "#DiaSource.apFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: apFlux_flag_apertureTruncated
+    "@id": "#DiaSource.apFlux_flag_apertureTruncated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: bboxSize
+    "@id": "#DiaSource.bboxSize"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: ccdVisitId
+    "@id": "#DiaSource.ccdVisitId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: centroid_flag
+    "@id": "#DiaSource.centroid_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: centroid_neg_flag
+    "@id": "#DiaSource.centroid_neg_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: centroid_pos_flag
+    "@id": "#DiaSource.centroid_pos_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: coord_dec
+    "@id": "#DiaSource.coord_dec"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: coord_ra
+    "@id": "#DiaSource.coord_ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: decl
+    "@id": "#DiaSource.decl"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: diaObjectId
+    "@id": "#DiaSource.diaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: diaSourceId
+    "@id": "#DiaSource.diaSourceId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: dipAngle
+    "@id": "#DiaSource.dipAngle"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipChi2
+    "@id": "#DiaSource.dipChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipFluxDiff
+    "@id": "#DiaSource.dipFluxDiff"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipFluxDiffErr
+    "@id": "#DiaSource.dipFluxDiffErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipLength
+    "@id": "#DiaSource.dipLength"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipMeanFlux
+    "@id": "#DiaSource.dipMeanFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipMeanFluxErr
+    "@id": "#DiaSource.dipMeanFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: filterName
+    "@id": "#DiaSource.filterName"
+    datatype: char
+    mysql:datatype: CHAR()
+    description:
+  - name: forced_PsfFlux_flag
+    "@id": "#DiaSource.forced_PsfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: forced_PsfFlux_flag_edge
+    "@id": "#DiaSource.forced_PsfFlux_flag_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: forced_PsfFlux_flag_noGoodPixels
+    "@id": "#DiaSource.forced_PsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: index
+    "@id": "#DiaSource.index"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: isDipole
+    "@id": "#DiaSource.isDipole"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: ixx
+    "@id": "#DiaSource.ixx"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ixxPSF
+    "@id": "#DiaSource.ixxPSF"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ixy
+    "@id": "#DiaSource.ixy"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ixyPSF
+    "@id": "#DiaSource.ixyPSF"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iyy
+    "@id": "#DiaSource.iyy"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iyyPSF
+    "@id": "#DiaSource.iyyPSF"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: level_0
+    "@id": "#DiaSource.level_0"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: midPointTai
+    "@id": "#DiaSource.midPointTai"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: parentDiaSourceId
+    "@id": "#DiaSource.parentDiaSourceId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: pixelFlags
+    "@id": "#DiaSource.pixelFlags"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_bad
+    "@id": "#DiaSource.pixelFlags_bad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_cr
+    "@id": "#DiaSource.pixelFlags_cr"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_crCenter
+    "@id": "#DiaSource.pixelFlags_crCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_edge
+    "@id": "#DiaSource.pixelFlags_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolated
+    "@id": "#DiaSource.pixelFlags_interpolated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolatedCenter
+    "@id": "#DiaSource.pixelFlags_interpolatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_offimage
+    "@id": "#DiaSource.pixelFlags_offimage"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturated
+    "@id": "#DiaSource.pixelFlags_saturated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturatedCenter
+    "@id": "#DiaSource.pixelFlags_saturatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspect
+    "@id": "#DiaSource.pixelFlags_suspect"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspectCenter
+    "@id": "#DiaSource.pixelFlags_suspectCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelId
+    "@id": "#DiaSource.pixelId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: psFlux
+    "@id": "#DiaSource.psFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psFluxErr
+    "@id": "#DiaSource.psFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFlux_flag
+    "@id": "#DiaSource.psfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux_flag_edge
+    "@id": "#DiaSource.psfFlux_flag_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux_flag_noGoodPixels
+    "@id": "#DiaSource.psfFlux_flag_noGoodPixels"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: ra
+    "@id": "#DiaSource.ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: shape_flag
+    "@id": "#DiaSource.shape_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_maxIter
+    "@id": "#DiaSource.shape_flag_maxIter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_psf
+    "@id": "#DiaSource.shape_flag_psf"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_shift
+    "@id": "#DiaSource.shape_flag_shift"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_unweighted
+    "@id": "#DiaSource.shape_flag_unweighted"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_unweightedBad
+    "@id": "#DiaSource.shape_flag_unweightedBad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: snr
+    "@id": "#DiaSource.snr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ssObjectId
+    "@id": "#DiaSource.ssObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: totFlux
+    "@id": "#DiaSource.totFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: totFluxErr
+    "@id": "#DiaSource.totFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: x
+    "@id": "#DiaSource.x"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: xErr
+    "@id": "#DiaSource.xErr"
+    datatype: float
+    mysql:datatype: FLOAT
+    description:
+  - name: y
+    "@id": "#DiaSource.y"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yErr
+    "@id": "#DiaSource.yErr"
+    datatype: float
+    mysql:datatype: FLOAT
+    description:
+- name: forcedSourceOnDiaObject
+  "@id": "#ForcedSourceOnDiaObject"
+  description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
+  columns:
+  - name: band
+    "@id": "#ForcedSourceOnDiaObject.band"
+    datatype: char
+    mysql:datatype: CHAR()
+    description:
+  - name: ccdVisitId
+    "@id": "#ForcedSourceOnDiaObject.ccdVisitId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: coord_dec
+    "@id": "#ForcedSourceOnDiaObject.coord_dec"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: coord_ra
+    "@id": "#ForcedSourceOnDiaObject.coord_ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: diaObjectId
+    "@id": "#ForcedSourceOnDiaObject.diaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: forcedSourceOnDiaObjectId
+    "@id": "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: localBackground_instFlux
+    "@id": "#ForcedSourceOnDiaObject.localBackground_instFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localBackground_instFluxErr
+    "@id": "#ForcedSourceOnDiaObject.localBackground_instFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalib
+    "@id": "#ForcedSourceOnDiaObject.localPhotoCalib"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalibErr
+    "@id": "#ForcedSourceOnDiaObject.localPhotoCalibErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalib_flag
+    "@id": "#ForcedSourceOnDiaObject.localPhotoCalib_flag"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_1
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_2
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_1
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_2
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_flag
+    "@id": "#ForcedSourceOnDiaObject.localWcs_flag"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: parentObjectId
+    "@id": "#ForcedSourceOnDiaObject.parentObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: patch
+    "@id": "#ForcedSourceOnDiaObject.patch"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: pixelFlags_bad
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_bad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_cr
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_cr"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_crCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_crCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_edge
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolated
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolatedCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturated
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturatedCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspect
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspect"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspectCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspectCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfDiffFlux
+    "@id": "#ForcedSourceOnDiaObject.psfDiffFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfDiffFluxErr
+    "@id": "#ForcedSourceOnDiaObject.psfDiffFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfDiffFlux_flag
+    "@id": "#ForcedSourceOnDiaObject.psfDiffFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux
+    "@id": "#ForcedSourceOnDiaObject.psfFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFluxErr
+    "@id": "#ForcedSourceOnDiaObject.psfFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFlux_flag
+    "@id": "#ForcedSourceOnDiaObject.psfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: skymap
+    "@id": "#ForcedSourceOnDiaObject.skymap"
+    datatype: char
+    length: 12
+    mysql:datatype: CHAR(12)
+    description:
+  - name: tract
+    "@id": "#ForcedSourceOnDiaObject.tract"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
