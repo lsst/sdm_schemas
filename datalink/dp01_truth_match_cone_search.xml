@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
+
+
+    <INFO name="$dp01_dc2_catalogs_truth_match_ra$" ID="$dp01_dc2_catalogs_truth_match_ra$" value="this will be dropped..." />
+    <INFO name="$dp01_dc2_catalogs_truth_match_dec$" ID="$dp01_dc2_catalogs_truth_match_dec$" value="this will be dropped..." />
+
+    <RESOURCE type="meta" utype="adhoc:service">
+      <DESCRIPTION>Cone search</DESCRIPTION>
+      <GROUP name="inputParams">
+        <PARAM name="table" datatype="char" arraysize="*" value="dp01_dc2_catalogs.truth_match">
+          <DESCRIPTION>Table to run the cone search on.</DESCRIPTION>
+        </PARAM>
+        <PARAM name="ra_col" datatype="char" arraysize="*" value="ra">
+          <DESCRIPTION>RA column to use for cone search.</DESCRIPTION>
+        </PARAM>
+        <PARAM name="dec_col" datatype="char" arraysize="*" value="dec">
+          <DESCRIPTION>DEC column to use for cone search.</DESCRIPTION>
+        </PARAM>
+        <PARAM name="radius" datatype="double" value="1">
+          <DESCRIPTION>Radius in degrees of the cone search.</DESCRIPTION>
+        </PARAM>
+        <PARAM name="ra_val" datatype="double" ref="$dp01_dc2_catalogs_truth_match_ra$" value="">
+          <DESCRIPTION>RA for cone search.</DESCRIPTION>
+        </PARAM>
+        <PARAM name="dec_val" datatype="double" ref="$dp01_dc2_catalogs_truth_match_dec$" value="">
+          <DESCRIPTION>DEC for cone search.</DESCRIPTION>
+        </PARAM>
+      </GROUP>
+      <PARAM name="accessURL" datatype="char" arraysize="*" value="$baseUrl$/api/datalink/cone_search"/>
+    </RESOURCE>
+</VOTABLE>
