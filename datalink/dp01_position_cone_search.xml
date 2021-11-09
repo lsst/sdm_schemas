@@ -8,15 +8,6 @@
     <RESOURCE type="meta" utype="adhoc:service">
       <DESCRIPTION>Cone search</DESCRIPTION>
       <GROUP name="inputParams">
-        <PARAM name="table" datatype="char" arraysize="*" value="dp01_dc2_catalogs.position">
-          <DESCRIPTION>Table to run the cone search on.</DESCRIPTION>
-        </PARAM>
-        <PARAM name="ra_col" datatype="char" arraysize="*" value="coord_ra">
-          <DESCRIPTION>RA column to use for cone search.</DESCRIPTION>
-        </PARAM>
-        <PARAM name="dec_col" datatype="char" arraysize="*" value="coord_dec">
-          <DESCRIPTION>DEC column to use for cone search.</DESCRIPTION>
-        </PARAM>
         <PARAM name="radius" datatype="double" value="1">
           <DESCRIPTION>Radius in degrees of the cone search.</DESCRIPTION>
         </PARAM>
@@ -27,6 +18,6 @@
           <DESCRIPTION>DEC for cone search.</DESCRIPTION>
         </PARAM>
       </GROUP>
-      <PARAM name="accessURL" datatype="char" arraysize="*" value="$baseUrl$/api/datalink/cone_search"/>
+      <PARAM name="accessURL" datatype="char" arraysize="*" value="$baseUrl$/api/datalink/cone_search?table=dp01_dc2_catalogs.position&amp;ra_col=coord_ra&amp;dec_col=coord_dec"/>
     </RESOURCE>
 </VOTABLE>
