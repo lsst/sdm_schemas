@@ -6816,7 +6816,6 @@ tables:
     description:
     mysql:datatype: BIGINT
     fits.tunit:
-
 - name: forcedSource
   "@id": "#ForcedSource"
   description: The forced source table contains forced-photometry source
@@ -7843,11 +7842,6 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     description:
-  - name: index
-    "@id": "#DiaSource.index"
-    datatype: long
-    mysql:datatype: BIGINT
-    description:
   - name: isDipole
     "@id": "#DiaSource.isDipole"
     datatype: boolean
@@ -7882,11 +7876,6 @@ tables:
     "@id": "#DiaSource.iyyPSF"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
-  - name: level_0
-    "@id": "#DiaSource.level_0"
-    datatype: long
-    mysql:datatype: BIGINT
     description:
   - name: midPointTai
     "@id": "#DiaSource.midPointTai"
