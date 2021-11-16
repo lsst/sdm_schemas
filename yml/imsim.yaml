@@ -7258,11 +7258,6 @@ tables:
     datatype: long
     mysql:datatype: BIGINT
     description:
-  - name: pixelId
-    "@id": "#DiaObject.pixelId"
-    datatype: double
-    mysql:datatype: DOUBLE
-    description:
   - name: rPSFluxChi2
     "@id": "#DiaObject.rPSFluxChi2"
     datatype: double
@@ -7947,11 +7942,6 @@ tables:
     datatype: boolean
     mysql:datatype: BOOLEAN
     description:
-  - name: pixelId
-    "@id": "#DiaSource.pixelId"
-    datatype: long
-    mysql:datatype: BIGINT
-    description:
   - name: psFlux
     "@id": "#DiaSource.psFlux"
     datatype: double
@@ -8051,6 +8041,36 @@ tables:
     "@id": "#DiaSource.yErr"
     datatype: float
     mysql:datatype: FLOAT
+    description:
+  - name: psChi2
+    "@id": "#DiaSource.psChi2"
+    datatype: float
+    mysql:datatype: FLOAT
+    description:
+  - name: psNdata
+    "@id": "#DiaSource.psNdata"
+    datatype: int
+    mysql:datatype: INTEGER
+    description:
+  - name: trailAngle
+    "@id": "#DiaSource.trailAngle"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: trailDecl
+    "@id": "#DiaSource.trailDecl"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: trailLength
+    "@id": "#DiaSource.trailLength"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: trailRa
+    "@id": "#DiaSource.trailRa"
+    datatype: double
+    mysql:datatype: DOUBLE
     description:
 - name: forcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
