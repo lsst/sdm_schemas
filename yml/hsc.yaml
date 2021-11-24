@@ -5306,6 +5306,18 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
+  - name: gaussianFlux
+    "@id": "#Source.gaussianFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: gaussianFluxErr
+    "@id": "#Source.gaussianFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
   - name: extendedness
     "@id": "#Source.extendedness"
     datatype: double
@@ -5590,6 +5602,12 @@ tables:
     fits.tunit:
   - name: psfFlux_flag_noGoodPixels
     "@id": "#Source.psfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: gaussianFlux_flag
+    "@id": "#Source.gaussianFlux_flag"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
