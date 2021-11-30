@@ -3,7 +3,9 @@ data_dir: ./yml
 layouts_dir: ./browser/_layouts
 exclude:
   - Gemfile
+  - /datalink
   - /tap-schema
+  - /ups
   - /yml
 readme_index:
   remove_originals: true
