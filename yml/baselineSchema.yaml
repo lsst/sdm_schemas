@@ -615,7 +615,7 @@ tables:
   - name: nearbyExtObj1Sep
     "@id": "#DiaObject.nearbyExtObj1Sep"
     datatype: float
-    description: Second moment-based separation of nearbyExtObj1.
+    description: Second moment-based separation of nearbyExtObj1 (unitless).
     mysql:datatype: FLOAT
   - name: nearbyExtObj2
     "@id": "#DiaObject.nearbyExtObj2"
@@ -626,18 +626,18 @@ tables:
   - name: nearbyExtObj2Sep
     "@id": "#DiaObject.nearbyExtObj2Sep"
     datatype: float
-    description: Second moment-based separation of nearbyExtObj2.
+    description: Second moment-based separation of nearbyExtObj2 (unitless).
     mysql:datatype: FLOAT
-  - name: nearbyExtObj1
-    "@id": "#DiaObject.nearbyExtObj1"
+  - name: nearbyExtObj3
+    "@id": "#DiaObject.nearbyExtObj3"
     datatype: long
-    description: Id of the closest extended DR Object by second moment-based separation.
+    description: Id of the third closest extended DR Object by second moment-based separation.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
-  - name: nearbyExtObj1Sep
-    "@id": "#DiaObject.nearbyExtObj1Sep"
+  - name: nearbyExtObj3Sep
+    "@id": "#DiaObject.nearbyExtObj3Sep"
     datatype: float
-    description: Second moment-based separation of nearbyExtObj1.
+    description: Second moment-based separation of nearbyExtObj3 (unitless).
     mysql:datatype: FLOAT
   - name: nearbyLowzGal
     "@id": "#DiaObject.nearbyLowzGal"
@@ -648,6 +648,7 @@ tables:
   - name: nearbyLowzGalSep
     "@id": "#DiaObject.nearbyLowzGalSep"
     datatype: float
+    fits:tunit: arcsec
     description: Separation distance of nearbyLowzGal.
     mysql:datatype: FLOAT
   - name: flags
