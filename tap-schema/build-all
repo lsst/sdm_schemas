@@ -1,0 +1,6 @@
+#!/bin/bash -ex
+./build mock
+./build stable ../yml/hsc_gen2.yaml ../yml/hsc.yaml ../yml/wise_01.yml ../yml/dp01_dc2.yaml
+./build int ../yml/hsc_gen2.yaml ../yml/hsc.yaml ../yml/wise_01.yml ../yml/dp01_dc2.yaml
+./build idfprod ../yml/dp01_dc2.yaml
+./build idfint ../yml/dp01_dc2.yaml

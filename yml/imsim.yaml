@@ -1,10 +1,10 @@
 ---
-name: HscSchema
-"@id": "#hscSchema"
+name: ImsimSchema
+"@id": "#imsimSchema"
 tables:
-- name: Object
+- name: object
   "@id": "#Object"
-  description: The Object table contains descriptions of the multi-epoch static astronomical
+  description: The object table contains descriptions of the multi-epoch static astronomical
     objects, in particular their astrophysical properties as derived from analysis
     of the Sources that are associated with them. Note that fast moving objects are
     kept in the MovingObject tables. Note that less-frequently used columns are stored
@@ -636,74 +636,14 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
-  - name: g_gaap0p5FluxErr
-    "@id": "#Object.g_gaap0p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaap0p7FluxErr
-    "@id": "#Object.g_gaap0p7FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaap1p0FluxErr
-    "@id": "#Object.g_gaap1p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaap1p5FluxErr
-    "@id": "#Object.g_gaap1p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaap2p5FluxErr
-    "@id": "#Object.g_gaap2p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaap3p0FluxErr
-    "@id": "#Object.g_gaap3p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaapOptimalFluxErr
-    "@id": "#Object.g_gaapOptimalFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaapPsfFluxErr
-    "@id": "#Object.g_gaapPsfFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaapPsfFlux
-    "@id": "#Object.g_gaapPsfFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaapOptimalFlux
-    "@id": "#Object.g_gaapOptimalFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: g_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.g_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: g_gaap0p5Flux
     "@id": "#Object.g_gaap0p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaap0p5FluxErr
+    "@id": "#Object.g_gaap0p5FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -720,6 +660,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: g_gaap0p7FluxErr
+    "@id": "#Object.g_gaap0p7FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: g_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.g_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -728,6 +674,12 @@ tables:
     fits.tunit:
   - name: g_gaap1p0Flux
     "@id": "#Object.g_gaap1p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaap1p0FluxErr
+    "@id": "#Object.g_gaap1p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -744,6 +696,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: g_gaap1p5FluxErr
+    "@id": "#Object.g_gaap1p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: g_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.g_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -756,6 +714,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: g_gaap2p5FluxErr
+    "@id": "#Object.g_gaap2p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: g_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.g_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -764,6 +728,12 @@ tables:
     fits.tunit:
   - name: g_gaap3p0Flux
     "@id": "#Object.g_gaap3p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaap3p0FluxErr
+    "@id": "#Object.g_gaap3p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -792,6 +762,36 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: g_gaapOptimalFlux
+    "@id": "#Object.g_gaapOptimalFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaapOptimalFluxErr
+    "@id": "#Object.g_gaapOptimalFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.g_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: g_gaapPsfFlux
+    "@id": "#Object.g_gaapPsfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: g_gaapPsfFluxErr
+    "@id": "#Object.g_gaapPsfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: g_hsmShapeRegauss_e1
     "@id": "#Object.g_hsmShapeRegauss_e1"
     datatype: double
@@ -1596,74 +1596,14 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
-  - name: i_gaap0p5FluxErr
-    "@id": "#Object.i_gaap0p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaap0p7FluxErr
-    "@id": "#Object.i_gaap0p7FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaap1p0FluxErr
-    "@id": "#Object.i_gaap1p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaap1p5FluxErr
-    "@id": "#Object.i_gaap1p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaap2p5FluxErr
-    "@id": "#Object.i_gaap2p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaap3p0FluxErr
-    "@id": "#Object.i_gaap3p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaapOptimalFluxErr
-    "@id": "#Object.i_gaapOptimalFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaapPsfFluxErr
-    "@id": "#Object.i_gaapPsfFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaapPsfFlux
-    "@id": "#Object.i_gaapPsfFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaapOptimalFlux
-    "@id": "#Object.i_gaapOptimalFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: i_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.i_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: i_gaap0p5Flux
     "@id": "#Object.i_gaap0p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaap0p5FluxErr
+    "@id": "#Object.i_gaap0p5FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -1680,6 +1620,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: i_gaap0p7FluxErr
+    "@id": "#Object.i_gaap0p7FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: i_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.i_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -1688,6 +1634,12 @@ tables:
     fits.tunit:
   - name: i_gaap1p0Flux
     "@id": "#Object.i_gaap1p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaap1p0FluxErr
+    "@id": "#Object.i_gaap1p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -1704,6 +1656,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: i_gaap1p5FluxErr
+    "@id": "#Object.i_gaap1p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: i_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.i_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -1716,6 +1674,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: i_gaap2p5FluxErr
+    "@id": "#Object.i_gaap2p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: i_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.i_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -1724,6 +1688,12 @@ tables:
     fits.tunit:
   - name: i_gaap3p0Flux
     "@id": "#Object.i_gaap3p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaap3p0FluxErr
+    "@id": "#Object.i_gaap3p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -1752,6 +1722,36 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: i_gaapOptimalFlux
+    "@id": "#Object.i_gaapOptimalFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaapOptimalFluxErr
+    "@id": "#Object.i_gaapOptimalFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.i_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: i_gaapPsfFlux
+    "@id": "#Object.i_gaapPsfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: i_gaapPsfFluxErr
+    "@id": "#Object.i_gaapPsfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: i_hsmShapeRegauss_e1
     "@id": "#Object.i_hsmShapeRegauss_e1"
     datatype: double
@@ -2556,74 +2556,14 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
-  - name: r_gaap0p5FluxErr
-    "@id": "#Object.r_gaap0p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaap0p7FluxErr
-    "@id": "#Object.r_gaap0p7FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaap1p0FluxErr
-    "@id": "#Object.r_gaap1p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaap1p5FluxErr
-    "@id": "#Object.r_gaap1p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaap2p5FluxErr
-    "@id": "#Object.r_gaap2p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaap3p0FluxErr
-    "@id": "#Object.r_gaap3p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaapOptimalFluxErr
-    "@id": "#Object.r_gaapOptimalFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaapPsfFluxErr
-    "@id": "#Object.r_gaapPsfFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaapPsfFlux
-    "@id": "#Object.r_gaapPsfFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaapOptimalFlux
-    "@id": "#Object.r_gaapOptimalFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: r_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.r_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: r_gaap0p5Flux
     "@id": "#Object.r_gaap0p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaap0p5FluxErr
+    "@id": "#Object.r_gaap0p5FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -2640,6 +2580,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: r_gaap0p7FluxErr
+    "@id": "#Object.r_gaap0p7FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: r_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.r_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -2648,6 +2594,12 @@ tables:
     fits.tunit:
   - name: r_gaap1p0Flux
     "@id": "#Object.r_gaap1p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaap1p0FluxErr
+    "@id": "#Object.r_gaap1p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -2664,6 +2616,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: r_gaap1p5FluxErr
+    "@id": "#Object.r_gaap1p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: r_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.r_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -2676,6 +2634,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: r_gaap2p5FluxErr
+    "@id": "#Object.r_gaap2p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: r_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.r_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -2684,6 +2648,12 @@ tables:
     fits.tunit:
   - name: r_gaap3p0Flux
     "@id": "#Object.r_gaap3p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaap3p0FluxErr
+    "@id": "#Object.r_gaap3p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -2712,6 +2682,36 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: r_gaapOptimalFlux
+    "@id": "#Object.r_gaapOptimalFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaapOptimalFluxErr
+    "@id": "#Object.r_gaapOptimalFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.r_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: r_gaapPsfFlux
+    "@id": "#Object.r_gaapPsfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: r_gaapPsfFluxErr
+    "@id": "#Object.r_gaapPsfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: r_hsmShapeRegauss_e1
     "@id": "#Object.r_hsmShapeRegauss_e1"
     datatype: double
@@ -3074,6 +3074,966 @@ tables:
     fits.tunit:
   - name: r_ra
     "@id": "#Object.r_ra"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: deg
+  - name: u_ap03Flux
+    "@id": "#Object.u_ap03Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap03FluxErr
+    "@id": "#Object.u_ap03FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap03Flux_flag
+    "@id": "#Object.u_ap03Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap06Flux
+    "@id": "#Object.u_ap06Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap06FluxErr
+    "@id": "#Object.u_ap06FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap06Flux_flag
+    "@id": "#Object.u_ap06Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap09Flux
+    "@id": "#Object.u_ap09Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap09FluxErr
+    "@id": "#Object.u_ap09FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap09Flux_flag
+    "@id": "#Object.u_ap09Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap12Flux
+    "@id": "#Object.u_ap12Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap12FluxErr
+    "@id": "#Object.u_ap12FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap12Flux_flag
+    "@id": "#Object.u_ap12Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap17Flux
+    "@id": "#Object.u_ap17Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap17FluxErr
+    "@id": "#Object.u_ap17FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap17Flux_flag
+    "@id": "#Object.u_ap17Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap25Flux
+    "@id": "#Object.u_ap25Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap25FluxErr
+    "@id": "#Object.u_ap25FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap25Flux_flag
+    "@id": "#Object.u_ap25Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap35Flux
+    "@id": "#Object.u_ap35Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap35FluxErr
+    "@id": "#Object.u_ap35FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap35Flux_flag
+    "@id": "#Object.u_ap35Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap50Flux
+    "@id": "#Object.u_ap50Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap50FluxErr
+    "@id": "#Object.u_ap50FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap50Flux_flag
+    "@id": "#Object.u_ap50Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ap70Flux
+    "@id": "#Object.u_ap70Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap70FluxErr
+    "@id": "#Object.u_ap70FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_ap70Flux_flag
+    "@id": "#Object.u_ap70Flux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_apFlux_flag
+    "@id": "#Object.u_apFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_apFlux_flag_apertureTruncated
+    "@id": "#Object.u_apFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_apFlux_flag_sincCoeffsTruncated
+    "@id": "#Object.u_apFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_bdChi2
+    "@id": "#Object.u_bdChi2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_bdE1
+    "@id": "#Object.u_bdE1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_bdE2
+    "@id": "#Object.u_bdE2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_bdFluxB
+    "@id": "#Object.u_bdFluxB"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_bdFluxBErr
+    "@id": "#Object.u_bdFluxBErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_bdFluxD
+    "@id": "#Object.u_bdFluxD"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_bdFluxDErr
+    "@id": "#Object.u_bdFluxDErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_bdReB
+    "@id": "#Object.u_bdReB"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_bdReD
+    "@id": "#Object.u_bdReD"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_blendedness
+    "@id": "#Object.u_blendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_blendedness_flag
+    "@id": "#Object.u_blendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_cModelFlux
+    "@id": "#Object.u_cModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_cModelFluxErr
+    "@id": "#Object.u_cModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_cModelFlux_inner
+    "@id": "#Object.u_cModelFlux_inner"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_cModel_flag
+    "@id": "#Object.u_cModel_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_cModel_flag_apCorr
+    "@id": "#Object.u_cModel_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calibFlux
+    "@id": "#Object.u_calibFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_calibFluxErr
+    "@id": "#Object.u_calibFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_calibFlux_flag
+    "@id": "#Object.u_calibFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calibFlux_flag_apertureTruncated
+    "@id": "#Object.u_calibFlux_flag_apertureTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calibFlux_flag_sincCoeffsTruncated
+    "@id": "#Object.u_calibFlux_flag_sincCoeffsTruncated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calib_astrometry_used
+    "@id": "#Object.u_calib_astrometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calib_photometry_reserved
+    "@id": "#Object.u_calib_photometry_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calib_photometry_used
+    "@id": "#Object.u_calib_photometry_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calib_psf_candidate
+    "@id": "#Object.u_calib_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calib_psf_reserved
+    "@id": "#Object.u_calib_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_calib_psf_used
+    "@id": "#Object.u_calib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_centroid_flag
+    "@id": "#Object.u_centroid_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_centroid_x
+    "@id": "#Object.u_centroid_x"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_centroid_xErr
+    "@id": "#Object.u_centroid_xErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+    fits.tunit:
+  - name: u_centroid_y
+    "@id": "#Object.u_centroid_y"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_centroid_yErr
+    "@id": "#Object.u_centroid_yErr"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+    fits.tunit:
+  - name: u_decl
+    "@id": "#Object.u_decl"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: deg
+  - name: u_extendedness
+    "@id": "#Object.u_extendedness"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_extendedness_flag
+    "@id": "#Object.u_extendedness_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_free_cModelFlux
+    "@id": "#Object.u_free_cModelFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_free_cModelFluxErr
+    "@id": "#Object.u_free_cModelFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_free_cModelFlux_flag
+    "@id": "#Object.u_free_cModelFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_free_cModelFlux_inner
+    "@id": "#Object.u_free_cModelFlux_inner"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_free_psfFlux
+    "@id": "#Object.u_free_psfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_free_psfFluxErr
+    "@id": "#Object.u_free_psfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_free_psfFlux_flag
+    "@id": "#Object.u_free_psfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_fwhm
+    "@id": "#Object.u_fwhm"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_gaap0p5Flux
+    "@id": "#Object.u_gaap0p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap0p5FluxErr
+    "@id": "#Object.u_gaap0p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap0p5Flux_flag_bigPsf
+    "@id": "#Object.u_gaap0p5Flux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaap0p7Flux
+    "@id": "#Object.u_gaap0p7Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap0p7FluxErr
+    "@id": "#Object.u_gaap0p7FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap0p7Flux_flag_bigPsf
+    "@id": "#Object.u_gaap0p7Flux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaap1p0Flux
+    "@id": "#Object.u_gaap1p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap1p0FluxErr
+    "@id": "#Object.u_gaap1p0FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap1p0Flux_flag_bigPsf
+    "@id": "#Object.u_gaap1p0Flux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaap1p5Flux
+    "@id": "#Object.u_gaap1p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap1p5FluxErr
+    "@id": "#Object.u_gaap1p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap1p5Flux_flag_bigPsf
+    "@id": "#Object.u_gaap1p5Flux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaap2p5Flux
+    "@id": "#Object.u_gaap2p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap2p5FluxErr
+    "@id": "#Object.u_gaap2p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap2p5Flux_flag_bigPsf
+    "@id": "#Object.u_gaap2p5Flux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaap3p0Flux
+    "@id": "#Object.u_gaap3p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap3p0FluxErr
+    "@id": "#Object.u_gaap3p0FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaap3p0Flux_flag_bigPsf
+    "@id": "#Object.u_gaap3p0Flux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaapFlux_flag
+    "@id": "#Object.u_gaapFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaapFlux_flag_edge
+    "@id": "#Object.u_gaapFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaapFlux_flag_gaussianization
+    "@id": "#Object.u_gaapFlux_flag_gaussianization"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaapOptimalFlux
+    "@id": "#Object.u_gaapOptimalFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaapOptimalFluxErr
+    "@id": "#Object.u_gaapOptimalFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.u_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_gaapPsfFlux
+    "@id": "#Object.u_gaapPsfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_gaapPsfFluxErr
+    "@id": "#Object.u_gaapPsfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_hsmShapeRegauss_e1
+    "@id": "#Object.u_hsmShapeRegauss_e1"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_hsmShapeRegauss_e2
+    "@id": "#Object.u_hsmShapeRegauss_e2"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_hsmShapeRegauss_flag
+    "@id": "#Object.u_hsmShapeRegauss_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_hsmShapeRegauss_sigma
+    "@id": "#Object.u_hsmShapeRegauss_sigma"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_iDebiasedPSF_flag
+    "@id": "#Object.u_iDebiasedPSF_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_iPSF_flag
+    "@id": "#Object.u_iPSF_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_iRound_flag
+    "@id": "#Object.u_iRound_flag"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_i_flag
+    "@id": "#Object.u_i_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_inputCount
+    "@id": "#Object.u_inputCount"
+    datatype: int
+    description:
+    mysql:datatype: INTEGER
+    fits.tunit:
+  - name: u_inputCount_flag
+    "@id": "#Object.u_inputCount_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_inputCount_flag_noInputs
+    "@id": "#Object.u_inputCount_flag_noInputs"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ixx
+    "@id": "#Object.u_ixx"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_ixxDebiasedPSF
+    "@id": "#Object.u_ixxDebiasedPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_ixxPSF
+    "@id": "#Object.u_ixxPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_ixxRound
+    "@id": "#Object.u_ixxRound"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_ixy
+    "@id": "#Object.u_ixy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_ixyDebiasedPSF
+    "@id": "#Object.u_ixyDebiasedPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_ixyPSF
+    "@id": "#Object.u_ixyPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_ixyRound
+    "@id": "#Object.u_ixyRound"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_iyy
+    "@id": "#Object.u_iyy"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_iyyDebiasedPSF
+    "@id": "#Object.u_iyyDebiasedPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_iyyPSF
+    "@id": "#Object.u_iyyPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_iyyRound
+    "@id": "#Object.u_iyyRound"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: u_kronFlux
+    "@id": "#Object.u_kronFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_kronFluxErr
+    "@id": "#Object.u_kronFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_kronFlux_flag
+    "@id": "#Object.u_kronFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_bad_radius
+    "@id": "#Object.u_kronFlux_flag_bad_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_bad_shape
+    "@id": "#Object.u_kronFlux_flag_bad_shape"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_bad_shape_no_psf
+    "@id": "#Object.u_kronFlux_flag_bad_shape_no_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_edge
+    "@id": "#Object.u_kronFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_no_fallback_radius
+    "@id": "#Object.u_kronFlux_flag_no_fallback_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_no_minimum_radius
+    "@id": "#Object.u_kronFlux_flag_no_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_small_radius
+    "@id": "#Object.u_kronFlux_flag_small_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_used_minimum_radius
+    "@id": "#Object.u_kronFlux_flag_used_minimum_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronFlux_flag_used_psf_radius
+    "@id": "#Object.u_kronFlux_flag_used_psf_radius"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_kronRad
+    "@id": "#Object.u_kronRad"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+    fits.tunit:
+  - name: u_pixelFlags_bad
+    "@id": "#Object.u_pixelFlags_bad"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_clipped
+    "@id": "#Object.u_pixelFlags_clipped"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_clippedCenter
+    "@id": "#Object.u_pixelFlags_clippedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_cr
+    "@id": "#Object.u_pixelFlags_cr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_crCenter
+    "@id": "#Object.u_pixelFlags_crCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_edge
+    "@id": "#Object.u_pixelFlags_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_inexact_psf
+    "@id": "#Object.u_pixelFlags_inexact_psf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_inexact_psfCenter
+    "@id": "#Object.u_pixelFlags_inexact_psfCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_interpolated
+    "@id": "#Object.u_pixelFlags_interpolated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_interpolatedCenter
+    "@id": "#Object.u_pixelFlags_interpolatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_offimage
+    "@id": "#Object.u_pixelFlags_offimage"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_saturated
+    "@id": "#Object.u_pixelFlags_saturated"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_saturatedCenter
+    "@id": "#Object.u_pixelFlags_saturatedCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_sensor_edge
+    "@id": "#Object.u_pixelFlags_sensor_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_sensor_edgeCenter
+    "@id": "#Object.u_pixelFlags_sensor_edgeCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_suspect
+    "@id": "#Object.u_pixelFlags_suspect"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_pixelFlags_suspectCenter
+    "@id": "#Object.u_pixelFlags_suspectCenter"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_psfFlux
+    "@id": "#Object.u_psfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_psfFluxErr
+    "@id": "#Object.u_psfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: u_psfFlux_area
+    "@id": "#Object.u_psfFlux_area"
+    datatype: float
+    description:
+    mysql:datatype: FLOAT
+    fits.tunit:
+  - name: u_psfFlux_flag
+    "@id": "#Object.u_psfFlux_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_psfFlux_flag_apCorr
+    "@id": "#Object.u_psfFlux_flag_apCorr"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_psfFlux_flag_edge
+    "@id": "#Object.u_psfFlux_flag_edge"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_psfFlux_flag_noGoodPixels
+    "@id": "#Object.u_psfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_ra
+    "@id": "#Object.u_ra"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -3516,74 +4476,14 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
-  - name: y_gaap0p5FluxErr
-    "@id": "#Object.y_gaap0p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaap0p7FluxErr
-    "@id": "#Object.y_gaap0p7FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaap1p0FluxErr
-    "@id": "#Object.y_gaap1p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaap1p5FluxErr
-    "@id": "#Object.y_gaap1p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaap2p5FluxErr
-    "@id": "#Object.y_gaap2p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaap3p0FluxErr
-    "@id": "#Object.y_gaap3p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaapOptimalFluxErr
-    "@id": "#Object.y_gaapOptimalFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaapPsfFluxErr
-    "@id": "#Object.y_gaapPsfFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaapPsfFlux
-    "@id": "#Object.y_gaapPsfFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaapOptimalFlux
-    "@id": "#Object.y_gaapOptimalFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: y_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.y_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: y_gaap0p5Flux
     "@id": "#Object.y_gaap0p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaap0p5FluxErr
+    "@id": "#Object.y_gaap0p5FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -3600,6 +4500,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: y_gaap0p7FluxErr
+    "@id": "#Object.y_gaap0p7FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: y_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.y_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -3608,6 +4514,12 @@ tables:
     fits.tunit:
   - name: y_gaap1p0Flux
     "@id": "#Object.y_gaap1p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaap1p0FluxErr
+    "@id": "#Object.y_gaap1p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -3624,6 +4536,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: y_gaap1p5FluxErr
+    "@id": "#Object.y_gaap1p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: y_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.y_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -3636,6 +4554,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: y_gaap2p5FluxErr
+    "@id": "#Object.y_gaap2p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: y_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.y_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -3644,6 +4568,12 @@ tables:
     fits.tunit:
   - name: y_gaap3p0Flux
     "@id": "#Object.y_gaap3p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaap3p0FluxErr
+    "@id": "#Object.y_gaap3p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -3672,6 +4602,36 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: y_gaapOptimalFlux
+    "@id": "#Object.y_gaapOptimalFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaapOptimalFluxErr
+    "@id": "#Object.y_gaapOptimalFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.y_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: y_gaapPsfFlux
+    "@id": "#Object.y_gaapPsfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: y_gaapPsfFluxErr
+    "@id": "#Object.y_gaapPsfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: y_hsmShapeRegauss_e1
     "@id": "#Object.y_hsmShapeRegauss_e1"
     datatype: double
@@ -4476,74 +5436,14 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit:
-  - name: z_gaap0p5FluxErr
-    "@id": "#Object.z_gaap0p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaap0p7FluxErr
-    "@id": "#Object.z_gaap0p7FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaap1p0FluxErr
-    "@id": "#Object.z_gaap1p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaap1p5FluxErr
-    "@id": "#Object.z_gaap1p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit:
-  - name: z_gaap2p5FluxErr
-    "@id": "#Object.z_gaap2p5FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit:
-  - name: z_gaap3p0FluxErr
-    "@id": "#Object.z_gaap3p0FluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaapOptimalFluxErr
-    "@id": "#Object.z_gaapOptimalFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaapPsfFluxErr
-    "@id": "#Object.z_gaapPsfFluxErr"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaapPsfFlux
-    "@id": "#Object.z_gaapPsfFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaapOptimalFlux
-    "@id": "#Object.z_gaapOptimalFlux"
-    datatype: double
-    description:
-    mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
-  - name: z_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.z_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description:
-    mysql:datatype: BOOLEAN
-    fits.tunit:
   - name: z_gaap0p5Flux
     "@id": "#Object.z_gaap0p5Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaap0p5FluxErr
+    "@id": "#Object.z_gaap0p5FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -4560,6 +5460,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: z_gaap0p7FluxErr
+    "@id": "#Object.z_gaap0p7FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: z_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.z_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -4568,6 +5474,12 @@ tables:
     fits.tunit:
   - name: z_gaap1p0Flux
     "@id": "#Object.z_gaap1p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaap1p0FluxErr
+    "@id": "#Object.z_gaap1p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -4584,6 +5496,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: z_gaap1p5FluxErr
+    "@id": "#Object.z_gaap1p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: z_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.z_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -4596,6 +5514,12 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: nanojansky
+  - name: z_gaap2p5FluxErr
+    "@id": "#Object.z_gaap2p5FluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: z_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.z_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -4604,6 +5528,12 @@ tables:
     fits.tunit:
   - name: z_gaap3p0Flux
     "@id": "#Object.z_gaap3p0Flux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaap3p0FluxErr
+    "@id": "#Object.z_gaap3p0FluxErr"
     datatype: double
     description:
     mysql:datatype: DOUBLE
@@ -4632,6 +5562,36 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: z_gaapOptimalFlux
+    "@id": "#Object.z_gaapOptimalFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaapOptimalFluxErr
+    "@id": "#Object.z_gaapOptimalFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaapOptimalFlux_flag_bigPsf
+    "@id": "#Object.z_gaapOptimalFlux_flag_bigPsf"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: z_gaapPsfFlux
+    "@id": "#Object.z_gaapPsfFlux"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
+  - name: z_gaapPsfFluxErr
+    "@id": "#Object.z_gaapPsfFluxErr"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit: nanojansky
   - name: z_hsmShapeRegauss_e1
     "@id": "#Object.z_hsmShapeRegauss_e1"
     datatype: double
@@ -4999,7 +5959,8 @@ tables:
     mysql:datatype: DOUBLE
     fits.tunit: deg
 
-- name: Source
+
+- name: source
   "@id": "#Source"
   description: Table to store high signal-to-noise sources;. A source is
     a measurement of Object's properties from a single image that contains its footprint
@@ -5873,3 +6834,1444 @@ tables:
     description:
     mysql:datatype: BIGINT
     fits.tunit:
+- name: forcedSource
+  "@id": "#ForcedSource"
+  description: The forced source table contains forced-photometry source
+     measurement on an individual Exposure based on a Multifit shape model
+     derived from a deep detection.
+  columns:
+  - name: forcedSourceId
+    "@id": "#ForcedSource.forcedSourceId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: objectId
+    "@id": "#ForcedSource.objectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: parentObjectId
+    "@id": "#ForcedSource.parentObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: coord_ra
+    "@id": "#ForcedSource.coord_ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: coord_dec
+    "@id": "#ForcedSource.coord_dec"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: skymap
+    "@id": "#ForcedSource.skymap"
+    datatype: char
+    length: 12
+    mysql:datatype: CHAR(12)
+    description:
+  - name: tract
+    "@id": "#ForcedSource.tract"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: patch
+    "@id": "#ForcedSource.patch"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: band
+    "@id": "#ForcedSource.band"
+    datatype: char
+    length: 1
+    mysql:datatype: CHAR(1)
+    description:
+  - name: ccdVisitId
+    "@id": "#ForcedSource.ccdVisitId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: detect_isPatchInner
+    "@id": "#ForcedSource.detect_isPatchInner"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: detect_isPrimary
+    "@id": "#ForcedSource.detect_isPrimary"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: detect_isTractInner
+    "@id": "#ForcedSource.detect_isTractInner"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: localBackground_instFluxErr
+    "@id": "#ForcedSource.localBackground_instFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localBackground_instFlux
+    "@id": "#ForcedSource.localBackground_instFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalibErr
+    "@id": "#ForcedSource.localPhotoCalibErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalib_flag
+    "@id": "#ForcedSource.localPhotoCalib_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: localPhotoCalib
+    "@id": "#ForcedSource.localPhotoCalib"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_1
+    "@id": "#ForcedSource.localWcs_CDMatrix_1_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_2
+    "@id": "#ForcedSource.localWcs_CDMatrix_1_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_1
+    "@id": "#ForcedSource.localWcs_CDMatrix_2_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_2
+    "@id": "#ForcedSource.localWcs_CDMatrix_2_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_flag
+    "@id": "#ForcedSource.localWcs_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_bad
+    "@id": "#ForcedSource.pixelFlags_bad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_crCenter
+    "@id": "#ForcedSource.pixelFlags_crCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_cr
+    "@id": "#ForcedSource.pixelFlags_cr"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_edge
+    "@id": "#ForcedSource.pixelFlags_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolatedCenter
+    "@id": "#ForcedSource.pixelFlags_interpolatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolated
+    "@id": "#ForcedSource.pixelFlags_interpolated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturatedCenter
+    "@id": "#ForcedSource.pixelFlags_saturatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturated
+    "@id": "#ForcedSource.pixelFlags_saturated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspectCenter
+    "@id": "#ForcedSource.pixelFlags_suspectCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspect
+    "@id": "#ForcedSource.pixelFlags_suspect"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfDiffFluxErr
+    "@id": "#ForcedSource.psfDiffFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfDiffFlux_flag
+    "@id": "#ForcedSource.psfDiffFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfDiffFlux
+    "@id": "#ForcedSource.psfDiffFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFluxErr
+    "@id": "#ForcedSource.psfFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFlux_flag
+    "@id": "#ForcedSource.psfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux
+    "@id": "#ForcedSource.psfFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+- name: diaObject
+  "@id": "#DiaObject"
+  description: this is diaObjectTable_tract in the butler repo
+  columns:
+  - name: decl
+    "@id": "#DiaObject.decl"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: diaObjectId
+    "@id": "#DiaObject.diaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: gPSFluxChi2
+    "@id": "#DiaObject.gPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxErrMean
+    "@id": "#DiaObject.gPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxLinearIntercept
+    "@id": "#DiaObject.gPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxLinearSlope
+    "@id": "#DiaObject.gPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMAD
+    "@id": "#DiaObject.gPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMax
+    "@id": "#DiaObject.gPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMaxSlope
+    "@id": "#DiaObject.gPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMean
+    "@id": "#DiaObject.gPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMeanErr
+    "@id": "#DiaObject.gPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxMin
+    "@id": "#DiaObject.gPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxNdata
+    "@id": "#DiaObject.gPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile05
+    "@id": "#DiaObject.gPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile25
+    "@id": "#DiaObject.gPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile50
+    "@id": "#DiaObject.gPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile75
+    "@id": "#DiaObject.gPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxPercentile95
+    "@id": "#DiaObject.gPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxSigma
+    "@id": "#DiaObject.gPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxSkew
+    "@id": "#DiaObject.gPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gPSFluxStetsonJ
+    "@id": "#DiaObject.gPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gTOTFluxMean
+    "@id": "#DiaObject.gTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gTOTFluxMeanErr
+    "@id": "#DiaObject.gTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: gTOTFluxSigma
+    "@id": "#DiaObject.gTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxChi2
+    "@id": "#DiaObject.iPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxErrMean
+    "@id": "#DiaObject.iPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxLinearIntercept
+    "@id": "#DiaObject.iPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxLinearSlope
+    "@id": "#DiaObject.iPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMAD
+    "@id": "#DiaObject.iPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMax
+    "@id": "#DiaObject.iPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMaxSlope
+    "@id": "#DiaObject.iPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMean
+    "@id": "#DiaObject.iPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMeanErr
+    "@id": "#DiaObject.iPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxMin
+    "@id": "#DiaObject.iPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxNdata
+    "@id": "#DiaObject.iPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile05
+    "@id": "#DiaObject.iPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile25
+    "@id": "#DiaObject.iPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile50
+    "@id": "#DiaObject.iPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile75
+    "@id": "#DiaObject.iPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxPercentile95
+    "@id": "#DiaObject.iPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxSigma
+    "@id": "#DiaObject.iPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxSkew
+    "@id": "#DiaObject.iPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iPSFluxStetsonJ
+    "@id": "#DiaObject.iPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iTOTFluxMean
+    "@id": "#DiaObject.iTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iTOTFluxMeanErr
+    "@id": "#DiaObject.iTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iTOTFluxSigma
+    "@id": "#DiaObject.iTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: nDiaSources
+    "@id": "#DiaObject.nDiaSources"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: rPSFluxChi2
+    "@id": "#DiaObject.rPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxErrMean
+    "@id": "#DiaObject.rPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxLinearIntercept
+    "@id": "#DiaObject.rPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxLinearSlope
+    "@id": "#DiaObject.rPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMAD
+    "@id": "#DiaObject.rPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMax
+    "@id": "#DiaObject.rPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMaxSlope
+    "@id": "#DiaObject.rPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMean
+    "@id": "#DiaObject.rPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMeanErr
+    "@id": "#DiaObject.rPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxMin
+    "@id": "#DiaObject.rPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxNdata
+    "@id": "#DiaObject.rPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile05
+    "@id": "#DiaObject.rPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile25
+    "@id": "#DiaObject.rPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile50
+    "@id": "#DiaObject.rPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile75
+    "@id": "#DiaObject.rPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxPercentile95
+    "@id": "#DiaObject.rPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxSigma
+    "@id": "#DiaObject.rPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxSkew
+    "@id": "#DiaObject.rPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rPSFluxStetsonJ
+    "@id": "#DiaObject.rPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rTOTFluxMean
+    "@id": "#DiaObject.rTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rTOTFluxMeanErr
+    "@id": "#DiaObject.rTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: rTOTFluxSigma
+    "@id": "#DiaObject.rTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ra
+    "@id": "#DiaObject.ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: radecTai
+    "@id": "#DiaObject.radecTai"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxChi2
+    "@id": "#DiaObject.uPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxErrMean
+    "@id": "#DiaObject.uPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxLinearIntercept
+    "@id": "#DiaObject.uPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxLinearSlope
+    "@id": "#DiaObject.uPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMAD
+    "@id": "#DiaObject.uPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMax
+    "@id": "#DiaObject.uPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMaxSlope
+    "@id": "#DiaObject.uPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMean
+    "@id": "#DiaObject.uPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMeanErr
+    "@id": "#DiaObject.uPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxMin
+    "@id": "#DiaObject.uPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxNdata
+    "@id": "#DiaObject.uPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile05
+    "@id": "#DiaObject.uPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile25
+    "@id": "#DiaObject.uPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile50
+    "@id": "#DiaObject.uPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile75
+    "@id": "#DiaObject.uPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxPercentile95
+    "@id": "#DiaObject.uPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxSigma
+    "@id": "#DiaObject.uPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxSkew
+    "@id": "#DiaObject.uPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uPSFluxStetsonJ
+    "@id": "#DiaObject.uPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uTOTFluxMean
+    "@id": "#DiaObject.uTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uTOTFluxMeanErr
+    "@id": "#DiaObject.uTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: uTOTFluxSigma
+    "@id": "#DiaObject.uTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxChi2
+    "@id": "#DiaObject.yPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxErrMean
+    "@id": "#DiaObject.yPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxLinearIntercept
+    "@id": "#DiaObject.yPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxLinearSlope
+    "@id": "#DiaObject.yPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMAD
+    "@id": "#DiaObject.yPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMax
+    "@id": "#DiaObject.yPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMaxSlope
+    "@id": "#DiaObject.yPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMean
+    "@id": "#DiaObject.yPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMeanErr
+    "@id": "#DiaObject.yPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxMin
+    "@id": "#DiaObject.yPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxNdata
+    "@id": "#DiaObject.yPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile05
+    "@id": "#DiaObject.yPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile25
+    "@id": "#DiaObject.yPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile50
+    "@id": "#DiaObject.yPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile75
+    "@id": "#DiaObject.yPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxPercentile95
+    "@id": "#DiaObject.yPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxSigma
+    "@id": "#DiaObject.yPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxSkew
+    "@id": "#DiaObject.yPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yPSFluxStetsonJ
+    "@id": "#DiaObject.yPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yTOTFluxMean
+    "@id": "#DiaObject.yTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yTOTFluxMeanErr
+    "@id": "#DiaObject.yTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yTOTFluxSigma
+    "@id": "#DiaObject.yTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxChi2
+    "@id": "#DiaObject.zPSFluxChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxErrMean
+    "@id": "#DiaObject.zPSFluxErrMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxLinearIntercept
+    "@id": "#DiaObject.zPSFluxLinearIntercept"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxLinearSlope
+    "@id": "#DiaObject.zPSFluxLinearSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMAD
+    "@id": "#DiaObject.zPSFluxMAD"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMax
+    "@id": "#DiaObject.zPSFluxMax"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMaxSlope
+    "@id": "#DiaObject.zPSFluxMaxSlope"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMean
+    "@id": "#DiaObject.zPSFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMeanErr
+    "@id": "#DiaObject.zPSFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxMin
+    "@id": "#DiaObject.zPSFluxMin"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxNdata
+    "@id": "#DiaObject.zPSFluxNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile05
+    "@id": "#DiaObject.zPSFluxPercentile05"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile25
+    "@id": "#DiaObject.zPSFluxPercentile25"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile50
+    "@id": "#DiaObject.zPSFluxPercentile50"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile75
+    "@id": "#DiaObject.zPSFluxPercentile75"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxPercentile95
+    "@id": "#DiaObject.zPSFluxPercentile95"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxSigma
+    "@id": "#DiaObject.zPSFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxSkew
+    "@id": "#DiaObject.zPSFluxSkew"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zPSFluxStetsonJ
+    "@id": "#DiaObject.zPSFluxStetsonJ"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zTOTFluxMean
+    "@id": "#DiaObject.zTOTFluxMean"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zTOTFluxMeanErr
+    "@id": "#DiaObject.zTOTFluxMeanErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: zTOTFluxSigma
+    "@id": "#DiaObject.zTOTFluxSigma"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+- name: diaSource
+  "@id": "#DiaSource"
+  description: this is diaSourceTable_tract in the butler repo
+  columns:
+  - name: apFlux
+    "@id": "#DiaSource.apFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: apFluxErr
+    "@id": "#DiaSource.apFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: apFlux_flag
+    "@id": "#DiaSource.apFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: apFlux_flag_apertureTruncated
+    "@id": "#DiaSource.apFlux_flag_apertureTruncated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: bboxSize
+    "@id": "#DiaSource.bboxSize"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: ccdVisitId
+    "@id": "#DiaSource.ccdVisitId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: centroid_flag
+    "@id": "#DiaSource.centroid_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: centroid_neg_flag
+    "@id": "#DiaSource.centroid_neg_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: centroid_pos_flag
+    "@id": "#DiaSource.centroid_pos_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: coord_dec
+    "@id": "#DiaSource.coord_dec"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: coord_ra
+    "@id": "#DiaSource.coord_ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: decl
+    "@id": "#DiaSource.decl"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: diaObjectId
+    "@id": "#DiaSource.diaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: diaSourceId
+    "@id": "#DiaSource.diaSourceId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: dipAngle
+    "@id": "#DiaSource.dipAngle"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipChi2
+    "@id": "#DiaSource.dipChi2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipFluxDiff
+    "@id": "#DiaSource.dipFluxDiff"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipFluxDiffErr
+    "@id": "#DiaSource.dipFluxDiffErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipLength
+    "@id": "#DiaSource.dipLength"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipMeanFlux
+    "@id": "#DiaSource.dipMeanFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: dipMeanFluxErr
+    "@id": "#DiaSource.dipMeanFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: filterName
+    "@id": "#DiaSource.filterName"
+    datatype: char
+    mysql:datatype: CHAR()
+    description:
+  - name: forced_PsfFlux_flag
+    "@id": "#DiaSource.forced_PsfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: forced_PsfFlux_flag_edge
+    "@id": "#DiaSource.forced_PsfFlux_flag_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: forced_PsfFlux_flag_noGoodPixels
+    "@id": "#DiaSource.forced_PsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: isDipole
+    "@id": "#DiaSource.isDipole"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: ixx
+    "@id": "#DiaSource.ixx"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ixxPSF
+    "@id": "#DiaSource.ixxPSF"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ixy
+    "@id": "#DiaSource.ixy"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ixyPSF
+    "@id": "#DiaSource.ixyPSF"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iyy
+    "@id": "#DiaSource.iyy"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: iyyPSF
+    "@id": "#DiaSource.iyyPSF"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: midPointTai
+    "@id": "#DiaSource.midPointTai"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: parentDiaSourceId
+    "@id": "#DiaSource.parentDiaSourceId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: pixelFlags
+    "@id": "#DiaSource.pixelFlags"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_bad
+    "@id": "#DiaSource.pixelFlags_bad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_cr
+    "@id": "#DiaSource.pixelFlags_cr"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_crCenter
+    "@id": "#DiaSource.pixelFlags_crCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_edge
+    "@id": "#DiaSource.pixelFlags_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolated
+    "@id": "#DiaSource.pixelFlags_interpolated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolatedCenter
+    "@id": "#DiaSource.pixelFlags_interpolatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_offimage
+    "@id": "#DiaSource.pixelFlags_offimage"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturated
+    "@id": "#DiaSource.pixelFlags_saturated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturatedCenter
+    "@id": "#DiaSource.pixelFlags_saturatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspect
+    "@id": "#DiaSource.pixelFlags_suspect"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspectCenter
+    "@id": "#DiaSource.pixelFlags_suspectCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psFlux
+    "@id": "#DiaSource.psFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psFluxErr
+    "@id": "#DiaSource.psFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFlux_flag
+    "@id": "#DiaSource.psfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux_flag_edge
+    "@id": "#DiaSource.psfFlux_flag_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux_flag_noGoodPixels
+    "@id": "#DiaSource.psfFlux_flag_noGoodPixels"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: ra
+    "@id": "#DiaSource.ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: shape_flag
+    "@id": "#DiaSource.shape_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_maxIter
+    "@id": "#DiaSource.shape_flag_maxIter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_psf
+    "@id": "#DiaSource.shape_flag_psf"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_shift
+    "@id": "#DiaSource.shape_flag_shift"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_unweighted
+    "@id": "#DiaSource.shape_flag_unweighted"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: shape_flag_unweightedBad
+    "@id": "#DiaSource.shape_flag_unweightedBad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: snr
+    "@id": "#DiaSource.snr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: ssObjectId
+    "@id": "#DiaSource.ssObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: totFlux
+    "@id": "#DiaSource.totFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: totFluxErr
+    "@id": "#DiaSource.totFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: x
+    "@id": "#DiaSource.x"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: xErr
+    "@id": "#DiaSource.xErr"
+    datatype: float
+    mysql:datatype: FLOAT
+    description:
+  - name: y
+    "@id": "#DiaSource.y"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: yErr
+    "@id": "#DiaSource.yErr"
+    datatype: float
+    mysql:datatype: FLOAT
+    description:
+  - name: psChi2
+    "@id": "#DiaSource.psChi2"
+    datatype: float
+    mysql:datatype: FLOAT
+    description:
+  - name: psNdata
+    "@id": "#DiaSource.psNdata"
+    datatype: int
+    mysql:datatype: INTEGER
+    description:
+  - name: trailAngle
+    "@id": "#DiaSource.trailAngle"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: trailDecl
+    "@id": "#DiaSource.trailDecl"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: trailLength
+    "@id": "#DiaSource.trailLength"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: trailRa
+    "@id": "#DiaSource.trailRa"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+- name: forcedSourceOnDiaObject
+  "@id": "#ForcedSourceOnDiaObject"
+  description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
+  columns:
+  - name: band
+    "@id": "#ForcedSourceOnDiaObject.band"
+    datatype: char
+    mysql:datatype: CHAR()
+    description:
+  - name: ccdVisitId
+    "@id": "#ForcedSourceOnDiaObject.ccdVisitId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: coord_dec
+    "@id": "#ForcedSourceOnDiaObject.coord_dec"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: coord_ra
+    "@id": "#ForcedSourceOnDiaObject.coord_ra"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: diaObjectId
+    "@id": "#ForcedSourceOnDiaObject.diaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: forcedSourceOnDiaObjectId
+    "@id": "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: localBackground_instFlux
+    "@id": "#ForcedSourceOnDiaObject.localBackground_instFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localBackground_instFluxErr
+    "@id": "#ForcedSourceOnDiaObject.localBackground_instFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalib
+    "@id": "#ForcedSourceOnDiaObject.localPhotoCalib"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalibErr
+    "@id": "#ForcedSourceOnDiaObject.localPhotoCalibErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localPhotoCalib_flag
+    "@id": "#ForcedSourceOnDiaObject.localPhotoCalib_flag"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_1
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_1_2
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_1
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_1"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_CDMatrix_2_2
+    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_2"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: localWcs_flag
+    "@id": "#ForcedSourceOnDiaObject.localWcs_flag"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: parentObjectId
+    "@id": "#ForcedSourceOnDiaObject.parentObjectId"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: patch
+    "@id": "#ForcedSourceOnDiaObject.patch"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
+  - name: pixelFlags_bad
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_bad"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_cr
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_cr"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_crCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_crCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_edge
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_edge"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolated
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_interpolatedCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturated
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturated"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_saturatedCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturatedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspect
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspect"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: pixelFlags_suspectCenter
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspectCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfDiffFlux
+    "@id": "#ForcedSourceOnDiaObject.psfDiffFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfDiffFluxErr
+    "@id": "#ForcedSourceOnDiaObject.psfDiffFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfDiffFlux_flag
+    "@id": "#ForcedSourceOnDiaObject.psfDiffFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: psfFlux
+    "@id": "#ForcedSourceOnDiaObject.psfFlux"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFluxErr
+    "@id": "#ForcedSourceOnDiaObject.psfFluxErr"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description:
+  - name: psfFlux_flag
+    "@id": "#ForcedSourceOnDiaObject.psfFlux_flag"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description:
+  - name: skymap
+    "@id": "#ForcedSourceOnDiaObject.skymap"
+    datatype: char
+    length: 12
+    mysql:datatype: CHAR(12)
+    description:
+  - name: tract
+    "@id": "#ForcedSourceOnDiaObject.tract"
+    datatype: long
+    mysql:datatype: BIGINT
+    description:
