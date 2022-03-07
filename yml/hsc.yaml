@@ -82,6 +82,12 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: ebv
+    "@id": "#Object.ebv"
+    datatype: double
+    description: E(B-V) from the Schlegel, Finkbeiner, and Davis 1998 dust map
+    mysql:datatype: DOUBLE
+    fits.tunit: mag
   - name: footprintArea
     "@id": "#Object.footprintArea"
     datatype: int
