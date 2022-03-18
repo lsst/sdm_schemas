@@ -1,9 +1,9 @@
 ---
 name: dp02_test_PREOPS863_00
 "@id": dp02_dc2_catalogs
-description: Preliminary schema for Data Preview 0.2, including only catalog tables for now
+description: Preliminary schema for Data Preview 0.2, including only catalog tables for now.
 tables:
-- name: object
+- name: Object
   "@id": "#Object"
   description: The object table contains descriptions of the multi-epoch static astronomical
     objects, in particular their astrophysical properties as derived from analysis
@@ -5959,9 +5959,7 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits.tunit: deg
-
-
-- name: source
+- name: Source
   "@id": "#Source"
   description: Table to store high signal-to-noise sources;. A source is
     a measurement of Object's properties from a single image that contains its footprint
@@ -6817,7 +6815,7 @@ tables:
     description:
     mysql:datatype: BIGINT
     fits.tunit:
-- name: forcedSource
+- name: ForcedSource
   "@id": "#ForcedSource"
   description: The forced source table contains forced-photometry source
      measurement on an individual Exposure based on a Multifit shape model
@@ -7020,7 +7018,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description:
-- name: diaObject
+- name: DiaObject
   "@id": "#DiaObject"
   description: this is diaObjectTable_tract in the butler repo
   columns:
@@ -7714,7 +7712,7 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description:
-- name: diaSource
+- name: DiaSource
   "@id": "#DiaSource"
   description: this is diaSourceTable_tract in the butler repo
   columns:
@@ -8053,7 +8051,7 @@ tables:
     datatype: float
     mysql:datatype: FLOAT
     description:
-- name: forcedSourceOnDiaObject
+- name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
   columns:
