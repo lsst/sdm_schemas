@@ -546,6 +546,24 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: g_final_psf_candidate
+    "@id": "#Object.g_final_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: g_final_psf_reserved
+    "@id": "#Object.g_final_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: g_final_psf_used
+    "@id": "#Object.g_final_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: g_centroid_flag
     "@id": "#Object.g_centroid_flag"
     datatype: boolean
@@ -1502,6 +1520,24 @@ tables:
     fits.tunit:
   - name: i_calib_psf_used
     "@id": "#Object.i_calib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: i_final_psf_candidate
+    "@id": "#Object.i_final_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: i_final_psf_reserved
+    "@id": "#Object.i_final_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: i_final_psf_used
+    "@id": "#Object.i_final_psf_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -2466,6 +2502,24 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: r_final_psf_candidate
+    "@id": "#Object.r_final_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: r_final_psf_reserved
+    "@id": "#Object.r_final_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: r_final_psf_used
+    "@id": "#Object.r_final_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: r_centroid_flag
     "@id": "#Object.r_centroid_flag"
     datatype: boolean
@@ -3422,6 +3476,24 @@ tables:
     fits.tunit:
   - name: u_calib_psf_used
     "@id": "#Object.u_calib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_final_psf_candidate
+    "@id": "#Object.u_final_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_final_psf_reserved
+    "@id": "#Object.u_final_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: u_final_psf_used
+    "@id": "#Object.u_final_psf_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
@@ -4386,6 +4458,24 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits.tunit:
+  - name: y_final_psf_candidate
+    "@id": "#Object.y_final_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: y_final_psf_reserved
+    "@id": "#Object.y_final_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: y_final_psf_used
+    "@id": "#Object.y_final_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
   - name: y_centroid_flag
     "@id": "#Object.y_centroid_flag"
     datatype: boolean
@@ -5342,6 +5432,24 @@ tables:
     fits.tunit:
   - name: z_calib_psf_used
     "@id": "#Object.z_calib_psf_used"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: z_final_psf_candidate
+    "@id": "#Object.z_final_psf_candidate"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: z_final_psf_reserved
+    "@id": "#Object.z_final_psf_reserved"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits.tunit:
+  - name: z_final_psf_used
+    "@id": "#Object.z_final_psf_used"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
