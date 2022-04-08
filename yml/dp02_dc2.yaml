@@ -8285,6 +8285,7 @@ tables:
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
+    length: 6
     mysql:datatype: DATETIME(6)
     description: ''
   - name: expTime
@@ -8319,23 +8320,23 @@ tables:
     description: ''
   - name: zenithDistance
     '@id': '#CcdVisit.zenithDistance'
-    datatype: long
+    datatype: float
     description: ''
   - name: zeroPoint
     '@id': '#CcdVisit.zeroPoint'
-    datatype: long
+    datatype: float
     description: ''
   - name: psfSigma
     '@id': '#CcdVisit.psfSigma'
-    datatype: long
+    datatype: float
     description: ''
   - name: skyBg
     '@id': '#CcdVisit.skyBg'
-    datatype: long
+    datatype: float
     description: ''
   - name: skyNoise
     '@id': '#CcdVisit.skyNoise'
-    datatype: long
+    datatype: float
     description: ''
   - name: detector
     '@id': '#CcdVisit.detector'
@@ -8352,6 +8353,7 @@ tables:
   - name: expMidpt
     '@id': '#CcdVisit.expMidpt'
     datatype: timestamp
+    length: 6
     mysql:datatype: DATETIME(6)
     description: ''
   - name: expTime
@@ -8361,6 +8363,7 @@ tables:
   - name: obsStart
     '@id': '#CcdVisit.obsStart'
     datatype: timestamp
+    length: 6
     mysql:datatype: DATETIME(6)
     description: ''
   - name: darkTime
