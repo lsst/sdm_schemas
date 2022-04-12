@@ -8236,3 +8236,177 @@ tables:
     datatype: long
     mysql:datatype: BIGINT
     description:
+- name: Visit
+  '@id': '#Visit'
+  description: ''
+  columns:
+  - name: visit
+    '@id': '#Visit.visit'
+    datatype: long
+    description: ''
+  - name: physical_filter
+    '@id': '#Visit.physical_filter'
+    datatype: char
+    length: 32
+    description: ''
+  - name: band
+    '@id': '#Visit.band'
+    datatype: char
+    length: 1
+    description: ''
+  - name: ra
+    '@id': '#Visit.ra'
+    datatype: double
+    description: ''
+  - name: decl
+    '@id': '#Visit.decl'
+    datatype: double
+    description: ''
+  - name: skyRotation
+    '@id': '#Visit.skyRotation'
+    datatype: double
+    description: ''
+  - name: azimuth
+    '@id': '#Visit.azimuth'
+    datatype: double
+    description: ''
+  - name: altitude
+    '@id': '#Visit.altitude'
+    datatype: double
+    description: ''
+  - name: zenithDistance
+    '@id': '#Visit.zenithDistance'
+    datatype: double
+    description: ''
+  - name: airmass
+    '@id': '#Visit.airmass'
+    datatype: double
+    description: ''
+  - name: obsStart
+    '@id': '#Visit.obsStart'
+    datatype: timestamp
+    length: 6
+    mysql:datatype: DATETIME(6)
+    description: ''
+  - name: expTime
+    '@id': '#Visit.expTime'
+    datatype: double
+    description: ''
+- name: CcdVisit
+  '@id': '#CcdVisit'
+  description: ''
+  columns:
+  - name: visitId
+    '@id': '#CcdVisit.visitId'
+    datatype: long
+    description: ''
+  - name: physical_filter
+    '@id': '#CcdVisit.physical_filter'
+    datatype: char
+    length: 32
+    description: ''
+  - name: band
+    '@id': '#CcdVisit.band'
+    datatype: char
+    length: 1
+    description: ''
+  - name: ra
+    '@id': '#CcdVisit.ra'
+    datatype: double
+    description: ''
+  - name: decl
+    '@id': '#CcdVisit.decl'
+    datatype: double
+    description: ''
+  - name: zenithDistance
+    '@id': '#CcdVisit.zenithDistance'
+    datatype: float
+    description: ''
+  - name: zeroPoint
+    '@id': '#CcdVisit.zeroPoint'
+    datatype: float
+    description: ''
+  - name: psfSigma
+    '@id': '#CcdVisit.psfSigma'
+    datatype: float
+    description: ''
+  - name: skyBg
+    '@id': '#CcdVisit.skyBg'
+    datatype: float
+    description: ''
+  - name: skyNoise
+    '@id': '#CcdVisit.skyNoise'
+    datatype: float
+    description: ''
+  - name: detector
+    '@id': '#CcdVisit.detector'
+    datatype: long
+    description: ''
+  - name: seeing
+    '@id': '#CcdVisit.seeing'
+    datatype: double
+    description: ''
+  - name: skyRotation
+    '@id': '#CcdVisit.skyRotation'
+    datatype: double
+    description: ''
+  - name: expMidpt
+    '@id': '#CcdVisit.expMidpt'
+    datatype: timestamp
+    length: 6
+    mysql:datatype: DATETIME(6)
+    description: ''
+  - name: expTime
+    '@id': '#CcdVisit.expTime'
+    datatype: double
+    description: ''
+  - name: obsStart
+    '@id': '#CcdVisit.obsStart'
+    datatype: timestamp
+    length: 6
+    mysql:datatype: DATETIME(6)
+    description: ''
+  - name: darkTime
+    '@id': '#CcdVisit.darkTime'
+    datatype: double
+    description: ''
+  - name: xSize
+    '@id': '#CcdVisit.xSize'
+    datatype: long
+    description: ''
+  - name: ySize
+    '@id': '#CcdVisit.ySize'
+    datatype: long
+    description: ''
+  - name: llcra
+    '@id': '#CcdVisit.llcra'
+    datatype: double
+    description: ''
+  - name: llcdec
+    '@id': '#CcdVisit.llcdec'
+    datatype: double
+    description: ''
+  - name: ulcra
+    '@id': '#CcdVisit.ulcra'
+    datatype: double
+    description: ''
+  - name: ulcdec
+    '@id': '#CcdVisit.ulcdec'
+    datatype: double
+    description: ''
+  - name: urcra
+    '@id': '#CcdVisit.urcra'
+    datatype: double
+    description: ''
+  - name: urcdec
+    '@id': '#CcdVisit.urcdec'
+    datatype: double
+    description: ''
+  - name: lrcra
+    '@id': '#CcdVisit.lrcra'
+    datatype: double
+    description: ''
+  - name: lrcdec
+    '@id': '#CcdVisit.lrcdec'
+    datatype: double
+    description: ''
