@@ -5921,12 +5921,6 @@ tables:
     length: 5
     mysql:datatype: CHAR(5)
     fits:tunit:
-  - name: visit_system
-    "@id": "#Source.visit_system"
-    datatype: long
-    description:
-    mysql:datatype: BIGINT
-    fits:tunit:
   - name: visit
     "@id": "#Source.visit"
     datatype: long
