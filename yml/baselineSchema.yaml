@@ -5670,6 +5670,7 @@ tables:
   primaryKey: "#prv_cnf_Pipeline.pipelineCnfId"
   constraints:
   - name: FK_cnfPipeline_prv_Pipeline
+    "@type": "ForeignKey"
     "@id": "#FK_cnfPipeline_prv_Pipeline"
     columns:
     - "#prv_cnf_Pipeline.pipelineId"
@@ -5731,12 +5732,14 @@ tables:
   constraints:
   - name: FK_cnfPipeTasks_taskId
     "@id": "#FK_cnfPipeTasks_taskId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_cnf_Pipeline_Tasks.taskId"
     referencedColumns:
     - "#prv_Task.taskId"
   - name: FK_cnfPipeTasks_pipeCnfId
     "@id": "#FK_cnfPipeTasks_pipeCnfId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_cnf_Pipeline_Tasks.pipelineCnfId"
     referencedColumns:
@@ -5798,6 +5801,7 @@ tables:
   constraints:
   - name: FK_cnfTask_taskId
     "@id": "#FK_cnfTask_taskId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_cnf_Task.taskId"
     referencedColumns:
@@ -5832,6 +5836,7 @@ tables:
   constraints:
   - name: FK_cnfTaskCols_taskCnfId
     "@id": "#FK_cnfTaskCols_taskCnfId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_cnf_Task_Columns.taskCnfId"
     referencedColumns:
@@ -5862,6 +5867,7 @@ tables:
   constraints:
   - name: FK_cnfTaskFiles_taskCnfId
     "@id": "#FK_cnfTaskFiles_taskCnfId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_cnf_Task_Files.taskCnfId"
     referencedColumns:
@@ -5898,6 +5904,7 @@ tables:
   constraints:
   - name: FK_cnfTaskKVParams_tcId
     "@id": "#FK_cnfTaskKVParams_tcId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_cnf_Task_KVParams.taskCnfId"
     referencedColumns:
@@ -5972,6 +5979,7 @@ tables:
   constraints:
   - name: FK_cnfNode_nodeId
     "@id": "#FK_cnfNode_nodeId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_cnf_Node.nodeId"
     referencedColumns:
@@ -6021,6 +6029,7 @@ tables:
   constraints:
   - name: FK_rowIdTodataBlock_blockId
     "@id": "#FK_rowIdTodataBlock_blockId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_RowIdToDataBlock.blockId"
     referencedColumns:
@@ -6082,18 +6091,21 @@ tables:
   constraints:
   - name: FK_taskExec_taskId
     "@id": "#FK_taskExec_taskId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_TaskExecution.taskId"
     referencedColumns:
     - "#prv_Task.taskId"
   - name: FK_taskExec_nodeId
     "@id": "#FK_taskExec_nodeId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_TaskExecution.nodeId"
     referencedColumns:
     - "#prv_Node.nodeId"
   - name: FK_taskExec_cnfVersion
     "@id": "#FK_taskExec_cnfVersion"
+    "@type": "ForeignKey"
     columns:
     - "#prv_TaskExecution.taskCnfVersion"
     referencedColumns:
@@ -6132,12 +6144,14 @@ tables:
   constraints:
   - name: FK_te2IDB_taskExecId
     "@id": "#FK_te2IDB_taskExecId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_TaskExecutionToInputDataBlock.taskExecId"
     referencedColumns:
     - "#prv_TaskExecution.taskExecId"
   - name: FK_te2IDB_blockId
     "@id": "#FK_te2IDB_blockId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_TaskExecutionToInputDataBlock.blockId"
     referencedColumns:
@@ -6172,12 +6186,14 @@ tables:
   constraints:
   - name: FK_te2ODB_taskExecId
     "@id": "#FK_te2ODB_taskExecId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_TaskExecutionToOutputDataBlock.taskExecId"
     referencedColumns:
     - "#prv_TaskExecution.taskExecId"
   - name: FK_te2ODB_blockId
     "@id": "#FK_te2ODB_blockId"
+    "@type": "ForeignKey"
     columns:
     - "#prv_TaskExecutionToOutputDataBlock.blockId"
     referencedColumns:
@@ -6258,6 +6274,7 @@ tables:
   constraints:
   - name: UQ_sdqaMetric_metricName
     "@id": "#UQ_sdqaMetric_metricName"
+    "@type": "Unique"
     columns:
     - "#sdqa_Metric.metricName"
   mysql:engine: MyISAM
@@ -6303,6 +6320,7 @@ tables:
   constraints:
   - name: UQ_sdqaRatingForAmpVisit_metricId_ampVisitId
     "@id": "#UQ_sdqaRatingForAmpVisit_metricId_ampVisitId"
+    "@type": "Unique"
     columns:
     - "#sdqa_Rating_ForAmpVisit.sdqa_metricId"
     - "#sdqa_Rating_ForAmpVisit.ampVisitId"
@@ -6361,6 +6379,7 @@ tables:
   constraints:
   - name: UQ_sdqaRatingCcdVisit_metricId_ccdVisitId
     "@id": "#UQ_sdqaRatingCcdVisit_metricId_ccdVisitId"
+    "@type": Unique
     columns:
     - "#sdqa_Rating_CcdVisit.sdqa_metricId"
     - "#sdqa_Rating_CcdVisit.ccdVisitId"
