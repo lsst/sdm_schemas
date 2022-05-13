@@ -1,0 +1,3047 @@
+---
+name: "ApdbSchema"
+"@id": "#apdbSchema"
+tables:
+- name: DiaObject
+  "@id": "#DiaObject"
+  description: The DiaObject table contains descriptions of the astronomical objects
+    detected on one or more difference images.
+  columns:
+  - name: diaObjectId
+    "@id": "#DiaObject.diaObjectId"
+    datatype: long
+    nullable: false
+    description: Unique id.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: validityStart
+    "@id": "#DiaObject.validityStart"
+    datatype: timestamp
+    length: 6
+    nullable: false
+    description: Time when validity of this diaObject starts.
+    mysql:datatype: DATETIME
+  - name: validityEnd
+    "@id": "#DiaObject.validityEnd"
+    datatype: timestamp
+    length: 6
+    nullable: true
+    description: Time when validity of this diaObject ends.
+    mysql:datatype: DATETIME
+  - name: ra
+    "@id": "#DiaObject.ra"
+    datatype: double
+    nullable: false
+    description: RA-coordinate of the position of the object at time radecTai.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: raErr
+    "@id": "#DiaObject.raErr"
+    datatype: float
+    description: Uncertainty of ra.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.ra
+  - name: decl
+    "@id": "#DiaObject.decl"
+    datatype: double
+    nullable: false
+    description: Decl-coordinate of the position of the object at time radecTai.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: declErr
+    "@id": "#DiaObject.declErr"
+    datatype: float
+    description: Uncertainty of decl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.dec
+  - name: ra_decl_Cov
+    "@id": "#DiaObject.ra_decl_Cov"
+    datatype: float
+    description: Covariance between ra and decl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
+  - name: radecTai
+    "@id": "#DiaObject.radecTai"
+    datatype: double
+    description: Time at which the object was at a position ra/decl.
+    mysql:datatype: DOUBLE
+    ivoa:ucd: time.epoch
+  - name: pmRa
+    "@id": "#DiaObject.pmRa"
+    datatype: float
+    description: Proper motion (ra).
+    mysql:datatype: FLOAT
+    fits:tunit: mas/yr
+    ivoa:ucd: pos.pm
+  - name: pmRaErr
+    "@id": "#DiaObject.pmRaErr"
+    datatype: float
+    description: Uncertainty of pmRa.
+    mysql:datatype: FLOAT
+    fits:tunit: mas/yr
+    ivoa:ucd: stat.error;pos.pm
+  - name: pmDecl
+    "@id": "#DiaObject.pmDecl"
+    datatype: float
+    description: Proper motion (decl).
+    mysql:datatype: FLOAT
+    fits:tunit: mas/yr
+    ivoa:ucd: pos.pm
+  - name: pmDeclErr
+    "@id": "#DiaObject.pmDeclErr"
+    datatype: float
+    description: Uncertainty of pmDecl.
+    mysql:datatype: FLOAT
+    fits:tunit: mas/yr
+    ivoa:ucd: stat.error;pos.pm
+  - name: parallax
+    "@id": "#DiaObject.parallax"
+    datatype: float
+    description: Parallax.
+    mysql:datatype: FLOAT
+    fits:tunit: mas
+    ivoa:ucd: pos.parallax
+  - name: parallaxErr
+    "@id": "#DiaObject.parallaxErr"
+    datatype: float
+    description: Uncertainty of parallax.
+    mysql:datatype: FLOAT
+    fits:tunit: mas
+    ivoa:ucd: stat.error;pos.parallax
+  - name: pmRa_pmDecl_Cov
+    "@id": "#DiaObject.pmRa_pmDecl_Cov"
+    datatype: float
+    description: Covariance of pmRa and pmDecl.
+    mysql:datatype: FLOAT
+    fits:tunit: "(mas/yr)^2"
+    ivoa:ucd: stat.covariance;pos.eq
+  - name: pmRa_parallax_Cov
+    "@id": "#DiaObject.pmRa_parallax_Cov"
+    datatype: float
+    description: Covariance of pmRa and parallax.
+    mysql:datatype: FLOAT
+    fits:tunit: mas^2/yr
+    ivoa:ucd: stat.covariance
+  - name: pmDecl_parallax_Cov
+    "@id": "#DiaObject.pmDecl_parallax_Cov"
+    datatype: float
+    description: Covariance of pmDecl and parallax.
+    mysql:datatype: FLOAT
+    fits:tunit: mas^2/yr
+    ivoa:ucd: stat.covariance
+  - name: pmParallaxLnL
+    "@id": "#DiaObject.pmParallaxLnL"
+    datatype: float
+    description: Natural log of the likelihood of the linear proper motion parallax
+      fit.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.likelihood
+  - name: pmParallaxChi2
+    "@id": "#DiaObject.pmParallaxChi2"
+    datatype: float
+    description: Chi^2 static of the model fit.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: pmParallaxNdata
+    "@id": "#DiaObject.pmParallaxNdata"
+    datatype: int
+    nullable: false
+    description: The number of data points used to fit the model.
+    mysql:datatype: INT
+  - name: uPSFluxMean
+    "@id": "#DiaObject.uPSFluxMean"
+    datatype: float
+    description: Weighted mean point-source model magnitude for u filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: uPSFluxMeanErr
+    "@id": "#DiaObject.uPSFluxMeanErr"
+    datatype: float
+    description: Standard error of uPSFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: uPSFluxSigma
+    "@id": "#DiaObject.uPSFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of uPSFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: uPSFluxChi2
+    "@id": "#DiaObject.uPSFluxChi2"
+    datatype: float
+    description: Chi^2 statistic for the scatter of uPSFlux around uPSFluxMean.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: uPSFluxNdata
+    "@id": "#DiaObject.uPSFluxNdata"
+    datatype: int
+    nullable: false
+    description: The number of data points used to compute uPSFluxChi2.
+    mysql:datatype: INT
+  - name: uFPFluxMean
+    "@id": "#DiaObject.uFPFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for u filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: uFPFluxMeanErr
+    "@id": "#DiaObject.uFPFluxMeanErr"
+    datatype: float
+    description: Standard error of uFPFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: uFPFluxSigma
+    "@id": "#DiaObject.uFPFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of uFPFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: gPSFluxMean
+    "@id": "#DiaObject.gPSFluxMean"
+    datatype: float
+    description: Weighted mean point-source model magnitude for g filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gPSFluxMeanErr
+    "@id": "#DiaObject.gPSFluxMeanErr"
+    datatype: float
+    description: Standard error of gPSFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: gPSFluxSigma
+    "@id": "#DiaObject.gPSFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of gPSFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: gPSFluxChi2
+    "@id": "#DiaObject.gPSFluxChi2"
+    datatype: float
+    description: Chi^2 statistic for the scatter of gPSFlux around gPSFluxMean.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: gPSFluxNdata
+    "@id": "#DiaObject.gPSFluxNdata"
+    datatype: int
+    nullable: false
+    description: The number of data points used to compute gPSFluxChi2.
+    mysql:datatype: INT
+  - name: gFPFluxMean
+    "@id": "#DiaObject.gFPFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for g filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: gFPFluxMeanErr
+    "@id": "#DiaObject.gFPFluxMeanErr"
+    datatype: float
+    description: Standard error of gFPFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: gFPFluxSigma
+    "@id": "#DiaObject.gFPFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of gFPFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: rPSFluxMean
+    "@id": "#DiaObject.rPSFluxMean"
+    datatype: float
+    description: Weighted mean point-source model magnitude for r filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rPSFluxMeanErr
+    "@id": "#DiaObject.rPSFluxMeanErr"
+    datatype: float
+    description: Standard error of rPSFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: rPSFluxSigma
+    "@id": "#DiaObject.rPSFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of rPSFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: rPSFluxChi2
+    "@id": "#DiaObject.rPSFluxChi2"
+    datatype: float
+    description: Chi^2 statistic for the scatter of rPSFlux around rPSFluxMean.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: rPSFluxNdata
+    "@id": "#DiaObject.rPSFluxNdata"
+    datatype: int
+    nullable: false
+    description: The number of data points used to compute rPSFluxChi2.
+    mysql:datatype: INT
+  - name: rFPFluxMean
+    "@id": "#DiaObject.rFPFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for r filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: rFPFluxMeanErr
+    "@id": "#DiaObject.rFPFluxMeanErr"
+    datatype: float
+    description: Standard error of rFPFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: rFPFluxSigma
+    "@id": "#DiaObject.rFPFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of rFPFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: iPSFluxMean
+    "@id": "#DiaObject.iPSFluxMean"
+    datatype: float
+    description: Weighted mean point-source model magnitude for i filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iPSFluxMeanErr
+    "@id": "#DiaObject.iPSFluxMeanErr"
+    datatype: float
+    description: Standard error of iPSFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: iPSFluxSigma
+    "@id": "#DiaObject.iPSFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of iPSFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: iPSFluxChi2
+    "@id": "#DiaObject.iPSFluxChi2"
+    datatype: float
+    description: Chi^2 statistic for the scatter of iPSFlux around iPSFluxMean.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: iPSFluxNdata
+    "@id": "#DiaObject.iPSFluxNdata"
+    datatype: int
+    nullable: false
+    description: The number of data points used to compute iPSFluxChi2.
+    mysql:datatype: INT
+  - name: iFPFluxMean
+    "@id": "#DiaObject.iFPFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for i filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: iFPFluxMeanErr
+    "@id": "#DiaObject.iFPFluxMeanErr"
+    datatype: float
+    description: Standard error of iFPFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: iFPFluxSigma
+    "@id": "#DiaObject.iFPFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of iFPFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: zPSFluxMean
+    "@id": "#DiaObject.zPSFluxMean"
+    datatype: float
+    description: Weighted mean point-source model magnitude for z filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zPSFluxMeanErr
+    "@id": "#DiaObject.zPSFluxMeanErr"
+    datatype: float
+    description: Standard error of zPSFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: zPSFluxSigma
+    "@id": "#DiaObject.zPSFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of zPSFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: zPSFluxChi2
+    "@id": "#DiaObject.zPSFluxChi2"
+    datatype: float
+    description: Chi^2 statistic for the scatter of zPSFlux around zPSFluxMean.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: zPSFluxNdata
+    "@id": "#DiaObject.zPSFluxNdata"
+    datatype: int
+    nullable: false
+    description: The number of data points used to compute zPSFluxChi2.
+    mysql:datatype: INT
+  - name: zFPFluxMean
+    "@id": "#DiaObject.zFPFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for z filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: zFPFluxMeanErr
+    "@id": "#DiaObject.zFPFluxMeanErr"
+    datatype: float
+    description: Standard error of zFPFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: zFPFluxSigma
+    "@id": "#DiaObject.zFPFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of zFPFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: yPSFluxMean
+    "@id": "#DiaObject.yPSFluxMean"
+    datatype: float
+    description: Weighted mean point-source model magnitude for y filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yPSFluxMeanErr
+    "@id": "#DiaObject.yPSFluxMeanErr"
+    datatype: float
+    description: Standard error of yPSFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: yPSFluxSigma
+    "@id": "#DiaObject.yPSFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of yPSFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: yPSFluxChi2
+    "@id": "#DiaObject.yPSFluxChi2"
+    datatype: float
+    description: Chi^2 statistic for the scatter of yPSFlux around yPSFluxMean.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: yPSFluxNdata
+    "@id": "#DiaObject.yPSFluxNdata"
+    datatype: int
+    nullable: false
+    description: The number of data points used to compute yPSFluxChi2.
+    mysql:datatype: INT
+  - name: yFPFluxMean
+    "@id": "#DiaObject.yFPFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for y filter.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: yFPFluxMeanErr
+    "@id": "#DiaObject.yFPFluxMeanErr"
+    datatype: float
+    description: Standard error of yFPFluxMean.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: yFPFluxSigma
+    "@id": "#DiaObject.yFPFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of yFPFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.stdev
+  - name: uLcPeriodic
+    "@id": "#DiaObject.uLcPeriodic"
+    datatype: binary
+    length: 128
+    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
+      periodogram for u filter. [32 FLOAT].
+    mysql:datatype: BLOB
+  - name: gLcPeriodic
+    "@id": "#DiaObject.gLcPeriodic"
+    datatype: binary
+    length: 128
+    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
+      periodogram for g filter. [32 FLOAT].
+    mysql:datatype: BLOB
+  - name: rLcPeriodic
+    "@id": "#DiaObject.rLcPeriodic"
+    datatype: binary
+    length: 128
+    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
+      periodogram for r filter. [32 FLOAT].
+    mysql:datatype: BLOB
+  - name: iLcPeriodic
+    "@id": "#DiaObject.iLcPeriodic"
+    datatype: binary
+    length: 128
+    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
+      periodogram for i filter. [32 FLOAT].
+    mysql:datatype: BLOB
+  - name: zLcPeriodic
+    "@id": "#DiaObject.zLcPeriodic"
+    datatype: binary
+    length: 128
+    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
+      periodogram for z filter. [32 FLOAT].
+    mysql:datatype: BLOB
+  - name: yLcPeriodic
+    "@id": "#DiaObject.yLcPeriodic"
+    datatype: binary
+    length: 128
+    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
+      periodogram for y filter. [32 FLOAT].
+    mysql:datatype: BLOB
+  - name: uLcNonPeriodic
+    "@id": "#DiaObject.uLcNonPeriodic"
+    datatype: binary
+    length: 80
+    description: Non-periodic features extracted from light-curves using generalized
+      Lomb-Scargle periodogram for u filter. [20 FLOAT].
+    mysql:datatype: BLOB
+  - name: gLcNonPeriodic
+    "@id": "#DiaObject.gLcNonPeriodic"
+    datatype: binary
+    length: 80
+    description: Non-periodic features extracted from light-curves using generalized
+      Lomb-Scargle periodogram for g filter. [20 FLOAT].
+    mysql:datatype: BLOB
+  - name: rLcNonPeriodic
+    "@id": "#DiaObject.rLcNonPeriodic"
+    datatype: binary
+    length: 80
+    description: Non-periodic features extracted from light-curves using generalized
+      Lomb-Scargle periodogram for r filter. [20 FLOAT].
+    mysql:datatype: BLOB
+  - name: iLcNonPeriodic
+    "@id": "#DiaObject.iLcNonPeriodic"
+    datatype: binary
+    length: 80
+    description: Non-periodic features extracted from light-curves using generalized
+      Lomb-Scargle periodogram for i filter. [20 FLOAT].
+    mysql:datatype: BLOB
+  - name: zLcNonPeriodic
+    "@id": "#DiaObject.zLcNonPeriodic"
+    datatype: binary
+    length: 80
+    description: Non-periodic features extracted from light-curves using generalized
+      Lomb-Scargle periodogram for z filter. [20 FLOAT].
+    mysql:datatype: BLOB
+  - name: yLcNonPeriodic
+    "@id": "#DiaObject.yLcNonPeriodic"
+    datatype: binary
+    length: 80
+    description: Non-periodic features extracted from light-curves using generalized
+      Lomb-Scargle periodogram for y filter. [20 FLOAT].
+    mysql:datatype: BLOB
+  - name: nearbyObj1
+    "@id": "#DiaObject.nearbyObj1"
+    datatype: long
+    nullable: false
+    description: Id of the closest nearby object.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: nearbyObj1Dist
+    "@id": "#DiaObject.nearbyObj1Dist"
+    datatype: float
+    description: Distance to nearbyObj1.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: nearbyObj1LnP
+    "@id": "#DiaObject.nearbyObj1LnP"
+    datatype: float
+    description: Natural log of the probability that the observed diaObject is the
+      same as the nearbyObj1.
+    mysql:datatype: FLOAT
+  - name: nearbyObj2
+    "@id": "#DiaObject.nearbyObj2"
+    datatype: long
+    nullable: false
+    description: Id of the second-closest nearby object.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: nearbyObj2Dist
+    "@id": "#DiaObject.nearbyObj2Dist"
+    datatype: float
+    description: Distance to nearbyObj2.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: nearbyObj2LnP
+    "@id": "#DiaObject.nearbyObj2LnP"
+    datatype: float
+    description: Natural log of the probability that the observed diaObject is the
+      same as the nearbyObj2.
+    mysql:datatype: FLOAT
+  - name: nearbyObj3
+    "@id": "#DiaObject.nearbyObj3"
+    datatype: long
+    nullable: false
+    description: Id of the third-closest nearby object.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: nearbyObj3Dist
+    "@id": "#DiaObject.nearbyObj3Dist"
+    datatype: float
+    description: Distance to nearbyObj3.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: nearbyObj3LnP
+    "@id": "#DiaObject.nearbyObj3LnP"
+    datatype: float
+    description: Natural log of the probability that the observed diaObject is the
+      same as the nearbyObj3.
+    mysql:datatype: FLOAT
+  - name: nearbyExtObj1
+    "@id": "#DiaObject.nearbyExtObj1"
+    datatype: long
+    description: Id of the closest extended DR Object by second moment-based separation.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: nearbyExtObj1Sep
+    "@id": "#DiaObject.nearbyExtObj1Sep"
+    datatype: float
+    description: Second moment-based separation of nearbyExtObj1 (unitless).
+    mysql:datatype: FLOAT
+  - name: nearbyExtObj2
+    "@id": "#DiaObject.nearbyExtObj2"
+    datatype: long
+    description: Id of the second closest extended DR Object by second moment-based separation.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: nearbyExtObj2Sep
+    "@id": "#DiaObject.nearbyExtObj2Sep"
+    datatype: float
+    description: Second moment-based separation of nearbyExtObj2 (unitless).
+    mysql:datatype: FLOAT
+  - name: nearbyExtObj3
+    "@id": "#DiaObject.nearbyExtObj3"
+    datatype: long
+    description: Id of the third closest extended DR Object by second moment-based separation.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: nearbyExtObj3Sep
+    "@id": "#DiaObject.nearbyExtObj3Sep"
+    datatype: float
+    description: Second moment-based separation of nearbyExtObj3 (unitless).
+    mysql:datatype: FLOAT
+  - name: nearbyLowzGal
+    "@id": "#DiaObject.nearbyLowzGal"
+    datatype: string
+    length: 64
+    description: External catalog name of the nearest low-z potential host.
+    mysql:datatype: VARCHAR(64)
+  - name: nearbyLowzGalSep
+    "@id": "#DiaObject.nearbyLowzGalSep"
+    datatype: float
+    fits:tunit: arcsec
+    description: Separation distance of nearbyLowzGal.
+    mysql:datatype: FLOAT
+  - name: uTOTFluxMean
+    "@id": "#DiaObject.uTOTFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for u filter.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: uTOTFluxMeanErr
+    "@id": "#DiaObject.uTOTFluxMeanErr"
+    datatype: float
+    description: Standard error of uTOTFluxMean.
+    ivoa:ucd: stat.error
+    fits:tunit: nJy
+  - name: uTOTFluxSigma
+    "@id": "#DiaObject.uTOTFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of uTOTFlux.
+    ivoa:ucd: stat.stdev
+    fits:tunit: nJy
+  - name: gTOTFluxMean
+    "@id": "#DiaObject.gTOTFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for g filter.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: gTOTFluxMeanErr
+    "@id": "#DiaObject.gTOTFluxMeanErr"
+    datatype: float
+    description: Standard error of gTOTFluxMean.
+    ivoa:ucd: stat.error
+    fits:tunit: nJy
+  - name: gTOTFluxSigma
+    "@id": "#DiaObject.gTOTFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of gTOTFlux.
+    ivoa:ucd: stat.stdev
+    fits:tunit: nJy
+  - name: rTOTFluxMean
+    "@id": "#DiaObject.rTOTFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for r filter.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: rTOTFluxMeanErr
+    "@id": "#DiaObject.rTOTFluxMeanErr"
+    datatype: float
+    description: Standard error of rTOTFluxMean.
+    ivoa:ucd: stat.error
+    fits:tunit: nJy
+  - name: rTOTFluxSigma
+    "@id": "#DiaObject.rTOTFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of rTOTFlux.
+    ivoa:ucd: stat.stdev
+    fits:tunit: nJy
+  - name: iTOTFluxMean
+    "@id": "#DiaObject.iTOTFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for i filter.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: iTOTFluxMeanErr
+    "@id": "#DiaObject.iTOTFluxMeanErr"
+    datatype: float
+    description: Standard error of iTOTFluxMean.
+    ivoa:ucd: stat.error
+    fits:tunit: nJy
+  - name: iTOTFluxSigma
+    "@id": "#DiaObject.iTOTFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of iTOTFlux.
+    ivoa:ucd: stat.stdev
+    fits:tunit: nJy
+  - name: zTOTFluxMean
+    "@id": "#DiaObject.zTOTFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for z filter.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: zTOTFluxMeanErr
+    "@id": "#DiaObject.zTOTFluxMeanErr"
+    datatype: float
+    description: Standard error of zTOTFluxMean.
+    ivoa:ucd: stat.error
+    fits:tunit: nJy
+  - name: zTOTFluxSigma
+    "@id": "#DiaObject.zTOTFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of zTOTFlux.
+    ivoa:ucd: stat.stdev
+    fits:tunit: nJy
+  - name: yTOTFluxMean
+    "@id": "#DiaObject.yTOTFluxMean"
+    datatype: float
+    description: Weighted mean forced photometry flux for y filter.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: yTOTFluxMeanErr
+    "@id": "#DiaObject.yTOTFluxMeanErr"
+    datatype: float
+    description: Standard error of yTOTFluxMean.
+    ivoa:ucd: stat.error
+    fits:tunit: nJy
+  - name: yTOTFluxSigma
+    "@id": "#DiaObject.yTOTFluxSigma"
+    datatype: float
+    description: Standard deviation of the distribution of yTOTFlux.
+    ivoa:ucd: stat.stdev
+    fits:tunit: nJy
+  - name: uPSFluxMAD
+    "@id": "#DiaObject.uPSFluxMAD"
+    datatype: float
+    description: Median absolute deviation u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxSkew
+    "@id": "#DiaObject.uPSFluxSkew"
+    datatype: float
+    description: Skewness of the u band fluxes.
+  - name: uPSFluxPercentile05
+    "@id": "#DiaObject.uPSFluxPercentile05"
+    datatype: float
+    description: Value at the 5% percentile of the u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxPercentile25
+    "@id": "#DiaObject.uPSFluxPercentile25"
+    datatype: float
+    description: Value at the 25% percentile of the u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxPercentile50
+    "@id": "#DiaObject.uPSFluxPercentile50"
+    datatype: float
+    description: Value at the 50% percentile (median) of the u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxPercentile75
+    "@id": "#DiaObject.uPSFluxPercentile75"
+    datatype: float
+    description: Value at the 75% percentile of the u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxPercentile95
+    "@id": "#DiaObject.uPSFluxPercentile95"
+    datatype: float
+    description: Value at the 95% percentile of the u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxMin
+    "@id": "#DiaObject.uPSFluxMin"
+    datatype: float
+    description: Minimum observed u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxMax
+    "@id": "#DiaObject.uPSFluxMax"
+    datatype: float
+    description: Maximum observed u band fluxes.
+    fits:tunit: nJy
+  - name: uPSFluxStetsonJ
+    "@id": "#DiaObject.uPSFluxStetsonJ"
+    datatype: float
+    description: StetsonJ statistic for the u band fluxes.
+  - name: uPSFluxLinearSlope
+    "@id": "#DiaObject.uPSFluxLinearSlope"
+    datatype: float
+    description: Linear best fit slope of the u band fluxes.
+    fits:tunit: nJy/day
+  - name: uPSFluxLinearIntercept
+    "@id": "#DiaObject.uPSFluxLinearIntercept"
+    datatype: float
+    description: Linear best fit Intercept of the u band fluxes.
+  - name: uPSFluxMaxSlope
+    "@id": "#DiaObject.uPSFluxMaxSlope"
+    datatype: float
+    description: Maximum slope between u band flux obsevations max(delta_flux/delta_time)
+    fits:tunit: nJy/day
+  - name: uPSFluxErrMean
+    "@id": "#DiaObject.uPSFluxErrMean"
+    datatype: float
+    description: Mean of the u band flux errors.
+    fits:tunit: nJy
+  - name: gPSFluxMAD
+    "@id": "#DiaObject.gPSFluxMAD"
+    datatype: float
+    description: Median absolute deviation g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxSkew
+    "@id": "#DiaObject.gPSFluxSkew"
+    datatype: float
+    description: Skewness of the g band fluxes.
+  - name: gPSFluxPercentile05
+    "@id": "#DiaObject.gPSFluxPercentile05"
+    datatype: float
+    description: Value at the 5% percentile of the g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxPercentile25
+    "@id": "#DiaObject.gPSFluxPercentile25"
+    datatype: float
+    description: Value at the 25% percentile of the g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxPercentile50
+    "@id": "#DiaObject.gPSFluxPercentile50"
+    datatype: float
+    description: Value at the 50% percentile (median) of the g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxPercentile75
+    "@id": "#DiaObject.gPSFluxPercentile75"
+    datatype: float
+    description: Value at the 75% percentile of the g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxPercentile95
+    "@id": "#DiaObject.gPSFluxPercentile95"
+    datatype: float
+    description: Value at the 95% percentile of the g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxMin
+    "@id": "#DiaObject.gPSFluxMin"
+    datatype: float
+    description: Minimum observed g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxMax
+    "@id": "#DiaObject.gPSFluxMax"
+    datatype: float
+    description: Maximum observed g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxStetsonJ
+    "@id": "#DiaObject.gPSFluxStetsonJ"
+    datatype: float
+    description: StetsonJ statistic for the g band fluxes.
+  - name: gPSFluxLinearSlope
+    "@id": "#DiaObject.gPSFluxLinearSlope"
+    datatype: float
+    description: Linear best fit slope of the g band fluxes.
+    fits:tunit: nJy/day
+  - name: gPSFluxLinearIntercept
+    "@id": "#DiaObject.gPSFluxLinearIntercept"
+    datatype: float
+    description: Linear best fit Intercept of the g band fluxes.
+    fits:tunit: nJy
+  - name: gPSFluxMaxSlope
+    "@id": "#DiaObject.gPSFluxMaxSlope"
+    datatype: float
+    description: Maximum slope between g band flux obsevations max(delta_flux/delta_time)
+    fits:tunit: nJy/day
+  - name: gPSFluxErrMean
+    "@id": "#DiaObject.gPSFluxErrMean"
+    datatype: float
+    description: Mean of the g band flux errors.
+    fits:tunit: nJy
+  - name: rPSFluxMAD
+    "@id": "#DiaObject.rPSFluxMAD"
+    datatype: float
+    description: Median absolute deviation r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxSkew
+    "@id": "#DiaObject.rPSFluxSkew"
+    datatype: float
+    description: Skewness of the r band fluxes.
+  - name: rPSFluxPercentile05
+    "@id": "#DiaObject.rPSFluxPercentile05"
+    datatype: float
+    description: Value at the 5% percentile of the r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxPercentile25
+    "@id": "#DiaObject.rPSFluxPercentile25"
+    datatype: float
+    description: Value at the 25% percentile of the r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxPercentile50
+    "@id": "#DiaObject.rPSFluxPercentile50"
+    datatype: float
+    description: Value at the 50% percentile (median) of the r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxPercentile75
+    "@id": "#DiaObject.rPSFluxPercentile75"
+    datatype: float
+    description: Value at the 75% percentile of the r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxPercentile95
+    "@id": "#DiaObject.rPSFluxPercentile95"
+    datatype: float
+    description: Value at the 95% percentile of the r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxMin
+    "@id": "#DiaObject.rPSFluxMin"
+    datatype: float
+    description: Minimum observed r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxMax
+    "@id": "#DiaObject.rPSFluxMax"
+    datatype: float
+    description: Maximum observed r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxStetsonJ
+    "@id": "#DiaObject.rPSFluxStetsonJ"
+    datatype: float
+    description: StetsonJ statistic for the r band fluxes.
+  - name: rPSFluxLinearSlope
+    "@id": "#DiaObject.rPSFluxLinearSlope"
+    datatype: float
+    description: Linear best fit slope of the r band fluxes.
+    fits:tunit: nJy/day
+  - name: rPSFluxLinearIntercept
+    "@id": "#DiaObject.rPSFluxLinearIntercept"
+    datatype: float
+    description: Linear best fit Intercept of the r band fluxes.
+    fits:tunit: nJy
+  - name: rPSFluxMaxSlope
+    "@id": "#DiaObject.rPSFluxMaxSlope"
+    datatype: float
+    description: Maximum slope between r band flux obsevations max(delta_flux/delta_time)
+    fits:tunit: nJy/day
+  - name: rPSFluxErrMean
+    "@id": "#DiaObject.rPSFluxErrMean"
+    datatype: float
+    description: Mean of the r band flux errors.
+    fits:tunit: nJy
+  - name: iPSFluxMAD
+    "@id": "#DiaObject.iPSFluxMAD"
+    datatype: float
+    description: Median absolute deviation i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxSkew
+    "@id": "#DiaObject.iPSFluxSkew"
+    datatype: float
+    description: Skewness of the i band fluxes.
+  - name: iPSFluxPercentile05
+    "@id": "#DiaObject.iPSFluxPercentile05"
+    datatype: float
+    description: Value at the 5% percentile of the i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxPercentile25
+    "@id": "#DiaObject.iPSFluxPercentile25"
+    datatype: float
+    description: Value at the 25% percentile of the i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxPercentile50
+    "@id": "#DiaObject.iPSFluxPercentile50"
+    datatype: float
+    description: Value at the 50% percentile (median) of the i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxPercentile75
+    "@id": "#DiaObject.iPSFluxPercentile75"
+    datatype: float
+    description: Value at the 75% percentile of the i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxPercentile95
+    "@id": "#DiaObject.iPSFluxPercentile95"
+    datatype: float
+    description: Value at the 95% percentile of the i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxMin
+    "@id": "#DiaObject.iPSFluxMin"
+    datatype: float
+    description: Minimum observed i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxMax
+    "@id": "#DiaObject.iPSFluxMax"
+    datatype: float
+    description: Maximum observed i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxStetsonJ
+    "@id": "#DiaObject.iPSFluxStetsonJ"
+    datatype: float
+    description: StetsonJ statistic for the i band fluxes.
+  - name: iPSFluxLinearSlope
+    "@id": "#DiaObject.iPSFluxLinearSlope"
+    datatype: float
+    description: Linear best fit slope of the i band fluxes.
+    fits:tunit: nJy/day
+  - name: iPSFluxLinearIntercept
+    "@id": "#DiaObject.iPSFluxLinearIntercept"
+    datatype: float
+    description: Linear best fit Intercept of the i band fluxes.
+    fits:tunit: nJy
+  - name: iPSFluxMaxSlope
+    "@id": "#DiaObject.iPSFluxMaxSlope"
+    datatype: float
+    description: Maximum slope between i band flux obsevations max(delta_flux/delta_time)
+    fits:tunit: nJy/day
+  - name: iPSFluxErrMean
+    "@id": "#DiaObject.iPSFluxErrMean"
+    datatype: float
+    description: Mean of the i band flux errors.
+    fits:tunit: nJy
+  - name: zPSFluxMAD
+    "@id": "#DiaObject.zPSFluxMAD"
+    datatype: float
+    description: Median absolute deviation z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxSkew
+    "@id": "#DiaObject.zPSFluxSkew"
+    datatype: float
+    description: Skewness of the z band fluxes.
+  - name: zPSFluxPercentile05
+    "@id": "#DiaObject.zPSFluxPercentile05"
+    datatype: float
+    description: Value at the 5% percentile of the z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxPercentile25
+    "@id": "#DiaObject.zPSFluxPercentile25"
+    datatype: float
+    description: Value at the 25% percentile of the z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxPercentile50
+    "@id": "#DiaObject.zPSFluxPercentile50"
+    datatype: float
+    description: Value at the 50% percentile (median) of the z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxPercentile75
+    "@id": "#DiaObject.zPSFluxPercentile75"
+    datatype: float
+    description: Value at the 75% percentile of the z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxPercentile95
+    "@id": "#DiaObject.zPSFluxPercentile95"
+    datatype: float
+    description: Value at the 95% percentile of the z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxMin
+    "@id": "#DiaObject.zPSFluxMin"
+    datatype: float
+    description: Minimum observed z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxMax
+    "@id": "#DiaObject.zPSFluxMax"
+    datatype: float
+    description: Maximum observed z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxStetsonJ
+    "@id": "#DiaObject.zPSFluxStetsonJ"
+    datatype: float
+    description: StetsonJ statistic for the z band fluxes.
+  - name: zPSFluxLinearSlope
+    "@id": "#DiaObject.zPSFluxLinearSlope"
+    datatype: float
+    description: Linear best fit slope of the z band fluxes.
+    fits:tunit: nJy/day
+  - name: zPSFluxLinearIntercept
+    "@id": "#DiaObject.zPSFluxLinearIntercept"
+    datatype: float
+    description: Linear best fit Intercept of the z band fluxes.
+    fits:tunit: nJy
+  - name: zPSFluxMaxSlope
+    "@id": "#DiaObject.zPSFluxMaxSlope"
+    datatype: float
+    description: Maximum slope between z band flux obsevations max(delta_flux/delta_time)
+    fits:tunit: nJy/day
+  - name: zPSFluxErrMean
+    "@id": "#DiaObject.zPSFluxErrMean"
+    datatype: float
+    description: Mean of the z band flux errors.
+    fits:tunit: nJy
+  - name: yPSFluxMAD
+    "@id": "#DiaObject.yPSFluxMAD"
+    datatype: float
+    description: Median absolute deviation y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxSkew
+    "@id": "#DiaObject.yPSFluxSkew"
+    datatype: float
+    description: Skewness of the y band fluxes.
+  - name: yPSFluxPercentile05
+    "@id": "#DiaObject.yPSFluxPercentile05"
+    datatype: float
+    description: Value at the 5% percentile of the y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxPercentile25
+    "@id": "#DiaObject.yPSFluxPercentile25"
+    datatype: float
+    description: Value at the 25% percentile of the y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxPercentile50
+    "@id": "#DiaObject.yPSFluxPercentile50"
+    datatype: float
+    description: Value at the 50% percentile (median) of the y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxPercentile75
+    "@id": "#DiaObject.yPSFluxPercentile75"
+    datatype: float
+    description: Value at the 75% percentile of the y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxPercentile95
+    "@id": "#DiaObject.yPSFluxPercentile95"
+    datatype: float
+    description: Value at the 95% percentile of the y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxMin
+    "@id": "#DiaObject.yPSFluxMin"
+    datatype: float
+    description: Minimum observed y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxMax
+    "@id": "#DiaObject.yPSFluxMax"
+    datatype: float
+    description: Maximum observed y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxStetsonJ
+    "@id": "#DiaObject.yPSFluxStetsonJ"
+    datatype: float
+    description: StetsonJ statistic for the y band fluxes.
+  - name: yPSFluxLinearSlope
+    "@id": "#DiaObject.yPSFluxLinearSlope"
+    datatype: float
+    description: Linear best fit slope of the y band fluxes.
+    fits:tunit: nJy/day
+  - name: yPSFluxLinearIntercept
+    "@id": "#DiaObject.yPSFluxLinearIntercept"
+    datatype: float
+    description: Linear best fit Intercept of the y band fluxes.
+    fits:tunit: nJy
+  - name: yPSFluxMaxSlope
+    "@id": "#DiaObject.yPSFluxMaxSlope"
+    datatype: float
+    description: Maximum slope between y band flux obsevations max(delta_flux/delta_time)
+    fits:tunit: nJy/day
+  - name: yPSFluxErrMean
+    "@id": "#DiaObject.yPSFluxErrMean"
+    datatype: float
+    description: Mean of the y band flux errors.
+    fits:tunit: nJy
+  - name: flags
+    "@id": "#DiaObject.flags"
+    datatype: long
+    nullable: false
+    value: 0
+    description: Flags, bitwise OR tbd.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.code
+  - name: lastNonForcedSource
+    "@id": "#DiaObject.lastNonForcedSource"
+    datatype: timestamp
+    length: 6
+    nullable: false
+    description: Last time when non-forced DIASource was seen for this object.
+    mysql:datatype: DATETIME
+  - name: nDiaSources
+    "@id": "#DiaObject.nDiaSources"
+    datatype: int
+    nullable: false
+    description: Total number of DiaSources associated with this DiaObject.
+  primaryKey:
+  - "#DiaObject.diaObjectId"
+  - "#DiaObject.validityStart"
+  indexes:
+  - name: IDX_DiaObject_validityStart
+    "@id": "#IDX_DiaObject_validityStart"
+    columns:
+    - "#DiaObject.validityStart"
+  mysql:engine: MyISAM
+  mysql:charset: latin1
+- name: SSObject
+  "@id": "#SSObject"
+  description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
+    Recomputed daily, upon MPCORB ingestion.
+  primaryKey: "#SSObject.ssObjectId"
+  mysql:engine: MyISAM
+  mysql:charset: utf8mb4
+  columns:
+  - name: ssObjectId
+    "@id": "#SSObject.ssObjectId"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: discoverySubmissionDate
+    "@id": "#SSObject.discoverySubmissionDate"
+    datatype: double
+    description: The date the LSST first linked and submitted the discovery observations
+      to the MPC. May be NULL if not an LSST discovery. The date format will follow
+      general LSST conventions (MJD TAI, at the moment).
+    mysql:datatype: DOUBLE
+    fits:tunit: date
+  - name: firstObservationDate
+    "@id": "#SSObject.firstObservationDate"
+    datatype: double
+    description: The time of the first LSST observation of this object (could be precovered)
+    mysql:datatype: DOUBLE
+    fits:tunit: date
+  - name: arc
+    "@id": "#SSObject.arc"
+    datatype: float
+    description: Arc of LSST observations
+    mysql:datatype: FLOAT
+    fits:tunit: days
+  - name: numObs
+    "@id": "#SSObject.numObs"
+    datatype: int
+    description: Number of LSST observations of this object
+    mysql:datatype: INTEGER
+  - name: lcPeriodic
+    "@id": "#SSObject.lcPeriodic"
+    datatype: binary
+    length: 768
+    description: Periodic light curve features computed on phase/distance-corrected
+      magnitudes (H), 6x32 floats
+    mysql:datatype: BLOB(768)
+  - name: MOID
+    "@id": "#SSObject.MOID"
+    datatype: float
+    description: Minimum orbit intersection distance to Earth
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: MOIDTrueAnomaly
+    "@id": "#SSObject.MOIDTrueAnomaly"
+    datatype: float
+    description: True anomaly of the MOID point
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: MOIDEclipticLongitude
+    "@id": "#SSObject.MOIDEclipticLongitude"
+    datatype: float
+    description: Ecliptic longitude of the MOID point
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: MOIDDeltaV
+    "@id": "#SSObject.MOIDDeltaV"
+    datatype: float
+    description: DeltaV at the MOID point
+    mysql:datatype: FLOAT
+    fits:tunit: km/s
+  - name: uH
+    "@id": "#SSObject.uH"
+    datatype: float
+    description: Best fit absolute magnitude (u band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: uG12
+    "@id": "#SSObject.uG12"
+    datatype: float
+    description: Best fit G12 slope parameter (u band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: uHErr
+    "@id": "#SSObject.uHErr"
+    datatype: float
+    description: Uncertainty of H (u band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: uG12Err
+    "@id": "#SSObject.uG12Err"
+    datatype: float
+    description: Uncertainty of G12 (u band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: uH_uG12_Cov
+    "@id": "#SSObject.uH_uG12_Cov"
+    datatype: float
+    description: H-G12 covariance (u band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+    fits:tunit: mag^2
+  - name: uChi2
+    "@id": "#SSObject.uChi2"
+    datatype: float
+    description: Chi^2 statistic of the phase curve fit (u band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: uNdata
+    "@id": "#SSObject.uNdata"
+    datatype: int
+    description: The number of data points used to fit the phase curve (u band)
+    mysql:datatype: INTEGER
+  - name: gH
+    "@id": "#SSObject.gH"
+    datatype: float
+    description: Best fit absolute magnitude (g band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: gG12
+    "@id": "#SSObject.gG12"
+    datatype: float
+    description: Best fit G12 slope parameter (g band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: gHErr
+    "@id": "#SSObject.gHErr"
+    datatype: float
+    description: Uncertainty of H (g band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: gG12Err
+    "@id": "#SSObject.gG12Err"
+    datatype: float
+    description: Uncertainty of G12 (g band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: gH_gG12_Cov
+    "@id": "#SSObject.gH_gG12_Cov"
+    datatype: float
+    description: H-G12 covariance (g band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+    fits:tunit: mag^2
+  - name: gChi2
+    "@id": "#SSObject.gChi2"
+    datatype: float
+    description: Chi^2 statistic of the phase curve fit (g band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: gNdata
+    "@id": "#SSObject.gNdata"
+    datatype: int
+    description: The number of data points used to fit the phase curve (g band)
+    mysql:datatype: INTEGER
+  - name: rH
+    "@id": "#SSObject.rH"
+    datatype: float
+    description: Best fit absolute magnitude (r band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: rG12
+    "@id": "#SSObject.rG12"
+    datatype: float
+    description: Best fit G12 slope parameter (r band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: rHErr
+    "@id": "#SSObject.rHErr"
+    datatype: float
+    description: Uncertainty of H (r band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: rG12Err
+    "@id": "#SSObject.rG12Err"
+    datatype: float
+    description: Uncertainty of G12 (r band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: rH_rG12_Cov
+    "@id": "#SSObject.rH_rG12_Cov"
+    datatype: float
+    description: H-G12 covariance (r band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+    fits:tunit: mag^2
+  - name: rChi2
+    "@id": "#SSObject.rChi2"
+    datatype: float
+    description: Chi^2 statistic of the phase curve fit (r band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: rNdata
+    "@id": "#SSObject.rNdata"
+    datatype: int
+    description: The number of data points used to fit the phase curve (r band)
+    mysql:datatype: INTEGER
+  - name: iH
+    "@id": "#SSObject.iH"
+    datatype: float
+    description: Best fit absolute magnitude (i band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: iG12
+    "@id": "#SSObject.iG12"
+    datatype: float
+    description: Best fit G12 slope parameter (i band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: iHErr
+    "@id": "#SSObject.iHErr"
+    datatype: float
+    description: Uncertainty of H (i band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: iG12Err
+    "@id": "#SSObject.iG12Err"
+    datatype: float
+    description: Uncertainty of G12 (i band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: iH_iG12_Cov
+    "@id": "#SSObject.iH_iG12_Cov"
+    datatype: float
+    description: H-G12 covariance (i band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+    fits:tunit: mag^2
+  - name: iChi2
+    "@id": "#SSObject.iChi2"
+    datatype: float
+    description: Chi^2 statistic of the phase curve fit (i band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: iNdata
+    "@id": "#SSObject.iNdata"
+    datatype: int
+    description: The number of data points used to fit the phase curve (i band)
+    mysql:datatype: INTEGER
+  - name: zH
+    "@id": "#SSObject.zH"
+    datatype: float
+    description: Best fit absolute magnitude (z band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: zG12
+    "@id": "#SSObject.zG12"
+    datatype: float
+    description: Best fit G12 slope parameter (z band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: zHErr
+    "@id": "#SSObject.zHErr"
+    datatype: float
+    description: Uncertainty of H (z band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: zG12Err
+    "@id": "#SSObject.zG12Err"
+    datatype: float
+    description: Uncertainty of G12 (z band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: zH_zG12_Cov
+    "@id": "#SSObject.zH_zG12_Cov"
+    datatype: float
+    description: H-G12 covariance (z band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+    fits:tunit: mag^2
+  - name: zChi2
+    "@id": "#SSObject.zChi2"
+    datatype: float
+    description: Chi^2 statistic of the phase curve fit (z band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: zNdata
+    "@id": "#SSObject.zNdata"
+    datatype: int
+    description: The number of data points used to fit the phase curve (z band)
+    mysql:datatype: INTEGER
+  - name: yH
+    "@id": "#SSObject.yH"
+    datatype: float
+    description: Best fit absolute magnitude (y band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: yG12
+    "@id": "#SSObject.yG12"
+    datatype: float
+    description: Best fit G12 slope parameter (y band)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: yHErr
+    "@id": "#SSObject.yHErr"
+    datatype: float
+    description: Uncertainty of H (y band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: yG12Err
+    "@id": "#SSObject.yG12Err"
+    datatype: float
+    description: Uncertainty of G12 (y band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.error
+    fits:tunit: mag
+  - name: yH_yG12_Cov
+    "@id": "#SSObject.yH_yG12_Cov"
+    datatype: float
+    description: H-G12 covariance (y band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+    fits:tunit: mag^2
+  - name: yChi2
+    "@id": "#SSObject.yChi2"
+    datatype: float
+    description: Chi^2 statistic of the phase curve fit (y band)
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: yNdata
+    "@id": "#SSObject.yNdata"
+    datatype: int
+    description: The number of data points used to fit the phase curve (y band)
+    mysql:datatype: INTEGER
+  - name: maxExtendedness
+    "@id": "#SSObject.maxExtendedness"
+    datatype: float
+    description: maximum `extendedness` value from the DIASource
+    mysql:datatype: FLOAT
+  - name: minExtendedness
+    "@id": "#SSObject.minExtendedness"
+    datatype: float
+    description: minimum `extendedness` value from the DIASource
+    mysql:datatype: FLOAT
+  - name: medianExtendedness
+    "@id": "#SSObject.medianExtendedness"
+    datatype: float
+    description: median `extendedness` value from the DIASource
+    mysql:datatype: FLOAT
+  - name: flags
+    "@id": "#SSObject.flags"
+    datatype: long
+    nullable: false
+    description: Flags, bitwise OR tbd.
+    value: 0
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.code
+- name: DiaSource
+  "@id": "#DiaSource"
+  description: Table to store 'difference image sources'; - sources detected at
+    SNR >=5 on difference images.
+  columns:
+  - name: diaSourceId
+    "@id": "#DiaSource.diaSourceId"
+    datatype: long
+    nullable: false
+    description: Unique id.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;obs.image
+  - name: ccdVisitId
+    "@id": "#DiaSource.ccdVisitId"
+    datatype: long
+    nullable: false
+    description: Id of the ccdVisit where this diaSource was measured. Note that we
+      are allowing a diaSource to belong to multiple amplifiers, but it may not span
+      multiple ccds.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;obs.image
+  - name: diaObjectId
+    "@id": "#DiaSource.diaObjectId"
+    datatype: long
+    nullable: true
+    description: Id of the diaObject this source was associated with, if any. If not,
+      it is set to NULL (each diaSource will be associated with either a diaObject
+      or ssObject).
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: ssObjectId
+    "@id": "#DiaSource.ssObjectId"
+    datatype: long
+    nullable: true
+    description: Id of the ssObject this source was associated with, if any. If not,
+      it is set to NULL (each diaSource will be associated with either a diaObject
+      or ssObject).
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: parentDiaSourceId
+    "@id": "#DiaSource.parentDiaSourceId"
+    datatype: long
+    description: Id of the parent diaSource this diaSource has been deblended from,
+      if any.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: prv_procOrder
+    "@id": "#DiaSource.prv_procOrder"
+    datatype: int
+    nullable: false
+    value: 0
+    description: Position of this diaSource in the processing order relative to other
+      diaSources within a given diaObjectId or ssObjectId.
+    mysql:datatype: INT
+  - name: ssObjectReassocTime
+    "@id": "#DiaSource.ssObjectReassocTime"
+    datatype: timestamp
+    length: 6
+    description: Time when this diaSource was reassociated from diaObject to ssObject
+      (if such reassociation happens, otherwise NULL).
+    mysql:datatype: DATETIME
+  - name: midPointTai
+    "@id": "#DiaSource.midPointTai"
+    datatype: double
+    nullable: false
+    description: Effective mid-exposure time for this diaSource.
+    mysql:datatype: DOUBLE
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: ra
+    "@id": "#DiaSource.ra"
+    datatype: double
+    nullable: false
+    description: RA-coordinate of the center of this diaSource.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: raErr
+    "@id": "#DiaSource.raErr"
+    datatype: float
+    description: Uncertainty of ra.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.ra
+  - name: decl
+    "@id": "#DiaSource.decl"
+    datatype: double
+    nullable: false
+    description: " Decl-coordinate of the center of this diaSource."
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: declErr
+    "@id": "#DiaSource.declErr"
+    datatype: float
+    description: Uncertainty of decl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.dec
+  - name: ra_decl_Cov
+    "@id": "#DiaSource.ra_decl_Cov"
+    datatype: float
+    description: Covariance between ra and decl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
+    ivoa:ucd: stat.covariance
+  - name: x
+    "@id": "#DiaSource.x"
+    datatype: float
+    nullable: false
+    description: x position computed by a centroiding algorithm.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: xErr
+    "@id": "#DiaSource.xErr"
+    datatype: float
+    description: Uncertainty of x.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: stat.error:pos.cartesian.x
+  - name: y
+    "@id": "#DiaSource.y"
+    datatype: float
+    nullable: false
+    description: y position computed by a centroiding algorithm.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: yErr
+    "@id": "#DiaSource.yErr"
+    datatype: float
+    description: Uncertainty of y.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: stat.error:pos.cartesian.y
+  - name: x_y_Cov
+    "@id": "#DiaSource.x_y_Cov"
+    datatype: float
+    description: Covariance between x and y.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel^2
+    ivoa:ucd: stat.covariance
+  - name: apFlux
+    "@id": "#DiaSource.apFlux"
+    datatype: float
+    description: Calibrated aperture flux. Note that this actually measures the difference
+      between the template and the visit image.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: apFluxErr
+    "@id": "#DiaSource.apFluxErr"
+    datatype: float
+    description: Estimated uncertainty of apFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: snr
+    "@id": "#DiaSource.snr"
+    datatype: float
+    description: The signal-to-noise ratio at which this source was detected in the
+      difference image.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.snr
+  - name: psFlux
+    "@id": "#DiaSource.psFlux"
+    datatype: float
+    description: Calibrated flux for Point Source model. Note this actually measures
+      the flux difference between the template and the visit image.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: psFluxErr
+    "@id": "#DiaSource.psFluxErr"
+    datatype: float
+    description: Uncertainty of psFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: psRa
+    "@id": "#DiaSource.psRa"
+    datatype: double
+    description: " RA-coordinate of centroid for point source model."
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: psRaErr
+    "@id": "#DiaSource.psRaErr"
+    datatype: float
+    description: Uncertainty of psRa.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.ra
+  - name: psDecl
+    "@id": "#DiaSource.psDecl"
+    datatype: double
+    description: " Decl-coordinate of centroid for point source model."
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: psDeclErr
+    "@id": "#DiaSource.psDeclErr"
+    datatype: float
+    description: Uncertainty of psDecl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.dec
+  - name: psFlux_psRa_Cov
+    "@id": "#DiaSource.psFlux_psRa_Cov"
+    datatype: float
+    description: Covariance between psFlux and psRa.
+    mysql:datatype: FLOAT
+    fits:tunit: ngmy*deg
+    ivoa:ucd: stat.covariance
+  - name: psFlux_psDecl_Cov
+    "@id": "#DiaSource.psFlux_psDecl_Cov"
+    datatype: float
+    description: Covariance between psFlux and psDecl.
+    mysql:datatype: FLOAT
+    fits:tunit: ngmy*deg
+    ivoa:ucd: stat.covariance
+  - name: psRa_psDecl_Cov
+    "@id": "#DiaSource.psRa_psDecl_Cov"
+    datatype: float
+    description: Covariance between psRa and psDecl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
+    ivoa:ucd: stat.covariance
+  - name: psLnL
+    "@id": "#DiaSource.psLnL"
+    datatype: float
+    description: Natural log likelihood of the observed data given the Point Source
+      model.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.likelihood
+  - name: psChi2
+    "@id": "#DiaSource.psChi2"
+    datatype: float
+    description: Chi^2 statistic of the model fit.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: psNdata
+    "@id": "#DiaSource.psNdata"
+    datatype: int
+    description: The number of data points (pixels) used to fit the model.
+    mysql:datatype: INT
+  - name: trailFlux
+    "@id": "#DiaSource.trailFlux"
+    datatype: float
+    description: Calibrated flux for a trailed source model. Note this actually measures
+      the flux difference between the template and the visit image.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: trailFluxErr
+    "@id": "#DiaSource.trailFluxErr"
+    datatype: float
+    description: Uncertainty of trailFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: trailRa
+    "@id": "#DiaSource.trailRa"
+    datatype: double
+    description: " RA-coordinate of centroid for trailed source model."
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: trailRaErr
+    "@id": "#DiaSource.trailRaErr"
+    datatype: float
+    description: Uncertainty of trailRa.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.ra
+  - name: trailDecl
+    "@id": "#DiaSource.trailDecl"
+    datatype: double
+    description: " Decl-coordinate of centroid for trailed source model."
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: trailDeclErr
+    "@id": "#DiaSource.trailDeclErr"
+    datatype: float
+    description: Uncertainty of trailDecl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.dec
+  - name: trailLength
+    "@id": "#DiaSource.trailLength"
+    datatype: float
+    description: Maximum likelihood fit of trail length.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: trailLengthErr
+    "@id": "#DiaSource.trailLengthErr"
+    datatype: float
+    description: Uncertainty of trailLength.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: trailAngle
+    "@id": "#DiaSource.trailAngle"
+    datatype: float
+    description: Maximum likelihood fit of the angle between the meridian through
+      the centroid and the trail direction (bearing).
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: trailAngleErr
+    "@id": "#DiaSource.trailAngleErr"
+    datatype: float
+    description: Uncertainty of trailAngle.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: trailFlux_trailRa_Cov
+    "@id": "#DiaSource.trailFlux_trailRa_Cov"
+    datatype: float
+    description: Covariance of trailFlux and trailRa.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailFlux_trailDecl_Cov
+    "@id": "#DiaSource.trailFlux_trailDecl_Cov"
+    datatype: float
+    description: Covariance of trailFlux and trailDecl.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailFlux_trailLength_Cov
+    "@id": "#DiaSource.trailFlux_trailLength_Cov"
+    datatype: float
+    description: Covariance of trailFlux and trailLength
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailFlux_trailAngle_Cov
+    "@id": "#DiaSource.trailFlux_trailAngle_Cov"
+    datatype: float
+    description: Covariance of trailFlux and trailAngle
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailRa_trailDecl_Cov
+    "@id": "#DiaSource.trailRa_trailDecl_Cov"
+    datatype: float
+    description: Covariance of trailRa and trailDecl.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailRa_trailLength_Cov
+    "@id": "#DiaSource.trailRa_trailLength_Cov"
+    datatype: float
+    description: Covariance of trailRa and trailLength.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailRa_trailAngle_Cov
+    "@id": "#DiaSource.trailRa_trailAngle_Cov"
+    datatype: float
+    description: Covariance of trailRa and trailAngle.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailDecl_trailLength_Cov
+    "@id": "#DiaSource.trailDecl_trailLength_Cov"
+    datatype: float
+    description: Covariance of trailDecl and trailLength.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailDecl_trailAngle_Cov
+    "@id": "#DiaSource.trailDecl_trailAngle_Cov"
+    datatype: float
+    description: Covariance of trailDecl and trailAngle.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailLength_trailAngle_Cov
+    "@id": "#DiaSource.trailLength_trailAngle_Cov"
+    datatype: float
+    description: Covariance of trailLength and trailAngle
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: trailLnL
+    "@id": "#DiaSource.trailLnL"
+    datatype: float
+    description: Natural log likelihood of the observed data given the trailed source
+      model.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.likelihood
+  - name: trailChi2
+    "@id": "#DiaSource.trailChi2"
+    datatype: float
+    description: Chi^2 statistic of the model fit.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: trailNdata
+    "@id": "#DiaSource.trailNdata"
+    datatype: int
+    nullable: false
+    value: 0
+    description: The number of data points (pixels) used to fit the model.
+    mysql:datatype: INT
+  - name: dipMeanFlux
+    "@id": "#DiaSource.dipMeanFlux"
+    datatype: float
+    description: Maximum likelihood value for the mean absolute flux of the two lobes
+      for a dipole model.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: dipMeanFluxErr
+    "@id": "#DiaSource.dipMeanFluxErr"
+    datatype: float
+    description: Uncertainty of dipMeanFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: dipFluxDiff
+    "@id": "#DiaSource.dipFluxDiff"
+    datatype: float
+    description: Maximum likelihood value for the difference of absolute fluxes of
+      the two lobes for a dipole model.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: dipFluxDiffErr
+    "@id": "#DiaSource.dipFluxDiffErr"
+    datatype: float
+    description: Uncertainty of dipFluxDiff.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error
+  - name: dipRa
+    "@id": "#DiaSource.dipRa"
+    datatype: double
+    description: " RA-coordinate of centroid for dipole model."
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
+  - name: dipRaErr
+    "@id": "#DiaSource.dipRaErr"
+    datatype: float
+    description: Uncertainty of trailRa.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.ra
+  - name: dipDecl
+    "@id": "#DiaSource.dipDecl"
+    datatype: double
+    description: " Decl-coordinate of centroid for dipole model."
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: dipDeclErr
+    "@id": "#DiaSource.dipDeclErr"
+    datatype: float
+    description: Uncertainty of dipDecl.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.eq.dec
+  - name: dipLength
+    "@id": "#DiaSource.dipLength"
+    datatype: float
+    description: Maximum likelihood value for the lobe separation in dipole model.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+    ivoa:ucd: pos.angDistance
+  - name: dipLengthErr
+    "@id": "#DiaSource.dipLengthErr"
+    datatype: float
+    description: Uncertainty of dipLength.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+    ivoa:ucd: stat.error;pos.angDistance
+  - name: dipAngle
+    "@id": "#DiaSource.dipAngle"
+    datatype: float
+    description: Maximum likelihood fit of the angle between the meridian through
+      the centroid and the dipole direction (bearing, from negative to positive lobe).
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: pos.posAng
+  - name: dipAngleErr
+    "@id": "#DiaSource.dipAngleErr"
+    datatype: float
+    description: Uncertainty of dipAngle.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+    ivoa:ucd: stat.error;pos.posAng
+  - name: dipMeanFlux_dipFluxDiff_Cov
+    "@id": "#DiaSource.dipMeanFlux_dipFluxDiff_Cov"
+    datatype: float
+    description: Covariance of dipMeanFlux and dipFluxDiff.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipMeanFlux_dipRa_Cov
+    "@id": "#DiaSource.dipMeanFlux_dipRa_Cov"
+    datatype: float
+    description: Covariance of dipMeanFlux and dipRa.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipMeanFlux_dipDecl_Cov
+    "@id": "#DiaSource.dipMeanFlux_dipDecl_Cov"
+    datatype: float
+    description: Covariance of dipMeanFlux and dipDecl.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipMeanFlux_dipLength_Cov
+    "@id": "#DiaSource.dipMeanFlux_dipLength_Cov"
+    datatype: float
+    description: Covariance of dipMeanFlux and dipLength.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipMeanFlux_dipAngle_Cov
+    "@id": "#DiaSource.dipMeanFlux_dipAngle_Cov"
+    datatype: float
+    description: Covariance of dipMeanFlux and dipAngle.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipFluxDiff_dipRa_Cov
+    "@id": "#DiaSource.dipFluxDiff_dipRa_Cov"
+    datatype: float
+    description: Covariance of dipFluxDiff and dipRa.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipFluxDiff_dipDecl_Cov
+    "@id": "#DiaSource.dipFluxDiff_dipDecl_Cov"
+    datatype: float
+    description: Covariance of dipFluxDiff and dipDecl.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipFluxDiff_dipLength_Cov
+    "@id": "#DiaSource.dipFluxDiff_dipLength_Cov"
+    datatype: float
+    description: Covariance of dipFluxDiff and dipLength.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipFluxDiff_dipAngle_Cov
+    "@id": "#DiaSource.dipFluxDiff_dipAngle_Cov"
+    datatype: float
+    description: Covariance of dipFluxDiff and dipAngle.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipRa_dipDecl_Cov
+    "@id": "#DiaSource.dipRa_dipDecl_Cov"
+    datatype: float
+    description: Covariance of dipRa and dipDecl.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipRa_dipLength_Cov
+    "@id": "#DiaSource.dipRa_dipLength_Cov"
+    datatype: float
+    description: Covariance of dipRa and dipLength.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipRa_dipAngle_Cov
+    "@id": "#DiaSource.dipRa_dipAngle_Cov"
+    datatype: float
+    description: Covariance of dipRa and dipAngle.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipDecl_dipLength_Cov
+    "@id": "#DiaSource.dipDecl_dipLength_Cov"
+    datatype: float
+    description: Covariance of dipDecl and dipLength.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipDecl_dipAngle_Cov
+    "@id": "#DiaSource.dipDecl_dipAngle_Cov"
+    datatype: float
+    description: Covariance of dipDecl and dipAngle.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipLength_dipAngle_Cov
+    "@id": "#DiaSource.dipLength_dipAngle_Cov"
+    datatype: float
+    description: Covariance of dipLength and dipAngle.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.covariance
+  - name: dipLnL
+    "@id": "#DiaSource.dipLnL"
+    datatype: float
+    description: Natural log likelihood of the observed data given the dipole source
+      model.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.likelihood
+  - name: dipChi2
+    "@id": "#DiaSource.dipChi2"
+    datatype: float
+    description: Chi^2 statistic of the model fit.
+    mysql:datatype: FLOAT
+    ivoa:ucd: stat.fit.chi2
+  - name: dipNdata
+    "@id": "#DiaSource.dipNdata"
+    datatype: int
+    nullable: false
+    value: 0
+    description: The number of data points (pixels) used to fit the model.
+    mysql:datatype: INT
+  - name: totFlux
+    "@id": "#DiaSource.totFlux"
+    datatype: float
+    description: Calibrated flux for Point Source model measured on the visit image
+      centered at the centroid measured on the difference image (forced photometry
+      flux).
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: totFluxErr
+    "@id": "#DiaSource.totFluxErr"
+    datatype: float
+    description: Estimated uncertainty of totFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: diffFlux
+    "@id": "#DiaSource.diffFlux"
+    datatype: float
+    description: Calibrated flux for Point Source model centered on radec but measured
+      on the difference of snaps comprising this visit.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+  - name: diffFluxErr
+    "@id": "#DiaSource.diffFluxErr"
+    datatype: float
+    description: Estimated uncertainty of diffFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: fpBkgd
+    "@id": "#DiaSource.fpBkgd"
+    datatype: float
+    description: Estimated sky background at the position (centroid) of the object.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy/asec^2
+  - name: fpBkgdErr
+    "@id": "#DiaSource.fpBkgdErr"
+    datatype: float
+    description: Estimated uncertainty of fpBkgd.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy/asec^2
+  - name: ixx
+    "@id": "#DiaSource.ixx"
+    datatype: float
+    description: Adaptive second moment of the source intensity.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+  - name: ixxErr
+    "@id": "#DiaSource.ixxErr"
+    datatype: float
+    description: Uncertainty of ixx.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+    ivoa:ucd: stat.error
+  - name: iyy
+    "@id": "#DiaSource.iyy"
+    datatype: float
+    description: Adaptive second moment of the source intensity.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+  - name: iyyErr
+    "@id": "#DiaSource.iyyErr"
+    datatype: float
+    description: Uncertainty of iyy.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+    ivoa:ucd: stat.error
+  - name: ixy
+    "@id": "#DiaSource.ixy"
+    datatype: float
+    description: Adaptive second moment of the source intensity.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+  - name: ixyErr
+    "@id": "#DiaSource.ixyErr"
+    datatype: float
+    description: Uncertainty of ixy.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+    ivoa:ucd: stat.error
+  - name: ixx_iyy_Cov
+    "@id": "#DiaSource.ixx_iyy_Cov"
+    datatype: float
+    description: Covariance of ixx and iyy.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy^2*asec^4
+  - name: ixx_ixy_Cov
+    "@id": "#DiaSource.ixx_ixy_Cov"
+    datatype: float
+    description: Covariance of ixx and ixy.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy^2*asec^4
+  - name: iyy_ixy_Cov
+    "@id": "#DiaSource.iyy_ixy_Cov"
+    datatype: float
+    description: Covariance of iyy and ixy.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy^2*asec^4
+  - name: ixxPSF
+    "@id": "#DiaSource.ixxPSF"
+    datatype: float
+    description: Adaptive second moment for the PSF.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+  - name: iyyPSF
+    "@id": "#DiaSource.iyyPSF"
+    datatype: float
+    description: Adaptive second moment for the PSF.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+  - name: ixyPSF
+    "@id": "#DiaSource.ixyPSF"
+    datatype: float
+    description: Adaptive second moment for the PSF.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy*asec^2
+  - name: extendedness
+    "@id": "#DiaSource.extendedness"
+    datatype: float
+    description: A measure of extendedness, Computed using a combination of available
+      moments and model fluxes or from a likelihood ratio of point/trailed source
+      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    mysql:datatype: FLOAT
+  - name: spuriousness
+    "@id": "#DiaSource.spuriousness"
+    datatype: float
+    description: A measure of spuriousness, computed using information from the source
+      and image characterization, as well as the information on the Telescope and
+      Camera system (e.g., ghost maps, defect maps, etc.).
+    mysql:datatype: FLOAT
+  - name: flags
+    "@id": "#DiaSource.flags"
+    datatype: long
+    nullable: false
+    description: Flags, bitwise OR tbd.
+    value: 0
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.code
+  - name: filterName
+    "@id": "#DiaSource.filterName"
+    datatype: char
+    length: 1
+    description: Name of stored filter.
+    mysql:datatype: CHAR(1)
+  - name: isDipole
+    "@id": "#DiaSource.isDipole"
+    datatype: boolean
+    description: Object determined to be a dipole.
+  - name: bboxSize
+    "@id": "#DiaSource.bboxSize"
+    datatype: long
+  primaryKey: "#DiaSource.diaSourceId"
+  indexes:
+  - name: IDX_DiaSource_ccdVisitId
+    "@id": "#IDX_DiaSource_ccdVisitId"
+    columns:
+    - "#DiaSource.ccdVisitId"
+  - name: IDX_DiaSource_diaObjectId
+    "@id": "#IDX_DiaSource_diaObjectId"
+    columns:
+    - "#DiaSource.diaObjectId"
+  - name: IDX_DiaSource_ssObjectId
+    "@id": "#IDX_DiaSource_ssObjectId"
+    columns:
+    - "#DiaSource.ssObjectId"
+  mysql:engine: MyISAM
+  mysql:charset: latin1
+- name: DiaForcedSource
+  "@id": "#DiaForcedSource"
+  description: Forced-photometry source measurement on an individual difference Exposure
+    based on a Multifit shape model derived from a deep detection.
+  columns:
+  - name: diaObjectId
+    "@id": "#DiaForcedSource.diaObjectId"
+    datatype: long
+    nullable: false
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: ccdVisitId
+    "@id": "#DiaForcedSource.ccdVisitId"
+    datatype: long
+    nullable: false
+    description: Id of the visit where this forcedSource was measured. Note that we
+      are allowing a forcedSource to belong to multiple amplifiers, but it may not
+      span multiple ccds.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;obs.image
+  - name: psFlux
+    "@id": "#DiaForcedSource.psFlux"
+    datatype: float
+    description: Point Source model flux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: phot.count
+  - name: psFluxErr
+    "@id": "#DiaForcedSource.psFluxErr"
+    datatype: float
+    description: Uncertainty of psFlux.
+    mysql:datatype: FLOAT
+    fits:tunit: nmgy
+    ivoa:ucd: stat.error;phot.count
+  - name: x
+    "@id": "#DiaForcedSource.x"
+    datatype: float
+    description: x position at which psFlux has been measured.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.x
+  - name: y
+    "@id": "#DiaForcedSource.y"
+    datatype: float
+    description: y position at which psFlux has been measured.
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
+    ivoa:ucd: pos.cartesian.y
+  - name: flags
+    "@id": "#DiaForcedSource.flags"
+    datatype: long
+    nullable: false
+    description: Flags, bitwise OR tbd
+    value: 0
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.code
+  - name: midPointTai
+    "@id": "#DiaForcedSource.midPointTai"
+    datatype: double
+    nullable: false
+    description: Effective mid-exposure time for this diaForcedSource
+    ivoa:ucd: time.epoch
+    fits:tunit: d
+  - name: diaForcedSourceId
+    "@id": "#DiaForcedSource.diaForcedSourceId"
+    datatype: long
+    nullable: false
+    description: Unique id for forced soure.
+  - name: totFlux
+    "@id": "#DiaForcedSource.totFlux"
+    datatype: float
+    description: Point Source model flux measured on the direct image.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: totFluxErr
+    "@id": "#DiaForcedSource.totFluxErr"
+    datatype: float
+    description: Uncertainty of totFlux.
+    ivoa:ucd: stat.error;phot.count
+    fits:tunit: nJy
+  - name: filterName
+    "@id": "#DiaForcedSource.filterName"
+    datatype: char
+    length: 1
+    description: Name of stored filter.
+    ivoa:ucd: meta.id;instr.filter
+    mysql:datatype: CHAR(1)
+  primaryKey:
+  - "#DiaForcedSource.diaObjectId"
+  - "#DiaForcedSource.ccdVisitId"
+  indexes:
+  - name: IDX_DiaForcedSource_ccdVisitId
+    "@id": "#IDX_DiaForcedSource_ccdVisitId"
+    columns:
+    - "#DiaForcedSource.ccdVisitId"
+  mysql:engine: MyISAM
+  mysql:charset: latin1
+- name: DiaObject_To_Object_Match
+  "@id": "#DiaObject_To_Object_Match"
+  description: The table stores mapping of diaObjects to the nearby objects.
+  columns:
+  - name: diaObjectId
+    "@id": "#DiaObject_To_Object_Match.diaObjectId"
+    datatype: long
+    nullable: false
+    description: Id of diaObject.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: objectId
+    "@id": "#DiaObject_To_Object_Match.objectId"
+    datatype: long
+    nullable: false
+    description: Id of a nearby object.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: dist
+    "@id": "#DiaObject_To_Object_Match.dist"
+    datatype: float
+    description: The distance between the diaObject and the object.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: lnP
+    "@id": "#DiaObject_To_Object_Match.lnP"
+    datatype: float
+    description: Natural log of the probability that the observed diaObject is the
+      same as the nearby object.
+    mysql:datatype: FLOAT
+  indexes:
+  - name: IDX_DiaObjectToObjectMatch_diaObjectId
+    "@id": "#IDX_DiaObjectToObjectMatch_diaObjectId"
+    columns:
+    - "#DiaObject_To_Object_Match.diaObjectId"
+  - name: IDX_DiaObjectToObjectMatch_objectId
+    "@id": "#IDX_DiaObjectToObjectMatch_objectId"
+    columns:
+    - "#DiaObject_To_Object_Match.objectId"
+  mysql:engine: MyISAM
+  mysql:charset: latin1
+- name: DiaObjectLast
+  "@id": "#DiaObjectLast"
+  deescription: Table with a subset of DiaObject columns used to store only the
+    latest version of each object.
+  columns:
+  - name: diaObjectId
+    "@id": "#DiaObjectLast.diaObjectId"
+    datatype: long
+    nullable: false
+    description: Unique id.
+    ivoa:ucd: meta.id;src
+  - name: lastNonForcedSource
+    "@id": "#DiaObjectLast.lastNonForcedSource"
+    datatype: timestamp
+    length: 6
+    nullable: false
+    description: Last time when non-forced DIASource was seen for this object.
+  - name: ra
+    "@id": "#DiaObjectLast.ra"
+    datatype: double
+    nullable: false
+    description: RA-coordinate of the position of the object at time radecTai.
+    ivoa:ucd: pos.eq.ra
+    fits:tunit: deg
+  - name: raErr
+    "@id": "#DiaObjectLast.raErr"
+    datatype: float
+    description: Uncertainty of ra.
+    ivoa:ucd: stat.error;pos.eq.ra
+    fits:tunit: deg
+  - name: decl
+    "@id": "#DiaObjectLast.decl"
+    datatype: double
+    nullable: false
+    description: Decl-coordinate of the position of the object at time radecTai.
+    ivoa:ucd: pos.eq.dec
+    fits:tunit: deg
+  - name: declErr
+    "@id": "#DiaObjectLast.declErr"
+    datatype: float
+    description: Uncertainty of decl.
+    ivoa:ucd: stat.error;pos.eq.dec
+    fits:tunit: deg
+  - name: ra_decl_Cov
+    "@id": "#DiaObjectLast.ra_decl_Cov"
+    datatype: float
+    description: Covariance between ra and decl.
+    fits:tunit: deg^2
+  - name: radecTai
+    "@id": "#DiaObjectLast.radecTai"
+    datatype: double
+    nullable: false
+    description: Time at which the object was at a position ra/decl.
+    ivoa:ucd: time.epoch
+  - name: pmRa
+    "@id": "#DiaObjectLast.pmRa"
+    datatype: float
+    description: Proper motion (ra).
+    ivoa:ucd: pos.pm
+    fits:tunit: mas/yr
+  - name: pmRaErr
+    "@id": "#DiaObjectLast.pmRaErr"
+    datatype: float
+    description: Uncertainty of pmRa.
+    ivoa:ucd: stat.error;pos.pm
+    fits:tunit: mas/yr
+  - name: pmDecl
+    "@id": "#DiaObjectLast.pmDecl"
+    datatype: float
+    description: Proper motion (decl).
+    ivoa:ucd: pos.pm
+    fits:tunit: mas/yr
+  - name: pmDeclErr
+    "@id": "#DiaObjectLast.pmDeclErr"
+    datatype: float
+    description: Uncertainty of pmDecl.
+    ivoa:ucd: stat.error;pos.pm
+    fits:tunit: mas/yr
+  - name: parallax
+    "@id": "#DiaObjectLast.parallax"
+    datatype: float
+    description: Parallax.
+    ivoa:ucd: pos.parallax
+    fits:tunit: mas
+  - name: parallaxErr
+    "@id": "#DiaObjectLast.parallaxErr"
+    datatype: float
+    description: Uncertainty of parallax.
+    ivoa:ucd: stat.error;pos.parallax
+    fits:tunit: mas
+  - name: pmRa_pmDecl_Cov
+    "@id": "#DiaObjectLast.pmRa_pmDecl_Cov"
+    datatype: float
+    description: Covariance of pmRa and pmDecl.
+    ivoa:ucd: stat.covariance;pos.eq
+    fits:tunit: (mas/yr)^2
+  - name: pmRa_parallax_Cov
+    "@id": "#DiaObjectLast.pmRa_parallax_Cov"
+    datatype: float
+    description: Covariance of pmRa and parallax.
+    ivoa:ucd: stat.covariance
+    fits:tunit: mas^2/yr
+  - name: pmDecl_parallax_Cov
+    "@id": "#DiaObjectLast.pmDecl_parallax_Cov"
+    datatype: float
+    description: Covariance of pmDecl and parallax.
+    ivoa:ucd: stat.covariance
+    fits:tunit: mas^2/yr
+  primaryKey: "#DiaObjectLast.diaObjectId"
+- name: MPCORB
+  "@id": "#MPCORB"
+  description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
+    O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
+  primaryKey: "#MPCORB.mpcDesignation"
+  mysql:engine: MyISAM
+  mysql:charset: utf8mb4
+  columns:
+  - name: mpcDesignation
+    "@id": "#MPCORB.mpcDesignation"
+    datatype: char
+    length: 8
+    description: 'MPCORB: Number or provisional designation (in packed form)'
+    mysql:datatype: VARCHAR(8)
+    ivoa:ucd: meta.id;src
+  - name: mpcNumber
+    "@id": "#MPCORB.mpcNumber"
+    datatype: int
+    description: MPC number (if the asteroid has been numbered; NULL otherwise). Provided
+      for convenience.
+    mysql:datatype: INTEGER
+  - name: ssObjectId
+    "@id": "#MPCORB.ssObjectId"
+    datatype: long
+    description: LSST unique identifier (if observed by LSST)
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: mpcH
+    "@id": "#MPCORB.mpcH"
+    datatype: float
+    description: 'MPCORB: Absolute magnitude, H'
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: mpcG
+    "@id": "#MPCORB.mpcG"
+    datatype: float
+    description: 'MPCORB: Slope parameter, G'
+    mysql:datatype: FLOAT
+  - name: epoch
+    "@id": "#MPCORB.epoch"
+    datatype: double
+    description: 'MPCORB: Epoch (in MJD, .0 TT)'
+    mysql:datatype: DOUBLE
+    fits:tunit: MJD
+  - name: M
+    "@id": "#MPCORB.M"
+    datatype: double
+    description: 'MPCORB: Mean anomaly at the epoch, in degrees'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees
+  - name: peri
+    "@id": "#MPCORB.peri"
+    datatype: double
+    description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees
+  - name: node
+    "@id": "#MPCORB.node"
+    datatype: double
+    description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees
+  - name: incl
+    "@id": "#MPCORB.incl"
+    datatype: double
+    description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees
+  - name: e
+    "@id": "#MPCORB.e"
+    datatype: double
+    description: 'MPCORB: Orbital eccentricity'
+    mysql:datatype: DOUBLE
+  - name: n
+    "@id": "#MPCORB.n"
+    datatype: double
+    description: 'MPCORB: Mean daily motion (degrees per day)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees/day
+  - name: a
+    "@id": "#MPCORB.a"
+    datatype: double
+    description: 'MPCORB: Semimajor axis (AU)'
+    mysql:datatype: DOUBLE
+    fits:tunit: AU
+  - name: uncertaintyParameter
+    "@id": "#MPCORB.uncertaintyParameter"
+    datatype: char
+    length: 1
+    description: 'MPCORB: Uncertainty parameter, U'
+    mysql:datatype: VARCHAR(1)
+  - name: reference
+    "@id": "#MPCORB.reference"
+    datatype: char
+    length: 9
+    description: 'MPCORB: Reference'
+    mysql:datatype: VARCHAR(9)
+  - name: nobs
+    "@id": "#MPCORB.nobs"
+    datatype: int
+    description: 'MPCORB: Number of observations'
+    mysql:datatype: INTEGER
+  - name: nopp
+    "@id": "#MPCORB.nopp"
+    datatype: int
+    description: 'MPCORB: Number of oppositions'
+    mysql:datatype: INTEGER
+  - name: arc
+    "@id": "#MPCORB.arc"
+    datatype: float
+    description: 'MPCORB: Arc (days), for single-opposition objects'
+    mysql:datatype: FLOAT
+    fits:tunit: days
+  - name: arcStart
+    "@id": "#MPCORB.arcStart"
+    datatype: timestamp
+    description: 'MPCORB: Year of first observation (for multi-opposition objects)'
+    mysql:datatype: DATETIME
+  - name: arcEnd
+    "@id": "#MPCORB.arcEnd"
+    datatype: timestamp
+    description: 'MPCORB: Year of last observation (for multi-opposition objects)'
+    mysql:datatype: DATETIME
+  - name: rms
+    "@id": "#MPCORB.rms"
+    datatype: float
+    description: 'MPCORB: r.m.s residual (")'
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: pertsShort
+    "@id": "#MPCORB.pertsShort"
+    datatype: char
+    length: 3
+    description: 'MPCORB: Coarse indicator of perturbers (blank if unperturbed one-opposition
+      object)'
+    mysql:datatype: VARCHAR(3)
+  - name: pertsLong
+    "@id": "#MPCORB.pertsLong"
+    datatype: char
+    length: 3
+    description: 'MPCORB: Precise indicator of perturbers (blank if unperturbed one-opposition
+      object)'
+    mysql:datatype: VARCHAR(3)
+  - name: computer
+    "@id": "#MPCORB.computer"
+    datatype: char
+    length: 10
+    description: 'MPCORB: Computer name'
+    mysql:datatype: VARCHAR(10)
+  - name: flags
+    "@id": "#MPCORB.flags"
+    datatype: int
+    description: 'MPCORB: 4-hexdigit flags. See https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
+      for details'
+    mysql:datatype: INTEGER
+  - name: fullDesignation
+    "@id": "#MPCORB.fullDesignation"
+    datatype: char
+    length: 26
+    description: 'MPCORB: Readable designation'
+    mysql:datatype: VARCHAR(26)
+  - name: lastIncludedObservation
+    "@id": "#MPCORB.lastIncludedObservation"
+    datatype: float
+    description: 'MPCORB: Date of last observation included in orbit solution'
+    mysql:datatype: FLOAT
+    fits:tunit: MJD
+- name: MPCORBDESIGMAP
+  "@id": "#MPCORBDESIGMAP"
+  description: The mapping between old and new provisional MPC designation, produced
+    by the Minor Planet Center. Ingested daily. O(few x 10M) rows by survey end.
+  primaryKey: "#MPCORBDESIGMAP.mpcDesignation"
+  mysql:engine: MyISAM
+  mysql:charset: utf8mb4
+  columns:
+  - name: mpcDesignation
+    "@id": "#MPCORBDESIGMAP.mpcDesignation"
+    datatype: char
+    length: 8
+    description: Either the MPC provisional or permanent designation
+    mysql:datatype: VARCHAR(8)
+    ivoa:ucd: meta.id;src
+  - name: mpcNumber
+    "@id": "#MPCORBDESIGMAP.mpcNumber"
+    datatype: int
+    description: MPC number (if the asteroid has been numbered)
+    mysql:datatype: INTEGER
+  - name: otherDesignation
+    "@id": "#MPCORBDESIGMAP.otherDesignation"
+    datatype: char
+    length: 8
+    description: Other designation by which this object is known
+    mysql:datatype: VARCHAR(8)
+  - name: ssObjectId
+    "@id": "#MPCORBDESIGMAP.ssObjectId"
+    datatype: long
+    description: LSST unique identifier (if observed by LSST)
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+- name: SSSource
+  "@id": "#SSSource"
+  description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
+    Recomputed daily, upon MPCORB ingestion.
+  primaryKey: "#SSSource.ssObjectId"
+  mysql:engine: MyISAM
+  mysql:charset: utf8mb4
+  columns:
+  - name: ssObjectId
+    "@id": "#SSSource.ssObjectId"
+    datatype: long
+    description: Unique identifier of the object.
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: diaSourceId
+    "@id": "#SSSource.diaSourceId"
+    datatype: long
+    description: Unique identifier of the observation
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: mpcUniqueId
+    "@id": "#SSSource.mpcUniqueId"
+    datatype: long
+    description: MPC unique identifier of the observation
+    mysql:datatype: BIGINT
+  - name: nearbyObj1
+    "@id": "#SSSource.nearbyObj1"
+    datatype: long
+    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
+    mysql:datatype: BIGINT
+  - name: nearbyObj2
+    "@id": "#SSSource.nearbyObj2"
+    datatype: long
+    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
+    mysql:datatype: BIGINT
+  - name: nearbyObj3
+    "@id": "#SSSource.nearbyObj3"
+    datatype: long
+    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
+    mysql:datatype: BIGINT
+  - name: nearbyObj4
+    "@id": "#SSSource.nearbyObj4"
+    datatype: long
+    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
+    mysql:datatype: BIGINT
+  - name: nearbyObj5
+    "@id": "#SSSource.nearbyObj5"
+    datatype: long
+    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
+    mysql:datatype: BIGINT
+  - name: nearbyObj6
+    "@id": "#SSSource.nearbyObj6"
+    datatype: long
+    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
+    mysql:datatype: BIGINT
+  - name: nearbyObjDist1
+    "@id": "#SSSource.nearbyObjDist1"
+    datatype: float
+    description: Distances to nearbyObj
+    mysql:datatype: FLOAT
+  - name: nearbyObjDist2
+    "@id": "#SSSource.nearbyObjDist2"
+    datatype: float
+    description: Distances to nearbyObj
+    mysql:datatype: FLOAT
+  - name: nearbyObjDist3
+    "@id": "#SSSource.nearbyObjDist3"
+    datatype: float
+    description: Distances to nearbyObj
+    mysql:datatype: FLOAT
+  - name: nearbyObjDist4
+    "@id": "#SSSource.nearbyObjDist4"
+    datatype: float
+    description: Distances to nearbyObj
+    mysql:datatype: FLOAT
+  - name: nearbyObjDist5
+    "@id": "#SSSource.nearbyObjDist5"
+    datatype: float
+    description: Distances to nearbyObj
+    mysql:datatype: FLOAT
+  - name: nearbyObjDist6
+    "@id": "#SSSource.nearbyObjDist6"
+    datatype: float
+    description: Distances to nearbyObj
+    mysql:datatype: FLOAT
+  - name: nearbyObjLnP1
+    "@id": "#SSSource.nearbyObjLnP1"
+    datatype: float
+    description: Natural log of the probability that the observed DIAObject is the
+      same as the nearby Object
+    mysql:datatype: FLOAT
+  - name: nearbyObjLnP2
+    "@id": "#SSSource.nearbyObjLnP2"
+    datatype: float
+    description: Natural log of the probability that the observed DIAObject is the
+      same as the nearby Object
+    mysql:datatype: FLOAT
+  - name: nearbyObjLnP3
+    "@id": "#SSSource.nearbyObjLnP3"
+    datatype: float
+    description: Natural log of the probability that the observed DIAObject is the
+      same as the nearby Object
+    mysql:datatype: FLOAT
+  - name: nearbyObjLnP4
+    "@id": "#SSSource.nearbyObjLnP4"
+    datatype: float
+    description: Natural log of the probability that the observed DIAObject is the
+      same as the nearby Object
+    mysql:datatype: FLOAT
+  - name: nearbyObjLnP5
+    "@id": "#SSSource.nearbyObjLnP5"
+    datatype: float
+    description: Natural log of the probability that the observed DIAObject is the
+      same as the nearby Object
+    mysql:datatype: FLOAT
+  - name: nearbyObjLnP6
+    "@id": "#SSSource.nearbyObjLnP6"
+    datatype: float
+    description: Natural log of the probability that the observed DIAObject is the
+      same as the nearby Object
+    mysql:datatype: FLOAT
+  - name: eclipticLambda
+    "@id": "#SSSource.eclipticLambda"
+    datatype: double
+    description: Ecliptic longitude
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: eclipticBeta
+    "@id": "#SSSource.eclipticBeta"
+    datatype: double
+    description: Ecliptic latitude
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: galacticL
+    "@id": "#SSSource.galacticL"
+    datatype: double
+    description: Galactic longitude
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: galacticB
+    "@id": "#SSSource.galacticB"
+    datatype: double
+    description: Galactic latitute
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: phaseAngle
+    "@id": "#SSSource.phaseAngle"
+    datatype: float
+    description: Phase angle
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: heliocentricDist
+    "@id": "#SSSource.heliocentricDist"
+    datatype: float
+    description: Heliocentric distance
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: topocentricDist
+    "@id": "#SSSource.topocentricDist"
+    datatype: float
+    description: Topocentric distace
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: predictedMagnitude
+    "@id": "#SSSource.predictedMagnitude"
+    datatype: float
+    description: Predicted magnitude
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: predictedMagnitudeSigma
+    "@id": "#SSSource.predictedMagnitudeSigma"
+    datatype: float
+    description: Prediction uncertainty (1-sigma)
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: residualRa
+    "@id": "#SSSource.residualRa"
+    datatype: double
+    description: Residual R.A. vs. ephemeris
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: residualDec
+    "@id": "#SSSource.residualDec"
+    datatype: double
+    description: Residual Dec vs. ephemeris
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: predictedRaSigma
+    "@id": "#SSSource.predictedRaSigma"
+    datatype: float
+    description: Predicted R.A. uncertainty
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: predictedDecSigma
+    "@id": "#SSSource.predictedDecSigma"
+    datatype: float
+    description: Predicted Dec uncertainty
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: predictedRaDecCov
+    "@id": "#SSSource.predictedRaDecCov"
+    datatype: float
+    description: Predicted R.A./Dec covariance
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
+  - name: heliocentricX
+    "@id": "#SSSource.heliocentricX"
+    datatype: float
+    description: Cartesian heliocentric coordinates (at the emit time)
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: heliocentricY
+    "@id": "#SSSource.heliocentricY"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: heliocentricZ
+    "@id": "#SSSource.heliocentricZ"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: heliocentricVX
+    "@id": "#SSSource.heliocentricVX"
+    datatype: float
+    description: Cartesian heliocentric velocities (at the emit time)
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: heliocentricVY
+    "@id": "#SSSource.heliocentricVY"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: heliocentricVZ
+    "@id": "#SSSource.heliocentricVZ"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: topocentricX
+    "@id": "#SSSource.topocentricX"
+    datatype: float
+    description: Cartesian topocentric coordinates (at the emit time)
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: topocentricY
+    "@id": "#SSSource.topocentricY"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: topocentricZ
+    "@id": "#SSSource.topocentricZ"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: topocentricVX
+    "@id": "#SSSource.topocentricVX"
+    datatype: float
+    description: Cartesian topocentric velocities (at the emit time)
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: topocentricVY
+    "@id": "#SSSource.topocentricVY"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
+  - name: topocentricVZ
+    "@id": "#SSSource.topocentricVZ"
+    datatype: float
+    description: ''
+    mysql:datatype: FLOAT
+    fits:tunit: AU
