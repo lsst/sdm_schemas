@@ -1,0 +1,31 @@
+Column Name,Datatype,Size,Units,ObsCoreDM Utype,UCD,Principal,Index,Std
+dataproduct_subtype,adql:VARCHAR,TBD,NULL,ObsDataset.dataProductSubtype,meta.id,1,TBD,1
+target_class,adql:VARCHAR,TBD,NULL,Target.class,src.class,1,TBD,1
+obs_creation_date,adql:TIMESTAMP,NULL,NULL,DataID.date,time;meta.dataset,1,TBD,1
+obs_creator_name,adql:VARCHAR,TBD,NULL,DataID.creator,meta.id,1,TBD,1
+obs_creator_did,adql:VARCHAR,TBD,NULL,DataID.creatorDID,meta.id,0,TBD,1
+obs_title,adql:VARCHAR,200,NULL,DataID.title,meta.title;obs,1,0,1
+publisher_id,adql:VARCHAR,TBD,NULL,Curation.publisherID,meta.ref.uri;meta.curation,1,TBD,1
+bib_reference,adql:VARCHAR,TBD,NULL,Curation.reference,meta.bib,0,0,1
+data_rights,adql:VARCHAR,NULL, NULL,Curation.rights,meta.code,0,0,1
+obs_release_date,adql:TIMESTAMP,NULL,NULL,Curation.releaseDate,time.release,1,0,1
+s_ucd,adql:VARCHAR,NULL,NULL,Char.SpatialAxis.ucd,meta.ucd,1,0,1
+s_unit,adql:VARCHAR,NULL,NULL,Char.SpatialAxis.unit,meta.unit,1,0,1
+s_resolution_min,adql:DOUBLE,NULL,arcsec,Char.SpatialAxis.Resolution.Bounds.Limits.LoLimit,pos.angResolution;stat.min,1,0,1
+s_resolution_max,adql:DOUBLE,NULL,arcsec,Char.SpatialAxis.Resolution.Bounds.Limits.HiLimit,pos.angResolution;stat.max,1,0,1
+s_pixel_scale,adql:DOUBLE,NULL,arcsec,Char.SpatialAxis.Sampling.RefVal.SamplingPeriod,phys.angSize;instr.pixel,1,0,1
+s_calib_status,adql:VARCHAR,NULL,NULL,Char.SpatialAxis.calibrationStatus,meta.code.qual,1,0,1
+s_stat_error,adql:DOUBLE,NULL,arcsec,Char.SpatialAxis.Accuracy.StatError.Refval.value,stat.error;pos.eq,0,0,1
+t_calib_status,adql:VARCHAR,NULL,NULL,Char.TimeAxis.calibrationStatus,meta.code.qual,0,0,1
+t_stat_error,adql:DOUBLE,NULL,s,Char.TimeAxis.Accuracy.StatError.Refval.value,stat.error;time,0,0,1
+em_ucd,adql:VARCHAR,NULL,NULL,Char.SpectralAxis.ucd,meta.ucd,1,TBD,1
+em_unit,adql:VARCHAR,NULL,NULL,Char.SpectralAxis.unit,meta.unit,1,0,1
+em_calib_status,adql:VARCHAR,NULL,NULL,Char.SpectralAxis.calibrationStatus,meta.code.qual,0,0,1
+em_res_power_min,adql:DOUBLE,NULL,NULL ,Char.SpectralAxis.Resolution.ResolPower.LoLimit,spect.resolution;stat.min,1,0,1
+em_res_power_max,adql:DOUBLE,NULL,NULL,Char.SpectralAxis.Resolution.ResolPower.HiLimit,spect.resolution;stat.max,1,0,1
+em_resolution,adql:DOUBLE,NULL,m,Char.SpectralAxis.Resolution.Refval.value,spect.resolution;stat.mean,1,0,1
+em_stat_error,adql:DOUBLE,NULL,m,Char.SpectralAxis.Accuracy.StatError.Refval.value,stat.error;em,0,0,1
+o_unit,adql:VARCHAR,NULL,NULL,Char.ObservableAxis.unit,meta.unit,1,0,1
+o_calib_status,adql:VARCHAR,NULL,NULL,Char.ObservableAxis.calibrationStatus,meta.code.qual,1,TBD,1
+o_stat_error,adql:DOUBLE,NULL,same units as the value of the o_unit attribute,Char.ObservableAxis.Accuracy.StatError.Refval.value,stat.error;phot.flux,0,0,1
+proposal_id,adql:VARCHAR,NULL,NULL,Provenance.Proposal.identifier,meta.id;obs.proposal,0,TBD,1
