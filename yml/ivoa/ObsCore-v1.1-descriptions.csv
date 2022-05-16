@@ -1,0 +1,61 @@
+Column Name,Utype,Unit,Type,Description,MAN
+dataproduct_type,ObsDataset.dataProductType,unitless,enum string,Data product (file content) primary type,YES
+dataproduct_subtype,ObsDataset.dataProductSubtype,unitless,string,Data product specific type,NO
+calib_level,ObsDataset.calibLevel,unitless,"enum int","Calibration level of the observation: in {0, 1, 2, 3, 4}",YES
+target_name,Target.name,unitless,string,Object of interest,YES
+target_class,Target.class,unitless,string,Class of the Target object as in SSA,NO
+obs_id,DataID.observationID,unitless,string,Internal ID given by the ObsTAP service,YES
+obs_title,DataID.title,unitless,string,Brief description of dataset in free format,NO
+obs_collection,DataID.collection,unitless,string,Name of the data collection,YES
+obs_creation_date,DataID.date,unitless,date,Date when the dataset was created,NO
+obs_creator_name,DataID.creator,unitless,string,Name of the creator of the data,NO
+obs_creator_did,DataID.creatorDID,unitless,string,IVOA dataset identifier given by the creator,NO
+obs_release_date,Curation.releaseDate,unitless,date,Observation release date (ISO 8601),NO
+obs_publisher_did,Curation.publisherDID,unitless,string,ID for the Dataset given by the publisher,YES
+publisher_id,Curation.publisherID,unitless,string,IVOA-ID for the Publisher,NO
+bib_reference,Curation.reference,unitless,string,Service bibliographic reference,NO
+data_rights,Curation.rights,unitless,enum string,Public/Secure/Proprietary/,NO
+access_url,Access.reference,unitless,string,URL used to access dataset,YES
+access_format,Access.format,unitless,string,Content format of the dataset,YES
+access_estsize,Access.size,kbyte,int,Estimated size of dataset: in kilobytes,YES
+s_ra,Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1,deg,double,"Central Spatial Position in ICRS; Right ascension",YES
+s_dec,Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2,deg,double,"Central Spatial Position in ICRS; Declination",YES
+s_fov,Char.SpatialAxis.Coverage.Bounds.Extent.diameter,deg,double,Estimated size of the covered region as the diameter of a containing circle,YES
+s_region,Char.SpatialAxis.Coverage.Support.Area,,string,Sky region covered by the  data product (expressed in ICRS frame),YES
+s_resolution,Char.SpatialAxis.Resolution.refval.value,arcsec,double,Spatial resolution of data as FWHM of PSF,YES
+s_xel1,Char.SpatialAxis.numBins1,unitless,integer,Number of elements along the first coordinate of the spatial axis,YES
+s_xel2,Char.SpatialAxis.numBins2,unitless,integer,Number of elements along the second coordinate of the spatial axis,YES
+s_ucd,Char.SpatialAxis.ucd,unitless,string,"UCD for the nature of the spatial axis (pos or u,v data)",NO
+s_unit,Char.SpatialAxis.unit,unitless,string,Unit used for spatial axis,NO
+s_resolution_min,Char.SpatialAxis.Resolution.Bounds.Limits.LoLimit,arcsec,double,Resolution min value on spatial axis (FHWM of PSF),NO
+s_resolution_max,Char.SpatialAxis.Resolution.Bounds.Limits.HiLimit,arcsec,double,Resolution max value on spatial axis,NO
+s_calib_status,Char.SpatialAxis.calibrationStatus,unitless,Enum string,Type of calibration along the spatial axis,NO
+s_stat_error,Char.SpatialAxis.Accuracy.StatError.Refval.value,arcsec,double,Astrometric precision along the spatial axis,NO
+s_pixel_scale,Char.SpatialAxis.Sampling.RefVal.SamplingPeriod,arcsec,double,Sampling period in world coordinate units along the spatial axis,NO
+t_xel,Char.TimeAxis.numBins,unitless,integer,Number of elements along the time axis,YES
+t_refpos,Char.TimeAxis.ReferencePosition,unitless,Enum string,"Time Axis Reference Position as defined in STC REC, Section 4.4.1.1.1",NO
+t_min,Char.TimeAxis.Coverage.Bounds.Limits.StartTime,d,double,Start time in MJD,YES
+t_max,Char.TimeAxis.Coverage.Bounds.Limits.StopTime,d,double,Stop time in MJD,YES
+t_exptime,Char.TimeAxis.Coverage.Support.Extent,s,double,Total exposure time,YES
+t_resolution,Char.TimeAxis.Resolution.Refval.valueResolution.Refval.value,s,double,Temporal resolution FWHM,YES
+t_calib_status,Char.TimeAxis.calibrationStatus,unitless,Enum string,Type of time coordinate calibration,NO
+t_stat_error,Char.TimeAxis.Accuracy.StatError.Refval.value,s,double,Time coord statistical error,NO
+em_xel,Char.SpectralAxis.numBins,unitless,integer,Number of elements along the spectral axis,YES
+em_ucd,Char.SpectralAxis.ucd,unitless,string,Nature of the spectral axis,NO
+em_unit,Char.SpectralAxis.unit,unitless,string,Units along the spectral axis,NO
+em_calib_status,Char.SpectralAxis.calibrationStatus,unitless,Enum string,Type of spectral coord calibration,NO
+em_min,Char.SpectralAxis.Coverage.Bounds.Limits.LoLimit,m,double,start in spectral coordinates,YES
+em_max,Char.SpectralAxis.Coverage.Bounds.Limits.HiLimit,m,double,stop in spectral coordinates,YES
+em_res_power,Char.SpectralAxis.Resolution.ResolPower.refVal,unitless,double,Value of the resolving power along the spectral axis (R),YES
+em_res_power_min,Char.SpectralAxis.Resolution.ResolPower.LoLimit,unitless,double,Resolving power min value on spectral axis,NO
+em_res_power_max,Char.SpectralAxis.Resolution.ResolPower.HiLimit,unitless,double,Resolving power max value on spectral axis,NO
+em_resolution,Char.SpectralAxis.Resolution.Refval.value,m,double,Value of Resolution along the spectral axis,NO
+em_stat_error,Char.SpectralAxis.Accuracy.StatError.Refval.value,m,double,Spectral coord statistical error,NO
+o_ucd,Char.ObservableAxis.ucd,unitless,String,Nature of the observable axis,YES
+o_unit,Char.ObservableAxis.unit,unitless, string,Units used for the observable values,NO
+o_calib_status,Char.ObservableAxis.calibrationStatus,unitless,Enum string,Type of calibration for the observable coordinate,NO
+o_stat_error,Char.ObservableAxis.Accuracy.StatError.Refval.value,units specified by o_unit,double,Statistical error on the Observable axis,NO
+pol_xel,Char.PolarizationAxis.numBins,unitless,integer,Number of elements along the polarization axis,YES
+pol_states,Char.PolarizationAxis.stateList,unitless,Enum string,List of polarization states present in the data file,NO
+instrument_name,Provenance.ObsConfig.Instrument.name,unitless,string,The name of the instrument used for the observation,YES
+proposal_id,Provenance.Proposal.identifier,string,string,Identifier of proposal to which observation belongs,NO
