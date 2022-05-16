@@ -1,9 +1,9 @@
 Column Name,Datatype,Size,Units,ObsCoreDM Utype,UCD,Principal,Index,Std
-dataproduct_type,adql:VARCHAR,TBD,NULL,ObsDataset.dataProductType,meta.id,1,TBD,1
+dataproduct_type,adql:VARCHAR,TBD,NULL,ObsDataset.dataProductType,meta.code.class,1,TBD,1
 calib_level,adql:INTEGER,NULL,NULL,ObsDataset.calibLevel,meta.code;obs.calib,1,TBD,1
 obs_collection,adql:VARCHAR,TBD,NULL,DataID.collection,meta.id,1,TBD,1
 obs_id,adql:VARCHAR,TBD,NULL,DataID.observationID,meta.id,1,TBD,1
-obs_publisher_did,adql:VARCHAR,TBD,NULL,Curation.publisherDID,meta.ref.uri;meta.curation,1,TBD,1
+obs_publisher_did,adql:VARCHAR,TBD,NULL,Curation.publisherDID,meta.ref.ivoid,1,TBD,1
 access_url,adql:CLOB,NULL,NULL,Access.reference,meta.ref.url,1,0,1
 access_format,adql:VARCHAR,NULL,NULL,Access.format,meta.code.mime,1,0,1
 access_estsize,adql:BIGINT,NULL,kbyte,Access.size,phys.size;meta.file,1,0,1

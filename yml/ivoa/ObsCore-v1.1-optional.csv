@@ -1,11 +1,11 @@
 Column Name,Datatype,Size,Units,ObsCoreDM Utype,UCD,Principal,Index,Std
-dataproduct_subtype,adql:VARCHAR,TBD,NULL,ObsDataset.dataProductSubtype,meta.id,1,TBD,1
+dataproduct_subtype,adql:VARCHAR,TBD,NULL,ObsDataset.dataProductSubtype,meta.code.class,1,TBD,1
 target_class,adql:VARCHAR,TBD,NULL,Target.class,src.class,1,TBD,1
 obs_creation_date,adql:TIMESTAMP,NULL,NULL,DataID.date,time;meta.dataset,1,TBD,1
 obs_creator_name,adql:VARCHAR,TBD,NULL,DataID.creator,meta.id,1,TBD,1
 obs_creator_did,adql:VARCHAR,TBD,NULL,DataID.creatorDID,meta.id,0,TBD,1
 obs_title,adql:VARCHAR,200,NULL,DataID.title,meta.title;obs,1,0,1
-publisher_id,adql:VARCHAR,TBD,NULL,Curation.publisherID,meta.ref.uri;meta.curation,1,TBD,1
+publisher_id,adql:VARCHAR,TBD,NULL,Curation.publisherID,meta.ref.ivoid,1,TBD,1
 bib_reference,adql:VARCHAR,TBD,NULL,Curation.reference,meta.bib,0,0,1
 data_rights,adql:VARCHAR,NULL, NULL,Curation.rights,meta.code,0,0,1
 obs_release_date,adql:TIMESTAMP,NULL,NULL,Curation.releaseDate,time.release,1,0,1
@@ -27,5 +27,5 @@ em_resolution,adql:DOUBLE,NULL,m,Char.SpectralAxis.Resolution.Refval.value,spect
 em_stat_error,adql:DOUBLE,NULL,m,Char.SpectralAxis.Accuracy.StatError.Refval.value,stat.error;em,0,0,1
 o_unit,adql:VARCHAR,NULL,NULL,Char.ObservableAxis.unit,meta.unit,1,0,1
 o_calib_status,adql:VARCHAR,NULL,NULL,Char.ObservableAxis.calibrationStatus,meta.code.qual,1,TBD,1
-o_stat_error,adql:DOUBLE,NULL,same units as the value of the o_unit attribute,Char.ObservableAxis.Accuracy.StatError.Refval.value,stat.error;phot.flux,0,0,1
+o_stat_error,adql:DOUBLE,NULL,same units as the value of the o_unit attribute,Char.ObservableAxis.Accuracy.StatError.Refval.value,stat.error,0,0,1
 proposal_id,adql:VARCHAR,NULL,NULL,Provenance.Proposal.identifier,meta.id;obs.proposal,0,TBD,1
