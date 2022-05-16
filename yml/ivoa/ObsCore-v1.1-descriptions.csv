@@ -21,7 +21,7 @@ access_estsize,Access.size,kbyte,int,Estimated size of dataset: in kilobytes,YES
 s_ra,Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1,deg,double,"Central Spatial Position in ICRS; Right ascension",YES
 s_dec,Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2,deg,double,"Central Spatial Position in ICRS; Declination",YES
 s_fov,Char.SpatialAxis.Coverage.Bounds.Extent.diameter,deg,double,Estimated size of the covered region as the diameter of a containing circle,YES
-s_region,Char.SpatialAxis.Coverage.Support.Area,,string,Sky region covered by the  data product (expressed in ICRS frame),YES
+s_region,Char.SpatialAxis.Coverage.Support.Area,unitless,string,Sky region covered by the data product (expressed in ICRS frame),YES
 s_resolution,Char.SpatialAxis.Resolution.refval.value,arcsec,double,Spatial resolution of data as FWHM of PSF,YES
 s_xel1,Char.SpatialAxis.numBins1,unitless,integer,Number of elements along the first coordinate of the spatial axis,YES
 s_xel2,Char.SpatialAxis.numBins2,unitless,integer,Number of elements along the second coordinate of the spatial axis,YES
@@ -33,7 +33,6 @@ s_calib_status,Char.SpatialAxis.calibrationStatus,unitless,Enum string,Type of c
 s_stat_error,Char.SpatialAxis.Accuracy.StatError.Refval.value,arcsec,double,Astrometric precision along the spatial axis,NO
 s_pixel_scale,Char.SpatialAxis.Sampling.RefVal.SamplingPeriod,arcsec,double,Sampling period in world coordinate units along the spatial axis,NO
 t_xel,Char.TimeAxis.numBins,unitless,integer,Number of elements along the time axis,YES
-t_refpos,Char.TimeAxis.ReferencePosition,unitless,Enum string,"Time Axis Reference Position as defined in STC REC, Section 4.4.1.1.1",NO
 t_min,Char.TimeAxis.Coverage.Bounds.Limits.StartTime,d,double,Start time in MJD,YES
 t_max,Char.TimeAxis.Coverage.Bounds.Limits.StopTime,d,double,Stop time in MJD,YES
 t_exptime,Char.TimeAxis.Coverage.Support.Extent,s,double,Total exposure time,YES
@@ -56,6 +55,7 @@ o_unit,Char.ObservableAxis.unit,unitless, string,Units used for the observable v
 o_calib_status,Char.ObservableAxis.calibrationStatus,unitless,Enum string,Type of calibration for the observable coordinate,NO
 o_stat_error,Char.ObservableAxis.Accuracy.StatError.Refval.value,units specified by o_unit,double,Statistical error on the Observable axis,NO
 pol_xel,Char.PolarizationAxis.numBins,unitless,integer,Number of elements along the polarization axis,YES
-pol_states,Char.PolarizationAxis.stateList,unitless,Enum string,List of polarization states present in the data file,NO
+pol_states,Char.PolarizationAxis.stateList,unitless,Enum string,List of polarization states present in the data file,YES
+facility_name,Provenance.ObsConfig.Facility.name,unitless,string,"The name of the facility, telescope, or space craft used for the observation",YES
 instrument_name,Provenance.ObsConfig.Instrument.name,unitless,string,The name of the instrument used for the observation,YES
-proposal_id,Provenance.Proposal.identifier,string,string,Identifier of proposal to which observation belongs,NO
+proposal_id,Provenance.Proposal.identifier,unitless,string,Identifier of proposal to which observation belongs,NO
