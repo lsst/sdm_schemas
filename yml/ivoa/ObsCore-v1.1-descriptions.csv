@@ -22,7 +22,7 @@ s_ra,Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1,deg,double,"C
 s_dec,Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2,deg,double,"Central Spatial Position in ICRS; Declination",YES
 s_fov,Char.SpatialAxis.Coverage.Bounds.Extent.diameter,deg,double,Estimated size of the covered region as the diameter of a containing circle,YES
 s_region,Char.SpatialAxis.Coverage.Support.Area,unitless,string,Sky region covered by the data product (expressed in ICRS frame),YES
-s_resolution,Char.SpatialAxis.Resolution.refval.value,arcsec,double,Spatial resolution of data as FWHM of PSF,YES
+s_resolution,Char.SpatialAxis.Resolution.Refval.value,arcsec,double,Spatial resolution of data as FWHM of PSF,YES
 s_xel1,Char.SpatialAxis.numBins1,unitless,integer,Number of elements along the first coordinate of the spatial axis,YES
 s_xel2,Char.SpatialAxis.numBins2,unitless,integer,Number of elements along the second coordinate of the spatial axis,YES
 s_ucd,Char.SpatialAxis.ucd,unitless,string,"UCD for the nature of the spatial axis (pos or u,v data)",NO
@@ -36,7 +36,7 @@ t_xel,Char.TimeAxis.numBins,unitless,integer,Number of elements along the time a
 t_min,Char.TimeAxis.Coverage.Bounds.Limits.StartTime,d,double,Start time in MJD,YES
 t_max,Char.TimeAxis.Coverage.Bounds.Limits.StopTime,d,double,Stop time in MJD,YES
 t_exptime,Char.TimeAxis.Coverage.Support.Extent,s,double,Total exposure time,YES
-t_resolution,Char.TimeAxis.Resolution.Refval.valueResolution.Refval.value,s,double,Temporal resolution FWHM,YES
+t_resolution,Char.TimeAxis.Resolution.Refval.value,s,double,Temporal resolution FWHM,YES
 t_calib_status,Char.TimeAxis.calibrationStatus,unitless,Enum string,Type of time coordinate calibration,NO
 t_stat_error,Char.TimeAxis.Accuracy.StatError.Refval.value,s,double,Time coord statistical error,NO
 em_xel,Char.SpectralAxis.numBins,unitless,integer,Number of elements along the spectral axis,YES
@@ -51,7 +51,7 @@ em_res_power_max,Char.SpectralAxis.Resolution.ResolPower.HiLimit,unitless,double
 em_resolution,Char.SpectralAxis.Resolution.Refval.value,m,double,Value of Resolution along the spectral axis,NO
 em_stat_error,Char.SpectralAxis.Accuracy.StatError.Refval.value,m,double,Spectral coord statistical error,NO
 o_ucd,Char.ObservableAxis.ucd,unitless,String,Nature of the observable axis,YES
-o_unit,Char.ObservableAxis.unit,unitless, string,Units used for the observable values,NO
+o_unit,Char.ObservableAxis.unit,unitless,string,Units used for the observable values,NO
 o_calib_status,Char.ObservableAxis.calibrationStatus,unitless,Enum string,Type of calibration for the observable coordinate,NO
 o_stat_error,Char.ObservableAxis.Accuracy.StatError.Refval.value,units specified by o_unit,double,Statistical error on the Observable axis,NO
 pol_xel,Char.PolarizationAxis.numBins,unitless,integer,Number of elements along the polarization axis,YES
