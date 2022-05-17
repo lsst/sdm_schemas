@@ -5312,6 +5312,24 @@ tables:
     description:
     mysql:datatype: DOUBLE
     fits:tunit:
+  - name: ixxDebiasedPSF
+    "@id": "#Source.ixxDebiasedPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: iyyDebiasedPSF
+    "@id": "#Source.iyyDebiasedPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
+  - name: ixyDebiasedPSF
+    "@id": "#Source.ixyDebiasedPSF"
+    datatype: double
+    description:
+    mysql:datatype: DOUBLE
+    fits.tunit:
   - name: gaussianFlux
     "@id": "#Source.gaussianFlux"
     datatype: double
@@ -5794,6 +5812,42 @@ tables:
     fits:tunit:
   - name: hsmPsfMoments_flag_parent_source
     "@id": "#Source.hsmPsfMoments_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: iDebiasedPSF_flag
+    "@id": "#Source.iDebiasedPSF_flag"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: iDebiasedPSF_flag_no_pixels
+    "@id": "#Source.iDebiasedPSF_flag_no_pixels"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: iDebiasedPSF_flag_not_contained
+    "@id": "#Source.iDebiasedPSF_flag_not_contained"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: iDebiasedPSF_flag_parent_source
+    "@id": "#Source.iDebiasedPSF_flag_parent_source"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: iDebiasedPSF_flag_galsim
+    "@id": "#Source.iDebiasedPSF_flag_galsim"
+    datatype: boolean
+    description:
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: iDebiasedPSF_flag_edge
+    "@id": "#Source.iDebiasedPSF_flag_edge"
     datatype: boolean
     description:
     mysql:datatype: BOOLEAN
