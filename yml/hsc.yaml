@@ -161,13 +161,6 @@ tables:
     description:
     mysql:datatype: BOOLEAN
     fits:tunit:
-  - name: skymap
-    "@id": "#Object.skymap"
-    datatype: char
-    description:
-    length: 12
-    mysql:datatype: CHAR(12)
-    fits:tunit:
   - name: tract
     "@id": "#Object.tract"
     datatype: long
@@ -5901,13 +5894,6 @@ tables:
     description: Name of the band used to take the exposure where this source was measured.
     mysql:datatype: CHAR(1)
     fits:tunit:
-  - name: instrument
-    "@id": "#Source.instrument"
-    datatype: char
-    description:
-    length: 3
-    mysql:datatype: CHAR(3)
-    fits:tunit:
   - name: detector
     "@id": "#Source.detector"
     datatype: long
@@ -5920,12 +5906,6 @@ tables:
     description:
     length: 5
     mysql:datatype: CHAR(5)
-    fits:tunit:
-  - name: visit_system
-    "@id": "#Source.visit_system"
-    datatype: long
-    description:
-    mysql:datatype: BIGINT
     fits:tunit:
   - name: visit
     "@id": "#Source.visit"
