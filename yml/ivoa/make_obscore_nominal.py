@@ -116,13 +116,22 @@ if __name__ == "__main__":
     #TODO - validate the list to ensure it contains only known attributes,
     #       and all the mandatory ones.
 
+    # Add a Felis-compatible datatype mapping from the types provided in the Table 5 data
+    # TODO - this doesn't handle all cases yet, especially "date"
+    felis_types = { "enum int":    ("int", 1),
+                    "integer":     ("long", 1),
+                    "enum string": ("char", '"*"'),
+                    "string":      ("char", '"*"'),
+                    "String":      ("char", '"*"'),
+                    "double":      ("double", 1) }
+
     # emit file-level header describing the file and the single table it defines
     print("---\n"
           "name: ivoa\n"
           "\"@id\": \"#ivoa_obscore\"\n"
           "description: ObsCore v1.1 attributes in ObsTAP realization\n"
           "tables:\n"
-          "- name: ivoa.ObsCore\n"
+          "- name: ObsCore\n"
           "  \"@id\": \"#ObsCore\"\n"
           "  description: Observation metadata in the ObsTAP relational realization of\n"
           "    the IVOA ObsCore data model\n"
@@ -136,7 +145,7 @@ if __name__ == "__main__":
     for col in col_list:
         print(
               "  - name: " + col +
-                   (" # (optional)" if mark_opt and col_data[col]['optional'] else "") + "\n"
+                   ("  # (optional)" if mark_opt and col_data[col]['optional'] else "") + "\n"
               "    \"@id\": \"ObsCore." + col + "\"\n"
               "    description: " + to_yaml(desc_data[col]['Description']) + "\n"
               "    nullable: " + ( "false" if col in not_null else "true" ) + "\n"
@@ -149,9 +158,23 @@ if __name__ == "__main__":
         # In the ObsCore document, from which the CSV files were copied, columns with
         # suggested null values have the string "NULL", which we should not emit into Felis.
         col_units = col_data[col]['Units']
-        if col_units == 'NULL': col_units = ''
-        print(
-              "    ivoa:unit: " + col_units
-              )
+        if col_units == 'NULL':
+            print(
+                  "    ivoa:unit:"
+                 )
+        else:
+            print(
+                  "    ivoa:unit: " + col_units
+                 )
 
-        
+        # Output the data type, which may be an array
+        ftype = felis_types[desc_data[col]["Type"]]
+        if ftype[1] == 1:
+            print(
+                  "    datatype: " + ftype[0]
+                 )
+        else:
+            print(
+                  "    datatype: " + ftype[0] + "\n"
+                  "    votable:arraysize: " + ftype[1]
+                 )
