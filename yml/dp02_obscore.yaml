@@ -18,7 +18,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 128
   - name: dataproduct_subtype
     "@id": "ObsCore.dataproduct_subtype"
     description: Data product specific type
@@ -29,7 +29,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 64
   - name: facility_name
     "@id": "ObsCore.facility_name"
     description: The name of the facility, telescope, or space craft used for the observation
@@ -40,7 +40,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 128
   - name: calib_level
     "@id": "ObsCore.calib_level"
     description: "Calibration level of the observation: in {0, 1, 2, 3, 4}"
@@ -61,7 +61,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 32
   - name: obs_id
     "@id": "ObsCore.obs_id"
     description: Internal ID given by the ObsTAP service
@@ -72,7 +72,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 128
   - name: obs_collection
     "@id": "ObsCore.obs_collection"
     description: Name of the data collection
@@ -83,7 +83,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 128
   - name: obs_publisher_did
     "@id": "ObsCore.obs_publisher_did"
     description: ID for the Dataset given by the publisher
@@ -94,7 +94,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 256
   - name: access_url
     "@id": "ObsCore.access_url"
     description: URL used to access dataset
@@ -116,7 +116,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 128
   - name: s_ra
     "@id": "ObsCore.s_ra"
     description: Central Spatial Position in ICRS; Right ascension
@@ -157,7 +157,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 512
   - name: s_resolution
     "@id": "ObsCore.s_resolution"
     description: Spatial resolution of data as FWHM of PSF
@@ -288,7 +288,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 32
   - name: pol_xel
     "@id": "ObsCore.pol_xel"
     description: Number of elements along the polarization axis
@@ -309,4 +309,4 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: char
-    votable:arraysize: "*"
+    votable:arraysize: 128
