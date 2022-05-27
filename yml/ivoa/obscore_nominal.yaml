@@ -1,0 +1,550 @@
+---
+name: ivoa
+"@id": "#ivoa_obscore"
+description: ObsCore v1.1 attributes in ObsTAP realization
+tables:
+- name: ivoa.ObsCore
+  "@id": "#ObsCore"
+  description: Observation metadata in the ObsTAP relational realization of
+    the IVOA ObsCore data model
+  columns:
+  - name: dataproduct_type
+    "@id": "ObsCore.dataproduct_type"
+    description: Data product (file content) primary type
+    nullable: true
+    ivoa:ucd: meta.code.class
+    votable:utype: ObsDataset.dataProductType
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: calib_level
+    "@id": "ObsCore.calib_level"
+    description: "Calibration level of the observation: in {0, 1, 2, 3, 4}"
+    nullable: false
+    ivoa:ucd: meta.code;obs.calib
+    votable:utype: ObsDataset.calibLevel
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: obs_collection
+    "@id": "ObsCore.obs_collection"
+    description: Name of the data collection
+    nullable: false
+    ivoa:ucd: meta.id
+    votable:utype: DataID.collection
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: obs_id
+    "@id": "ObsCore.obs_id"
+    description: Internal ID given by the ObsTAP service
+    nullable: false
+    ivoa:ucd: meta.id
+    votable:utype: DataID.observationID
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: obs_publisher_did
+    "@id": "ObsCore.obs_publisher_did"
+    description: ID for the Dataset given by the publisher
+    nullable: false
+    ivoa:ucd: meta.ref.ivoid
+    votable:utype: Curation.publisherDID
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: access_url
+    "@id": "ObsCore.access_url"
+    description: URL used to access dataset
+    nullable: true
+    ivoa:ucd: meta.ref.url
+    votable:utype: Access.reference
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: access_format
+    "@id": "ObsCore.access_format"
+    description: Content format of the dataset
+    nullable: true
+    ivoa:ucd: meta.code.mime
+    votable:utype: Access.format
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: access_estsize
+    "@id": "ObsCore.access_estsize"
+    description: "Estimated size of dataset: in kilobytes"
+    nullable: true
+    ivoa:ucd: phys.size;meta.file
+    votable:utype: Access.size
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: kbyte
+  - name: target_name
+    "@id": "ObsCore.target_name"
+    description: Object of interest
+    nullable: true
+    ivoa:ucd: meta.id;src
+    votable:utype: Target.name
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: s_ra
+    "@id": "ObsCore.s_ra"
+    description: Central Spatial Position in ICRS; Right ascension
+    nullable: true
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+  - name: s_dec
+    "@id": "ObsCore.s_dec"
+    description: Central Spatial Position in ICRS; Declination
+    nullable: true
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+  - name: s_fov
+    "@id": "ObsCore.s_fov"
+    description: Estimated size of the covered region as the diameter of a containing circle
+    nullable: true
+    ivoa:ucd: phys.angSize;instr.fov
+    votable:utype: Char.SpatialAxis.Coverage.Bounds.Extent.diameter
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+  - name: s_region
+    "@id": "ObsCore.s_region"
+    description: Sky region covered by the data product (expressed in ICRS frame)
+    nullable: true
+    ivoa:ucd: pos.outline;obs.field
+    votable:utype: Char.SpatialAxis.Coverage.Support.Area
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: s_resolution
+    "@id": "ObsCore.s_resolution"
+    description: Spatial resolution of data as FWHM of PSF
+    nullable: true
+    ivoa:ucd: pos.angResolution
+    votable:utype: Char.SpatialAxis.Resolution.Refval.value
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: arcsec
+  - name: s_xel1
+    "@id": "ObsCore.s_xel1"
+    description: Number of elements along the first coordinate of the spatial axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.SpatialAxis.numBins1
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: s_xel2
+    "@id": "ObsCore.s_xel2"
+    description: Number of elements along the second coordinate of the spatial axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.SpatialAxis.numBins2
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: t_min
+    "@id": "ObsCore.t_min"
+    description: Start time in MJD
+    nullable: true
+    ivoa:ucd: time.start;obs.exposure
+    votable:utype: Char.TimeAxis.Coverage.Bounds.Limits.StartTime
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: d
+  - name: t_max
+    "@id": "ObsCore.t_max"
+    description: Stop time in MJD
+    nullable: true
+    ivoa:ucd: time.end;obs.exposure
+    votable:utype: Char.TimeAxis.Coverage.Bounds.Limits.StopTime
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: d
+  - name: t_exptime
+    "@id": "ObsCore.t_exptime"
+    description: Total exposure time
+    nullable: true
+    ivoa:ucd: time.duration;obs.exposure
+    votable:utype: Char.TimeAxis.Coverage.Support.Extent
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: s
+  - name: t_resolution
+    "@id": "ObsCore.t_resolution"
+    description: Temporal resolution FWHM
+    nullable: true
+    ivoa:ucd: time.resolution
+    votable:utype: Char.TimeAxis.Resolution.Refval.value
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: s
+  - name: t_xel
+    "@id": "ObsCore.t_xel"
+    description: Number of elements along the time axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.TimeAxis.numBins
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: em_min
+    "@id": "ObsCore.em_min"
+    description: start in spectral coordinates
+    nullable: true
+    ivoa:ucd: em.wl;stat.min
+    votable:utype: Char.SpectralAxis.Coverage.Bounds.Limits.LoLimit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: m
+  - name: em_max
+    "@id": "ObsCore.em_max"
+    description: stop in spectral coordinates
+    nullable: true
+    ivoa:ucd: em.wl;stat.max
+    votable:utype: Char.SpectralAxis.Coverage.Bounds.Limits.HiLimit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: m
+  - name: em_res_power
+    "@id": "ObsCore.em_res_power"
+    description: Value of the resolving power along the spectral axis (R)
+    nullable: true
+    ivoa:ucd: spect.resolution
+    votable:utype: Char.SpectralAxis.Resolution.ResolPower.refVal
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: em_xel
+    "@id": "ObsCore.em_xel"
+    description: Number of elements along the spectral axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.SpectralAxis.numBins
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: o_ucd
+    "@id": "ObsCore.o_ucd"
+    description: Nature of the observable axis
+    nullable: true
+    ivoa:ucd: meta.ucd
+    votable:utype: Char.ObservableAxis.ucd
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: pol_states
+    "@id": "ObsCore.pol_states"
+    description: List of polarization states present in the data file
+    nullable: true
+    ivoa:ucd: meta.code;phys.polarization
+    votable:utype: Char.PolarizationAxis.stateList
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: pol_xel
+    "@id": "ObsCore.pol_xel"
+    description: Number of elements along the polarization axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.PolarizationAxis.numBins
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: facility_name
+    "@id": "ObsCore.facility_name"
+    description: The name of the facility, telescope, or space craft used for the observation
+    nullable: true
+    ivoa:ucd: meta.id;instr.tel
+    votable:utype: Provenance.ObsConfig.Facility.name
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: instrument_name
+    "@id": "ObsCore.instrument_name"
+    description: The name of the instrument used for the observation
+    nullable: true
+    ivoa:ucd: meta.id;instr
+    votable:utype: Provenance.ObsConfig.Instrument.name
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: dataproduct_subtype  # (optional)
+    "@id": "ObsCore.dataproduct_subtype"
+    description: Data product specific type
+    nullable: true
+    ivoa:ucd: meta.code.class
+    votable:utype: ObsDataset.dataProductSubtype
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: target_class  # (optional)
+    "@id": "ObsCore.target_class"
+    description: Class of the Target object as in SSA
+    nullable: true
+    ivoa:ucd: src.class
+    votable:utype: Target.class
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: obs_creation_date  # (optional)
+    "@id": "ObsCore.obs_creation_date"
+    description: Date when the dataset was created
+    nullable: true
+    ivoa:ucd: time;meta.dataset
+    votable:utype: DataID.date
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: obs_creator_name  # (optional)
+    "@id": "ObsCore.obs_creator_name"
+    description: Name of the creator of the data
+    nullable: true
+    ivoa:ucd: meta.id
+    votable:utype: DataID.creator
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: obs_creator_did  # (optional)
+    "@id": "ObsCore.obs_creator_did"
+    description: IVOA dataset identifier given by the creator
+    nullable: true
+    ivoa:ucd: meta.id
+    votable:utype: DataID.creatorDID
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit:
+  - name: obs_title  # (optional)
+    "@id": "ObsCore.obs_title"
+    description: Brief description of dataset in free format
+    nullable: true
+    ivoa:ucd: meta.title;obs
+    votable:utype: DataID.title
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: publisher_id  # (optional)
+    "@id": "ObsCore.publisher_id"
+    description: IVOA-ID for the Publisher
+    nullable: true
+    ivoa:ucd: meta.ref.ivoid
+    votable:utype: Curation.publisherID
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: bib_reference  # (optional)
+    "@id": "ObsCore.bib_reference"
+    description: Service bibliographic reference
+    nullable: true
+    ivoa:ucd: meta.bib
+    votable:utype: Curation.reference
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit:
+  - name: data_rights  # (optional)
+    "@id": "ObsCore.data_rights"
+    description: Public/Secure/Proprietary/
+    nullable: true
+    ivoa:ucd: meta.code
+    votable:utype: Curation.rights
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit:
+  - name: obs_release_date  # (optional)
+    "@id": "ObsCore.obs_release_date"
+    description: Observation release date (ISO 8601)
+    nullable: true
+    ivoa:ucd: time.release
+    votable:utype: Curation.releaseDate
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: s_ucd  # (optional)
+    "@id": "ObsCore.s_ucd"
+    description: UCD for the nature of the spatial axis (pos or u,v data)
+    nullable: true
+    ivoa:ucd: meta.ucd
+    votable:utype: Char.SpatialAxis.ucd
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: s_unit  # (optional)
+    "@id": "ObsCore.s_unit"
+    description: Unit used for spatial axis
+    nullable: true
+    ivoa:ucd: meta.unit
+    votable:utype: Char.SpatialAxis.unit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: s_resolution_min  # (optional)
+    "@id": "ObsCore.s_resolution_min"
+    description: Resolution min value on spatial axis (FHWM of PSF)
+    nullable: true
+    ivoa:ucd: pos.angResolution;stat.min
+    votable:utype: Char.SpatialAxis.Resolution.Bounds.Limits.LoLimit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: arcsec
+  - name: s_resolution_max  # (optional)
+    "@id": "ObsCore.s_resolution_max"
+    description: Resolution max value on spatial axis
+    nullable: true
+    ivoa:ucd: pos.angResolution;stat.max
+    votable:utype: Char.SpatialAxis.Resolution.Bounds.Limits.HiLimit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: arcsec
+  - name: s_pixel_scale  # (optional)
+    "@id": "ObsCore.s_pixel_scale"
+    description: Sampling period in world coordinate units along the spatial axis
+    nullable: true
+    ivoa:ucd: phys.angSize;instr.pixel
+    votable:utype: Char.SpatialAxis.Sampling.RefVal.SamplingPeriod
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: arcsec
+  - name: s_calib_status  # (optional)
+    "@id": "ObsCore.s_calib_status"
+    description: Type of calibration along the spatial axis
+    nullable: true
+    ivoa:ucd: meta.code.qual
+    votable:utype: Char.SpatialAxis.calibrationStatus
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: s_stat_error  # (optional)
+    "@id": "ObsCore.s_stat_error"
+    description: Astrometric precision along the spatial axis
+    nullable: true
+    ivoa:ucd: stat.error;pos.eq
+    votable:utype: Char.SpatialAxis.Accuracy.StatError.Refval.value
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit: arcsec
+  - name: t_calib_status  # (optional)
+    "@id": "ObsCore.t_calib_status"
+    description: Type of time coordinate calibration
+    nullable: true
+    ivoa:ucd: meta.code.qual
+    votable:utype: Char.TimeAxis.calibrationStatus
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit:
+  - name: t_stat_error  # (optional)
+    "@id": "ObsCore.t_stat_error"
+    description: Time coord statistical error
+    nullable: true
+    ivoa:ucd: stat.error;time
+    votable:utype: Char.TimeAxis.Accuracy.StatError.Refval.value
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit: s
+  - name: em_ucd  # (optional)
+    "@id": "ObsCore.em_ucd"
+    description: Nature of the spectral axis
+    nullable: true
+    ivoa:ucd: meta.ucd
+    votable:utype: Char.SpectralAxis.ucd
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: em_unit  # (optional)
+    "@id": "ObsCore.em_unit"
+    description: Units along the spectral axis
+    nullable: true
+    ivoa:ucd: meta.unit
+    votable:utype: Char.SpectralAxis.unit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: em_calib_status  # (optional)
+    "@id": "ObsCore.em_calib_status"
+    description: Type of spectral coord calibration
+    nullable: true
+    ivoa:ucd: meta.code.qual
+    votable:utype: Char.SpectralAxis.calibrationStatus
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit:
+  - name: em_res_power_min  # (optional)
+    "@id": "ObsCore.em_res_power_min"
+    description: Resolving power min value on spectral axis
+    nullable: true
+    ivoa:ucd: spect.resolution;stat.min
+    votable:utype: Char.SpectralAxis.Resolution.ResolPower.LoLimit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: em_res_power_max  # (optional)
+    "@id": "ObsCore.em_res_power_max"
+    description: Resolving power max value on spectral axis
+    nullable: true
+    ivoa:ucd: spect.resolution;stat.max
+    votable:utype: Char.SpectralAxis.Resolution.ResolPower.HiLimit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: em_resolution  # (optional)
+    "@id": "ObsCore.em_resolution"
+    description: Value of Resolution along the spectral axis
+    nullable: true
+    ivoa:ucd: spect.resolution;stat.mean
+    votable:utype: Char.SpectralAxis.Resolution.Refval.value
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: m
+  - name: em_stat_error  # (optional)
+    "@id": "ObsCore.em_stat_error"
+    description: Spectral coord statistical error
+    nullable: true
+    ivoa:ucd: stat.error;em
+    votable:utype: Char.SpectralAxis.Accuracy.StatError.Refval.value
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit: m
+  - name: o_unit  # (optional)
+    "@id": "ObsCore.o_unit"
+    description: Units used for the observable values
+    nullable: true
+    ivoa:ucd: meta.unit
+    votable:utype: Char.ObservableAxis.unit
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: o_calib_status  # (optional)
+    "@id": "ObsCore.o_calib_status"
+    description: Type of calibration for the observable coordinate
+    nullable: true
+    ivoa:ucd: meta.code.qual
+    votable:utype: Char.ObservableAxis.calibrationStatus
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+  - name: o_stat_error  # (optional)
+    "@id": "ObsCore.o_stat_error"
+    description: Statistical error on the Observable axis
+    nullable: true
+    ivoa:ucd: stat.error
+    votable:utype: Char.ObservableAxis.Accuracy.StatError.Refval.value
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit: same units as the value of the o_unit attribute
+  - name: proposal_id  # (optional)
+    "@id": "ObsCore.proposal_id"
+    description: Identifier of proposal to which observation belongs
+    nullable: true
+    ivoa:ucd: meta.id;obs.proposal
+    votable:utype: Provenance.Proposal.identifier
+    tap:std: 1
+    tap:principal: 0
+    ivoa:unit:
