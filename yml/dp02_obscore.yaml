@@ -16,7 +16,7 @@ tables:
     votable:utype: ObsDataset.dataProductType
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: dataproduct_subtype
     "@id": "ObsCore.dataproduct_subtype"
     description: Data product specific type
@@ -25,7 +25,7 @@ tables:
     votable:utype: ObsDataset.dataProductSubtype
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: facility_name
     "@id": "ObsCore.facility_name"
     description: The name of the facility, telescope, or space craft used for the observation
@@ -34,7 +34,7 @@ tables:
     votable:utype: Provenance.ObsConfig.Facility.name
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: calib_level
     "@id": "ObsCore.calib_level"
     description: "Calibration level of the observation: in {0, 1, 2, 3, 4}"
@@ -43,7 +43,7 @@ tables:
     votable:utype: ObsDataset.calibLevel
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: target_name
     "@id": "ObsCore.target_name"
     description: Object of interest
@@ -52,7 +52,7 @@ tables:
     votable:utype: Target.name
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: obs_id
     "@id": "ObsCore.obs_id"
     description: Internal ID given by the ObsTAP service
@@ -61,7 +61,7 @@ tables:
     votable:utype: DataID.observationID
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: obs_collection
     "@id": "ObsCore.obs_collection"
     description: Name of the data collection
@@ -70,7 +70,7 @@ tables:
     votable:utype: DataID.collection
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: obs_publisher_did
     "@id": "ObsCore.obs_publisher_did"
     description: ID for the Dataset given by the publisher
@@ -79,7 +79,7 @@ tables:
     votable:utype: Curation.publisherDID
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: access_url
     "@id": "ObsCore.access_url"
     description: URL used to access dataset
@@ -88,7 +88,7 @@ tables:
     votable:utype: Access.reference
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: access_format
     "@id": "ObsCore.access_format"
     description: Content format of the dataset
@@ -97,7 +97,7 @@ tables:
     votable:utype: Access.format
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: s_ra
     "@id": "ObsCore.s_ra"
     description: Central Spatial Position in ICRS; Right ascension
@@ -133,7 +133,7 @@ tables:
     votable:utype: Char.SpatialAxis.Coverage.Support.Area
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: s_resolution
     "@id": "ObsCore.s_resolution"
     description: Spatial resolution of data as FWHM of PSF
@@ -151,7 +151,7 @@ tables:
     votable:utype: Char.SpatialAxis.numBins1
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: s_xel2
     "@id": "ObsCore.s_xel2"
     description: Number of elements along the second coordinate of the spatial axis
@@ -160,7 +160,7 @@ tables:
     votable:utype: Char.SpatialAxis.numBins2
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: t_xel
     "@id": "ObsCore.t_xel"
     description: Number of elements along the time axis
@@ -169,7 +169,7 @@ tables:
     votable:utype: Char.TimeAxis.numBins
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: t_min
     "@id": "ObsCore.t_min"
     description: Start time in MJD
@@ -214,7 +214,7 @@ tables:
     votable:utype: Char.SpectralAxis.numBins
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: em_min
     "@id": "ObsCore.em_min"
     description: start in spectral coordinates
@@ -241,7 +241,7 @@ tables:
     votable:utype: Char.SpectralAxis.Resolution.ResolPower.refVal
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: o_ucd
     "@id": "ObsCore.o_ucd"
     description: Nature of the observable axis
@@ -250,7 +250,7 @@ tables:
     votable:utype: Char.ObservableAxis.ucd
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: pol_xel
     "@id": "ObsCore.pol_xel"
     description: Number of elements along the polarization axis
@@ -259,7 +259,7 @@ tables:
     votable:utype: Char.PolarizationAxis.numBins
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
   - name: instrument_name
     "@id": "ObsCore.instrument_name"
     description: The name of the instrument used for the observation
@@ -268,4 +268,4 @@ tables:
     votable:utype: Provenance.ObsConfig.Instrument.name
     tap:std: 1
     tap:principal: 1
-    ivoa:unit: 
+    ivoa:unit:
