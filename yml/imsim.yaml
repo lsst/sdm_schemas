@@ -7739,337 +7739,404 @@ tables:
     "@id": "#DiaSource.apFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux within 12.000000-pixel aperture
+    fits:tunit: nanojansky
   - name: apFluxErr
     "@id": "#DiaSource.apFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture
+    fits:tunit: nanojansky
   - name: apFlux_flag
     "@id": "#DiaSource.apFlux_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: General Failure Flag
+    fits:tunit:
   - name: apFlux_flag_apertureTruncated
     "@id": "#DiaSource.apFlux_flag_apertureTruncated"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Aperture did not fit within measurement image
+    fits:tunit:
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Bounding box of diaSource footprint
+    fits:tunit:
   - name: ccdVisitId
     "@id": "#DiaSource.ccdVisitId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
+    fits:tunit:
   - name: centroid_flag
     "@id": "#DiaSource.centroid_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: General failure flag, set if anything went wrong
+    fits:tunit:
   - name: centroid_neg_flag
     "@id": "#DiaSource.centroid_neg_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure flag for negative, set if anything went wrong
+    fits:tunit:
   - name: centroid_pos_flag
     "@id": "#DiaSource.centroid_pos_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure flag for positive, set if anything went wrong
+    fits:tunit:
   - name: coord_dec
     "@id": "#DiaSource.coord_dec"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Fiducial ICRS Declination of centroid used for database indexing
+    fits:tunit: deg
   - name: coord_ra
     "@id": "#DiaSource.coord_ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Fiducial ICRS Right Ascension of centroid used for database indexing
+    fits:tunit: deg
   - name: decl
     "@id": "#DiaSource.decl"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Position in ra/dec
+    fits:tunit:
   - name: diaObjectId
     "@id": "#DiaSource.diaObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique DiaObject ID. Primary Key of the DIA Object Table
+    fits:tunit:
   - name: diaSourceId
     "@id": "#DiaSource.diaSourceId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique ID
+    fits:tunit:
   - name: dipAngle
     "@id": "#DiaSource.dipAngle"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Dipole orientation
+    fits:tunit: deg
   - name: dipChi2
     "@id": "#DiaSource.dipChi2"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Chi2 per degree of freedom of dipole fit
+    fits:tunit:
   - name: dipFluxDiff
     "@id": "#DiaSource.dipFluxDiff"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Raw flux counts, positive lobe
+    fits:tunit: nanojansky
   - name: dipFluxDiffErr
     "@id": "#DiaSource.dipFluxDiffErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Raw flux uncertainty counts, positive lobe
+    fits:tunit: nanojansky
   - name: dipLength
     "@id": "#DiaSource.dipLength"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Pixel separation between positive and negative lobes of dipole
+    fits:tunit: pixel
   - name: dipMeanFlux
     "@id": "#DiaSource.dipMeanFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Raw flux counts, positive lobe
+    fits:tunit: count
   - name: dipMeanFluxErr
     "@id": "#DiaSource.dipMeanFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Raw flux uncertainty counts, positive lobe
+    fits:tunit: count
   - name: filterName
     "@id": "#DiaSource.filterName"
     datatype: char
     mysql:datatype: CHAR()
-    description:
+    description: Band used to take this observation
+    fits:tunit:
   - name: forced_PsfFlux_flag
     "@id": "#DiaSource.forced_PsfFlux_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Forced PSF flux general failure flag.
+    fits:tunit:
   - name: forced_PsfFlux_flag_edge
     "@id": "#DiaSource.forced_PsfFlux_flag_edge"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Forced PSF flux object was too close to the edge of the image to use the full PSF model.
+    fits:tunit:
   - name: forced_PsfFlux_flag_noGoodPixels
     "@id": "#DiaSource.forced_PsfFlux_flag_noGoodPixels"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
+    fits:tunit:
   - name: isDipole
     "@id": "#DiaSource.isDipole"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Flag indicating diaSource is classified as a dipole
+    fits:tunit:
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Elliptical Gaussian adaptive moments
+    fits:tunit: asec^2
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Adaptive moments of the PSF model at the object position
+    fits:tunit: asec^2
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Elliptical Gaussian adaptive moments
+    fits:tunit: asec^2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Adaptive moments of the PSF model at the object position
+    fits:tunit: asec^2
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Elliptical Gaussian adaptive moments
+    fits:tunit: asec^2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Adaptive moments of the PSF model at the object position
+    fits:tunit: asec^2
   - name: midPointTai
     "@id": "#DiaSource.midPointTai"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Effective mid-exposure time for this diaSource.
+    fits:tunit:
   - name: parentDiaSourceId
     "@id": "#DiaSource.parentDiaSourceId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique ID of parent source
+    fits:tunit:
   - name: pixelFlags
     "@id": "#DiaSource.pixelFlags"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: General failure flag, set if anything went wrong
+    fits:tunit:
   - name: pixelFlags_bad
     "@id": "#DiaSource.pixelFlags_bad"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Bad pixel in the Source footprint
+    fits:tunit:
   - name: pixelFlags_cr
     "@id": "#DiaSource.pixelFlags_cr"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Cosmic ray in the Source footprint
+    fits:tunit:
   - name: pixelFlags_crCenter
     "@id": "#DiaSource.pixelFlags_crCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Cosmic ray in the Source center
+    fits:tunit:
   - name: pixelFlags_edge
     "@id": "#DiaSource.pixelFlags_edge"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Source is outside usable exposure region (masked EDGE or NO_DATA)
+    fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#DiaSource.pixelFlags_interpolated"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Interpolated pixel in the Source footprint
+    fits:tunit:
   - name: pixelFlags_interpolatedCenter
     "@id": "#DiaSource.pixelFlags_interpolatedCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Interpolated pixel in the Source center
+    fits:tunit:
   - name: pixelFlags_offimage
     "@id": "#DiaSource.pixelFlags_offimage"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Source center is off image
+    fits:tunit:
   - name: pixelFlags_saturated
     "@id": "#DiaSource.pixelFlags_saturated"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Saturated pixel in the Source footprint
+    fits:tunit:
   - name: pixelFlags_saturatedCenter
     "@id": "#DiaSource.pixelFlags_saturatedCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Saturated pixel in the Source center
+    fits:tunit:
   - name: pixelFlags_suspect
     "@id": "#DiaSource.pixelFlags_suspect"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Sources footprint includes suspect pixels
+    fits:tunit:
   - name: pixelFlags_suspectCenter
     "@id": "#DiaSource.pixelFlags_suspectCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Sources center is close to suspect pixels
+    fits:tunit:
   - name: pixelId
     "@id": "#DiaSource.pixelId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Position in ra/dec
+    fits:tunit:
   - name: psFlux
     "@id": "#DiaSource.psFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux derived from linear least-squares fit of PSF model
+    fits:tunit: nanojansky
   - name: psFluxErr
     "@id": "#DiaSource.psFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of PSF model
+    fits:tunit: nanojansky
   - name: psfFlux_flag
     "@id": "#DiaSource.psfFlux_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure to derive linear least-squares fit of psf model forced on the calexp
+    fits:tunit:
   - name: psfFlux_flag_edge
     "@id": "#DiaSource.psfFlux_flag_edge"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Object was too close to the edge of the image to use the full PSF model
+    fits:tunit:
   - name: psfFlux_flag_noGoodPixels
     "@id": "#DiaSource.psfFlux_flag_noGoodPixels"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Not enough non-rejected pixels in data to attempt the fit
+    fits:tunit:
   - name: ra
     "@id": "#DiaSource.ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Position in ra/dec
+    fits:tunit:
   - name: shape_flag
     "@id": "#DiaSource.shape_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: General Failure Flag
+    fits:tunit:
   - name: shape_flag_maxIter
     "@id": "#DiaSource.shape_flag_maxIter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Too many iterations in adaptive moments
+    fits:tunit:
   - name: shape_flag_psf
     "@id": "#DiaSource.shape_flag_psf"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure in measuring PSF model shape
+    fits:tunit:
   - name: shape_flag_shift
     "@id": "#DiaSource.shape_flag_shift"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Centroid shifted by more than the maximum allowed amount
+    fits:tunit:
   - name: shape_flag_unweighted
     "@id": "#DiaSource.shape_flag_unweighted"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Weighted moments converged to an invalid value; using unweighted moments
+    fits:tunit:
   - name: shape_flag_unweightedBad
     "@id": "#DiaSource.shape_flag_unweightedBad"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Both weighted and unweighted moments were invalid
+    fits:tunit:
   - name: snr
     "@id": "#DiaSource.snr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Ratio of apFlux/apFluxErr
+    fits:tunit:
   - name: ssObjectId
     "@id": "#DiaSource.ssObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Id of the ssObject this source was associated with, if any. If not, it is set to 0
+    fits:tunit:
   - name: totFlux
     "@id": "#DiaSource.totFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Forced PSF flux measured on the direct image.
+    fits:tunit: nanojansky
   - name: totFluxErr
     "@id": "#DiaSource.totFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Forced PSF flux uncertainty measured on the direct image.
+    fits:tunit: nanojansky
   - name: x
     "@id": "#DiaSource.x"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Unweighted first moment centroid, overall centroid
+    fits:tunit: pixel
   - name: xErr
     "@id": "#DiaSource.xErr"
     datatype: float
     mysql:datatype: FLOAT
-    description:
+    description: 1-sigma uncertainty on x position
+    fits:tunit: pixel
   - name: y
     "@id": "#DiaSource.y"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Unweighted first moment centroid, overall centroid
+    fits:tunit: pixel
   - name: yErr
     "@id": "#DiaSource.yErr"
     datatype: float
     mysql:datatype: FLOAT
-    description:
+    description: 1-sigma uncertainty on y position
+    fits:tunit: pixel
 - name: forcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
