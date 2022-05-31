@@ -6844,199 +6844,199 @@ tables:
     "@id": "#ForcedSource.forcedSourceId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique id of forced source. primary key.
   - name: objectId
     "@id": "#ForcedSource.objectId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique object id. primary key of the object table
   - name: parentObjectId
     "@id": "#ForcedSource.parentObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique objectid of the parent of the objectid in context of the deblender.
   - name: coord_ra
     "@id": "#ForcedSource.coord_ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Fiducial icrs right ascension of centroid used for database indexing
   - name: coord_dec
     "@id": "#ForcedSource.coord_dec"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Fiducial icrs declination of centroid used for database indexing
   - name: skymap
     "@id": "#ForcedSource.skymap"
     datatype: char
     length: 12
     mysql:datatype: CHAR(12)
-    description:
+    description: Name of skymap used for coadd projection
   - name: tract
     "@id": "#ForcedSource.tract"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Skymap tract id
   - name: patch
     "@id": "#ForcedSource.patch"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Skymap patch id
   - name: band
     "@id": "#ForcedSource.band"
     datatype: char
     length: 1
     mysql:datatype: CHAR(1)
-    description:
+    description: Abstract filter that is not associated with a particular instrument
   - name: ccdVisitId
     "@id": "#ForcedSource.ccdVisitId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique id of ccd and visit where this source was detected and measured. primary key of the ccdvisit table.
   - name: detect_isPatchInner
     "@id": "#ForcedSource.detect_isPatchInner"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: True if object seed is in the inner region of a coadd patch
   - name: detect_isPrimary
     "@id": "#ForcedSource.detect_isPrimary"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: True if object seed has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky object
   - name: detect_isTractInner
     "@id": "#ForcedSource.detect_isTractInner"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: True if object seed is in the inner region of a coadd tract
   - name: localBackground_instFluxErr
     "@id": "#ForcedSource.localBackground_instFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: 1-sigma flux uncertainty
   - name: localBackground_instFlux
     "@id": "#ForcedSource.localBackground_instFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Background in annulus around source
   - name: localPhotoCalibErr
     "@id": "#ForcedSource.localPhotoCalibErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Error on the local approximation of the photocalib calibration factor at the location of the src.
   - name: localPhotoCalib_flag
     "@id": "#ForcedSource.localPhotoCalib_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Set for any fatal failure
   - name: localPhotoCalib
     "@id": "#ForcedSource.localPhotoCalib"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Local approximation of the photocalib calibration factor at the location of the src.
   - name: localWcs_CDMatrix_1_1
     "@id": "#ForcedSource.localWcs_CDMatrix_1_1"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (1, 1) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_CDMatrix_1_2
     "@id": "#ForcedSource.localWcs_CDMatrix_1_2"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (1, 2) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_CDMatrix_2_1
     "@id": "#ForcedSource.localWcs_CDMatrix_2_1"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (2, 1) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_CDMatrix_2_2
     "@id": "#ForcedSource.localWcs_CDMatrix_2_2"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (2, 2) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_flag
     "@id": "#ForcedSource.localWcs_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Set for any fatal failure
   - name: pixelFlags_bad
     "@id": "#ForcedSource.pixelFlags_bad"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Bad pixel in the source footprint
   - name: pixelFlags_crCenter
     "@id": "#ForcedSource.pixelFlags_crCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Cosmic ray in the source center
   - name: pixelFlags_cr
     "@id": "#ForcedSource.pixelFlags_cr"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Cosmic ray in the source footprint
   - name: pixelFlags_edge
     "@id": "#ForcedSource.pixelFlags_edge"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Source is outside usable exposure region (masked edge or no_data)
   - name: pixelFlags_interpolatedCenter
     "@id": "#ForcedSource.pixelFlags_interpolatedCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Interpolated pixel in the source center
   - name: pixelFlags_interpolated
     "@id": "#ForcedSource.pixelFlags_interpolated"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Interpolated pixel in the source footprint
   - name: pixelFlags_saturatedCenter
     "@id": "#ForcedSource.pixelFlags_saturatedCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Saturated pixel in the source center
   - name: pixelFlags_saturated
     "@id": "#ForcedSource.pixelFlags_saturated"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Saturated pixel in the source footprint
   - name: pixelFlags_suspectCenter
     "@id": "#ForcedSource.pixelFlags_suspectCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Sources center is close to suspect pixels
   - name: pixelFlags_suspect
     "@id": "#ForcedSource.pixelFlags_suspect"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Sources footprint includes suspect pixels
   - name: psfDiffFluxErr
     "@id": "#ForcedSource.psfDiffFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the image difference
   - name: psfDiffFlux_flag
     "@id": "#ForcedSource.psfDiffFlux_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure to derive linear least-squares fit of psf model forced on the image difference
   - name: psfDiffFlux
     "@id": "#ForcedSource.psfDiffFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on the image difference
   - name: psfFluxErr
     "@id": "#ForcedSource.psfFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the calexp
   - name: psfFlux_flag
     "@id": "#ForcedSource.psfFlux_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure to derive linear least-squares fit of psf model forced on the calexp
   - name: psfFlux
     "@id": "#ForcedSource.psfFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on the calexp
 - name: diaObject
   "@id": "#DiaObject"
   description: this is diaObjectTable_tract in the butler repo
@@ -8078,180 +8078,180 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.band"
     datatype: char
     mysql:datatype: CHAR()
-    description:
+    description: Abstract filter that is not associated with a particular instrument
   - name: ccdVisitId
     "@id": "#ForcedSourceOnDiaObject.ccdVisitId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique id of ccd and visit where this source was detected and measured. primary key of the ccdvisit table.
   - name: coord_dec
     "@id": "#ForcedSourceOnDiaObject.coord_dec"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Fiducial icrs declination of centroid used for database indexing
   - name: coord_ra
     "@id": "#ForcedSourceOnDiaObject.coord_ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Fiducial icrs right ascension of centroid used for database indexing
   - name: diaObjectId
     "@id": "#ForcedSourceOnDiaObject.diaObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique diaobject id. primary key of the dia object table
   - name: forcedSourceOnDiaObjectId
     "@id": "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique id of forced source. primary key.
   - name: localBackground_instFlux
     "@id": "#ForcedSourceOnDiaObject.localBackground_instFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Background in annulus around source
   - name: localBackground_instFluxErr
     "@id": "#ForcedSourceOnDiaObject.localBackground_instFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: 1-sigma flux uncertainty
   - name: localPhotoCalib
     "@id": "#ForcedSourceOnDiaObject.localPhotoCalib"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Local approximation of the photocalib calibration factor at the location of the src.
   - name: localPhotoCalibErr
     "@id": "#ForcedSourceOnDiaObject.localPhotoCalibErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Error on the local approximation of the photocalib calibration factor at the location of the src.
   - name: localPhotoCalib_flag
     "@id": "#ForcedSourceOnDiaObject.localPhotoCalib_flag"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Set for any fatal failure
   - name: localWcs_CDMatrix_1_1
     "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_1"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (1, 1) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_CDMatrix_1_2
     "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_2"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (1, 2) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_CDMatrix_2_1
     "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_1"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (2, 1) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_CDMatrix_2_2
     "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_2"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: (2, 2) element of the cdmatrix for the linear approximation of the wcs at the src location. gives units in radians.
   - name: localWcs_flag
     "@id": "#ForcedSourceOnDiaObject.localWcs_flag"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Set for any fatal failure
   - name: parentObjectId
     "@id": "#ForcedSourceOnDiaObject.parentObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Unique objectid of the parent of the objectid in context of the deblender.
   - name: patch
     "@id": "#ForcedSourceOnDiaObject.patch"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Skymap patch id
   - name: pixelFlags_bad
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_bad"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Bad pixel in the source footprint
   - name: pixelFlags_cr
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_cr"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Cosmic ray in the source footprint
   - name: pixelFlags_crCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_crCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Cosmic ray in the source center
   - name: pixelFlags_edge
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_edge"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Source is outside usable exposure region (masked edge or no_data)
   - name: pixelFlags_interpolated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolated"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Interpolated pixel in the source footprint
   - name: pixelFlags_interpolatedCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolatedCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Interpolated pixel in the source center
   - name: pixelFlags_saturated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturated"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Saturated pixel in the source footprint
   - name: pixelFlags_saturatedCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturatedCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Saturated pixel in the source center
   - name: pixelFlags_suspect
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspect"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Sources footprint includes suspect pixels
   - name: pixelFlags_suspectCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspectCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Sources center is close to suspect pixels
   - name: psfDiffFlux
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on the image difference
   - name: psfDiffFluxErr
     "@id": "#ForcedSourceOnDiaObject.psfDiffFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the image difference
   - name: psfDiffFlux_flag
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure to derive linear least-squares fit of psf model forced on the image difference
   - name: psfFlux
     "@id": "#ForcedSourceOnDiaObject.psfFlux"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on the calexp
   - name: psfFluxErr
     "@id": "#ForcedSourceOnDiaObject.psfFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description:
+    description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the calexp
   - name: psfFlux_flag
     "@id": "#ForcedSourceOnDiaObject.psfFlux_flag"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description:
+    description: Failure to derive linear least-squares fit of psf model forced on the calexp
   - name: skymap
     "@id": "#ForcedSourceOnDiaObject.skymap"
     datatype: char
     length: 12
     mysql:datatype: CHAR(12)
-    description:
+    description: Name of skymap used for coadd projection
   - name: tract
     "@id": "#ForcedSourceOnDiaObject.tract"
     datatype: long
     mysql:datatype: BIGINT
-    description:
+    description: Skymap tract id
