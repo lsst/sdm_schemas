@@ -13,4631 +13,4631 @@ tables:
   - name: objectId
     "@id": "#Object.objectId"
     datatype: long
-    description: Unique id.
+    description: Unique id. Unique objectid
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: coord_dec
     "@id": "#Object.coord_dec"
     datatype: double
-    description:
+    description: Fiducial icrs declination of centroid used for database indexing
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: coord_ra
     "@id": "#Object.coord_ra"
     datatype: double
-    description:
+    description: Fiducial icrs right ascension of centroid used for database indexing
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
-    description:
+    description: Number of children this object has (defaults to 0)
     mysql:datatype: INTEGER
-    fits.tunit:
+    fits:tunit:
   - name: deblend_skipped
     "@id": "#Object.deblend_skipped"
     datatype: boolean
-    description:
+    description: Deblender skipped this source
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: detect_fromBlend
     "@id": "#Object.detect_fromBlend"
     datatype: boolean
-    description:
+    description: This source is deblended from a parent with more than one child.
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: detect_isDeblendedModelSource
     "@id": "#Object.detect_isDeblendedModelSource"
     datatype: boolean
-    description:
+    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudofilterlist) and is a deblended child
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: detect_isDeblendedSource
     "@id": "#Object.detect_isDeblendedSource"
     datatype: boolean
-    description:
+    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudofilterlist) and is either an unblended isolated source or a deblended child from a parent with
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: detect_isIsolated
     "@id": "#Object.detect_isIsolated"
     datatype: boolean
-    description:
+    description: This source is not a part of a blend.
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: detect_isPatchInner
     "@id": "#Object.detect_isPatchInner"
     datatype: boolean
-    description:
+    description: True if source is in the inner region of a coadd patch
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: detect_isPrimary
     "@id": "#Object.detect_isPrimary"
     datatype: boolean
-    description:
+    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudofilterlist)
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: detect_isTractInner
     "@id": "#Object.detect_isTractInner"
     datatype: boolean
-    description:
+    description: True if source is in the inner region of a coadd tract
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: footprintArea
     "@id": "#Object.footprintArea"
     datatype: int
-    description:
+    description: Number of pixels in the sources detection footprint. on reference band
     mysql:datatype: INTEGER
-    fits.tunit:
+    fits:tunit: pixel
   - name: merge_peak_sky
     "@id": "#Object.merge_peak_sky"
     datatype: boolean
-    description:
+    description: Peak detected in filter sky
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: parentObjectId
     "@id": "#Object.parentObjectId"
     datatype: long
-    description:
+    description: Unique id of parent source on reference band
     mysql:datatype: BIGINT
-    fits.tunit:
+    fits:tunit:
   - name: patch
     "@id": "#Object.patch"
     datatype: long
-    description:
+    description: Skymap patch id
     mysql:datatype: BIGINT
-    fits.tunit:
+    fits:tunit:
   - name: refBand
     "@id": "#Object.refBand"
     datatype: char
     length: 1
-    description:
+    description: Reference band - parameters measured on coadds of this band were used for multi-band forced photometry
     mysql:datatype: CHAR(1)
-    fits.tunit:
+    fits:tunit:
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
     datatype: double
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. on reference band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: refFwhm
     "@id": "#Object.refFwhm"
     datatype: double
-    description:
+    description: Estimated fwhm on the reference band at source center assuming a gaussian profile
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: shape_flag
     "@id": "#Object.shape_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong on reference band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: shape_xx
     "@id": "#Object.shape_xx"
     datatype: double
-    description:
+    description: Hsm moments on reference band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: shape_xy
     "@id": "#Object.shape_xy"
     datatype: double
-    description:
+    description: Hsm moments on reference band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: shape_yy
     "@id": "#Object.shape_yy"
     datatype: double
-    description:
+    description: Hsm moments on reference band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: sky_object
     "@id": "#Object.sky_object"
     datatype: boolean
-    description:
+    description: No source was detected here. this object exists to characterize properties of the sky background
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: skymap
     "@id": "#Object.skymap"
     datatype: char
-    description:
+    description: Name of skymap used for coadd projection
     length: 12
     mysql:datatype: CHAR(12)
-    fits.tunit:
+    fits:tunit:
   - name: tract
     "@id": "#Object.tract"
     datatype: long
-    description:
+    description: Skymap tract id
     mysql:datatype: BIGINT
-    fits.tunit:
+    fits:tunit:
   - name: x
     "@id": "#Object.x"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm on reference band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: xErr
     "@id": "#Object.xErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on x position on reference band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: xy_flag
     "@id": "#Object.xy_flag"
     datatype: boolean
-    description:
+    description: General failure flag on reference band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y
     "@id": "#Object.y"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm on reference band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: yErr
     "@id": "#Object.yErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on y position on reference band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: g_ap03Flux
     "@id": "#Object.g_ap03Flux"
     datatype: double
-    description:
+    description: Flux within 3.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap03FluxErr
     "@id": "#Object.g_ap03FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 3.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap03Flux_flag
     "@id": "#Object.g_ap03Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap06Flux
     "@id": "#Object.g_ap06Flux"
     datatype: double
-    description:
+    description: Flux within 6.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap06FluxErr
     "@id": "#Object.g_ap06FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 6.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap06Flux_flag
     "@id": "#Object.g_ap06Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap09Flux
     "@id": "#Object.g_ap09Flux"
     datatype: double
-    description:
+    description: Flux within 9.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap09FluxErr
     "@id": "#Object.g_ap09FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 9.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap09Flux_flag
     "@id": "#Object.g_ap09Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap12Flux
     "@id": "#Object.g_ap12Flux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap12FluxErr
     "@id": "#Object.g_ap12FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap12Flux_flag
     "@id": "#Object.g_ap12Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap17Flux
     "@id": "#Object.g_ap17Flux"
     datatype: double
-    description:
+    description: Flux within 17.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap17FluxErr
     "@id": "#Object.g_ap17FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 17.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap17Flux_flag
     "@id": "#Object.g_ap17Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap25Flux
     "@id": "#Object.g_ap25Flux"
     datatype: double
-    description:
+    description: Flux within 25.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap25FluxErr
     "@id": "#Object.g_ap25FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 25.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap25Flux_flag
     "@id": "#Object.g_ap25Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap35Flux
     "@id": "#Object.g_ap35Flux"
     datatype: double
-    description:
+    description: Flux within 35.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap35FluxErr
     "@id": "#Object.g_ap35FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 35.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap35Flux_flag
     "@id": "#Object.g_ap35Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap50Flux
     "@id": "#Object.g_ap50Flux"
     datatype: double
-    description:
+    description: Flux within 50.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap50FluxErr
     "@id": "#Object.g_ap50FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 50.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap50Flux_flag
     "@id": "#Object.g_ap50Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ap70Flux
     "@id": "#Object.g_ap70Flux"
     datatype: double
-    description:
+    description: Flux within 70.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap70FluxErr
     "@id": "#Object.g_ap70FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 70.000000-pixel aperture forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_ap70Flux_flag
     "@id": "#Object.g_ap70Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_apFlux_flag
     "@id": "#Object.g_apFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_apFlux_flag_apertureTruncated
     "@id": "#Object.g_apFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.g_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_bdChi2
     "@id": "#Object.g_bdChi2"
     datatype: double
-    description:
+    description: -ln(likelihood) (chi^2) in cmodel fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: g_bdE1
     "@id": "#Object.g_bdE1"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_bdE2
     "@id": "#Object.g_bdE2"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_bdFluxB
     "@id": "#Object.g_bdFluxB"
     datatype: double
-    description:
+    description: Flux from the de vaucouleur fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_bdFluxBErr
     "@id": "#Object.g_bdFluxBErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the de vaucouleur fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_bdFluxD
     "@id": "#Object.g_bdFluxD"
     datatype: double
-    description:
+    description: Flux from the exponential fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_bdFluxDErr
     "@id": "#Object.g_bdFluxDErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the exponential fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_bdReB
     "@id": "#Object.g_bdReB"
     datatype: double
-    description:
+    description: Half-light ellipse of the de vaucouleur fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_bdReD
     "@id": "#Object.g_bdReD"
     datatype: double
-    description:
+    description: Half-light ellipse of the exponential fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_blendedness
     "@id": "#Object.g_blendedness"
     datatype: double
-    description:
+    description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  operates on the absolute value of the pixels to try to obtain a de-noised value.  see section 4.9.11 of bosch et al. 2018, pasj, 70, s5 for details. measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: g_blendedness_flag
     "@id": "#Object.g_blendedness_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_cModelFlux
     "@id": "#Object.g_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_cModelFluxErr
     "@id": "#Object.g_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_cModelFlux_inner
     "@id": "#Object.g_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_cModel_flag
     "@id": "#Object.g_cModel_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_cModel_flag_apCorr
     "@id": "#Object.g_cModel_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct modelfit_cmodel forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calibFlux
     "@id": "#Object.g_calibFlux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_calibFluxErr
     "@id": "#Object.g_calibFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_calibFlux_flag
     "@id": "#Object.g_calibFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calibFlux_flag_apertureTruncated
     "@id": "#Object.g_calibFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.g_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calib_astrometry_used
     "@id": "#Object.g_calib_astrometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calib_photometry_reserved
     "@id": "#Object.g_calib_photometry_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calib_photometry_used
     "@id": "#Object.g_calib_photometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calib_psf_candidate
     "@id": "#Object.g_calib_psf_candidate"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calib_psf_reserved
     "@id": "#Object.g_calib_psf_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_calib_psf_used
     "@id": "#Object.g_calib_psf_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_centroid_flag
     "@id": "#Object.g_centroid_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_centroid_x
     "@id": "#Object.g_centroid_x"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: g_centroid_xErr
     "@id": "#Object.g_centroid_xErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on x position measured on g band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: g_centroid_y
     "@id": "#Object.g_centroid_y"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: g_centroid_yErr
     "@id": "#Object.g_centroid_yErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on y position measured on g band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: g_decl
     "@id": "#Object.g_decl"
     datatype: double
-    description:
+    description: Position in ra/dec measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: g_extendedness
     "@id": "#Object.g_extendedness"
     datatype: double
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: g_extendedness_flag
     "@id": "#Object.g_extendedness_flag"
     datatype: boolean
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_free_cModelFlux
     "@id": "#Object.g_free_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_free_cModelFluxErr
     "@id": "#Object.g_free_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_free_cModelFlux_flag
     "@id": "#Object.g_free_cModelFlux_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_free_cModelFlux_inner
     "@id": "#Object.g_free_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_free_psfFlux
     "@id": "#Object.g_free_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_free_psfFluxErr
     "@id": "#Object.g_free_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_free_psfFlux_flag
     "@id": "#Object.g_free_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_fwhm
     "@id": "#Object.g_fwhm"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_gaapFluxErr_0_7
     "@id": "#Object.g_gaapFluxErr_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: g_gaapFluxErr_1_0
     "@id": "#Object.g_gaapFluxErr_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: g_gaapFluxErr_optimal
     "@id": "#Object.g_gaapFluxErr_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: g_gaapFluxErr_psf
     "@id": "#Object.g_gaapFluxErr_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: g_gaapFlux_0_7
     "@id": "#Object.g_gaapFlux_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_gaapFlux_0_7_flag_bigPsf
     "@id": "#Object.g_gaapFlux_0_7_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_gaapFlux_1_0
     "@id": "#Object.g_gaapFlux_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.g_gaapFlux_1_0_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_gaapFlux_flag
     "@id": "#Object.g_gaapFlux_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_gaapFlux_flag_edge
     "@id": "#Object.g_gaapFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Source is too close to the edge forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_gaapFlux_flag_gaussianization
     "@id": "#Object.g_gaapFlux_flag_gaussianization"
     datatype: boolean
-    description:
+    description: Psf gaussianization failed when trying to scale by this factor. forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_gaapFlux_optimal
     "@id": "#Object.g_gaapFlux_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_gaapFlux_optimal_flag_bigPsf
     "@id": "#Object.g_gaapFlux_optimal_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_gaapFlux_psf
     "@id": "#Object.g_gaapFlux_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_hsmShapeRegauss_e1
     "@id": "#Object.g_hsmShapeRegauss_e1"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: g_hsmShapeRegauss_e2
     "@id": "#Object.g_hsmShapeRegauss_e2"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: g_hsmShapeRegauss_flag
     "@id": "#Object.g_hsmShapeRegauss_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_hsmShapeRegauss_sigma
     "@id": "#Object.g_hsmShapeRegauss_sigma"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: g_iDebiasedPSF_flag
     "@id": "#Object.g_iDebiasedPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_iPSF_flag
     "@id": "#Object.g_iPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_iRound_flag
     "@id": "#Object.g_iRound_flag"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_i_flag
     "@id": "#Object.g_i_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_inputCount
     "@id": "#Object.g_inputCount"
     datatype: int
-    description:
+    description: Number of images contributing at center, not including anyclipping forced on g band
     mysql:datatype: INTEGER
-    fits.tunit:
+    fits:tunit:
   - name: g_inputCount_flag
     "@id": "#Object.g_inputCount_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_inputCount_flag_noInputs
     "@id": "#Object.g_inputCount_flag_noInputs"
     datatype: boolean
-    description:
+    description: No coadd inputs available forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ixx
     "@id": "#Object.g_ixx"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_ixxDebiasedPSF
     "@id": "#Object.g_ixxDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_ixxPSF
     "@id": "#Object.g_ixxPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_ixxRound
     "@id": "#Object.g_ixxRound"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_ixy
     "@id": "#Object.g_ixy"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_ixyDebiasedPSF
     "@id": "#Object.g_ixyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_ixyPSF
     "@id": "#Object.g_ixyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_ixyRound
     "@id": "#Object.g_ixyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_iyy
     "@id": "#Object.g_iyy"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_iyyDebiasedPSF
     "@id": "#Object.g_iyyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_iyyPSF
     "@id": "#Object.g_iyyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_iyyRound
     "@id": "#Object.g_iyyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: g_kronFlux
     "@id": "#Object.g_kronFlux"
     datatype: double
-    description:
+    description: Flux from kron flux algorithm measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_kronFluxErr
     "@id": "#Object.g_kronFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from kron flux uncertainty algorithm measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_kronFlux_flag
     "@id": "#Object.g_kronFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_bad_radius
     "@id": "#Object.g_kronFlux_flag_bad_radius"
     datatype: boolean
-    description:
+    description: Bad kron radius measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_bad_shape
     "@id": "#Object.g_kronFlux_flag_bad_shape"
     datatype: boolean
-    description:
+    description: Shape for measuring kron radius is bad; used psf shape measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.g_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
-    description:
+    description: Bad shape and no psf measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_edge
     "@id": "#Object.g_kronFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Bad measurement due to image edge measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_no_fallback_radius
     "@id": "#Object.g_kronFlux_flag_no_fallback_radius"
     datatype: boolean
-    description:
+    description: No minimum radius and no psf provided measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_no_minimum_radius
     "@id": "#Object.g_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description:
+    description: Minimum radius could not enforced, no minimum value or psf measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_small_radius
     "@id": "#Object.g_kronFlux_flag_small_radius"
     datatype: boolean
-    description:
+    description: Measured kron radius was smaller than that of the psf measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_used_minimum_radius
     "@id": "#Object.g_kronFlux_flag_used_minimum_radius"
     datatype: boolean
-    description:
+    description: Used the minimum radius for the kron aperture measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronFlux_flag_used_psf_radius
     "@id": "#Object.g_kronFlux_flag_used_psf_radius"
     datatype: boolean
-    description:
+    description: Used the psf kron radius for the kron aperture measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_kronRad
     "@id": "#Object.g_kronRad"
     datatype: float
-    description:
+    description: Kron radius (sqrt(a*b)) measured on g band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_bad
     "@id": "#Object.g_pixelFlags_bad"
     datatype: boolean
-    description:
+    description: Bad pixel in the source footprint measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_clipped
     "@id": "#Object.g_pixelFlags_clipped"
     datatype: boolean
-    description:
+    description: Source footprint includes clipped pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_clippedCenter
     "@id": "#Object.g_pixelFlags_clippedCenter"
     datatype: boolean
-    description:
+    description: Source center is close to clipped pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_cr
     "@id": "#Object.g_pixelFlags_cr"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source footprint measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_crCenter
     "@id": "#Object.g_pixelFlags_crCenter"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source center measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_edge
     "@id": "#Object.g_pixelFlags_edge"
     datatype: boolean
-    description:
+    description: Source is outside usable exposure region (masked edge or no_data) measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_inexact_psf
     "@id": "#Object.g_pixelFlags_inexact_psf"
     datatype: boolean
-    description:
+    description: Source footprint includes inexact_psf pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_inexact_psfCenter
     "@id": "#Object.g_pixelFlags_inexact_psfCenter"
     datatype: boolean
-    description:
+    description: Source center is close to inexact_psf pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_interpolated
     "@id": "#Object.g_pixelFlags_interpolated"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source footprint measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_interpolatedCenter
     "@id": "#Object.g_pixelFlags_interpolatedCenter"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source center measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_offimage
     "@id": "#Object.g_pixelFlags_offimage"
     datatype: boolean
-    description:
+    description: Source center is off image measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_saturated
     "@id": "#Object.g_pixelFlags_saturated"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source footprint measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_saturatedCenter
     "@id": "#Object.g_pixelFlags_saturatedCenter"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source center measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_sensor_edge
     "@id": "#Object.g_pixelFlags_sensor_edge"
     datatype: boolean
-    description:
+    description: Source footprint includes sensor_edge pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_sensor_edgeCenter
     "@id": "#Object.g_pixelFlags_sensor_edgeCenter"
     datatype: boolean
-    description:
+    description: Source center is close to sensor_edge pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_suspect
     "@id": "#Object.g_pixelFlags_suspect"
     datatype: boolean
-    description:
+    description: Sources footprint includes suspect pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_pixelFlags_suspectCenter
     "@id": "#Object.g_pixelFlags_suspectCenter"
     datatype: boolean
-    description:
+    description: Sources center is close to suspect pixels measured on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_psfFlux
     "@id": "#Object.g_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_psfFluxErr
     "@id": "#Object.g_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model forced on g band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: g_psfFlux_area
     "@id": "#Object.g_psfFlux_area"
     datatype: float
-    description:
+    description: Effective area of psf forced on g band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: g_psfFlux_flag
     "@id": "#Object.g_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_psfFlux_flag_apCorr
     "@id": "#Object.g_psfFlux_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct base_psfflux forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_psfFlux_flag_edge
     "@id": "#Object.g_psfFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Object was too close to the edge of the image to use the full psf model forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_psfFlux_flag_noGoodPixels
     "@id": "#Object.g_psfFlux_flag_noGoodPixels"
     datatype: boolean
-    description:
+    description: Not enough non-rejected pixels in data to attempt the fit forced on g band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: g_ra
     "@id": "#Object.g_ra"
     datatype: double
-    description:
+    description: Position in ra/dec measured on g band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
     datatype: double
-    description:
+    description: Flux within 3.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap03FluxErr
     "@id": "#Object.i_ap03FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 3.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap03Flux_flag
     "@id": "#Object.i_ap03Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap06Flux
     "@id": "#Object.i_ap06Flux"
     datatype: double
-    description:
+    description: Flux within 6.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap06FluxErr
     "@id": "#Object.i_ap06FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 6.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap06Flux_flag
     "@id": "#Object.i_ap06Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap09Flux
     "@id": "#Object.i_ap09Flux"
     datatype: double
-    description:
+    description: Flux within 9.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap09FluxErr
     "@id": "#Object.i_ap09FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 9.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap09Flux_flag
     "@id": "#Object.i_ap09Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap12Flux
     "@id": "#Object.i_ap12Flux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap12FluxErr
     "@id": "#Object.i_ap12FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap12Flux_flag
     "@id": "#Object.i_ap12Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap17Flux
     "@id": "#Object.i_ap17Flux"
     datatype: double
-    description:
+    description: Flux within 17.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap17FluxErr
     "@id": "#Object.i_ap17FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 17.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap17Flux_flag
     "@id": "#Object.i_ap17Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap25Flux
     "@id": "#Object.i_ap25Flux"
     datatype: double
-    description:
+    description: Flux within 25.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap25FluxErr
     "@id": "#Object.i_ap25FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 25.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap25Flux_flag
     "@id": "#Object.i_ap25Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap35Flux
     "@id": "#Object.i_ap35Flux"
     datatype: double
-    description:
+    description: Flux within 35.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap35FluxErr
     "@id": "#Object.i_ap35FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 35.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap35Flux_flag
     "@id": "#Object.i_ap35Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap50Flux
     "@id": "#Object.i_ap50Flux"
     datatype: double
-    description:
+    description: Flux within 50.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap50FluxErr
     "@id": "#Object.i_ap50FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 50.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap50Flux_flag
     "@id": "#Object.i_ap50Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ap70Flux
     "@id": "#Object.i_ap70Flux"
     datatype: double
-    description:
+    description: Flux within 70.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap70FluxErr
     "@id": "#Object.i_ap70FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 70.000000-pixel aperture forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_ap70Flux_flag
     "@id": "#Object.i_ap70Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_apFlux_flag
     "@id": "#Object.i_apFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_apFlux_flag_apertureTruncated
     "@id": "#Object.i_apFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.i_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_bdChi2
     "@id": "#Object.i_bdChi2"
     datatype: double
-    description:
+    description: -ln(likelihood) (chi^2) in cmodel fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: i_bdE1
     "@id": "#Object.i_bdE1"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_bdE2
     "@id": "#Object.i_bdE2"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_bdFluxB
     "@id": "#Object.i_bdFluxB"
     datatype: double
-    description:
+    description: Flux from the de vaucouleur fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_bdFluxBErr
     "@id": "#Object.i_bdFluxBErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the de vaucouleur fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_bdFluxD
     "@id": "#Object.i_bdFluxD"
     datatype: double
-    description:
+    description: Flux from the exponential fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_bdFluxDErr
     "@id": "#Object.i_bdFluxDErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the exponential fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_bdReB
     "@id": "#Object.i_bdReB"
     datatype: double
-    description:
+    description: Half-light ellipse of the de vaucouleur fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_bdReD
     "@id": "#Object.i_bdReD"
     datatype: double
-    description:
+    description: Half-light ellipse of the exponential fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_blendedness
     "@id": "#Object.i_blendedness"
     datatype: double
-    description:
+    description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  operates on the absolute value of the pixels to try to obtain a de-noised value.  see section 4.9.11 of bosch et al. 2018, pasj, 70, s5 for details. measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: i_blendedness_flag
     "@id": "#Object.i_blendedness_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_cModelFlux
     "@id": "#Object.i_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_cModelFluxErr
     "@id": "#Object.i_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_cModelFlux_inner
     "@id": "#Object.i_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_cModel_flag
     "@id": "#Object.i_cModel_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_cModel_flag_apCorr
     "@id": "#Object.i_cModel_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct modelfit_cmodel forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calibFlux
     "@id": "#Object.i_calibFlux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_calibFluxErr
     "@id": "#Object.i_calibFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_calibFlux_flag
     "@id": "#Object.i_calibFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calibFlux_flag_apertureTruncated
     "@id": "#Object.i_calibFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.i_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calib_astrometry_used
     "@id": "#Object.i_calib_astrometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calib_photometry_reserved
     "@id": "#Object.i_calib_photometry_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calib_photometry_used
     "@id": "#Object.i_calib_photometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calib_psf_candidate
     "@id": "#Object.i_calib_psf_candidate"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calib_psf_reserved
     "@id": "#Object.i_calib_psf_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_calib_psf_used
     "@id": "#Object.i_calib_psf_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_centroid_flag
     "@id": "#Object.i_centroid_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_centroid_x
     "@id": "#Object.i_centroid_x"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: i_centroid_xErr
     "@id": "#Object.i_centroid_xErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on x position measured on i band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: i_centroid_y
     "@id": "#Object.i_centroid_y"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: i_centroid_yErr
     "@id": "#Object.i_centroid_yErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on y position measured on i band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: i_decl
     "@id": "#Object.i_decl"
     datatype: double
-    description:
+    description: Position in ra/dec measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: i_extendedness
     "@id": "#Object.i_extendedness"
     datatype: double
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: i_extendedness_flag
     "@id": "#Object.i_extendedness_flag"
     datatype: boolean
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_free_cModelFlux
     "@id": "#Object.i_free_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_free_cModelFluxErr
     "@id": "#Object.i_free_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_free_cModelFlux_flag
     "@id": "#Object.i_free_cModelFlux_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_free_cModelFlux_inner
     "@id": "#Object.i_free_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_free_psfFlux
     "@id": "#Object.i_free_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_free_psfFluxErr
     "@id": "#Object.i_free_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_free_psfFlux_flag
     "@id": "#Object.i_free_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_fwhm
     "@id": "#Object.i_fwhm"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_gaapFluxErr_0_7
     "@id": "#Object.i_gaapFluxErr_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: i_gaapFluxErr_1_0
     "@id": "#Object.i_gaapFluxErr_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: i_gaapFluxErr_optimal
     "@id": "#Object.i_gaapFluxErr_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: i_gaapFluxErr_psf
     "@id": "#Object.i_gaapFluxErr_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: i_gaapFlux_0_7
     "@id": "#Object.i_gaapFlux_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_gaapFlux_0_7_flag_bigPsf
     "@id": "#Object.i_gaapFlux_0_7_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_gaapFlux_1_0
     "@id": "#Object.i_gaapFlux_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.i_gaapFlux_1_0_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_gaapFlux_flag
     "@id": "#Object.i_gaapFlux_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_gaapFlux_flag_edge
     "@id": "#Object.i_gaapFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Source is too close to the edge forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_gaapFlux_flag_gaussianization
     "@id": "#Object.i_gaapFlux_flag_gaussianization"
     datatype: boolean
-    description:
+    description: Psf gaussianization failed when trying to scale by this factor. forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_gaapFlux_optimal
     "@id": "#Object.i_gaapFlux_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_gaapFlux_optimal_flag_bigPsf
     "@id": "#Object.i_gaapFlux_optimal_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_gaapFlux_psf
     "@id": "#Object.i_gaapFlux_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_hsmShapeRegauss_e1
     "@id": "#Object.i_hsmShapeRegauss_e1"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: i_hsmShapeRegauss_e2
     "@id": "#Object.i_hsmShapeRegauss_e2"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: i_hsmShapeRegauss_flag
     "@id": "#Object.i_hsmShapeRegauss_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_hsmShapeRegauss_sigma
     "@id": "#Object.i_hsmShapeRegauss_sigma"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: i_iDebiasedPSF_flag
     "@id": "#Object.i_iDebiasedPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_iPSF_flag
     "@id": "#Object.i_iPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_iRound_flag
     "@id": "#Object.i_iRound_flag"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_i_flag
     "@id": "#Object.i_i_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_inputCount
     "@id": "#Object.i_inputCount"
     datatype: int
-    description:
+    description: Number of images contributing at center, not including anyclipping forced on i band
     mysql:datatype: INTEGER
-    fits.tunit:
+    fits:tunit:
   - name: i_inputCount_flag
     "@id": "#Object.i_inputCount_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_inputCount_flag_noInputs
     "@id": "#Object.i_inputCount_flag_noInputs"
     datatype: boolean
-    description:
+    description: No coadd inputs available forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ixx
     "@id": "#Object.i_ixx"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_ixxDebiasedPSF
     "@id": "#Object.i_ixxDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_ixxPSF
     "@id": "#Object.i_ixxPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_ixxRound
     "@id": "#Object.i_ixxRound"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_ixy
     "@id": "#Object.i_ixy"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_ixyDebiasedPSF
     "@id": "#Object.i_ixyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_ixyPSF
     "@id": "#Object.i_ixyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_ixyRound
     "@id": "#Object.i_ixyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_iyy
     "@id": "#Object.i_iyy"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_iyyDebiasedPSF
     "@id": "#Object.i_iyyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_iyyPSF
     "@id": "#Object.i_iyyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_iyyRound
     "@id": "#Object.i_iyyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: i_kronFlux
     "@id": "#Object.i_kronFlux"
     datatype: double
-    description:
+    description: Flux from kron flux algorithm measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_kronFluxErr
     "@id": "#Object.i_kronFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from kron flux uncertainty algorithm measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_kronFlux_flag
     "@id": "#Object.i_kronFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_bad_radius
     "@id": "#Object.i_kronFlux_flag_bad_radius"
     datatype: boolean
-    description:
+    description: Bad kron radius measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_bad_shape
     "@id": "#Object.i_kronFlux_flag_bad_shape"
     datatype: boolean
-    description:
+    description: Shape for measuring kron radius is bad; used psf shape measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.i_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
-    description:
+    description: Bad shape and no psf measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_edge
     "@id": "#Object.i_kronFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Bad measurement due to image edge measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_no_fallback_radius
     "@id": "#Object.i_kronFlux_flag_no_fallback_radius"
     datatype: boolean
-    description:
+    description: No minimum radius and no psf provided measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_no_minimum_radius
     "@id": "#Object.i_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description:
+    description: Minimum radius could not enforced, no minimum value or psf measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_small_radius
     "@id": "#Object.i_kronFlux_flag_small_radius"
     datatype: boolean
-    description:
+    description: Measured kron radius was smaller than that of the psf measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_used_minimum_radius
     "@id": "#Object.i_kronFlux_flag_used_minimum_radius"
     datatype: boolean
-    description:
+    description: Used the minimum radius for the kron aperture measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronFlux_flag_used_psf_radius
     "@id": "#Object.i_kronFlux_flag_used_psf_radius"
     datatype: boolean
-    description:
+    description: Used the psf kron radius for the kron aperture measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_kronRad
     "@id": "#Object.i_kronRad"
     datatype: float
-    description:
+    description: Kron radius (sqrt(a*b)) measured on i band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_bad
     "@id": "#Object.i_pixelFlags_bad"
     datatype: boolean
-    description:
+    description: Bad pixel in the source footprint measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_clipped
     "@id": "#Object.i_pixelFlags_clipped"
     datatype: boolean
-    description:
+    description: Source footprint includes clipped pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_clippedCenter
     "@id": "#Object.i_pixelFlags_clippedCenter"
     datatype: boolean
-    description:
+    description: Source center is close to clipped pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_cr
     "@id": "#Object.i_pixelFlags_cr"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source footprint measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_crCenter
     "@id": "#Object.i_pixelFlags_crCenter"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source center measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_edge
     "@id": "#Object.i_pixelFlags_edge"
     datatype: boolean
-    description:
+    description: Source is outside usable exposure region (masked edge or no_data) measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_inexact_psf
     "@id": "#Object.i_pixelFlags_inexact_psf"
     datatype: boolean
-    description:
+    description: Source footprint includes inexact_psf pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_inexact_psfCenter
     "@id": "#Object.i_pixelFlags_inexact_psfCenter"
     datatype: boolean
-    description:
+    description: Source center is close to inexact_psf pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_interpolated
     "@id": "#Object.i_pixelFlags_interpolated"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source footprint measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_interpolatedCenter
     "@id": "#Object.i_pixelFlags_interpolatedCenter"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source center measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_offimage
     "@id": "#Object.i_pixelFlags_offimage"
     datatype: boolean
-    description:
+    description: Source center is off image measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_saturated
     "@id": "#Object.i_pixelFlags_saturated"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source footprint measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_saturatedCenter
     "@id": "#Object.i_pixelFlags_saturatedCenter"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source center measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_sensor_edge
     "@id": "#Object.i_pixelFlags_sensor_edge"
     datatype: boolean
-    description:
+    description: Source footprint includes sensor_edge pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_sensor_edgeCenter
     "@id": "#Object.i_pixelFlags_sensor_edgeCenter"
     datatype: boolean
-    description:
+    description: Source center is close to sensor_edge pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_suspect
     "@id": "#Object.i_pixelFlags_suspect"
     datatype: boolean
-    description:
+    description: Sources footprint includes suspect pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_pixelFlags_suspectCenter
     "@id": "#Object.i_pixelFlags_suspectCenter"
     datatype: boolean
-    description:
+    description: Sources center is close to suspect pixels measured on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_psfFlux
     "@id": "#Object.i_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_psfFluxErr
     "@id": "#Object.i_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model forced on i band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: i_psfFlux_area
     "@id": "#Object.i_psfFlux_area"
     datatype: float
-    description:
+    description: Effective area of psf forced on i band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: i_psfFlux_flag
     "@id": "#Object.i_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_psfFlux_flag_apCorr
     "@id": "#Object.i_psfFlux_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct base_psfflux forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_psfFlux_flag_edge
     "@id": "#Object.i_psfFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Object was too close to the edge of the image to use the full psf model forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_psfFlux_flag_noGoodPixels
     "@id": "#Object.i_psfFlux_flag_noGoodPixels"
     datatype: boolean
-    description:
+    description: Not enough non-rejected pixels in data to attempt the fit forced on i band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: i_ra
     "@id": "#Object.i_ra"
     datatype: double
-    description:
+    description: Position in ra/dec measured on i band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
     datatype: double
-    description:
+    description: Flux within 3.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap03FluxErr
     "@id": "#Object.r_ap03FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 3.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap03Flux_flag
     "@id": "#Object.r_ap03Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap06Flux
     "@id": "#Object.r_ap06Flux"
     datatype: double
-    description:
+    description: Flux within 6.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap06FluxErr
     "@id": "#Object.r_ap06FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 6.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap06Flux_flag
     "@id": "#Object.r_ap06Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap09Flux
     "@id": "#Object.r_ap09Flux"
     datatype: double
-    description:
+    description: Flux within 9.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap09FluxErr
     "@id": "#Object.r_ap09FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 9.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap09Flux_flag
     "@id": "#Object.r_ap09Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap12Flux
     "@id": "#Object.r_ap12Flux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap12FluxErr
     "@id": "#Object.r_ap12FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap12Flux_flag
     "@id": "#Object.r_ap12Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap17Flux
     "@id": "#Object.r_ap17Flux"
     datatype: double
-    description:
+    description: Flux within 17.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap17FluxErr
     "@id": "#Object.r_ap17FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 17.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap17Flux_flag
     "@id": "#Object.r_ap17Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap25Flux
     "@id": "#Object.r_ap25Flux"
     datatype: double
-    description:
+    description: Flux within 25.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap25FluxErr
     "@id": "#Object.r_ap25FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 25.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap25Flux_flag
     "@id": "#Object.r_ap25Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap35Flux
     "@id": "#Object.r_ap35Flux"
     datatype: double
-    description:
+    description: Flux within 35.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap35FluxErr
     "@id": "#Object.r_ap35FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 35.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap35Flux_flag
     "@id": "#Object.r_ap35Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap50Flux
     "@id": "#Object.r_ap50Flux"
     datatype: double
-    description:
+    description: Flux within 50.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap50FluxErr
     "@id": "#Object.r_ap50FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 50.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap50Flux_flag
     "@id": "#Object.r_ap50Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ap70Flux
     "@id": "#Object.r_ap70Flux"
     datatype: double
-    description:
+    description: Flux within 70.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap70FluxErr
     "@id": "#Object.r_ap70FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 70.000000-pixel aperture forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_ap70Flux_flag
     "@id": "#Object.r_ap70Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_apFlux_flag
     "@id": "#Object.r_apFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_apFlux_flag_apertureTruncated
     "@id": "#Object.r_apFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.r_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_bdChi2
     "@id": "#Object.r_bdChi2"
     datatype: double
-    description:
+    description: -ln(likelihood) (chi^2) in cmodel fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: r_bdE1
     "@id": "#Object.r_bdE1"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_bdE2
     "@id": "#Object.r_bdE2"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_bdFluxB
     "@id": "#Object.r_bdFluxB"
     datatype: double
-    description:
+    description: Flux from the de vaucouleur fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_bdFluxBErr
     "@id": "#Object.r_bdFluxBErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the de vaucouleur fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_bdFluxD
     "@id": "#Object.r_bdFluxD"
     datatype: double
-    description:
+    description: Flux from the exponential fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_bdFluxDErr
     "@id": "#Object.r_bdFluxDErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the exponential fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_bdReB
     "@id": "#Object.r_bdReB"
     datatype: double
-    description:
+    description: Half-light ellipse of the de vaucouleur fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_bdReD
     "@id": "#Object.r_bdReD"
     datatype: double
-    description:
+    description: Half-light ellipse of the exponential fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_blendedness
     "@id": "#Object.r_blendedness"
     datatype: double
-    description:
+    description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  operates on the absolute value of the pixels to try to obtain a de-noised value.  see section 4.9.11 of bosch et al. 2018, pasj, 70, s5 for details. measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: r_blendedness_flag
     "@id": "#Object.r_blendedness_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_cModelFlux
     "@id": "#Object.r_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_cModelFluxErr
     "@id": "#Object.r_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_cModelFlux_inner
     "@id": "#Object.r_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_cModel_flag
     "@id": "#Object.r_cModel_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_cModel_flag_apCorr
     "@id": "#Object.r_cModel_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct modelfit_cmodel forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calibFlux
     "@id": "#Object.r_calibFlux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_calibFluxErr
     "@id": "#Object.r_calibFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_calibFlux_flag
     "@id": "#Object.r_calibFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calibFlux_flag_apertureTruncated
     "@id": "#Object.r_calibFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.r_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calib_astrometry_used
     "@id": "#Object.r_calib_astrometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calib_photometry_reserved
     "@id": "#Object.r_calib_photometry_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calib_photometry_used
     "@id": "#Object.r_calib_photometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calib_psf_candidate
     "@id": "#Object.r_calib_psf_candidate"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calib_psf_reserved
     "@id": "#Object.r_calib_psf_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_calib_psf_used
     "@id": "#Object.r_calib_psf_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_centroid_flag
     "@id": "#Object.r_centroid_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_centroid_x
     "@id": "#Object.r_centroid_x"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: r_centroid_xErr
     "@id": "#Object.r_centroid_xErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on x position measured on r band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: r_centroid_y
     "@id": "#Object.r_centroid_y"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: r_centroid_yErr
     "@id": "#Object.r_centroid_yErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on y position measured on r band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: r_decl
     "@id": "#Object.r_decl"
     datatype: double
-    description:
+    description: Position in ra/dec measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: r_extendedness
     "@id": "#Object.r_extendedness"
     datatype: double
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: r_extendedness_flag
     "@id": "#Object.r_extendedness_flag"
     datatype: boolean
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_free_cModelFlux
     "@id": "#Object.r_free_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_free_cModelFluxErr
     "@id": "#Object.r_free_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_free_cModelFlux_flag
     "@id": "#Object.r_free_cModelFlux_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_free_cModelFlux_inner
     "@id": "#Object.r_free_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_free_psfFlux
     "@id": "#Object.r_free_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_free_psfFluxErr
     "@id": "#Object.r_free_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_free_psfFlux_flag
     "@id": "#Object.r_free_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_fwhm
     "@id": "#Object.r_fwhm"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_gaapFluxErr_0_7
     "@id": "#Object.r_gaapFluxErr_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: r_gaapFluxErr_1_0
     "@id": "#Object.r_gaapFluxErr_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: r_gaapFluxErr_optimal
     "@id": "#Object.r_gaapFluxErr_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: r_gaapFluxErr_psf
     "@id": "#Object.r_gaapFluxErr_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: r_gaapFlux_0_7
     "@id": "#Object.r_gaapFlux_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_gaapFlux_0_7_flag_bigPsf
     "@id": "#Object.r_gaapFlux_0_7_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_gaapFlux_1_0
     "@id": "#Object.r_gaapFlux_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.r_gaapFlux_1_0_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_gaapFlux_flag
     "@id": "#Object.r_gaapFlux_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_gaapFlux_flag_edge
     "@id": "#Object.r_gaapFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Source is too close to the edge forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_gaapFlux_flag_gaussianization
     "@id": "#Object.r_gaapFlux_flag_gaussianization"
     datatype: boolean
-    description:
+    description: Psf gaussianization failed when trying to scale by this factor. forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_gaapFlux_optimal
     "@id": "#Object.r_gaapFlux_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_gaapFlux_optimal_flag_bigPsf
     "@id": "#Object.r_gaapFlux_optimal_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_gaapFlux_psf
     "@id": "#Object.r_gaapFlux_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_hsmShapeRegauss_e1
     "@id": "#Object.r_hsmShapeRegauss_e1"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: r_hsmShapeRegauss_e2
     "@id": "#Object.r_hsmShapeRegauss_e2"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: r_hsmShapeRegauss_flag
     "@id": "#Object.r_hsmShapeRegauss_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_hsmShapeRegauss_sigma
     "@id": "#Object.r_hsmShapeRegauss_sigma"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: r_iDebiasedPSF_flag
     "@id": "#Object.r_iDebiasedPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_iPSF_flag
     "@id": "#Object.r_iPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_iRound_flag
     "@id": "#Object.r_iRound_flag"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_i_flag
     "@id": "#Object.r_i_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_inputCount
     "@id": "#Object.r_inputCount"
     datatype: int
-    description:
+    description: Number of images contributing at center, not including anyclipping forced on r band
     mysql:datatype: INTEGER
-    fits.tunit:
+    fits:tunit:
   - name: r_inputCount_flag
     "@id": "#Object.r_inputCount_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_inputCount_flag_noInputs
     "@id": "#Object.r_inputCount_flag_noInputs"
     datatype: boolean
-    description:
+    description: No coadd inputs available forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ixx
     "@id": "#Object.r_ixx"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_ixxDebiasedPSF
     "@id": "#Object.r_ixxDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_ixxPSF
     "@id": "#Object.r_ixxPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_ixxRound
     "@id": "#Object.r_ixxRound"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_ixy
     "@id": "#Object.r_ixy"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_ixyDebiasedPSF
     "@id": "#Object.r_ixyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_ixyPSF
     "@id": "#Object.r_ixyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_ixyRound
     "@id": "#Object.r_ixyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_iyy
     "@id": "#Object.r_iyy"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_iyyDebiasedPSF
     "@id": "#Object.r_iyyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_iyyPSF
     "@id": "#Object.r_iyyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_iyyRound
     "@id": "#Object.r_iyyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: r_kronFlux
     "@id": "#Object.r_kronFlux"
     datatype: double
-    description:
+    description: Flux from kron flux algorithm measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_kronFluxErr
     "@id": "#Object.r_kronFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from kron flux uncertainty algorithm measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_kronFlux_flag
     "@id": "#Object.r_kronFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_bad_radius
     "@id": "#Object.r_kronFlux_flag_bad_radius"
     datatype: boolean
-    description:
+    description: Bad kron radius measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_bad_shape
     "@id": "#Object.r_kronFlux_flag_bad_shape"
     datatype: boolean
-    description:
+    description: Shape for measuring kron radius is bad; used psf shape measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.r_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
-    description:
+    description: Bad shape and no psf measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_edge
     "@id": "#Object.r_kronFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Bad measurement due to image edge measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_no_fallback_radius
     "@id": "#Object.r_kronFlux_flag_no_fallback_radius"
     datatype: boolean
-    description:
+    description: No minimum radius and no psf provided measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_no_minimum_radius
     "@id": "#Object.r_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description:
+    description: Minimum radius could not enforced, no minimum value or psf measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_small_radius
     "@id": "#Object.r_kronFlux_flag_small_radius"
     datatype: boolean
-    description:
+    description: Measured kron radius was smaller than that of the psf measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_used_minimum_radius
     "@id": "#Object.r_kronFlux_flag_used_minimum_radius"
     datatype: boolean
-    description:
+    description: Used the minimum radius for the kron aperture measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronFlux_flag_used_psf_radius
     "@id": "#Object.r_kronFlux_flag_used_psf_radius"
     datatype: boolean
-    description:
+    description: Used the psf kron radius for the kron aperture measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_kronRad
     "@id": "#Object.r_kronRad"
     datatype: float
-    description:
+    description: Kron radius (sqrt(a*b)) measured on r band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_bad
     "@id": "#Object.r_pixelFlags_bad"
     datatype: boolean
-    description:
+    description: Bad pixel in the source footprint measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_clipped
     "@id": "#Object.r_pixelFlags_clipped"
     datatype: boolean
-    description:
+    description: Source footprint includes clipped pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_clippedCenter
     "@id": "#Object.r_pixelFlags_clippedCenter"
     datatype: boolean
-    description:
+    description: Source center is close to clipped pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_cr
     "@id": "#Object.r_pixelFlags_cr"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source footprint measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_crCenter
     "@id": "#Object.r_pixelFlags_crCenter"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source center measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_edge
     "@id": "#Object.r_pixelFlags_edge"
     datatype: boolean
-    description:
+    description: Source is outside usable exposure region (masked edge or no_data) measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_inexact_psf
     "@id": "#Object.r_pixelFlags_inexact_psf"
     datatype: boolean
-    description:
+    description: Source footprint includes inexact_psf pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_inexact_psfCenter
     "@id": "#Object.r_pixelFlags_inexact_psfCenter"
     datatype: boolean
-    description:
+    description: Source center is close to inexact_psf pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_interpolated
     "@id": "#Object.r_pixelFlags_interpolated"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source footprint measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_interpolatedCenter
     "@id": "#Object.r_pixelFlags_interpolatedCenter"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source center measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_offimage
     "@id": "#Object.r_pixelFlags_offimage"
     datatype: boolean
-    description:
+    description: Source center is off image measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_saturated
     "@id": "#Object.r_pixelFlags_saturated"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source footprint measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_saturatedCenter
     "@id": "#Object.r_pixelFlags_saturatedCenter"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source center measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_sensor_edge
     "@id": "#Object.r_pixelFlags_sensor_edge"
     datatype: boolean
-    description:
+    description: Source footprint includes sensor_edge pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_sensor_edgeCenter
     "@id": "#Object.r_pixelFlags_sensor_edgeCenter"
     datatype: boolean
-    description:
+    description: Source center is close to sensor_edge pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_suspect
     "@id": "#Object.r_pixelFlags_suspect"
     datatype: boolean
-    description:
+    description: Sources footprint includes suspect pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_pixelFlags_suspectCenter
     "@id": "#Object.r_pixelFlags_suspectCenter"
     datatype: boolean
-    description:
+    description: Sources center is close to suspect pixels measured on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_psfFlux
     "@id": "#Object.r_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_psfFluxErr
     "@id": "#Object.r_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model forced on r band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: r_psfFlux_area
     "@id": "#Object.r_psfFlux_area"
     datatype: float
-    description:
+    description: Effective area of psf forced on r band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: r_psfFlux_flag
     "@id": "#Object.r_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_psfFlux_flag_apCorr
     "@id": "#Object.r_psfFlux_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct base_psfflux forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_psfFlux_flag_edge
     "@id": "#Object.r_psfFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Object was too close to the edge of the image to use the full psf model forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_psfFlux_flag_noGoodPixels
     "@id": "#Object.r_psfFlux_flag_noGoodPixels"
     datatype: boolean
-    description:
+    description: Not enough non-rejected pixels in data to attempt the fit forced on r band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: r_ra
     "@id": "#Object.r_ra"
     datatype: double
-    description:
+    description: Position in ra/dec measured on r band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
     datatype: double
-    description:
+    description: Flux within 3.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap03FluxErr
     "@id": "#Object.y_ap03FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 3.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap03Flux_flag
     "@id": "#Object.y_ap03Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap06Flux
     "@id": "#Object.y_ap06Flux"
     datatype: double
-    description:
+    description: Flux within 6.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap06FluxErr
     "@id": "#Object.y_ap06FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 6.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap06Flux_flag
     "@id": "#Object.y_ap06Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap09Flux
     "@id": "#Object.y_ap09Flux"
     datatype: double
-    description:
+    description: Flux within 9.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap09FluxErr
     "@id": "#Object.y_ap09FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 9.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap09Flux_flag
     "@id": "#Object.y_ap09Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap12Flux
     "@id": "#Object.y_ap12Flux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap12FluxErr
     "@id": "#Object.y_ap12FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap12Flux_flag
     "@id": "#Object.y_ap12Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap17Flux
     "@id": "#Object.y_ap17Flux"
     datatype: double
-    description:
+    description: Flux within 17.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap17FluxErr
     "@id": "#Object.y_ap17FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 17.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap17Flux_flag
     "@id": "#Object.y_ap17Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap25Flux
     "@id": "#Object.y_ap25Flux"
     datatype: double
-    description:
+    description: Flux within 25.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap25FluxErr
     "@id": "#Object.y_ap25FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 25.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap25Flux_flag
     "@id": "#Object.y_ap25Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap35Flux
     "@id": "#Object.y_ap35Flux"
     datatype: double
-    description:
+    description: Flux within 35.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap35FluxErr
     "@id": "#Object.y_ap35FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 35.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap35Flux_flag
     "@id": "#Object.y_ap35Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap50Flux
     "@id": "#Object.y_ap50Flux"
     datatype: double
-    description:
+    description: Flux within 50.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap50FluxErr
     "@id": "#Object.y_ap50FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 50.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap50Flux_flag
     "@id": "#Object.y_ap50Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ap70Flux
     "@id": "#Object.y_ap70Flux"
     datatype: double
-    description:
+    description: Flux within 70.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap70FluxErr
     "@id": "#Object.y_ap70FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 70.000000-pixel aperture forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_ap70Flux_flag
     "@id": "#Object.y_ap70Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_apFlux_flag
     "@id": "#Object.y_apFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_apFlux_flag_apertureTruncated
     "@id": "#Object.y_apFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.y_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_bdChi2
     "@id": "#Object.y_bdChi2"
     datatype: double
-    description:
+    description: -ln(likelihood) (chi^2) in cmodel fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: y_bdE1
     "@id": "#Object.y_bdE1"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_bdE2
     "@id": "#Object.y_bdE2"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_bdFluxB
     "@id": "#Object.y_bdFluxB"
     datatype: double
-    description:
+    description: Flux from the de vaucouleur fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_bdFluxBErr
     "@id": "#Object.y_bdFluxBErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the de vaucouleur fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_bdFluxD
     "@id": "#Object.y_bdFluxD"
     datatype: double
-    description:
+    description: Flux from the exponential fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_bdFluxDErr
     "@id": "#Object.y_bdFluxDErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the exponential fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_bdReB
     "@id": "#Object.y_bdReB"
     datatype: double
-    description:
+    description: Half-light ellipse of the de vaucouleur fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_bdReD
     "@id": "#Object.y_bdReD"
     datatype: double
-    description:
+    description: Half-light ellipse of the exponential fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_blendedness
     "@id": "#Object.y_blendedness"
     datatype: double
-    description:
+    description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  operates on the absolute value of the pixels to try to obtain a de-noised value.  see section 4.9.11 of bosch et al. 2018, pasj, 70, s5 for details. measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: y_blendedness_flag
     "@id": "#Object.y_blendedness_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_cModelFlux
     "@id": "#Object.y_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_cModelFluxErr
     "@id": "#Object.y_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_cModelFlux_inner
     "@id": "#Object.y_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_cModel_flag
     "@id": "#Object.y_cModel_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_cModel_flag_apCorr
     "@id": "#Object.y_cModel_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct modelfit_cmodel forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calibFlux
     "@id": "#Object.y_calibFlux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_calibFluxErr
     "@id": "#Object.y_calibFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_calibFlux_flag
     "@id": "#Object.y_calibFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calibFlux_flag_apertureTruncated
     "@id": "#Object.y_calibFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.y_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calib_astrometry_used
     "@id": "#Object.y_calib_astrometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calib_photometry_reserved
     "@id": "#Object.y_calib_photometry_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calib_photometry_used
     "@id": "#Object.y_calib_photometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calib_psf_candidate
     "@id": "#Object.y_calib_psf_candidate"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calib_psf_reserved
     "@id": "#Object.y_calib_psf_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_calib_psf_used
     "@id": "#Object.y_calib_psf_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_centroid_flag
     "@id": "#Object.y_centroid_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_centroid_x
     "@id": "#Object.y_centroid_x"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: y_centroid_xErr
     "@id": "#Object.y_centroid_xErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on x position measured on y band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: y_centroid_y
     "@id": "#Object.y_centroid_y"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: y_centroid_yErr
     "@id": "#Object.y_centroid_yErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on y position measured on y band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: y_decl
     "@id": "#Object.y_decl"
     datatype: double
-    description:
+    description: Position in ra/dec measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: y_extendedness
     "@id": "#Object.y_extendedness"
     datatype: double
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: y_extendedness_flag
     "@id": "#Object.y_extendedness_flag"
     datatype: boolean
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_free_cModelFlux
     "@id": "#Object.y_free_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_free_cModelFluxErr
     "@id": "#Object.y_free_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_free_cModelFlux_flag
     "@id": "#Object.y_free_cModelFlux_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_free_cModelFlux_inner
     "@id": "#Object.y_free_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_free_psfFlux
     "@id": "#Object.y_free_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_free_psfFluxErr
     "@id": "#Object.y_free_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_free_psfFlux_flag
     "@id": "#Object.y_free_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_fwhm
     "@id": "#Object.y_fwhm"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_gaapFluxErr_0_7
     "@id": "#Object.y_gaapFluxErr_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: y_gaapFluxErr_1_0
     "@id": "#Object.y_gaapFluxErr_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: y_gaapFluxErr_optimal
     "@id": "#Object.y_gaapFluxErr_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: y_gaapFluxErr_psf
     "@id": "#Object.y_gaapFluxErr_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: y_gaapFlux_0_7
     "@id": "#Object.y_gaapFlux_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_gaapFlux_0_7_flag_bigPsf
     "@id": "#Object.y_gaapFlux_0_7_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_gaapFlux_1_0
     "@id": "#Object.y_gaapFlux_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.y_gaapFlux_1_0_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_gaapFlux_flag
     "@id": "#Object.y_gaapFlux_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_gaapFlux_flag_edge
     "@id": "#Object.y_gaapFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Source is too close to the edge forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_gaapFlux_flag_gaussianization
     "@id": "#Object.y_gaapFlux_flag_gaussianization"
     datatype: boolean
-    description:
+    description: Psf gaussianization failed when trying to scale by this factor. forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_gaapFlux_optimal
     "@id": "#Object.y_gaapFlux_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_gaapFlux_optimal_flag_bigPsf
     "@id": "#Object.y_gaapFlux_optimal_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_gaapFlux_psf
     "@id": "#Object.y_gaapFlux_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_hsmShapeRegauss_e1
     "@id": "#Object.y_hsmShapeRegauss_e1"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: y_hsmShapeRegauss_e2
     "@id": "#Object.y_hsmShapeRegauss_e2"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: y_hsmShapeRegauss_flag
     "@id": "#Object.y_hsmShapeRegauss_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_hsmShapeRegauss_sigma
     "@id": "#Object.y_hsmShapeRegauss_sigma"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: y_iDebiasedPSF_flag
     "@id": "#Object.y_iDebiasedPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_iPSF_flag
     "@id": "#Object.y_iPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_iRound_flag
     "@id": "#Object.y_iRound_flag"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_i_flag
     "@id": "#Object.y_i_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_inputCount
     "@id": "#Object.y_inputCount"
     datatype: int
-    description:
+    description: Number of images contributing at center, not including anyclipping forced on y band
     mysql:datatype: INTEGER
-    fits.tunit:
+    fits:tunit:
   - name: y_inputCount_flag
     "@id": "#Object.y_inputCount_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_inputCount_flag_noInputs
     "@id": "#Object.y_inputCount_flag_noInputs"
     datatype: boolean
-    description:
+    description: No coadd inputs available forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ixx
     "@id": "#Object.y_ixx"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_ixxDebiasedPSF
     "@id": "#Object.y_ixxDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_ixxPSF
     "@id": "#Object.y_ixxPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_ixxRound
     "@id": "#Object.y_ixxRound"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_ixy
     "@id": "#Object.y_ixy"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_ixyDebiasedPSF
     "@id": "#Object.y_ixyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_ixyPSF
     "@id": "#Object.y_ixyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_ixyRound
     "@id": "#Object.y_ixyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_iyy
     "@id": "#Object.y_iyy"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_iyyDebiasedPSF
     "@id": "#Object.y_iyyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_iyyPSF
     "@id": "#Object.y_iyyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_iyyRound
     "@id": "#Object.y_iyyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: y_kronFlux
     "@id": "#Object.y_kronFlux"
     datatype: double
-    description:
+    description: Flux from kron flux algorithm measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_kronFluxErr
     "@id": "#Object.y_kronFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from kron flux uncertainty algorithm measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_kronFlux_flag
     "@id": "#Object.y_kronFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_bad_radius
     "@id": "#Object.y_kronFlux_flag_bad_radius"
     datatype: boolean
-    description:
+    description: Bad kron radius measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_bad_shape
     "@id": "#Object.y_kronFlux_flag_bad_shape"
     datatype: boolean
-    description:
+    description: Shape for measuring kron radius is bad; used psf shape measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.y_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
-    description:
+    description: Bad shape and no psf measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_edge
     "@id": "#Object.y_kronFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Bad measurement due to image edge measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_no_fallback_radius
     "@id": "#Object.y_kronFlux_flag_no_fallback_radius"
     datatype: boolean
-    description:
+    description: No minimum radius and no psf provided measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_no_minimum_radius
     "@id": "#Object.y_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description:
+    description: Minimum radius could not enforced, no minimum value or psf measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_small_radius
     "@id": "#Object.y_kronFlux_flag_small_radius"
     datatype: boolean
-    description:
+    description: Measured kron radius was smaller than that of the psf measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_used_minimum_radius
     "@id": "#Object.y_kronFlux_flag_used_minimum_radius"
     datatype: boolean
-    description:
+    description: Used the minimum radius for the kron aperture measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronFlux_flag_used_psf_radius
     "@id": "#Object.y_kronFlux_flag_used_psf_radius"
     datatype: boolean
-    description:
+    description: Used the psf kron radius for the kron aperture measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_kronRad
     "@id": "#Object.y_kronRad"
     datatype: float
-    description:
+    description: Kron radius (sqrt(a*b)) measured on y band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_bad
     "@id": "#Object.y_pixelFlags_bad"
     datatype: boolean
-    description:
+    description: Bad pixel in the source footprint measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_clipped
     "@id": "#Object.y_pixelFlags_clipped"
     datatype: boolean
-    description:
+    description: Source footprint includes clipped pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_clippedCenter
     "@id": "#Object.y_pixelFlags_clippedCenter"
     datatype: boolean
-    description:
+    description: Source center is close to clipped pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_cr
     "@id": "#Object.y_pixelFlags_cr"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source footprint measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_crCenter
     "@id": "#Object.y_pixelFlags_crCenter"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source center measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_edge
     "@id": "#Object.y_pixelFlags_edge"
     datatype: boolean
-    description:
+    description: Source is outside usable exposure region (masked edge or no_data) measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_inexact_psf
     "@id": "#Object.y_pixelFlags_inexact_psf"
     datatype: boolean
-    description:
+    description: Source footprint includes inexact_psf pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_inexact_psfCenter
     "@id": "#Object.y_pixelFlags_inexact_psfCenter"
     datatype: boolean
-    description:
+    description: Source center is close to inexact_psf pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_interpolated
     "@id": "#Object.y_pixelFlags_interpolated"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source footprint measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_interpolatedCenter
     "@id": "#Object.y_pixelFlags_interpolatedCenter"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source center measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_offimage
     "@id": "#Object.y_pixelFlags_offimage"
     datatype: boolean
-    description:
+    description: Source center is off image measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_saturated
     "@id": "#Object.y_pixelFlags_saturated"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source footprint measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_saturatedCenter
     "@id": "#Object.y_pixelFlags_saturatedCenter"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source center measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_sensor_edge
     "@id": "#Object.y_pixelFlags_sensor_edge"
     datatype: boolean
-    description:
+    description: Source footprint includes sensor_edge pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_sensor_edgeCenter
     "@id": "#Object.y_pixelFlags_sensor_edgeCenter"
     datatype: boolean
-    description:
+    description: Source center is close to sensor_edge pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_suspect
     "@id": "#Object.y_pixelFlags_suspect"
     datatype: boolean
-    description:
+    description: Sources footprint includes suspect pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_pixelFlags_suspectCenter
     "@id": "#Object.y_pixelFlags_suspectCenter"
     datatype: boolean
-    description:
+    description: Sources center is close to suspect pixels measured on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_psfFlux
     "@id": "#Object.y_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_psfFluxErr
     "@id": "#Object.y_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model forced on y band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: y_psfFlux_area
     "@id": "#Object.y_psfFlux_area"
     datatype: float
-    description:
+    description: Effective area of psf forced on y band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: y_psfFlux_flag
     "@id": "#Object.y_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_psfFlux_flag_apCorr
     "@id": "#Object.y_psfFlux_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct base_psfflux forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_psfFlux_flag_edge
     "@id": "#Object.y_psfFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Object was too close to the edge of the image to use the full psf model forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_psfFlux_flag_noGoodPixels
     "@id": "#Object.y_psfFlux_flag_noGoodPixels"
     datatype: boolean
-    description:
+    description: Not enough non-rejected pixels in data to attempt the fit forced on y band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: y_ra
     "@id": "#Object.y_ra"
     datatype: double
-    description:
+    description: Position in ra/dec measured on y band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
     datatype: double
-    description:
+    description: Flux within 3.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap03FluxErr
     "@id": "#Object.z_ap03FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 3.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap03Flux_flag
     "@id": "#Object.z_ap03Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap06Flux
     "@id": "#Object.z_ap06Flux"
     datatype: double
-    description:
+    description: Flux within 6.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap06FluxErr
     "@id": "#Object.z_ap06FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 6.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap06Flux_flag
     "@id": "#Object.z_ap06Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap09Flux
     "@id": "#Object.z_ap09Flux"
     datatype: double
-    description:
+    description: Flux within 9.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap09FluxErr
     "@id": "#Object.z_ap09FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 9.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap09Flux_flag
     "@id": "#Object.z_ap09Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap12Flux
     "@id": "#Object.z_ap12Flux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap12FluxErr
     "@id": "#Object.z_ap12FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap12Flux_flag
     "@id": "#Object.z_ap12Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap17Flux
     "@id": "#Object.z_ap17Flux"
     datatype: double
-    description:
+    description: Flux within 17.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap17FluxErr
     "@id": "#Object.z_ap17FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 17.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap17Flux_flag
     "@id": "#Object.z_ap17Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap25Flux
     "@id": "#Object.z_ap25Flux"
     datatype: double
-    description:
+    description: Flux within 25.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap25FluxErr
     "@id": "#Object.z_ap25FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 25.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap25Flux_flag
     "@id": "#Object.z_ap25Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap35Flux
     "@id": "#Object.z_ap35Flux"
     datatype: double
-    description:
+    description: Flux within 35.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap35FluxErr
     "@id": "#Object.z_ap35FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 35.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap35Flux_flag
     "@id": "#Object.z_ap35Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap50Flux
     "@id": "#Object.z_ap50Flux"
     datatype: double
-    description:
+    description: Flux within 50.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap50FluxErr
     "@id": "#Object.z_ap50FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 50.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap50Flux_flag
     "@id": "#Object.z_ap50Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ap70Flux
     "@id": "#Object.z_ap70Flux"
     datatype: double
-    description:
+    description: Flux within 70.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap70FluxErr
     "@id": "#Object.z_ap70FluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 70.000000-pixel aperture forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_ap70Flux_flag
     "@id": "#Object.z_ap70Flux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_apFlux_flag
     "@id": "#Object.z_apFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_apFlux_flag_apertureTruncated
     "@id": "#Object.z_apFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.z_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_bdChi2
     "@id": "#Object.z_bdChi2"
     datatype: double
-    description:
+    description: -ln(likelihood) (chi^2) in cmodel fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: z_bdE1
     "@id": "#Object.z_bdE1"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_bdE2
     "@id": "#Object.z_bdE2"
     datatype: double
-    description:
+    description: Fracdev-weighted average of exp.ellipse and dev.ellipse measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_bdFluxB
     "@id": "#Object.z_bdFluxB"
     datatype: double
-    description:
+    description: Flux from the de vaucouleur fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_bdFluxBErr
     "@id": "#Object.z_bdFluxBErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the de vaucouleur fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_bdFluxD
     "@id": "#Object.z_bdFluxD"
     datatype: double
-    description:
+    description: Flux from the exponential fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_bdFluxDErr
     "@id": "#Object.z_bdFluxDErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the exponential fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_bdReB
     "@id": "#Object.z_bdReB"
     datatype: double
-    description:
+    description: Half-light ellipse of the de vaucouleur fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_bdReD
     "@id": "#Object.z_bdReD"
     datatype: double
-    description:
+    description: Half-light ellipse of the exponential fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_blendedness
     "@id": "#Object.z_blendedness"
     datatype: double
-    description:
+    description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  operates on the absolute value of the pixels to try to obtain a de-noised value.  see section 4.9.11 of bosch et al. 2018, pasj, 70, s5 for details. measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: z_blendedness_flag
     "@id": "#Object.z_blendedness_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_cModelFlux
     "@id": "#Object.z_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_cModelFluxErr
     "@id": "#Object.z_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_cModelFlux_inner
     "@id": "#Object.z_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_cModel_flag
     "@id": "#Object.z_cModel_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_cModel_flag_apCorr
     "@id": "#Object.z_cModel_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct modelfit_cmodel forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calibFlux
     "@id": "#Object.z_calibFlux"
     datatype: double
-    description:
+    description: Flux within 12.000000-pixel aperture measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_calibFluxErr
     "@id": "#Object.z_calibFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty within 12.000000-pixel aperture measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_calibFlux_flag
     "@id": "#Object.z_calibFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calibFlux_flag_apertureTruncated
     "@id": "#Object.z_calibFlux_flag_apertureTruncated"
     datatype: boolean
-    description:
+    description: Aperture did not fit within measurement image measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.z_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
-    description:
+    description: Full sinc coefficient image did not fit within measurement image measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calib_astrometry_used
     "@id": "#Object.z_calib_astrometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calib_photometry_reserved
     "@id": "#Object.z_calib_photometry_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calib_photometry_used
     "@id": "#Object.z_calib_photometry_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calib_psf_candidate
     "@id": "#Object.z_calib_psf_candidate"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calib_psf_reserved
     "@id": "#Object.z_calib_psf_reserved"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_calib_psf_used
     "@id": "#Object.z_calib_psf_used"
     datatype: boolean
-    description:
+    description: Propagated from sources measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_centroid_flag
     "@id": "#Object.z_centroid_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_centroid_x
     "@id": "#Object.z_centroid_x"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: z_centroid_xErr
     "@id": "#Object.z_centroid_xErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on x position measured on z band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: z_centroid_y
     "@id": "#Object.z_centroid_y"
     datatype: double
-    description:
+    description: Centroid from sdss centroid algorithm measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel
   - name: z_centroid_yErr
     "@id": "#Object.z_centroid_yErr"
     datatype: float
-    description:
+    description: 1-sigma uncertainty on y position measured on z band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: z_decl
     "@id": "#Object.z_decl"
     datatype: double
-    description:
+    description: Position in ra/dec measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
   - name: z_extendedness
     "@id": "#Object.z_extendedness"
     datatype: double
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: z_extendedness_flag
     "@id": "#Object.z_extendedness_flag"
     datatype: boolean
-    description:
+    description: Set to 1 for extended sources, 0 for point sources. measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_free_cModelFlux
     "@id": "#Object.z_free_cModelFlux"
     datatype: double
-    description:
+    description: Flux from the final cmodel fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_free_cModelFluxErr
     "@id": "#Object.z_free_cModelFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from the final cmodel fit measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_free_cModelFlux_flag
     "@id": "#Object.z_free_cModelFlux_flag"
     datatype: boolean
-    description:
+    description: Flag set if the final cmodel fit (or any previous fit) failed measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_free_cModelFlux_inner
     "@id": "#Object.z_free_cModelFlux_inner"
     datatype: double
-    description:
+    description: Flux within the fit region, with no extrapolation measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_free_psfFlux
     "@id": "#Object.z_free_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_free_psfFluxErr
     "@id": "#Object.z_free_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_free_psfFlux_flag
     "@id": "#Object.z_free_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_fwhm
     "@id": "#Object.z_fwhm"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_gaapFluxErr_0_7
     "@id": "#Object.z_gaapFluxErr_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: z_gaapFluxErr_1_0
     "@id": "#Object.z_gaapFluxErr_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: z_gaapFluxErr_optimal
     "@id": "#Object.z_gaapFluxErr_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: z_gaapFluxErr_psf
     "@id": "#Object.z_gaapFluxErr_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: nanojansky
   - name: z_gaapFlux_0_7
     "@id": "#Object.z_gaapFlux_0_7"
     datatype: double
-    description:
+    description: Gaap flux with 0.7 aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_gaapFlux_0_7_flag_bigPsf
     "@id": "#Object.z_gaapFlux_0_7_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_gaapFlux_1_0
     "@id": "#Object.z_gaapFlux_1_0"
     datatype: double
-    description:
+    description: Gaap flux with 1.0 aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_gaapFlux_1_0_flag_bigPsf
     "@id": "#Object.z_gaapFlux_1_0_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_gaapFlux_flag
     "@id": "#Object.z_gaapFlux_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_gaapFlux_flag_edge
     "@id": "#Object.z_gaapFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Source is too close to the edge forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_gaapFlux_flag_gaussianization
     "@id": "#Object.z_gaapFlux_flag_gaussianization"
     datatype: boolean
-    description:
+    description: Psf gaussianization failed when trying to scale by this factor. forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_gaapFlux_optimal
     "@id": "#Object.z_gaapFlux_optimal"
     datatype: double
-    description:
+    description: Gaap flux with optimal aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_gaapFlux_optimal_flag_bigPsf
     "@id": "#Object.z_gaapFlux_optimal_flag_bigPsf"
     datatype: boolean
-    description:
+    description: The gaussianized psf is bigger than the aperture forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_gaapFlux_psf
     "@id": "#Object.z_gaapFlux_psf"
     datatype: double
-    description:
+    description: Gaap flux with psf aperture after multiplying the seeing by 1.15 forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_hsmShapeRegauss_e1
     "@id": "#Object.z_hsmShapeRegauss_e1"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: z_hsmShapeRegauss_e2
     "@id": "#Object.z_hsmShapeRegauss_e2"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: z_hsmShapeRegauss_flag
     "@id": "#Object.z_hsmShapeRegauss_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_hsmShapeRegauss_sigma
     "@id": "#Object.z_hsmShapeRegauss_sigma"
     datatype: double
-    description:
+    description: Psf-corrected shear using hirata & seljak (2003) regaussianization measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: z_iDebiasedPSF_flag
     "@id": "#Object.z_iDebiasedPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_iPSF_flag
     "@id": "#Object.z_iPSF_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_iRound_flag
     "@id": "#Object.z_iRound_flag"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_i_flag
     "@id": "#Object.z_i_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_inputCount
     "@id": "#Object.z_inputCount"
     datatype: int
-    description:
+    description: Number of images contributing at center, not including anyclipping forced on z band
     mysql:datatype: INTEGER
-    fits.tunit:
+    fits:tunit:
   - name: z_inputCount_flag
     "@id": "#Object.z_inputCount_flag"
     datatype: boolean
-    description:
+    description: Set for any fatal failure forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_inputCount_flag_noInputs
     "@id": "#Object.z_inputCount_flag_noInputs"
     datatype: boolean
-    description:
+    description: No coadd inputs available forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ixx
     "@id": "#Object.z_ixx"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_ixxDebiasedPSF
     "@id": "#Object.z_ixxDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_ixxPSF
     "@id": "#Object.z_ixxPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_ixxRound
     "@id": "#Object.z_ixxRound"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_ixy
     "@id": "#Object.z_ixy"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_ixyDebiasedPSF
     "@id": "#Object.z_ixyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_ixyPSF
     "@id": "#Object.z_ixyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_ixyRound
     "@id": "#Object.z_ixyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_iyy
     "@id": "#Object.z_iyy"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_iyyDebiasedPSF
     "@id": "#Object.z_iyyDebiasedPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_iyyPSF
     "@id": "#Object.z_iyyPSF"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_iyyRound
     "@id": "#Object.z_iyyRound"
     datatype: double
-    description:
+    description: Hsm moments measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit: pixel^2
   - name: z_kronFlux
     "@id": "#Object.z_kronFlux"
     datatype: double
-    description:
+    description: Flux from kron flux algorithm measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_kronFluxErr
     "@id": "#Object.z_kronFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty from kron flux uncertainty algorithm measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_kronFlux_flag
     "@id": "#Object.z_kronFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag, set if anything went wrong measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_bad_radius
     "@id": "#Object.z_kronFlux_flag_bad_radius"
     datatype: boolean
-    description:
+    description: Bad kron radius measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_bad_shape
     "@id": "#Object.z_kronFlux_flag_bad_shape"
     datatype: boolean
-    description:
+    description: Shape for measuring kron radius is bad; used psf shape measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.z_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
-    description:
+    description: Bad shape and no psf measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_edge
     "@id": "#Object.z_kronFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Bad measurement due to image edge measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_no_fallback_radius
     "@id": "#Object.z_kronFlux_flag_no_fallback_radius"
     datatype: boolean
-    description:
+    description: No minimum radius and no psf provided measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_no_minimum_radius
     "@id": "#Object.z_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description:
+    description: Minimum radius could not enforced, no minimum value or psf measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_small_radius
     "@id": "#Object.z_kronFlux_flag_small_radius"
     datatype: boolean
-    description:
+    description: Measured kron radius was smaller than that of the psf measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_used_minimum_radius
     "@id": "#Object.z_kronFlux_flag_used_minimum_radius"
     datatype: boolean
-    description:
+    description: Used the minimum radius for the kron aperture measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronFlux_flag_used_psf_radius
     "@id": "#Object.z_kronFlux_flag_used_psf_radius"
     datatype: boolean
-    description:
+    description: Used the psf kron radius for the kron aperture measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_kronRad
     "@id": "#Object.z_kronRad"
     datatype: float
-    description:
+    description: Kron radius (sqrt(a*b)) measured on z band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_bad
     "@id": "#Object.z_pixelFlags_bad"
     datatype: boolean
-    description:
+    description: Bad pixel in the source footprint measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_clipped
     "@id": "#Object.z_pixelFlags_clipped"
     datatype: boolean
-    description:
+    description: Source footprint includes clipped pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_clippedCenter
     "@id": "#Object.z_pixelFlags_clippedCenter"
     datatype: boolean
-    description:
+    description: Source center is close to clipped pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_cr
     "@id": "#Object.z_pixelFlags_cr"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source footprint measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_crCenter
     "@id": "#Object.z_pixelFlags_crCenter"
     datatype: boolean
-    description:
+    description: Cosmic ray in the source center measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_edge
     "@id": "#Object.z_pixelFlags_edge"
     datatype: boolean
-    description:
+    description: Source is outside usable exposure region (masked edge or no_data) measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_inexact_psf
     "@id": "#Object.z_pixelFlags_inexact_psf"
     datatype: boolean
-    description:
+    description: Source footprint includes inexact_psf pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_inexact_psfCenter
     "@id": "#Object.z_pixelFlags_inexact_psfCenter"
     datatype: boolean
-    description:
+    description: Source center is close to inexact_psf pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_interpolated
     "@id": "#Object.z_pixelFlags_interpolated"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source footprint measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_interpolatedCenter
     "@id": "#Object.z_pixelFlags_interpolatedCenter"
     datatype: boolean
-    description:
+    description: Interpolated pixel in the source center measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_offimage
     "@id": "#Object.z_pixelFlags_offimage"
     datatype: boolean
-    description:
+    description: Source center is off image measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_saturated
     "@id": "#Object.z_pixelFlags_saturated"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source footprint measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_saturatedCenter
     "@id": "#Object.z_pixelFlags_saturatedCenter"
     datatype: boolean
-    description:
+    description: Saturated pixel in the source center measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_sensor_edge
     "@id": "#Object.z_pixelFlags_sensor_edge"
     datatype: boolean
-    description:
+    description: Source footprint includes sensor_edge pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_sensor_edgeCenter
     "@id": "#Object.z_pixelFlags_sensor_edgeCenter"
     datatype: boolean
-    description:
+    description: Source center is close to sensor_edge pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_suspect
     "@id": "#Object.z_pixelFlags_suspect"
     datatype: boolean
-    description:
+    description: Sources footprint includes suspect pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_pixelFlags_suspectCenter
     "@id": "#Object.z_pixelFlags_suspectCenter"
     datatype: boolean
-    description:
+    description: Sources center is close to suspect pixels measured on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_psfFlux
     "@id": "#Object.z_psfFlux"
     datatype: double
-    description:
+    description: Flux derived from linear least-squares fit of psf model forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_psfFluxErr
     "@id": "#Object.z_psfFluxErr"
     datatype: double
-    description:
+    description: Flux uncertainty derived from linear least-squares fit of psf model forced on z band
     mysql:datatype: DOUBLE
-    fits.tunit: nanojansky
+    fits:tunit: nanojansky
   - name: z_psfFlux_area
     "@id": "#Object.z_psfFlux_area"
     datatype: float
-    description:
+    description: Effective area of psf forced on z band
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit: pixel
   - name: z_psfFlux_flag
     "@id": "#Object.z_psfFlux_flag"
     datatype: boolean
-    description:
+    description: General failure flag forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_psfFlux_flag_apCorr
     "@id": "#Object.z_psfFlux_flag_apCorr"
     datatype: boolean
-    description:
+    description: Set if unable to aperture correct base_psfflux forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_psfFlux_flag_edge
     "@id": "#Object.z_psfFlux_flag_edge"
     datatype: boolean
-    description:
+    description: Object was too close to the edge of the image to use the full psf model forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_psfFlux_flag_noGoodPixels
     "@id": "#Object.z_psfFlux_flag_noGoodPixels"
     datatype: boolean
-    description:
+    description: Not enough non-rejected pixels in data to attempt the fit forced on z band
     mysql:datatype: BOOLEAN
-    fits.tunit:
+    fits:tunit:
   - name: z_ra
     "@id": "#Object.z_ra"
     datatype: double
-    description:
+    description: Position in ra/dec measured on z band
     mysql:datatype: DOUBLE
-    fits.tunit: deg
+    fits:tunit: deg
 
 - name: Source
   "@id": "#Source"
