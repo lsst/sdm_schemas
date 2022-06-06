@@ -1,6 +1,9 @@
 ---
 name: ImsimSchema
 "@id": "#imsimSchema"
+description: Authoritative source for the current schema produced by Science Pipelines
+  for production based on Imsim simulated full-focal-plane LSSTCam data.  Other Felis
+  files for related datasets, e.g., DP0.2, are derived from this one.
 tables:
 - name: Object
   "@id": "#Object"
