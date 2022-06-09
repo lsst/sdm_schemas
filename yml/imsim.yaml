@@ -8603,6 +8603,10 @@ tables:
   '@id': '#CcdVisit'
   description: ''
   columns:
+  - name: ccdVisitId
+    '@id': '#CcdVisit.ccdVisitId'
+    datatype: long
+    description: ''
   - name: visitId
     '@id': '#CcdVisit.visitId'
     datatype: long
