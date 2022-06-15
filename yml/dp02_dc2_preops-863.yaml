@@ -114,6 +114,7 @@ tables:
     description:
     mysql:datatype: CHAR(1)
     fits:tunit:
+    votable:arraysize: "*"
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
     datatype: double
@@ -6783,6 +6784,7 @@ tables:
     description: Name of the band used to take the exposure where this source was measured.
     mysql:datatype: CHAR(1)
     fits:tunit:
+    votable:arraysize: "*"
   - name: instrument
     "@id": "#Source.instrument"
     datatype: char
@@ -6868,6 +6870,7 @@ tables:
     length: 1
     mysql:datatype: CHAR(1)
     description:
+    votable:arraysize: "*"
   - name: ccdVisitId
     "@id": "#ForcedSource.ccdVisitId"
     datatype: long
@@ -7826,6 +7829,7 @@ tables:
     datatype: char
     mysql:datatype: CHAR(1)
     description:
+    votable:arraysize: "*"
   - name: forced_PsfFlux_flag
     "@id": "#DiaSource.forced_PsfFlux_flag"
     datatype: boolean
@@ -8060,6 +8064,7 @@ tables:
     datatype: char
     mysql:datatype: CHAR(1)
     description:
+    votable:arraysize: "*"
   - name: ccdVisitId
     "@id": "#ForcedSourceOnDiaObject.ccdVisitId"
     datatype: long
@@ -8254,6 +8259,7 @@ tables:
     datatype: char
     length: 1
     description: ''
+    votable:arraysize: "*"
   - name: ra
     '@id': '#Visit.ra'
     datatype: double
@@ -8310,6 +8316,7 @@ tables:
     datatype: char
     length: 1
     description: ''
+    votable:arraysize: "*"
   - name: ra
     '@id': '#CcdVisit.ra'
     datatype: double
