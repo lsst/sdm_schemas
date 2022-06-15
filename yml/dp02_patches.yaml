@@ -1,0 +1,58 @@
+---
+name: dp02_dc2_images
+"@id": "#dp02_dc2_images"
+description: Information about image data products in DP0.2 processing of DC2
+tables:
+- name: lsst_skymap
+  "@id": "#lsst_skymap"
+  description: Static information about the tract-and-patch skymap used for coadds
+  columns:
+  - name: lsst_tract
+    "@id": "#lsst_skymap.lsst_tract"
+    description: "ID number of the top level, 'tract', of the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id.part
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: int
+  - name: lsst_patch
+    "@id": "#lsst_skymap.lsst_patch"
+    description: "ID number of the second level, 'patch', of the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id.part
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: int
+  - name: s_ra
+    "@id": "#lsst_skymap.s_ra"
+    description: Central Spatial Position in ICRS; Right ascension
+    nullable: false
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+  - name: s_dec
+    "@id": "#lsst_skymap.s_dec"
+    description: Central Spatial Position in ICRS; Declination
+    nullable: false
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+  - name: s_region
+    "@id": "#lsst_skymap.s_region"
+    description: Sky region covered by the data product (expressed in ICRS frame)
+    nullable: false
+    ivoa:ucd: pos.outline;obs.field
+    votable:utype: Char.SpatialAxis.Coverage.Support.Area
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+    datatype: char
+    votable:arraysize: 512
