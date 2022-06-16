@@ -6113,3 +6113,43 @@ tables:
     '@id': '#CcdVisit.lrcdec'
     datatype: double
     description: ''
+  - name: astromOffsetMean
+    '@id': '#CcdVisit.astromOffsetMean'
+    datatype: double
+    description: Mean offset of astrometric calibration matches (arcsec)
+  - name: astromOffsetStd
+    '@id': '#CcdVisit.astromOffsetStd'
+    datatype: double
+    description: Standard deviation of offsets of astrometric calibration matches (arcsec)
+  - name: nPsfStar
+    '@id': '#CcdVisit.nPsfStar'
+    datatype: int
+    description: Number of stars used for PSF model
+  - name: psfStarDeltaE1Median
+    '@id': '#CcdVisit.psfStarDeltaE1Median'
+    datatype: double
+    description: Median E1 residual (starE1 - psfE1) for psf stars
+  - name: psfStarDeltaE2Median
+    '@id': '#CcdVisit.psfStarDeltaE2Median'
+    datatype: double
+    description: Median E2 residual (starE2 - psfE2) for psf stars
+  - name: psfStarDeltaE1Scatter
+    '@id': '#CcdVisit.psfStarDeltaE1Scatter'
+    datatype: double
+    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for psf stars
+  - name: psfStarDeltaE2Scatter
+    '@id': '#CcdVisit.psfStarDeltaE2Scatter'
+    datatype: double
+    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for psf stars
+  - name: psfStarDeltaSizeMedian
+    '@id': '#CcdVisit.psfStarDeltaSizeMedian'
+    datatype: double
+    description: Median size residual (starSize - psfSize) for psf stars (pixel)
+  - name: psfStarDeltaSizeScatter
+    '@id': '#CcdVisit.psfStarDeltaSizeScatter'
+    datatype: double
+    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars (pixel)
+  - name: psfStarScaledDeltaSizeScatter
+    '@id': '#CcdVisit.psfStarScaledDeltaSizeScatter'
+    datatype: double
+    description: Scatter (via MAD) of size residual scaled by median size squared
