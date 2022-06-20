@@ -8474,201 +8474,339 @@ tables:
     description: objectId of object
 - name: Visit
   '@id': '#Visit'
-  description: ''
+  description: Defines a single Visit.
   columns:
   - name: visit
     '@id': '#Visit.visit'
     datatype: long
-    description: ''
+    description: Unique identifier.
+    mysql:datatype: INTEGER
+    ivoa:ucd: meta.id;obs.image
   - name: physical_filter
     '@id': '#Visit.physical_filter'
     datatype: char
     length: 32
-    description: ''
+    description: ID of physical filter, the filter associated with a particular instrument.
+    votable:arraysize: "*"
+    mysql:datatype: CHAR(32)
+    fits.tunit:
   - name: band
     '@id': '#Visit.band'
     datatype: char
     length: 1
-    description: ''
+    description: Name of the band used to take the exposure where this source was measured.
+      Abstract filter that is not associated with a particular instrument.
+    votable:arraysize: "*"
+    mysql:datatype: CHAR(1)
+    fits.tunit:
   - name: ra
     '@id': '#Visit.ra'
     datatype: double
-    description: ''
+    description: RA of focal plane center.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: decl
     '@id': '#Visit.decl'
     datatype: double
-    description: ''
+    description: Declination of focal plane center
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: skyRotation
     '@id': '#Visit.skyRotation'
     datatype: double
-    description: ''
+    description: Sky rotation angle.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: azimuth
     '@id': '#Visit.azimuth'
     datatype: double
-    description: ''
+    description: Azimuth of focal plane center at the middle of the exposure.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: altitude
     '@id': '#Visit.altitude'
     datatype: double
-    description: ''
+    description: Altitude of focal plane center at the middle of the exposure.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: zenithDistance
     '@id': '#Visit.zenithDistance'
     datatype: double
-    description: ''
+    description: Zenith distance at the middle of the exposure.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
   - name: airmass
     '@id': '#Visit.airmass'
     datatype: double
-    description: ''
+    description: Airmass of the observed line of sight.
+    mysql:datatype: FLOAT
+    fits.tunit:
   - name: expTime
     '@id': '#Visit.expTime'
     datatype: double
-    description: ''
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    mysql:datatype: DOUBLE
+    fits:tunit: s
   - name: expMidpt
     '@id': '#Visit.expMidpt'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: ''
+    description: Midpoint time for exposure at the fiducial center of the focal plane array.
+      TAI, accurate to 10ms.
+    fits:tunit:
   - name: expMidptMJD
     '@id': '#Visit.expMidptMJD'
     datatype: double
-    description: ''
+    description: Midpoint time for exposure at the fiducial center of the focal plane array in MJD.
+      TAI, accurate to 10ms.
+    mysql:datatype: DOUBLE
+    fits.tunit: d
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: ''
+    description: Start time of the exposure at the fiducial center of the focal plane array,
+      TAI, accurate to 10ms.
   - name: obsStartMJD
     '@id': '#Visit.obsStartMJD'
     datatype: double
-    description: ''
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    mysql:datatype: TIMESTAMP
 - name: CcdVisit
   '@id': '#CcdVisit'
-  description: ''
+  description: Defines a single detector of a visit
   columns:
   - name: ccdVisitId
     '@id': '#CcdVisit.ccdVisitId'
     datatype: long
-    description: ''
+    description: Primary key (unique identifier).
+    mysql:datatype: BIGINT
   - name: visitId
     '@id': '#CcdVisit.visitId'
     datatype: long
-    description: ''
+    description: Reference to the corresponding entry in the Visit table.
+    mysql:datatype: INTEGER
   - name: physical_filter
     '@id': '#CcdVisit.physical_filter'
     datatype: char
     length: 32
-    description: ''
+    description: ID of physical filter, the filter associated with a particular instrument.
+    votable:arraysize: "*"
+    mysql:datatype: CHAR(32)
+    fits.tunit:
   - name: band
     '@id': '#CcdVisit.band'
     datatype: char
     length: 1
-    description: ''
+    description: Name of the band used to take the exposure where this source was measured.
+      Abstract filter that is not associated with a particular instrument.
+    votable:arraysize: "*"
+    mysql:datatype: CHAR(1)
+    fits.tunit:
   - name: ra
     '@id': '#CcdVisit.ra'
     datatype: double
-    description: ''
+    description: RA of Ccd center.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: decl
     '@id': '#CcdVisit.decl'
     datatype: double
-    description: ''
+    description: Declination of Ccd center.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: zenithDistance
     '@id': '#CcdVisit.zenithDistance'
     datatype: float
-    description: ''
+    description: Zenith distance at observation mid-point.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
   - name: zeroPoint
     '@id': '#CcdVisit.zeroPoint'
     datatype: float
-    description: ''
+    description: Zero-point for the Ccd, estimated at Ccd center.
+    mysql:datatype: FLOAT
+    fits:tunit: mag
   - name: psfSigma
     '@id': '#CcdVisit.psfSigma'
     datatype: float
-    description: ''
+    description: PSF model second-moments determinant radius (center of chip)
+    mysql:datatype: FLOAT
+    fits:tunit: pixel
   - name: skyBg
     '@id': '#CcdVisit.skyBg'
     datatype: float
-    description: ''
+    description: Average sky background.
+    mysql:datatype: FLOAT
+    fits:tunit: DN
   - name: skyNoise
     '@id': '#CcdVisit.skyNoise'
     datatype: float
-    description: ''
+    description: RMS noise of the sky background.
+    mysql:datatype: FLOAT
+    fits:tunit: DN
   - name: detector
     '@id': '#CcdVisit.detector'
     datatype: long
-    description: ''
+    description: Detector ID. A detector associated with a particular instrument (not an observation of that detector)
+    mysql:datatype: BIGINT
   - name: seeing
     '@id': '#CcdVisit.seeing'
     datatype: double
-    description: ''
+    description: Mean measured FWHM of the PSF.
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
   - name: skyRotation
     '@id': '#CcdVisit.skyRotation'
     datatype: double
-    description: ''
+    description: Sky rotation angle.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: expMidpt
     '@id': '#CcdVisit.expMidpt'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: ''
+    description: Midpoint for exposure. TAI, accurate to 10ms.
   - name: expMidptMJD
     '@id': '#CcdVisit.expMidptMJD'
     datatype: double
-    description: ''
+    description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
+    mysql:datatype: DOUBLE
+    fits:tunit: d
   - name: expTime
     '@id': '#CcdVisit.expTime'
     datatype: double
-    description: ''
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    mysql:datatype: DOUBLE
+    fits:tunit: s
   - name: obsStart
     '@id': '#CcdVisit.obsStart'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: ''
+    description: Start of the exposure, TAI, accurate to 10ms.
   - name: obsStartMJD
     '@id': '#CcdVisit.obsStartMJD'
     datatype: double
-    description: ''
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    mysql:datatype: TIMESTAMP
   - name: darkTime
     '@id': '#CcdVisit.darkTime'
     datatype: double
-    description: ''
+    description: Average dark current accumulation time, accurate to 10ms.
+    mysql:datatype: DOUBLE
+    fits:tunit: s
   - name: xSize
     '@id': '#CcdVisit.xSize'
     datatype: long
-    description: ''
+    description: Number of columns in the image.
+    mysql:datatype: INTEGER
+    fits:tunit: pixel
   - name: ySize
     '@id': '#CcdVisit.ySize'
     datatype: long
-    description: ''
+    description: Number of rows in the image.
+    mysql:datatype: INTEGER
+    fits:tunit: pixel
   - name: llcra
     '@id': '#CcdVisit.llcra'
     datatype: double
-    description: ''
+    description: RA of lower left corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: llcdec
     '@id': '#CcdVisit.llcdec'
     datatype: double
-    description: ''
+    description: Declination of lower left corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: ulcra
     '@id': '#CcdVisit.ulcra'
     datatype: double
-    description: ''
+    description: RA of upper left corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: ulcdec
     '@id': '#CcdVisit.ulcdec'
     datatype: double
-    description: ''
+    description: Declination of upper left corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: urcra
     '@id': '#CcdVisit.urcra'
     datatype: double
-    description: ''
+    description: RA of upper right corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: urcdec
     '@id': '#CcdVisit.urcdec'
     datatype: double
-    description: ''
+    description: Declination of upper right corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: lrcra
     '@id': '#CcdVisit.lrcra'
     datatype: double
-    description: ''
+    description: RA of lower right corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: lrcdec
     '@id': '#CcdVisit.lrcdec'
     datatype: double
-    description: ''
+    description: Declination of lower right corner.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: astromOffsetMean
+    '@id': '#CcdVisit.astromOffsetMean'
+    datatype: double
+    description: Mean offset of astrometric calibration matches (arcsec)
+    fits:tunit: arcsec
+  - name: astromOffsetStd
+    '@id': '#CcdVisit.astromOffsetStd'
+    datatype: double
+    description: Standard deviation of offsets of astrometric calibration matches (arcsec)
+    fits:tunit: arcsec
+  - name: nPsfStar
+    '@id': '#CcdVisit.nPsfStar'
+    datatype: int
+    description: Number of stars used for PSF model
+    fits:tunit:
+  - name: psfStarDeltaE1Median
+    '@id': '#CcdVisit.psfStarDeltaE1Median'
+    datatype: double
+    description: Median E1 residual (starE1 - psfE1) for psf stars
+    fits:tunit:
+  - name: psfStarDeltaE2Median
+    '@id': '#CcdVisit.psfStarDeltaE2Median'
+    datatype: double
+    description: Median E2 residual (starE2 - psfE2) for psf stars
+    fits:tunit:
+  - name: psfStarDeltaE1Scatter
+    '@id': '#CcdVisit.psfStarDeltaE1Scatter'
+    datatype: double
+    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for psf stars
+    fits:tunit:
+  - name: psfStarDeltaE2Scatter
+    '@id': '#CcdVisit.psfStarDeltaE2Scatter'
+    datatype: double
+    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for psf stars
+    fits:tunit:
+  - name: psfStarDeltaSizeMedian
+    '@id': '#CcdVisit.psfStarDeltaSizeMedian'
+    datatype: double
+    description: Median size residual (starSize - psfSize) for psf stars (pixel)
+    fits:tunit: pixel
+  - name: psfStarDeltaSizeScatter
+    '@id': '#CcdVisit.psfStarDeltaSizeScatter'
+    datatype: double
+    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars (pixel)
+    fits:tunit: pixel
+  - name: psfStarScaledDeltaSizeScatter
+    '@id': '#CcdVisit.psfStarScaledDeltaSizeScatter'
+    datatype: double
+    description: Scatter (via MAD) of size residual scaled by median size squared
+    fits:tunit:
+
