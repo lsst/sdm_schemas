@@ -1,6 +1,10 @@
 #!/bin/bash -ex
+#
+# NB: The order of files in the ./build statements controls the TAP_SCHEMA.schemas.schema_index
+# values that control the presentation order of schemas.  This is respected by the Portal Aspect.
+#
 ./build mock
 ./build stable ../yml/hsc.yaml ../yml/wise_01.yml ../yml/dp01_dc2.yaml ../yml/dp02_dc2_preops-863.yaml
 ./build int ../yml/hsc.yaml ../yml/wise_01.yml ../yml/dp01_dc2.yaml ../yml/dp02_dc2_preops-863.yaml
 ./build idfprod ../yml/dp01_dc2.yaml
-./build idfint ../yml/dp01_dc2.yaml ../yml/dp02_dc2_preops-863.yaml ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
+./build idfint ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml ../yml/dp01_dc2.yaml ../yml/dp02_dc2_preops-863.yaml
