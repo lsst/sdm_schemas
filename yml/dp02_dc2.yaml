@@ -8409,81 +8409,6 @@ tables:
     mysql:datatype: BIGINT
     description: Skymap tract ID
     fits:tunit:
-# - name: MatchesTruth
-#   '@id': '#MatchesTruth'
-#   description: Match information for truth_summary sources.
-#   columns:
-#   - name: index
-#     '@id': '#MatchesTruth.index'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Incrementing (implicit) row index
-#   - name: match_candidate
-#     '@id': '#MatchesTruth.match_candidate'
-#     datatype: boolean
-#     mysql:datatype: BOOLEAN
-#     description: True for sources that were selected for matching
-#   - name: match_row
-#     '@id': '#MatchesTruth.match_row'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Index of matched objectTable_tract table row, if any
-#   - name: match_count
-#     '@id': '#MatchesTruth.match_count'
-#     datatype: int
-#     mysql:datatype: INTEGER
-#     description: Number of candidate object matches within match radius
-#   - name: match_chisq
-#     '@id': '#MatchesTruth.match_chisq'
-#     datatype: double
-#     mysql:datatype: double
-#     description: The chi-squared value of the (best) match
-#   - name: match_n_chisq_finite
-#     '@id': '#MatchesTruth.match_n_chisq_finite'
-#     datatype: int
-#     mysql:datatype: INTEGER
-#     description: The number of finite columns used to compute the match chisq
-#   - name: id
-#     '@id': '#MatchesTruth.id'
-#     datatype: char
-#     length: 16
-#     mysql:datatype: CHAR(16)
-#     description: id for truth_summary source.
-#   - name: match_objectId
-#     '@id': '#MatchesTruth.match_objectId'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: objectId of matched objectTable_tract object, if any
-# - name: MatchesObject
-#   '@id': '#MatchesObject'
-#   description: Match information for objectTable_tract sources
-#   columns:
-#   - name: index
-#     '@id': '#MatchesObject.index'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Incrementing (implicit) row index
-#   - name: match_candidate
-#     '@id': '#MatchesObject.match_candidate'
-#     datatype: boolean
-#     mysql:datatype: BOOLEAN
-#     description: True for sources that were selected for matching
-#   - name: match_row
-#     '@id': '#MatchesObject.match_row'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Index of matched truth_summary table row, if any
-#   - name: match_id
-#     '@id': '#MatchesObject.match_id'
-#     datatype: char
-#     length: 16
-#     mysql:datatype: CHAR(16)
-#     description: id of matched truth_summary source, if any
-#   - name: objectId
-#     '@id': '#MatchesObject.objectId'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: objectId of object
 - name: Visit
   '@id': '#Visit'
   description: "Metadata about the pointings of the DC2 simulated survey,
@@ -8775,3 +8700,134 @@ tables:
     description: Declination of lower right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+- name: CoaddPatches
+  "@id": "#coaddpatches"
+  description: "Static information about the subset of tracts and patches from the standard
+    LSST skymap that apply to coadds in these catalogs"
+  tap:table_index: 9
+  columns:
+  - name: lsst_tract
+    "@id": "#coaddpatches.lsst_tract"
+    description: "ID number of the top level, 'tract', within the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id.part
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+  - name: lsst_patch
+    "@id": "#coaddpatches.lsst_patch"
+    description: "ID number of the second level, 'patch', within the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id.part
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+  - name: s_ra
+    "@id": "#coaddpatches.s_ra"
+    description: "Central Spatial Position in ICRS; Right ascension"
+    nullable: false
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+  - name: s_dec
+    "@id": "#coaddpatches.s_dec"
+    description: "Central Spatial Position in ICRS; Declination"
+    nullable: false
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+  - name: s_region
+    "@id": "#coaddpatches.s_region"
+    description: "Sky region covered by the coadd (expressed in ICRS frame)"
+    nullable: false
+    ivoa:ucd: pos.outline;obs.field
+    votable:utype: Char.SpatialAxis.Coverage.Support.Area
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+    datatype: char
+    length: 512
+    votable:arraysize: 512
+# - name: MatchesTruth
+#   '@id': '#MatchesTruth'
+#   description: Match information for truth_summary sources.
+#   columns:
+#   - name: index
+#     '@id': '#MatchesTruth.index'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: Incrementing (implicit) row index
+#   - name: match_candidate
+#     '@id': '#MatchesTruth.match_candidate'
+#     datatype: boolean
+#     mysql:datatype: BOOLEAN
+#     description: True for sources that were selected for matching
+#   - name: match_row
+#     '@id': '#MatchesTruth.match_row'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: Index of matched objectTable_tract table row, if any
+#   - name: match_count
+#     '@id': '#MatchesTruth.match_count'
+#     datatype: int
+#     mysql:datatype: INTEGER
+#     description: Number of candidate object matches within match radius
+#   - name: match_chisq
+#     '@id': '#MatchesTruth.match_chisq'
+#     datatype: double
+#     mysql:datatype: double
+#     description: The chi-squared value of the (best) match
+#   - name: match_n_chisq_finite
+#     '@id': '#MatchesTruth.match_n_chisq_finite'
+#     datatype: int
+#     mysql:datatype: INTEGER
+#     description: The number of finite columns used to compute the match chisq
+#   - name: id
+#     '@id': '#MatchesTruth.id'
+#     datatype: char
+#     length: 16
+#     mysql:datatype: CHAR(16)
+#     description: id for truth_summary source.
+#   - name: match_objectId
+#     '@id': '#MatchesTruth.match_objectId'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: objectId of matched objectTable_tract object, if any
+# - name: MatchesObject
+#   '@id': '#MatchesObject'
+#   description: Match information for objectTable_tract sources
+#   columns:
+#   - name: index
+#     '@id': '#MatchesObject.index'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: Incrementing (implicit) row index
+#   - name: match_candidate
+#     '@id': '#MatchesObject.match_candidate'
+#     datatype: boolean
+#     mysql:datatype: BOOLEAN
+#     description: True for sources that were selected for matching
+#   - name: match_row
+#     '@id': '#MatchesObject.match_row'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: Index of matched truth_summary table row, if any
+#   - name: match_id
+#     '@id': '#MatchesObject.match_id'
+#     datatype: char
+#     length: 16
+#     mysql:datatype: CHAR(16)
+#     description: id of matched truth_summary source, if any
+#   - name: objectId
+#     '@id': '#MatchesObject.objectId'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: objectId of object
