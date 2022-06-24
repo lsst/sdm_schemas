@@ -202,13 +202,13 @@ tables:
     datatype: double
     description: Flux within 3.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap03FluxErr
     "@id": "#Object.g_ap03FluxErr"
     datatype: double
     description: Flux uncertainty within 3.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap03Flux_flag
     "@id": "#Object.g_ap03Flux_flag"
     datatype: boolean
@@ -220,13 +220,13 @@ tables:
     datatype: double
     description: Flux within 6.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap06FluxErr
     "@id": "#Object.g_ap06FluxErr"
     datatype: double
     description: Flux uncertainty within 6.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap06Flux_flag
     "@id": "#Object.g_ap06Flux_flag"
     datatype: boolean
@@ -238,13 +238,13 @@ tables:
     datatype: double
     description: Flux within 9.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap09FluxErr
     "@id": "#Object.g_ap09FluxErr"
     datatype: double
     description: Flux uncertainty within 9.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap09Flux_flag
     "@id": "#Object.g_ap09Flux_flag"
     datatype: boolean
@@ -256,13 +256,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap12FluxErr
     "@id": "#Object.g_ap12FluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap12Flux_flag
     "@id": "#Object.g_ap12Flux_flag"
     datatype: boolean
@@ -274,13 +274,13 @@ tables:
     datatype: double
     description: Flux within 17.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap17FluxErr
     "@id": "#Object.g_ap17FluxErr"
     datatype: double
     description: Flux uncertainty within 17.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap17Flux_flag
     "@id": "#Object.g_ap17Flux_flag"
     datatype: boolean
@@ -292,13 +292,13 @@ tables:
     datatype: double
     description: Flux within 25.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap25FluxErr
     "@id": "#Object.g_ap25FluxErr"
     datatype: double
     description: Flux uncertainty within 25.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap25Flux_flag
     "@id": "#Object.g_ap25Flux_flag"
     datatype: boolean
@@ -310,13 +310,13 @@ tables:
     datatype: double
     description: Flux within 35.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap35FluxErr
     "@id": "#Object.g_ap35FluxErr"
     datatype: double
     description: Flux uncertainty within 35.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap35Flux_flag
     "@id": "#Object.g_ap35Flux_flag"
     datatype: boolean
@@ -328,13 +328,13 @@ tables:
     datatype: double
     description: Flux within 50.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap50FluxErr
     "@id": "#Object.g_ap50FluxErr"
     datatype: double
     description: Flux uncertainty within 50.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap50Flux_flag
     "@id": "#Object.g_ap50Flux_flag"
     datatype: boolean
@@ -346,13 +346,13 @@ tables:
     datatype: double
     description: Flux within 70.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap70FluxErr
     "@id": "#Object.g_ap70FluxErr"
     datatype: double
     description: Flux uncertainty within 70.0-pixel aperture. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_ap70Flux_flag
     "@id": "#Object.g_ap70Flux_flag"
     datatype: boolean
@@ -400,25 +400,25 @@ tables:
     datatype: double
     description: Flux from the de Vaucouleur fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_bdFluxBErr
     "@id": "#Object.g_bdFluxBErr"
     datatype: double
     description: Flux uncertainty from the de Vaucouleur fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_bdFluxD
     "@id": "#Object.g_bdFluxD"
     datatype: double
     description: Flux from the exponential fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_bdFluxDErr
     "@id": "#Object.g_bdFluxDErr"
     datatype: double
     description: Flux uncertainty from the exponential fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_bdReB
     "@id": "#Object.g_bdReB"
     datatype: double
@@ -448,19 +448,19 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_cModelFluxErr
     "@id": "#Object.g_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_cModelFlux_inner
     "@id": "#Object.g_cModelFlux_inner"
     datatype: double
     description: Flux within the fit region, with no extrapolation. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_cModel_flag
     "@id": "#Object.g_cModel_flag"
     datatype: boolean
@@ -478,13 +478,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_calibFluxErr
     "@id": "#Object.g_calibFluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_calibFlux_flag
     "@id": "#Object.g_calibFlux_flag"
     datatype: boolean
@@ -592,13 +592,13 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_free_cModelFluxErr
     "@id": "#Object.g_free_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_free_cModelFlux_flag
     "@id": "#Object.g_free_cModelFlux_flag"
     datatype: boolean
@@ -610,19 +610,19 @@ tables:
     datatype: double
     description: Flux within the fit region, with no extrapolation. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_free_psfFlux
     "@id": "#Object.g_free_psfFlux"
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_free_psfFluxErr
     "@id": "#Object.g_free_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_free_psfFlux_flag
     "@id": "#Object.g_free_psfFlux_flag"
     datatype: boolean
@@ -640,61 +640,61 @@ tables:
     datatype: double
     description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap0p7FluxErr
     "@id": "#Object.g_gaap0p7FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap1p0FluxErr
     "@id": "#Object.g_gaap1p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap1p5FluxErr
     "@id": "#Object.g_gaap1p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap2p5FluxErr
     "@id": "#Object.g_gaap2p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap3p0FluxErr
     "@id": "#Object.g_gaap3p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaapOptimalFluxErr
     "@id": "#Object.g_gaapOptimalFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaapPsfFluxErr
     "@id": "#Object.g_gaapPsfFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaapPsfFlux
     "@id": "#Object.g_gaapPsfFlux"
     datatype: double
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaapOptimalFlux
     "@id": "#Object.g_gaapOptimalFlux"
     datatype: double
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.g_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
@@ -706,7 +706,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap0p5Flux_flag_bigPsf
     "@id": "#Object.g_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
@@ -718,7 +718,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.g_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -730,7 +730,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap1p0Flux_flag_bigPsf
     "@id": "#Object.g_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
@@ -742,7 +742,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.g_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -754,7 +754,7 @@ tables:
     datatype: double
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.g_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -766,7 +766,7 @@ tables:
     datatype: double
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_gaap3p0Flux_flag_bigPsf
     "@id": "#Object.g_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
@@ -934,13 +934,13 @@ tables:
     datatype: double
     description: Flux from Kron Flux algorithm. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_kronFluxErr
     "@id": "#Object.g_kronFluxErr"
     datatype: double
     description: Flux uncertainty from Kron Flux algorithm. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_kronFlux_flag
     "@id": "#Object.g_kronFlux_flag"
     datatype: boolean
@@ -1114,13 +1114,13 @@ tables:
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_psfFluxErr
     "@id": "#Object.g_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: g_psfFlux_area
     "@id": "#Object.g_psfFlux_area"
     datatype: float
@@ -1162,13 +1162,13 @@ tables:
     datatype: double
     description: Flux within 3.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap03FluxErr
     "@id": "#Object.i_ap03FluxErr"
     datatype: double
     description: Flux uncertainty within 3.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap03Flux_flag
     "@id": "#Object.i_ap03Flux_flag"
     datatype: boolean
@@ -1180,13 +1180,13 @@ tables:
     datatype: double
     description: Flux within 6.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap06FluxErr
     "@id": "#Object.i_ap06FluxErr"
     datatype: double
     description: Flux uncertainty within 6.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap06Flux_flag
     "@id": "#Object.i_ap06Flux_flag"
     datatype: boolean
@@ -1198,13 +1198,13 @@ tables:
     datatype: double
     description: Flux within 9.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap09FluxErr
     "@id": "#Object.i_ap09FluxErr"
     datatype: double
     description: Flux uncertainty within 9.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap09Flux_flag
     "@id": "#Object.i_ap09Flux_flag"
     datatype: boolean
@@ -1216,13 +1216,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap12FluxErr
     "@id": "#Object.i_ap12FluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap12Flux_flag
     "@id": "#Object.i_ap12Flux_flag"
     datatype: boolean
@@ -1234,13 +1234,13 @@ tables:
     datatype: double
     description: Flux within 17.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap17FluxErr
     "@id": "#Object.i_ap17FluxErr"
     datatype: double
     description: Flux uncertainty within 17.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap17Flux_flag
     "@id": "#Object.i_ap17Flux_flag"
     datatype: boolean
@@ -1252,13 +1252,13 @@ tables:
     datatype: double
     description: Flux within 25.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap25FluxErr
     "@id": "#Object.i_ap25FluxErr"
     datatype: double
     description: Flux uncertainty within 25.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap25Flux_flag
     "@id": "#Object.i_ap25Flux_flag"
     datatype: boolean
@@ -1270,13 +1270,13 @@ tables:
     datatype: double
     description: Flux within 35.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap35FluxErr
     "@id": "#Object.i_ap35FluxErr"
     datatype: double
     description: Flux uncertainty within 35.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap35Flux_flag
     "@id": "#Object.i_ap35Flux_flag"
     datatype: boolean
@@ -1288,13 +1288,13 @@ tables:
     datatype: double
     description: Flux within 50.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap50FluxErr
     "@id": "#Object.i_ap50FluxErr"
     datatype: double
     description: Flux uncertainty within 50.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap50Flux_flag
     "@id": "#Object.i_ap50Flux_flag"
     datatype: boolean
@@ -1306,13 +1306,13 @@ tables:
     datatype: double
     description: Flux within 70.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap70FluxErr
     "@id": "#Object.i_ap70FluxErr"
     datatype: double
     description: Flux uncertainty within 70.0-pixel aperture. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_ap70Flux_flag
     "@id": "#Object.i_ap70Flux_flag"
     datatype: boolean
@@ -1360,25 +1360,25 @@ tables:
     datatype: double
     description: Flux from the de Vaucouleur fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_bdFluxBErr
     "@id": "#Object.i_bdFluxBErr"
     datatype: double
     description: Flux uncertainty from the de Vaucouleur fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_bdFluxD
     "@id": "#Object.i_bdFluxD"
     datatype: double
     description: Flux from the exponential fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_bdFluxDErr
     "@id": "#Object.i_bdFluxDErr"
     datatype: double
     description: Flux uncertainty from the exponential fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_bdReB
     "@id": "#Object.i_bdReB"
     datatype: double
@@ -1408,19 +1408,19 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_cModelFluxErr
     "@id": "#Object.i_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_cModelFlux_inner
     "@id": "#Object.i_cModelFlux_inner"
     datatype: double
     description: Flux within the fit region, with no extrapolation. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_cModel_flag
     "@id": "#Object.i_cModel_flag"
     datatype: boolean
@@ -1438,13 +1438,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_calibFluxErr
     "@id": "#Object.i_calibFluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_calibFlux_flag
     "@id": "#Object.i_calibFlux_flag"
     datatype: boolean
@@ -1552,13 +1552,13 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_free_cModelFluxErr
     "@id": "#Object.i_free_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_free_cModelFlux_flag
     "@id": "#Object.i_free_cModelFlux_flag"
     datatype: boolean
@@ -1570,19 +1570,19 @@ tables:
     datatype: double
     description: Flux within the fit region, with no extrapolation. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_free_psfFlux
     "@id": "#Object.i_free_psfFlux"
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_free_psfFluxErr
     "@id": "#Object.i_free_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_free_psfFlux_flag
     "@id": "#Object.i_free_psfFlux_flag"
     datatype: boolean
@@ -1600,61 +1600,61 @@ tables:
     datatype: double
     description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap0p7FluxErr
     "@id": "#Object.i_gaap0p7FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap1p0FluxErr
     "@id": "#Object.i_gaap1p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap1p5FluxErr
     "@id": "#Object.i_gaap1p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap2p5FluxErr
     "@id": "#Object.i_gaap2p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap3p0FluxErr
     "@id": "#Object.i_gaap3p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaapOptimalFluxErr
     "@id": "#Object.i_gaapOptimalFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaapPsfFluxErr
     "@id": "#Object.i_gaapPsfFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaapPsfFlux
     "@id": "#Object.i_gaapPsfFlux"
     datatype: double
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaapOptimalFlux
     "@id": "#Object.i_gaapOptimalFlux"
     datatype: double
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.i_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
@@ -1666,7 +1666,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap0p5Flux_flag_bigPsf
     "@id": "#Object.i_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
@@ -1678,7 +1678,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.i_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -1690,7 +1690,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap1p0Flux_flag_bigPsf
     "@id": "#Object.i_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
@@ -1702,7 +1702,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.i_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -1714,7 +1714,7 @@ tables:
     datatype: double
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.i_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -1726,7 +1726,7 @@ tables:
     datatype: double
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_gaap3p0Flux_flag_bigPsf
     "@id": "#Object.i_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
@@ -1894,13 +1894,13 @@ tables:
     datatype: double
     description: Flux from Kron Flux algorithm. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_kronFluxErr
     "@id": "#Object.i_kronFluxErr"
     datatype: double
     description: Flux uncertainty from Kron Flux algorithm. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_kronFlux_flag
     "@id": "#Object.i_kronFlux_flag"
     datatype: boolean
@@ -2074,13 +2074,13 @@ tables:
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_psfFluxErr
     "@id": "#Object.i_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: i_psfFlux_area
     "@id": "#Object.i_psfFlux_area"
     datatype: float
@@ -2122,13 +2122,13 @@ tables:
     datatype: double
     description: Flux within 3.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap03FluxErr
     "@id": "#Object.r_ap03FluxErr"
     datatype: double
     description: Flux uncertainty within 3.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap03Flux_flag
     "@id": "#Object.r_ap03Flux_flag"
     datatype: boolean
@@ -2140,13 +2140,13 @@ tables:
     datatype: double
     description: Flux within 6.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap06FluxErr
     "@id": "#Object.r_ap06FluxErr"
     datatype: double
     description: Flux uncertainty within 6.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap06Flux_flag
     "@id": "#Object.r_ap06Flux_flag"
     datatype: boolean
@@ -2158,13 +2158,13 @@ tables:
     datatype: double
     description: Flux within 9.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap09FluxErr
     "@id": "#Object.r_ap09FluxErr"
     datatype: double
     description: Flux uncertainty within 9.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap09Flux_flag
     "@id": "#Object.r_ap09Flux_flag"
     datatype: boolean
@@ -2176,13 +2176,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap12FluxErr
     "@id": "#Object.r_ap12FluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap12Flux_flag
     "@id": "#Object.r_ap12Flux_flag"
     datatype: boolean
@@ -2194,13 +2194,13 @@ tables:
     datatype: double
     description: Flux within 17.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap17FluxErr
     "@id": "#Object.r_ap17FluxErr"
     datatype: double
     description: Flux uncertainty within 17.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap17Flux_flag
     "@id": "#Object.r_ap17Flux_flag"
     datatype: boolean
@@ -2212,13 +2212,13 @@ tables:
     datatype: double
     description: Flux within 25.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap25FluxErr
     "@id": "#Object.r_ap25FluxErr"
     datatype: double
     description: Flux uncertainty within 25.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap25Flux_flag
     "@id": "#Object.r_ap25Flux_flag"
     datatype: boolean
@@ -2230,13 +2230,13 @@ tables:
     datatype: double
     description: Flux within 35.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap35FluxErr
     "@id": "#Object.r_ap35FluxErr"
     datatype: double
     description: Flux uncertainty within 35.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap35Flux_flag
     "@id": "#Object.r_ap35Flux_flag"
     datatype: boolean
@@ -2248,13 +2248,13 @@ tables:
     datatype: double
     description: Flux within 50.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap50FluxErr
     "@id": "#Object.r_ap50FluxErr"
     datatype: double
     description: Flux uncertainty within 50.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap50Flux_flag
     "@id": "#Object.r_ap50Flux_flag"
     datatype: boolean
@@ -2266,13 +2266,13 @@ tables:
     datatype: double
     description: Flux within 70.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap70FluxErr
     "@id": "#Object.r_ap70FluxErr"
     datatype: double
     description: Flux uncertainty within 70.0-pixel aperture. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_ap70Flux_flag
     "@id": "#Object.r_ap70Flux_flag"
     datatype: boolean
@@ -2320,25 +2320,25 @@ tables:
     datatype: double
     description: Flux from the de Vaucouleur fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_bdFluxBErr
     "@id": "#Object.r_bdFluxBErr"
     datatype: double
     description: Flux uncertainty from the de Vaucouleur fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_bdFluxD
     "@id": "#Object.r_bdFluxD"
     datatype: double
     description: Flux from the exponential fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_bdFluxDErr
     "@id": "#Object.r_bdFluxDErr"
     datatype: double
     description: Flux uncertainty from the exponential fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_bdReB
     "@id": "#Object.r_bdReB"
     datatype: double
@@ -2368,19 +2368,19 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_cModelFluxErr
     "@id": "#Object.r_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_cModelFlux_inner
     "@id": "#Object.r_cModelFlux_inner"
     datatype: double
     description: Flux within the fit region, with no extrapolation. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_cModel_flag
     "@id": "#Object.r_cModel_flag"
     datatype: boolean
@@ -2398,13 +2398,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_calibFluxErr
     "@id": "#Object.r_calibFluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_calibFlux_flag
     "@id": "#Object.r_calibFlux_flag"
     datatype: boolean
@@ -2512,13 +2512,13 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_free_cModelFluxErr
     "@id": "#Object.r_free_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_free_cModelFlux_flag
     "@id": "#Object.r_free_cModelFlux_flag"
     datatype: boolean
@@ -2530,19 +2530,19 @@ tables:
     datatype: double
     description: Flux within the fit region, with no extrapolation. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_free_psfFlux
     "@id": "#Object.r_free_psfFlux"
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_free_psfFluxErr
     "@id": "#Object.r_free_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_free_psfFlux_flag
     "@id": "#Object.r_free_psfFlux_flag"
     datatype: boolean
@@ -2560,61 +2560,61 @@ tables:
     datatype: double
     description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap0p7FluxErr
     "@id": "#Object.r_gaap0p7FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap1p0FluxErr
     "@id": "#Object.r_gaap1p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap1p5FluxErr
     "@id": "#Object.r_gaap1p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap2p5FluxErr
     "@id": "#Object.r_gaap2p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap3p0FluxErr
     "@id": "#Object.r_gaap3p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaapOptimalFluxErr
     "@id": "#Object.r_gaapOptimalFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaapPsfFluxErr
     "@id": "#Object.r_gaapPsfFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaapPsfFlux
     "@id": "#Object.r_gaapPsfFlux"
     datatype: double
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaapOptimalFlux
     "@id": "#Object.r_gaapOptimalFlux"
     datatype: double
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.r_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
@@ -2626,7 +2626,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap0p5Flux_flag_bigPsf
     "@id": "#Object.r_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
@@ -2638,7 +2638,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.r_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -2650,7 +2650,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap1p0Flux_flag_bigPsf
     "@id": "#Object.r_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
@@ -2662,7 +2662,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.r_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -2674,7 +2674,7 @@ tables:
     datatype: double
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.r_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -2686,7 +2686,7 @@ tables:
     datatype: double
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_gaap3p0Flux_flag_bigPsf
     "@id": "#Object.r_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
@@ -2854,13 +2854,13 @@ tables:
     datatype: double
     description: Flux from Kron Flux algorithm. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_kronFluxErr
     "@id": "#Object.r_kronFluxErr"
     datatype: double
     description: Flux uncertainty from Kron Flux algorithm. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_kronFlux_flag
     "@id": "#Object.r_kronFlux_flag"
     datatype: boolean
@@ -3034,13 +3034,13 @@ tables:
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_psfFluxErr
     "@id": "#Object.r_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: r_psfFlux_area
     "@id": "#Object.r_psfFlux_area"
     datatype: float
@@ -3082,13 +3082,13 @@ tables:
     datatype: double
     description: Flux within 3.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap03FluxErr
     "@id": "#Object.y_ap03FluxErr"
     datatype: double
     description: Flux uncertainty within 3.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap03Flux_flag
     "@id": "#Object.y_ap03Flux_flag"
     datatype: boolean
@@ -3100,13 +3100,13 @@ tables:
     datatype: double
     description: Flux within 6.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap06FluxErr
     "@id": "#Object.y_ap06FluxErr"
     datatype: double
     description: Flux uncertainty within 6.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap06Flux_flag
     "@id": "#Object.y_ap06Flux_flag"
     datatype: boolean
@@ -3118,13 +3118,13 @@ tables:
     datatype: double
     description: Flux within 9.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap09FluxErr
     "@id": "#Object.y_ap09FluxErr"
     datatype: double
     description: Flux uncertainty within 9.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap09Flux_flag
     "@id": "#Object.y_ap09Flux_flag"
     datatype: boolean
@@ -3136,13 +3136,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap12FluxErr
     "@id": "#Object.y_ap12FluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap12Flux_flag
     "@id": "#Object.y_ap12Flux_flag"
     datatype: boolean
@@ -3154,13 +3154,13 @@ tables:
     datatype: double
     description: Flux within 17.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap17FluxErr
     "@id": "#Object.y_ap17FluxErr"
     datatype: double
     description: Flux uncertainty within 17.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap17Flux_flag
     "@id": "#Object.y_ap17Flux_flag"
     datatype: boolean
@@ -3172,13 +3172,13 @@ tables:
     datatype: double
     description: Flux within 25.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap25FluxErr
     "@id": "#Object.y_ap25FluxErr"
     datatype: double
     description: Flux uncertainty within 25.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap25Flux_flag
     "@id": "#Object.y_ap25Flux_flag"
     datatype: boolean
@@ -3190,13 +3190,13 @@ tables:
     datatype: double
     description: Flux within 35.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap35FluxErr
     "@id": "#Object.y_ap35FluxErr"
     datatype: double
     description: Flux uncertainty within 35.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap35Flux_flag
     "@id": "#Object.y_ap35Flux_flag"
     datatype: boolean
@@ -3208,13 +3208,13 @@ tables:
     datatype: double
     description: Flux within 50.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap50FluxErr
     "@id": "#Object.y_ap50FluxErr"
     datatype: double
     description: Flux uncertainty within 50.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap50Flux_flag
     "@id": "#Object.y_ap50Flux_flag"
     datatype: boolean
@@ -3226,13 +3226,13 @@ tables:
     datatype: double
     description: Flux within 70.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap70FluxErr
     "@id": "#Object.y_ap70FluxErr"
     datatype: double
     description: Flux uncertainty within 70.0-pixel aperture. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_ap70Flux_flag
     "@id": "#Object.y_ap70Flux_flag"
     datatype: boolean
@@ -3280,25 +3280,25 @@ tables:
     datatype: double
     description: Flux from the de Vaucouleur fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_bdFluxBErr
     "@id": "#Object.y_bdFluxBErr"
     datatype: double
     description: Flux uncertainty from the de Vaucouleur fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_bdFluxD
     "@id": "#Object.y_bdFluxD"
     datatype: double
     description: Flux from the exponential fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_bdFluxDErr
     "@id": "#Object.y_bdFluxDErr"
     datatype: double
     description: Flux uncertainty from the exponential fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_bdReB
     "@id": "#Object.y_bdReB"
     datatype: double
@@ -3328,19 +3328,19 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_cModelFluxErr
     "@id": "#Object.y_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_cModelFlux_inner
     "@id": "#Object.y_cModelFlux_inner"
     datatype: double
     description: Flux within the fit region, with no extrapolation. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_cModel_flag
     "@id": "#Object.y_cModel_flag"
     datatype: boolean
@@ -3358,13 +3358,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_calibFluxErr
     "@id": "#Object.y_calibFluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_calibFlux_flag
     "@id": "#Object.y_calibFlux_flag"
     datatype: boolean
@@ -3472,13 +3472,13 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_free_cModelFluxErr
     "@id": "#Object.y_free_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_free_cModelFlux_flag
     "@id": "#Object.y_free_cModelFlux_flag"
     datatype: boolean
@@ -3490,19 +3490,19 @@ tables:
     datatype: double
     description: Flux within the fit region, with no extrapolation. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_free_psfFlux
     "@id": "#Object.y_free_psfFlux"
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_free_psfFluxErr
     "@id": "#Object.y_free_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_free_psfFlux_flag
     "@id": "#Object.y_free_psfFlux_flag"
     datatype: boolean
@@ -3520,61 +3520,61 @@ tables:
     datatype: double
     description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap0p7FluxErr
     "@id": "#Object.y_gaap0p7FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap1p0FluxErr
     "@id": "#Object.y_gaap1p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap1p5FluxErr
     "@id": "#Object.y_gaap1p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap2p5FluxErr
     "@id": "#Object.y_gaap2p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap3p0FluxErr
     "@id": "#Object.y_gaap3p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaapOptimalFluxErr
     "@id": "#Object.y_gaapOptimalFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaapPsfFluxErr
     "@id": "#Object.y_gaapPsfFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaapPsfFlux
     "@id": "#Object.y_gaapPsfFlux"
     datatype: double
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaapOptimalFlux
     "@id": "#Object.y_gaapOptimalFlux"
     datatype: double
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.y_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
@@ -3586,7 +3586,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap0p5Flux_flag_bigPsf
     "@id": "#Object.y_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
@@ -3598,7 +3598,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.y_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -3610,7 +3610,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap1p0Flux_flag_bigPsf
     "@id": "#Object.y_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
@@ -3622,7 +3622,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.y_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -3634,7 +3634,7 @@ tables:
     datatype: double
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.y_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -3646,7 +3646,7 @@ tables:
     datatype: double
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_gaap3p0Flux_flag_bigPsf
     "@id": "#Object.y_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
@@ -3814,13 +3814,13 @@ tables:
     datatype: double
     description: Flux from Kron Flux algorithm. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_kronFluxErr
     "@id": "#Object.y_kronFluxErr"
     datatype: double
     description: Flux uncertainty from Kron Flux algorithm. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_kronFlux_flag
     "@id": "#Object.y_kronFlux_flag"
     datatype: boolean
@@ -3994,13 +3994,13 @@ tables:
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_psfFluxErr
     "@id": "#Object.y_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: y_psfFlux_area
     "@id": "#Object.y_psfFlux_area"
     datatype: float
@@ -4042,13 +4042,13 @@ tables:
     datatype: double
     description: Flux within 3.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap03FluxErr
     "@id": "#Object.z_ap03FluxErr"
     datatype: double
     description: Flux uncertainty within 3.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap03Flux_flag
     "@id": "#Object.z_ap03Flux_flag"
     datatype: boolean
@@ -4060,13 +4060,13 @@ tables:
     datatype: double
     description: Flux within 6.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap06FluxErr
     "@id": "#Object.z_ap06FluxErr"
     datatype: double
     description: Flux uncertainty within 6.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap06Flux_flag
     "@id": "#Object.z_ap06Flux_flag"
     datatype: boolean
@@ -4078,13 +4078,13 @@ tables:
     datatype: double
     description: Flux within 9.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap09FluxErr
     "@id": "#Object.z_ap09FluxErr"
     datatype: double
     description: Flux uncertainty within 9.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap09Flux_flag
     "@id": "#Object.z_ap09Flux_flag"
     datatype: boolean
@@ -4096,13 +4096,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap12FluxErr
     "@id": "#Object.z_ap12FluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap12Flux_flag
     "@id": "#Object.z_ap12Flux_flag"
     datatype: boolean
@@ -4114,13 +4114,13 @@ tables:
     datatype: double
     description: Flux within 17.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap17FluxErr
     "@id": "#Object.z_ap17FluxErr"
     datatype: double
     description: Flux uncertainty within 17.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap17Flux_flag
     "@id": "#Object.z_ap17Flux_flag"
     datatype: boolean
@@ -4132,13 +4132,13 @@ tables:
     datatype: double
     description: Flux within 25.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap25FluxErr
     "@id": "#Object.z_ap25FluxErr"
     datatype: double
     description: Flux uncertainty within 25.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap25Flux_flag
     "@id": "#Object.z_ap25Flux_flag"
     datatype: boolean
@@ -4150,13 +4150,13 @@ tables:
     datatype: double
     description: Flux within 35.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap35FluxErr
     "@id": "#Object.z_ap35FluxErr"
     datatype: double
     description: Flux uncertainty within 35.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap35Flux_flag
     "@id": "#Object.z_ap35Flux_flag"
     datatype: boolean
@@ -4168,13 +4168,13 @@ tables:
     datatype: double
     description: Flux within 50.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap50FluxErr
     "@id": "#Object.z_ap50FluxErr"
     datatype: double
     description: Flux uncertainty within 50.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap50Flux_flag
     "@id": "#Object.z_ap50Flux_flag"
     datatype: boolean
@@ -4186,13 +4186,13 @@ tables:
     datatype: double
     description: Flux within 70.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap70FluxErr
     "@id": "#Object.z_ap70FluxErr"
     datatype: double
     description: Flux uncertainty within 70.0-pixel aperture. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_ap70Flux_flag
     "@id": "#Object.z_ap70Flux_flag"
     datatype: boolean
@@ -4240,25 +4240,25 @@ tables:
     datatype: double
     description: Flux from the de Vaucouleur fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_bdFluxBErr
     "@id": "#Object.z_bdFluxBErr"
     datatype: double
     description: Flux uncertainty from the de Vaucouleur fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_bdFluxD
     "@id": "#Object.z_bdFluxD"
     datatype: double
     description: Flux from the exponential fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_bdFluxDErr
     "@id": "#Object.z_bdFluxDErr"
     datatype: double
     description: Flux uncertainty from the exponential fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_bdReB
     "@id": "#Object.z_bdReB"
     datatype: double
@@ -4288,19 +4288,19 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_cModelFluxErr
     "@id": "#Object.z_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_cModelFlux_inner
     "@id": "#Object.z_cModelFlux_inner"
     datatype: double
     description: Flux within the fit region, with no extrapolation. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_cModel_flag
     "@id": "#Object.z_cModel_flag"
     datatype: boolean
@@ -4318,13 +4318,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_calibFluxErr
     "@id": "#Object.z_calibFluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_calibFlux_flag
     "@id": "#Object.z_calibFlux_flag"
     datatype: boolean
@@ -4432,13 +4432,13 @@ tables:
     datatype: double
     description: Flux from the final cmodel fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_free_cModelFluxErr
     "@id": "#Object.z_free_cModelFluxErr"
     datatype: double
     description: Flux uncertainty from the final cmodel fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_free_cModelFlux_flag
     "@id": "#Object.z_free_cModelFlux_flag"
     datatype: boolean
@@ -4450,19 +4450,19 @@ tables:
     datatype: double
     description: Flux within the fit region, with no extrapolation. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_free_psfFlux
     "@id": "#Object.z_free_psfFlux"
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_free_psfFluxErr
     "@id": "#Object.z_free_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_free_psfFlux_flag
     "@id": "#Object.z_free_psfFlux_flag"
     datatype: boolean
@@ -4480,61 +4480,61 @@ tables:
     datatype: double
     description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap0p7FluxErr
     "@id": "#Object.z_gaap0p7FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap1p0FluxErr
     "@id": "#Object.z_gaap1p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap1p5FluxErr
     "@id": "#Object.z_gaap1p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap2p5FluxErr
     "@id": "#Object.z_gaap2p5FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap3p0FluxErr
     "@id": "#Object.z_gaap3p0FluxErr"
     datatype: double
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaapOptimalFluxErr
     "@id": "#Object.z_gaapOptimalFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaapPsfFluxErr
     "@id": "#Object.z_gaapPsfFluxErr"
     datatype: double
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaapPsfFlux
     "@id": "#Object.z_gaapPsfFlux"
     datatype: double
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaapOptimalFlux
     "@id": "#Object.z_gaapOptimalFlux"
     datatype: double
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.z_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
@@ -4546,7 +4546,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap0p5Flux_flag_bigPsf
     "@id": "#Object.z_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
@@ -4558,7 +4558,7 @@ tables:
     datatype: double
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap0p7Flux_flag_bigPsf
     "@id": "#Object.z_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
@@ -4570,7 +4570,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap1p0Flux_flag_bigPsf
     "@id": "#Object.z_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
@@ -4582,7 +4582,7 @@ tables:
     datatype: double
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap1p5Flux_flag_bigPsf
     "@id": "#Object.z_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
@@ -4594,7 +4594,7 @@ tables:
     datatype: double
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap2p5Flux_flag_bigPsf
     "@id": "#Object.z_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
@@ -4606,7 +4606,7 @@ tables:
     datatype: double
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_gaap3p0Flux_flag_bigPsf
     "@id": "#Object.z_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
@@ -4774,13 +4774,13 @@ tables:
     datatype: double
     description: Flux from Kron Flux algorithm. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_kronFluxErr
     "@id": "#Object.z_kronFluxErr"
     datatype: double
     description: Flux uncertainty from Kron Flux algorithm. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_kronFlux_flag
     "@id": "#Object.z_kronFlux_flag"
     datatype: boolean
@@ -4954,13 +4954,13 @@ tables:
     datatype: double
     description: Flux derived from linear least-squares fit of PSF model. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_psfFluxErr
     "@id": "#Object.z_psfFluxErr"
     datatype: double
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: z_psfFlux_area
     "@id": "#Object.z_psfFlux_area"
     datatype: float
@@ -5076,25 +5076,25 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: calibFluxErr
     "@id": "#Source.calibFluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap03Flux
     "@id": "#Source.ap03Flux"
     datatype: double
     description: Flux within 3.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap03FluxErr
     "@id": "#Source.ap03FluxErr"
     datatype: double
     description: Flux uncertainty within 3.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap03Flux_flag
     "@id": "#Source.ap03Flux_flag"
     datatype: boolean
@@ -5106,13 +5106,13 @@ tables:
     datatype: double
     description: Flux within 6.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap06FluxErr
     "@id": "#Source.ap06FluxErr"
     datatype: double
     description: Flux uncertainty within 6.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap06Flux_flag
     "@id": "#Source.ap06Flux_flag"
     datatype: boolean
@@ -5124,13 +5124,13 @@ tables:
     datatype: double
     description: Flux within 9.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap09FluxErr
     "@id": "#Source.ap09FluxErr"
     datatype: double
     description: Flux uncertainty within 9.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap09Flux_flag
     "@id": "#Source.ap09Flux_flag"
     datatype: boolean
@@ -5142,13 +5142,13 @@ tables:
     datatype: double
     description: Flux within 12.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap12FluxErr
     "@id": "#Source.ap12FluxErr"
     datatype: double
     description: Flux uncertainty within 12.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap12Flux_flag
     "@id": "#Source.ap12Flux_flag"
     datatype: boolean
@@ -5160,13 +5160,13 @@ tables:
     datatype: double
     description: Flux within 17.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap17FluxErr
     "@id": "#Source.ap17FluxErr"
     datatype: double
     description: Flux uncertainty within 17.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap17Flux_flag
     "@id": "#Source.ap17Flux_flag"
     datatype: boolean
@@ -5178,13 +5178,13 @@ tables:
     datatype: double
     description: Flux within 25.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap25FluxErr
     "@id": "#Source.ap25FluxErr"
     datatype: double
     description: Flux uncertainty within 25.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap25Flux_flag
     "@id": "#Source.ap25Flux_flag"
     datatype: boolean
@@ -5196,13 +5196,13 @@ tables:
     datatype: double
     description: Flux within 35.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap35FluxErr
     "@id": "#Source.ap35FluxErr"
     datatype: double
     description: Flux uncertainty within 35.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap35Flux_flag
     "@id": "#Source.ap35Flux_flag"
     datatype: boolean
@@ -5214,13 +5214,13 @@ tables:
     datatype: double
     description: Flux within 50.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap50FluxErr
     "@id": "#Source.ap50FluxErr"
     datatype: double
     description: Flux uncertainty within 50.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap50Flux_flag
     "@id": "#Source.ap50Flux_flag"
     datatype: boolean
@@ -5232,13 +5232,13 @@ tables:
     datatype: double
     description: Flux within 70.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap70FluxErr
     "@id": "#Source.ap70FluxErr"
     datatype: double
     description: Flux uncertainty within 70.0-pixel aperture
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ap70Flux_flag
     "@id": "#Source.ap70Flux_flag"
     datatype: boolean
@@ -5250,25 +5250,25 @@ tables:
     datatype: double
     description: Background in annulus around source
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: skyErr
     "@id": "#Source.skyErr"
     datatype: double
     description: Background in annulus around source
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: psfFlux
     "@id": "#Source.psfFlux"
     datatype: double
     description: Flux derived from linear least-squares fit of psf model forced on the calexp
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: psfFluxErr
     "@id": "#Source.psfFluxErr"
     datatype: double
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the calexp
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: ixx
     "@id": "#Source.ixx"
     datatype: double
@@ -5328,13 +5328,13 @@ tables:
     datatype: double
     description: Flux from Gaussian Flux algorithm
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: gaussianFluxErr
     "@id": "#Source.gaussianFluxErr"
     datatype: double
     description: Flux uncertainty from Gaussian Flux algorithm
     mysql:datatype: DOUBLE
-    fits:tunit: nanojansky
+    fits:tunit: nJy
   - name: extendedness
     "@id": "#Source.extendedness"
     datatype: double
