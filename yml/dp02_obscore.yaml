@@ -310,3 +310,67 @@ tables:
     ivoa:unit:
     datatype: char
     votable:arraysize: 128
+  - name: lsst_visit
+    "@id": "ObsCore.lsst_visit"
+    description:
+    nullable: true
+    ivoa:ucd:
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+  - name: lsst_detector
+    "@id": "ObsCore.lsst_detector"
+    description:
+    nullable: true
+    ivoa:ucd:
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+  - name: lsst_tract
+    "@id": "ObsCore.lsst_tract"
+    description:
+    nullable: true
+    ivoa:ucd:
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+  - name: lsst_patch
+    "@id": "ObsCore.lsst_patch"
+    description:
+    ivoa:ucd:
+    votable:utype:
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+    nullable: true
+    datatype: long
+  - name: lsst_band
+    "@id": "ObsCore.lsst_band"
+    description:
+    nullable: true
+    ivoa:ucd:
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: char
+    length: 10
+    votable:arraysize: 10
+  - name: lsst_filter
+    "@id": "ObsCore.lsst_filter"
+    description:
+    nullable: true
+    ivoa:ucd:
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: char
+    length: 10
+    votable:arraysize: 10
