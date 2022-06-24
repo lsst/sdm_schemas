@@ -13,6 +13,12 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v2
 
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
       - name: Install dependencies
         id: depend
         run: pip install -r requirements.txt
