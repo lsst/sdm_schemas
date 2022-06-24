@@ -10,7 +10,7 @@ def set_schema_index(felis_files):
         click.echo(f"file {f}: index {idx}")
 
         with open(f) as orig_file:
-            felis_yaml = yaml.load(orig_file.read())
+            felis_yaml = yaml.safe_load(orig_file.read())
 
         felis_yaml["tap:schema_index"] = idx
 
