@@ -18,7 +18,7 @@
             <li><a href="">{{ page.title }}</a></li>
             <ul>
               {%- for table in site.data[page.schema].tables %}
-              <li><a href="{{ table['@id'] }}">{{ table['@id'] | remove:'#' }}</a></li>
+              <li><a href="{{ table['@id'] }}">{{ table.name }}</a></li>
               {%- endfor %}
             </ul>
           </ul>
@@ -43,7 +43,7 @@
               <tr id="{{ col['@id'] | remove:'#' }}">
                 <td class="column-name">{{ col.name }}</td>
                 <td>{{ col.datatype }}</td>
-                <td>{{ col['fits:tunit'] }}</td>
+                <td>{{ col['ivoa:unit'] | default: col['fits:tunit'] }}</td>
                 <td>
                     {{- col.description | escape }}
                     {%- if col['ivoa:ucd'] %} [{{col['ivoa:ucd']}}]{% endif -%}
