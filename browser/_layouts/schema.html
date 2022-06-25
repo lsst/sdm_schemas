@@ -43,7 +43,7 @@
               <tr id="{{ col['@id'] | remove:'#' }}">
                 <td class="column-name">{{ col.name }}</td>
                 <td>{{ col.datatype }}</td>
-                <td>{{ col['fits:tunit'] }}</td>
+                <td>{{ col['ivoa:unit'] | default: col['fits:tunit'] }}</td>
                 <td>
                     {{- col.description | escape }}
                     {%- if col['ivoa:ucd'] %} [{{col['ivoa:ucd']}}]{% endif -%}
