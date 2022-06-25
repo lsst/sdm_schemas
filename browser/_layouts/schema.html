@@ -18,7 +18,7 @@
             <li><a href="">{{ page.title }}</a></li>
             <ul>
               {%- for table in site.data[page.schema].tables %}
-              <li><a href="{{ table['@id'] }}">{{ table['@id'] | remove:'#' }}</a></li>
+              <li><a href="{{ table['@id'] }}">{{ table.name }}</a></li>
               {%- endfor %}
             </ul>
           </ul>
