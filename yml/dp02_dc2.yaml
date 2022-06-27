@@ -22,12 +22,14 @@ tables:
     description: Fiducial ICRS Declination of centroid used for database indexing
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec;meta.main
   - name: coord_ra
     "@id": "#Object.coord_ra"
     datatype: double
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
@@ -577,6 +579,7 @@ tables:
     description: Position in ra/dec. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: g_extendedness
     "@id": "#Object.g_extendedness"
     datatype: double
@@ -1159,6 +1162,7 @@ tables:
     description: Position in ra/dec. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
     datatype: double
@@ -1537,6 +1541,7 @@ tables:
     description: Position in ra/dec. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: i_extendedness
     "@id": "#Object.i_extendedness"
     datatype: double
@@ -2119,6 +2124,7 @@ tables:
     description: Position in ra/dec. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
     datatype: double
@@ -2497,6 +2503,7 @@ tables:
     description: Position in ra/dec. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: r_extendedness
     "@id": "#Object.r_extendedness"
     datatype: double
@@ -3079,6 +3086,7 @@ tables:
     description: Position in ra/dec. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
   - name: u_ap03Flux
     "@id": "#Object.u_ap03Flux"
     datatype: double
@@ -3457,6 +3465,7 @@ tables:
     description: Position in ra/dec. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: u_extendedness
     "@id": "#Object.u_extendedness"
     datatype: double
@@ -4039,6 +4048,7 @@ tables:
     description: Position in ra/dec. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
     datatype: double
@@ -4417,6 +4427,7 @@ tables:
     description: Position in ra/dec. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: y_extendedness
     "@id": "#Object.y_extendedness"
     datatype: double
@@ -4999,6 +5010,7 @@ tables:
     description: Position in ra/dec. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
     datatype: double
@@ -5377,6 +5389,7 @@ tables:
     description: Position in ra/dec. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: z_extendedness
     "@id": "#Object.z_extendedness"
     datatype: double
@@ -5959,6 +5972,7 @@ tables:
     description: Position in ra/dec. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
 - name: Source
   "@id": "#Source"
   description: "Properties of detections on the single-epoch visit images, performed
@@ -5978,12 +5992,14 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: coord_dec
     "@id": "#Source.coord_dec"
     datatype: double
     description: Fiducial ICRS Declination of centroid used for database indexing
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec;meta.main
   - name: ccdVisitId
     "@id": "#Source.ccdVisitId"
     datatype: long
@@ -6026,12 +6042,14 @@ tables:
     description: Position in ra/dec
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
   - name: decl
     "@id": "#Source.decl"
     datatype: double
     description: Position in ra/dec
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: calibFlux
     "@id": "#Source.calibFlux"
     datatype: double
@@ -6866,12 +6884,14 @@ tables:
     mysql:datatype: DOUBLE
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: coord_dec
     "@id": "#ForcedSource.coord_dec"
     datatype: double
     mysql:datatype: DOUBLE
     description: Fiducial ICRS Declination of centroid used for database indexing
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec;meta.main
   - name: skymap
     "@id": "#ForcedSource.skymap"
     datatype: char
@@ -7091,6 +7111,8 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description: Declination coordinate of the position of the diaObject at time radecTai
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec;meta.main
   - name: diaObjectId
     "@id": "#DiaObject.diaObjectId"
     datatype: long
@@ -7441,6 +7463,8 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description: Right Ascension coordinate of the position of the diaObject at time radecTai.
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: radecTai
     "@id": "#DiaObject.radecTai"
     datatype: double
@@ -7841,18 +7865,21 @@ tables:
     mysql:datatype: DOUBLE
     description: Fiducial ICRS Declination of centroid used for database indexing
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec;meta.main
   - name: coord_ra
     "@id": "#DiaSource.coord_ra"
     datatype: double
     mysql:datatype: DOUBLE
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     fits:tunit: deg
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: decl
     "@id": "#DiaSource.decl"
     datatype: double
     mysql:datatype: DOUBLE
     description: Position in ra/dec
-    fits:tunit:
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: diaObjectId
     "@id": "#DiaSource.diaObjectId"
     datatype: long
@@ -8098,7 +8125,8 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description: Position in ra/dec
-    fits:tunit:
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.ra
   - name: shape_flag
     "@id": "#DiaSource.shape_flag"
     datatype: boolean
@@ -8210,12 +8238,14 @@ tables:
 #    mysql:datatype: DOUBLE
 #    description: Fiducial ICRS Declination of centroid used for database indexing
 #    fits:tunit: deg
+#    ivoa:ucd: pos.eq.dec;meta.main
 #  - name: coord_ra
 #    "@id": "#ForcedSourceOnDiaObject.coord_ra"
 #    datatype: double
 #    mysql:datatype: DOUBLE
 #    description: Fiducial ICRS Right Ascension of centroid used for database indexing
 #    fits:tunit: deg
+#    ivoa:ucd: pos.eq.ra;meta.main
 #  - name: diaObjectId
 #    "@id": "#ForcedSourceOnDiaObject.diaObjectId"
 #    datatype: long
@@ -8444,12 +8474,14 @@ tables:
     description: RA of focal plane center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.ra;meta.main
   - name: decl
     '@id': '#Visit.decl'
     datatype: double
     description: Declination of focal plane center
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.dec;meta.main
   - name: skyRotation
     '@id': '#Visit.skyRotation'
     datatype: double
@@ -8552,12 +8584,14 @@ tables:
     description: RA of Ccd center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.ra;meta.main
   - name: decl
     '@id': '#CcdVisit.decl'
     datatype: double
     description: Declination of Ccd center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.dec;meta.main
   - name: zenithDistance
     '@id': '#CcdVisit.zenithDistance'
     datatype: float
@@ -8658,48 +8692,56 @@ tables:
     description: RA of lower left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.ra
   - name: llcdec
     '@id': '#CcdVisit.llcdec'
     datatype: double
     description: Declination of lower left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.dec
   - name: ulcra
     '@id': '#CcdVisit.ulcra'
     datatype: double
     description: RA of upper left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.ra
   - name: ulcdec
     '@id': '#CcdVisit.ulcdec'
     datatype: double
     description: Declination of upper left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.dec
   - name: urcra
     '@id': '#CcdVisit.urcra'
     datatype: double
     description: RA of upper right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.ra
   - name: urcdec
     '@id': '#CcdVisit.urcdec'
     datatype: double
     description: Declination of upper right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.dec
   - name: lrcra
     '@id': '#CcdVisit.lrcra'
     datatype: double
     description: RA of lower right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.ra
   - name: lrcdec
     '@id': '#CcdVisit.lrcdec'
     datatype: double
     description: Declination of lower right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:dec: pos.eq.dec
 - name: CoaddPatches
   "@id": "#coaddpatches"
   description: "Static information about the subset of tracts and patches from the standard
