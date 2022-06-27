@@ -62,7 +62,7 @@ tables:
     ivoa:ucd: meta.id;src
     votable:utype: Target.name
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 270
     ivoa:unit:
     datatype: char
@@ -98,7 +98,7 @@ tables:
     ivoa:ucd: meta.ref.ivoid
     votable:utype: Curation.publisherDID
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 260
     ivoa:unit:
     datatype: char
@@ -179,7 +179,7 @@ tables:
     ivoa:ucd: pos.angResolution
     votable:utype: Char.SpatialAxis.Resolution.Refval.value
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 280
     ivoa:unit: arcsec
     datatype: double
@@ -190,7 +190,7 @@ tables:
     ivoa:ucd: meta.number
     votable:utype: Char.SpatialAxis.numBins1
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 290
     ivoa:unit:
     datatype: long
@@ -201,7 +201,7 @@ tables:
     ivoa:ucd: meta.number
     votable:utype: Char.SpatialAxis.numBins2
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 300
     ivoa:unit:
     datatype: long
@@ -212,7 +212,7 @@ tables:
     ivoa:ucd: meta.number
     votable:utype: Char.TimeAxis.numBins
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 320
     ivoa:unit:
     datatype: long
@@ -256,7 +256,7 @@ tables:
     ivoa:ucd: time.resolution
     votable:utype: Char.TimeAxis.Resolution.Refval.value
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 310
     ivoa:unit: s
     datatype: double
@@ -267,7 +267,7 @@ tables:
     ivoa:ucd: meta.number
     votable:utype: Char.SpectralAxis.numBins
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 340
     ivoa:unit:
     datatype: long
@@ -300,7 +300,7 @@ tables:
     ivoa:ucd: spect.resolution
     votable:utype: Char.SpectralAxis.Resolution.ResolPower.refVal
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 350
     ivoa:unit:
     datatype: double
@@ -323,7 +323,7 @@ tables:
     ivoa:ucd: meta.number
     votable:utype: Char.PolarizationAxis.numBins
     tap:std: 1
-    tap:principal: 1
+    tap:principal: 0
     tap:column_index: 330
     ivoa:unit:
     datatype: long
