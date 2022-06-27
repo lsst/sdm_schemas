@@ -16,6 +16,7 @@ tables:
     votable:utype: ObsDataset.dataProductType
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 10
     ivoa:unit:
     datatype: char
     votable:arraysize: 128
@@ -27,6 +28,7 @@ tables:
     votable:utype: ObsDataset.dataProductSubtype
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 20
     ivoa:unit:
     datatype: char
     votable:arraysize: 64
@@ -38,6 +40,7 @@ tables:
     votable:utype: Provenance.ObsConfig.Facility.name
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 210
     ivoa:unit:
     datatype: char
     votable:arraysize: 128
@@ -49,6 +52,7 @@ tables:
     votable:utype: ObsDataset.calibLevel
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 30
     ivoa:unit:
     datatype: int
   - name: target_name
@@ -59,6 +63,7 @@ tables:
     votable:utype: Target.name
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 270
     ivoa:unit:
     datatype: char
     votable:arraysize: 32
@@ -70,6 +75,7 @@ tables:
     votable:utype: DataID.observationID
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 180
     ivoa:unit:
     datatype: char
     votable:arraysize: 128
@@ -81,6 +87,7 @@ tables:
     votable:utype: DataID.collection
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 190
     ivoa:unit:
     datatype: char
     votable:arraysize: 128
@@ -92,6 +99,7 @@ tables:
     votable:utype: Curation.publisherDID
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 260
     ivoa:unit:
     datatype: char
     votable:arraysize: 256
@@ -103,6 +111,7 @@ tables:
     votable:utype: Access.reference
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 240
     ivoa:unit:
     datatype: char
     votable:arraysize: "*"
@@ -114,6 +123,7 @@ tables:
     votable:utype: Access.format
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 250
     ivoa:unit:
     datatype: char
     votable:arraysize: 128
@@ -125,6 +135,7 @@ tables:
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 150
     ivoa:unit: deg
     datatype: double
   - name: s_dec
@@ -135,6 +146,7 @@ tables:
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 160
     ivoa:unit: deg
     datatype: double
   - name: s_fov
@@ -145,6 +157,7 @@ tables:
     votable:utype: Char.SpatialAxis.Coverage.Bounds.Extent.diameter
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 170
     ivoa:unit: deg
     datatype: double
   - name: s_region
@@ -155,6 +168,7 @@ tables:
     votable:utype: Char.SpatialAxis.Coverage.Support.Area
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 230
     ivoa:unit:
     datatype: char
     votable:arraysize: 512
@@ -166,6 +180,7 @@ tables:
     votable:utype: Char.SpatialAxis.Resolution.Refval.value
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 280
     ivoa:unit: arcsec
     datatype: double
   - name: s_xel1
@@ -176,6 +191,7 @@ tables:
     votable:utype: Char.SpatialAxis.numBins1
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 290
     ivoa:unit:
     datatype: long
   - name: s_xel2
@@ -186,6 +202,7 @@ tables:
     votable:utype: Char.SpatialAxis.numBins2
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 300
     ivoa:unit:
     datatype: long
   - name: t_xel
@@ -196,6 +213,7 @@ tables:
     votable:utype: Char.TimeAxis.numBins
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 320
     ivoa:unit:
     datatype: long
   - name: t_min
@@ -206,6 +224,7 @@ tables:
     votable:utype: Char.TimeAxis.Coverage.Bounds.Limits.StartTime
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 130
     ivoa:unit: d
     datatype: double
   - name: t_max
@@ -216,6 +235,7 @@ tables:
     votable:utype: Char.TimeAxis.Coverage.Bounds.Limits.StopTime
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 140
     ivoa:unit: d
     datatype: double
   - name: t_exptime
@@ -226,6 +246,7 @@ tables:
     votable:utype: Char.TimeAxis.Coverage.Support.Extent
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 120
     ivoa:unit: s
     datatype: double
   - name: t_resolution
@@ -236,6 +257,7 @@ tables:
     votable:utype: Char.TimeAxis.Resolution.Refval.value
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 310
     ivoa:unit: s
     datatype: double
   - name: em_xel
@@ -246,6 +268,7 @@ tables:
     votable:utype: Char.SpectralAxis.numBins
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 340
     ivoa:unit:
     datatype: long
   - name: em_min
@@ -256,6 +279,7 @@ tables:
     votable:utype: Char.SpectralAxis.Coverage.Bounds.Limits.LoLimit
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 50
     ivoa:unit: m
     datatype: double
   - name: em_max
@@ -266,6 +290,7 @@ tables:
     votable:utype: Char.SpectralAxis.Coverage.Bounds.Limits.HiLimit
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 60
     ivoa:unit: m
     datatype: double
   - name: em_res_power
@@ -276,6 +301,7 @@ tables:
     votable:utype: Char.SpectralAxis.Resolution.ResolPower.refVal
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 350
     ivoa:unit:
     datatype: double
   - name: o_ucd
@@ -286,6 +312,7 @@ tables:
     votable:utype: Char.ObservableAxis.ucd
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 200
     ivoa:unit:
     datatype: char
     votable:arraysize: 32
@@ -297,6 +324,7 @@ tables:
     votable:utype: Char.PolarizationAxis.numBins
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 330
     ivoa:unit:
     datatype: long
   - name: instrument_name
@@ -307,6 +335,7 @@ tables:
     votable:utype: Provenance.ObsConfig.Instrument.name
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 220
     ivoa:unit:
     datatype: char
     votable:arraysize: 128
@@ -318,6 +347,7 @@ tables:
     votable:utype:
     tap:std: 0
     tap:principal: 1
+    tap:column_index: 90
     ivoa:unit:
     datatype: long
   - name: lsst_detector
@@ -328,6 +358,7 @@ tables:
     votable:utype:
     tap:std: 0
     tap:principal: 1
+    tap:column_index: 110
     ivoa:unit:
     datatype: long
   - name: lsst_tract
@@ -338,6 +369,7 @@ tables:
     votable:utype:
     tap:std: 0
     tap:principal: 1
+    tap:column_index: 70
     ivoa:unit:
     datatype: long
   - name: lsst_patch
@@ -347,6 +379,7 @@ tables:
     votable:utype:
     tap:std: 1
     tap:principal: 1
+    tap:column_index: 80
     ivoa:unit:
     nullable: true
     datatype: long
@@ -358,6 +391,7 @@ tables:
     votable:utype:
     tap:std: 0
     tap:principal: 1
+    tap:column_index: 40
     ivoa:unit:
     datatype: char
     length: 10
@@ -370,6 +404,7 @@ tables:
     votable:utype:
     tap:std: 0
     tap:principal: 1
+    tap:column_index: 100
     ivoa:unit:
     datatype: char
     length: 10
