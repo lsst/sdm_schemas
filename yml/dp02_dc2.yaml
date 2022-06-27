@@ -8474,14 +8474,14 @@ tables:
     description: RA of focal plane center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.ra;meta.main
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: decl
     '@id': '#Visit.decl'
     datatype: double
     description: Declination of focal plane center
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.dec;meta.main
+    ivoa:ucd: pos.eq.dec;meta.main
   - name: skyRotation
     '@id': '#Visit.skyRotation'
     datatype: double
@@ -8584,14 +8584,14 @@ tables:
     description: RA of Ccd center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.ra;meta.main
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: decl
     '@id': '#CcdVisit.decl'
     datatype: double
     description: Declination of Ccd center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.dec;meta.main
+    ivoa:ucd: pos.eq.dec;meta.main
   - name: zenithDistance
     '@id': '#CcdVisit.zenithDistance'
     datatype: float
@@ -8692,56 +8692,56 @@ tables:
     description: RA of lower left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.ra
+    ivoa:ucd: pos.eq.ra
   - name: llcdec
     '@id': '#CcdVisit.llcdec'
     datatype: double
     description: Declination of lower left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.dec
+    ivoa:ucd: pos.eq.dec
   - name: ulcra
     '@id': '#CcdVisit.ulcra'
     datatype: double
     description: RA of upper left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.ra
+    ivoa:ucd: pos.eq.ra
   - name: ulcdec
     '@id': '#CcdVisit.ulcdec'
     datatype: double
     description: Declination of upper left corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.dec
+    ivoa:ucd: pos.eq.dec
   - name: urcra
     '@id': '#CcdVisit.urcra'
     datatype: double
     description: RA of upper right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.ra
+    ivoa:ucd: pos.eq.ra
   - name: urcdec
     '@id': '#CcdVisit.urcdec'
     datatype: double
     description: Declination of upper right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.dec
+    ivoa:ucd: pos.eq.dec
   - name: lrcra
     '@id': '#CcdVisit.lrcra'
     datatype: double
     description: RA of lower right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.ra
+    ivoa:ucd: pos.eq.ra
   - name: lrcdec
     '@id': '#CcdVisit.lrcdec'
     datatype: double
     description: Declination of lower right corner.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-    ivoa:dec: pos.eq.dec
+    ivoa:ucd: pos.eq.dec
 - name: CoaddPatches
   "@id": "#coaddpatches"
   description: "Static information about the subset of tracts and patches from the standard
