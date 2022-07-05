@@ -2,11 +2,11 @@
 <VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
 
 
-    <INFO name="$ivoa_obscore_access_url$" ID="$ivoa_obscore_access_url$" value="this will be dropped..." />
+    <INFO name="$ivoa_ObsCore_access_url$" ID="$ivoa_ObsCore_access_url$" value="this will be dropped..." />
 
     <RESOURCE type="meta" utype="adhoc:service">
       <DESCRIPTION>Datalink links service</DESCRIPTION>
       <PARAM name="standardID" datatype="char" arraysize="*" value="ivo://ivoa.net/std/DataLink#links-1.0" />
-      <PARAM name="accessURL" datatype="char" arraysize="*" ref="$ivoa_obscore_access_url$" value="" />
+      <PARAM name="accessURL" datatype="char" arraysize="*" ref="$ivoa_ObsCore_access_url$" value="" />
     </RESOURCE>
 </VOTABLE>
