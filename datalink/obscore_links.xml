@@ -6,6 +6,7 @@
 
     <RESOURCE type="meta" utype="adhoc:service">
       <DESCRIPTION>Datalink links service</DESCRIPTION>
+      <GROUP name="inputParams" />
       <PARAM name="standardID" datatype="char" arraysize="*" value="ivo://ivoa.net/std/DataLink#links-1.0" />
       <PARAM name="accessURL" datatype="char" arraysize="*" ref="$ivoa_ObsCore_access_url$" value="" />
     </RESOURCE>
