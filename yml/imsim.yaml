@@ -8242,8 +8242,8 @@ tables:
     fits:tunit:
   - name: localPhotoCalib_flag
     "@id": "#ForcedSourceOnDiaObject.localPhotoCalib_flag"
-    datatype: double
-    mysql:datatype: DOUBLE
+    datatype: boolean
+    mysql:datatype: BOOLEAN
     description: Set for any fatal failure
     fits:tunit:
   - name: localWcs_CDMatrix_1_1
@@ -8272,8 +8272,8 @@ tables:
     fits:tunit:
   - name: localWcs_flag
     "@id": "#ForcedSourceOnDiaObject.localWcs_flag"
-    datatype: double
-    mysql:datatype: DOUBLE
+    datatype: boolean
+    mysql:datatype: BOOLEAN
     description: Set for any fatal failure
     fits:tunit:
   - name: parentObjectId
