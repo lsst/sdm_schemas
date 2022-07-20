@@ -7070,7 +7070,7 @@ tables:
     datatype: double
     description: Start of the visit, expressed as Modified
       Julian Date, International Atomic Time, accurate to 10ms.
-    mysql:datatype: TIMESTAMP
+    mysql:datatype: DOUBLE
 - name: CcdVisit
   '@id': '#CcdVisit'
   description: Defines a single detector of a visit
@@ -7197,7 +7197,7 @@ tables:
     datatype: double
     description: Start of the visit, expressed as Modified
       Julian Date, International Atomic Time, accurate to 10ms.
-    mysql:datatype: TIMESTAMP
+    mysql:datatype: DOUBLE
   - name: darkTime
     '@id': '#CcdVisit.darkTime'
     datatype: double

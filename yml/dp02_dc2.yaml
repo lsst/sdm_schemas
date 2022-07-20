@@ -8789,7 +8789,7 @@ tables:
     '@id': '#Visit.obsStartMJD'
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
-    mysql:datatype: TIMESTAMP
+    mysql:datatype: DOUBLE
 - name: CcdVisit
   '@id': '#CcdVisit'
   description: "Metadata about the 189 individual CCD images for each Visit in the
@@ -8912,7 +8912,7 @@ tables:
     '@id': '#CcdVisit.obsStartMJD'
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
-    mysql:datatype: TIMESTAMP
+    mysql:datatype: DOUBLE
   - name: darkTime
     '@id': '#CcdVisit.darkTime'
     datatype: double
