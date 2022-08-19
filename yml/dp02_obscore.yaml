@@ -341,9 +341,9 @@ tables:
     votable:arraysize: 128
   - name: lsst_visit
     "@id": "ObsCore.lsst_visit"
-    description:
+    description: Identifier for a specific LSSTCam pointing
     nullable: true
-    ivoa:ucd:
+    ivoa:ucd: meta.id;obs
     votable:utype:
     tap:std: 0
     tap:principal: 1
@@ -352,9 +352,9 @@ tables:
     datatype: long
   - name: lsst_detector
     "@id": "ObsCore.lsst_detector"
-    description:
+    description: Identifier for CCD within the LSSTCam focal plane
     nullable: true
-    ivoa:ucd:
+    ivoa:ucd: meta.id.part;instr.det
     votable:utype:
     tap:std: 0
     tap:principal: 1
@@ -363,9 +363,9 @@ tables:
     datatype: long
   - name: lsst_tract
     "@id": "ObsCore.lsst_tract"
-    description:
+    description: Upper level of LSST coadd skymap hierarchy
     nullable: true
-    ivoa:ucd:
+    ivoa:ucd: meta.id
     votable:utype:
     tap:std: 0
     tap:principal: 1
@@ -374,20 +374,20 @@ tables:
     datatype: long
   - name: lsst_patch
     "@id": "ObsCore.lsst_patch"
-    description:
-    ivoa:ucd:
+    description: Lower level of LSST coadd skymap hierarchy
+    nullable: true
+    ivoa:ucd: meta.id.part
     votable:utype:
     tap:std: 0
     tap:principal: 1
     tap:column_index: 80
     ivoa:unit:
-    nullable: true
     datatype: long
   - name: lsst_band
     "@id": "ObsCore.lsst_band"
-    description:
+    description: Abstract filter band designation
     nullable: true
-    ivoa:ucd:
+    ivoa:ucd: meta.id;instr.filter
     votable:utype:
     tap:std: 0
     tap:principal: 1
@@ -398,9 +398,9 @@ tables:
     votable:arraysize: 10
   - name: lsst_filter
     "@id": "ObsCore.lsst_filter"
-    description:
+    description: Physical filter designation from the LSSTCam filter set
     nullable: true
-    ivoa:ucd:
+    ivoa:ucd: meta.id;instr.filter
     votable:utype:
     tap:std: 0
     tap:principal: 1
