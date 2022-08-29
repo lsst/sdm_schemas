@@ -9017,51 +9017,51 @@ tables:
     datatype: char
     length: 512
     votable:arraysize: 512
-# - name: MatchesTruth
-#   '@id': '#MatchesTruth'
-#   description: Match information for truth_summary sources.
-#   columns:
-#   - name: index
-#     '@id': '#MatchesTruth.index'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Incrementing (implicit) row index
-#   - name: match_candidate
-#     '@id': '#MatchesTruth.match_candidate'
-#     datatype: boolean
-#     mysql:datatype: BOOLEAN
-#     description: True for sources that were selected for matching
-#   - name: match_row
-#     '@id': '#MatchesTruth.match_row'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Index of matched objectTable_tract table row, if any
-#   - name: match_count
-#     '@id': '#MatchesTruth.match_count'
-#     datatype: int
-#     mysql:datatype: INTEGER
-#     description: Number of candidate object matches within match radius
-#   - name: match_chisq
-#     '@id': '#MatchesTruth.match_chisq'
-#     datatype: double
-#     mysql:datatype: double
-#     description: The chi-squared value of the (best) match
-#   - name: match_n_chisq_finite
-#     '@id': '#MatchesTruth.match_n_chisq_finite'
-#     datatype: int
-#     mysql:datatype: INTEGER
-#     description: The number of finite columns used to compute the match chisq
-#   - name: id
-#     '@id': '#MatchesTruth.id'
-#     datatype: char
-#     length: 16
-#     mysql:datatype: CHAR(16)
-#     description: id for truth_summary source.
-#   - name: match_objectId
-#     '@id': '#MatchesTruth.match_objectId'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: objectId of matched objectTable_tract object, if any
+- name: MatchesTruth
+  '@id': '#MatchesTruth'
+  description: Match information for truth_summary sources.
+  columns:
+  - name: index
+    '@id': '#MatchesTruth.index'
+    datatype: long
+    mysql:datatype: BIGINT
+    description: Incrementing (implicit) row index
+  - name: match_candidate
+    '@id': '#MatchesTruth.match_candidate'
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: True for sources that were selected for matching
+  - name: match_row
+    '@id': '#MatchesTruth.match_row'
+    datatype: long
+    mysql:datatype: BIGINT
+    description: Index of matched objectTable_tract table row, if any
+  - name: match_count
+    '@id': '#MatchesTruth.match_count'
+    datatype: int
+    mysql:datatype: INTEGER
+    description: Number of candidate object matches within match radius
+  - name: match_chisq
+    '@id': '#MatchesTruth.match_chisq'
+    datatype: double
+    mysql:datatype: double
+    description: The chi-squared value of the (best) match
+  - name: match_n_chisq_finite
+    '@id': '#MatchesTruth.match_n_chisq_finite'
+    datatype: int
+    mysql:datatype: INTEGER
+    description: The number of finite columns used to compute the match chisq
+  - name: id
+    '@id': '#MatchesTruth.id'
+    datatype: char
+    length: 16
+    mysql:datatype: CHAR(16)
+    description: id for truth_summary source.
+  - name: match_objectId
+    '@id': '#MatchesTruth.match_objectId'
+    datatype: long
+    mysql:datatype: BIGINT
+    description: objectId of matched objectTable_tract object, if any
 # - name: MatchesObject
 #   '@id': '#MatchesObject'
 #   description: Match information for objectTable_tract sources
