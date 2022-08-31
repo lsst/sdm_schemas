@@ -1,3 +1,12 @@
 #!/bin/bash -ex
 
-zip datalink-snippets.zip *
+# Build a collection of configuration files for datalinker that specify the
+# principal and minimal columns for tables.  This temporarily only does
+# tap:principal and we hand-maintain a columns-minimal.yaml file until we can
+# include a new key in the Felis input files.
+python build_column_lists.py ../yml/*.yml ../yml/*.yaml \
+       > columns-principal.yaml
+zip datalink-columns.zip columns-*.yaml
+
+# Build a collection of the datalink snippets.
+zip datalink-snippets.zip *.json *.xml

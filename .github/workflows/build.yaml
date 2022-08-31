@@ -44,4 +44,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: datalink/datalink-snippets.zip
+          files: |
+            datalink/datalink-columns.zip
+            datalink/datalink-snippets.zip
