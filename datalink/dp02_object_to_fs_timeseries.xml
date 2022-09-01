@@ -40,5 +40,6 @@
         </PARAM>
       </GROUP>
       <PARAM name="accessURL" datatype="char" arraysize="*" value="$baseUrl$/api/datalink/timeseries"/>
+      <PARAM name="standardID" datatype="char" arraysize="*" value="lsst://api.data.lsst.cloud/datalink/timeseries#v0.1"/>
     </RESOURCE>
 </VOTABLE>
