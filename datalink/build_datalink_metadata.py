@@ -1,4 +1,9 @@
-"""From the Felis source files, build YAML of principal column names."""
+"""From the Felis source files, build YAML metadata used by DataLink.
+
+Currently, this only determines principal column names.  In the future, once
+a new key has been added to Felis, it will include other column lists, and
+possibly additional metadata.
+"""
 
 from __future__ import annotations
 
@@ -11,7 +16,7 @@ import yaml
 
 
 def filter_columns(table: Dict[str, Any], filter_key: str) -> List[str]:
-    """Find the principal columns for a table.
+    """Find the columns for a table with a given key.
 
     This respects the TAP v1.1 convention for ordering of columns.  All
     columns without ``tap:column_index`` set will be sorted after all those
@@ -94,7 +99,7 @@ def process_files(files: List[Path]) -> None:
 
 
 def main() -> None:
-    """Entry point."""
+    """Script entry point."""
     process_files([Path(f) for f in sys.argv[1:]])
 
 
