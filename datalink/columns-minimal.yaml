@@ -1,0 +1,53 @@
+# Currently, there is no Felis key to mark columns as part of the "minimal"
+# set, and the definition of the "minimal" set is still in flux and a subject
+# of active experimentation.  For now, maintain it here as a separate file.
+# In the future, this is expected to be included in the output from
+# build_datalink_metadata.py, run during the build.
+
+tables:
+  dp01_dc2_catalogs.forced_photometry:
+    lsst:minimal: []
+  dp01_dc2_catalogs.object:
+    lsst:minimal: []
+  dp01_dc2_catalogs.position:
+    lsst:minimal: []
+  dp01_dc2_catalogs.reference:
+    lsst:minimal: []
+  dp01_dc2_catalogs.truth_match:
+    lsst:minimal: []
+  dp02_dc2_catalogs.CcdVisit:
+    lsst:minimal: []
+  dp02_dc2_catalogs.CoaddPatches:
+    lsst:minimal: []
+  dp02_dc2_catalogs.DiaObject:
+    lsst:minimal: []
+  dp02_dc2_catalogs.DiaSource:
+    lsst:minimal: []
+  dp02_dc2_catalogs.ForcedSource:
+    lsst:minimal: []
+  dp02_dc2_catalogs.ForcedSourceOnDiaObject:
+    lsst:minimal: []
+  dp02_dc2_catalogs.Object:
+    lsst:minimal: []
+  dp02_dc2_catalogs.Source:
+    lsst:minimal: []
+  dp02_dc2_catalogs.Visit:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.CcdVisit:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.DiaObject:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.DiaSource:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.ForcedSource:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.ForcedSourceOnDiaObject:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.Object:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.Source:
+    lsst:minimal: []
+  dp02_test_PREOPS863_00.Visit:
+    lsst:minimal: []
+  ivoa.ObsCore:
+    lsst:minimal: []

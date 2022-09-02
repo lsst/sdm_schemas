@@ -1,4 +1,3 @@
-
 Science Data Model Schemas
 ==========================
 
@@ -36,6 +35,29 @@ The schemas in this repository serve several different purposes:
    produced by the observatory's science pipelines. These files are used to
    generate the TAP_SCHEMA records that are required for serving the catalogs
    via the IVOA Table Access Protocol (TAP).
- 
 
+Release assets
+--------------
 
+Each release of `sdm_schemas` includes the following additional release
+assets, generated automatically via GitHub Actions when a new tag is created.
+   
+ * `datalink-columns.zip` contains a set of YAML files with a restricted
+   subset of the Felis schema. Currently, they identify the principal and
+   minimal columns for a subset of the tables defined by the schema in
+   this repository. Principal columns are those for which the `principal`
+   flag is set in the TAP schema, and have the meaning defined in the
+   [IVOA TAP
+   specification](https://www.ivoa.net/documents/TAP/20190927/REC-TAP-1.1.html#tth_sEc4.3).
+   Minimal columns are still experimental and in flux. These files are
+   intended for use with the
+   [datalinker](https://github.com/lsst-sqre/datalinker) service of a
+   Rubin Science Platform depoyment.
+
+ * `datalink-snippets.zip` contains a JSON manifest and a set of XML files
+   that define VOTables following the IVOA DataLink specification. This
+   release asset is intended for use with the TAP service of a Rubin
+   Science Platform deployment and is used to add DataLink records to the
+   responses from a TAP query. Those DataLink records, in turn, provide
+   links to operations that a client may wish to perform on those results,
+   such as closely-related TAP queries.
