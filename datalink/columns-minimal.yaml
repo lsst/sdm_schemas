@@ -1,3 +1,9 @@
+# Currently, there is no Felis key to mark columns as part of the "minimal"
+# set, and the definition of the "minimal" set is still in flux and a subject
+# of active experimentation.  For now, maintain it here as a separate file.
+# In the future, this is expected to be included in the output from
+# build_datalink_metadata.py, run during the build.
+
 tables:
   dp01_dc2_catalogs.forced_photometry:
     lsst:minimal: []
