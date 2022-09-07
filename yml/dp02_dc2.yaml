@@ -9019,23 +9019,26 @@ tables:
     votable:arraysize: 512
 - name: MatchesTruth
   '@id': '#MatchesTruth'
-  description: Match information for truth_summary sources.
+  description: Match information for TruthSummary objects.
+  tap:table_index: 11
   columns:
-  - name: index
-    '@id': '#MatchesTruth.index'
-    datatype: long
-    mysql:datatype: BIGINT
-    description: Incrementing (implicit) row index
+# Index refers to the the position in a per-tract parquet file, and has no use in SQL.
+#   - name: index
+#     '@id': '#MatchesTruth.index'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: Incrementing (implicit) row index
   - name: match_candidate
     '@id': '#MatchesTruth.match_candidate'
     datatype: boolean
     mysql:datatype: BOOLEAN
     description: True for sources that were selected for matching
-  - name: match_row
-    '@id': '#MatchesTruth.match_row'
-    datatype: long
-    mysql:datatype: BIGINT
-    description: Index of matched objectTable_tract table row, if any
+# match_row refers to the the position in a per-tract Object parquet file.
+#   - name: match_row
+#     '@id': '#MatchesTruth.match_row'
+#     datatype: long
+#     mysql:datatype: BIGINT
+#     description: Index of matched objectTable_tract table row, if any
   - name: match_count
     '@id': '#MatchesTruth.match_count'
     datatype: int
@@ -9056,12 +9059,26 @@ tables:
     datatype: char
     length: 16
     mysql:datatype: CHAR(16)
-    description: id for truth_summary source.
+    description: id for TruthSummary source. Potentially non-unique; use id_truth_type for JOINs.
+  - name: truth_type
+    '@id': '#MatchesTruth.truth_type'
+    datatype: long
+    mysql:datatype: INTEGER
+    description: Type of TruthSummary source; 1 for galaxies, 2 for stars, and 3 for SNe
   - name: match_objectId
     '@id': '#MatchesTruth.match_objectId'
     datatype: long
     mysql:datatype: BIGINT
-    description: objectId of matched objectTable_tract object, if any
+    tap:column_index: 1
+    tap:principal: 1
+    description: objectId of matched entry in the Object table, if any
+  - name: id_truth_type
+    '@id': '#MatchesTruth.id_truth_type'
+    datatype: char
+    mysql:datatype: CHAR(18)
+    tap:column_index: 2
+    tap:principal: 1
+    description: Combination of TruthSummary id and truth_type fields, used for JOINs.
 # - name: MatchesObject
 #   '@id': '#MatchesObject'
 #   description: Match information for objectTable_tract sources
@@ -9097,6 +9114,11 @@ tables:
   description: Summary properties of objects from the DESC DC2 truth catalog, as described in arXiv:2101.04855. Includes the noiseless astrometric and photometric parameters.
   tap:table_index: 10
   columns:
+  - name: id_truth_type
+    '@id': '#TruthSummary.id_truth_type'
+    datatype: char
+    mysql:datatype: CHAR(22)
+    description: Combination of id and truth_type fields, used for JOINs with MatchesTruth.
   - name: id
     '@id': '#TruthSummary.id'
     datatype: char
