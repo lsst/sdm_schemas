@@ -9017,51 +9017,68 @@ tables:
     datatype: char
     length: 512
     votable:arraysize: 512
-# - name: MatchesTruth
-#   '@id': '#MatchesTruth'
-#   description: Match information for truth_summary sources.
-#   columns:
+- name: MatchesTruth
+  '@id': '#MatchesTruth'
+  description: Match information for TruthSummary objects.
+  tap:table_index: 11
+  columns:
+# Index refers to the the position in a per-tract parquet file, and has no use in SQL.
 #   - name: index
 #     '@id': '#MatchesTruth.index'
 #     datatype: long
 #     mysql:datatype: BIGINT
 #     description: Incrementing (implicit) row index
-#   - name: match_candidate
-#     '@id': '#MatchesTruth.match_candidate'
-#     datatype: boolean
-#     mysql:datatype: BOOLEAN
-#     description: True for sources that were selected for matching
+  - name: match_candidate
+    '@id': '#MatchesTruth.match_candidate'
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: True for sources that were selected for matching
+# match_row refers to the the position in a per-tract Object parquet file.
 #   - name: match_row
 #     '@id': '#MatchesTruth.match_row'
 #     datatype: long
 #     mysql:datatype: BIGINT
 #     description: Index of matched objectTable_tract table row, if any
-#   - name: match_count
-#     '@id': '#MatchesTruth.match_count'
-#     datatype: int
-#     mysql:datatype: INTEGER
-#     description: Number of candidate object matches within match radius
-#   - name: match_chisq
-#     '@id': '#MatchesTruth.match_chisq'
-#     datatype: double
-#     mysql:datatype: double
-#     description: The chi-squared value of the (best) match
-#   - name: match_n_chisq_finite
-#     '@id': '#MatchesTruth.match_n_chisq_finite'
-#     datatype: int
-#     mysql:datatype: INTEGER
-#     description: The number of finite columns used to compute the match chisq
-#   - name: id
-#     '@id': '#MatchesTruth.id'
-#     datatype: char
-#     length: 16
-#     mysql:datatype: CHAR(16)
-#     description: id for truth_summary source.
-#   - name: match_objectId
-#     '@id': '#MatchesTruth.match_objectId'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: objectId of matched objectTable_tract object, if any
+  - name: match_count
+    '@id': '#MatchesTruth.match_count'
+    datatype: int
+    mysql:datatype: INTEGER
+    description: Number of candidate object matches within match radius
+  - name: match_chisq
+    '@id': '#MatchesTruth.match_chisq'
+    datatype: double
+    mysql:datatype: double
+    description: The chi-squared value of the (best) match
+  - name: match_n_chisq_finite
+    '@id': '#MatchesTruth.match_n_chisq_finite'
+    datatype: int
+    mysql:datatype: INTEGER
+    description: The number of finite columns used to compute the match chisq
+  - name: id
+    '@id': '#MatchesTruth.id'
+    datatype: char
+    length: 16
+    mysql:datatype: CHAR(16)
+    description: id for TruthSummary source. Potentially non-unique; use id_truth_type for JOINs.
+  - name: truth_type
+    '@id': '#MatchesTruth.truth_type'
+    datatype: long
+    mysql:datatype: INTEGER
+    description: Type of TruthSummary source; 1 for galaxies, 2 for stars, and 3 for SNe
+  - name: match_objectId
+    '@id': '#MatchesTruth.match_objectId'
+    datatype: long
+    mysql:datatype: BIGINT
+    tap:column_index: 1
+    tap:principal: 1
+    description: objectId of matched entry in the Object table, if any
+  - name: id_truth_type
+    '@id': '#MatchesTruth.id_truth_type'
+    datatype: char
+    mysql:datatype: CHAR(18)
+    tap:column_index: 2
+    tap:principal: 1
+    description: Combination of TruthSummary id and truth_type fields, used for JOINs.
 # - name: MatchesObject
 #   '@id': '#MatchesObject'
 #   description: Match information for objectTable_tract sources
@@ -9092,3 +9109,217 @@ tables:
 #     datatype: long
 #     mysql:datatype: BIGINT
 #     description: objectId of object
+- name: TruthSummary
+  '@id': '#TruthSummary'
+  description: Summary properties of objects from the DESC DC2 truth catalog, as described in arXiv:2101.04855. Includes the noiseless astrometric and photometric parameters.
+  tap:table_index: 10
+  columns:
+  - name: id_truth_type
+    '@id': '#TruthSummary.id_truth_type'
+    datatype: char
+    mysql:datatype: CHAR(22)
+    description: Combination of id and truth_type fields, used for JOINs with MatchesTruth.
+  - name: id
+    '@id': '#TruthSummary.id'
+    datatype: char
+    length: 20
+    mysql:datatype: CHAR(20)
+    tap:column_index: 1
+    tap:principal: 1
+    description: Unique object ID
+  - name: host_galaxy
+    '@id': '#TruthSummary.host_galaxy'
+    datatype: long
+    mysql:datatype: BIGINT
+    tap:column_index: 999
+    tap:principal: 1
+    description: ID of the host galaxy for a SN/AGN entry (-1 for other truth types)
+  - name: ra
+    '@id': '#TruthSummary.ra'
+    datatype: double
+    nullable: false
+    mysql:datatype: DOUBLE
+    tap:column_index: 2
+    tap:principal: 1
+    fits:tunit: deg
+    description: Right Ascension
+    ivoa:ucd: pos.eq.ra
+  - name: dec
+    '@id': '#TruthSummary.dec'
+    datatype: double
+    nullable: false
+    mysql:datatype: DOUBLE
+    tap:column_index: 3
+    tap:principal: 1
+    fits:tunit: deg
+    description: Declination
+    ivoa:ucd: pos.eq.dec
+  - name: redshift
+    '@id': '#TruthSummary.redshift'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    description: Redshift
+  - name: is_variable
+    '@id': '#TruthSummary.is_variable'
+    datatype: int
+    mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 1
+    description: 1 for a variable source
+  - name: is_pointsource
+    '@id': '#TruthSummary.is_pointsource'
+    datatype: int
+    mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 1
+    description: 1 for a point source
+  - name: flux_u
+    '@id': '#TruthSummary.flux_u'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    fits:tunit: nJy
+    description: Static flux value in u
+  - name: flux_g
+    '@id': '#TruthSummary.flux_g'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    fits:tunit: nJy
+    description: Static flux value in g
+  - name: flux_r
+    '@id': '#TruthSummary.flux_r'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    fits:tunit: nJy
+    description: Static flux value in r
+  - name: flux_i
+    '@id': '#TruthSummary.flux_i'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    fits:tunit: nJy
+    description: Static flux value in i
+  - name: flux_z
+    '@id': '#TruthSummary.flux_z'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    fits:tunit: nJy
+    description: Static flux value in z
+  - name: flux_y
+    '@id': '#TruthSummary.flux_y'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    fits:tunit: nJy
+    description: Static flux value in y
+  - name: flux_u_noMW
+    '@id': '#TruthSummary.flux_u_noMW'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 0
+    fits:tunit: nJy
+    description: Static flux value in u, without Milky Way extinction (i.e., dereddened)
+  - name: flux_g_noMW
+    '@id': '#TruthSummary.flux_g_noMW'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 0
+    fits:tunit: nJy
+    description: Static flux value in g, without Milky Way extinction (i.e., dereddened)
+  - name: flux_r_noMW
+    '@id': '#TruthSummary.flux_r_noMW'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 0
+    fits:tunit: nJy
+    description: Static flux value in r, without Milky Way extinction (i.e., dereddened)
+  - name: flux_i_noMW
+    '@id': '#TruthSummary.flux_i_noMW'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 0
+    fits:tunit: nJy
+    description: Static flux value in i, without Milky Way extinction (i.e., dereddened)
+  - name: flux_z_noMW
+    '@id': '#TruthSummary.flux_z_noMW'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 0
+    fits:tunit: nJy
+    description: Static flux value in z, without Milky Way extinction (i.e., dereddened)
+  - name: flux_y_noMW
+    '@id': '#TruthSummary.flux_y_noMW'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 0
+    fits:tunit: nJy
+    description: Static flux value in y, without Milky Way extinction (i.e., dereddened)
+  - name: mag_r
+    '@id': '#TruthSummary.mag_r'
+    datatype: float
+    mysql:datatype: FLOAT
+    tap:column_index: 999
+    tap:principal: 1
+    fits:tunit: mag
+    description: Magnitude in r
+  - name: tract
+    '@id': '#TruthSummary.tract'
+    datatype: long
+    mysql:datatype: BIGINT
+    tap:column_index: 999
+    tap:principal: 1
+    description: Tract ID in Sky Map
+  - name: patch
+    '@id': '#TruthSummary.patch'
+    datatype: char
+    length: 3
+    mysql:datatype: CHAR(3)
+    tap:column_index: 999
+    tap:principal: 1
+    description: Patch ID in Sky Map (as a string, x,y)
+  - name: cosmodc2_hp
+    '@id': '#TruthSummary.cosmodc2_hp'
+    datatype: long
+    mysql:datatype: BIGINT
+    tap:column_index: 999
+    tap:principal: 0
+    description: Healpix ID in cosmoDC2 (for galaxies only; -1 for stars and SNe)
+  - name: cosmodc2_id
+    '@id': '#TruthSummary.cosmodc2_id'
+    datatype: long
+    mysql:datatype: BIGINT
+    tap:column_index: 999
+    tap:principal: 0
+    description: Galaxy ID in cosmoDC2 (for galaxies only; -1 for stars and SNe)
+  - name: truth_type
+    '@id': '#TruthSummary.truth_type'
+    datatype: long
+    mysql:datatype: BIGINT
+    tap:column_index: 999
+    tap:principal: 1
+    description: 1 for galaxies, 2 for stars, and 3 for SNe
+  - name: is_unique_truth_entry
+    '@id': '#TruthSummary.is_unique_truth_entry'
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    tap:column_index: 999
+    tap:principal: 1
+    description: True for truth entries that appear for the first time in this truth
+      table
