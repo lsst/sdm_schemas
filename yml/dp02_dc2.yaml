@@ -9279,21 +9279,6 @@ tables:
     tap:principal: 1
     fits:tunit: mag
     description: Magnitude in r
-  - name: tract
-    '@id': '#TruthSummary.tract'
-    datatype: long
-    mysql:datatype: BIGINT
-    tap:column_index: 999
-    tap:principal: 1
-    description: Tract ID in Sky Map
-  - name: patch
-    '@id': '#TruthSummary.patch'
-    datatype: char
-    length: 3
-    mysql:datatype: CHAR(3)
-    tap:column_index: 999
-    tap:principal: 1
-    description: Patch ID in Sky Map (as a string, x,y)
   - name: cosmodc2_hp
     '@id': '#TruthSummary.cosmodc2_hp'
     datatype: long
@@ -9315,11 +9300,3 @@ tables:
     tap:column_index: 999
     tap:principal: 1
     description: 1 for galaxies, 2 for stars, and 3 for SNe
-  - name: is_unique_truth_entry
-    '@id': '#TruthSummary.is_unique_truth_entry'
-    datatype: boolean
-    mysql:datatype: BOOLEAN
-    tap:column_index: 999
-    tap:principal: 1
-    description: True for truth entries that appear for the first time in this truth
-      table
