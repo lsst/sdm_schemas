@@ -151,7 +151,7 @@ tables:
     datatype: int
     nullable: false
     description: The number of data points used to fit the model.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: uPSFluxMean
     "@id": "#DiaObject.uPSFluxMean"
     datatype: float
@@ -184,7 +184,7 @@ tables:
     datatype: int
     nullable: false
     description: The number of data points used to compute uPSFluxChi2.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: uFPFluxMean
     "@id": "#DiaObject.uFPFluxMean"
     datatype: float
@@ -238,7 +238,7 @@ tables:
     datatype: int
     nullable: false
     description: The number of data points used to compute gPSFluxChi2.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: gFPFluxMean
     "@id": "#DiaObject.gFPFluxMean"
     datatype: float
@@ -292,7 +292,7 @@ tables:
     datatype: int
     nullable: false
     description: The number of data points used to compute rPSFluxChi2.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: rFPFluxMean
     "@id": "#DiaObject.rFPFluxMean"
     datatype: float
@@ -346,7 +346,7 @@ tables:
     datatype: int
     nullable: false
     description: The number of data points used to compute iPSFluxChi2.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: iFPFluxMean
     "@id": "#DiaObject.iFPFluxMean"
     datatype: float
@@ -400,7 +400,7 @@ tables:
     datatype: int
     nullable: false
     description: The number of data points used to compute zPSFluxChi2.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: zFPFluxMean
     "@id": "#DiaObject.zFPFluxMean"
     datatype: float
@@ -454,7 +454,7 @@ tables:
     datatype: int
     nullable: false
     description: The number of data points used to compute yPSFluxChi2.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: yFPFluxMean
     "@id": "#DiaObject.yFPFluxMean"
     datatype: float
@@ -1181,7 +1181,7 @@ tables:
     "@id": "#DiaObject.flags"
     datatype: long
     nullable: false
-    value: 0
+    value: "0"
     description: Flags, bitwise OR tbd.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.code
@@ -1562,7 +1562,7 @@ tables:
     datatype: long
     nullable: false
     description: Flags, bitwise OR tbd.
-    value: 0
+    value: "0"
     mysql:datatype: BIGINT
     ivoa:ucd: meta.code
 - name: DiaSource
@@ -1615,10 +1615,10 @@ tables:
     "@id": "#DiaSource.prv_procOrder"
     datatype: int
     nullable: false
-    value: 0
+    value: "0"
     description: Position of this diaSource in the processing order relative to other
       diaSources within a given diaObjectId or ssObjectId.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
     datatype: timestamp
@@ -1810,7 +1810,7 @@ tables:
     "@id": "#DiaSource.psNdata"
     datatype: int
     description: The number of data points (pixels) used to fit the model.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: trailFlux
     "@id": "#DiaSource.trailFlux"
     datatype: float
@@ -1954,9 +1954,9 @@ tables:
     "@id": "#DiaSource.trailNdata"
     datatype: int
     nullable: false
-    value: 0
+    value: "0"
     description: The number of data points (pixels) used to fit the model.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: dipMeanFlux
     "@id": "#DiaSource.dipMeanFlux"
     datatype: float
@@ -2149,9 +2149,9 @@ tables:
     "@id": "#DiaSource.dipNdata"
     datatype: int
     nullable: false
-    value: 0
+    value: "0"
     description: The number of data points (pixels) used to fit the model.
-    mysql:datatype: INT
+    mysql:datatype: INTEGER
   - name: totFlux
     "@id": "#DiaSource.totFlux"
     datatype: float
@@ -2290,7 +2290,7 @@ tables:
     datatype: long
     nullable: false
     description: Flags, bitwise OR tbd.
-    value: 0
+    value: "0"
     mysql:datatype: BIGINT
     ivoa:ucd: meta.code
   - name: filterName
@@ -2375,7 +2375,7 @@ tables:
     datatype: long
     nullable: false
     description: Flags, bitwise OR tbd
-    value: 0
+    value: "0"
     mysql:datatype: BIGINT
     ivoa:ucd: meta.code
   - name: midPointTai
@@ -2685,11 +2685,13 @@ tables:
   - name: arcStart
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
+    length: 6
     description: 'MPCORB: Year of first observation (for multi-opposition objects)'
     mysql:datatype: DATETIME
   - name: arcEnd
     "@id": "#MPCORB.arcEnd"
     datatype: timestamp
+    length: 6
     description: 'MPCORB: Year of last observation (for multi-opposition objects)'
     mysql:datatype: DATETIME
   - name: rms
