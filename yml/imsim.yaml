@@ -8529,6 +8529,11 @@ tables:
     length: 16
     mysql:datatype: CHAR(16)
     description: id for truth_summary source.
+  - name: truth_type
+    '@id': '#MatchesTruth.truth_type'
+    datatype: long
+    mysql:datatype: BIGINT
+    description: Truth object type (1/2/3 = galaxy/star/SN)
   - name: match_objectId
     '@id': '#MatchesTruth.match_objectId'
     datatype: long
@@ -8559,6 +8564,11 @@ tables:
     length: 16
     mysql:datatype: CHAR(16)
     description: id of matched truth_summary source, if any
+  - name: match_truth_type
+    '@id': '#MatchesObject.match_truth_type'
+    datatype: long
+    mysql:datatype: BIGINT
+    description: Type of matched truth_summary source, if any (1/2/3 = galaxy/star/SN)
   - name: objectId
     '@id': '#MatchesObject.objectId'
     datatype: long
