@@ -113,6 +113,7 @@ tables:
     description: Reference band - parameters measured on coadds of this band were used for multi-band forced photometry
     mysql:datatype: CHAR(1)
     fits:tunit:
+    votable:arraysize: "*"
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
     datatype: double
@@ -6802,6 +6803,7 @@ tables:
     description: Name of the band used to take the exposure where this source was measured. Abstract filter that is not associated with a particular instrument
     mysql:datatype: CHAR(1)
     fits:tunit:
+    votable:arraysize: "*"
   - name: instrument
     "@id": "#Source.instrument"
     datatype: char
@@ -6896,6 +6898,7 @@ tables:
     mysql:datatype: CHAR(1)
     description: Abstract filter that is not associated with a particular instrument
     fits:tunit:
+    votable:arraysize: "*"
   - name: ccdVisitId
     "@id": "#ForcedSource.ccdVisitId"
     datatype: long
@@ -8183,9 +8186,11 @@ tables:
   - name: band
     "@id": "#ForcedSourceOnDiaObject.band"
     datatype: char
+    length: 1
     mysql:datatype: CHAR(1)
     description: Abstract filter that is not associated with a particular instrument
     fits:tunit:
+    votable:arraysize: "*"
   - name: ccdVisitId
     "@id": "#ForcedSourceOnDiaObject.ccdVisitId"
     datatype: long
