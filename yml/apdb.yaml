@@ -152,38 +152,38 @@ tables:
     nullable: false
     description: The number of data points used to fit the model.
     mysql:datatype: INTEGER
-  - name: uPsfFluxMean
-    "@id": "#DiaObject.uPsfFluxMean"
+  - name: u_psfFluxMean
+    "@id": "#DiaObject.u_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for u filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: uPsfFluxMeanErr
-    "@id": "#DiaObject.uPsfFluxMeanErr"
+  - name: u_psfFluxMeanErr
+    "@id": "#DiaObject.u_psfFluxMeanErr"
     datatype: float
-    description: Standard error of uPsfFluxMean.
+    description: Standard error of u_psfFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: uPsfFluxSigma
-    "@id": "#DiaObject.uPsfFluxSigma"
+  - name: u_psfFluxSigma
+    "@id": "#DiaObject.u_psfFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of uPsfFlux.
+    description: Standard deviation of the distribution of u_psfFlux.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: uPsfFluxChi2
-    "@id": "#DiaObject.uPsfFluxChi2"
+  - name: u_psfFluxChi2
+    "@id": "#DiaObject.u_psfFluxChi2"
     datatype: float
-    description: Chi^2 statistic for the scatter of uPsfFlux around uPsfFluxMean.
+    description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
-  - name: uPsfFluxNdata
-    "@id": "#DiaObject.uPsfFluxNdata"
+  - name: u_psfFluxNdata
+    "@id": "#DiaObject.u_psfFluxNdata"
     datatype: int
     nullable: false
-    description: The number of data points used to compute uPsfFluxChi2.
+    description: The number of data points used to compute u_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: uFPFluxMean
     "@id": "#DiaObject.uFPFluxMean"
@@ -206,38 +206,38 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: gPsfFluxMean
-    "@id": "#DiaObject.gPsfFluxMean"
+  - name: g_psfFluxMean
+    "@id": "#DiaObject.g_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for g filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: gPsfFluxMeanErr
-    "@id": "#DiaObject.gPsfFluxMeanErr"
+  - name: g_psfFluxMeanErr
+    "@id": "#DiaObject.g_psfFluxMeanErr"
     datatype: float
-    description: Standard error of gPsfFluxMean.
+    description: Standard error of g_psfFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: gPsfFluxSigma
-    "@id": "#DiaObject.gPsfFluxSigma"
+  - name: g_psfFluxSigma
+    "@id": "#DiaObject.g_psfFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of gPsfFlux.
+    description: Standard deviation of the distribution of g_psfFlux.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: gPsfFluxChi2
-    "@id": "#DiaObject.gPsfFluxChi2"
+  - name: g_psfFluxChi2
+    "@id": "#DiaObject.g_psfFluxChi2"
     datatype: float
-    description: Chi^2 statistic for the scatter of gPsfFlux around gPsfFluxMean.
+    description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
-  - name: gPsfFluxNdata
-    "@id": "#DiaObject.gPsfFluxNdata"
+  - name: g_psfFluxNdata
+    "@id": "#DiaObject.g_psfFluxNdata"
     datatype: int
     nullable: false
-    description: The number of data points used to compute gPsfFluxChi2.
+    description: The number of data points used to compute g_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: gFPFluxMean
     "@id": "#DiaObject.gFPFluxMean"
@@ -260,38 +260,38 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: rPsfFluxMean
-    "@id": "#DiaObject.rPsfFluxMean"
+  - name: r_psfFluxMean
+    "@id": "#DiaObject.r_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for r filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: rPsfFluxMeanErr
-    "@id": "#DiaObject.rPsfFluxMeanErr"
+  - name: r_psfFluxMeanErr
+    "@id": "#DiaObject.r_psfFluxMeanErr"
     datatype: float
-    description: Standard error of rPsfFluxMean.
+    description: Standard error of r_psfFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: rPsfFluxSigma
-    "@id": "#DiaObject.rPsfFluxSigma"
+  - name: r_psfFluxSigma
+    "@id": "#DiaObject.r_psfFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of rPsfFlux.
+    description: Standard deviation of the distribution of r_psfFlux.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: rPsfFluxChi2
-    "@id": "#DiaObject.rPsfFluxChi2"
+  - name: r_psfFluxChi2
+    "@id": "#DiaObject.r_psfFluxChi2"
     datatype: float
-    description: Chi^2 statistic for the scatter of rPsfFlux around rPsfFluxMean.
+    description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
-  - name: rPsfFluxNdata
-    "@id": "#DiaObject.rPsfFluxNdata"
+  - name: r_psfFluxNdata
+    "@id": "#DiaObject.r_psfFluxNdata"
     datatype: int
     nullable: false
-    description: The number of data points used to compute rPsfFluxChi2.
+    description: The number of data points used to compute r_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: rFPFluxMean
     "@id": "#DiaObject.rFPFluxMean"
@@ -314,38 +314,38 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: iPsfFluxMean
-    "@id": "#DiaObject.iPsfFluxMean"
+  - name: i_psfFluxMean
+    "@id": "#DiaObject.i_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for i filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: iPsfFluxMeanErr
-    "@id": "#DiaObject.iPsfFluxMeanErr"
+  - name: i_psfFluxMeanErr
+    "@id": "#DiaObject.i_psfFluxMeanErr"
     datatype: float
-    description: Standard error of iPsfFluxMean.
+    description: Standard error of i_psfFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: iPsfFluxSigma
-    "@id": "#DiaObject.iPsfFluxSigma"
+  - name: i_psfFluxSigma
+    "@id": "#DiaObject.i_psfFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of iPsfFlux.
+    description: Standard deviation of the distribution of i_psfFlux.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: iPsfFluxChi2
-    "@id": "#DiaObject.iPsfFluxChi2"
+  - name: i_psfFluxChi2
+    "@id": "#DiaObject.i_psfFluxChi2"
     datatype: float
-    description: Chi^2 statistic for the scatter of iPsfFlux around iPsfFluxMean.
+    description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
-  - name: iPsfFluxNdata
-    "@id": "#DiaObject.iPsfFluxNdata"
+  - name: i_psfFluxNdata
+    "@id": "#DiaObject.i_psfFluxNdata"
     datatype: int
     nullable: false
-    description: The number of data points used to compute iPsfFluxChi2.
+    description: The number of data points used to compute i_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: iFPFluxMean
     "@id": "#DiaObject.iFPFluxMean"
@@ -368,38 +368,38 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: zPsfFluxMean
-    "@id": "#DiaObject.zPsfFluxMean"
+  - name: z_psfFluxMean
+    "@id": "#DiaObject.z_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for z filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: zPsfFluxMeanErr
-    "@id": "#DiaObject.zPsfFluxMeanErr"
+  - name: z_psfFluxMeanErr
+    "@id": "#DiaObject.z_psfFluxMeanErr"
     datatype: float
-    description: Standard error of zPsfFluxMean.
+    description: Standard error of z_psfFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: zPsfFluxSigma
-    "@id": "#DiaObject.zPsfFluxSigma"
+  - name: z_psfFluxSigma
+    "@id": "#DiaObject.z_psfFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of zPsfFlux.
+    description: Standard deviation of the distribution of z_psfFlux.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: zPsfFluxChi2
-    "@id": "#DiaObject.zPsfFluxChi2"
+  - name: z_psfFluxChi2
+    "@id": "#DiaObject.z_psfFluxChi2"
     datatype: float
-    description: Chi^2 statistic for the scatter of zPsfFlux around zPsfFluxMean.
+    description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
-  - name: zPsfFluxNdata
-    "@id": "#DiaObject.zPsfFluxNdata"
+  - name: z_psfFluxNdata
+    "@id": "#DiaObject.z_psfFluxNdata"
     datatype: int
     nullable: false
-    description: The number of data points used to compute zPsfFluxChi2.
+    description: The number of data points used to compute z_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: zFPFluxMean
     "@id": "#DiaObject.zFPFluxMean"
@@ -422,38 +422,38 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.stdev
-  - name: yPsfFluxMean
-    "@id": "#DiaObject.yPsfFluxMean"
+  - name: y_psfFluxMean
+    "@id": "#DiaObject.y_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for y filter.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: phot.count
-  - name: yPsfFluxMeanErr
-    "@id": "#DiaObject.yPsfFluxMeanErr"
+  - name: y_psfFluxMeanErr
+    "@id": "#DiaObject.y_psfFluxMeanErr"
     datatype: float
-    description: Standard error of yPsfFluxMean.
+    description: Standard error of y_psfFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: yPsfFluxSigma
-    "@id": "#DiaObject.yPsfFluxSigma"
+  - name: y_psfFluxSigma
+    "@id": "#DiaObject.y_psfFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of yPsfFlux.
+    description: Standard deviation of the distribution of y_psfFlux.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: yPsfFluxChi2
-    "@id": "#DiaObject.yPsfFluxChi2"
+  - name: y_psfFluxChi2
+    "@id": "#DiaObject.y_psfFluxChi2"
     datatype: float
-    description: Chi^2 statistic for the scatter of yPsfFlux around yPsfFluxMean.
+    description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
-  - name: yPsfFluxNdata
-    "@id": "#DiaObject.yPsfFluxNdata"
+  - name: y_psfFluxNdata
+    "@id": "#DiaObject.y_psfFluxNdata"
     datatype: int
     nullable: false
-    description: The number of data points used to compute yPsfFluxChi2.
+    description: The number of data points used to compute y_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: yFPFluxMean
     "@id": "#DiaObject.yFPFluxMean"
@@ -770,410 +770,410 @@ tables:
     description: Standard deviation of the distribution of yTOTFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: uPsfFluxMAD
-    "@id": "#DiaObject.uPsfFluxMAD"
+  - name: u_psfFluxMAD
+    "@id": "#DiaObject.u_psfFluxMAD"
     datatype: float
     description: Median absolute deviation u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxSkew
-    "@id": "#DiaObject.uPsfFluxSkew"
+  - name: u_psfFluxSkew
+    "@id": "#DiaObject.u_psfFluxSkew"
     datatype: float
     description: Skewness of the u band fluxes.
-  - name: uPsfFluxPercentile05
-    "@id": "#DiaObject.uPsfFluxPercentile05"
+  - name: u_psfFluxPercentile05
+    "@id": "#DiaObject.u_psfFluxPercentile05"
     datatype: float
     description: Value at the 5% percentile of the u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxPercentile25
-    "@id": "#DiaObject.uPsfFluxPercentile25"
+  - name: u_psfFluxPercentile25
+    "@id": "#DiaObject.u_psfFluxPercentile25"
     datatype: float
     description: Value at the 25% percentile of the u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxPercentile50
-    "@id": "#DiaObject.uPsfFluxPercentile50"
+  - name: u_psfFluxPercentile50
+    "@id": "#DiaObject.u_psfFluxPercentile50"
     datatype: float
     description: Value at the 50% percentile (median) of the u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxPercentile75
-    "@id": "#DiaObject.uPsfFluxPercentile75"
+  - name: u_psfFluxPercentile75
+    "@id": "#DiaObject.u_psfFluxPercentile75"
     datatype: float
     description: Value at the 75% percentile of the u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxPercentile95
-    "@id": "#DiaObject.uPsfFluxPercentile95"
+  - name: u_psfFluxPercentile95
+    "@id": "#DiaObject.u_psfFluxPercentile95"
     datatype: float
     description: Value at the 95% percentile of the u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxMin
-    "@id": "#DiaObject.uPsfFluxMin"
+  - name: u_psfFluxMin
+    "@id": "#DiaObject.u_psfFluxMin"
     datatype: float
     description: Minimum observed u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxMax
-    "@id": "#DiaObject.uPsfFluxMax"
+  - name: u_psfFluxMax
+    "@id": "#DiaObject.u_psfFluxMax"
     datatype: float
     description: Maximum observed u band fluxes.
     fits:tunit: nJy
-  - name: uPsfFluxStetsonJ
-    "@id": "#DiaObject.uPsfFluxStetsonJ"
+  - name: u_psfFluxStetsonJ
+    "@id": "#DiaObject.u_psfFluxStetsonJ"
     datatype: float
     description: StetsonJ statistic for the u band fluxes.
-  - name: uPsfFluxLinearSlope
-    "@id": "#DiaObject.uPsfFluxLinearSlope"
+  - name: u_psfFluxLinearSlope
+    "@id": "#DiaObject.u_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the u band fluxes.
     fits:tunit: nJy/day
-  - name: uPsfFluxLinearIntercept
-    "@id": "#DiaObject.uPsfFluxLinearIntercept"
+  - name: u_psfFluxLinearIntercept
+    "@id": "#DiaObject.u_psfFluxLinearIntercept"
     datatype: float
     description: Linear best fit Intercept of the u band fluxes.
-  - name: uPsfFluxMaxSlope
-    "@id": "#DiaObject.uPsfFluxMaxSlope"
+  - name: u_psfFluxMaxSlope
+    "@id": "#DiaObject.u_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between u band flux obsevations max(delta_flux/delta_time)
     fits:tunit: nJy/day
-  - name: uPsfFluxErrMean
-    "@id": "#DiaObject.uPsfFluxErrMean"
+  - name: u_psfFluxErrMean
+    "@id": "#DiaObject.u_psfFluxErrMean"
     datatype: float
     description: Mean of the u band flux errors.
     fits:tunit: nJy
-  - name: gPsfFluxMAD
-    "@id": "#DiaObject.gPsfFluxMAD"
+  - name: g_psfFluxMAD
+    "@id": "#DiaObject.g_psfFluxMAD"
     datatype: float
     description: Median absolute deviation g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxSkew
-    "@id": "#DiaObject.gPsfFluxSkew"
+  - name: g_psfFluxSkew
+    "@id": "#DiaObject.g_psfFluxSkew"
     datatype: float
     description: Skewness of the g band fluxes.
-  - name: gPsfFluxPercentile05
-    "@id": "#DiaObject.gPsfFluxPercentile05"
+  - name: g_psfFluxPercentile05
+    "@id": "#DiaObject.g_psfFluxPercentile05"
     datatype: float
     description: Value at the 5% percentile of the g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxPercentile25
-    "@id": "#DiaObject.gPsfFluxPercentile25"
+  - name: g_psfFluxPercentile25
+    "@id": "#DiaObject.g_psfFluxPercentile25"
     datatype: float
     description: Value at the 25% percentile of the g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxPercentile50
-    "@id": "#DiaObject.gPsfFluxPercentile50"
+  - name: g_psfFluxPercentile50
+    "@id": "#DiaObject.g_psfFluxPercentile50"
     datatype: float
     description: Value at the 50% percentile (median) of the g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxPercentile75
-    "@id": "#DiaObject.gPsfFluxPercentile75"
+  - name: g_psfFluxPercentile75
+    "@id": "#DiaObject.g_psfFluxPercentile75"
     datatype: float
     description: Value at the 75% percentile of the g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxPercentile95
-    "@id": "#DiaObject.gPsfFluxPercentile95"
+  - name: g_psfFluxPercentile95
+    "@id": "#DiaObject.g_psfFluxPercentile95"
     datatype: float
     description: Value at the 95% percentile of the g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxMin
-    "@id": "#DiaObject.gPsfFluxMin"
+  - name: g_psfFluxMin
+    "@id": "#DiaObject.g_psfFluxMin"
     datatype: float
     description: Minimum observed g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxMax
-    "@id": "#DiaObject.gPsfFluxMax"
+  - name: g_psfFluxMax
+    "@id": "#DiaObject.g_psfFluxMax"
     datatype: float
     description: Maximum observed g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxStetsonJ
-    "@id": "#DiaObject.gPsfFluxStetsonJ"
+  - name: g_psfFluxStetsonJ
+    "@id": "#DiaObject.g_psfFluxStetsonJ"
     datatype: float
     description: StetsonJ statistic for the g band fluxes.
-  - name: gPsfFluxLinearSlope
-    "@id": "#DiaObject.gPsfFluxLinearSlope"
+  - name: g_psfFluxLinearSlope
+    "@id": "#DiaObject.g_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the g band fluxes.
     fits:tunit: nJy/day
-  - name: gPsfFluxLinearIntercept
-    "@id": "#DiaObject.gPsfFluxLinearIntercept"
+  - name: g_psfFluxLinearIntercept
+    "@id": "#DiaObject.g_psfFluxLinearIntercept"
     datatype: float
     description: Linear best fit Intercept of the g band fluxes.
     fits:tunit: nJy
-  - name: gPsfFluxMaxSlope
-    "@id": "#DiaObject.gPsfFluxMaxSlope"
+  - name: g_psfFluxMaxSlope
+    "@id": "#DiaObject.g_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between g band flux obsevations max(delta_flux/delta_time)
     fits:tunit: nJy/day
-  - name: gPsfFluxErrMean
-    "@id": "#DiaObject.gPsfFluxErrMean"
+  - name: g_psfFluxErrMean
+    "@id": "#DiaObject.g_psfFluxErrMean"
     datatype: float
     description: Mean of the g band flux errors.
     fits:tunit: nJy
-  - name: rPsfFluxMAD
-    "@id": "#DiaObject.rPsfFluxMAD"
+  - name: r_psfFluxMAD
+    "@id": "#DiaObject.r_psfFluxMAD"
     datatype: float
     description: Median absolute deviation r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxSkew
-    "@id": "#DiaObject.rPsfFluxSkew"
+  - name: r_psfFluxSkew
+    "@id": "#DiaObject.r_psfFluxSkew"
     datatype: float
     description: Skewness of the r band fluxes.
-  - name: rPsfFluxPercentile05
-    "@id": "#DiaObject.rPsfFluxPercentile05"
+  - name: r_psfFluxPercentile05
+    "@id": "#DiaObject.r_psfFluxPercentile05"
     datatype: float
     description: Value at the 5% percentile of the r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxPercentile25
-    "@id": "#DiaObject.rPsfFluxPercentile25"
+  - name: r_psfFluxPercentile25
+    "@id": "#DiaObject.r_psfFluxPercentile25"
     datatype: float
     description: Value at the 25% percentile of the r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxPercentile50
-    "@id": "#DiaObject.rPsfFluxPercentile50"
+  - name: r_psfFluxPercentile50
+    "@id": "#DiaObject.r_psfFluxPercentile50"
     datatype: float
     description: Value at the 50% percentile (median) of the r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxPercentile75
-    "@id": "#DiaObject.rPsfFluxPercentile75"
+  - name: r_psfFluxPercentile75
+    "@id": "#DiaObject.r_psfFluxPercentile75"
     datatype: float
     description: Value at the 75% percentile of the r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxPercentile95
-    "@id": "#DiaObject.rPsfFluxPercentile95"
+  - name: r_psfFluxPercentile95
+    "@id": "#DiaObject.r_psfFluxPercentile95"
     datatype: float
     description: Value at the 95% percentile of the r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxMin
-    "@id": "#DiaObject.rPsfFluxMin"
+  - name: r_psfFluxMin
+    "@id": "#DiaObject.r_psfFluxMin"
     datatype: float
     description: Minimum observed r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxMax
-    "@id": "#DiaObject.rPsfFluxMax"
+  - name: r_psfFluxMax
+    "@id": "#DiaObject.r_psfFluxMax"
     datatype: float
     description: Maximum observed r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxStetsonJ
-    "@id": "#DiaObject.rPsfFluxStetsonJ"
+  - name: r_psfFluxStetsonJ
+    "@id": "#DiaObject.r_psfFluxStetsonJ"
     datatype: float
     description: StetsonJ statistic for the r band fluxes.
-  - name: rPsfFluxLinearSlope
-    "@id": "#DiaObject.rPsfFluxLinearSlope"
+  - name: r_psfFluxLinearSlope
+    "@id": "#DiaObject.r_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the r band fluxes.
     fits:tunit: nJy/day
-  - name: rPsfFluxLinearIntercept
-    "@id": "#DiaObject.rPsfFluxLinearIntercept"
+  - name: r_psfFluxLinearIntercept
+    "@id": "#DiaObject.r_psfFluxLinearIntercept"
     datatype: float
     description: Linear best fit Intercept of the r band fluxes.
     fits:tunit: nJy
-  - name: rPsfFluxMaxSlope
-    "@id": "#DiaObject.rPsfFluxMaxSlope"
+  - name: r_psfFluxMaxSlope
+    "@id": "#DiaObject.r_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between r band flux obsevations max(delta_flux/delta_time)
     fits:tunit: nJy/day
-  - name: rPsfFluxErrMean
-    "@id": "#DiaObject.rPsfFluxErrMean"
+  - name: r_psfFluxErrMean
+    "@id": "#DiaObject.r_psfFluxErrMean"
     datatype: float
     description: Mean of the r band flux errors.
     fits:tunit: nJy
-  - name: iPsfFluxMAD
-    "@id": "#DiaObject.iPsfFluxMAD"
+  - name: i_psfFluxMAD
+    "@id": "#DiaObject.i_psfFluxMAD"
     datatype: float
     description: Median absolute deviation i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxSkew
-    "@id": "#DiaObject.iPsfFluxSkew"
+  - name: i_psfFluxSkew
+    "@id": "#DiaObject.i_psfFluxSkew"
     datatype: float
     description: Skewness of the i band fluxes.
-  - name: iPsfFluxPercentile05
-    "@id": "#DiaObject.iPsfFluxPercentile05"
+  - name: i_psfFluxPercentile05
+    "@id": "#DiaObject.i_psfFluxPercentile05"
     datatype: float
     description: Value at the 5% percentile of the i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxPercentile25
-    "@id": "#DiaObject.iPsfFluxPercentile25"
+  - name: i_psfFluxPercentile25
+    "@id": "#DiaObject.i_psfFluxPercentile25"
     datatype: float
     description: Value at the 25% percentile of the i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxPercentile50
-    "@id": "#DiaObject.iPsfFluxPercentile50"
+  - name: i_psfFluxPercentile50
+    "@id": "#DiaObject.i_psfFluxPercentile50"
     datatype: float
     description: Value at the 50% percentile (median) of the i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxPercentile75
-    "@id": "#DiaObject.iPsfFluxPercentile75"
+  - name: i_psfFluxPercentile75
+    "@id": "#DiaObject.i_psfFluxPercentile75"
     datatype: float
     description: Value at the 75% percentile of the i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxPercentile95
-    "@id": "#DiaObject.iPsfFluxPercentile95"
+  - name: i_psfFluxPercentile95
+    "@id": "#DiaObject.i_psfFluxPercentile95"
     datatype: float
     description: Value at the 95% percentile of the i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxMin
-    "@id": "#DiaObject.iPsfFluxMin"
+  - name: i_psfFluxMin
+    "@id": "#DiaObject.i_psfFluxMin"
     datatype: float
     description: Minimum observed i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxMax
-    "@id": "#DiaObject.iPsfFluxMax"
+  - name: i_psfFluxMax
+    "@id": "#DiaObject.i_psfFluxMax"
     datatype: float
     description: Maximum observed i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxStetsonJ
-    "@id": "#DiaObject.iPsfFluxStetsonJ"
+  - name: i_psfFluxStetsonJ
+    "@id": "#DiaObject.i_psfFluxStetsonJ"
     datatype: float
     description: StetsonJ statistic for the i band fluxes.
-  - name: iPsfFluxLinearSlope
-    "@id": "#DiaObject.iPsfFluxLinearSlope"
+  - name: i_psfFluxLinearSlope
+    "@id": "#DiaObject.i_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the i band fluxes.
     fits:tunit: nJy/day
-  - name: iPsfFluxLinearIntercept
-    "@id": "#DiaObject.iPsfFluxLinearIntercept"
+  - name: i_psfFluxLinearIntercept
+    "@id": "#DiaObject.i_psfFluxLinearIntercept"
     datatype: float
     description: Linear best fit Intercept of the i band fluxes.
     fits:tunit: nJy
-  - name: iPsfFluxMaxSlope
-    "@id": "#DiaObject.iPsfFluxMaxSlope"
+  - name: i_psfFluxMaxSlope
+    "@id": "#DiaObject.i_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between i band flux obsevations max(delta_flux/delta_time)
     fits:tunit: nJy/day
-  - name: iPsfFluxErrMean
-    "@id": "#DiaObject.iPsfFluxErrMean"
+  - name: i_psfFluxErrMean
+    "@id": "#DiaObject.i_psfFluxErrMean"
     datatype: float
     description: Mean of the i band flux errors.
     fits:tunit: nJy
-  - name: zPsfFluxMAD
-    "@id": "#DiaObject.zPsfFluxMAD"
+  - name: z_psfFluxMAD
+    "@id": "#DiaObject.z_psfFluxMAD"
     datatype: float
     description: Median absolute deviation z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxSkew
-    "@id": "#DiaObject.zPsfFluxSkew"
+  - name: z_psfFluxSkew
+    "@id": "#DiaObject.z_psfFluxSkew"
     datatype: float
     description: Skewness of the z band fluxes.
-  - name: zPsfFluxPercentile05
-    "@id": "#DiaObject.zPsfFluxPercentile05"
+  - name: z_psfFluxPercentile05
+    "@id": "#DiaObject.z_psfFluxPercentile05"
     datatype: float
     description: Value at the 5% percentile of the z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxPercentile25
-    "@id": "#DiaObject.zPsfFluxPercentile25"
+  - name: z_psfFluxPercentile25
+    "@id": "#DiaObject.z_psfFluxPercentile25"
     datatype: float
     description: Value at the 25% percentile of the z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxPercentile50
-    "@id": "#DiaObject.zPsfFluxPercentile50"
+  - name: z_psfFluxPercentile50
+    "@id": "#DiaObject.z_psfFluxPercentile50"
     datatype: float
     description: Value at the 50% percentile (median) of the z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxPercentile75
-    "@id": "#DiaObject.zPsfFluxPercentile75"
+  - name: z_psfFluxPercentile75
+    "@id": "#DiaObject.z_psfFluxPercentile75"
     datatype: float
     description: Value at the 75% percentile of the z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxPercentile95
-    "@id": "#DiaObject.zPsfFluxPercentile95"
+  - name: z_psfFluxPercentile95
+    "@id": "#DiaObject.z_psfFluxPercentile95"
     datatype: float
     description: Value at the 95% percentile of the z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxMin
-    "@id": "#DiaObject.zPsfFluxMin"
+  - name: z_psfFluxMin
+    "@id": "#DiaObject.z_psfFluxMin"
     datatype: float
     description: Minimum observed z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxMax
-    "@id": "#DiaObject.zPsfFluxMax"
+  - name: z_psfFluxMax
+    "@id": "#DiaObject.z_psfFluxMax"
     datatype: float
     description: Maximum observed z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxStetsonJ
-    "@id": "#DiaObject.zPsfFluxStetsonJ"
+  - name: z_psfFluxStetsonJ
+    "@id": "#DiaObject.z_psfFluxStetsonJ"
     datatype: float
     description: StetsonJ statistic for the z band fluxes.
-  - name: zPsfFluxLinearSlope
-    "@id": "#DiaObject.zPsfFluxLinearSlope"
+  - name: z_psfFluxLinearSlope
+    "@id": "#DiaObject.z_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the z band fluxes.
     fits:tunit: nJy/day
-  - name: zPsfFluxLinearIntercept
-    "@id": "#DiaObject.zPsfFluxLinearIntercept"
+  - name: z_psfFluxLinearIntercept
+    "@id": "#DiaObject.z_psfFluxLinearIntercept"
     datatype: float
     description: Linear best fit Intercept of the z band fluxes.
     fits:tunit: nJy
-  - name: zPsfFluxMaxSlope
-    "@id": "#DiaObject.zPsfFluxMaxSlope"
+  - name: z_psfFluxMaxSlope
+    "@id": "#DiaObject.z_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between z band flux obsevations max(delta_flux/delta_time)
     fits:tunit: nJy/day
-  - name: zPsfFluxErrMean
-    "@id": "#DiaObject.zPsfFluxErrMean"
+  - name: z_psfFluxErrMean
+    "@id": "#DiaObject.z_psfFluxErrMean"
     datatype: float
     description: Mean of the z band flux errors.
     fits:tunit: nJy
-  - name: yPsfFluxMAD
-    "@id": "#DiaObject.yPsfFluxMAD"
+  - name: y_psfFluxMAD
+    "@id": "#DiaObject.y_psfFluxMAD"
     datatype: float
     description: Median absolute deviation y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxSkew
-    "@id": "#DiaObject.yPsfFluxSkew"
+  - name: y_psfFluxSkew
+    "@id": "#DiaObject.y_psfFluxSkew"
     datatype: float
     description: Skewness of the y band fluxes.
-  - name: yPsfFluxPercentile05
-    "@id": "#DiaObject.yPsfFluxPercentile05"
+  - name: y_psfFluxPercentile05
+    "@id": "#DiaObject.y_psfFluxPercentile05"
     datatype: float
     description: Value at the 5% percentile of the y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxPercentile25
-    "@id": "#DiaObject.yPsfFluxPercentile25"
+  - name: y_psfFluxPercentile25
+    "@id": "#DiaObject.y_psfFluxPercentile25"
     datatype: float
     description: Value at the 25% percentile of the y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxPercentile50
-    "@id": "#DiaObject.yPsfFluxPercentile50"
+  - name: y_psfFluxPercentile50
+    "@id": "#DiaObject.y_psfFluxPercentile50"
     datatype: float
     description: Value at the 50% percentile (median) of the y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxPercentile75
-    "@id": "#DiaObject.yPsfFluxPercentile75"
+  - name: y_psfFluxPercentile75
+    "@id": "#DiaObject.y_psfFluxPercentile75"
     datatype: float
     description: Value at the 75% percentile of the y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxPercentile95
-    "@id": "#DiaObject.yPsfFluxPercentile95"
+  - name: y_psfFluxPercentile95
+    "@id": "#DiaObject.y_psfFluxPercentile95"
     datatype: float
     description: Value at the 95% percentile of the y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxMin
-    "@id": "#DiaObject.yPsfFluxMin"
+  - name: y_psfFluxMin
+    "@id": "#DiaObject.y_psfFluxMin"
     datatype: float
     description: Minimum observed y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxMax
-    "@id": "#DiaObject.yPsfFluxMax"
+  - name: y_psfFluxMax
+    "@id": "#DiaObject.y_psfFluxMax"
     datatype: float
     description: Maximum observed y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxStetsonJ
-    "@id": "#DiaObject.yPsfFluxStetsonJ"
+  - name: y_psfFluxStetsonJ
+    "@id": "#DiaObject.y_psfFluxStetsonJ"
     datatype: float
     description: StetsonJ statistic for the y band fluxes.
-  - name: yPsfFluxLinearSlope
-    "@id": "#DiaObject.yPsfFluxLinearSlope"
+  - name: y_psfFluxLinearSlope
+    "@id": "#DiaObject.y_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the y band fluxes.
     fits:tunit: nJy/day
-  - name: yPsfFluxLinearIntercept
-    "@id": "#DiaObject.yPsfFluxLinearIntercept"
+  - name: y_psfFluxLinearIntercept
+    "@id": "#DiaObject.y_psfFluxLinearIntercept"
     datatype: float
     description: Linear best fit Intercept of the y band fluxes.
     fits:tunit: nJy
-  - name: yPsfFluxMaxSlope
-    "@id": "#DiaObject.yPsfFluxMaxSlope"
+  - name: y_psfFluxMaxSlope
+    "@id": "#DiaObject.y_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between y band flux obsevations max(delta_flux/delta_time)
     fits:tunit: nJy/day
-  - name: yPsfFluxErrMean
-    "@id": "#DiaObject.yPsfFluxErrMean"
+  - name: y_psfFluxErrMean
+    "@id": "#DiaObject.y_psfFluxErrMean"
     datatype: float
     description: Mean of the y band flux errors.
     fits:tunit: nJy
