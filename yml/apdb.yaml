@@ -157,21 +157,21 @@ tables:
     datatype: float
     description: Weighted mean point-source model magnitude for u filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: u_psfFluxMeanErr
     "@id": "#DiaObject.u_psfFluxMeanErr"
     datatype: float
     description: Standard error of u_psfFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: u_psfFluxSigma
     "@id": "#DiaObject.u_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of u_psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: u_psfFluxChi2
     "@id": "#DiaObject.u_psfFluxChi2"
@@ -190,42 +190,42 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: uFPFluxMeanErr
     "@id": "#DiaObject.uFPFluxMeanErr"
     datatype: float
     description: Standard error of uFPFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: uFPFluxSigma
     "@id": "#DiaObject.uFPFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of uFPFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: g_psfFluxMean
     "@id": "#DiaObject.g_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for g filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: g_psfFluxMeanErr
     "@id": "#DiaObject.g_psfFluxMeanErr"
     datatype: float
     description: Standard error of g_psfFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: g_psfFluxSigma
     "@id": "#DiaObject.g_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of g_psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: g_psfFluxChi2
     "@id": "#DiaObject.g_psfFluxChi2"
@@ -244,42 +244,42 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: gFPFluxMeanErr
     "@id": "#DiaObject.gFPFluxMeanErr"
     datatype: float
     description: Standard error of gFPFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: gFPFluxSigma
     "@id": "#DiaObject.gFPFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of gFPFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: r_psfFluxMean
     "@id": "#DiaObject.r_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for r filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: r_psfFluxMeanErr
     "@id": "#DiaObject.r_psfFluxMeanErr"
     datatype: float
     description: Standard error of r_psfFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: r_psfFluxSigma
     "@id": "#DiaObject.r_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of r_psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: r_psfFluxChi2
     "@id": "#DiaObject.r_psfFluxChi2"
@@ -298,42 +298,42 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: rFPFluxMeanErr
     "@id": "#DiaObject.rFPFluxMeanErr"
     datatype: float
     description: Standard error of rFPFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: rFPFluxSigma
     "@id": "#DiaObject.rFPFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of rFPFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: i_psfFluxMean
     "@id": "#DiaObject.i_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for i filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: i_psfFluxMeanErr
     "@id": "#DiaObject.i_psfFluxMeanErr"
     datatype: float
     description: Standard error of i_psfFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: i_psfFluxSigma
     "@id": "#DiaObject.i_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of i_psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: i_psfFluxChi2
     "@id": "#DiaObject.i_psfFluxChi2"
@@ -352,42 +352,42 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: iFPFluxMeanErr
     "@id": "#DiaObject.iFPFluxMeanErr"
     datatype: float
     description: Standard error of iFPFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: iFPFluxSigma
     "@id": "#DiaObject.iFPFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of iFPFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: z_psfFluxMean
     "@id": "#DiaObject.z_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for z filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: z_psfFluxMeanErr
     "@id": "#DiaObject.z_psfFluxMeanErr"
     datatype: float
     description: Standard error of z_psfFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: z_psfFluxSigma
     "@id": "#DiaObject.z_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of z_psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: z_psfFluxChi2
     "@id": "#DiaObject.z_psfFluxChi2"
@@ -406,42 +406,42 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: zFPFluxMeanErr
     "@id": "#DiaObject.zFPFluxMeanErr"
     datatype: float
     description: Standard error of zFPFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: zFPFluxSigma
     "@id": "#DiaObject.zFPFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of zFPFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: y_psfFluxMean
     "@id": "#DiaObject.y_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for y filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: y_psfFluxMeanErr
     "@id": "#DiaObject.y_psfFluxMeanErr"
     datatype: float
     description: Standard error of y_psfFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: y_psfFluxSigma
     "@id": "#DiaObject.y_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of y_psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: y_psfFluxChi2
     "@id": "#DiaObject.y_psfFluxChi2"
@@ -460,21 +460,21 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: yFPFluxMeanErr
     "@id": "#DiaObject.yFPFluxMeanErr"
     datatype: float
     description: Standard error of yFPFluxMean.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: yFPFluxSigma
     "@id": "#DiaObject.yFPFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of yFPFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: uLcPeriodic
     "@id": "#DiaObject.uLcPeriodic"
@@ -1714,14 +1714,14 @@ tables:
     description: Calibrated aperture flux. Note that this actually measures the difference
       between the template and the visit image.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: apFluxErr
     "@id": "#DiaSource.apFluxErr"
     datatype: float
     description: Estimated uncertainty of apFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: snr
     "@id": "#DiaSource.snr"
@@ -1736,14 +1736,14 @@ tables:
     description: Calibrated flux for Point Source model. Note this actually measures
       the flux difference between the template and the visit image.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: psfFluxErr
     "@id": "#DiaSource.psfFluxErr"
     datatype: float
     description: Uncertainty of psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: psfRa
     "@id": "#DiaSource.psfRa"
     datatype: double
@@ -1817,13 +1817,13 @@ tables:
     description: Calibrated flux for a trailed source model. Note this actually measures
       the flux difference between the template and the visit image.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: trailFluxErr
     "@id": "#DiaSource.trailFluxErr"
     datatype: float
     description: Uncertainty of trailFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: trailRa
     "@id": "#DiaSource.trailRa"
     datatype: double
@@ -1863,7 +1863,7 @@ tables:
     datatype: float
     description: Uncertainty of trailLength.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: trailAngle
     "@id": "#DiaSource.trailAngle"
     datatype: float
@@ -1876,7 +1876,7 @@ tables:
     datatype: float
     description: Uncertainty of trailAngle.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: trailFlux_trailRa_Cov
     "@id": "#DiaSource.trailFlux_trailRa_Cov"
     datatype: float
@@ -1963,13 +1963,13 @@ tables:
     description: Maximum likelihood value for the mean absolute flux of the two lobes
       for a dipole model.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: dipoleMeanFluxErr
     "@id": "#DiaSource.dipoleMeanFluxErr"
     datatype: float
     description: Uncertainty of dipoleMeanFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: dipoleFluxDiff
     "@id": "#DiaSource.dipoleFluxDiff"
@@ -1977,13 +1977,13 @@ tables:
     description: Maximum likelihood value for the difference of absolute fluxes of
       the two lobes for a dipole model.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: dipoleFluxDiffErr
     "@id": "#DiaSource.dipoleFluxDiffErr"
     datatype: float
     description: Uncertainty of dipoleFluxDiff.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: dipoleRa
     "@id": "#DiaSource.dipoleRa"
@@ -2159,14 +2159,14 @@ tables:
       centered at the centroid measured on the difference image (forced photometry
       flux).
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: totFluxErr
     "@id": "#DiaSource.totFluxErr"
     datatype: float
     description: Estimated uncertainty of totFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: diffFlux
     "@id": "#DiaSource.diffFlux"
@@ -2174,101 +2174,101 @@ tables:
     description: Calibrated flux for Point Source model centered on radec but measured
       on the difference of snaps comprising this visit.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
   - name: diffFluxErr
     "@id": "#DiaSource.diffFluxErr"
     datatype: float
     description: Estimated uncertainty of diffFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: fpBkgd
     "@id": "#DiaSource.fpBkgd"
     datatype: float
     description: Estimated sky background at the position (centroid) of the object.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy/asec^2
+    fits:tunit: nJy/asec^2
   - name: fpBkgdErr
     "@id": "#DiaSource.fpBkgdErr"
     datatype: float
     description: Estimated uncertainty of fpBkgd.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy/asec^2
+    fits:tunit: nJy/asec^2
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
   - name: ixxErr
     "@id": "#DiaSource.ixxErr"
     datatype: float
     description: Uncertainty of ixx.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
     ivoa:ucd: stat.error
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
   - name: iyyErr
     "@id": "#DiaSource.iyyErr"
     datatype: float
     description: Uncertainty of iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
     ivoa:ucd: stat.error
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
   - name: ixyErr
     "@id": "#DiaSource.ixyErr"
     datatype: float
     description: Uncertainty of ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
     ivoa:ucd: stat.error
   - name: ixx_iyy_Cov
     "@id": "#DiaSource.ixx_iyy_Cov"
     datatype: float
     description: Covariance of ixx and iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy^2*asec^4
+    fits:tunit: nJy^2*asec^4
   - name: ixx_ixy_Cov
     "@id": "#DiaSource.ixx_ixy_Cov"
     datatype: float
     description: Covariance of ixx and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy^2*asec^4
+    fits:tunit: nJy^2*asec^4
   - name: iyy_ixy_Cov
     "@id": "#DiaSource.iyy_ixy_Cov"
     datatype: float
     description: Covariance of iyy and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy^2*asec^4
+    fits:tunit: nJy^2*asec^4
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nJy*asec^2
   - name: extendedness
     "@id": "#DiaSource.extendedness"
     datatype: float
@@ -2347,14 +2347,14 @@ tables:
     datatype: float
     description: Point Source model flux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: psfFluxErr
     "@id": "#DiaForcedSource.psfFluxErr"
     datatype: float
     description: Uncertainty of psfFlux.
     mysql:datatype: FLOAT
-    fits:tunit: nmgy
+    fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: x
     "@id": "#DiaForcedSource.x"
