@@ -1957,196 +1957,196 @@ tables:
     value: "0"
     description: The number of data points (pixels) used to fit the model.
     mysql:datatype: INTEGER
-  - name: dipMeanFlux
-    "@id": "#DiaSource.dipMeanFlux"
+  - name: dipoleMeanFlux
+    "@id": "#DiaSource.dipoleMeanFlux"
     datatype: float
     description: Maximum likelihood value for the mean absolute flux of the two lobes
       for a dipole model.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: dipMeanFluxErr
-    "@id": "#DiaSource.dipMeanFluxErr"
+  - name: dipoleMeanFluxErr
+    "@id": "#DiaSource.dipoleMeanFluxErr"
     datatype: float
-    description: Uncertainty of dipMeanFlux.
+    description: Uncertainty of dipoleMeanFlux.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: dipFluxDiff
-    "@id": "#DiaSource.dipFluxDiff"
+  - name: dipoleFluxDiff
+    "@id": "#DiaSource.dipoleFluxDiff"
     datatype: float
     description: Maximum likelihood value for the difference of absolute fluxes of
       the two lobes for a dipole model.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
-  - name: dipFluxDiffErr
-    "@id": "#DiaSource.dipFluxDiffErr"
+  - name: dipoleFluxDiffErr
+    "@id": "#DiaSource.dipoleFluxDiffErr"
     datatype: float
-    description: Uncertainty of dipFluxDiff.
+    description: Uncertainty of dipoleFluxDiff.
     mysql:datatype: FLOAT
     fits:tunit: nmgy
     ivoa:ucd: stat.error
-  - name: dipRa
-    "@id": "#DiaSource.dipRa"
+  - name: dipoleRa
+    "@id": "#DiaSource.dipoleRa"
     datatype: double
     description: " Right ascension coordinate of centroid for dipole model."
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: dipRaErr
-    "@id": "#DiaSource.dipRaErr"
+  - name: dipoleRaErr
+    "@id": "#DiaSource.dipoleRaErr"
     datatype: float
-    description: Uncertainty of trailRa.
+    description: Uncertainty of dipoleRa.
     mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
-  - name: dipDec
-    "@id": "#DiaSource.dipDec"
+  - name: dipoleDec
+    "@id": "#DiaSource.dipoleDec"
     datatype: double
     description: " Declination coordinate of centroid for dipole model."
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
-  - name: dipDecErr
-    "@id": "#DiaSource.dipDecErr"
+  - name: dipoleDecErr
+    "@id": "#DiaSource.dipoleDecErr"
     datatype: float
-    description: Uncertainty of dipDec.
+    description: Uncertainty of dipoleDec.
     mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: dipLength
-    "@id": "#DiaSource.dipLength"
+  - name: dipoleLength
+    "@id": "#DiaSource.dipoleLength"
     datatype: float
     description: Maximum likelihood value for the lobe separation in dipole model.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
     ivoa:ucd: pos.angDistance
-  - name: dipLengthErr
-    "@id": "#DiaSource.dipLengthErr"
+  - name: dipoleLengthErr
+    "@id": "#DiaSource.dipoleLengthErr"
     datatype: float
-    description: Uncertainty of dipLength.
+    description: Uncertainty of dipoleLength.
     mysql:datatype: FLOAT
     fits:tunit: arcsec
     ivoa:ucd: stat.error;pos.angDistance
-  - name: dipAngle
-    "@id": "#DiaSource.dipAngle"
+  - name: dipoleAngle
+    "@id": "#DiaSource.dipoleAngle"
     datatype: float
     description: Maximum likelihood fit of the angle between the meridian through
       the centroid and the dipole direction (bearing, from negative to positive lobe).
     mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: pos.posAng
-  - name: dipAngleErr
-    "@id": "#DiaSource.dipAngleErr"
+  - name: dipoleAngleErr
+    "@id": "#DiaSource.dipoleAngleErr"
     datatype: float
-    description: Uncertainty of dipAngle.
+    description: Uncertainty of dipoleAngle.
     mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.posAng
-  - name: dipMeanFlux_dipFluxDiff_Cov
-    "@id": "#DiaSource.dipMeanFlux_dipFluxDiff_Cov"
+  - name: dipoleMeanFlux_dipoleFluxDiff_Cov
+    "@id": "#DiaSource.dipoleMeanFlux_dipoleFluxDiff_Cov"
     datatype: float
-    description: Covariance of dipMeanFlux and dipFluxDiff.
+    description: Covariance of dipoleMeanFlux and dipoleFluxDiff.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipMeanFlux_dipRa_Cov
-    "@id": "#DiaSource.dipMeanFlux_dipRa_Cov"
+  - name: dipoleMeanFlux_dipoleRa_Cov
+    "@id": "#DiaSource.dipoleMeanFlux_dipoleRa_Cov"
     datatype: float
-    description: Covariance of dipMeanFlux and dipRa.
+    description: Covariance of dipoleMeanFlux and dipoleRa.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipMeanFlux_dipDec_Cov
-    "@id": "#DiaSource.dipMeanFlux_dipDec_Cov"
+  - name: dipoleMeanFlux_dipoleDec_Cov
+    "@id": "#DiaSource.dipoleMeanFlux_dipoleDec_Cov"
     datatype: float
-    description: Covariance of dipMeanFlux and dipDec.
+    description: Covariance of dipoleMeanFlux and dipoleDec.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipMeanFlux_dipLength_Cov
-    "@id": "#DiaSource.dipMeanFlux_dipLength_Cov"
+  - name: dipoleMeanFlux_dipoleLength_Cov
+    "@id": "#DiaSource.dipoleMeanFlux_dipoleLength_Cov"
     datatype: float
-    description: Covariance of dipMeanFlux and dipLength.
+    description: Covariance of dipoleMeanFlux and dipoleLength.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipMeanFlux_dipAngle_Cov
-    "@id": "#DiaSource.dipMeanFlux_dipAngle_Cov"
+  - name: dipoleMeanFlux_dipoleAngle_Cov
+    "@id": "#DiaSource.dipoleMeanFlux_dipoleAngle_Cov"
     datatype: float
-    description: Covariance of dipMeanFlux and dipAngle.
+    description: Covariance of dipoleMeanFlux and dipoleAngle.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipFluxDiff_dipRa_Cov
-    "@id": "#DiaSource.dipFluxDiff_dipRa_Cov"
+  - name: dipoleFluxDiff_dipoleRa_Cov
+    "@id": "#DiaSource.dipoleFluxDiff_dipoleRa_Cov"
     datatype: float
-    description: Covariance of dipFluxDiff and dipRa.
+    description: Covariance of dipoleFluxDiff and dipoleRa.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipFluxDiff_dipDec_Cov
-    "@id": "#DiaSource.dipFluxDiff_dipDec_Cov"
+  - name: dipoleFluxDiff_dipoleDec_Cov
+    "@id": "#DiaSource.dipoleFluxDiff_dipoleDec_Cov"
     datatype: float
-    description: Covariance of dipFluxDiff and dipDec.
+    description: Covariance of dipoleFluxDiff and dipoleDec.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipFluxDiff_dipLength_Cov
-    "@id": "#DiaSource.dipFluxDiff_dipLength_Cov"
+  - name: dipoleFluxDiff_dipoleLength_Cov
+    "@id": "#DiaSource.dipoleFluxDiff_dipoleLength_Cov"
     datatype: float
-    description: Covariance of dipFluxDiff and dipLength.
+    description: Covariance of dipoleFluxDiff and dipoleLength.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipFluxDiff_dipAngle_Cov
-    "@id": "#DiaSource.dipFluxDiff_dipAngle_Cov"
+  - name: dipoleFluxDiff_dipoleAngle_Cov
+    "@id": "#DiaSource.dipoleFluxDiff_dipoleAngle_Cov"
     datatype: float
-    description: Covariance of dipFluxDiff and dipAngle.
+    description: Covariance of dipoleFluxDiff and dipoleAngle.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipRa_dipDec_Cov
-    "@id": "#DiaSource.dipRa_dipDec_Cov"
+  - name: dipoleRa_dipoleDec_Cov
+    "@id": "#DiaSource.dipoleRa_dipoleDec_Cov"
     datatype: float
-    description: Covariance of dipRa and dipDec.
+    description: Covariance of dipoleRa and dipoleDec.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipRa_dipLength_Cov
-    "@id": "#DiaSource.dipRa_dipLength_Cov"
+  - name: dipoleRa_dipoleLength_Cov
+    "@id": "#DiaSource.dipoleRa_dipoleLength_Cov"
     datatype: float
-    description: Covariance of dipRa and dipLength.
+    description: Covariance of dipoleRa and dipoleLength.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipRa_dipAngle_Cov
-    "@id": "#DiaSource.dipRa_dipAngle_Cov"
+  - name: dipoleRa_dipoleAngle_Cov
+    "@id": "#DiaSource.dipoleRa_dipoleAngle_Cov"
     datatype: float
-    description: Covariance of dipRa and dipAngle.
+    description: Covariance of dipoleRa and dipoleAngle.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipDec_dipLength_Cov
-    "@id": "#DiaSource.dipDec_dipLength_Cov"
+  - name: dipoleDec_dipoleLength_Cov
+    "@id": "#DiaSource.dipoleDec_dipoleLength_Cov"
     datatype: float
-    description: Covariance of dipDec and dipLength.
+    description: Covariance of dipoleDec and dipoleLength.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipDec_dipAngle_Cov
-    "@id": "#DiaSource.dipDec_dipAngle_Cov"
+  - name: dipoleDec_dipoleAngle_Cov
+    "@id": "#DiaSource.dipoleDec_dipoleAngle_Cov"
     datatype: float
-    description: Covariance of dipDec and dipAngle.
+    description: Covariance of dipoleDec and dipoleAngle.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipLength_dipAngle_Cov
-    "@id": "#DiaSource.dipLength_dipAngle_Cov"
+  - name: dipoleLength_dipoleAngle_Cov
+    "@id": "#DiaSource.dipoleLength_dipoleAngle_Cov"
     datatype: float
-    description: Covariance of dipLength and dipAngle.
+    description: Covariance of dipoleLength and dipoleAngle.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-  - name: dipLnL
-    "@id": "#DiaSource.dipLnL"
+  - name: dipoleLnL
+    "@id": "#DiaSource.dipoleLnL"
     datatype: float
     description: Natural log likelihood of the observed data given the dipole source
       model.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.likelihood
-  - name: dipChi2
-    "@id": "#DiaSource.dipChi2"
+  - name: dipoleChi2
+    "@id": "#DiaSource.dipoleChi2"
     datatype: float
     description: Chi^2 statistic of the model fit.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
-  - name: dipNdata
-    "@id": "#DiaSource.dipNdata"
+  - name: dipoleNdata
+    "@id": "#DiaSource.dipoleNdata"
     datatype: int
     nullable: false
     value: "0"
