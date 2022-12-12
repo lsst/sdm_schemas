@@ -9,6 +9,7 @@ tables:
     of the Sources that are associated with them. Note that fast moving objects are
     kept in the MovingObject tables. Note that less-frequently used columns are stored
     in a separate table called Object_Extra.
+  tap:table_index: 1
   columns:
   - name: objectId
     "@id": "#Object.objectId"
@@ -5980,6 +5981,7 @@ tables:
   description: Table to store high signal-to-noise sources;. A source is
     a measurement of Object's properties from a single image that contains its footprint
     on the sky.
+  tap:table_index: 2
   columns:
   - name: sourceId
     "@id": "#Source.sourceId"
@@ -6859,6 +6861,7 @@ tables:
   description: The forced source table contains forced-photometry source
      measurement on an individual Exposure based on a Multifit shape model
      derived from a deep detection.
+  tap:table_index: 3
   columns:
   - name: forcedSourceId
     "@id": "#ForcedSource.forcedSourceId"
@@ -7216,6 +7219,7 @@ tables:
 - name: DiaObject
   "@id": "#DiaObject"
   description: this is diaObjectTable_tract in the butler repo
+  tap:table_index: 4
   columns:
   - name: diaObjectId
     "@id": "#DiaObject.diaObjectId"
@@ -7919,6 +7923,7 @@ tables:
 - name: DiaSource
   "@id": "#DiaSource"
   description: this is diaSourceTable_tract in the butler repo
+  tap:table_index: 5
   columns:
   - name: apFlux
     "@id": "#DiaSource.apFlux"
@@ -8329,6 +8334,7 @@ tables:
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
+  tap:table_index: 6
   columns:
   - name: band
     "@id": "#ForcedSourceOnDiaObject.band"
@@ -8734,6 +8740,7 @@ tables:
 - name: Visit
   '@id': '#Visit'
   description: Defines a single Visit.
+  tap:table_index: 7
   columns:
   - name: visit
     '@id': '#Visit.visit'
@@ -8838,6 +8845,7 @@ tables:
 - name: CcdVisit
   '@id': '#CcdVisit'
   description: Defines a single detector of a visit
+  tap:table_index: 8
   columns:
   - name: ccdVisitId
     '@id': '#CcdVisit.ccdVisitId'
