@@ -22,6 +22,9 @@ The schemas in this repository serve several different purposes:
    produced, which then requires approval by DM-CCB to become the new project
    baseline.
 
+* `yml/imsim.yaml` describes the outputs of the pipelines for LSSTCam-imSim.
+  It is used to generate the data preview schemas, which are fixed at the time of their release, while this one will continue to evolve.
+
  * `yml/hsc.yaml` describes the outputs of the latest data release production
    pipelines. This schema is intended to approximate baselineSchema.yaml, but
    with the changes necessary to reflect the current state of the pipelines
