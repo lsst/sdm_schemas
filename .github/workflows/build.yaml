@@ -30,6 +30,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
 
+      - name: Validate YAML files
+        id: validate-yaml
+        run: ./validator ../yml/*.yaml
+        working-directory: ./tap-schema
+
       - name: Run the build
         id: build-tap-schema
         run: ./build-all

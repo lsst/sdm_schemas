@@ -1,0 +1,64 @@
+#!/usr/bin/python3
+import click
+import yaml
+
+@click.command()
+@click.argument('felis_files', nargs=-1)
+def validate_files(felis_files):
+    """Starting place for all the validators.  Loads the file and passes
+    the data into each one of the checks in turn.  Each of those checks
+    runs through the file looking for what it is looking for and reports
+    errors."""
+    for f in felis_files:
+        click.echo(f"file {f}:")
+
+        with open(f) as orig_file:
+            felis_yaml = yaml.safe_load(orig_file.read())
+
+        check_table_indexes(felis_yaml)
+        check_descriptions(felis_yaml)
+        check_principal(felis_yaml)
+
+def check_descriptions(felis_yaml):
+    """Look to make sure each column has a non empty description."""
+    for table in felis_yaml["tables"]:
+        for column in table["columns"]:
+            description = column.get("description", None)
+            if description == None:
+                table_name = table["name"]
+                column_name = column["name"]
+                click.echo(f"{table_name}:{column_name} has no description")
+
+
+def check_table_indexes(felis_yaml):
+    """Look for table indexes on all the tables, and make sure that each index
+    is only used for one table."""
+    table_indicies = set()
+    for table in felis_yaml["tables"]:
+        table_name = table["name"]
+        table_index = table.get("tap:table_index", None)
+
+        if table_index == None or table_index == 0:
+            click.echo(f"{table_name} does not have a table index")
+        elif table_index in table_indicies:
+            click.echo(f"{table_name} duplicates table index of {table_index}")
+        else:
+            table_indicies.add(table_index)
+
+def check_principal(felis_yaml):
+    """Look to make sure there is at least one column that is marked as
+    principal for each table."""
+    for table in felis_yaml["tables"]:
+        principal_columns = set()
+        for column in table["columns"]:
+            principal = column.get("tap:principal", 0)
+            if principal == 1:
+                principal_columns.add(column["name"])
+
+        if not principal_columns:
+            table_name = table["name"]
+            click.echo(f"{table_name} has no principal columns")
+
+
+if __name__ == '__main__':
+    validate_files()
