@@ -2293,11 +2293,11 @@ tables:
     value: "0"
     mysql:datatype: BIGINT
     ivoa:ucd: meta.code
-  - name: filterName
-    "@id": "#DiaSource.filterName"
+  - name: band
+    "@id": "#DiaSource.band"
     datatype: char
     length: 1
-    description: Name of stored filter.
+    description: Filter band this source was observed with.
     mysql:datatype: CHAR(1)
   - name: isDipole
     "@id": "#DiaSource.isDipole"
@@ -2402,11 +2402,11 @@ tables:
     description: Uncertainty of totFlux.
     ivoa:ucd: stat.error;phot.count
     fits:tunit: nJy
-  - name: filterName
-    "@id": "#DiaForcedSource.filterName"
+  - name: band
+    "@id": "#DiaForcedSource.band"
     datatype: char
     length: 1
-    description: Name of stored filter.
+    description: Filter band this source was observed with.
     ivoa:ucd: meta.id;instr.filter
     mysql:datatype: CHAR(1)
   primaryKey:
