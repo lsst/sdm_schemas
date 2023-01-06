@@ -185,24 +185,24 @@ tables:
     nullable: false
     description: The number of data points used to compute u_psfFluxChi2.
     mysql:datatype: INTEGER
-  - name: uFPFluxMean
-    "@id": "#DiaObject.uFPFluxMean"
+  - name: u_fpFluxMean
+    "@id": "#DiaObject.u_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
-  - name: uFPFluxMeanErr
-    "@id": "#DiaObject.uFPFluxMeanErr"
+  - name: u_fpFluxMeanErr
+    "@id": "#DiaObject.u_fpFluxMeanErr"
     datatype: float
-    description: Standard error of uFPFluxMean.
+    description: Standard error of u_fpFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: uFPFluxSigma
-    "@id": "#DiaObject.uFPFluxSigma"
+  - name: u_fpFluxSigma
+    "@id": "#DiaObject.u_fpFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of uFPFlux.
+    description: Standard deviation of the distribution of u_fpFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
@@ -239,24 +239,24 @@ tables:
     nullable: false
     description: The number of data points used to compute g_psfFluxChi2.
     mysql:datatype: INTEGER
-  - name: gFPFluxMean
-    "@id": "#DiaObject.gFPFluxMean"
+  - name: g_fpFluxMean
+    "@id": "#DiaObject.g_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
-  - name: gFPFluxMeanErr
-    "@id": "#DiaObject.gFPFluxMeanErr"
+  - name: g_fpFluxMeanErr
+    "@id": "#DiaObject.g_fpFluxMeanErr"
     datatype: float
-    description: Standard error of gFPFluxMean.
+    description: Standard error of g_fpFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: gFPFluxSigma
-    "@id": "#DiaObject.gFPFluxSigma"
+  - name: g_fpFluxSigma
+    "@id": "#DiaObject.g_fpFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of gFPFlux.
+    description: Standard deviation of the distribution of g_fpFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
@@ -293,24 +293,24 @@ tables:
     nullable: false
     description: The number of data points used to compute r_psfFluxChi2.
     mysql:datatype: INTEGER
-  - name: rFPFluxMean
-    "@id": "#DiaObject.rFPFluxMean"
+  - name: r_fpFluxMean
+    "@id": "#DiaObject.r_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
-  - name: rFPFluxMeanErr
-    "@id": "#DiaObject.rFPFluxMeanErr"
+  - name: r_fpFluxMeanErr
+    "@id": "#DiaObject.r_fpFluxMeanErr"
     datatype: float
-    description: Standard error of rFPFluxMean.
+    description: Standard error of r_fpFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: rFPFluxSigma
-    "@id": "#DiaObject.rFPFluxSigma"
+  - name: r_fpFluxSigma
+    "@id": "#DiaObject.r_fpFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of rFPFlux.
+    description: Standard deviation of the distribution of r_fpFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
@@ -347,24 +347,24 @@ tables:
     nullable: false
     description: The number of data points used to compute i_psfFluxChi2.
     mysql:datatype: INTEGER
-  - name: iFPFluxMean
-    "@id": "#DiaObject.iFPFluxMean"
+  - name: i_fpFluxMean
+    "@id": "#DiaObject.i_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
-  - name: iFPFluxMeanErr
-    "@id": "#DiaObject.iFPFluxMeanErr"
+  - name: i_fpFluxMeanErr
+    "@id": "#DiaObject.i_fpFluxMeanErr"
     datatype: float
-    description: Standard error of iFPFluxMean.
+    description: Standard error of i_fpFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: iFPFluxSigma
-    "@id": "#DiaObject.iFPFluxSigma"
+  - name: i_fpFluxSigma
+    "@id": "#DiaObject.i_fpFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of iFPFlux.
+    description: Standard deviation of the distribution of i_fpFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
@@ -401,24 +401,24 @@ tables:
     nullable: false
     description: The number of data points used to compute z_psfFluxChi2.
     mysql:datatype: INTEGER
-  - name: zFPFluxMean
-    "@id": "#DiaObject.zFPFluxMean"
+  - name: z_fpFluxMean
+    "@id": "#DiaObject.z_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
-  - name: zFPFluxMeanErr
-    "@id": "#DiaObject.zFPFluxMeanErr"
+  - name: z_fpFluxMeanErr
+    "@id": "#DiaObject.z_fpFluxMeanErr"
     datatype: float
-    description: Standard error of zFPFluxMean.
+    description: Standard error of z_fpFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: zFPFluxSigma
-    "@id": "#DiaObject.zFPFluxSigma"
+  - name: z_fpFluxSigma
+    "@id": "#DiaObject.z_fpFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of zFPFlux.
+    description: Standard deviation of the distribution of z_fpFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
@@ -455,106 +455,106 @@ tables:
     nullable: false
     description: The number of data points used to compute y_psfFluxChi2.
     mysql:datatype: INTEGER
-  - name: yFPFluxMean
-    "@id": "#DiaObject.yFPFluxMean"
+  - name: y_fpFluxMean
+    "@id": "#DiaObject.y_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
-  - name: yFPFluxMeanErr
-    "@id": "#DiaObject.yFPFluxMeanErr"
+  - name: y_fpFluxMeanErr
+    "@id": "#DiaObject.y_fpFluxMeanErr"
     datatype: float
-    description: Standard error of yFPFluxMean.
+    description: Standard error of y_fpFluxMean.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: yFPFluxSigma
-    "@id": "#DiaObject.yFPFluxSigma"
+  - name: y_fpFluxSigma
+    "@id": "#DiaObject.y_fpFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of yFPFlux.
+    description: Standard deviation of the distribution of y_fpFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: uLcPeriodic
-    "@id": "#DiaObject.uLcPeriodic"
+  - name: u_lcPeriodic
+    "@id": "#DiaObject.u_lcPeriodic"
     datatype: binary
     length: 128
     description: Periodic features extracted from light-curves using generalized Lomb-Scargle
       periodogram for u filter. [32 FLOAT].
     mysql:datatype: BLOB
-  - name: gLcPeriodic
-    "@id": "#DiaObject.gLcPeriodic"
+  - name: g_lcPeriodic
+    "@id": "#DiaObject.g_lcPeriodic"
     datatype: binary
     length: 128
     description: Periodic features extracted from light-curves using generalized Lomb-Scargle
       periodogram for g filter. [32 FLOAT].
     mysql:datatype: BLOB
-  - name: rLcPeriodic
-    "@id": "#DiaObject.rLcPeriodic"
+  - name: r_lcPeriodic
+    "@id": "#DiaObject.r_lcPeriodic"
     datatype: binary
     length: 128
     description: Periodic features extracted from light-curves using generalized Lomb-Scargle
       periodogram for r filter. [32 FLOAT].
     mysql:datatype: BLOB
-  - name: iLcPeriodic
-    "@id": "#DiaObject.iLcPeriodic"
+  - name: i_lcPeriodic
+    "@id": "#DiaObject.i_lcPeriodic"
     datatype: binary
     length: 128
     description: Periodic features extracted from light-curves using generalized Lomb-Scargle
       periodogram for i filter. [32 FLOAT].
     mysql:datatype: BLOB
-  - name: zLcPeriodic
-    "@id": "#DiaObject.zLcPeriodic"
+  - name: z_lcPeriodic
+    "@id": "#DiaObject.z_lcPeriodic"
     datatype: binary
     length: 128
     description: Periodic features extracted from light-curves using generalized Lomb-Scargle
       periodogram for z filter. [32 FLOAT].
     mysql:datatype: BLOB
-  - name: yLcPeriodic
-    "@id": "#DiaObject.yLcPeriodic"
+  - name: y_lcPeriodic
+    "@id": "#DiaObject.y_lcPeriodic"
     datatype: binary
     length: 128
     description: Periodic features extracted from light-curves using generalized Lomb-Scargle
       periodogram for y filter. [32 FLOAT].
     mysql:datatype: BLOB
-  - name: uLcNonPeriodic
-    "@id": "#DiaObject.uLcNonPeriodic"
+  - name: u_lcNonPeriodic
+    "@id": "#DiaObject.u_lcNonPeriodic"
     datatype: binary
     length: 80
     description: Non-periodic features extracted from light-curves using generalized
       Lomb-Scargle periodogram for u filter. [20 FLOAT].
     mysql:datatype: BLOB
-  - name: gLcNonPeriodic
-    "@id": "#DiaObject.gLcNonPeriodic"
+  - name: g_lcNonPeriodic
+    "@id": "#DiaObject.g_lcNonPeriodic"
     datatype: binary
     length: 80
     description: Non-periodic features extracted from light-curves using generalized
       Lomb-Scargle periodogram for g filter. [20 FLOAT].
     mysql:datatype: BLOB
-  - name: rLcNonPeriodic
-    "@id": "#DiaObject.rLcNonPeriodic"
+  - name: r_lcNonPeriodic
+    "@id": "#DiaObject.r_lcNonPeriodic"
     datatype: binary
     length: 80
     description: Non-periodic features extracted from light-curves using generalized
       Lomb-Scargle periodogram for r filter. [20 FLOAT].
     mysql:datatype: BLOB
-  - name: iLcNonPeriodic
-    "@id": "#DiaObject.iLcNonPeriodic"
+  - name: i_lcNonPeriodic
+    "@id": "#DiaObject.i_lcNonPeriodic"
     datatype: binary
     length: 80
     description: Non-periodic features extracted from light-curves using generalized
       Lomb-Scargle periodogram for i filter. [20 FLOAT].
     mysql:datatype: BLOB
-  - name: zLcNonPeriodic
-    "@id": "#DiaObject.zLcNonPeriodic"
+  - name: z_lcNonPeriodic
+    "@id": "#DiaObject.z_lcNonPeriodic"
     datatype: binary
     length: 80
     description: Non-periodic features extracted from light-curves using generalized
       Lomb-Scargle periodogram for z filter. [20 FLOAT].
     mysql:datatype: BLOB
-  - name: yLcNonPeriodic
-    "@id": "#DiaObject.yLcNonPeriodic"
+  - name: y_lcNonPeriodic
+    "@id": "#DiaObject.y_lcNonPeriodic"
     datatype: binary
     length: 80
     description: Non-periodic features extracted from light-curves using generalized
@@ -662,112 +662,112 @@ tables:
     fits:tunit: arcsec
     description: Separation distance of nearbyLowzGal.
     mysql:datatype: FLOAT
-  - name: uTOTFluxMean
-    "@id": "#DiaObject.uTOTFluxMean"
+  - name: u_totFluxMean
+    "@id": "#DiaObject.u_totFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: uTOTFluxMeanErr
-    "@id": "#DiaObject.uTOTFluxMeanErr"
+  - name: u_totFluxMeanErr
+    "@id": "#DiaObject.u_totFluxMeanErr"
     datatype: float
-    description: Standard error of uTOTFluxMean.
+    description: Standard error of u_totFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: uTOTFluxSigma
-    "@id": "#DiaObject.uTOTFluxSigma"
+  - name: u_totFluxSigma
+    "@id": "#DiaObject.u_totFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of uTOTFlux.
+    description: Standard deviation of the distribution of u_totFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: gTOTFluxMean
-    "@id": "#DiaObject.gTOTFluxMean"
+  - name: g_totFluxMean
+    "@id": "#DiaObject.g_totFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: gTOTFluxMeanErr
-    "@id": "#DiaObject.gTOTFluxMeanErr"
+  - name: g_totFluxMeanErr
+    "@id": "#DiaObject.g_totFluxMeanErr"
     datatype: float
-    description: Standard error of gTOTFluxMean.
+    description: Standard error of g_totFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: gTOTFluxSigma
-    "@id": "#DiaObject.gTOTFluxSigma"
+  - name: g_totFluxSigma
+    "@id": "#DiaObject.g_totFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of gTOTFlux.
+    description: Standard deviation of the distribution of g_totFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: rTOTFluxMean
-    "@id": "#DiaObject.rTOTFluxMean"
+  - name: r_totFluxMean
+    "@id": "#DiaObject.r_totFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: rTOTFluxMeanErr
-    "@id": "#DiaObject.rTOTFluxMeanErr"
+  - name: r_totFluxMeanErr
+    "@id": "#DiaObject.r_totFluxMeanErr"
     datatype: float
-    description: Standard error of rTOTFluxMean.
+    description: Standard error of r_totFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: rTOTFluxSigma
-    "@id": "#DiaObject.rTOTFluxSigma"
+  - name: r_totFluxSigma
+    "@id": "#DiaObject.r_totFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of rTOTFlux.
+    description: Standard deviation of the distribution of r_totFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: iTOTFluxMean
-    "@id": "#DiaObject.iTOTFluxMean"
+  - name: i_totFluxMean
+    "@id": "#DiaObject.i_totFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: iTOTFluxMeanErr
-    "@id": "#DiaObject.iTOTFluxMeanErr"
+  - name: i_totFluxMeanErr
+    "@id": "#DiaObject.i_totFluxMeanErr"
     datatype: float
-    description: Standard error of iTOTFluxMean.
+    description: Standard error of i_totFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: iTOTFluxSigma
-    "@id": "#DiaObject.iTOTFluxSigma"
+  - name: i_totFluxSigma
+    "@id": "#DiaObject.i_totFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of iTOTFlux.
+    description: Standard deviation of the distribution of i_totFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: zTOTFluxMean
-    "@id": "#DiaObject.zTOTFluxMean"
+  - name: z_totFluxMean
+    "@id": "#DiaObject.z_totFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: zTOTFluxMeanErr
-    "@id": "#DiaObject.zTOTFluxMeanErr"
+  - name: z_totFluxMeanErr
+    "@id": "#DiaObject.z_totFluxMeanErr"
     datatype: float
-    description: Standard error of zTOTFluxMean.
+    description: Standard error of z_totFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: zTOTFluxSigma
-    "@id": "#DiaObject.zTOTFluxSigma"
+  - name: z_totFluxSigma
+    "@id": "#DiaObject.z_totFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of zTOTFlux.
+    description: Standard deviation of the distribution of z_totFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: yTOTFluxMean
-    "@id": "#DiaObject.yTOTFluxMean"
+  - name: y_totFluxMean
+    "@id": "#DiaObject.y_totFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: yTOTFluxMeanErr
-    "@id": "#DiaObject.yTOTFluxMeanErr"
+  - name: y_totFluxMeanErr
+    "@id": "#DiaObject.y_totFluxMeanErr"
     datatype: float
-    description: Standard error of yTOTFluxMean.
+    description: Standard error of y_totFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: yTOTFluxSigma
-    "@id": "#DiaObject.yTOTFluxSigma"
+  - name: y_totFluxSigma
+    "@id": "#DiaObject.y_totFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of yTOTFlux.
+    description: Standard deviation of the distribution of y_totFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: u_psfFluxMAD
