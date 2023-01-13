@@ -11,7 +11,7 @@ tables:
     "@id": "#DiaObject.diaObjectId"
     datatype: long
     nullable: false
-    description: Unique id.
+    description: Unique LSST identifier of this DiaObject.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: validityStart
@@ -73,7 +73,7 @@ tables:
   - name: pmRa
     "@id": "#DiaObject.pmRa"
     datatype: float
-    description: Proper motion (RA).
+    description: Proper motion in right ascension.
     mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
@@ -87,7 +87,7 @@ tables:
   - name: pmDec
     "@id": "#DiaObject.pmDec"
     datatype: float
-    description: Proper motion (Dec).
+    description: Proper motion of declination.
     mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
@@ -1574,16 +1574,14 @@ tables:
     "@id": "#DiaSource.diaSourceId"
     datatype: long
     nullable: false
-    description: Unique id.
+    description: Unique LSST identifier of this DiaSource.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
   - name: ccdVisitId
     "@id": "#DiaSource.ccdVisitId"
     datatype: long
     nullable: false
-    description: Id of the ccdVisit where this diaSource was measured. Note that we
-      are allowing a diaSource to belong to multiple amplifiers, but it may not span
-      multiple ccds.
+    description: Id of the ccdVisit where this diaSource was measured.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
   - name: diaObjectId
@@ -1711,8 +1709,7 @@ tables:
   - name: apFlux
     "@id": "#DiaSource.apFlux"
     datatype: float
-    description: Calibrated aperture flux. Note that this actually measures the difference
-      between the template and the visit image.
+    description: Flux in a 12 pixel radius aperture on the difference image.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
@@ -1733,7 +1730,7 @@ tables:
   - name: psfFlux
     "@id": "#DiaSource.psfFlux"
     datatype: float
-    description: Calibrated flux for Point Source model. Note this actually measures
+    description: Flux for Point Source model. Note this actually measures
       the flux difference between the template and the visit image.
     mysql:datatype: FLOAT
     fits:tunit: nJy
@@ -1796,25 +1793,25 @@ tables:
   - name: psfLnL
     "@id": "#DiaSource.psfLnL"
     datatype: float
-    description: Natural log likelihood of the observed data given the Point Source
+    description: Natural log likelihood of the observed data given the point source
       model.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.likelihood
   - name: psfChi2
     "@id": "#DiaSource.psfChi2"
     datatype: float
-    description: Chi^2 statistic of the model fit.
+    description: Chi^2 statistic of the point source model fit.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: psfNdata
     "@id": "#DiaSource.psfNdata"
     datatype: int
-    description: The number of data points (pixels) used to fit the model.
+    description: The number of data points (pixels) used to fit the point source model.
     mysql:datatype: INTEGER
   - name: trailFlux
     "@id": "#DiaSource.trailFlux"
     datatype: float
-    description: Calibrated flux for a trailed source model. Note this actually measures
+    description: Flux for a trailed source model. Note this actually measures
       the flux difference between the template and the visit image.
     mysql:datatype: FLOAT
     fits:tunit: nJy
@@ -1947,7 +1944,7 @@ tables:
   - name: trailChi2
     "@id": "#DiaSource.trailChi2"
     datatype: float
-    description: Chi^2 statistic of the model fit.
+    description: Chi^2 statistic of the trailed source model fit.
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: trailNdata
@@ -1955,7 +1952,7 @@ tables:
     datatype: int
     nullable: false
     value: "0"
-    description: The number of data points (pixels) used to fit the model.
+    description: The number of data points (pixels) used to fit the trailed source model.
     mysql:datatype: INTEGER
   - name: dipoleMeanFlux
     "@id": "#DiaSource.dipoleMeanFlux"
@@ -2337,9 +2334,7 @@ tables:
     "@id": "#DiaForcedSource.ccdVisitId"
     datatype: long
     nullable: false
-    description: Id of the visit where this forcedSource was measured. Note that we
-      are allowing a forcedSource to belong to multiple amplifiers, but it may not
-      span multiple ccds.
+    description: Id of the ccdVisit where this forcedSource was measured.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
   - name: psfFlux
