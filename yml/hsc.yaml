@@ -6250,3 +6250,13 @@ tables:
     datatype: double
     description: Scatter (via MAD) of size residual scaled by median size squared
     fits:tunit:
+  - name: psfTraceRadiusDelta
+    '@id': '#CcdVisit.psfTraceRadiusDelta'
+    datatype: double
+    description: Delta (max - min) of model psf trace radius values evaluated on a grid of unmasked pixels (pixel)
+    fits:tunit: pixel
+  - name: maxDistToNearestPsf
+    '@id': '#CcdVisit.maxDistToNearestPsf'
+    datatype: double
+    description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel)
+    fits:tunit: pixel
