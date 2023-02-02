@@ -11,11 +11,15 @@ verification of the catalog outputs from Rubin Observatory science pipelines.
 
 The schemas in this repository serve several different purposes:
 
-* `yml/imsim.yaml` describes the outputs of the pipelines for LSSTCam-imSim.
-  It is used to generate the data preview schemas, which are fixed at the time
-  of their release, while this one will continue to evolve. This schema is
-  used by `ci_imsim`, which verifies that the schema of the pipeline output
-  files agree with the contents of this file.
+ * `yml/imsim.yaml` describes the outputs of the pipelines for LSSTCam-imSim.
+   It is used to generate the data preview schemas, which are fixed at the time
+   of their release, while this one will continue to evolve. This schema is
+   used by `ci_imsim`, which verifies that the schema of the pipeline output
+   files agree with the contents of this file.
+
+ * The various `dp0X` schemas represent what is actively being served by the
+   various data previews. These are created from `yml/imsim.yaml` at a
+   specific point in time.
 
  * `yml/hsc.yaml` describes the outputs of the latest data release production
    pipelines for HyperSuprimeCam. This schema is used by `ci_hsc`, which
