@@ -22,12 +22,6 @@ The schemas in this repository serve several different purposes:
    verifies that the schema of the pipeline output files agree with the
    contents of this file.
 
- * `yml/sdss_stripe82_01.yml` and `yml/wise_00.yml` describe tables that are
-   served by the Rubin Observatory Science Platform, even though they are not
-   produced by the observatory's science pipelines. These files are used to
-   generate the TAP_SCHEMA records that are required for serving the catalogs
-   via the IVOA Table Access Protocol (TAP).
-
 Release assets
 --------------
 
