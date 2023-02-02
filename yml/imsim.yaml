@@ -8151,35 +8151,23 @@ tables:
     mysql:datatype: BOOLEAN
     description: General Failure Flag
     fits:tunit:
-  - name: shape_flag_maxIter
-    "@id": "#DiaSource.shape_flag_maxIter"
+  - name: shape_flag_no_pixels
+    "@id": "#DiaSource.shape_flag_no_pixels"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Too many iterations in adaptive moments
+    description: no pixels to measure
     fits:tunit:
-  - name: shape_flag_psf
-    "@id": "#DiaSource.shape_flag_psf"
+  - name: shape_flag_not_contained
+    "@id": "#DiaSource.shape_flag_not_contained"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Failure in measuring PSF model shape
+    description: center not contained in footprint bounding box
     fits:tunit:
-  - name: shape_flag_shift
-    "@id": "#DiaSource.shape_flag_shift"
+  - name: shape_flag_parent_source
+    "@id": "#DiaSource.shape_flag_parent_source"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Centroid shifted by more than the maximum allowed amount
-    fits:tunit:
-  - name: shape_flag_unweighted
-    "@id": "#DiaSource.shape_flag_unweighted"
-    datatype: boolean
-    mysql:datatype: BOOLEAN
-    description: Weighted moments converged to an invalid value; using unweighted moments
-    fits:tunit:
-  - name: shape_flag_unweightedBad
-    "@id": "#DiaSource.shape_flag_unweightedBad"
-    datatype: boolean
-    mysql:datatype: BOOLEAN
-    description: Both weighted and unweighted moments were invalid
+    description: parent source, ignored
     fits:tunit:
   - name: snr
     "@id": "#DiaSource.snr"
