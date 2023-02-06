@@ -19,14 +19,14 @@ tables:
     datatype: timestamp
     length: 6
     nullable: false
-    description: Time when validity of this diaObject starts.
+    description: Processing time when validity of this diaObject starts.
     mysql:datatype: DATETIME
   - name: validityEnd
     "@id": "#DiaObject.validityEnd"
     datatype: timestamp
     length: 6
     nullable: true
-    description: Time when validity of this diaObject ends.
+    description: Processing time when validity of this diaObject ends.
     mysql:datatype: DATETIME
   - name: ra
     "@id": "#DiaObject.ra"
@@ -2300,6 +2300,20 @@ tables:
     "@id": "#DiaSource.isDipole"
     datatype: boolean
     description: Object determined to be a dipole.
+  - name: time_processed
+    "@id": "#DiaSource.time_processed"
+    datatype: timestamp
+    length: 6
+    nullable: false
+    description: Time when this record was generated.
+    mysql:datatype: DATETIME
+  - name: time_withdrawn
+    "@id": "#DiaSource.time_withdrawn"
+    datatype: timestamp
+    length: 6
+    nullable: true
+    description: Time when this record was marked invalid.
+    mysql:datatype: DATETIME
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: long
@@ -2404,6 +2418,20 @@ tables:
     description: Filter band this source was observed with.
     ivoa:ucd: meta.id;instr.filter
     mysql:datatype: CHAR(1)
+  - name: time_processed
+    "@id": "#DiaForcedSource.time_processed"
+    datatype: timestamp
+    length: 6
+    nullable: false
+    description: Time when this record was generated.
+    mysql:datatype: DATETIME
+  - name: time_withdrawn
+    "@id": "#DiaForcedSource.time_withdrawn"
+    datatype: timestamp
+    length: 6
+    nullable: true
+    description: Time when this record was marked invalid.
+    mysql:datatype: DATETIME
   primaryKey:
   - "#DiaForcedSource.diaObjectId"
   - "#DiaForcedSource.ccdVisitId"
