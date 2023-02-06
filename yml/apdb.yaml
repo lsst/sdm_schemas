@@ -830,7 +830,7 @@ tables:
   - name: u_psfFluxMaxSlope
     "@id": "#DiaObject.u_psfFluxMaxSlope"
     datatype: float
-    description: Maximum slope between u band flux obsevations max(delta_flux/delta_time)
+    description: Maximum slope between u band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/day
   - name: u_psfFluxErrMean
     "@id": "#DiaObject.u_psfFluxErrMean"
@@ -898,7 +898,7 @@ tables:
   - name: g_psfFluxMaxSlope
     "@id": "#DiaObject.g_psfFluxMaxSlope"
     datatype: float
-    description: Maximum slope between g band flux obsevations max(delta_flux/delta_time)
+    description: Maximum slope between g band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/day
   - name: g_psfFluxErrMean
     "@id": "#DiaObject.g_psfFluxErrMean"
@@ -966,7 +966,7 @@ tables:
   - name: r_psfFluxMaxSlope
     "@id": "#DiaObject.r_psfFluxMaxSlope"
     datatype: float
-    description: Maximum slope between r band flux obsevations max(delta_flux/delta_time)
+    description: Maximum slope between r band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/day
   - name: r_psfFluxErrMean
     "@id": "#DiaObject.r_psfFluxErrMean"
@@ -1034,7 +1034,7 @@ tables:
   - name: i_psfFluxMaxSlope
     "@id": "#DiaObject.i_psfFluxMaxSlope"
     datatype: float
-    description: Maximum slope between i band flux obsevations max(delta_flux/delta_time)
+    description: Maximum slope between i band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/day
   - name: i_psfFluxErrMean
     "@id": "#DiaObject.i_psfFluxErrMean"
@@ -1102,7 +1102,7 @@ tables:
   - name: z_psfFluxMaxSlope
     "@id": "#DiaObject.z_psfFluxMaxSlope"
     datatype: float
-    description: Maximum slope between z band flux obsevations max(delta_flux/delta_time)
+    description: Maximum slope between z band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/day
   - name: z_psfFluxErrMean
     "@id": "#DiaObject.z_psfFluxErrMean"
@@ -1233,329 +1233,329 @@ tables:
   - name: firstObservationDate
     "@id": "#SSObject.firstObservationDate"
     datatype: double
-    description: The time of the first LSST observation of this object (could be precovered)
+    description: The time of the first LSST observation of this object (could be precovered).
     mysql:datatype: DOUBLE
     fits:tunit: date
   - name: arc
     "@id": "#SSObject.arc"
     datatype: float
-    description: Arc of LSST observations
+    description: Arc of LSST observations.
     mysql:datatype: FLOAT
     fits:tunit: days
   - name: numObs
     "@id": "#SSObject.numObs"
     datatype: int
-    description: Number of LSST observations of this object
+    description: Number of LSST observations of this object.
     mysql:datatype: INTEGER
   - name: lcPeriodic
     "@id": "#SSObject.lcPeriodic"
     datatype: binary
     length: 768
     description: Periodic light curve features computed on phase/distance-corrected
-      magnitudes (H), 6x32 floats
+      magnitudes (H), 6x32 floats.
     mysql:datatype: BLOB(768)
   - name: MOID
     "@id": "#SSObject.MOID"
     datatype: float
-    description: Minimum orbit intersection distance to Earth
+    description: Minimum orbit intersection distance to Earth.
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: MOIDTrueAnomaly
     "@id": "#SSObject.MOIDTrueAnomaly"
     datatype: float
-    description: True anomaly of the MOID point
+    description: True anomaly of the MOID point.
     mysql:datatype: FLOAT
     fits:tunit: deg
   - name: MOIDEclipticLongitude
     "@id": "#SSObject.MOIDEclipticLongitude"
     datatype: float
-    description: Ecliptic longitude of the MOID point
+    description: Ecliptic longitude of the MOID point.
     mysql:datatype: FLOAT
     fits:tunit: deg
   - name: MOIDDeltaV
     "@id": "#SSObject.MOIDDeltaV"
     datatype: float
-    description: DeltaV at the MOID point
+    description: DeltaV at the MOID point.
     mysql:datatype: FLOAT
     fits:tunit: km/s
   - name: u_H
     "@id": "#SSObject.u_H"
     datatype: float
-    description: Best fit absolute magnitude (u band)
+    description: Best fit absolute magnitude (u band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: u_G12
     "@id": "#SSObject.u_G12"
     datatype: float
-    description: Best fit G12 slope parameter (u band)
+    description: Best fit G12 slope parameter (u band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: u_HErr
     "@id": "#SSObject.u_HErr"
     datatype: float
-    description: Uncertainty of H (u band)
+    description: Uncertainty of H (u band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: u_G12Err
     "@id": "#SSObject.u_G12Err"
     datatype: float
-    description: Uncertainty of G12 (u band)
+    description: Uncertainty of G12 (u band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: u_H_u_G12_Cov
     "@id": "#SSObject.u_H_u_G12_Cov"
     datatype: float
-    description: H-G12 covariance (u band)
+    description: H-G12 covariance (u band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag^2
   - name: u_Chi2
     "@id": "#SSObject.u_Chi2"
     datatype: float
-    description: Chi^2 statistic of the phase curve fit (u band)
+    description: Chi^2 statistic of the phase curve fit (u band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: u_Ndata
     "@id": "#SSObject.u_Ndata"
     datatype: int
-    description: The number of data points used to fit the phase curve (u band)
+    description: The number of data points used to fit the phase curve (u band).
     mysql:datatype: INTEGER
   - name: g_H
     "@id": "#SSObject.g_H"
     datatype: float
-    description: Best fit absolute magnitude (g band)
+    description: Best fit absolute magnitude (g band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: g_G12
     "@id": "#SSObject.g_G12"
     datatype: float
-    description: Best fit G12 slope parameter (g band)
+    description: Best fit G12 slope parameter (g band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: g_HErr
     "@id": "#SSObject.g_HErr"
     datatype: float
-    description: Uncertainty of H (g band)
+    description: Uncertainty of H (g band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: g_G12Err
     "@id": "#SSObject.g_G12Err"
     datatype: float
-    description: Uncertainty of G12 (g band)
+    description: Uncertainty of G12 (g band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: g_H_g_G12_Cov
     "@id": "#SSObject.g_H_g_G12_Cov"
     datatype: float
-    description: H-G12 covariance (g band)
+    description: H-G12 covariance (g band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag^2
   - name: g_Chi2
     "@id": "#SSObject.g_Chi2"
     datatype: float
-    description: Chi^2 statistic of the phase curve fit (g band)
+    description: Chi^2 statistic of the phase curve fit (g band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: g_Ndata
     "@id": "#SSObject.g_Ndata"
     datatype: int
-    description: The number of data points used to fit the phase curve (g band)
+    description: The number of data points used to fit the phase curve (g band).
     mysql:datatype: INTEGER
   - name: r_H
     "@id": "#SSObject.r_H"
     datatype: float
-    description: Best fit absolute magnitude (r band)
+    description: Best fit absolute magnitude (r band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: r_G12
     "@id": "#SSObject.r_G12"
     datatype: float
-    description: Best fit G12 slope parameter (r band)
+    description: Best fit G12 slope parameter (r band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: r_HErr
     "@id": "#SSObject.r_HErr"
     datatype: float
-    description: Uncertainty of H (r band)
+    description: Uncertainty of H (r band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: r_G12Err
     "@id": "#SSObject.r_G12Err"
     datatype: float
-    description: Uncertainty of G12 (r band)
+    description: Uncertainty of G12 (r band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: r_H_r_G12_Cov
     "@id": "#SSObject.r_H_r_G12_Cov"
     datatype: float
-    description: H-G12 covariance (r band)
+    description: H-G12 covariance (r band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag^2
   - name: r_Chi2
     "@id": "#SSObject.r_Chi2"
     datatype: float
-    description: Chi^2 statistic of the phase curve fit (r band)
+    description: Chi^2 statistic of the phase curve fit (r band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: r_Ndata
     "@id": "#SSObject.r_Ndata"
     datatype: int
-    description: The number of data points used to fit the phase curve (r band)
+    description: The number of data points used to fit the phase curve (r band).
     mysql:datatype: INTEGER
   - name: i_H
     "@id": "#SSObject.i_H"
     datatype: float
-    description: Best fit absolute magnitude (i band)
+    description: Best fit absolute magnitude (i band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: i_G12
     "@id": "#SSObject.i_G12"
     datatype: float
-    description: Best fit G12 slope parameter (i band)
+    description: Best fit G12 slope parameter (i band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: i_HErr
     "@id": "#SSObject.i_HErr"
     datatype: float
-    description: Uncertainty of H (i band)
+    description: Uncertainty of H (i band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: i_G12Err
     "@id": "#SSObject.i_G12Err"
     datatype: float
-    description: Uncertainty of G12 (i band)
+    description: Uncertainty of G12 (i band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: i_H_i_G12_Cov
     "@id": "#SSObject.i_H_i_G12_Cov"
     datatype: float
-    description: H-G12 covariance (i band)
+    description: H-G12 covariance (i band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag^2
   - name: i_Chi2
     "@id": "#SSObject.i_Chi2"
     datatype: float
-    description: Chi^2 statistic of the phase curve fit (i band)
+    description: Chi^2 statistic of the phase curve fit (i band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: i_Ndata
     "@id": "#SSObject.i_Ndata"
     datatype: int
-    description: The number of data points used to fit the phase curve (i band)
+    description: The number of data points used to fit the phase curve (i band).
     mysql:datatype: INTEGER
   - name: z_H
     "@id": "#SSObject.z_H"
     datatype: float
-    description: Best fit absolute magnitude (z band)
+    description: Best fit absolute magnitude (z band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: z_G12
     "@id": "#SSObject.z_G12"
     datatype: float
-    description: Best fit G12 slope parameter (z band)
+    description: Best fit G12 slope parameter (z band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: z_HErr
     "@id": "#SSObject.z_HErr"
     datatype: float
-    description: Uncertainty of H (z band)
+    description: Uncertainty of H (z band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: z_G12Err
     "@id": "#SSObject.z_G12Err"
     datatype: float
-    description: Uncertainty of G12 (z band)
+    description: Uncertainty of G12 (z band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: z_H_z_G12_Cov
     "@id": "#SSObject.z_H_z_G12_Cov"
     datatype: float
-    description: H-G12 covariance (z band)
+    description: H-G12 covariance (z band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag^2
   - name: z_Chi2
     "@id": "#SSObject.z_Chi2"
     datatype: float
-    description: Chi^2 statistic of the phase curve fit (z band)
+    description: Chi^2 statistic of the phase curve fit (z band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: z_Ndata
     "@id": "#SSObject.z_Ndata"
     datatype: int
-    description: The number of data points used to fit the phase curve (z band)
+    description: The number of data points used to fit the phase curve (z band).
     mysql:datatype: INTEGER
   - name: y_H
     "@id": "#SSObject.y_H"
     datatype: float
-    description: Best fit absolute magnitude (y band)
+    description: Best fit absolute magnitude (y band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: y_G12
     "@id": "#SSObject.y_G12"
     datatype: float
-    description: Best fit G12 slope parameter (y band)
+    description: Best fit G12 slope parameter (y band).
     mysql:datatype: FLOAT
     fits:tunit: mag
   - name: y_HErr
     "@id": "#SSObject.y_HErr"
     datatype: float
-    description: Uncertainty of H (y band)
+    description: Uncertainty of H (y band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: y_G12Err
     "@id": "#SSObject.y_G12Err"
     datatype: float
-    description: Uncertainty of G12 (y band)
+    description: Uncertainty of G12 (y band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: y_H_y_G12_Cov
     "@id": "#SSObject.y_H_y_G12_Cov"
     datatype: float
-    description: H-G12 covariance (y band)
+    description: H-G12 covariance (y band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag^2
   - name: y_Chi2
     "@id": "#SSObject.y_Chi2"
     datatype: float
-    description: Chi^2 statistic of the phase curve fit (y band)
+    description: Chi^2 statistic of the phase curve fit (y band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: y_Ndata
     "@id": "#SSObject.y_Ndata"
     datatype: int
-    description: The number of data points used to fit the phase curve (y band)
+    description: The number of data points used to fit the phase curve (y band).
     mysql:datatype: INTEGER
   - name: maxExtendedness
     "@id": "#SSObject.maxExtendedness"
     datatype: float
-    description: maximum `extendedness` value from the DIASource
+    description: maximum `extendedness` value from the DIASource.
     mysql:datatype: FLOAT
   - name: minExtendedness
     "@id": "#SSObject.minExtendedness"
     datatype: float
-    description: minimum `extendedness` value from the DIASource
+    description: minimum `extendedness` value from the DIASource.
     mysql:datatype: FLOAT
   - name: medianExtendedness
     "@id": "#SSObject.medianExtendedness"
     datatype: float
-    description: median `extendedness` value from the DIASource
+    description: median `extendedness` value from the DIASource.
     mysql:datatype: FLOAT
   - name: flags
     "@id": "#SSObject.flags"
@@ -1651,7 +1651,7 @@ tables:
     "@id": "#DiaSource.dec"
     datatype: double
     nullable: false
-    description: " Declination coordinate of the center of this diaSource."
+    description: Declination coordinate of the center of this diaSource.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -1744,7 +1744,7 @@ tables:
   - name: psfRa
     "@id": "#DiaSource.psfRa"
     datatype: double
-    description: " Right ascension coordinate of centroid for point source model."
+    description: Right ascension coordinate of centroid for point source model.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -1758,7 +1758,7 @@ tables:
   - name: psfDec
     "@id": "#DiaSource.psfDec"
     datatype: double
-    description: " Declination coordinate of centroid for point source model."
+    description: Declination coordinate of centroid for point source model.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -1824,7 +1824,7 @@ tables:
   - name: trailRa
     "@id": "#DiaSource.trailRa"
     datatype: double
-    description: " Right ascension coordinate of centroid for trailed source model."
+    description: Right ascension coordinate of centroid for trailed source model.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -1838,7 +1838,7 @@ tables:
   - name: trailDec
     "@id": "#DiaSource.trailDec"
     datatype: double
-    description: " Declination coordinate of centroid for trailed source model."
+    description: Declination coordinate of centroid for trailed source model.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -2377,7 +2377,7 @@ tables:
     "@id": "#DiaForcedSource.midPointTai"
     datatype: double
     nullable: false
-    description: Effective mid-exposure time for this diaForcedSource
+    description: Effective mid-exposure time for this diaForcedSource.
     ivoa:ucd: time.epoch
     fits:tunit: d
   - name: diaForcedSourceId
