@@ -2164,17 +2164,17 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
-  - name: diffFlux
-    "@id": "#DiaSource.diffFlux"
+  - name: snapDiffFlux
+    "@id": "#DiaSource.snapDiffFlux"
     datatype: float
     description: Calibrated flux for Point Source model centered on radec but measured
       on the difference of snaps comprising this visit.
     mysql:datatype: FLOAT
     fits:tunit: nJy
-  - name: diffFluxErr
-    "@id": "#DiaSource.diffFluxErr"
+  - name: snapDiffFluxErr
+    "@id": "#DiaSource.snapDiffFluxErr"
     datatype: float
-    description: Estimated uncertainty of diffFlux.
+    description: Estimated uncertainty of snapDiffFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
