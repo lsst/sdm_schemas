@@ -2337,6 +2337,11 @@ tables:
   description: Forced-photometry source measurement on an individual difference Exposure
     based on a Multifit shape model derived from a deep detection.
   columns:
+  - name: diaForcedSourceId
+    "@id": "#DiaForcedSource.diaForcedSourceId"
+    datatype: long
+    nullable: false
+    description: Unique id.
   - name: diaObjectId
     "@id": "#DiaForcedSource.diaObjectId"
     datatype: long
@@ -2393,11 +2398,6 @@ tables:
     description: Effective mid-exposure time for this diaForcedSource (MJD TAI).
     ivoa:ucd: time.epoch
     fits:tunit: d
-  - name: diaForcedSourceId
-    "@id": "#DiaForcedSource.diaForcedSourceId"
-    datatype: long
-    nullable: false
-    description: Unique id for forced soure.
   - name: scienceFlux
     "@id": "#DiaForcedSource.scienceFlux"
     datatype: float
