@@ -662,112 +662,112 @@ tables:
     fits:tunit: arcsec
     description: Separation distance of nearbyLowzGal.
     mysql:datatype: FLOAT
-  - name: u_totFluxMean
-    "@id": "#DiaObject.u_totFluxMean"
+  - name: u_scienceFluxMean
+    "@id": "#DiaObject.u_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: u_totFluxMeanErr
-    "@id": "#DiaObject.u_totFluxMeanErr"
+  - name: u_scienceFluxMeanErr
+    "@id": "#DiaObject.u_scienceFluxMeanErr"
     datatype: float
-    description: Standard error of u_totFluxMean.
+    description: Standard error of u_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: u_totFluxSigma
-    "@id": "#DiaObject.u_totFluxSigma"
+  - name: u_scienceFluxSigma
+    "@id": "#DiaObject.u_scienceFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of u_totFlux.
+    description: Standard deviation of the distribution of u_scienceFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: g_totFluxMean
-    "@id": "#DiaObject.g_totFluxMean"
+  - name: g_scienceFluxMean
+    "@id": "#DiaObject.g_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: g_totFluxMeanErr
-    "@id": "#DiaObject.g_totFluxMeanErr"
+  - name: g_scienceFluxMeanErr
+    "@id": "#DiaObject.g_scienceFluxMeanErr"
     datatype: float
-    description: Standard error of g_totFluxMean.
+    description: Standard error of g_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: g_totFluxSigma
-    "@id": "#DiaObject.g_totFluxSigma"
+  - name: g_scienceFluxSigma
+    "@id": "#DiaObject.g_scienceFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of g_totFlux.
+    description: Standard deviation of the distribution of g_scienceFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: r_totFluxMean
-    "@id": "#DiaObject.r_totFluxMean"
+  - name: r_scienceFluxMean
+    "@id": "#DiaObject.r_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: r_totFluxMeanErr
-    "@id": "#DiaObject.r_totFluxMeanErr"
+  - name: r_scienceFluxMeanErr
+    "@id": "#DiaObject.r_scienceFluxMeanErr"
     datatype: float
-    description: Standard error of r_totFluxMean.
+    description: Standard error of r_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: r_totFluxSigma
-    "@id": "#DiaObject.r_totFluxSigma"
+  - name: r_scienceFluxSigma
+    "@id": "#DiaObject.r_scienceFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of r_totFlux.
+    description: Standard deviation of the distribution of r_scienceFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: i_totFluxMean
-    "@id": "#DiaObject.i_totFluxMean"
+  - name: i_scienceFluxMean
+    "@id": "#DiaObject.i_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: i_totFluxMeanErr
-    "@id": "#DiaObject.i_totFluxMeanErr"
+  - name: i_scienceFluxMeanErr
+    "@id": "#DiaObject.i_scienceFluxMeanErr"
     datatype: float
-    description: Standard error of i_totFluxMean.
+    description: Standard error of i_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: i_totFluxSigma
-    "@id": "#DiaObject.i_totFluxSigma"
+  - name: i_scienceFluxSigma
+    "@id": "#DiaObject.i_scienceFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of i_totFlux.
+    description: Standard deviation of the distribution of i_scienceFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: z_totFluxMean
-    "@id": "#DiaObject.z_totFluxMean"
+  - name: z_scienceFluxMean
+    "@id": "#DiaObject.z_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: z_totFluxMeanErr
-    "@id": "#DiaObject.z_totFluxMeanErr"
+  - name: z_scienceFluxMeanErr
+    "@id": "#DiaObject.z_scienceFluxMeanErr"
     datatype: float
-    description: Standard error of z_totFluxMean.
+    description: Standard error of z_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: z_totFluxSigma
-    "@id": "#DiaObject.z_totFluxSigma"
+  - name: z_scienceFluxSigma
+    "@id": "#DiaObject.z_scienceFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of z_totFlux.
+    description: Standard deviation of the distribution of z_scienceFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
-  - name: y_totFluxMean
-    "@id": "#DiaObject.y_totFluxMean"
+  - name: y_scienceFluxMean
+    "@id": "#DiaObject.y_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: y_totFluxMeanErr
-    "@id": "#DiaObject.y_totFluxMeanErr"
+  - name: y_scienceFluxMeanErr
+    "@id": "#DiaObject.y_scienceFluxMeanErr"
     datatype: float
-    description: Standard error of y_totFluxMean.
+    description: Standard error of y_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: y_totFluxSigma
-    "@id": "#DiaObject.y_totFluxSigma"
+  - name: y_scienceFluxSigma
+    "@id": "#DiaObject.y_scienceFluxSigma"
     datatype: float
-    description: Standard deviation of the distribution of y_totFlux.
+    description: Standard deviation of the distribution of y_scienceFlux.
     ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: u_psfFluxMAD
@@ -2149,19 +2149,18 @@ tables:
     value: "0"
     description: The number of data points (pixels) used to fit the model.
     mysql:datatype: INTEGER
-  - name: totFlux
-    "@id": "#DiaSource.totFlux"
+  - name: scienceFlux
+    "@id": "#DiaSource.scienceFlux"
     datatype: float
-    description: Calibrated flux for Point Source model measured on the visit image
-      centered at the centroid measured on the difference image (forced photometry
-      flux).
+    description: Forced photometry flux for a point source model measured on the visit image
+      centered at DiaSource position.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
-  - name: totFluxErr
-    "@id": "#DiaSource.totFluxErr"
+  - name: scienceFluxErr
+    "@id": "#DiaSource.scienceFluxErr"
     datatype: float
-    description: Estimated uncertainty of totFlux.
+    description: Estimated uncertainty of scienceFlux.
     mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
@@ -2399,16 +2398,17 @@ tables:
     datatype: long
     nullable: false
     description: Unique id for forced soure.
-  - name: totFlux
-    "@id": "#DiaForcedSource.totFlux"
+  - name: scienceFlux
+    "@id": "#DiaForcedSource.scienceFlux"
     datatype: float
-    description: Point Source model flux measured on the direct image.
+    description: Forced photometry flux for a point source model measured on the visit image
+      centered at the DiaObject position.
     ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: totFluxErr
-    "@id": "#DiaForcedSource.totFluxErr"
+  - name: scienceFluxErr
+    "@id": "#DiaForcedSource.scienceFluxErr"
     datatype: float
-    description: Uncertainty of totFlux.
+    description: Uncertainty of scienceFlux.
     ivoa:ucd: stat.error;phot.count
     fits:tunit: nJy
   - name: band
