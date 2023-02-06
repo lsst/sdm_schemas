@@ -32,7 +32,7 @@ tables:
     "@id": "#DiaObject.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecTai.
+    description: Right ascension coordinate of the position of the object at time radecEpoch.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -47,7 +47,7 @@ tables:
     "@id": "#DiaObject.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecTai.
+    description: Declination coordinate of the position of the object at time radecEpoch.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -64,8 +64,8 @@ tables:
     description: Covariance between ra and dec.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-  - name: radecTai
-    "@id": "#DiaObject.radecTai"
+  - name: radecEpoch
+    "@id": "#DiaObject.radecEpoch"
     datatype: double
     description: Time at which the object was at a position ra/dec.
     mysql:datatype: DOUBLE
@@ -2504,7 +2504,7 @@ tables:
     "@id": "#DiaObjectLast.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecTai.
+    description: Right ascension coordinate of the position of the object at time radecEpoch.
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
   - name: raErr
@@ -2517,7 +2517,7 @@ tables:
     "@id": "#DiaObjectLast.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecTai.
+    description: Declination coordinate of the position of the object at time radecEpoch.
     ivoa:ucd: pos.eq.dec
     fits:tunit: deg
   - name: decErr
@@ -2531,8 +2531,8 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg^2
-  - name: radecTai
-    "@id": "#DiaObjectLast.radecTai"
+  - name: radecEpoch
+    "@id": "#DiaObjectLast.radecEpoch"
     datatype: double
     nullable: false
     description: Time at which the object was at a position ra/dec.
