@@ -1624,11 +1624,11 @@ tables:
     description: Time when this diaSource was reassociated from diaObject to ssObject
       (if such reassociation happens, otherwise NULL).
     mysql:datatype: DATETIME
-  - name: midPointTai
-    "@id": "#DiaSource.midPointTai"
+  - name: midPointMjd
+    "@id": "#DiaSource.midPointMjd"
     datatype: double
     nullable: false
-    description: Effective mid-exposure time for this diaSource.
+    description: Effective mid-exposure time for this diaSource (MJD TAI).
     mysql:datatype: DOUBLE
     fits:tunit: d
     ivoa:ucd: time.epoch
@@ -2386,11 +2386,11 @@ tables:
     value: "0"
     mysql:datatype: BIGINT
     ivoa:ucd: meta.code
-  - name: midPointTai
-    "@id": "#DiaForcedSource.midPointTai"
+  - name: midPointMjd
+    "@id": "#DiaForcedSource.midPointMjd"
     datatype: double
     nullable: false
-    description: Effective mid-exposure time for this diaForcedSource.
+    description: Effective mid-exposure time for this diaForcedSource (MJD TAI).
     ivoa:ucd: time.epoch
     fits:tunit: d
   - name: diaForcedSourceId
