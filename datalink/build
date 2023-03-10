@@ -4,7 +4,7 @@
 # principal and minimal columns for tables.  This temporarily only does
 # tap:principal and we hand-maintain a columns-minimal.yaml file until we can
 # include a new key in the Felis input files.
-python build_datalink_metadata.py ../yml/*.yml ../yml/*.yaml \
+python build_datalink_metadata.py ../yml/*.yaml \
        > columns-principal.yaml
 zip datalink-columns.zip columns-*.yaml
 
