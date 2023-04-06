@@ -1,0 +1,609 @@
+---
+name: summitcdb
+"@id": "#summit_cdb"
+description: Summit Consolidated Database
+tables:
+- name: ObsCore
+  columns:
+  - name: dataproduct_type
+    datatype: char
+    description: Data product (file content) primary type
+  - name: dataproduct_subtype
+    datatype: char
+    description: Data product specific type
+  - name: facility_name
+    datatype: char
+    description: The name of the facility, telescope, or space craft used for the
+      observation
+  - name: calib_level
+    datatype: int
+    description: 'Calibration level of the observation: in {0, 1, 2, 3, 4}'
+  - name: target_name
+    datatype: char
+    description: Object of interest
+  - name: obs_id
+    datatype: char
+    description: Internal ID given by the ObsTAP service
+  - name: obs_collection
+    datatype: char
+    description: Name of the data collection
+  - name: obs_publisher_did
+    datatype: char
+    description: ID for the Dataset given by the publisher
+  - name: access_url
+    datatype: char
+    description: URL used to access dataset
+  - name: access_format
+    datatype: char
+    description: Content format of the dataset
+  - name: s_ra
+    datatype: double
+    description: Central Spatial Position in ICRS; Right ascension
+  - name: s_dec
+    datatype: double
+    description: Central Spatial Position in ICRS; Declination
+  - name: s_fov
+    datatype: double
+    description: Estimated size of the covered region as the diameter of a containing
+      circle
+  - name: s_region
+    datatype: char
+    description: Sky region covered by the data product (expressed in ICRS frame)
+  - name: s_resolution
+    datatype: double
+    description: Spatial resolution of data as FWHM of PSF
+  - name: s_xel1
+    datatype: long
+    description: Number of elements along the first coordinate of the spatial axis
+  - name: s_xel2
+    datatype: long
+    description: Number of elements along the second coordinate of the spatial axis
+  - name: t_xel
+    datatype: long
+    description: Number of elements along the time axis
+  - name: t_min
+    datatype: double
+    description: Start time in MJD
+  - name: t_max
+    datatype: double
+    description: Stop time in MJD
+  - name: t_exptime
+    datatype: double
+    description: Total exposure time
+  - name: t_resolution
+    datatype: double
+    description: Temporal resolution FWHM
+  - name: em_xel
+    datatype: long
+    description: Number of elements along the spectral axis
+  - name: em_min
+    datatype: double
+    description: start in spectral coordinates
+  - name: em_max
+    datatype: double
+    description: stop in spectral coordinates
+  - name: em_res_power
+    datatype: double
+    description: Value of the resolving power along the spectral axis (R)
+  - name: o_ucd
+    datatype: char
+    description: Nature of the observable axis
+  - name: pol_xel
+    datatype: long
+    description: Number of elements along the polarization axis
+  - name: instrument_name
+    datatype: char
+    description: The name of the instrument used for the observation
+  - name: lsst_visit
+    datatype: long
+    description: Identifier for a specific LSSTCam pointing
+  - name: lsst_detector
+    datatype: long
+    description: Identifier for CCD within the LSSTCam focal plane
+  - name: lsst_tract
+    datatype: long
+    description: Upper level of LSST coadd skymap hierarchy
+  - name: lsst_patch
+    datatype: long
+    description: Lower level of LSST coadd skymap hierarchy
+  - name: lsst_band
+    datatype: char
+    description: Abstract filter band designation
+  - name: lsst_filter
+    datatype: char
+    description: Physical filter designation from the LSSTCam filter set
+- name: Exposure
+  columns:
+  - name: exposure_id
+    datatype: long
+    description: Unique identifier.
+  - name: instrument_name
+    datatype: char
+    description: The name of the instrument used for the observation
+  - name: controller
+    datatype: char
+    description: The abbreviation of the controller used for the observation (O, C)
+  - name: day_obs
+    datatype: long
+    description: Day of observation
+  - name: seq_num
+    datatype: long
+    description: Sequence number
+  - name: physical_filter
+    datatype: char
+    description: ID of physical filter, the filter associated with a particular instrument.
+  - name: band
+    datatype: char
+    description: Name of the band used to take the exposure where this source was
+      measured. Abstract filter that is not associated with a particular instrument.
+  - name: ra
+    datatype: double
+    description: RA of targeted focal plane center.
+  - name: decl
+    datatype: double
+    description: Declination of targeted focal plane center
+  - name: skyRotation
+    datatype: double
+    description: Targeted sky rotation angle.
+  - name: azimuth
+    datatype: double
+    description: Azimuth of focal plane center at the middle of the exposure.
+  - name: altitude
+    datatype: double
+    description: Altitude of focal plane center at the middle of the exposure.
+  - name: zenithDistance
+    datatype: double
+    description: Zenith distance at the middle of the exposure.
+  - name: airmass
+    datatype: double
+    description: Airmass of the observed line of sight at the middle of the exposure.
+  - name: expTime
+    datatype: double
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+  - name: expMidpt
+    datatype: timestamp
+    description: Midpoint time for exposure at the fiducial center of the focal plane
+      array. TAI, accurate to 10ms.
+  - name: expMidptMJD
+    datatype: double
+    description: Midpoint time for exposure at the fiducial center of the focal plane
+      array in MJD. TAI, accurate to 10ms.
+  - name: obsStart
+    datatype: timestamp
+    description: Start time of the exposure at the fiducial center of the focal plane
+      array, TAI, accurate to 10ms.
+  - name: obsStartMJD
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+  - name: shutterOpenBegin
+    datatype: timestamp
+    description: Start of shutter opening.  TAI, accurate to 10ms.
+  - name: shutterOpenEnd
+    datatype: timestamp
+    description: End of shutter opening.  TAI, accurate to 10ms.
+  - name: shutterCloseBegin
+    datatype: timestamp
+    description: Start of shutter closing.  TAI, accurate to 10ms.
+  - name: shutterCloseEnd
+    datatype: timestamp
+    description: End of shutter opening.  TAI, accurate to 10ms.
+  - name: exposureInOODS
+    datatype: boolean
+    description: Are all detectors ingested into the OODS?
+  - name: exposureInUSDF
+    datatype: boolean
+    description: Are all detectors ingested into the USDF?
+- name: CcdExposure
+  columns:
+  - name: ccdExposureId
+    datatype: long
+    description: Primary key (unique identifier).
+  - name: exposure_id
+    datatype: long
+    description: Reference to the corresponding entry in the Exposure table.
+  - name: physical_filter
+    datatype: char
+    description: ID of physical filter, the filter associated with a particular instrument.
+  - name: band
+    datatype: char
+    description: Name of the band used to take the exposure where this source was
+      measured. Abstract filter that is not associated with a particular instrument.
+  - name: ra
+    datatype: double
+    description: RA of Ccd center.
+  - name: decl
+    datatype: double
+    description: Declination of Ccd center.
+  - name: zenithDistance
+    datatype: float
+    description: Zenith distance at observation mid-point.
+  - name: detector
+    datatype: long
+    description: Detector ID. A detector associated with a particular instrument (not
+      an observation of that detector)
+  - name: skyRotation
+    datatype: double
+    description: Sky rotation angle.
+  - name: expMidpt
+    datatype: timestamp
+    description: Midpoint for exposure. TAI, accurate to 10ms.
+  - name: expMidptMJD
+    datatype: double
+    description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
+  - name: expTime
+    datatype: double
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+  - name: obsStart
+    datatype: timestamp
+    description: Start of the exposure, TAI, accurate to 10ms.
+  - name: obsStartMJD
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+  - name: darkTime
+    datatype: double
+    description: Average dark current accumulation time, accurate to 10ms.
+  - name: xSize
+    datatype: long
+    description: Number of columns in the image.
+  - name: ySize
+    datatype: long
+    description: Number of rows in the image.
+  - name: llcra
+    datatype: double
+    description: RA of lower left corner.
+  - name: llcdec
+    datatype: double
+    description: Declination of lower left corner.
+  - name: ulcra
+    datatype: double
+    description: RA of upper left corner.
+  - name: ulcdec
+    datatype: double
+    description: Declination of upper left corner.
+  - name: urcra
+    datatype: double
+    description: RA of upper right corner.
+  - name: urcdec
+    datatype: double
+    description: Declination of upper right corner.
+  - name: lrcra
+    datatype: double
+    description: RA of lower right corner.
+  - name: lrcdec
+    datatype: double
+    description: Declination of lower right corner.
+  - name: imageInOODS
+    datatype: boolean
+    description: Has this detector been ingested into the OODS?
+  - name: imageInUSDF
+    datatype: boolean
+    description: Has this detector been ingested into the USDF?
+- name: Visit
+  columns:
+  - name: visit
+    datatype: long
+    description: Unique identifier.
+  - name: physical_filter
+    datatype: char
+    description: ID of physical filter, the filter associated with a particular instrument.
+  - name: band
+    datatype: char
+    description: Name of the band used to take the exposure where this source was
+      measured. Abstract filter that is not associated with a particular instrument.
+  - name: ra
+    datatype: double
+    description: RA of focal plane center.
+  - name: decl
+    datatype: double
+    description: Declination of focal plane center
+  - name: skyRotation
+    datatype: double
+    description: Sky rotation angle.
+  - name: azimuth
+    datatype: double
+    description: Azimuth of focal plane center at the middle of the exposure.
+  - name: altitude
+    datatype: double
+    description: Altitude of focal plane center at the middle of the exposure.
+  - name: zenithDistance
+    datatype: double
+    description: Zenith distance at the middle of the exposure.
+  - name: airmass
+    datatype: double
+    description: Airmass of the observed line of sight.
+  - name: expTime
+    datatype: double
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+  - name: expMidpt
+    datatype: timestamp
+    description: Midpoint time for exposure at the fiducial center of the focal plane
+      array. TAI, accurate to 10ms.
+  - name: expMidptMJD
+    datatype: double
+    description: Midpoint time for exposure at the fiducial center of the focal plane
+      array in MJD. TAI, accurate to 10ms.
+  - name: obsStart
+    datatype: timestamp
+    description: Start time of the exposure at the fiducial center of the focal plane
+      array, TAI, accurate to 10ms.
+  - name: obsStartMJD
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+- name: CcdVisit
+  columns:
+  - name: ccdVisitId
+    datatype: long
+    description: Primary key (unique identifier).
+  - name: visitId
+    datatype: long
+    description: Reference to the corresponding entry in the Visit table.
+  - name: physical_filter
+    datatype: char
+    description: ID of physical filter, the filter associated with a particular instrument.
+  - name: band
+    datatype: char
+    description: Name of the band used to take the exposure where this source was
+      measured. Abstract filter that is not associated with a particular instrument.
+  - name: ra
+    datatype: double
+    description: RA of Ccd center.
+  - name: decl
+    datatype: double
+    description: Declination of Ccd center.
+  - name: zenithDistance
+    datatype: float
+    description: Zenith distance at observation mid-point.
+  - name: photometricCalib
+    datatype: float
+    description: Conversion from DN to nanojansky for Ccd.
+  - name: psfSigma
+    datatype: float
+    description: PSF model second-moments determinant radius (center of chip)
+  - name: skyBg
+    datatype: float
+    description: Average sky background.
+  - name: skyNoise
+    datatype: float
+    description: RMS noise of the sky background.
+  - name: detector
+    datatype: long
+    description: Detector ID. A detector associated with a particular instrument (not
+      an observation of that detector)
+  - name: seeing
+    datatype: double
+    description: Mean measured FWHM of the PSF.
+  - name: skyRotation
+    datatype: double
+    description: Sky rotation angle.
+  - name: expMidpt
+    datatype: timestamp
+    description: Midpoint for exposure. TAI, accurate to 10ms.
+  - name: expMidptMJD
+    datatype: double
+    description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
+  - name: expTime
+    datatype: double
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+  - name: obsStart
+    datatype: timestamp
+    description: Start of the exposure, TAI, accurate to 10ms.
+  - name: obsStartMJD
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+  - name: darkTime
+    datatype: double
+    description: Average dark current accumulation time, accurate to 10ms.
+  - name: xSize
+    datatype: long
+    description: Number of columns in the image.
+  - name: ySize
+    datatype: long
+    description: Number of rows in the image.
+  - name: llcra
+    datatype: double
+    description: RA of lower left corner.
+  - name: llcdec
+    datatype: double
+    description: Declination of lower left corner.
+  - name: ulcra
+    datatype: double
+    description: RA of upper left corner.
+  - name: ulcdec
+    datatype: double
+    description: Declination of upper left corner.
+  - name: urcra
+    datatype: double
+    description: RA of upper right corner.
+  - name: urcdec
+    datatype: double
+    description: Declination of upper right corner.
+  - name: lrcra
+    datatype: double
+    description: RA of lower right corner.
+  - name: lrcdec
+    datatype: double
+    description: Declination of lower right corner.
+  - name: astromOffsetMean
+    datatype: double
+    description: Mean offset of astrometric calibration matches (arcsec)
+  - name: astromOffsetStd
+    datatype: double
+    description: Standard deviation of offsets of astrometric calibration matches
+      (arcsec)
+  - name: nPsfStar
+    datatype: int
+    description: Number of stars used for PSF model
+  - name: psfStarDeltaE1Median
+    datatype: double
+    description: Median E1 residual (starE1 - psfE1) for psf stars
+  - name: psfStarDeltaE2Median
+    datatype: double
+    description: Median E2 residual (starE2 - psfE2) for psf stars
+  - name: psfStarDeltaE1Scatter
+    datatype: double
+    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for psf stars
+  - name: psfStarDeltaE2Scatter
+    datatype: double
+    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for psf stars
+  - name: psfStarDeltaSizeMedian
+    datatype: double
+    description: Median size residual (starSize - psfSize) for psf stars (pixel)
+  - name: psfStarDeltaSizeScatter
+    datatype: double
+    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars
+      (pixel)
+  - name: psfStarScaledDeltaSizeScatter
+    datatype: double
+    description: Scatter (via MAD) of size residual scaled by median size squared
+  - name: psfTraceRadiusDelta
+    datatype: double
+    description: Delta (max - min) of model psf trace radius values evaluated on a
+      grid of unmasked pixels (pixel)
+  - name: maxDistToNearestPsf
+    datatype: double
+    description: Maximum distance of an unmasked pixel to its nearest model psf star
+      (pixel)
+- name: ExposureEFD
+  columns:
+  - name: ATAOS_focusOffsetSummary_total
+    datatype: double
+    description: ''
+  - name: ATAOS_focusOffsetSummary_userApplied
+    datatype: double
+    description: ''
+  - name: ATAOS_focusOffsetSummary_filter
+    datatype: double
+    description: ''
+  - name: ATAOS_focusOffsetSummary_disperser
+    datatype: double
+    description: ''
+  - name: ATAOS_focusOffsetSummary_wavelength
+    datatype: double
+    description: ''
+  - name: ATDome_vignetted
+    datatype: boolean
+    description: Is any part of the camera field of view blocked by dome components?
+  - name: ATMCS_measuredTorque_elevationMax
+    datatype: double
+    description: Maximum torque applied by the elevation motor during the exposure
+  - name: ATMCS_measuredTorque_azimuth1Max
+    datatype: double
+    description: ''
+  - name: ATMCS_measuredTorque_azimuth2Max
+    datatype: double
+    description: ''
+  - name: ATMCS_measuredTorque_nasmyth1Max
+    datatype: double
+    description: ''
+  - name: ATMCS_measuredTorque_nasmyth2Max
+    datatype: double
+    description: ''
+  - name: ATMCS_measuredTorque_m3Max
+    datatype: double
+    description: ''
+  - name: ATPtg_warning
+    datatype: boolean
+    description: Were any pointing system warnings triggered during the exposure?
+  - name: MTAOS_cameraHexapodCorrection_x
+    datatype: double
+    description: ''
+  - name: MTAOS_cameraHexapodCorrection_y
+    datatype: double
+    description: ''
+  - name: MTAOS_cameraHexapodCorrection_z
+    datatype: double
+    description: ''
+  - name: MTAOS_cameraHexapodCorrection_u
+    datatype: double
+    description: ''
+  - name: MTAOS_cameraHexapodCorrection_v
+    datatype: double
+    description: ''
+  - name: MTAOS_cameraHexapodCorrection_w
+    datatype: double
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes(4-22)
+    datatype: double(19)
+    description: ''
+  - name: DIMM_measurement_fwhm
+    datatype: double
+    description: Combined full width half maximum for the period of the exposure
+  - name: ESS_pressure
+    datatype: double
+    description: Average pressure for the period of the exposure
+  - name: ESS_relativeHumidity
+    datatype: double
+    description: Average relative humidity for the period of the exposure
+  - name: ESS_temperature
+    datatype: double
+    description: Average temperature for the period of the exposure
+  - name: WeatherStation_temperature
+    datatype: double
+    description: Average air temperature for the period of the exposure
+  - name: WeatherStation_pressure
+    datatype: double
+    description: Average pressure for the period of the exposure
+  - name: WeatherStation_relativeHumidity
+    datatype: double
+    description: Average relative humidity for the period of the exposure
+  - name: WeatherStation_windDirection
+    datatype: double
+    description: Vector average of wind direction for the period of the exposure
+  - name: WeatherStation_windSpeed
+    datatype: double
+    description: Average of wind speed for the period of the exposure
+  - name: Camera_alertRaised
+    datatype: boolean
+    description: Did any camera subsystem raise an alert?
+  - name: Camera_rebTotalPower
+    datatype: double
+    description: Wattage
+- name: ExposureCcdEFD
+  columns:
+  - name: Camera_gDV
+    datatype: double
+    description: Voltage
+  - name: Camera_oDI
+    datatype: double
+    description: Current in mA
+  - name: Camera_oDV
+    datatype: double
+    description: Voltage
+  - name: Camera_oGV
+    datatype: double
+    description: Voltage
+  - name: Camera_rDV
+    datatype: double
+    description: Voltage
+  - name: Camera_temp
+    datatype: double
+    description: Temperature in Celsius
+- name: ExposureRebEFD
+  columns:
+  - name: Camera_anaI
+    datatype: double
+    description: Current in mA
+  - name: Camera_anaV
+    datatype: double
+    description: Voltage
+  - name: Camera_aspiclTemp0
+    datatype: double
+    description: Temperature in Celsius
+  - name: Camera_aspicuTemp0
+    datatype: double
+    description: Temperature in Celsius
+  - name: Camera_clkHI
+    datatype: double
+    description: Current in mA
+  - name: Camera_clkHV
+    datatype: double
+    description: Voltage
+  - name: Camera_clkLV
+    datatype: double
+    description: Voltage
+  - name: Camera_digI
+    datatype: double
+    description: Current in mA
+  - name: Camera_digV
+    datatype: double
+    description: Voltage
