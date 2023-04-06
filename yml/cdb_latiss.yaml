@@ -1,0 +1,361 @@
+---
+name: cdb_latiss
+"@id": "#cdb_latiss"
+description: Consolidated Database for LATISS
+version:
+  current: "1.0.0"
+tables:
+- name: exposure
+  "@id": "#exposure"
+  primaryKey:
+  - "#exposure.day_obs"
+  - "#exposure.seq_num"
+  constraints:
+  - name: un_exposure_id
+    "@id": "#exposure.un_exposure_id"
+    "@type": Unique
+    description: Ensure exposure_id is unique.
+    columns:
+    - "#exposure.exposure_id"
+  columns:
+  - name: exposure_id
+    "@id": "#exposure.exposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: exposure_name
+    "@id": "#exposure.exposure_name"
+    datatype: string
+    length: 20
+    nullable: false
+    description: Official name of the exposure.
+  - name: controller
+    "@id": "#exposure.controller"
+    datatype: string
+    length: 1
+    nullable: false
+    description: The abbreviation of the controller used for the observation (O, C).
+  - name: day_obs
+    "@id": "#exposure.day_obs"
+    datatype: long
+    nullable: false
+    description: Day of observation.
+  - name: seq_num
+    "@id": "#exposure.seq_num"
+    datatype: long
+    nullable: false
+    description: Sequence number.
+  - name: physical_filter
+    "@id": "#exposure.physical_filter"
+    datatype: text
+    description: ID of physical filter, the filter associated with a particular instrument.
+  - name: band
+    "@id": "#exposure.band"
+    datatype: text
+    description: Name of the band used to take the exposure where this source was.
+      measured. Abstract filter that is not associated with a particular instrument.
+  - name: s_ra
+    "@id": "#exposure.s_ra"
+    datatype: double
+    description: Central Spatial Position in ICRS; Right ascension of targeted focal plane center.
+    tap:std: 1
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    ivoa:unit: deg
+  - name: s_dec
+    "@id": "#exposure.s_dec"
+    datatype: double
+    description: Central Spatial Position in ICRS; Declination of targeted focal plane center.
+    tap:std: 1
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    ivoa:unit: deg
+  - name: sky_rotation
+    "@id": "#exposure.sky_rotation"
+    datatype: double
+    description: Targeted sky rotation angle.
+    ivoa:ucd: pos.posAng
+    ivoa:unit: deg
+  - name: azimuth_start
+    "@id": "#exposure.azimuth_start"
+    datatype: double
+    description: Azimuth of focal plane center at the start of the exposure.
+    ivoa:ucd: pos.az.azi
+    ivoa:unit: deg
+  - name: azimuth_end
+    "@id": "#exposure.azimuth_end"
+    datatype: double
+    description: Azimuth of focal plane center at the end of the exposure.
+    ivoa:ucd: pos.az.azi
+    ivoa:unit: deg
+  - name: azimuth
+    "@id": "#exposure.azimuth"
+    datatype: double
+    description: Azimuth of focal plane center at the middle of the exposure.
+    ivoa:ucd: pos.az.azi
+    ivoa:unit: deg
+  - name: altitude_start
+    "@id": "#exposure.altitude_start"
+    datatype: double
+    description: Altitude of focal plane center at the start of the exposure.
+    ivoa:ucd: pos.az.alt
+    ivoa:unit: deg
+  - name: altitude_end
+    "@id": "#exposure.altitude_end"
+    datatype: double
+    description: Altitude of focal plane center at the end of the exposure.
+    ivoa:ucd: pos.az.alt
+    ivoa:unit: deg
+  - name: altitude
+    "@id": "#exposure.altitude"
+    datatype: double
+    description: Altitude of focal plane center at the middle of the exposure.
+    ivoa:ucd: pos.az.alt
+    ivoa:unit: deg
+  - name: zenith_distance_start
+    "@id": "#exposure.zenith_distance_start"
+    datatype: double
+    description: Zenith distance at the start of the exposure.
+    ivoa:ucd: pos.az.zd
+    ivoa:unit: deg
+  - name: zenith_distance_end
+    "@id": "#exposure.zenith_distance_end"
+    datatype: double
+    description: Zenith distance at the end of the exposure.
+    ivoa:ucd: pos.az.zd
+    ivoa:unit: deg
+  - name: zenith_distance
+    "@id": "#exposure.zenith_distance"
+    datatype: double
+    description: Zenith distance at the middle of the exposure.
+    ivoa:ucd: pos.az.zd
+    ivoa:unit: deg
+  - name: airmass
+    "@id": "#exposure.airmass"
+    datatype: double
+    description: Airmass of the observed line of sight at the middle of the exposure.
+    ivoa:ucd: obs.airMass
+  - name: exp_midpt
+    "@id": "#exposure.exp_midpt"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: Midpoint time for exposure at the fiducial center of the focal plane.
+      array. TAI, accurate to 10ms.
+    ivoa:ucd: time.epoch
+  - name: exp_midpt_mjd
+    "@id": "#exposure.exp_midpt_mjd"
+    datatype: double
+    description: Midpoint time for exposure at the fiducial center of the focal plane.
+      array in MJD. TAI, accurate to 10ms.
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+  - name: obs_start
+    "@id": "#exposure.obs_start"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: Start time of the exposure at the fiducial center of the focal plane.
+      array, TAI, accurate to 10ms.
+    ivoa:ucd: time.start
+  - name: obs_start_mjd
+    "@id": "#exposure.obs_start_mjd"
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    ivoa:ucd: time.start
+    ivoa:unit: d
+  - name: obs_end
+    "@id": "#exposure.obs_end"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: End time of the exposure at the fiducial center of the focal plane.
+      array, TAI, accurate to 10ms.
+    ivoa:ucd: time.end
+  - name: obs_end_mjd
+    "@id": "#exposure.obs_end_mjd"
+    datatype: double
+    description: End of the exposure in MJD, TAI, accurate to 10ms.
+    ivoa:ucd: time.end
+    ivoa:unit: d
+  - name: exp_time
+    "@id": "#exposure.exp_time"
+    datatype: double
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+  - name: shut_time
+    "@id": "#exposure.shut_time"
+    datatype: double
+    description: Spatially-averaged shutter-open duration, accurate to 10ms.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+  - name: dark_time
+    "@id": "#exposure.dark_time"
+    datatype: double
+    description: Duration from last clear to readout, accurate to 10ms.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+  - name: group_id
+    "@id": "#exposure.group_id"
+    datatype: text
+    description: Identifier for the group that this exposure is part of.
+  - name: cur_index
+    "@id": "#exposure.cur_index"
+    datatype: int
+    description: Number (1-based) of the observation within its group.
+  - name: max_index
+    "@id": "#exposure.max_index"
+    datatype: int
+    description: Expected number of observations within the group.
+  - name: img_type
+    "@id": "#exposure.img_type"
+    datatype: text
+    description: Type of exposure taken.
+  - name: emulated
+    "@id": "#exposure.emulated"
+    datatype: boolean
+    description: True if the exposure was taken in emulation mode.
+  - name: science_program
+    "@id": "#exposure.science_program"
+    datatype: text
+    description: Science program.
+  - name: observation_reason
+    "@id": "#exposure.observation_reason"
+    datatype: text
+    description: Reason for the observation.
+  - name: target_name
+    "@id": "#exposure.target_name"
+    datatype: text
+    description: Target of the observation.
+  - name: shutter_open_begin
+    "@id": "#exposure.shutter_open_begin"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: Start of shutter opening.  TAI, accurate to 10ms.
+    ivoa:ucd: time.start
+  - name: shutter_open_end
+    "@id": "#exposure.shutter_open_end"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: End of shutter opening.  TAI, accurate to 10ms.
+    ivoa:ucd: time.end
+  - name: shutter_close_begin
+    "@id": "#exposure.shutter_close_begin"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: Start of shutter closing.  TAI, accurate to 10ms.
+    ivoa:ucd: time.start
+  - name: shutter_close_end
+    "@id": "#exposure.shutter_close_end"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: End of shutter opening.  TAI, accurate to 10ms.
+    ivoa:ucd: time.end
+  - name: air_temp
+    "@id": "#exposure.air_temp"
+    datatype: float
+    description: Outside air temperature in degC.
+    ivoa:ucd: phys.temperature
+  - name: pressure
+    "@id": "#exposure.pressure"
+    datatype: float
+    description: Outside air pressure.
+    ivoa:unit: Pa
+  - name: humidity
+    "@id": "#exposure.humidity"
+    datatype: float
+    description: Outside relative humidity.
+  - name: wind_speed
+    "@id": "#exposure.wind_speed"
+    datatype: float
+    description: Outside wind speed.
+    ivoa:unit: m/s
+  - name: wind_dir
+    "@id": "#exposure.wind_dir"
+    datatype: float
+    description: Wind direction.
+    ivoa:unit: deg
+  - name: dimm_seeing
+    "@id": "#exposure.dimm_seeing"
+    datatype: float
+    description: Seeing as measured by external DIMM (FWHM).
+    ivoa:unit: arcsec
+  - name: shut_lower
+    "@id": "#exposure.shut_lower"
+    datatype: float
+    description: Dome dropout door opening percentage.
+  - name: shut_upper
+    "@id": "#exposure.shut_upper"
+    datatype: float
+    description: Dome main door opening percentage.
+  - name: focus_z
+    "@id": "#exposure.focus_z"
+    datatype: float
+    description: Focus Z position.
+  - name: dome_azimuth
+    "@id": "#exposure.dome_azimuth"
+    datatype: float
+    description: Dome azimuth.
+  - name: simulated
+    "@id": "#exposure.simulated"
+    datatype: boolean
+    description: Were any control system components simulated?
+- name: exposure_flexdata
+  "@id": "#exposure_flexdata"
+  primaryKey:
+  - "#exposure_flexdata.obs_id"
+  - "#exposure_flexdata.key"
+  constraints:
+  - name: fk_obs_id
+    "@id": "#exposure_flexdata.fk_obs_id"
+    "@type": ForeignKey
+    description: Flex data obs_id must be an Exposure exposure_id.
+    columns: ["#exposure_flexdata.obs_id"]
+    referencedColumns: ["#exposure.exposure_id"]
+  - name: fk_key
+    "@id": "#exposure_flexdata.fk_key"
+    "@type": ForeignKey
+    description: Flex data key must be listed in the schema.
+    columns: ["#exposure_flexdata.key"]
+    referencedColumns: ["#exposure_flexdata_schema.key"]
+  columns:
+  - name: obs_id
+    "@id": "#exposure_flexdata.obs_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: key
+    "@id": "#exposure_flexdata.key"
+    datatype: text
+    nullable: false
+    description: Name of key.
+  - name: value
+    "@id": "#exposure_flexdata.value"
+    datatype: text
+    description: Content of value as a string.
+- name: exposure_flexdata_schema
+  "@id": "#exposure_flexdata_schema"
+  primaryKey:
+  - "#exposure_flexdata_schema.key"
+  columns:
+  - name: key
+    "@id": "#exposure_flexdata_schema.key"
+    datatype: text
+    nullable: false
+    description: Name of key.
+  - name: dtype
+    "@id": "#exposure_flexdata_schema.dtype"
+    datatype: text
+    nullable: false
+    description: Name of the data type of the value, one of bool, int, float, str.
+  - name: doc
+    "@id": "#exposure_flexdata_schema.doc"
+    datatype: text
+    nullable: false
+    description: Documentation string.
+  - name: unit
+    "@id": "#exposure_flexdata_schema.unit"
+    datatype: text
+    description: Unit for the value. Should be from the IVOA (https://www.ivoa.net/documents/VOUnits/) or astropy.
+  - name: ucd
+    "@id": "#exposure_flexdata_schema.ucd"
+    datatype: text
+    description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
