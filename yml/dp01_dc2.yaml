@@ -6,7 +6,7 @@ tables:
 - name: position
   '@id': '#position'
   description: Select astrometry-related parameters for objects detected in the coadded images, such as coordinates, footprints, patch/tract information, and deblending parameters. (29 columns)
-  tap:table_index: 2
+  tap:table_index: 3
   columns:
   - name: objectId
     '@id': '#position.objectId'
@@ -250,7 +250,7 @@ tables:
 - name: reference
   '@id': '#reference'
   description: Measurements for objects detected in the coadded images, including photometry, astrometry, shape, deblending, model fits, and related background and flag parameters. This table joined with the position table is very similar to the object table, but with additional columns. (236 columns)
-  tap:table_index: 3
+  tap:table_index: 4
   columns:
   - name: objectId
     '@id': '#reference.objectId'
@@ -2200,7 +2200,7 @@ tables:
 - name: forced_photometry
   '@id': '#forced_photometry'
   description: Forced photometry measurements for objects detected in the coadded images, at the locations defined by the position table. (747 columns)
-  tap:table_index: 4
+  tap:table_index: 5
   columns:
   - name: objectId
     '@id': '#forced_photometry.objectId'
@@ -8233,7 +8233,7 @@ tables:
 - name: object
   '@id': '#object'
   description: The object table from the DESC DC2 simulated sky survey as described in arXiv:2101.04855. Includes astrometric and photometric parameters for objects detected in coadded images. (137 columns)
-  tap:table_index: 0
+  tap:table_index: 1
   columns:
   - name: objectId
     '@id': '#object.objectId'
@@ -9324,7 +9324,7 @@ tables:
 - name: truth_match
   '@id': '#truth_match'
   description: The truth-match table for the DESC DC2's object table as described in arXiv:2101.04855. Includes the noiseless astrometric and photometric parameters and the best matches to the object table. (30 columns)
-  tap:table_index: 1
+  tap:table_index: 2
   columns:
   - name: id
     '@id': '#truth_match.id'
