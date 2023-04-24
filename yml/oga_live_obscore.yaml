@@ -1,12 +1,12 @@
 ---
 name: oga
 "@id": "#oga_obscore"
-description: ObsCore v1.1 attributes in live ObsTAP realization
+description: OGA-specific metadata tables
 tables:
-- name: ObsCore
+- name: oga.ObsCore
   "@id": "#ObsCore"
-  description: Observation metadata in the ObsTAP relational realization of
-    the IVOA ObsCore data model
+  description: OGA-specific Observation metadata in ObsTAP form for the live
+    content of the repository
   tap:table_index: 1
   columns:
   - name: dataproduct_type
@@ -33,18 +33,6 @@ tables:
     ivoa:unit:
     datatype: char
     votable:arraysize: 64
-  - name: obs_title
-    "@id": "ObsCore.obs_title"
-    description: Brief description of dataset in free format
-    nullable: true
-    ivoa:ucd: meta.title;obs
-    votable:utype: DataID.title
-    tap:std: 1
-    tap:principal: 1
-    tap:column_index: 225
-    ivoa:unit:
-    datatype: char
-    votable:arraysize: "*"
   - name: facility_name
     "@id": "ObsCore.facility_name"
     description: The name of the facility, telescope, or space craft used for the observation
@@ -372,17 +360,6 @@ tables:
     tap:std: 0
     tap:principal: 1
     tap:column_index: 110
-    ivoa:unit:
-    datatype: long
-  - name: lsst_ccdvisitid
-    "@id": "ObsCore.lsst_ccdvisitid"
-    description: Identifier for visit+CCD; useful in JOINs
-    nullable: true
-    ivoa:ucd: meta.id.part;obs
-    votable:utype:
-    tap:std: 0
-    tap:principal: 1
-    tap:column_index: 115
     ivoa:unit:
     datatype: long
   - name: lsst_tract
