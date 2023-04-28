@@ -677,3 +677,170 @@ tables:
     description: ''
     mysql:datatype: FLOAT
     fits:tunit: AU
+- name: MPCORB
+  "@id": "#MPCORB"
+  description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
+    O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
+  primaryKey: "#MPCORB.mpcDesignation"
+  mysql:engine: MyISAM
+  mysql:charset: utf8mb4
+  columns:
+  - name: mpcDesignation
+    "@id": "#MPCORB.mpcDesignation"
+    datatype: char
+    length: 8
+    description: 'MPCORB: Number or provisional designation (in packed form)'
+    mysql:datatype: VARCHAR(8)
+    ivoa:ucd: meta.id;src
+  - name: mpcNumber
+    "@id": "#MPCORB.mpcNumber"
+    datatype: int
+    description: MPC number (if the asteroid has been numbered; NULL otherwise). Provided
+      for convenience.
+    mysql:datatype: INTEGER
+  - name: ssObjectId
+    "@id": "#MPCORB.ssObjectId"
+    datatype: long
+    description: LSST unique identifier (if observed by LSST)
+    mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;src
+  - name: mpcH
+    "@id": "#MPCORB.mpcH"
+    datatype: float
+    description: 'MPCORB: Absolute magnitude, H'
+    mysql:datatype: FLOAT
+    fits:tunit: mag
+  - name: mpcG
+    "@id": "#MPCORB.mpcG"
+    datatype: float
+    description: 'MPCORB: Slope parameter, G'
+    mysql:datatype: FLOAT
+  - name: epoch
+    "@id": "#MPCORB.epoch"
+    datatype: double
+    description: 'MPCORB: Epoch (in MJD, .0 TT)'
+    mysql:datatype: DOUBLE
+    fits:tunit: MJD
+  - name: tperi
+    "@id": "#MPCORB.tperi"
+    datatype: double
+    description: 'MPCORB: MJD of pericentric passage'
+    mysql:datatype: DOUBLE
+    fits:tunit: days
+  - name: peri
+    "@id": "#MPCORB.peri"
+    datatype: double
+    description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees
+  - name: node
+    "@id": "#MPCORB.node"
+    datatype: double
+    description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees
+  - name: incl
+    "@id": "#MPCORB.incl"
+    datatype: double
+    description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees
+  - name: e
+    "@id": "#MPCORB.e"
+    datatype: double
+    description: 'MPCORB: Orbital eccentricity'
+    mysql:datatype: DOUBLE
+  - name: n
+    "@id": "#MPCORB.n"
+    datatype: double
+    description: 'MPCORB: Mean daily motion (degrees per day)'
+    mysql:datatype: DOUBLE
+    fits:tunit: degrees/day
+  - name: q
+    "@id": "#MPCORB.q"
+    datatype: double
+    description: 'MPCORB: Perihelion distance (AU)'
+    mysql:datatype: DOUBLE
+    fits:tunit: AU
+  - name: uncertaintyParameter
+    "@id": "#MPCORB.uncertaintyParameter"
+    datatype: char
+    length: 1
+    description: 'MPCORB: Uncertainty parameter, U'
+    mysql:datatype: VARCHAR(1)
+  - name: reference
+    "@id": "#MPCORB.reference"
+    datatype: char
+    length: 9
+    description: 'MPCORB: Reference'
+    mysql:datatype: VARCHAR(9)
+  - name: nobs
+    "@id": "#MPCORB.nobs"
+    datatype: int
+    description: 'MPCORB: Number of observations'
+    mysql:datatype: INTEGER
+  - name: nopp
+    "@id": "#MPCORB.nopp"
+    datatype: int
+    description: 'MPCORB: Number of oppositions'
+    mysql:datatype: INTEGER
+  - name: arc
+    "@id": "#MPCORB.arc"
+    datatype: float
+    description: 'MPCORB: Arc (days), for single-opposition objects'
+    mysql:datatype: FLOAT
+    fits:tunit: days
+  - name: arcStart
+    "@id": "#MPCORB.arcStart"
+    datatype: timestamp
+    description: 'MPCORB: Year of first observation (for multi-opposition objects)'
+    mysql:datatype: DATETIME
+  - name: arcEnd
+    "@id": "#MPCORB.arcEnd"
+    datatype: timestamp
+    description: 'MPCORB: Year of last observation (for multi-opposition objects)'
+    mysql:datatype: DATETIME
+  - name: rms
+    "@id": "#MPCORB.rms"
+    datatype: float
+    description: 'MPCORB: r.m.s residual (")'
+    mysql:datatype: FLOAT
+    fits:tunit: arcsec
+  - name: pertsShort
+    "@id": "#MPCORB.pertsShort"
+    datatype: char
+    length: 3
+    description: 'MPCORB: Coarse indicator of perturbers (blank if unperturbed one-opposition
+      object)'
+    mysql:datatype: VARCHAR(3)
+  - name: pertsLong
+    "@id": "#MPCORB.pertsLong"
+    datatype: char
+    length: 3
+    description: 'MPCORB: Precise indicator of perturbers (blank if unperturbed one-opposition
+      object)'
+    mysql:datatype: VARCHAR(3)
+  - name: computer
+    "@id": "#MPCORB.computer"
+    datatype: char
+    length: 10
+    description: 'MPCORB: Computer name'
+    mysql:datatype: VARCHAR(10)
+  - name: flags
+    "@id": "#MPCORB.flags"
+    datatype: int
+    description: 'MPCORB: 4-hexdigit flags. See https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
+      for details'
+    mysql:datatype: INTEGER
+  - name: fullDesignation
+    "@id": "#MPCORB.fullDesignation"
+    datatype: char
+    length: 26
+    description: 'MPCORB: Readable designation'
+    mysql:datatype: VARCHAR(26)
+  - name: lastIncludedObservation
+    "@id": "#MPCORB.lastIncludedObservation"
+    datatype: float
+    description: 'MPCORB: Date of last observation included in orbit solution'
+    mysql:datatype: FLOAT
+    fits:tunit: MJD
