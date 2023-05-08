@@ -569,8 +569,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on g-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: g_decl
-    "@id": "#Object.g_decl"
+  - name: g_dec
+    "@id": "#Object.g_dec"
     datatype: double
     description: Position in ra/dec. Measured on g-band.
     mysql:datatype: DOUBLE
@@ -1529,8 +1529,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on i-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: i_decl
-    "@id": "#Object.i_decl"
+  - name: i_dec
+    "@id": "#Object.i_dec"
     datatype: double
     description: Position in ra/dec. Measured on i-band.
     mysql:datatype: DOUBLE
@@ -2489,8 +2489,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on r-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: r_decl
-    "@id": "#Object.r_decl"
+  - name: r_dec
+    "@id": "#Object.r_dec"
     datatype: double
     description: Position in ra/dec. Measured on r-band.
     mysql:datatype: DOUBLE
@@ -3449,8 +3449,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on y-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: y_decl
-    "@id": "#Object.y_decl"
+  - name: y_dec
+    "@id": "#Object.y_dec"
     datatype: double
     description: Position in ra/dec. Measured on y-band.
     mysql:datatype: DOUBLE
@@ -4409,8 +4409,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on z-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: z_decl
-    "@id": "#Object.z_decl"
+  - name: z_dec
+    "@id": "#Object.z_dec"
     datatype: double
     description: Position in ra/dec. Measured on z-band.
     mysql:datatype: DOUBLE
@@ -5065,8 +5065,8 @@ tables:
     description: Position in ra/dec
     mysql:datatype: DOUBLE
     fits:tunit: deg
-  - name: decl
-    "@id": "#Source.decl"
+  - name: dec
+    "@id": "#Source.dec"
     datatype: double
     description: Position in ra/dec
     mysql:datatype: DOUBLE
@@ -5946,8 +5946,8 @@ tables:
     description: RA of focal plane center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-  - name: decl
-    '@id': '#Visit.decl'
+  - name: dec
+    '@id': '#Visit.dec'
     datatype: double
     description: Declination of focal plane center
     mysql:datatype: DOUBLE
@@ -6052,8 +6052,8 @@ tables:
     description: RA of Ccd center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-  - name: decl
-    '@id': '#CcdVisit.decl'
+  - name: dec
+    '@id': '#CcdVisit.dec'
     datatype: double
     description: Declination of Ccd center.
     mysql:datatype: DOUBLE
