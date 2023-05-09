@@ -574,8 +574,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on g-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: g_decl
-    "@id": "#Object.g_decl"
+  - name: g_dec
+    "@id": "#Object.g_dec"
     datatype: double
     description: Position in ra/dec. Measured on g-band.
     mysql:datatype: DOUBLE
@@ -1536,8 +1536,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on i-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: i_decl
-    "@id": "#Object.i_decl"
+  - name: i_dec
+    "@id": "#Object.i_dec"
     datatype: double
     description: Position in ra/dec. Measured on i-band.
     mysql:datatype: DOUBLE
@@ -2498,8 +2498,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on r-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: r_decl
-    "@id": "#Object.r_decl"
+  - name: r_dec
+    "@id": "#Object.r_dec"
     datatype: double
     description: Position in ra/dec. Measured on r-band.
     mysql:datatype: DOUBLE
@@ -3460,8 +3460,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on u-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: u_decl
-    "@id": "#Object.u_decl"
+  - name: u_dec
+    "@id": "#Object.u_dec"
     datatype: double
     description: Position in ra/dec. Measured on u-band.
     mysql:datatype: DOUBLE
@@ -4422,8 +4422,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on y-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: y_decl
-    "@id": "#Object.y_decl"
+  - name: y_dec
+    "@id": "#Object.y_dec"
     datatype: double
     description: Position in ra/dec. Measured on y-band.
     mysql:datatype: DOUBLE
@@ -5384,8 +5384,8 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on z-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-  - name: z_decl
-    "@id": "#Object.z_decl"
+  - name: z_dec
+    "@id": "#Object.z_dec"
     datatype: double
     description: Position in ra/dec. Measured on z-band.
     mysql:datatype: DOUBLE
@@ -6046,8 +6046,8 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: decl
-    "@id": "#Source.decl"
+  - name: dec
+    "@id": "#Source.dec"
     datatype: double
     description: Position in ra/dec
     mysql:datatype: DOUBLE
@@ -7145,683 +7145,683 @@ tables:
     "@id": "#DiaObject.ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Right Ascension coordinate of the position of the diaObject at time radecTai.
+    description: Right Ascension coordinate of the position of the diaObject at time radecEpoch.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra;meta.main
-  - name: decl
-    "@id": "#DiaObject.decl"
+  - name: dec
+    "@id": "#DiaObject.dec"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Declination coordinate of the position of the diaObject at time radecTai
+    description: Declination coordinate of the position of the diaObject at time radecEpoch.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec;meta.main
-  - name: radecTai
-    "@id": "#DiaObject.radecTai"
+  - name: radecEpoch
+    "@id": "#DiaObject.radecEpoch"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Time at which the object was at a position ra/decl.
+    description: Time at which the object was at a position ra/dec.
   - name: nDiaSources
     "@id": "#DiaObject.nDiaSources"
     datatype: long
     mysql:datatype: BIGINT
-    description: Number of diaSources associated with this diaObject
-  - name: gPSFluxChi2
-    "@id": "#DiaObject.gPSFluxChi2"
+    description: Number of diaSources associated with this diaObject.
+  - name: g_psfFluxChi2
+    "@id": "#DiaObject.g_psfFluxChi2"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Chi^2 statistic for the scatter of gPSFlux around gPSFluxMean
-  - name: gPSFluxErrMean
-    "@id": "#DiaObject.gPSFluxErrMean"
+    description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean
+  - name: g_psfFluxErrMean
+    "@id": "#DiaObject.g_psfFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Mean of the diaSource PSF flux errors
-  - name: gPSFluxLinearIntercept
-    "@id": "#DiaObject.gPSFluxLinearIntercept"
+  - name: g_psfFluxLinearIntercept
+    "@id": "#DiaObject.g_psfFluxLinearIntercept"
     datatype: double
     mysql:datatype: DOUBLE
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
-  - name: gPSFluxLinearSlope
-    "@id": "#DiaObject.gPSFluxLinearSlope"
+  - name: g_psfFluxLinearSlope
+    "@id": "#DiaObject.g_psfFluxLinearSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Slope of a linear model fit to diaSource PSF flux vs time
-  - name: gPSFluxMAD
-    "@id": "#DiaObject.gPSFluxMAD"
+  - name: g_psfFluxMAD
+    "@id": "#DiaObject.g_psfFluxMAD"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
-  - name: gPSFluxMax
-    "@id": "#DiaObject.gPSFluxMax"
+  - name: g_psfFluxMax
+    "@id": "#DiaObject.g_psfFluxMax"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum diaSource PSF flux
-  - name: gPSFluxMaxSlope
-    "@id": "#DiaObject.gPSFluxMaxSlope"
+  - name: g_psfFluxMaxSlope
+    "@id": "#DiaObject.g_psfFluxMaxSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum ratio of time ordered deltaFlux / deltaTime
-  - name: gPSFluxMean
-    "@id": "#DiaObject.gPSFluxMean"
+  - name: g_psfFluxMean
+    "@id": "#DiaObject.g_psfFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of diaSource PSF flux
-  - name: gPSFluxMeanErr
-    "@id": "#DiaObject.gPSFluxMeanErr"
+  - name: g_psfFluxMeanErr
+    "@id": "#DiaObject.g_psfFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard error on the weighted mean of diaSource PSF flux
-  - name: gPSFluxMin
-    "@id": "#DiaObject.gPSFluxMin"
+  - name: g_psfFluxMin
+    "@id": "#DiaObject.g_psfFluxMin"
     datatype: double
     mysql:datatype: DOUBLE
     description: Minimum diaSource PSF flux
-  - name: gPSFluxNdata
-    "@id": "#DiaObject.gPSFluxNdata"
+  - name: g_psfFluxNdata
+    "@id": "#DiaObject.g_psfFluxNdata"
     datatype: double
     mysql:datatype: DOUBLE
-    description: The number of data points used to compute gPSFluxChi2
-  - name: gPSFluxPercentile05
-    "@id": "#DiaObject.gPSFluxPercentile05"
+    description: The number of data points used to compute g_psfFluxChi2
+  - name: g_psfFluxPercentile05
+    "@id": "#DiaObject.g_psfFluxPercentile05"
     datatype: double
     mysql:datatype: DOUBLE
     description: 5th percentile diaSource PSF flux
-  - name: gPSFluxPercentile25
-    "@id": "#DiaObject.gPSFluxPercentile25"
+  - name: g_psfFluxPercentile25
+    "@id": "#DiaObject.g_psfFluxPercentile25"
     datatype: double
     mysql:datatype: DOUBLE
     description: 10th percentile diaSource PSF flux
-  - name: gPSFluxPercentile50
-    "@id": "#DiaObject.gPSFluxPercentile50"
+  - name: g_psfFluxPercentile50
+    "@id": "#DiaObject.g_psfFluxPercentile50"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median diaSource PSF flux
-  - name: gPSFluxPercentile75
-    "@id": "#DiaObject.gPSFluxPercentile75"
+  - name: g_psfFluxPercentile75
+    "@id": "#DiaObject.g_psfFluxPercentile75"
     datatype: double
     mysql:datatype: DOUBLE
     description: 75th percentile diaSource PSF flux
-  - name: gPSFluxPercentile95
-    "@id": "#DiaObject.gPSFluxPercentile95"
+  - name: g_psfFluxPercentile95
+    "@id": "#DiaObject.g_psfFluxPercentile95"
     datatype: double
     mysql:datatype: DOUBLE
     description: 95th percentile diaSource PSF flux
-  - name: gPSFluxSigma
-    "@id": "#DiaObject.gPSFluxSigma"
+  - name: g_psfFluxSigma
+    "@id": "#DiaObject.g_psfFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard deviation of the distribution of gPSFlux
-  - name: gPSFluxSkew
-    "@id": "#DiaObject.gPSFluxSkew"
+    description: Standard deviation of the distribution of g_psfFlux
+  - name: g_psfFluxSkew
+    "@id": "#DiaObject.g_psfFluxSkew"
     datatype: double
     mysql:datatype: DOUBLE
     description: Skew of diaSource PSF flux
-  - name: gPSFluxStetsonJ
-    "@id": "#DiaObject.gPSFluxStetsonJ"
+  - name: g_psfFluxStetsonJ
+    "@id": "#DiaObject.g_psfFluxStetsonJ"
     datatype: double
     mysql:datatype: DOUBLE
     description: StetsonJ statistic of diaSource PSF flux
-  - name: gTOTFluxMean
-    "@id": "#DiaObject.gTOTFluxMean"
+  - name: g_scienceFluxMean
+    "@id": "#DiaObject.g_scienceFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: gTOTFluxMeanErr
-    "@id": "#DiaObject.gTOTFluxMeanErr"
+  - name: g_scienceFluxMeanErr
+    "@id": "#DiaObject.g_scienceFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard error on gTOTFluxMean
-  - name: gTOTFluxSigma
-    "@id": "#DiaObject.gTOTFluxSigma"
+    description: Standard error on g_scienceFluxMean
+  - name: g_scienceFluxSigma
+    "@id": "#DiaObject.g_scienceFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: iPSFluxChi2
-    "@id": "#DiaObject.iPSFluxChi2"
+  - name: i_psfFluxChi2
+    "@id": "#DiaObject.i_psfFluxChi2"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Chi^2 statistic for the scatter of iPSFlux around iPSFluxMean
-  - name: iPSFluxErrMean
-    "@id": "#DiaObject.iPSFluxErrMean"
+    description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean
+  - name: i_psfFluxErrMean
+    "@id": "#DiaObject.i_psfFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Mean of the diaSource PSF flux errors
-  - name: iPSFluxLinearIntercept
-    "@id": "#DiaObject.iPSFluxLinearIntercept"
+  - name: i_psfFluxLinearIntercept
+    "@id": "#DiaObject.i_psfFluxLinearIntercept"
     datatype: double
     mysql:datatype: DOUBLE
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
-  - name: iPSFluxLinearSlope
-    "@id": "#DiaObject.iPSFluxLinearSlope"
+  - name: i_psfFluxLinearSlope
+    "@id": "#DiaObject.i_psfFluxLinearSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Slope of a linear model fit to diaSource PSF flux vs time
-  - name: iPSFluxMAD
-    "@id": "#DiaObject.iPSFluxMAD"
+  - name: i_psfFluxMAD
+    "@id": "#DiaObject.i_psfFluxMAD"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
-  - name: iPSFluxMax
-    "@id": "#DiaObject.iPSFluxMax"
+  - name: i_psfFluxMax
+    "@id": "#DiaObject.i_psfFluxMax"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum diaSource PSF flux
-  - name: iPSFluxMaxSlope
-    "@id": "#DiaObject.iPSFluxMaxSlope"
+  - name: i_psfFluxMaxSlope
+    "@id": "#DiaObject.i_psfFluxMaxSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum ratio of time ordered deltaFlux / deltaTime
-  - name: iPSFluxMean
-    "@id": "#DiaObject.iPSFluxMean"
+  - name: i_psfFluxMean
+    "@id": "#DiaObject.i_psfFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of diaSource PSF flux
-  - name: iPSFluxMeanErr
-    "@id": "#DiaObject.iPSFluxMeanErr"
+  - name: i_psfFluxMeanErr
+    "@id": "#DiaObject.i_psfFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard error on the weighted mean of diaSource PSF flux
-  - name: iPSFluxMin
-    "@id": "#DiaObject.iPSFluxMin"
+  - name: i_psfFluxMin
+    "@id": "#DiaObject.i_psfFluxMin"
     datatype: double
     mysql:datatype: DOUBLE
     description: Minimum diaSource PSF flux
-  - name: iPSFluxNdata
-    "@id": "#DiaObject.iPSFluxNdata"
+  - name: i_psfFluxNdata
+    "@id": "#DiaObject.i_psfFluxNdata"
     datatype: double
     mysql:datatype: DOUBLE
-    description: The number of data points used to compute iPSFluxChi2
-  - name: iPSFluxPercentile05
-    "@id": "#DiaObject.iPSFluxPercentile05"
+    description: The number of data points used to compute i_psfFluxChi2
+  - name: i_psfFluxPercentile05
+    "@id": "#DiaObject.i_psfFluxPercentile05"
     datatype: double
     mysql:datatype: DOUBLE
     description: 5th percentile diaSource PSF flux
-  - name: iPSFluxPercentile25
-    "@id": "#DiaObject.iPSFluxPercentile25"
+  - name: i_psfFluxPercentile25
+    "@id": "#DiaObject.i_psfFluxPercentile25"
     datatype: double
     mysql:datatype: DOUBLE
     description: 10th percentile diaSource PSF flux
-  - name: iPSFluxPercentile50
-    "@id": "#DiaObject.iPSFluxPercentile50"
+  - name: i_psfFluxPercentile50
+    "@id": "#DiaObject.i_psfFluxPercentile50"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median diaSource PSF flux
-  - name: iPSFluxPercentile75
-    "@id": "#DiaObject.iPSFluxPercentile75"
+  - name: i_psfFluxPercentile75
+    "@id": "#DiaObject.i_psfFluxPercentile75"
     datatype: double
     mysql:datatype: DOUBLE
     description: 75th percentile diaSource PSF flux
-  - name: iPSFluxPercentile95
-    "@id": "#DiaObject.iPSFluxPercentile95"
+  - name: i_psfFluxPercentile95
+    "@id": "#DiaObject.i_psfFluxPercentile95"
     datatype: double
     mysql:datatype: DOUBLE
     description: 95th percentile diaSource PSF flux
-  - name: iPSFluxSigma
-    "@id": "#DiaObject.iPSFluxSigma"
+  - name: i_psfFluxSigma
+    "@id": "#DiaObject.i_psfFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard deviation of the distribution of iPSFlux
-  - name: iPSFluxSkew
-    "@id": "#DiaObject.iPSFluxSkew"
+    description: Standard deviation of the distribution of i_psfFlux
+  - name: i_psfFluxSkew
+    "@id": "#DiaObject.i_psfFluxSkew"
     datatype: double
     mysql:datatype: DOUBLE
     description: Skew of diaSource PSF flux
-  - name: iPSFluxStetsonJ
-    "@id": "#DiaObject.iPSFluxStetsonJ"
+  - name: i_psfFluxStetsonJ
+    "@id": "#DiaObject.i_psfFluxStetsonJ"
     datatype: double
     mysql:datatype: DOUBLE
     description: StetsonJ statistic of diaSource PSF flux
-  - name: iTOTFluxMean
-    "@id": "#DiaObject.iTOTFluxMean"
+  - name: i_scienceFluxMean
+    "@id": "#DiaObject.i_scienceFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: iTOTFluxMeanErr
-    "@id": "#DiaObject.iTOTFluxMeanErr"
+  - name: i_scienceFluxMeanErr
+    "@id": "#DiaObject.i_scienceFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard error on iTOTFluxMean
-  - name: iTOTFluxSigma
-    "@id": "#DiaObject.iTOTFluxSigma"
+    description: Standard error on i_scienceFluxMean
+  - name: i_scienceFluxSigma
+    "@id": "#DiaObject.i_scienceFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: rPSFluxChi2
-    "@id": "#DiaObject.rPSFluxChi2"
+  - name: r_psfFluxChi2
+    "@id": "#DiaObject.r_psfFluxChi2"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Chi^2 statistic for the scatter of rPSFlux around rPSFluxMean
-  - name: rPSFluxErrMean
-    "@id": "#DiaObject.rPSFluxErrMean"
+    description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean
+  - name: r_psfFluxErrMean
+    "@id": "#DiaObject.r_psfFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Mean of the diaSource PSF flux errors
-  - name: rPSFluxLinearIntercept
-    "@id": "#DiaObject.rPSFluxLinearIntercept"
+  - name: r_psfFluxLinearIntercept
+    "@id": "#DiaObject.r_psfFluxLinearIntercept"
     datatype: double
     mysql:datatype: DOUBLE
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
-  - name: rPSFluxLinearSlope
-    "@id": "#DiaObject.rPSFluxLinearSlope"
+  - name: r_psfFluxLinearSlope
+    "@id": "#DiaObject.r_psfFluxLinearSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Slope of a linear model fit to diaSource PSF flux vs time
-  - name: rPSFluxMAD
-    "@id": "#DiaObject.rPSFluxMAD"
+  - name: r_psfFluxMAD
+    "@id": "#DiaObject.r_psfFluxMAD"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
-  - name: rPSFluxMax
-    "@id": "#DiaObject.rPSFluxMax"
+  - name: r_psfFluxMax
+    "@id": "#DiaObject.r_psfFluxMax"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum diaSource PSF flux
-  - name: rPSFluxMaxSlope
-    "@id": "#DiaObject.rPSFluxMaxSlope"
+  - name: r_psfFluxMaxSlope
+    "@id": "#DiaObject.r_psfFluxMaxSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum ratio of time ordered deltaFlux / deltaTime
-  - name: rPSFluxMean
-    "@id": "#DiaObject.rPSFluxMean"
+  - name: r_psfFluxMean
+    "@id": "#DiaObject.r_psfFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of diaSource PSF flux
-  - name: rPSFluxMeanErr
-    "@id": "#DiaObject.rPSFluxMeanErr"
+  - name: r_psfFluxMeanErr
+    "@id": "#DiaObject.r_psfFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard error on the weighted mean of diaSource PSF flux
-  - name: rPSFluxMin
-    "@id": "#DiaObject.rPSFluxMin"
+  - name: r_psfFluxMin
+    "@id": "#DiaObject.r_psfFluxMin"
     datatype: double
     mysql:datatype: DOUBLE
     description: Minimum diaSource PSF flux
-  - name: rPSFluxNdata
-    "@id": "#DiaObject.rPSFluxNdata"
+  - name: r_psfFluxNdata
+    "@id": "#DiaObject.r_psfFluxNdata"
     datatype: double
     mysql:datatype: DOUBLE
-    description: The number of data points used to compute rPSFluxChi2
-  - name: rPSFluxPercentile05
-    "@id": "#DiaObject.rPSFluxPercentile05"
+    description: The number of data points used to compute r_psfFluxChi2
+  - name: r_psfFluxPercentile05
+    "@id": "#DiaObject.r_psfFluxPercentile05"
     datatype: double
     mysql:datatype: DOUBLE
     description: 5th percentile diaSource PSF flux
-  - name: rPSFluxPercentile25
-    "@id": "#DiaObject.rPSFluxPercentile25"
+  - name: r_psfFluxPercentile25
+    "@id": "#DiaObject.r_psfFluxPercentile25"
     datatype: double
     mysql:datatype: DOUBLE
     description: 10th percentile diaSource PSF flux
-  - name: rPSFluxPercentile50
-    "@id": "#DiaObject.rPSFluxPercentile50"
+  - name: r_psfFluxPercentile50
+    "@id": "#DiaObject.r_psfFluxPercentile50"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median diaSource PSF flux
-  - name: rPSFluxPercentile75
-    "@id": "#DiaObject.rPSFluxPercentile75"
+  - name: r_psfFluxPercentile75
+    "@id": "#DiaObject.r_psfFluxPercentile75"
     datatype: double
     mysql:datatype: DOUBLE
     description: 75th percentile diaSource PSF flux
-  - name: rPSFluxPercentile95
-    "@id": "#DiaObject.rPSFluxPercentile95"
+  - name: r_psfFluxPercentile95
+    "@id": "#DiaObject.r_psfFluxPercentile95"
     datatype: double
     mysql:datatype: DOUBLE
     description: 95th percentile diaSource PSF flux
-  - name: rPSFluxSigma
-    "@id": "#DiaObject.rPSFluxSigma"
+  - name: r_psfFluxSigma
+    "@id": "#DiaObject.r_psfFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard deviation of the distribution of rPSFlux
-  - name: rPSFluxSkew
-    "@id": "#DiaObject.rPSFluxSkew"
+    description: Standard deviation of the distribution of r_psfFlux
+  - name: r_psfFluxSkew
+    "@id": "#DiaObject.r_psfFluxSkew"
     datatype: double
     mysql:datatype: DOUBLE
     description: Skew of diaSource PSF flux
-  - name: rPSFluxStetsonJ
-    "@id": "#DiaObject.rPSFluxStetsonJ"
+  - name: r_psfFluxStetsonJ
+    "@id": "#DiaObject.r_psfFluxStetsonJ"
     datatype: double
     mysql:datatype: DOUBLE
     description: StetsonJ statistic of diaSource PSF flux
-  - name: rTOTFluxMean
-    "@id": "#DiaObject.rTOTFluxMean"
+  - name: r_scienceFluxMean
+    "@id": "#DiaObject.r_scienceFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: rTOTFluxMeanErr
-    "@id": "#DiaObject.rTOTFluxMeanErr"
+  - name: r_scienceFluxMeanErr
+    "@id": "#DiaObject.r_scienceFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard error on rTOTFluxMean
-  - name: rTOTFluxSigma
-    "@id": "#DiaObject.rTOTFluxSigma"
+    description: Standard error on r_scienceFluxMean
+  - name: r_scienceFluxSigma
+    "@id": "#DiaObject.r_scienceFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: uPSFluxChi2
-    "@id": "#DiaObject.uPSFluxChi2"
+  - name: u_psfFluxChi2
+    "@id": "#DiaObject.u_psfFluxChi2"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Chi^2 statistic for the scatter of uPSFlux around uPSFluxMean
-  - name: uPSFluxErrMean
-    "@id": "#DiaObject.uPSFluxErrMean"
+    description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean
+  - name: u_psfFluxErrMean
+    "@id": "#DiaObject.u_psfFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Mean of the diaSource PSF flux errors
-  - name: uPSFluxLinearIntercept
-    "@id": "#DiaObject.uPSFluxLinearIntercept"
+  - name: u_psfFluxLinearIntercept
+    "@id": "#DiaObject.u_psfFluxLinearIntercept"
     datatype: double
     mysql:datatype: DOUBLE
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
-  - name: uPSFluxLinearSlope
-    "@id": "#DiaObject.uPSFluxLinearSlope"
+  - name: u_psfFluxLinearSlope
+    "@id": "#DiaObject.u_psfFluxLinearSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Slope of a linear model fit to diaSource PSF flux vs time
-  - name: uPSFluxMAD
-    "@id": "#DiaObject.uPSFluxMAD"
+  - name: u_psfFluxMAD
+    "@id": "#DiaObject.u_psfFluxMAD"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
-  - name: uPSFluxMax
-    "@id": "#DiaObject.uPSFluxMax"
+  - name: u_psfFluxMax
+    "@id": "#DiaObject.u_psfFluxMax"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum diaSource PSF flux
-  - name: uPSFluxMaxSlope
-    "@id": "#DiaObject.uPSFluxMaxSlope"
+  - name: u_psfFluxMaxSlope
+    "@id": "#DiaObject.u_psfFluxMaxSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum ratio of time ordered deltaFlux / deltaTime
-  - name: uPSFluxMean
-    "@id": "#DiaObject.uPSFluxMean"
+  - name: u_psfFluxMean
+    "@id": "#DiaObject.u_psfFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of diaSource PSF flux
-  - name: uPSFluxMeanErr
-    "@id": "#DiaObject.uPSFluxMeanErr"
+  - name: u_psfFluxMeanErr
+    "@id": "#DiaObject.u_psfFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard error on the weighted mean of diaSource PSF flux
-  - name: uPSFluxMin
-    "@id": "#DiaObject.uPSFluxMin"
+  - name: u_psfFluxMin
+    "@id": "#DiaObject.u_psfFluxMin"
     datatype: double
     mysql:datatype: DOUBLE
     description: Minimum diaSource PSF flux
-  - name: uPSFluxNdata
-    "@id": "#DiaObject.uPSFluxNdata"
+  - name: u_psfFluxNdata
+    "@id": "#DiaObject.u_psfFluxNdata"
     datatype: double
     mysql:datatype: DOUBLE
-    description: The number of data points used to compute uPSFluxChi2
-  - name: uPSFluxPercentile05
-    "@id": "#DiaObject.uPSFluxPercentile05"
+    description: The number of data points used to compute u_psfFluxChi2
+  - name: u_psfFluxPercentile05
+    "@id": "#DiaObject.u_psfFluxPercentile05"
     datatype: double
     mysql:datatype: DOUBLE
     description: 5th percentile diaSource PSF flux
-  - name: uPSFluxPercentile25
-    "@id": "#DiaObject.uPSFluxPercentile25"
+  - name: u_psfFluxPercentile25
+    "@id": "#DiaObject.u_psfFluxPercentile25"
     datatype: double
     mysql:datatype: DOUBLE
     description: 10th percentile diaSource PSF flux
-  - name: uPSFluxPercentile50
-    "@id": "#DiaObject.uPSFluxPercentile50"
+  - name: u_psfFluxPercentile50
+    "@id": "#DiaObject.u_psfFluxPercentile50"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median diaSource PSF flux
-  - name: uPSFluxPercentile75
-    "@id": "#DiaObject.uPSFluxPercentile75"
+  - name: u_psfFluxPercentile75
+    "@id": "#DiaObject.u_psfFluxPercentile75"
     datatype: double
     mysql:datatype: DOUBLE
     description: 75th percentile diaSource PSF flux
-  - name: uPSFluxPercentile95
-    "@id": "#DiaObject.uPSFluxPercentile95"
+  - name: u_psfFluxPercentile95
+    "@id": "#DiaObject.u_psfFluxPercentile95"
     datatype: double
     mysql:datatype: DOUBLE
     description: 95th percentile diaSource PSF flux
-  - name: uPSFluxSigma
-    "@id": "#DiaObject.uPSFluxSigma"
+  - name: u_psfFluxSigma
+    "@id": "#DiaObject.u_psfFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard deviation of the distribution of uPSFlux
-  - name: uPSFluxSkew
-    "@id": "#DiaObject.uPSFluxSkew"
+    description: Standard deviation of the distribution of u_psfFlux
+  - name: u_psfFluxSkew
+    "@id": "#DiaObject.u_psfFluxSkew"
     datatype: double
     mysql:datatype: DOUBLE
     description: Skew of diaSource PSF flux
-  - name: uPSFluxStetsonJ
-    "@id": "#DiaObject.uPSFluxStetsonJ"
+  - name: u_psfFluxStetsonJ
+    "@id": "#DiaObject.u_psfFluxStetsonJ"
     datatype: double
     mysql:datatype: DOUBLE
     description: StetsonJ statistic of diaSource PSF flux
-  - name: uTOTFluxMean
-    "@id": "#DiaObject.uTOTFluxMean"
+  - name: u_scienceFluxMean
+    "@id": "#DiaObject.u_scienceFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: uTOTFluxMeanErr
-    "@id": "#DiaObject.uTOTFluxMeanErr"
+  - name: u_scienceFluxMeanErr
+    "@id": "#DiaObject.u_scienceFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard error on uTOTFluxMean
-  - name: uTOTFluxSigma
-    "@id": "#DiaObject.uTOTFluxSigma"
+    description: Standard error on u_scienceFluxMean
+  - name: u_scienceFluxSigma
+    "@id": "#DiaObject.u_scienceFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: yPSFluxChi2
-    "@id": "#DiaObject.yPSFluxChi2"
+  - name: y_psfFluxChi2
+    "@id": "#DiaObject.y_psfFluxChi2"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Chi^2 statistic for the scatter of yPSFlux around yPSFluxMean
-  - name: yPSFluxErrMean
-    "@id": "#DiaObject.yPSFluxErrMean"
+    description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean
+  - name: y_psfFluxErrMean
+    "@id": "#DiaObject.y_psfFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Mean of the diaSource PSF flux errors
-  - name: yPSFluxLinearIntercept
-    "@id": "#DiaObject.yPSFluxLinearIntercept"
+  - name: y_psfFluxLinearIntercept
+    "@id": "#DiaObject.y_psfFluxLinearIntercept"
     datatype: double
     mysql:datatype: DOUBLE
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
-  - name: yPSFluxLinearSlope
-    "@id": "#DiaObject.yPSFluxLinearSlope"
+  - name: y_psfFluxLinearSlope
+    "@id": "#DiaObject.y_psfFluxLinearSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Slope of a linear model fit to diaSource PSF flux vs time
-  - name: yPSFluxMAD
-    "@id": "#DiaObject.yPSFluxMAD"
+  - name: y_psfFluxMAD
+    "@id": "#DiaObject.y_psfFluxMAD"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
-  - name: yPSFluxMax
-    "@id": "#DiaObject.yPSFluxMax"
+  - name: y_psfFluxMax
+    "@id": "#DiaObject.y_psfFluxMax"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum diaSource PSF flux
-  - name: yPSFluxMaxSlope
-    "@id": "#DiaObject.yPSFluxMaxSlope"
+  - name: y_psfFluxMaxSlope
+    "@id": "#DiaObject.y_psfFluxMaxSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum ratio of time ordered deltaFlux / deltaTime
-  - name: yPSFluxMean
-    "@id": "#DiaObject.yPSFluxMean"
+  - name: y_psfFluxMean
+    "@id": "#DiaObject.y_psfFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of diaSource PSF flux
-  - name: yPSFluxMeanErr
-    "@id": "#DiaObject.yPSFluxMeanErr"
+  - name: y_psfFluxMeanErr
+    "@id": "#DiaObject.y_psfFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard error on the weighted mean of diaSource PSF flux
-  - name: yPSFluxMin
-    "@id": "#DiaObject.yPSFluxMin"
+  - name: y_psfFluxMin
+    "@id": "#DiaObject.y_psfFluxMin"
     datatype: double
     mysql:datatype: DOUBLE
     description: Minimum diaSource PSF flux
-  - name: yPSFluxNdata
-    "@id": "#DiaObject.yPSFluxNdata"
+  - name: y_psfFluxNdata
+    "@id": "#DiaObject.y_psfFluxNdata"
     datatype: double
     mysql:datatype: DOUBLE
-    description: The number of data points used to compute yPSFluxChi2
-  - name: yPSFluxPercentile05
-    "@id": "#DiaObject.yPSFluxPercentile05"
+    description: The number of data points used to compute y_psfFluxChi2
+  - name: y_psfFluxPercentile05
+    "@id": "#DiaObject.y_psfFluxPercentile05"
     datatype: double
     mysql:datatype: DOUBLE
     description: 5th percentile diaSource PSF flux
-  - name: yPSFluxPercentile25
-    "@id": "#DiaObject.yPSFluxPercentile25"
+  - name: y_psfFluxPercentile25
+    "@id": "#DiaObject.y_psfFluxPercentile25"
     datatype: double
     mysql:datatype: DOUBLE
     description: 10th percentile diaSource PSF flux
-  - name: yPSFluxPercentile50
-    "@id": "#DiaObject.yPSFluxPercentile50"
+  - name: y_psfFluxPercentile50
+    "@id": "#DiaObject.y_psfFluxPercentile50"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median diaSource PSF flux
-  - name: yPSFluxPercentile75
-    "@id": "#DiaObject.yPSFluxPercentile75"
+  - name: y_psfFluxPercentile75
+    "@id": "#DiaObject.y_psfFluxPercentile75"
     datatype: double
     mysql:datatype: DOUBLE
     description: 75th percentile diaSource PSF flux
-  - name: yPSFluxPercentile95
-    "@id": "#DiaObject.yPSFluxPercentile95"
+  - name: y_psfFluxPercentile95
+    "@id": "#DiaObject.y_psfFluxPercentile95"
     datatype: double
     mysql:datatype: DOUBLE
     description: 95th percentile diaSource PSF flux
-  - name: yPSFluxSigma
-    "@id": "#DiaObject.yPSFluxSigma"
+  - name: y_psfFluxSigma
+    "@id": "#DiaObject.y_psfFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard deviation of the distribution of yPSFlux
-  - name: yPSFluxSkew
-    "@id": "#DiaObject.yPSFluxSkew"
+    description: Standard deviation of the distribution of y_psfFlux
+  - name: y_psfFluxSkew
+    "@id": "#DiaObject.y_psfFluxSkew"
     datatype: double
     mysql:datatype: DOUBLE
     description: Skew of diaSource PSF flux
-  - name: yPSFluxStetsonJ
-    "@id": "#DiaObject.yPSFluxStetsonJ"
+  - name: y_psfFluxStetsonJ
+    "@id": "#DiaObject.y_psfFluxStetsonJ"
     datatype: double
     mysql:datatype: DOUBLE
     description: StetsonJ statistic of diaSource PSF flux
-  - name: yTOTFluxMean
-    "@id": "#DiaObject.yTOTFluxMean"
+  - name: y_scienceFluxMean
+    "@id": "#DiaObject.y_scienceFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: yTOTFluxMeanErr
-    "@id": "#DiaObject.yTOTFluxMeanErr"
+  - name: y_scienceFluxMeanErr
+    "@id": "#DiaObject.y_scienceFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard error on yTOTFluxMean
-  - name: yTOTFluxSigma
-    "@id": "#DiaObject.yTOTFluxSigma"
+    description: Standard error on y_scienceFluxMean
+  - name: y_scienceFluxSigma
+    "@id": "#DiaObject.y_scienceFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: zPSFluxChi2
-    "@id": "#DiaObject.zPSFluxChi2"
+  - name: z_psfFluxChi2
+    "@id": "#DiaObject.z_psfFluxChi2"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Chi^2 statistic for the scatter of zPSFlux around zPSFluxMean
-  - name: zPSFluxErrMean
-    "@id": "#DiaObject.zPSFluxErrMean"
+    description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean
+  - name: z_psfFluxErrMean
+    "@id": "#DiaObject.z_psfFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Mean of the diaSource PSF flux errors
-  - name: zPSFluxLinearIntercept
-    "@id": "#DiaObject.zPSFluxLinearIntercept"
+  - name: z_psfFluxLinearIntercept
+    "@id": "#DiaObject.z_psfFluxLinearIntercept"
     datatype: double
     mysql:datatype: DOUBLE
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
-  - name: zPSFluxLinearSlope
-    "@id": "#DiaObject.zPSFluxLinearSlope"
+  - name: z_psfFluxLinearSlope
+    "@id": "#DiaObject.z_psfFluxLinearSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Slope of a linear model fit to diaSource PSF flux vs time
-  - name: zPSFluxMAD
-    "@id": "#DiaObject.zPSFluxMAD"
+  - name: z_psfFluxMAD
+    "@id": "#DiaObject.z_psfFluxMAD"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
-  - name: zPSFluxMax
-    "@id": "#DiaObject.zPSFluxMax"
+  - name: z_psfFluxMax
+    "@id": "#DiaObject.z_psfFluxMax"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum diaSource PSF flux
-  - name: zPSFluxMaxSlope
-    "@id": "#DiaObject.zPSFluxMaxSlope"
+  - name: z_psfFluxMaxSlope
+    "@id": "#DiaObject.z_psfFluxMaxSlope"
     datatype: double
     mysql:datatype: DOUBLE
     description: Maximum ratio of time ordered deltaFlux / deltaTime
-  - name: zPSFluxMean
-    "@id": "#DiaObject.zPSFluxMean"
+  - name: z_psfFluxMean
+    "@id": "#DiaObject.z_psfFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of diaSource PSF flux
-  - name: zPSFluxMeanErr
-    "@id": "#DiaObject.zPSFluxMeanErr"
+  - name: z_psfFluxMeanErr
+    "@id": "#DiaObject.z_psfFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard error on the weighted mean of diaSource PSF flux
-  - name: zPSFluxMin
-    "@id": "#DiaObject.zPSFluxMin"
+  - name: z_psfFluxMin
+    "@id": "#DiaObject.z_psfFluxMin"
     datatype: double
     mysql:datatype: DOUBLE
     description: Minimum diaSource PSF flux
-  - name: zPSFluxNdata
-    "@id": "#DiaObject.zPSFluxNdata"
+  - name: z_psfFluxNdata
+    "@id": "#DiaObject.z_psfFluxNdata"
     datatype: double
     mysql:datatype: DOUBLE
-    description: The number of data points used to compute zPSFluxChi2
-  - name: zPSFluxPercentile05
-    "@id": "#DiaObject.zPSFluxPercentile05"
+    description: The number of data points used to compute z_psfFluxChi2
+  - name: z_psfFluxPercentile05
+    "@id": "#DiaObject.z_psfFluxPercentile05"
     datatype: double
     mysql:datatype: DOUBLE
     description: 5th percentile diaSource PSF flux
-  - name: zPSFluxPercentile25
-    "@id": "#DiaObject.zPSFluxPercentile25"
+  - name: z_psfFluxPercentile25
+    "@id": "#DiaObject.z_psfFluxPercentile25"
     datatype: double
     mysql:datatype: DOUBLE
     description: 10th percentile diaSource PSF flux
-  - name: zPSFluxPercentile50
-    "@id": "#DiaObject.zPSFluxPercentile50"
+  - name: z_psfFluxPercentile50
+    "@id": "#DiaObject.z_psfFluxPercentile50"
     datatype: double
     mysql:datatype: DOUBLE
     description: Median diaSource PSF flux
-  - name: zPSFluxPercentile75
-    "@id": "#DiaObject.zPSFluxPercentile75"
+  - name: z_psfFluxPercentile75
+    "@id": "#DiaObject.z_psfFluxPercentile75"
     datatype: double
     mysql:datatype: DOUBLE
     description: 75th percentile diaSource PSF flux
-  - name: zPSFluxPercentile95
-    "@id": "#DiaObject.zPSFluxPercentile95"
+  - name: z_psfFluxPercentile95
+    "@id": "#DiaObject.z_psfFluxPercentile95"
     datatype: double
     mysql:datatype: DOUBLE
     description: 95th percentile diaSource PSF flux
-  - name: zPSFluxSigma
-    "@id": "#DiaObject.zPSFluxSigma"
+  - name: z_psfFluxSigma
+    "@id": "#DiaObject.z_psfFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard deviation of the distribution of zPSFlux
-  - name: zPSFluxSkew
-    "@id": "#DiaObject.zPSFluxSkew"
+    description: Standard deviation of the distribution of z_psfFlux
+  - name: z_psfFluxSkew
+    "@id": "#DiaObject.z_psfFluxSkew"
     datatype: double
     mysql:datatype: DOUBLE
     description: Skew of diaSource PSF flux
-  - name: zPSFluxStetsonJ
-    "@id": "#DiaObject.zPSFluxStetsonJ"
+  - name: z_psfFluxStetsonJ
+    "@id": "#DiaObject.z_psfFluxStetsonJ"
     datatype: double
     mysql:datatype: DOUBLE
     description: StetsonJ statistic of diaSource PSF flux
-  - name: zTOTFluxMean
-    "@id": "#DiaObject.zTOTFluxMean"
+  - name: z_scienceFluxMean
+    "@id": "#DiaObject.z_scienceFluxMean"
     datatype: double
     mysql:datatype: DOUBLE
     description: Weighted mean of the PSF flux forced photometered at the diaSource position on the calibrated image
-  - name: zTOTFluxMeanErr
-    "@id": "#DiaObject.zTOTFluxMeanErr"
+  - name: z_scienceFluxMeanErr
+    "@id": "#DiaObject.z_scienceFluxMeanErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Standard error on zTOTFluxMean
-  - name: zTOTFluxSigma
-    "@id": "#DiaObject.zTOTFluxSigma"
+    description: Standard error on z_scienceFluxMean
+  - name: z_scienceFluxSigma
+    "@id": "#DiaObject.z_scienceFluxSigma"
     datatype: double
     mysql:datatype: DOUBLE
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
@@ -7897,8 +7897,8 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra;meta.main
-  - name: decl
-    "@id": "#DiaSource.decl"
+  - name: dec
+    "@id": "#DiaSource.dec"
     datatype: double
     mysql:datatype: DOUBLE
     description: Position in ra/dec
@@ -7916,50 +7916,50 @@ tables:
     mysql:datatype: BIGINT
     description: Unique ID
     fits:tunit:
-  - name: dipAngle
-    "@id": "#DiaSource.dipAngle"
+  - name: dipoleAngle
+    "@id": "#DiaSource.dipoleAngle"
     datatype: double
     mysql:datatype: DOUBLE
     description: Dipole orientation
     fits:tunit: deg
-  - name: dipChi2
-    "@id": "#DiaSource.dipChi2"
+  - name: dipoleChi2
+    "@id": "#DiaSource.dipoleChi2"
     datatype: double
     mysql:datatype: DOUBLE
     description: Chi2 per degree of freedom of dipole fit
     fits:tunit:
-  - name: dipFluxDiff
-    "@id": "#DiaSource.dipFluxDiff"
+  - name: dipoleFluxDiff
+    "@id": "#DiaSource.dipoleFluxDiff"
     datatype: double
     mysql:datatype: DOUBLE
     description: Raw flux counts, positive lobe
     fits:tunit: nJy
-  - name: dipFluxDiffErr
-    "@id": "#DiaSource.dipFluxDiffErr"
+  - name: dipoleFluxDiffErr
+    "@id": "#DiaSource.dipoleFluxDiffErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Raw flux uncertainty counts, positive lobe
     fits:tunit: nJy
-  - name: dipLength
-    "@id": "#DiaSource.dipLength"
+  - name: dipoleLength
+    "@id": "#DiaSource.dipoleLength"
     datatype: double
     mysql:datatype: DOUBLE
     description: Pixel separation between positive and negative lobes of dipole
     fits:tunit: pixel
-  - name: dipMeanFlux
-    "@id": "#DiaSource.dipMeanFlux"
+  - name: dipoleMeanFlux
+    "@id": "#DiaSource.dipoleMeanFlux"
     datatype: double
     mysql:datatype: DOUBLE
     description: Raw flux counts, positive lobe
     fits:tunit: count
-  - name: dipMeanFluxErr
-    "@id": "#DiaSource.dipMeanFluxErr"
+  - name: dipoleMeanFluxErr
+    "@id": "#DiaSource.dipoleMeanFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Raw flux uncertainty counts, positive lobe
     fits:tunit: count
-  - name: filterName
-    "@id": "#DiaSource.filterName"
+  - name: band
+    "@id": "#DiaSource.band"
     datatype: char
     mysql:datatype: CHAR(1)
     description: Band used to take this observation
@@ -7988,6 +7988,13 @@ tables:
     mysql:datatype: BOOLEAN
     description: Flag indicating diaSource is classified as a dipole
     fits:tunit:
+  - name: time_processed
+    "@id": "#DiaSource.time_processed"
+    datatype: timestamp
+    length: 6
+    nullable: false
+    description: Time when this record was generated.
+    mysql:datatype: DATETIME
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: double
@@ -8024,11 +8031,11 @@ tables:
     mysql:datatype: DOUBLE
     description: Adaptive moments of the PSF model at the object position
     fits:tunit: asec^2
-  - name: midPointTai
-    "@id": "#DiaSource.midPointTai"
+  - name: midPointMjd
+    "@id": "#DiaSource.midPointMjd"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Effective mid-exposure time for this diaSource.
+    description: Effective mid-exposure time for this diaSource (MJD TAI).
     fits:tunit:
   - name: parentDiaSourceId
     "@id": "#DiaSource.parentDiaSourceId"
@@ -8108,14 +8115,14 @@ tables:
     mysql:datatype: BOOLEAN
     description: Sources center is close to suspect pixels
     fits:tunit:
-  - name: psFlux
-    "@id": "#DiaSource.psFlux"
+  - name: psfFlux
+    "@id": "#DiaSource.psfFlux"
     datatype: double
     mysql:datatype: DOUBLE
     description: Flux derived from linear least-squares fit of PSF model
     fits:tunit: nJy
-  - name: psFluxErr
-    "@id": "#DiaSource.psFluxErr"
+  - name: psfFluxErr
+    "@id": "#DiaSource.psfFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Flux uncertainty derived from linear least-squares fit of PSF model
@@ -8181,14 +8188,14 @@ tables:
     mysql:datatype: BIGINT
     description: Id of the ssObject this source was associated with, if any. If not, it is set to 0
     fits:tunit:
-  - name: totFlux
-    "@id": "#DiaSource.totFlux"
+  - name: scienceFlux
+    "@id": "#DiaSource.scienceFlux"
     datatype: double
     mysql:datatype: DOUBLE
     description: Forced PSF flux measured on the direct image.
     fits:tunit: nJy
-  - name: totFluxErr
-    "@id": "#DiaSource.totFluxErr"
+  - name: scienceFluxErr
+    "@id": "#DiaSource.scienceFluxErr"
     datatype: double
     mysql:datatype: DOUBLE
     description: Forced PSF flux uncertainty measured on the direct image.
@@ -8217,8 +8224,8 @@ tables:
     mysql:datatype: FLOAT
     description: 1-sigma uncertainty on y position
     fits:tunit: pixel
-  - name: psChi2
-    "@id": "#DiaSource.psChi2"
+  - name: psfChi2
+    "@id": "#DiaSource.psfChi2"
     datatype: float
     mysql:datatype: FLOAT
     description: Chi2 of the fitted PSF
@@ -8603,8 +8610,8 @@ tables:
     description: RA of focal plane center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-  - name: decl
-    '@id': '#Visit.decl'
+  - name: dec
+    '@id': '#Visit.dec'
     datatype: double
     description: Declination of focal plane center
     mysql:datatype: DOUBLE
@@ -8709,8 +8716,8 @@ tables:
     description: RA of Ccd center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-  - name: decl
-    '@id': '#CcdVisit.decl'
+  - name: dec
+    '@id': '#CcdVisit.dec'
     datatype: double
     description: Declination of Ccd center.
     mysql:datatype: DOUBLE
