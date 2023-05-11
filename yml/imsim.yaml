@@ -8261,6 +8261,14 @@ tables:
     description: Trail centroid right ascension.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
+  - name: spuriousness
+    "@id": "#DiaSource.spuriousness"
+    datatype: float
+    description: A measure of spuriousness, computed using information from the source
+      and image characterization, as well as the information on the Telescope and
+      Camera system (e.g., ghost maps, defect maps, etc.).
+    fits:tunit:
+    mysql:datatype: FLOAT
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
