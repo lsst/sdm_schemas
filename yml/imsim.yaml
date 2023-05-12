@@ -581,6 +581,13 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
+  - name: g_decl
+    "@id": "#Object.g_decl"
+    datatype: double
+    description: Deprecated duplicate of g_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: g_extendedness
     "@id": "#Object.g_extendedness"
     datatype: double
@@ -1540,6 +1547,13 @@ tables:
     "@id": "#Object.i_dec"
     datatype: double
     description: Position in ra/dec. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: i_decl
+    "@id": "#Object.i_decl"
+    datatype: double
+    description: Deprecated duplicate of i_dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -2505,6 +2519,13 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
+  - name: r_decl
+    "@id": "#Object.r_decl"
+    datatype: double
+    description: Deprecated duplicate of r_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: r_extendedness
     "@id": "#Object.r_extendedness"
     datatype: double
@@ -3464,6 +3485,13 @@ tables:
     "@id": "#Object.u_dec"
     datatype: double
     description: Position in ra/dec. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: u_decl
+    "@id": "#Object.u_decl"
+    datatype: double
+    description: Deprecated duplicate of u_dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -4429,6 +4457,13 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
+  - name: y_decl
+    "@id": "#Object.y_decl"
+    datatype: double
+    description: Deprecated duplicate of y_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: y_extendedness
     "@id": "#Object.y_extendedness"
     datatype: double
@@ -5391,6 +5426,13 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
+  - name: z_decl
+    "@id": "#Object.z_decl"
+    datatype: double
+    description: Deprecated duplicate of z_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: z_extendedness
     "@id": "#Object.z_extendedness"
     datatype: double
@@ -6050,6 +6092,13 @@ tables:
     "@id": "#Source.dec"
     datatype: double
     description: Position in ra/dec
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
+  - name: decl
+    "@id": "#Source.decl"
+    datatype: double
+    description: Deprecated dupcliate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -8616,6 +8665,12 @@ tables:
     description: Declination of focal plane center
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: decl
+    '@id': '#Visit.decl'
+    datatype: double
+    description: Deprecated duplicate of dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: skyRotation
     '@id': '#Visit.skyRotation'
     datatype: double
@@ -8720,6 +8775,12 @@ tables:
     '@id': '#CcdVisit.dec'
     datatype: double
     description: Declination of Ccd center.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: decl
+    '@id': '#CcdVisit.decl'
+    datatype: double
+    description: Deprecated duplicate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: zenithDistance
