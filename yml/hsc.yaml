@@ -575,6 +575,13 @@ tables:
     description: Position in ra/dec. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: g_decl
+    "@id": "#Object.g_decl"
+    datatype: double
+    description: Deprecated duplicate of g_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: g_extendedness
     "@id": "#Object.g_extendedness"
     datatype: double
@@ -1535,6 +1542,13 @@ tables:
     description: Position in ra/dec. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: i_decl
+    "@id": "#Object.i_decl"
+    datatype: double
+    description: Deprecated duplicate of i_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: i_extendedness
     "@id": "#Object.i_extendedness"
     datatype: double
@@ -2495,6 +2509,13 @@ tables:
     description: Position in ra/dec. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: r_decl
+    "@id": "#Object.r_decl"
+    datatype: double
+    description: Deprecated duplicate of r_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: r_extendedness
     "@id": "#Object.r_extendedness"
     datatype: double
@@ -3455,6 +3476,13 @@ tables:
     description: Position in ra/dec. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: y_decl
+    "@id": "#Object.y_decl"
+    datatype: double
+    description: Deprecated duplicate of y_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: y_extendedness
     "@id": "#Object.y_extendedness"
     datatype: double
@@ -4415,6 +4443,13 @@ tables:
     description: Position in ra/dec. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: z_decl
+    "@id": "#Object.z_decl"
+    datatype: double
+    description: Deprecated duplicate of z_dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: z_extendedness
     "@id": "#Object.z_extendedness"
     datatype: double
@@ -5069,6 +5104,12 @@ tables:
     "@id": "#Source.dec"
     datatype: double
     description: Position in ra/dec
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: decl
+    "@id": "#Source.decl"
+    datatype: double
+    description: Deprecated duplicate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: calibFlux
@@ -5952,6 +5993,12 @@ tables:
     description: Declination of focal plane center
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: decl
+    '@id': '#Visit.decl'
+    datatype: double
+    description: Deprecated duplicate of dec.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: skyRotation
     '@id': '#Visit.skyRotation'
     datatype: double
@@ -6056,6 +6103,12 @@ tables:
     '@id': '#CcdVisit.dec'
     datatype: double
     description: Declination of Ccd center.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: decl
+    '@id': '#CcdVisit.decl'
+    datatype: double
+    description: Deprecated duplicate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: zenithDistance
