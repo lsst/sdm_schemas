@@ -1609,14 +1609,6 @@ tables:
       if any.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
-  - name: prv_procOrder
-    "@id": "#DiaSource.prv_procOrder"
-    datatype: int
-    nullable: false
-    value: "0"
-    description: Position of this diaSource in the processing order relative to other
-      diaSources within a given diaObjectId or ssObjectId.
-    mysql:datatype: INTEGER
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
     datatype: timestamp
