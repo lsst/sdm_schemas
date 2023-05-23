@@ -6035,19 +6035,19 @@ tables:
     description: Spatially-averaged duration of exposure, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
-  - name: expMidpt
-    '@id': '#Visit.expMidpt'
+  - name: midpoint
+    '@id': '#Visit.midpoint'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
     description: Midpoint time for exposure at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
     fits:tunit:
-  - name: expMidptMJD
-    '@id': '#Visit.expMidptMJD'
+  - name: midpointMjdTai
+    '@id': '#Visit.midpointMjdTai'
     datatype: double
-    description: Midpoint time for exposure at the fiducial center of the focal plane array in MJD.
-      TAI, accurate to 10ms.
+    description: Midpoint time for exposure at the fiducial center of the focal plane array
+      expressed as Modified Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits.tunit: d
   - name: obsStart
@@ -6057,10 +6057,11 @@ tables:
     mysql:datatype: DATETIME(6)
     description: Start time of the exposure at the fiducial center of the focal plane array,
       TAI, accurate to 10ms.
-  - name: obsStartMJD
-    '@id': '#Visit.obsStartMJD'
+  - name: obsStartMjdTai
+    '@id': '#Visit.obsStartMjdTai'
     datatype: double
-    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    description: Start of the exposure in expressed as Modified
+      Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: TIMESTAMP
 - name: CcdVisit
   '@id': '#CcdVisit'
@@ -6158,16 +6159,17 @@ tables:
     description: Sky rotation angle.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-  - name: expMidpt
-    '@id': '#CcdVisit.expMidpt'
+  - name: midpoint
+    '@id': '#CcdVisit.midpoint'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
     description: Midpoint for exposure. TAI, accurate to 10ms.
-  - name: expMidptMJD
-    '@id': '#CcdVisit.expMidptMJD'
+  - name: midpointMjdTai
+    '@id': '#CcdVisit.midpointMjdTai'
     datatype: double
-    description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
+    description: Midpoint for exposure expressed as Modified Julian Date,
+      International Atomic Time, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: d
   - name: expTime
@@ -6182,10 +6184,11 @@ tables:
     length: 6
     mysql:datatype: DATETIME(6)
     description: Start of the exposure, TAI, accurate to 10ms.
-  - name: obsStartMJD
-    '@id': '#CcdVisit.obsStartMJD'
+  - name: obsStartMjdTai
+    '@id': '#CcdVisit.obsStartMjdTai'
     datatype: double
-    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    description: Start of the exposure in expressed as Modified
+      Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: TIMESTAMP
   - name: darkTime
     '@id': '#CcdVisit.darkTime'
