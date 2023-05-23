@@ -32,7 +32,7 @@ tables:
     "@id": "#DiaObject.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecEpoch.
+    description: Right ascension coordinate of the position of the object at time radecMjdTai.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -47,7 +47,7 @@ tables:
     "@id": "#DiaObject.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecEpoch.
+    description: Declination coordinate of the position of the object at time radecMjdTai.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -64,10 +64,11 @@ tables:
     description: Covariance between ra and dec.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-  - name: radecEpoch
-    "@id": "#DiaObject.radecEpoch"
+  - name: radecMjdTai
+    "@id": "#DiaObject.radecMjdTai"
     datatype: double
-    description: Time at which the object was at a position ra/dec.
+    description: Time at which the object was at a position ra/dec, expressed
+      as Modified Julian Date, International Atomic Time.
     mysql:datatype: DOUBLE
     ivoa:ucd: time.epoch
   - name: pmRa
@@ -1616,11 +1617,12 @@ tables:
     description: Time when this diaSource was reassociated from diaObject to ssObject
       (if such reassociation happens, otherwise NULL).
     mysql:datatype: DATETIME
-  - name: midPointMjd
-    "@id": "#DiaSource.midPointMjd"
+  - name: midpointMjdTai
+    "@id": "#DiaSource.midpointMjdTai"
     datatype: double
     nullable: false
-    description: Effective mid-exposure time for this diaSource (MJD TAI).
+    description: Effective mid-exposure time for this diaSource, expressed as Modified
+      Julian Date, International Atomic Time.
     mysql:datatype: DOUBLE
     fits:tunit: d
     ivoa:ucd: time.epoch
@@ -2383,11 +2385,12 @@ tables:
     value: "0"
     mysql:datatype: BIGINT
     ivoa:ucd: meta.code
-  - name: midPointMjd
-    "@id": "#DiaForcedSource.midPointMjd"
+  - name: midpointMjdTai
+    "@id": "#DiaForcedSource.midpointMjdTai"
     datatype: double
     nullable: false
-    description: Effective mid-exposure time for this diaForcedSource (MJD TAI).
+    description: Effective mid-exposure time for this diaForcedSource, expressed as Modified
+      Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
     fits:tunit: d
   - name: scienceFlux
@@ -2496,7 +2499,7 @@ tables:
     "@id": "#DiaObjectLast.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecEpoch.
+    description: Right ascension coordinate of the position of the object at time radecMjdTai.
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
   - name: raErr
@@ -2509,7 +2512,7 @@ tables:
     "@id": "#DiaObjectLast.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecEpoch.
+    description: Declination coordinate of the position of the object at time radecMjdTai.
     ivoa:ucd: pos.eq.dec
     fits:tunit: deg
   - name: decErr
@@ -2523,11 +2526,12 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg^2
-  - name: radecEpoch
-    "@id": "#DiaObjectLast.radecEpoch"
+  - name: radecMjdTai
+    "@id": "#DiaObjectLast.radecMjdTai"
     datatype: double
     nullable: false
-    description: Time at which the object was at a position ra/dec.
+    description: Time at which the object was at a position ra/dec, expressed
+      as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: pmRa
     "@id": "#DiaObjectLast.pmRa"
