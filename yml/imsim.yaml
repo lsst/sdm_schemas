@@ -8319,10 +8319,10 @@ tables:
     description: Trail centroid right ascension.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
-  - name: spuriousness
-    "@id": "#DiaSource.spuriousness"
+  - name: reliability
+    "@id": "#DiaSource.reliability"
     datatype: float
-    description: A measure of spuriousness, computed using information from the source
+    description: A measure of reliability, computed using information from the source
       and image characterization, as well as the information on the Telescope and
       Camera system (e.g., ghost maps, defect maps, etc.).
     fits:tunit:
