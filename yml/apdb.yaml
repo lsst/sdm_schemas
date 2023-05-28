@@ -2268,10 +2268,10 @@ tables:
       that the source is extended. extendedness = 0 implies a high degree of confidence
       that the source is point-like.
     mysql:datatype: FLOAT
-  - name: spuriousness
-    "@id": "#DiaSource.spuriousness"
+  - name: reliability
+    "@id": "#DiaSource.reliability"
     datatype: float
-    description: A measure of spuriousness, computed using information from the source
+    description: A measure of reliability, computed using information from the source
       and image characterization, as well as the information on the Telescope and
       Camera system (e.g., ghost maps, defect maps, etc.).
     mysql:datatype: FLOAT
