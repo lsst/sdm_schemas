@@ -4,9 +4,18 @@
 # values that control the presentation order of schemas.  This is respected by the Portal Aspect.
 #
 ./build mock
-./build idfprod ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml ../yml/dp01_dc2.yaml
-./build idfint ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml ../yml/dp01_dc2.yaml
-./build idfdev ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml ../yml/dp01_dc2.yaml
-./build idfsso ../yml/dp03.yaml
-./build usdf-dev ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml ../yml/oga_live_obscore.yaml
-./build usdf-prod ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
+
+./build tap-schema-idfprod-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
+./build tap-schema-idfint-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
+./build tap-schema-idfdev-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
+./build tap-schema-usdf-prod-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
+./build tap-schema-usdf-dev-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
+
+./build tap-schema-usdf-dev-livetap ../yml/oga_live_obscore.yaml
+
+./build tap-schema-idfprod-sso ../yml/dp03.yaml
+./build tap-schema-idfint-sso ../yml/dp03.yaml
+./build tap-schema-idfdev-sso ../yml/dp03.yaml
+./build tap-schema-usdf-prod-sso ../yml/dp03.yaml
+./build tap-schema-usdf-dev-sso ../yml/dp03.yaml
+
