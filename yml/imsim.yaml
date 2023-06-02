@@ -7189,7 +7189,7 @@ tables:
     "@id": "#DiaObject.diaObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description: Unique LSST identifier of this DiaObject.
+    description: Unique identifier of this DiaObject.
   - name: ra
     "@id": "#DiaObject.ra"
     datatype: double
@@ -7958,13 +7958,13 @@ tables:
     "@id": "#DiaSource.diaObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description: Unique DiaObject ID. Primary Key of the DIA Object Table.
+    description: Id of the DiaObject that this DiaSource was associated with.
     fits:tunit:
   - name: diaSourceId
     "@id": "#DiaSource.diaSourceId"
     datatype: long
     mysql:datatype: BIGINT
-    description: Unique LSST identifier of this DiaObject.
+    description: Unique identifier of this DiaSource.
     fits:tunit:
   - name: dipoleAngle
     "@id": "#DiaSource.dipoleAngle"
@@ -8361,7 +8361,7 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.diaObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description: Unique DiaObject ID. Primary Key of the DIA Object Table
+    description: Id of the DiaObject that this DiaForcedSource was associated with.
     fits:tunit:
   - name: forcedSourceOnDiaObjectId
     "@id": "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"

@@ -11,7 +11,7 @@ tables:
     "@id": "#DiaObject.diaObjectId"
     datatype: long
     nullable: false
-    description: Unique LSST identifier of this DiaObject.
+    description: Unique identifier of this DiaObject.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: validityStart
@@ -1575,7 +1575,7 @@ tables:
     "@id": "#DiaSource.diaSourceId"
     datatype: long
     nullable: false
-    description: Unique LSST identifier of this DiaSource.
+    description: Unique identifier of this DiaSource.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
   - name: ccdVisitId
@@ -2340,6 +2340,7 @@ tables:
     "@id": "#DiaForcedSource.diaObjectId"
     datatype: long
     nullable: false
+    description: Id of the DiaObject that this DiaForcedSource was associated with.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: ccdVisitId
