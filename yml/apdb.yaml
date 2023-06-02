@@ -1621,7 +1621,7 @@ tables:
     "@id": "#DiaSource.midpointMjdTai"
     datatype: double
     nullable: false
-    description: Effective mid-exposure time for this diaSource, expressed as Modified
+    description: Effective mid-visit time for this diaSource, expressed as Modified
       Julian Date, International Atomic Time.
     mysql:datatype: DOUBLE
     fits:tunit: d
@@ -2389,7 +2389,7 @@ tables:
     "@id": "#DiaForcedSource.midpointMjdTai"
     datatype: double
     nullable: false
-    description: Effective mid-exposure time for this diaForcedSource, expressed as Modified
+    description: Effective mid-visit time for this diaForcedSource, expressed as Modified
       Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
     fits:tunit: d
@@ -3078,12 +3078,12 @@ tables:
   - name: visit
     '@id': '#DetectorVisitProcessingSummary.visit'
     datatype: long
-    description: Id of the visit this exposure was a part of.
+    description: Id of the visit this visit was a part of.
     mysql:datatype: INTEGER
   - name: detector
     '@id': '#DetectorVisitProcessingSummary.detector'
     datatype: long
-    description: Id of the detector on the instrument that took this exposure.
+    description: Id of the detector on the instrument that took this visit.
     mysql:datatype: BIGINT
   - name: ra
     '@id': '#DetectorVisitProcessingSummary.ra'

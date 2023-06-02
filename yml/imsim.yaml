@@ -8650,7 +8650,7 @@ tables:
     '@id': '#Visit.band'
     datatype: char
     length: 1
-    description: Name of the band used to take the exposure where this source was measured.
+    description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
@@ -8682,19 +8682,19 @@ tables:
   - name: azimuth
     '@id': '#Visit.azimuth'
     datatype: double
-    description: Azimuth of focal plane center at the middle of the exposure.
+    description: Azimuth of focal plane center at the middle of the visit.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: altitude
     '@id': '#Visit.altitude'
     datatype: double
-    description: Altitude of focal plane center at the middle of the exposure.
+    description: Altitude of focal plane center at the middle of the visit.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: zenithDistance
     '@id': '#Visit.zenithDistance'
     datatype: double
-    description: Zenith distance at the middle of the exposure.
+    description: Zenith distance at the middle of the visit.
     mysql:datatype: FLOAT
     fits:tunit: deg
   - name: airmass
@@ -8706,7 +8706,7 @@ tables:
   - name: expTime
     '@id': '#Visit.expTime'
     datatype: double
-    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    description: Spatially-averaged duration of visit, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
   - name: midpoint
@@ -8714,13 +8714,13 @@ tables:
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Midpoint time for exposure at the fiducial center of the focal plane array.
+    description: Midpoint time for visit at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
     fits:tunit:
   - name: midpointMjdTai
     '@id': '#Visit.midpointMjdTai'
     datatype: double
-    description: Midpoint time for exposure at the fiducial center of the focal plane array,
+    description: Midpoint time for visit at the fiducial center of the focal plane array,
       expressed as Modified Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits.tunit: d
@@ -8729,12 +8729,12 @@ tables:
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Start time of the exposure at the fiducial center of the focal plane array,
+    description: Start time of the visit at the fiducial center of the focal plane array,
       TAI, accurate to 10ms.
   - name: obsStartMjdTai
     '@id': '#Visit.obsStartMjdTai'
     datatype: double
-    description: Start of the exposure expressed as Modified Julian Date,
+    description: Start of the visit expressed as Modified Julian Date,
       International Atomic Time, accurate to 10ms.
     mysql:datatype: TIMESTAMP
 - name: CcdVisit
@@ -8763,7 +8763,7 @@ tables:
     '@id': '#CcdVisit.band'
     datatype: char
     length: 1
-    description: Name of the band used to take the exposure where this source was measured.
+    description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
@@ -8838,18 +8838,18 @@ tables:
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Midpoint for exposure. TAI, accurate to 10ms.
+    description: Midpoint of the visit. TAI, accurate to 10ms.
   - name: midpointMjdTai
     '@id': '#CcdVisit.midpointMjdTai'
     datatype: double
-    description: Midpoint for exposure expressed as Modified Julian Date,
+    description: Midpoint of the visit, expressed as Modified Julian Date,
       International Atomic Time, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: d
   - name: expTime
     '@id': '#CcdVisit.expTime'
     datatype: double
-    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    description: Spatially-averaged duration of visit, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
   - name: obsStart
@@ -8857,11 +8857,11 @@ tables:
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Start of the exposure, TAI, accurate to 10ms.
+    description: Start of the visit, TAI, accurate to 10ms.
   - name: obsStartMjdTai
     '@id': '#CcdVisit.obsStartMjdTai'
     datatype: double
-    description: Start of the exposure in expressed as Modified Julian Date,
+    description: Start of the visit, expressed as Modified Julian Date,
       International Atomic Time, accurate to 10ms.
     mysql:datatype: TIMESTAMP
   - name: darkTime
