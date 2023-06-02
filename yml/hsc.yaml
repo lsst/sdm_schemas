@@ -572,7 +572,7 @@ tables:
   - name: g_dec
     "@id": "#Object.g_dec"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Position in declination, measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: g_decl
@@ -1161,7 +1161,7 @@ tables:
   - name: g_ra
     "@id": "#Object.g_ra"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Position in right ascension, measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: i_ap03Flux
@@ -1539,7 +1539,7 @@ tables:
   - name: i_dec
     "@id": "#Object.i_dec"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Position in declination, measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: i_decl
@@ -2128,7 +2128,7 @@ tables:
   - name: i_ra
     "@id": "#Object.i_ra"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Position in right ascension, measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: r_ap03Flux
@@ -2506,7 +2506,7 @@ tables:
   - name: r_dec
     "@id": "#Object.r_dec"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Position in declination, measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: r_decl
@@ -3095,7 +3095,7 @@ tables:
   - name: r_ra
     "@id": "#Object.r_ra"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Position in right ascension, measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: y_ap03Flux
@@ -3473,7 +3473,7 @@ tables:
   - name: y_dec
     "@id": "#Object.y_dec"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Position in declination, measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: y_decl
@@ -4062,7 +4062,7 @@ tables:
   - name: y_ra
     "@id": "#Object.y_ra"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Position in right ascension, measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: z_ap03Flux
@@ -4440,7 +4440,7 @@ tables:
   - name: z_dec
     "@id": "#Object.z_dec"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Position in declination, measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: z_decl
@@ -5029,7 +5029,7 @@ tables:
   - name: z_ra
     "@id": "#Object.z_ra"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Position in right ascension, measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
 
@@ -5097,13 +5097,13 @@ tables:
   - name: ra
     "@id": "#Source.ra"
     datatype: double
-    description: Position in ra/dec
+    description: Position in right ascension.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: dec
     "@id": "#Source.dec"
     datatype: double
-    description: Position in ra/dec
+    description: Position in declination.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: decl

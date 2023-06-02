@@ -577,7 +577,7 @@ tables:
   - name: g_dec
     "@id": "#Object.g_dec"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Position in declination, measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -1167,7 +1167,7 @@ tables:
   - name: g_ra
     "@id": "#Object.g_ra"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Position in right ascension, measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -1546,7 +1546,7 @@ tables:
   - name: i_dec
     "@id": "#Object.i_dec"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Position in declination, measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -2136,7 +2136,7 @@ tables:
   - name: i_ra
     "@id": "#Object.i_ra"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Position in right ascension, measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -2515,7 +2515,7 @@ tables:
   - name: r_dec
     "@id": "#Object.r_dec"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Position in declination, measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -3105,7 +3105,7 @@ tables:
   - name: r_ra
     "@id": "#Object.r_ra"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Position in right ascension, measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -3484,7 +3484,7 @@ tables:
   - name: u_dec
     "@id": "#Object.u_dec"
     datatype: double
-    description: Position in ra/dec. Measured on u-band.
+    description: Position in declination, measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -4074,7 +4074,7 @@ tables:
   - name: u_ra
     "@id": "#Object.u_ra"
     datatype: double
-    description: Position in ra/dec. Measured on u-band.
+    description: Position in right ascension, measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -4453,7 +4453,7 @@ tables:
   - name: y_dec
     "@id": "#Object.y_dec"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Position in declination, measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -5043,7 +5043,7 @@ tables:
   - name: y_ra
     "@id": "#Object.y_ra"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Position in right ascension, measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -5422,7 +5422,7 @@ tables:
   - name: z_dec
     "@id": "#Object.z_dec"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Position in declination, measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -6012,7 +6012,7 @@ tables:
   - name: z_ra
     "@id": "#Object.z_ra"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Position in right ascension, measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -6084,14 +6084,14 @@ tables:
   - name: ra
     "@id": "#Source.ra"
     datatype: double
-    description: Position in ra/dec
+    description: Position in right ascension.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: dec
     "@id": "#Source.dec"
     datatype: double
-    description: Position in ra/dec
+    description: Position in declination.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -7951,7 +7951,7 @@ tables:
     "@id": "#DiaSource.dec"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Position in ra/dec.
+    description: Position in declination.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: diaObjectId
@@ -8200,7 +8200,7 @@ tables:
     "@id": "#DiaSource.ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Position in ra/dec
+    description: Position in right ascension.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: shape_flag
