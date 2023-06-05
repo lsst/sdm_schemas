@@ -569,12 +569,19 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on g-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
+  - name: g_dec
+    "@id": "#Object.g_dec"
+    datatype: double
+    description: Position in declination, measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: g_decl
     "@id": "#Object.g_decl"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Deprecated duplicate of g_dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: g_extendedness
     "@id": "#Object.g_extendedness"
     datatype: double
@@ -1154,7 +1161,7 @@ tables:
   - name: g_ra
     "@id": "#Object.g_ra"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Position in right ascension, measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: i_ap03Flux
@@ -1529,12 +1536,19 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on i-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
+  - name: i_dec
+    "@id": "#Object.i_dec"
+    datatype: double
+    description: Position in declination, measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: i_decl
     "@id": "#Object.i_decl"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Deprecated duplicate of i_dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: i_extendedness
     "@id": "#Object.i_extendedness"
     datatype: double
@@ -2114,7 +2128,7 @@ tables:
   - name: i_ra
     "@id": "#Object.i_ra"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Position in right ascension, measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: r_ap03Flux
@@ -2489,12 +2503,19 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on r-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
+  - name: r_dec
+    "@id": "#Object.r_dec"
+    datatype: double
+    description: Position in declination, measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: r_decl
     "@id": "#Object.r_decl"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Deprecated duplicate of r_dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: r_extendedness
     "@id": "#Object.r_extendedness"
     datatype: double
@@ -3074,7 +3095,7 @@ tables:
   - name: r_ra
     "@id": "#Object.r_ra"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Position in right ascension, measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: y_ap03Flux
@@ -3449,12 +3470,19 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on y-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
+  - name: y_dec
+    "@id": "#Object.y_dec"
+    datatype: double
+    description: Position in declination, measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: y_decl
     "@id": "#Object.y_decl"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Deprecated duplicate of y_dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: y_extendedness
     "@id": "#Object.y_extendedness"
     datatype: double
@@ -4034,7 +4062,7 @@ tables:
   - name: y_ra
     "@id": "#Object.y_ra"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Position in right ascension, measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: z_ap03Flux
@@ -4409,12 +4437,19 @@ tables:
     description: 1-sigma uncertainty on y position. Measured on z-band.
     mysql:datatype: FLOAT
     fits:tunit: pixel
+  - name: z_dec
+    "@id": "#Object.z_dec"
+    datatype: double
+    description: Position in declination, measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: z_decl
     "@id": "#Object.z_decl"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Deprecated duplicate of z_dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+    ivoa:ucd: pos.eq.dec
   - name: z_extendedness
     "@id": "#Object.z_extendedness"
     datatype: double
@@ -4994,7 +5029,7 @@ tables:
   - name: z_ra
     "@id": "#Object.z_ra"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Position in right ascension, measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
 
@@ -5062,13 +5097,19 @@ tables:
   - name: ra
     "@id": "#Source.ra"
     datatype: double
-    description: Position in ra/dec
+    description: Position in right ascension.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: dec
+    "@id": "#Source.dec"
+    datatype: double
+    description: Position in declination.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: decl
     "@id": "#Source.decl"
     datatype: double
-    description: Position in ra/dec
+    description: Deprecated duplicate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: calibFlux
@@ -5935,7 +5976,7 @@ tables:
     '@id': '#Visit.band'
     datatype: char
     length: 1
-    description: Name of the band used to take the exposure where this source was measured.
+    description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
@@ -5946,10 +5987,16 @@ tables:
     description: RA of focal plane center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: dec
+    '@id': '#Visit.dec'
+    datatype: double
+    description: Declination of focal plane center
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: decl
     '@id': '#Visit.decl'
     datatype: double
-    description: Declination of focal plane center
+    description: Deprecated duplicate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: skyRotation
@@ -5961,19 +6008,19 @@ tables:
   - name: azimuth
     '@id': '#Visit.azimuth'
     datatype: double
-    description: Azimuth of focal plane center at the middle of the exposure.
+    description: Azimuth of focal plane center at the middle of the visit.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: altitude
     '@id': '#Visit.altitude'
     datatype: double
-    description: Altitude of focal plane center at the middle of the exposure.
+    description: Altitude of focal plane center at the middle of the visit.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: zenithDistance
     '@id': '#Visit.zenithDistance'
     datatype: double
-    description: Zenith distance at the middle of the exposure.
+    description: Zenith distance at the middle of the visit.
     mysql:datatype: FLOAT
     fits:tunit: deg
   - name: airmass
@@ -5985,22 +6032,22 @@ tables:
   - name: expTime
     '@id': '#Visit.expTime'
     datatype: double
-    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    description: Spatially-averaged duration of visit, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
-  - name: expMidpt
-    '@id': '#Visit.expMidpt'
+  - name: midpoint
+    '@id': '#Visit.midpoint'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Midpoint time for exposure at the fiducial center of the focal plane array.
+    description: Midpoint time of the visit at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
     fits:tunit:
-  - name: expMidptMJD
-    '@id': '#Visit.expMidptMJD'
+  - name: midpointMjdTai
+    '@id': '#Visit.midpointMjdTai'
     datatype: double
-    description: Midpoint time for exposure at the fiducial center of the focal plane array in MJD.
-      TAI, accurate to 10ms.
+    description: Midpoint time of the visit at the fiducial center of the focal plane array,
+      expressed as Modified Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits.tunit: d
   - name: obsStart
@@ -6008,12 +6055,13 @@ tables:
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Start time of the exposure at the fiducial center of the focal plane array,
+    description: Start time of the visit at the fiducial center of the focal plane array,
       TAI, accurate to 10ms.
-  - name: obsStartMJD
-    '@id': '#Visit.obsStartMJD'
+  - name: obsStartMjdTai
+    '@id': '#Visit.obsStartMjdTai'
     datatype: double
-    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    description: Start of the visit, expressed as Modified
+      Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: TIMESTAMP
 - name: CcdVisit
   '@id': '#CcdVisit'
@@ -6041,7 +6089,7 @@ tables:
     '@id': '#CcdVisit.band'
     datatype: char
     length: 1
-    description: Name of the band used to take the exposure where this source was measured.
+    description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
@@ -6052,10 +6100,16 @@ tables:
     description: RA of Ccd center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: dec
+    '@id': '#CcdVisit.dec'
+    datatype: double
+    description: Declination of Ccd center.
+    mysql:datatype: DOUBLE
+    fits:tunit: deg
   - name: decl
     '@id': '#CcdVisit.decl'
     datatype: double
-    description: Declination of Ccd center.
+    description: Deprecated duplicate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: zenithDistance
@@ -6105,22 +6159,23 @@ tables:
     description: Sky rotation angle.
     mysql:datatype: DOUBLE
     fits:tunit: deg
-  - name: expMidpt
-    '@id': '#CcdVisit.expMidpt'
+  - name: midpoint
+    '@id': '#CcdVisit.midpoint'
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Midpoint for exposure. TAI, accurate to 10ms.
-  - name: expMidptMJD
-    '@id': '#CcdVisit.expMidptMJD'
+    description: Midpoint of this visit. TAI, accurate to 10ms.
+  - name: midpointMjdTai
+    '@id': '#CcdVisit.midpointMjdTai'
     datatype: double
-    description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
+    description: Midpoint of this visit, expressed as Modified Julian Date,
+      International Atomic Time, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: d
   - name: expTime
     '@id': '#CcdVisit.expTime'
     datatype: double
-    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    description: Spatially-averaged duration of visit, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
   - name: obsStart
@@ -6128,11 +6183,12 @@ tables:
     datatype: timestamp
     length: 6
     mysql:datatype: DATETIME(6)
-    description: Start of the exposure, TAI, accurate to 10ms.
-  - name: obsStartMJD
-    '@id': '#CcdVisit.obsStartMJD'
+    description: Start of the visit, TAI, accurate to 10ms.
+  - name: obsStartMjdTai
+    '@id': '#CcdVisit.obsStartMjdTai'
     datatype: double
-    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    description: Start of the visit, expressed as Modified
+      Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: TIMESTAMP
   - name: darkTime
     '@id': '#CcdVisit.darkTime'

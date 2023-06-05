@@ -21,6 +21,12 @@ The schemas in this repository serve several different purposes:
    various data previews. These are created from `yml/imsim.yaml` at a
    specific point in time.
 
+ * `yml/apdb.yaml` describes the schema used in the Alert Production Database (APDB).
+  This schema reflects the current schema that is used for Alert Production with `ap_pipe`.
+  It is also used in nightly `ap_verify` runs for continuous integration.
+  Previous processing runs may differ from the current schema.
+  The user-queryable Prompt Products Database (PPDB) is expected to have a very similar schema to the APDB.
+
  * `yml/hsc.yaml` describes the outputs of the latest data release production
    pipelines for HyperSuprimeCam. This schema is used by `ci_hsc`, which
    verifies that the schema of the pipeline output files agree with the
