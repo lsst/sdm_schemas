@@ -5,17 +5,17 @@
 #
 ./build mock
 
-./build tap-schema-idfprod-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
-./build tap-schema-idfint-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
-./build tap-schema-idfdev-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
-./build tap-schema-usdf-prod-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
-./build tap-schema-usdf-dev-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
+./build idfprod-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
+./build idfint-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
+./build idfdev-tap ../yml/dp02_dc2.yaml ../yml/dp01_dc2.yaml ../yml/dp02_obscore.yaml
+./build usdf-prod-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
+./build usdf-dev-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
 
-./build tap-schema-usdf-dev-livetap ../yml/oga_live_obscore.yaml
+./build usdf-dev-livetap ../yml/oga_live_obscore.yaml
 
-./build tap-schema-idfprod-sso ../yml/dp03.yaml
-./build tap-schema-idfint-sso ../yml/dp03.yaml
-./build tap-schema-idfdev-sso ../yml/dp03.yaml
-./build tap-schema-usdf-prod-sso ../yml/dp03.yaml
-./build tap-schema-usdf-dev-sso ../yml/dp03.yaml
+./build idfprod-sso ../yml/dp03.yaml
+./build idfint-sso ../yml/dp03.yaml
+./build idfdev-sso ../yml/dp03.yaml
+./build usdf-prod-sso ../yml/dp03.yaml
+./build usdf-dev-sso ../yml/dp03.yaml
 
