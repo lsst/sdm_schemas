@@ -28,19 +28,19 @@ tables:
       to the MPC. May be NULL if not an LSST discovery. The date format will follow
       general LSST conventions (MJD TAI, at the moment).
     mysql:datatype: DOUBLE
-    fits:tunit: date
+    fits:tunit: d
   - name: firstObservationDate
     "@id": "#SSObject.firstObservationDate"
     datatype: double
     description: The time of the first LSST observation of this object (could be precovered)
     mysql:datatype: DOUBLE
-    fits:tunit: date
+    fits:tunit: d
   - name: arc
     "@id": "#SSObject.arc"
     datatype: float
     description: Arc of LSST observations
     mysql:datatype: FLOAT
-    fits:tunit: days
+    fits:tunit: d
   - name: numObs
     "@id": "#SSObject.numObs"
     datatype: int
@@ -723,31 +723,31 @@ tables:
     datatype: double
     description: 'MPCORB: Epoch (in MJD, .0 TT)'
     mysql:datatype: DOUBLE
-    fits:tunit: MJD
+    fits:tunit: d
   - name: tperi
     "@id": "#MPCORB.tperi"
     datatype: double
     description: 'MPCORB: MJD of pericentric passage'
     mysql:datatype: DOUBLE
-    fits:tunit: days
+    fits:tunit: d
   - name: peri
     "@id": "#MPCORB.peri"
     datatype: double
     description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees
+    fits:tunit: deg
   - name: node
     "@id": "#MPCORB.node"
     datatype: double
     description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees
+    fits:tunit: deg
   - name: incl
     "@id": "#MPCORB.incl"
     datatype: double
     description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees
+    fits:tunit: deg
   - name: e
     "@id": "#MPCORB.e"
     datatype: double
@@ -758,7 +758,7 @@ tables:
     datatype: double
     description: 'MPCORB: Mean daily motion (degrees per day)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees/day
+    fits:tunit: deg/d
   - name: q
     "@id": "#MPCORB.q"
     datatype: double
@@ -792,7 +792,7 @@ tables:
     datatype: float
     description: 'MPCORB: Arc (days), for single-opposition objects'
     mysql:datatype: FLOAT
-    fits:tunit: days
+    fits:tunit: d
   - name: arcStart
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
@@ -846,4 +846,4 @@ tables:
     datatype: float
     description: 'MPCORB: Date of last observation included in orbit solution'
     mysql:datatype: FLOAT
-    fits:tunit: MJD
+    fits:tunit: d
