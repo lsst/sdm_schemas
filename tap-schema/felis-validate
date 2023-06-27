@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+for YAMLFILE in ../yml/*.yaml
+do
+    echo "Checking $YAMLFILE"
+    felis basic-check $YAMLFILE
+    echo "Finished checking $YAMLFILE"
+done

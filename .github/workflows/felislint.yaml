@@ -28,3 +28,8 @@ jobs:
         id: validate-yaml
         run: ./validator ../yml/*.yaml
         working-directory: ./tap-schema
+
+      - name: Validate YAML files using felis
+        id: validate-felis
+        run: ./felis-validate
+        working-directory: ./tap-schema
