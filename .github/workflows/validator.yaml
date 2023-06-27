@@ -1,4 +1,4 @@
-name: Felis Linter
+name: YAML Validator
 
 "on": [push]
 
@@ -24,7 +24,7 @@ jobs:
         run: pip install -r requirements.txt
         working-directory: ./tap-schema
 
-      - name: Validate YAML files using felis
-        id: validate-felis
-        run: ./felis-validate
+      - name: Validate YAML files
+        id: validate-yaml
+        run: ./validator ../yml/*.yaml
         working-directory: ./tap-schema
