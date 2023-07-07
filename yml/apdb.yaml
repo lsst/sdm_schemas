@@ -118,7 +118,7 @@ tables:
     datatype: float
     description: Covariance of pmRa and pmDec.
     mysql:datatype: FLOAT
-    fits:tunit: "(mas/yr)^2"
+    fits:tunit: "mas^2/yr^2"
     ivoa:ucd: stat.covariance;pos.eq
   - name: pmRa_parallax_Cov
     "@id": "#DiaObject.pmRa_parallax_Cov"
@@ -1230,19 +1230,20 @@ tables:
       to the MPC. May be NULL if not an LSST discovery. The date format will follow
       general LSST conventions (MJD TAI, at the moment).
     mysql:datatype: DOUBLE
-    fits:tunit: date
+    fits:tunit: day
   - name: firstObservationDate
     "@id": "#SSObject.firstObservationDate"
     datatype: double
-    description: The time of the first LSST observation of this object (could be precovered).
+    description: The time of the first LSST observation of this object (could be precovered)
+      as Modified Julian Date, International Atomic Time.
     mysql:datatype: DOUBLE
-    fits:tunit: date
+    fits:tunit: day
   - name: arc
     "@id": "#SSObject.arc"
     datatype: float
     description: Arc of LSST observations.
     mysql:datatype: FLOAT
-    fits:tunit: days
+    fits:tunit: day
   - name: numObs
     "@id": "#SSObject.numObs"
     datatype: int
@@ -1677,7 +1678,7 @@ tables:
     description: Uncertainty of x.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-    ivoa:ucd: stat.error:pos.cartesian.x
+    ivoa:ucd: stat.error;pos.cartesian.x
   - name: y
     "@id": "#DiaSource.y"
     datatype: float
@@ -1692,7 +1693,7 @@ tables:
     description: Uncertainty of y.
     mysql:datatype: FLOAT
     fits:tunit: pixel
-    ivoa:ucd: stat.error:pos.cartesian.y
+    ivoa:ucd: stat.error;pos.cartesian.y
   - name: x_y_Cov
     "@id": "#DiaSource.x_y_Cov"
     datatype: float
@@ -1768,14 +1769,14 @@ tables:
     datatype: float
     description: Covariance between psfFlux and psfRa.
     mysql:datatype: FLOAT
-    fits:tunit: ngmy*deg
+    fits:tunit: nJy*deg
     ivoa:ucd: stat.covariance
   - name: psfFlux_psfDec_Cov
     "@id": "#DiaSource.psfFlux_psfDec_Cov"
     datatype: float
     description: Covariance between psfFlux and psfDec.
     mysql:datatype: FLOAT
-    fits:tunit: ngmy*deg
+    fits:tunit: nJy*deg
     ivoa:ucd: stat.covariance
   - name: psfRa_psfDec_Cov
     "@id": "#DiaSource.psfRa_psfDec_Cov"
@@ -2177,88 +2178,88 @@ tables:
     datatype: float
     description: Estimated sky background at the position (centroid) of the object.
     mysql:datatype: FLOAT
-    fits:tunit: nJy/asec^2
+    fits:tunit: nJy/arcsec^2
   - name: fpBkgdErr
     "@id": "#DiaSource.fpBkgdErr"
     datatype: float
     description: Estimated uncertainty of fpBkgd.
     mysql:datatype: FLOAT
-    fits:tunit: nJy/asec^2
+    fits:tunit: nJy/arcsec^2
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
   - name: ixxErr
     "@id": "#DiaSource.ixxErr"
     datatype: float
     description: Uncertainty of ixx.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
     ivoa:ucd: stat.error
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
   - name: iyyErr
     "@id": "#DiaSource.iyyErr"
     datatype: float
     description: Uncertainty of iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
     ivoa:ucd: stat.error
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
   - name: ixyErr
     "@id": "#DiaSource.ixyErr"
     datatype: float
     description: Uncertainty of ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
     ivoa:ucd: stat.error
   - name: ixx_iyy_Cov
     "@id": "#DiaSource.ixx_iyy_Cov"
     datatype: float
     description: Covariance of ixx and iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy^2*asec^4
+    fits:tunit: nJy^2*arcsec^4
   - name: ixx_ixy_Cov
     "@id": "#DiaSource.ixx_ixy_Cov"
     datatype: float
     description: Covariance of ixx and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy^2*asec^4
+    fits:tunit: nJy^2*arcsec^4
   - name: iyy_ixy_Cov
     "@id": "#DiaSource.iyy_ixy_Cov"
     datatype: float
     description: Covariance of iyy and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy^2*asec^4
+    fits:tunit: nJy^2*arcsec^4
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*asec^2
+    fits:tunit: nJy*arcsec^2
   - name: extendedness
     "@id": "#DiaSource.extendedness"
     datatype: float
@@ -2575,7 +2576,7 @@ tables:
     datatype: float
     description: Covariance of pmRa and pmDec.
     ivoa:ucd: stat.covariance;pos.eq
-    fits:tunit: (mas/yr)^2
+    fits:tunit: mas^2/yr^2
   - name: pmRa_parallax_Cov
     "@id": "#DiaObjectLast.pmRa_parallax_Cov"
     datatype: float
@@ -2632,31 +2633,31 @@ tables:
     datatype: double
     description: 'MPCORB: Epoch (in MJD, .0 TT)'
     mysql:datatype: DOUBLE
-    fits:tunit: MJD
+    fits:tunit: day
   - name: M
     "@id": "#MPCORB.M"
     datatype: double
     description: 'MPCORB: Mean anomaly at the epoch, in degrees'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees
+    fits:tunit: degree
   - name: peri
     "@id": "#MPCORB.peri"
     datatype: double
     description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees
+    fits:tunit: degree
   - name: node
     "@id": "#MPCORB.node"
     datatype: double
     description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees
+    fits:tunit: degree
   - name: incl
     "@id": "#MPCORB.incl"
     datatype: double
     description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees
+    fits:tunit: degree
   - name: e
     "@id": "#MPCORB.e"
     datatype: double
@@ -2667,7 +2668,7 @@ tables:
     datatype: double
     description: 'MPCORB: Mean daily motion (degrees per day)'
     mysql:datatype: DOUBLE
-    fits:tunit: degrees/day
+    fits:tunit: degree/day
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
@@ -2701,7 +2702,7 @@ tables:
     datatype: float
     description: 'MPCORB: Arc (days), for single-opposition objects'
     mysql:datatype: FLOAT
-    fits:tunit: days
+    fits:tunit: day
   - name: arcStart
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
@@ -2757,7 +2758,7 @@ tables:
     datatype: float
     description: 'MPCORB: Date of last observation included in orbit solution'
     mysql:datatype: FLOAT
-    fits:tunit: MJD
+    fits:tunit: day
 - name: MPCORBDESIGMAP
   "@id": "#MPCORBDESIGMAP"
   description: The mapping between old and new provisional MPC designation, produced
