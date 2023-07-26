@@ -14,9 +14,9 @@
 ./build usdf-prod-livetap ../yml/oga_live_obscore.yaml
 ./build usdf-dev-livetap ../yml/oga_live_obscore.yaml
 
-./build idfprod-sso ../yml/dp03.yaml
-./build idfint-sso ../yml/dp03.yaml
-./build idfdev-sso ../yml/dp03.yaml
-./build usdf-prod-sso ../yml/dp03.yaml
-./build usdf-dev-sso ../yml/dp03.yaml
+./build idfprod-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
+./build idfint-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
+./build idfdev-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
+./build usdf-prod-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
+./build usdf-dev-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 
