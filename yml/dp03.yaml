@@ -424,17 +424,17 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
-  - name: decl
-    "@id": "#DiaSource.decl"
+  - name: dec
+    "@id": "#DiaSource.dec"
     datatype: double
-    description: " Decl-coordinate of the center of this diaSource."
+    description: " Dec-coordinate of the center of this diaSource."
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: decErr
     "@id": "#DiaSource.decErr"
     datatype: float
-    description: Uncertainty of decl.
+    description: Uncertainty of dec.
     mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
