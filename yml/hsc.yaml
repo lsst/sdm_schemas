@@ -5502,6 +5502,42 @@ tables:
     description: 1-sigma flux uncertainty
     mysql:datatype: DOUBLE
     fits:tunit: count
+  - name: apFlux_35_0_flag
+    "@id": "#Source.apFlux_35_0_flag"
+    datatype: boolean
+    description: General Failure Flag
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: apFlux_35_0_instFlux
+    "@id": "#Source.apFlux_35_0_instFlux"
+    datatype: double
+    description: Flux within 35.0-pixel aperture
+    mysql:datatype: DOUBLE
+    fits:tunit: count
+  - name: apFlux_35_0_instFluxErr
+    "@id": "#Source.apFlux_35_0_instFluxErr"
+    datatype: double
+    description: 1-sigma flux uncertainty
+    mysql:datatype: DOUBLE
+    fits:tunit: count
+  - name: apFlux_50_0_flag
+    "@id": "#Source.apFlux_50_0_flag"
+    datatype: boolean
+    description: General Failure Flag
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: apFlux_50_0_instFlux
+    "@id": "#Source.apFlux_50_0_instFlux"
+    datatype: double
+    description: Flux within 50.0-pixel aperture
+    mysql:datatype: DOUBLE
+    fits:tunit: count
+  - name: apFlux_50_0_instFluxErr
+    "@id": "#Source.apFlux_50_0_instFluxErr"
+    datatype: double
+    description: 1-sigma flux uncertainty
+    mysql:datatype: DOUBLE
+    fits:tunit: count
   - name: extendedness_flag
     "@id": "#Source.extendedness_flag"
     datatype: boolean
