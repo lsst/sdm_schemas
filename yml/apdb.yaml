@@ -2140,8 +2140,6 @@ tables:
   - name: dipoleNdata
     "@id": "#DiaSource.dipoleNdata"
     datatype: int
-    nullable: false
-    value: "0"
     description: The number of data points (pixels) used to fit the model.
     mysql:datatype: INTEGER
   - name: scienceFlux
