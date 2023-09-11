@@ -8014,6 +8014,12 @@ tables:
     mysql:datatype: DOUBLE
     description: Chi2 per degree of freedom of dipole fit.
     fits:tunit:
+  - name: dipoleNdata
+    "@id": "#DiaSource.dipoleNdata"
+    datatype: double
+    mysql:datatype: DOUBLE
+    description: Number of data points in the dipole fit
+    fits:tunit:
   - name: dipoleFluxDiff
     "@id": "#DiaSource.dipoleFluxDiff"
     datatype: double
