@@ -8016,8 +8016,8 @@ tables:
     fits:tunit:
   - name: dipoleNdata
     "@id": "#DiaSource.dipoleNdata"
-    datatype: double
-    mysql:datatype: DOUBLE
+    datatype: long
+    mysql:datatype: BIGINT
     description: Number of data points in the dipole fit
     fits:tunit:
   - name: dipoleFluxDiff
