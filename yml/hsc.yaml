@@ -28,6 +28,24 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: coord_decErr
+    "@id": "#Object.coord_decErr"
+    datatype: float
+    description: Error in fiducial ICRS Declination of centroid.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: coord_raErr
+    "@id": "#Object.coord_raErr"
+    datatype: float
+    description: Error in fiducial ICRS Right Ascension of centroid.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: coord_ra_dec_Cov
+    "@id": "#Object.coord_ra_dec_Cov"
+    datatype: float
+    description: Covariance between fiducial ICRS Right Ascension and Declination of centroid.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
@@ -574,6 +592,12 @@ tables:
     datatype: double
     description: Position in declination, measured on g-band.
     mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: g_decErr
+    "@id": "#Object.g_decErr"
+    datatype: float
+    description: Error in declination, measured on g-band.
+    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: g_decl
     "@id": "#Object.g_decl"
@@ -1164,6 +1188,18 @@ tables:
     description: Position in right ascension, measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: g_raErr
+    "@id": "#Object.g_raErr"
+    datatype: float
+    description: Error in right ascension, measured on g-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: g_ra_dec_Cov
+    "@id": "#Object.g_ra_dec_Cov"
+    datatype: float
+    description: Covariance between right ascension and declination, measured on g-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
     datatype: double
@@ -1541,6 +1577,12 @@ tables:
     datatype: double
     description: Position in declination, measured on i-band.
     mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: i_decErr
+    "@id": "#Object.i_decErr"
+    datatype: float
+    description: Error in declination, measured on i-band.
+    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: i_decl
     "@id": "#Object.i_decl"
@@ -2131,6 +2173,18 @@ tables:
     description: Position in right ascension, measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: i_raErr
+    "@id": "#Object.i_raErr"
+    datatype: float
+    description: Error in right ascension, measured on i-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: i_ra_dec_Cov
+    "@id": "#Object.i_ra_dec_Cov"
+    datatype: float
+    description: Covariance between right ascension and declination, measured on i-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
     datatype: double
@@ -2508,6 +2562,12 @@ tables:
     datatype: double
     description: Position in declination, measured on r-band.
     mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: r_decErr
+    "@id": "#Object.r_decErr"
+    datatype: float
+    description: Error in declination, measured on r-band.
+    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: r_decl
     "@id": "#Object.r_decl"
@@ -3098,6 +3158,18 @@ tables:
     description: Position in right ascension, measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: r_raErr
+    "@id": "#Object.r_raErr"
+    datatype: float
+    description: Error in right ascension, measured on r-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: r_ra_dec_Cov
+    "@id": "#Object.r_ra_dec_Cov"
+    datatype: float
+    description: Covariance between right ascension and declination, measured on r-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
     datatype: double
@@ -3475,6 +3547,12 @@ tables:
     datatype: double
     description: Position in declination, measured on y-band.
     mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: y_decErr
+    "@id": "#Object.y_decErr"
+    datatype: float
+    description: Error in declination, measured on y-band.
+    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: y_decl
     "@id": "#Object.y_decl"
@@ -4065,6 +4143,18 @@ tables:
     description: Position in right ascension, measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: y_raErr
+    "@id": "#Object.y_raErr"
+    datatype: float
+    description: Error in right ascension, measured on y-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: y_ra_dec_Cov
+    "@id": "#Object.y_ra_dec_Cov"
+    datatype: float
+    description: Covariance between right ascension and declination, measured on y-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
     datatype: double
@@ -4442,6 +4532,12 @@ tables:
     datatype: double
     description: Position in declination, measured on z-band.
     mysql:datatype: DOUBLE
+    fits:tunit: deg
+  - name: z_decErr
+    "@id": "#Object.z_decErr"
+    datatype: float
+    description: Error in declination, measured on z-band.
+    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: z_decl
     "@id": "#Object.z_decl"
@@ -5032,6 +5128,18 @@ tables:
     description: Position in right ascension, measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: z_raErr
+    "@id": "#Object.z_raErr"
+    datatype: float
+    description: Error in right ascension, measured on z-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: z_ra_dec_Cov
+    "@id": "#Object.z_ra_dec_Cov"
+    datatype: float
+    description: Covariance between right ascension and declination, measured on z-band.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
 
 - name: Source
   "@id": "#Source"
@@ -5112,6 +5220,24 @@ tables:
     description: Deprecated duplicate of dec.
     mysql:datatype: DOUBLE
     fits:tunit: deg
+  - name: raErr
+    "@id": "#Source.raErr"
+    datatype: float
+    description: Error in right ascension.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: decErr
+    "@id": "#Source.decErr"
+    datatype: float
+    description: Error in declination.
+    mysql:datatype: FLOAT
+    fits:tunit: deg
+  - name: ra_dec_Cov
+    "@id": "#Source.ra_dec_Cov"
+    datatype: float
+    description: Covariance between right ascension and declination.
+    mysql:datatype: FLOAT
+    fits:tunit: deg^2
   - name: calibFlux
     "@id": "#Source.calibFlux"
     datatype: double
