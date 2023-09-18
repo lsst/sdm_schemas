@@ -1,6 +1,9 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
+description: The Alert Production Database (APDB) contains the catalogs resulting from
+  image differencing during nightly Prompt Processing as well as the results of
+  daily Solar System Processing.
 tables:
 - name: DiaObject
   "@id": "#DiaObject"
