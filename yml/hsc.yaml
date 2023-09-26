@@ -46,6 +46,12 @@ tables:
     description: Covariance between fiducial ICRS Right Ascension and Declination of centroid.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
+  - name: deblend_incompleteData
+    "@id": "#Object.deblend_incompleteData"
+    datatype: boolean
+    description: One or more bands were not deblended due to an inability to model the PSF.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
@@ -1200,6 +1206,12 @@ tables:
     description: Covariance between right ascension and declination, measured on g-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
+  - name: g_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: double
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
     datatype: double
@@ -2185,6 +2197,12 @@ tables:
     description: Covariance between right ascension and declination, measured on i-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
+  - name: i_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: double
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
     datatype: double
@@ -3170,6 +3188,12 @@ tables:
     description: Covariance between right ascension and declination, measured on r-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
+  - name: r_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: double
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
     datatype: double
@@ -4155,6 +4179,12 @@ tables:
     description: Covariance between right ascension and declination, measured on y-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
+  - name: y_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: double
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
     datatype: double
@@ -5140,6 +5170,12 @@ tables:
     description: Covariance between right ascension and declination, measured on z-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
+  - name: z_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: double
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
 
 - name: Source
   "@id": "#Source"
