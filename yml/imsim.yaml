@@ -33,6 +33,12 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra;meta.main
+  - name: deblend_incompleteData
+    "@id": "#Object.deblend_incompleteData"
+    datatype: boolean
+    description: One or more bands were not deblended due to an inability to model the PSF.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
@@ -1171,6 +1177,12 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
+  - name: g_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: float
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the g-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
     datatype: double
@@ -2140,6 +2152,12 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
+  - name: i_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: float
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the i-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
     datatype: double
@@ -3109,6 +3127,12 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
+  - name: r_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: float
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the r-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
   - name: u_ap03Flux
     "@id": "#Object.u_ap03Flux"
     datatype: double
@@ -4078,6 +4102,12 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
+  - name: u_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: float
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the u-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
     datatype: double
@@ -5047,6 +5077,12 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
+  - name: y_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: float
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the y-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
     datatype: double
@@ -6016,6 +6052,12 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
+  - name: z_dataCoverage
+    "@id": "#Object.dataCoverage"
+    datatype: float
+    description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the z-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
 
 
 - name: Source
