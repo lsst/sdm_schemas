@@ -1165,9 +1165,9 @@ tables:
     fits:tunit: deg
   - name: g_dataCoverage
     "@id": "#Object.dataCoverage"
-    datatype: double
+    datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the g-band.
-    mysql:datatype: DOUBLE
+    mysql:datatype: FLOAT
     fits:tunit:
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
@@ -2131,9 +2131,9 @@ tables:
     fits:tunit: deg
   - name: i_dataCoverage
     "@id": "#Object.dataCoverage"
-    datatype: double
+    datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the i-band.
-    mysql:datatype: DOUBLE
+    mysql:datatype: FLOAT
     fits:tunit:
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
@@ -3097,9 +3097,9 @@ tables:
     fits:tunit: deg
   - name: r_dataCoverage
     "@id": "#Object.dataCoverage"
-    datatype: double
+    datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the r-band.
-    mysql:datatype: DOUBLE
+    mysql:datatype: FLOAT
     fits:tunit:
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
@@ -4063,9 +4063,9 @@ tables:
     fits:tunit: deg
   - name: y_dataCoverage
     "@id": "#Object.dataCoverage"
-    datatype: double
+    datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the y-band.
-    mysql:datatype: DOUBLE
+    mysql:datatype: FLOAT
     fits:tunit:
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
@@ -5029,9 +5029,9 @@ tables:
     fits:tunit: deg
   - name: z_dataCoverage
     "@id": "#Object.dataCoverage"
-    datatype: double
+    datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the z-band.
-    mysql:datatype: DOUBLE
+    mysql:datatype: FLOAT
     fits:tunit:
 
 - name: Source
