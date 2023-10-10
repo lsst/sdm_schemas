@@ -672,12 +672,6 @@ tables:
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
-  - name: g_gaap0p5FluxErr
-    "@id": "#Object.g_gaap0p5FluxErr"
-    datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
   - name: g_gaap0p7FluxErr
     "@id": "#Object.g_gaap0p7FluxErr"
     datatype: double
@@ -734,18 +728,6 @@ tables:
     fits:tunit: nJy
   - name: g_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.g_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
-    fits:tunit:
-  - name: g_gaap0p5Flux
-    "@id": "#Object.g_gaap0p5Flux"
-    datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
-  - name: g_gaap0p5Flux_flag_bigPsf
-    "@id": "#Object.g_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
     mysql:datatype: BOOLEAN
@@ -1663,12 +1645,6 @@ tables:
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
-  - name: i_gaap0p5FluxErr
-    "@id": "#Object.i_gaap0p5FluxErr"
-    datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
   - name: i_gaap0p7FluxErr
     "@id": "#Object.i_gaap0p7FluxErr"
     datatype: double
@@ -1725,18 +1701,6 @@ tables:
     fits:tunit: nJy
   - name: i_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.i_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
-    fits:tunit:
-  - name: i_gaap0p5Flux
-    "@id": "#Object.i_gaap0p5Flux"
-    datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
-  - name: i_gaap0p5Flux_flag_bigPsf
-    "@id": "#Object.i_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
     mysql:datatype: BOOLEAN
@@ -2654,12 +2618,6 @@ tables:
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
-  - name: r_gaap0p5FluxErr
-    "@id": "#Object.r_gaap0p5FluxErr"
-    datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
   - name: r_gaap0p7FluxErr
     "@id": "#Object.r_gaap0p7FluxErr"
     datatype: double
@@ -2716,18 +2674,6 @@ tables:
     fits:tunit: nJy
   - name: r_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.r_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
-    fits:tunit:
-  - name: r_gaap0p5Flux
-    "@id": "#Object.r_gaap0p5Flux"
-    datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
-  - name: r_gaap0p5Flux_flag_bigPsf
-    "@id": "#Object.r_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
     mysql:datatype: BOOLEAN
@@ -3645,12 +3591,6 @@ tables:
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
-  - name: y_gaap0p5FluxErr
-    "@id": "#Object.y_gaap0p5FluxErr"
-    datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
   - name: y_gaap0p7FluxErr
     "@id": "#Object.y_gaap0p7FluxErr"
     datatype: double
@@ -3707,18 +3647,6 @@ tables:
     fits:tunit: nJy
   - name: y_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.y_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
-    fits:tunit:
-  - name: y_gaap0p5Flux
-    "@id": "#Object.y_gaap0p5Flux"
-    datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
-  - name: y_gaap0p5Flux_flag_bigPsf
-    "@id": "#Object.y_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
     mysql:datatype: BOOLEAN
@@ -4636,12 +4564,6 @@ tables:
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
-  - name: z_gaap0p5FluxErr
-    "@id": "#Object.z_gaap0p5FluxErr"
-    datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
   - name: z_gaap0p7FluxErr
     "@id": "#Object.z_gaap0p7FluxErr"
     datatype: double
@@ -4698,18 +4620,6 @@ tables:
     fits:tunit: nJy
   - name: z_gaapOptimalFlux_flag_bigPsf
     "@id": "#Object.z_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
-    fits:tunit:
-  - name: z_gaap0p5Flux
-    "@id": "#Object.z_gaap0p5Flux"
-    datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    mysql:datatype: DOUBLE
-    fits:tunit: nJy
-  - name: z_gaap0p5Flux_flag_bigPsf
-    "@id": "#Object.z_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
     mysql:datatype: BOOLEAN
