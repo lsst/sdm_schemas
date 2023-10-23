@@ -7214,12 +7214,12 @@ tables:
     tap:principal: 1
     tap:column_index: 30
   constraints:
-  - name: FK_forcedSourceId_objectId
+  - name: Obj_FS
     "@type": "ForeignKey"
-    "@id": "#FK_forcedSourceId_objectId"
-    description: Foreign key from ForcedSource to Object
+    "@id": "#FK_ForcedSource_objectId_Object_objectId"
+    description: Link Objects to associated ForcedSources
     columns:
-    - "#ForcedSource.forcedSourceId"
+    - "#ForcedSource.objectId"
     referencedColumns:
     - "#Object.objectId"
 - name: DiaObject
