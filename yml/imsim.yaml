@@ -8492,6 +8492,12 @@ tables:
       Camera system (e.g., ghost maps, defect maps, etc.).
     fits:tunit:
     mysql:datatype: FLOAT
+  - name: ext_trailedSources_Naive_flag_edge
+    "@id": "#DiaSource.ext_trailedSources_Naive_flag_edge"
+    datatype: boolean
+    description: This flag is set if a trailed source extends onto or past edge pixels.
+    fits:tunit:
+    mysql:datatype: BOOLEAN
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
