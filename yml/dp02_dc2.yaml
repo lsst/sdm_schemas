@@ -7213,6 +7213,15 @@ tables:
     ivoa:ucd: phot.flux
     tap:principal: 1
     tap:column_index: 30
+  constraints:
+  - name: Obj_FS
+    "@type": "ForeignKey"
+    "@id": "#FK_ForcedSource_objectId_Object_objectId"
+    description: Link Objects to associated ForcedSources
+    columns:
+    - "#ForcedSource.objectId"
+    referencedColumns:
+    - "#Object.objectId"
 - name: DiaObject
   "@id": "#DiaObject"
   description: "Properties of time-varying astronomical objects based on association
