@@ -20,7 +20,7 @@ tables:
     nullable: false
     description: Unique identifier.
     mysql:datatype: BIGINT
-    ivoa:ucd: meta.id;src
+    ivoa:ucd: meta.id;meta.main;src
   - name: discoverySubmissionDate
     "@id": "#SSObject.discoverySubmissionDate"
     datatype: double
@@ -359,7 +359,7 @@ tables:
     ivoa:ucd: meta.code
 - name: DiaSource
   "@id": "#DiaSource"
-  description: Table to store 'difference image sources'; - sources detected at SNR
+  description: Table to store 'difference image sources' - sources detected at SNR
     >=5 on difference images.
   columns:
   - name: diaSourceId
@@ -367,7 +367,7 @@ tables:
     datatype: long
     description: Unique id.
     mysql:datatype: BIGINT
-    ivoa:ucd: meta.id;obs.image
+    ivoa:ucd: meta.id;meta.main;src
   - name: ccdVisitId
     "@id": "#DiaSource.ccdVisitId"
     datatype: long
@@ -493,11 +493,20 @@ tables:
     "@id": "#IDX_DiaSource_ssObjectId"
     columns:
     - "#DiaSource.ssObjectId"
+  constraints:
+  - name: SSO_DS_10yr
+    "@type": "ForeignKey"
+    "@id": "#FK_DiaSource_ssObjectId_SSObject_ssObjectId_10yr"
+    description: Link SSObjects to associated DiaSources
+    columns:
+    - "#DiaSource.ssObjectId"
+    referencedColumns:
+    - "#SSObject.ssObjectId"
   mysql:engine: MyISAM
   mysql:charset: latin1
 - name: SSSource
   "@id": "#SSSource"
-  description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
+  description: LSST-computed per-source quantities. 1:1 relationship with DiaSource.
     Recomputed daily, upon MPCORB ingestion.
   primaryKey: "#SSSource.ssObjectId"
   mysql:engine: MyISAM
@@ -514,7 +523,7 @@ tables:
     datatype: long
     description: Unique identifier of the observation
     mysql:datatype: BIGINT
-    ivoa:ucd: meta.id;src
+    ivoa:ucd: meta.id;meta.main;src
   - name: mpcUniqueId
     "@id": "#SSSource.mpcUniqueId"
     datatype: long
@@ -676,6 +685,15 @@ tables:
     description: ''
     mysql:datatype: FLOAT
     fits:tunit: AU
+  constraints:
+  - name: SSO_SSS_10yr
+    "@type": "ForeignKey"
+    "@id": "#FK_SSSource_ssObjectId_SSObject_ssObjectId_10yr"
+    description: Link SSObjects to associated SSSources
+    columns:
+    - "#SSSource.ssObjectId"
+    referencedColumns:
+    - "#SSObject.ssObjectId"
 - name: MPCORB
   "@id": "#MPCORB"
   description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
