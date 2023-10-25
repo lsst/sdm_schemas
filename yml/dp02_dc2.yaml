@@ -6985,7 +6985,7 @@ tables:
     mysql:datatype: DOUBLE
     description: 1-sigma uncertainty on the background in an annulus around source
     fits:tunit: count
-    ivoa:ucd: phot.count;stat.error
+    ivoa:ucd: stat.error;phot.count
     tap:principal: 0
     tap:column_index: 410
   - name: localBackground_instFlux
@@ -7003,7 +7003,7 @@ tables:
     mysql:datatype: DOUBLE
     description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
     fits:tunit:
-    ivoa:ucd: phot.calib;stat.error
+    ivoa:ucd: stat.error;phot.calib
     tap:principal: 0
     tap:column_index: 430
   - name: localPhotoCalib_flag
@@ -7165,7 +7165,7 @@ tables:
     mysql:datatype: DOUBLE
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the image difference
     fits:tunit: nJy
-    ivoa:ucd: phot.flux;stat.error
+    ivoa:ucd: stat.error;phot.flux
     tap:principal: 1
     tap:column_index: 70
   - name: psfDiffFlux_flag
@@ -7192,7 +7192,7 @@ tables:
     mysql:datatype: DOUBLE
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the calexp
     fits:tunit: nJy
-    ivoa:ucd: phot.flux;stat.error
+    ivoa:ucd: stat.error;phot.flux
     tap:principal: 1
     tap:column_index: 40
   - name: psfFlux_flag
@@ -8092,37 +8092,37 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description: Elliptical Gaussian adaptive moments
-    fits:tunit: asec^2
+    fits:tunit: arcsec**2
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: double
     mysql:datatype: DOUBLE
     description: Adaptive moments of the PSF model at the object position
-    fits:tunit: asec^2
+    fits:tunit: arcsec**2
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: double
     mysql:datatype: DOUBLE
     description: Elliptical Gaussian adaptive moments
-    fits:tunit: asec^2
+    fits:tunit: arcsec**2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: double
     mysql:datatype: DOUBLE
     description: Adaptive moments of the PSF model at the object position
-    fits:tunit: asec^2
+    fits:tunit: arcsec**2
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: double
     mysql:datatype: DOUBLE
     description: Elliptical Gaussian adaptive moments
-    fits:tunit: asec^2
+    fits:tunit: arcsec**2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: double
     mysql:datatype: DOUBLE
     description: Adaptive moments of the PSF model at the object position
-    fits:tunit: asec^2
+    fits:tunit: arcsec**2
   - name: midPointTai
     "@id": "#DiaSource.midPointTai"
     datatype: double
@@ -8412,7 +8412,7 @@ tables:
     mysql:datatype: DOUBLE
     description: 1-sigma uncertainty on the background in an annulus around source
     fits:tunit: count
-    ivoa:ucd: phot.count;stat.error
+    ivoa:ucd: stat.error;phot.count
     tap:principal: 0
     tap:column_index: 410
   - name: localPhotoCalib
@@ -8430,7 +8430,7 @@ tables:
     mysql:datatype: DOUBLE
     description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
     fits:tunit:
-    ivoa:ucd: phot.calib;stat.error
+    ivoa:ucd: stat.error;phot.calib
     tap:principal: 0
     tap:column_index: 430
   - name: localPhotoCalib_flag
@@ -8610,7 +8610,7 @@ tables:
     mysql:datatype: DOUBLE
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the image difference
     fits:tunit: nJy
-    ivoa:ucd: phot.flux;stat.error
+    ivoa:ucd: stat.error;phot.flux
     tap:principal: 1
     tap:column_index: 70
   - name: psfDiffFlux_flag
@@ -8637,7 +8637,7 @@ tables:
     mysql:datatype: DOUBLE
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the calexp
     fits:tunit: nJy
-    ivoa:ucd: phot.flux;stat.error
+    ivoa:ucd: stat.error;phot.flux
     tap:principal: 1
     tap:column_index: 40
   - name: psfFlux_flag
