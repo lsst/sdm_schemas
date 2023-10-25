@@ -8741,7 +8741,7 @@ tables:
   - name: match_chisq
     '@id': '#MatchesTruth.match_chisq'
     datatype: double
-    mysql:datatype: double
+    mysql:datatype: DOUBLE
     description: The chi-squared value of the (best) match
   - name: match_n_chisq_finite
     '@id': '#MatchesTruth.match_n_chisq_finite'
