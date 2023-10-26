@@ -7233,7 +7233,7 @@ tables:
     "@id": "#DiaObject.decl"
     datatype: double
     mysql:datatype: DOUBLE
-    description: the best fit Declination coordinate of the diaObject at time radecTai
+    description: The best fit Declination coordinate of the diaObject as evaluated at time radecTai
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec;meta.main
   - name: diaObjectId
@@ -7585,14 +7585,14 @@ tables:
     "@id": "#DiaObject.ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description: the best fit Right Ascension coordinate of the diaObject at time radecTai
+    description: The best fit Right Ascension coordinate of the diaObject as evaluated at time radecTai
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra;meta.main
   - name: radecTai
     "@id": "#DiaObject.radecTai"
     datatype: double
     mysql:datatype: DOUBLE
-    description: time at which (ra, decl) position of the diaObject was evaluated
+    description: Time at which (ra, decl) position of the diaObject was evaluated
   - name: uPSFluxChi2
     "@id": "#DiaObject.uPSFluxChi2"
     datatype: double
