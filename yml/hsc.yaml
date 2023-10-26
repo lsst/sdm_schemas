@@ -1128,6 +1128,18 @@ tables:
     description: Sources center is close to suspect pixels. Measured on g-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
+  - name: g_pixelFlags_streak
+    "@id": "#Object.g_pixelFlags_streak"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source footprint. Measured on g-band.
+    fits:tunit:
+  - name: g_pixelFlags_streakCenter
+    "@id": "#Object.g_pixelFlags_streakCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source center. Measured on g-band.
+    fits:tunit:
   - name: g_psfFlux
     "@id": "#Object.g_psfFlux"
     datatype: double
@@ -2100,6 +2112,18 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels. Measured on i-band.
     mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: i_pixelFlags_streak
+    "@id": "#Object.i_pixelFlags_streak"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source footprint. Measured on i-band.
+    fits:tunit:
+  - name: i_pixelFlags_streakCenter
+    "@id": "#Object.i_pixelFlags_streakCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source center. Measured on i-band.
     fits:tunit:
   - name: i_psfFlux
     "@id": "#Object.i_psfFlux"
@@ -3074,6 +3098,18 @@ tables:
     description: Sources center is close to suspect pixels. Measured on r-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
+  - name: r_pixelFlags_streak
+    "@id": "#Object.r_pixelFlags_streak"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source footprint. Measured on r-band.
+    fits:tunit:
+  - name: r_pixelFlags_streakCenter
+    "@id": "#Object.r_pixelFlags_streakCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source center. Measured on r-band.
+    fits:tunit:
   - name: r_psfFlux
     "@id": "#Object.r_psfFlux"
     datatype: double
@@ -4046,6 +4082,18 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels. Measured on y-band.
     mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: y_pixelFlags_streak
+    "@id": "#Object.y_pixelFlags_streak"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source footprint. Measured on y-band.
+    fits:tunit:
+  - name: y_pixelFlags_streakCenter
+    "@id": "#Object.y_pixelFlags_streakCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source center. Measured on y-band.
     fits:tunit:
   - name: y_psfFlux
     "@id": "#Object.y_psfFlux"
@@ -5020,6 +5068,18 @@ tables:
     description: Sources center is close to suspect pixels. Measured on z-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
+  - name: z_pixelFlags_streak
+    "@id": "#Object.z_pixelFlags_streak"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source footprint. Measured on z-band.
+    fits:tunit:
+  - name: z_pixelFlags_streakCenter
+    "@id": "#Object.z_pixelFlags_streakCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source center. Measured on z-band.
+    fits:tunit:
   - name: z_psfFlux
     "@id": "#Object.z_psfFlux"
     datatype: double
@@ -5729,6 +5789,18 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels
     mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: pixelFlags_streak
+    "@id": "#Source.pixelFlags_streak"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source footprint.
+    fits:tunit:
+  - name: pixelFlags_streakCenter
+    "@id": "#Source.pixelFlags_streakCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Streak in the Source center.
     fits:tunit:
   - name: psfFlux_apCorr
     "@id": "#Source.psfFlux_apCorr"
