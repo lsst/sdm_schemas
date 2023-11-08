@@ -8334,6 +8334,15 @@ tables:
     mysql:datatype: FLOAT
     description: 1-sigma uncertainty on y position
     fits:tunit: pixel
+  constraints:
+  - name: DiaO_DiaS
+    "@type": "ForeignKey"
+    "@id": "#FK_DiaSource_diaObjectId_DiaObject_diaObjectId"
+    description: Link DiaObjects to associated DiaSources
+    columns:
+    - "#DiaSource.diaObjectId"
+    referencedColumns:
+    - "#DiaObject.diaObjectId"
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: "Point-source forced-photometry measurements on individual single-epoch
@@ -8970,6 +8979,15 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
+  constraints:
+  - name: Visit_CcdV
+    "@type": "ForeignKey"
+    "@id": "#FK_CcdVisit_visitId_Visit_visitId"
+    description: Link Visits to the CcdVisits they contain
+    columns:
+    - "#CcdVisit.visitId"
+    referencedColumns:
+    - "#Visit.visit"
 - name: CoaddPatches
   "@id": "#coaddpatches"
   description: "Static information about the subset of tracts and patches from the standard
