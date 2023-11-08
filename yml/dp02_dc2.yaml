@@ -8979,6 +8979,15 @@ tables:
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
+  constraints:
+  - name: Visit_CcdV
+    "@type": "ForeignKey"
+    "@id": "#FK_CcdVisit_visitId_Visit_visitId"
+    description: Link Visits to the CcdVisits they contain
+    columns:
+    - "#CcdVisit.visitId"
+    referencedColumns:
+    - "#Visit.visit"
 - name: CoaddPatches
   "@id": "#coaddpatches"
   description: "Static information about the subset of tracts and patches from the standard
