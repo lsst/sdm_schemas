@@ -8334,6 +8334,15 @@ tables:
     mysql:datatype: FLOAT
     description: 1-sigma uncertainty on y position
     fits:tunit: pixel
+  constraints:
+  - name: DiaO_DiaS
+    "@type": "ForeignKey"
+    "@id": "#FK_DiaSource_diaObjectId_DiaObject_diaObjectId"
+    description: Link DiaObjects to associated DiaSources
+    columns:
+    - "#DiaSource.diaObjectId"
+    referencedColumns:
+    - "#DiaObject.diaObjectId"
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: "Point-source forced-photometry measurements on individual single-epoch
