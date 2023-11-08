@@ -3,7 +3,8 @@ Rubin Data Model Definitions
 
 The files in this directory contain definitions, in the "Felis" format,
 of the data models for the Rubin Observatory's public and principal internal
-catalog and observation metadata tabular data products.
+catalog and observation metadata tabular data products, including IVOA-related
+metadata.
 
 See [the main README for this repository](../README.md) for more information.
 
