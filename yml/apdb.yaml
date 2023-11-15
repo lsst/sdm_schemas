@@ -1,10 +1,28 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
+version: "0.1.1"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
 tables:
+- name: metadata
+  "@id": "#metadata"
+  description: Table containing various metadata key:value pairs for APDB.
+  columns:
+  - name: name
+    "@id": "#metadata.name"
+    datatype: text
+    length: 1024
+    nullable: false
+    description: Name or key for a metadata item.
+  - name: value
+    "@id": "#metadata.value"
+    datatype: text
+    length: 65535
+    nullable: false
+    description: Content of the metadata item in string representation.
+  primaryKey: "#metadata.name"
 - name: DiaObject
   "@id": "#DiaObject"
   description: The DiaObject table contains descriptions of the astronomical objects
