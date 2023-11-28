@@ -8343,6 +8343,14 @@ tables:
     - "#DiaSource.diaObjectId"
     referencedColumns:
     - "#DiaObject.diaObjectId"
+  - name: CcdV_DiaS
+    "@type": "ForeignKey"
+    "@id": "#FK_DiaSource_ccdVisitId_CcdVisit_ccdVisitId"
+    description: Link CCD-level images to associated DiaSources
+    columns:
+    - "#DiaSource.ccdVisitId"
+    referencedColumns:
+    - "#CcdVisit.ccdVisitId"
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: "Point-source forced-photometry measurements on individual single-epoch
