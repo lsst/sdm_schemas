@@ -5483,19 +5483,19 @@ tables:
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: iyyDebiasedPSF
     "@id": "#Source.iyyDebiasedPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: ixyDebiasedPSF
     "@id": "#Source.ixyDebiasedPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits.tunit:
+    fits:tunit:
   - name: gaussianFlux
     "@id": "#Source.gaussianFlux"
     datatype: double
@@ -6151,7 +6151,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(32)
-    fits.tunit:
+    fits:tunit:
   - name: band
     '@id': '#Visit.band'
     datatype: char
@@ -6160,7 +6160,7 @@ tables:
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
-    fits.tunit:
+    fits:tunit:
   - name: ra
     '@id': '#Visit.ra'
     datatype: double
@@ -6208,7 +6208,7 @@ tables:
     datatype: double
     description: Airmass of the observed line of sight.
     mysql:datatype: FLOAT
-    fits.tunit:
+    fits:tunit:
   - name: expTime
     '@id': '#Visit.expTime'
     datatype: double
@@ -6229,7 +6229,7 @@ tables:
     description: Midpoint time of the visit at the fiducial center of the focal plane array,
       expressed as Modified Julian Date, International Atomic Time, accurate to 10ms.
     mysql:datatype: DOUBLE
-    fits.tunit: d
+    fits:tunit: d
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
@@ -6264,7 +6264,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(32)
-    fits.tunit:
+    fits:tunit:
   - name: band
     '@id': '#CcdVisit.band'
     datatype: char
@@ -6273,7 +6273,7 @@ tables:
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
-    fits.tunit:
+    fits:tunit:
   - name: ra
     '@id': '#CcdVisit.ra'
     datatype: double

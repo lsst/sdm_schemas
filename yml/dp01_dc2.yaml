@@ -8390,7 +8390,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunits: nmgy*asec^2
+    fits:tunit: nmgy*asec^2
   - name: IyyPSF_pixel
     '@id': '#object.IyyPSF_pixel'
     datatype: double
@@ -8398,7 +8398,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunits: nmgy*asec^2
+    fits:tunit: nmgy*asec^2
   - name: IxyPSF_pixel
     '@id': '#object.IxyPSF_pixel'
     datatype: double
@@ -8406,7 +8406,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunits: nmgy*asec^2
+    fits:tunit: nmgy*asec^2
   - name: mag_g_cModel
     '@id': '#object.mag_g_cModel'
     datatype: double
