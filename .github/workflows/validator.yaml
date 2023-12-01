@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Only do Docker builds of ticket branches and tagged releases.
-    #if: startsWith(github.ref, 'refs/tags/') || startsWith(github.ref, 'refs/heads/tickets/')
+    # if: startsWith(github.ref, 'refs/tags/') || startsWith(github.ref, 'refs/heads/tickets/')
 
     steps:
       - name: Check out repo
