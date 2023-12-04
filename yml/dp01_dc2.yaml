@@ -8294,7 +8294,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: pixels
+    fits:tunit: pixel
     ivoa:ucd: pos.cartesian.x
   - name: y
     '@id': '#object.y'
@@ -8303,7 +8303,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: pixels
+    fits:tunit: pixel
     ivoa:ucd: pos.cartesian.y
   - name: xErr
     '@id': '#object.xErr'
@@ -8312,7 +8312,7 @@ tables:
     mysql:datatype: FLOAT
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: pixels
+    fits:tunit: pixel
     ivoa:ucd: stat.error;pos.cartesian.x
   - name: yErr
     '@id': '#object.yErr'
@@ -8321,7 +8321,7 @@ tables:
     mysql:datatype: FLOAT
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: pixels
+    fits:tunit: pixel
     ivoa:ucd: stat.error;pos.cartesian.y
   - name: xy_flag
     '@id': '#object.xy_flag'
@@ -8359,7 +8359,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nmgy*arcsec^2
   - name: Iyy_pixel
     '@id': '#object.Iyy_pixel'
     datatype: double
@@ -8367,7 +8367,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nmgy*arcsec^2
   - name: Ixy_pixel
     '@id': '#object.Ixy_pixel'
     datatype: double
@@ -8375,7 +8375,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nmgy*arcsec^2
   - name: I_flag
     '@id': '#object.I_flag'
     datatype: boolean
@@ -8390,7 +8390,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nmgy*arcsec^2
   - name: IyyPSF_pixel
     '@id': '#object.IyyPSF_pixel'
     datatype: double
@@ -8398,7 +8398,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nmgy*arcsec^2
   - name: IxyPSF_pixel
     '@id': '#object.IxyPSF_pixel'
     datatype: double
@@ -8406,7 +8406,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*asec^2
+    fits:tunit: nmgy*arcsec^2
   - name: mag_g_cModel
     '@id': '#object.mag_g_cModel'
     datatype: double
@@ -8858,7 +8858,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixx_pixel_i
     '@id': '#object.Ixx_pixel_i'
     datatype: double
@@ -8866,7 +8866,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixx_pixel_r
     '@id': '#object.Ixx_pixel_r'
     datatype: double
@@ -8874,7 +8874,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixx_pixel_u
     '@id': '#object.Ixx_pixel_u'
     datatype: double
@@ -8882,7 +8882,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixx_pixel_y
     '@id': '#object.Ixx_pixel_y'
     datatype: double
@@ -8890,7 +8890,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixx_pixel_z
     '@id': '#object.Ixx_pixel_z'
     datatype: double
@@ -8898,7 +8898,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Iyy_pixel_g
     '@id': '#object.Iyy_pixel_g'
     datatype: double
@@ -8906,7 +8906,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Iyy_pixel_i
     '@id': '#object.Iyy_pixel_i'
     datatype: double
@@ -8914,7 +8914,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Iyy_pixel_r
     '@id': '#object.Iyy_pixel_r'
     datatype: double
@@ -8922,7 +8922,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Iyy_pixel_u
     '@id': '#object.Iyy_pixel_u'
     datatype: double
@@ -8930,7 +8930,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Iyy_pixel_y
     '@id': '#object.Iyy_pixel_y'
     datatype: double
@@ -8938,7 +8938,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Iyy_pixel_z
     '@id': '#object.Iyy_pixel_z'
     datatype: double
@@ -8946,7 +8946,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixy_pixel_g
     '@id': '#object.Ixy_pixel_g'
     datatype: double
@@ -8954,7 +8954,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixy_pixel_i
     '@id': '#object.Ixy_pixel_i'
     datatype: double
@@ -8962,7 +8962,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixy_pixel_r
     '@id': '#object.Ixy_pixel_r'
     datatype: double
@@ -8970,7 +8970,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixy_pixel_u
     '@id': '#object.Ixy_pixel_u'
     datatype: double
@@ -8978,7 +8978,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixy_pixel_y
     '@id': '#object.Ixy_pixel_y'
     datatype: double
@@ -8986,7 +8986,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: Ixy_pixel_z
     '@id': '#object.Ixy_pixel_z'
     datatype: double
@@ -8994,7 +8994,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxxPSF_pixel_g
     '@id': '#object.IxxPSF_pixel_g'
     datatype: double
@@ -9002,7 +9002,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxxPSF_pixel_i
     '@id': '#object.IxxPSF_pixel_i'
     datatype: double
@@ -9010,7 +9010,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxxPSF_pixel_r
     '@id': '#object.IxxPSF_pixel_r'
     datatype: double
@@ -9018,7 +9018,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxxPSF_pixel_u
     '@id': '#object.IxxPSF_pixel_u'
     datatype: double
@@ -9026,7 +9026,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxxPSF_pixel_y
     '@id': '#object.IxxPSF_pixel_y'
     datatype: double
@@ -9034,7 +9034,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxxPSF_pixel_z
     '@id': '#object.IxxPSF_pixel_z'
     datatype: double
@@ -9042,7 +9042,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IyyPSF_pixel_g
     '@id': '#object.IyyPSF_pixel_g'
     datatype: double
@@ -9050,7 +9050,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IyyPSF_pixel_i
     '@id': '#object.IyyPSF_pixel_i'
     datatype: double
@@ -9058,7 +9058,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IyyPSF_pixel_r
     '@id': '#object.IyyPSF_pixel_r'
     datatype: double
@@ -9066,7 +9066,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IyyPSF_pixel_u
     '@id': '#object.IyyPSF_pixel_u'
     datatype: double
@@ -9074,7 +9074,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IyyPSF_pixel_y
     '@id': '#object.IyyPSF_pixel_y'
     datatype: double
@@ -9082,7 +9082,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IyyPSF_pixel_z
     '@id': '#object.IyyPSF_pixel_z'
     datatype: double
@@ -9090,7 +9090,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxyPSF_pixel_g
     '@id': '#object.IxyPSF_pixel_g'
     datatype: double
@@ -9098,7 +9098,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxyPSF_pixel_i
     '@id': '#object.IxyPSF_pixel_i'
     datatype: double
@@ -9106,7 +9106,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxyPSF_pixel_r
     '@id': '#object.IxyPSF_pixel_r'
     datatype: double
@@ -9114,7 +9114,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxyPSF_pixel_u
     '@id': '#object.IxyPSF_pixel_u'
     datatype: double
@@ -9122,7 +9122,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxyPSF_pixel_y
     '@id': '#object.IxyPSF_pixel_y'
     datatype: double
@@ -9130,7 +9130,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: IxyPSF_pixel_z
     '@id': '#object.IxyPSF_pixel_z'
     datatype: double
@@ -9138,7 +9138,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: asec^2
+    fits:tunit: arcsec^2
   - name: good
     '@id': '#object.good'
     datatype: boolean
@@ -9535,7 +9535,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 1
-    fits:tunit: asec
+    fits:tunit: arcsec
     description: On-sky angular separation of this object-truth matching pair (-1
       for unmatched truth entries)
   - name: is_good_match
