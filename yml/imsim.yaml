@@ -54,23 +54,83 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg^2
     ivoa:ucd: pos.eq.ra_dec_Cov;meta.main
-  - name: deblend_incompleteData
-    "@id": "#Object.deblend_incompleteData"
-    datatype: boolean
-    description: One or more bands were not deblended due to an inability to model the PSF.
-    mysql:datatype: BOOLEAN
-    fits:tunit:
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
     description: Number of children this object has (defaults to 0)
     mysql:datatype: INTEGER
     fits:tunit:
+  - name: deblend_nPeaks
+    "@id": "#Object.deblend_nPeaks"
+    datatype: int
+    description: Number of peaks this parent footprint has (even if the deblender failed or skipped this blend)
+    mysql:datatype: INTEGER
+    fits:tunit:
+  - name: deblend_failed
+    "@id": "#Object.deblend_failed"
+    datatype: boolean
+    description: Deblender failed to deblend this source
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: deblend_skipped
     "@id": "#Object.deblend_skipped"
     datatype: boolean
     description: Deblender skipped this source
     mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: deblend_isolatedParent
+    "@id": "#Object.deblend_isolatedParent"
+    datatype: boolean
+    description: Deblender skipped this footprint because there was only a single peak
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: deblend_parentTooBig
+    "@id": "#Object.deblend_parentTooBig"
+    datatype: boolean
+    description: Deblender skipped this source because the parent footprint was too large.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: deblend_tooManyPeaks
+    "@id": "#Object.deblend_tooManyPeaks"
+    datatype: boolean
+    description: Deblender skipped this source because there were too many peaks in the Footprint.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: deblend_masked
+    "@id": "#Object.deblend_masked"
+    datatype: boolean
+    description: Deblender skipped this source because there were too many masked pixels.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: deblend_incompleteData
+    "@id": "#Object.deblend_incompleteData"
+    datatype: boolean
+    description: One or more bands were not deblended due to an inability to model the PSF.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: deblend_iterations
+    "@id": "#Object.deblend_iterations"
+    datatype: int
+    description: Number of iterations during deblending
+    mysql:datatype: INTEGER
+    fits:tunit:
+  - name: deblend_peak_center_x
+    "@id": "#Object.deblend_peak_center_x"
+    datatype: int
+    description: x-coordinate of the peak after source detection
+    mysql:datatype: INTEGER
+    fits:tunit:
+  - name: deblend_peak_center_y
+    "@id": "#Object.deblend_peak_center_y"
+    datatype: int
+    description: y-coordinate of the peak after source detection
+    mysql:datatype: INTEGER
+    fits:tunit:
+  - name: deblend_logL
+    "@id": "#Object.deblend_logL"
+    datatype: float
+    description: Log likelihood of the entire blend in scarlet_lite.
+    mysql:datatype: FLOAT
     fits:tunit:
   - name: detect_fromBlend
     "@id": "#Object.detect_fromBlend"
@@ -1213,10 +1273,28 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg^2
     ivoa:ucd: pos.eq.ra_dec_Cov
-  - name: g_dataCoverage
-    "@id": "#Object.dataCoverage"
+  - name: g_deblend_dataCoverage
+    "@id": "#Object.g_deblend_dataCoverage"
     datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the g-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: g_deblend_blendedness
+    "@id": "#Object.g_deblend_blendedness"
+    datatype: float
+    description: Blendedness in the deconvolved scarlet space
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: g_deblend_fluxOverlap
+    "@id": "#Object.g_deblend_fluxOverlap"
+    datatype: float
+    description: The total flux from neighboring objects that overlaps with this sources footprint in the deconvolved space.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: g_deblend_fluxOverlapFraction
+    "@id": "#Object.g_deblend_fluxOverlap"
+    datatype: float
+    description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
   - name: i_ap03Flux
@@ -2203,10 +2281,28 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg^2
     ivoa:ucd: pos.eq.ra_dec_Cov
-  - name: i_dataCoverage
-    "@id": "#Object.dataCoverage"
+  - name: i_deblend_dataCoverage
+    "@id": "#Object.i_deblend_dataCoverage"
     datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the i-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: i_deblend_blendedness
+    "@id": "#Object.i_deblend_blendedness"
+    datatype: float
+    description: Blendedness in the deconvolved scarlet space
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: i_deblend_fluxOverlap
+    "@id": "#Object.i_deblend_fluxOverlap"
+    datatype: float
+    description: The total flux from neighboring objects that overlaps with this sources footprint in the deconvolved space.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: i_deblend_fluxOverlapFraction
+    "@id": "#Object.i_deblend_fluxOverlap"
+    datatype: float
+    description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
   - name: r_ap03Flux
@@ -3193,10 +3289,28 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg^2
     ivoa:ucd: pos.eq.ra_dec_Cov
-  - name: r_dataCoverage
-    "@id": "#Object.dataCoverage"
+  - name: r_deblend_dataCoverage
+    "@id": "#Object.r_deblend_dataCoverage"
     datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the r-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: r_deblend_blendedness
+    "@id": "#Object.r_deblend_blendedness"
+    datatype: float
+    description: Blendedness in the deconvolved scarlet space
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: r_deblend_fluxOverlap
+    "@id": "#Object.r_deblend_fluxOverlap"
+    datatype: float
+    description: The total flux from neighboring objects that overlaps with this sources footprint in the deconvolved space.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: r_deblend_fluxOverlapFraction
+    "@id": "#Object.r_deblend_fluxOverlap"
+    datatype: float
+    description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
   - name: u_ap03Flux
@@ -4183,10 +4297,28 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg^2
     ivoa:ucd: pos.eq.ra_dec_Cov
-  - name: u_dataCoverage
-    "@id": "#Object.dataCoverage"
+  - name: u_deblend_dataCoverage
+    "@id": "#Object.u_deblend_dataCoverage"
     datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the u-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: u_deblend_blendedness
+    "@id": "#Object.u_deblend_blendedness"
+    datatype: float
+    description: Blendedness in the deconvolved scarlet space
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: u_deblend_fluxOverlap
+    "@id": "#Object.u_deblend_fluxOverlap"
+    datatype: float
+    description: The total flux from neighboring objects that overlaps with this sources footprint in the deconvolved space.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: u_deblend_fluxOverlapFraction
+    "@id": "#Object.u_deblend_fluxOverlap"
+    datatype: float
+    description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
   - name: y_ap03Flux
@@ -5173,10 +5305,28 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg^2
     ivoa:ucd: pos.eq.ra_dec_Cov
-  - name: y_dataCoverage
-    "@id": "#Object.dataCoverage"
+  - name: y_deblend_dataCoverage
+    "@id": "#Object.y_deblend_dataCoverage"
     datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the y-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: y_deblend_blendedness
+    "@id": "#Object.y_deblend_blendedness"
+    datatype: float
+    description: Blendedness in the deconvolved scarlet space
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: y_deblend_fluxOverlap
+    "@id": "#Object.y_deblend_fluxOverlap"
+    datatype: float
+    description: The total flux from neighboring objects that overlaps with this sources footprint in the deconvolved space.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: y_deblend_fluxOverlapFraction
+    "@id": "#Object.y_deblend_fluxOverlap"
+    datatype: float
+    description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
   - name: z_ap03Flux
@@ -6163,10 +6313,28 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit: deg^2
     ivoa:ucd: pos.eq.ra_dec_Cov
-  - name: z_dataCoverage
-    "@id": "#Object.dataCoverage"
+  - name: z_deblend_dataCoverage
+    "@id": "#Object.z_deblend_dataCoverage"
     datatype: float
     description: Fraction of data that contained good data, ie. 1 - number of no data pixels/total number of pixels in the z-band.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: z_deblend_blendedness
+    "@id": "#Object.z_deblend_blendedness"
+    datatype: float
+    description: Blendedness in the deconvolved scarlet space
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: z_deblend_fluxOverlap
+    "@id": "#Object.z_deblend_fluxOverlap"
+    datatype: float
+    description: The total flux from neighboring objects that overlaps with this sources footprint in the deconvolved space.
+    mysql:datatype: FLOAT
+    fits:tunit:
+  - name: z_deblend_fluxOverlapFraction
+    "@id": "#Object.z_deblend_fluxOverlap"
+    datatype: float
+    description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
 
