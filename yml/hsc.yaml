@@ -111,13 +111,13 @@ tables:
     datatype: int
     description: x-coordinate of the peak after source detection
     mysql:datatype: INTEGER
-    fits:tunit:
+    fits:tunit: pixel
   - name: deblend_peak_center_y
     "@id": "#Object.deblend_peak_center_y"
     datatype: int
     description: y-coordinate of the peak after source detection
     mysql:datatype: INTEGER
-    fits:tunit:
+    fits:tunit: pixel
   - name: deblend_logL
     "@id": "#Object.deblend_logL"
     datatype: float
