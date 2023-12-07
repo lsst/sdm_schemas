@@ -12,6 +12,9 @@
         <PARAM name="table" datatype="char" arraysize="*" value="dp02_dc2_catalogs.DiaSource">
           <DESCRIPTION>Table containing time series data</DESCRIPTION>
         </PARAM>
+        <PARAM name="band_column" datatype="char" arraysize="*" value="filterName">
+            <DESCRIPTION>Name of the filter band in time series table</DESCRIPTION>
+        </PARAM>
         <PARAM name="id_column" datatype="char" arraysize="*" value="diaObjectId">
           <DESCRIPTION>Foreign key in time series table</DESCRIPTION>
         </PARAM>
