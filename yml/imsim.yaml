@@ -32,7 +32,7 @@ tables:
     description: Error in fiducial ICRS Declination of centroid
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr;meta.main
+    ivoa:ucd: stat.error;pos.eq.dec;meta.main
   - name: coord_ra
     "@id": "#Object.coord_ra"
     datatype: double
@@ -46,14 +46,14 @@ tables:
     description: Error in fiducial ICRS Right Ascension of centroid
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr;meta.main
+    ivoa:ucd: stat.error;pos.eq.ra;meta.main
   - name: coord_ra_dec_Cov
     "@id": "#Object.coord_ra_dec_Cov"
     datatype: float
     description: Covariance between fiducial ICRS Right Ascension and Declination of centroid
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov;meta.main
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec;meta.main
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
@@ -674,7 +674,7 @@ tables:
     description: Error in declination, measured on g-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: g_decl
     "@id": "#Object.g_decl"
     datatype: double
@@ -1265,14 +1265,14 @@ tables:
     description: Error in right ascension, measured on g-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: g_ra_dec_Cov
     "@id": "#Object.g_ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination, measured on g-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: g_deblend_dataCoverage
     "@id": "#Object.g_deblend_dataCoverage"
     datatype: float
@@ -1682,7 +1682,7 @@ tables:
     description: Error in declination, measured on i-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: i_decl
     "@id": "#Object.i_decl"
     datatype: double
@@ -2273,14 +2273,14 @@ tables:
     description: Error in right ascension, measured on i-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: i_ra_dec_Cov
     "@id": "#Object.i_ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination, measured on i-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: i_deblend_dataCoverage
     "@id": "#Object.i_deblend_dataCoverage"
     datatype: float
@@ -2690,7 +2690,7 @@ tables:
     description: Error in declination, measured on r-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: r_decl
     "@id": "#Object.r_decl"
     datatype: double
@@ -3281,14 +3281,14 @@ tables:
     description: Error in right ascension, measured on r-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: r_ra_dec_Cov
     "@id": "#Object.r_ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination, measured on r-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: r_deblend_dataCoverage
     "@id": "#Object.r_deblend_dataCoverage"
     datatype: float
@@ -3698,7 +3698,7 @@ tables:
     description: Error in declination, measured on u-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: u_decl
     "@id": "#Object.u_decl"
     datatype: double
@@ -4289,14 +4289,14 @@ tables:
     description: Error in right ascension, measured on u-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: u_ra_dec_Cov
     "@id": "#Object.u_ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination, measured on u-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: u_deblend_dataCoverage
     "@id": "#Object.u_deblend_dataCoverage"
     datatype: float
@@ -4706,7 +4706,7 @@ tables:
     description: Error in declination, measured on y-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: y_decl
     "@id": "#Object.y_decl"
     datatype: double
@@ -5297,14 +5297,14 @@ tables:
     description: Error in right ascension, measured on y-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: y_ra_dec_Cov
     "@id": "#Object.y_ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination, measured on y-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: y_deblend_dataCoverage
     "@id": "#Object.y_deblend_dataCoverage"
     datatype: float
@@ -5714,7 +5714,7 @@ tables:
     description: Error in declination, measured on z-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: z_decl
     "@id": "#Object.z_decl"
     datatype: double
@@ -6305,14 +6305,14 @@ tables:
     description: Error in right ascension, measured on z-band.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: z_ra_dec_Cov
     "@id": "#Object.z_ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination, measured on z-band.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: z_deblend_dataCoverage
     "@id": "#Object.z_deblend_dataCoverage"
     datatype: float
@@ -6422,21 +6422,21 @@ tables:
     description: Error in right ascension.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: decErr
     "@id": "#Source.decErr"
     datatype: float
     description: Error in declination.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
     "@id": "#Source.ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: decl
     "@id": "#Source.decl"
     datatype: double
@@ -8362,7 +8362,7 @@ tables:
     description: Error in declination.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.decErr
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: diaObjectId
     "@id": "#DiaSource.diaObjectId"
     datatype: long
@@ -8636,14 +8636,14 @@ tables:
     description: Error in right ascension.
     mysql:datatype: FLOAT
     fits:tunit: deg
-    ivoa:ucd: pos.eq.raErr
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: ra_dec_Cov
     "@id": "#DiaSource.ra_dec_Cov"
     datatype: float
     description: Covariance between right ascension and declination.
     mysql:datatype: FLOAT
     fits:tunit: deg^2
-    ivoa:ucd: pos.eq.ra_dec_Cov
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: shape_flag
     "@id": "#DiaSource.shape_flag"
     datatype: boolean

@@ -148,7 +148,7 @@ tables:
         "@id": "ObsPlan.t_exptime"
         description: Total exposure time
         nullable: false
-        ivoa:ucd: ime.duration;obs.exposure
+        ivoa:ucd: time.duration;obs.exposure
         votable:utype: Char.TimeAxis.Coverage.Support.Extent
         tap:std: 1
         tap:principal: 1
