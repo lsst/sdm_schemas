@@ -9049,23 +9049,23 @@ tables:
   description: Match information for TruthSummary objects.
   tap:table_index: 11
   columns:
-# Index refers to the the position in a per-tract parquet file, and has no use in SQL.
-#   - name: index
-#     '@id': '#MatchesTruth.index'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Incrementing (implicit) row index
+  # Index refers to the the position in a per-tract parquet file, and has no use in SQL.
+  #   - name: index
+  #     '@id': '#MatchesTruth.index'
+  #     datatype: long
+  #     mysql:datatype: BIGINT
+  #     description: Incrementing (implicit) row index
   - name: match_candidate
     '@id': '#MatchesTruth.match_candidate'
     datatype: boolean
     mysql:datatype: BOOLEAN
     description: True for sources that were selected for matching
-# match_row refers to the the position in a per-tract Object parquet file.
-#   - name: match_row
-#     '@id': '#MatchesTruth.match_row'
-#     datatype: long
-#     mysql:datatype: BIGINT
-#     description: Index of matched objectTable_tract table row, if any
+  # match_row refers to the the position in a per-tract Object parquet file.
+  #   - name: match_row
+  #     '@id': '#MatchesTruth.match_row'
+  #     datatype: long
+  #     mysql:datatype: BIGINT
+  #     description: Index of matched objectTable_tract table row, if any
   - name: match_count
     '@id': '#MatchesTruth.match_count'
     datatype: int
