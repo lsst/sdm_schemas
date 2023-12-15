@@ -32,7 +32,7 @@ tables:
         tap:principal: 1
         tap:column_index: 2
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: obs_id
         "@id": "ObsPlan.obs_id"
@@ -44,7 +44,7 @@ tables:
         tap:principal: 1
         tap:column_index: 3
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: obs_collection
         "@id": "ObsPlan.obs_collection"
@@ -56,7 +56,7 @@ tables:
         tap:principal: 1
         tap:column_index: 4
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: s_ra
         "@id": "ObsPlan.s_ra"
@@ -106,7 +106,7 @@ tables:
         tap:principal: 0
         tap:column_index: 8
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: s_resolution
         "@id": "ObsPlan.s_resolution"
@@ -211,7 +211,7 @@ tables:
         tap:principal: 0
         tap:column_index: 17
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: pol_states
         "@id": "ObsPlan.pol_states"
@@ -223,7 +223,7 @@ tables:
         tap:principal: 0
         tap:column_index: 18
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: pol_xel
         "@id": "ObsPlan.pol_xel"
@@ -246,7 +246,7 @@ tables:
         tap:principal: 1
         tap:column_index: 20
         ivoa:unit: d
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: instrument_name
         "@id": "ObsPlan.instrument_name"
@@ -258,7 +258,7 @@ tables:
         tap:principal: 1
         tap:column_index: 21
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: t_plan_exptime
         "@id": "ObsPlan.t_plan_exptime"
@@ -282,7 +282,7 @@ tables:
         tap:principal: 1
         tap:column_index: 23
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: priority
         "@id": "ObsPlan.priority"
@@ -306,7 +306,7 @@ tables:
         tap:principal: 1
         tap:column_index: 25
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: tracking_type
         "@id": "ObsPlan.tracking_type"
@@ -319,7 +319,7 @@ tables:
         tap:principal: 0
         tap:column_index: 26
         ivoa:unit: m
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
       - name: rubin_rot_sky_pos
         "@id": "ObsPlan.rubin_rot_sky_pos"
