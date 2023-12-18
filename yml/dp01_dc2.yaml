@@ -728,7 +728,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s footprint includes suspect pixels
+    description: "Source's footprint includes suspect pixels"
     fits:tunit: ''
   - name: base_PixelFlags_flag_interpolatedCenter
     '@id': '#reference.base_PixelFlags_flag_interpolatedCenter'
@@ -760,7 +760,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s center is close to suspect pixels
+    description: "Source's center is close to suspect pixels"
     fits:tunit: ''
   - name: base_PixelFlags_flag_clippedCenter
     '@id': '#reference.base_PixelFlags_flag_clippedCenter'
@@ -959,7 +959,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    description: PSF-corrected shear using Hirata & Seljak (2003) ''regaussianization
+    description: PSF-corrected shear using Hirata & Seljak (2003) "regaussianization"
     fits:tunit: ''
   - name: ext_shapeHSM_HsmShapeRegauss_e2
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_e2'
@@ -967,7 +967,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    description: PSF-corrected shear using Hirata & Seljak (2003) ''regaussianization
+    description: PSF-corrected shear using Hirata & Seljak (2003) "regaussianization"
     fits:tunit: ''
   - name: ext_shapeHSM_HsmShapeRegauss_sigma
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_sigma'
@@ -975,7 +975,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    description: PSF-corrected shear using Hirata & Seljak (2003) ''regaussianization
+    description: PSF-corrected shear using Hirata & Seljak (2003) "regaussianization"
     fits:tunit: ''
   - name: ext_shapeHSM_HsmShapeRegauss_resolution
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_resolution'
@@ -2292,7 +2292,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s footprint includes suspect pixels
+    description: "Source's footprint includes suspect pixels"
     fits:tunit: ''
   - name: g_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_interpolatedCenter'
@@ -2324,7 +2324,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s center is close to suspect pixels
+    description: "Source's center is close to suspect pixels"
     fits:tunit: ''
   - name: g_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_clippedCenter'
@@ -3292,7 +3292,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s footprint includes suspect pixels
+    description: "Source's footprint includes suspect pixels"
     fits:tunit: ''
   - name: i_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_interpolatedCenter'
@@ -3324,7 +3324,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s center is close to suspect pixels
+    description: "Source's center is close to suspect pixels"
     fits:tunit: ''
   - name: i_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_clippedCenter'
@@ -4292,7 +4292,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s footprint includes suspect pixels
+    description: "Source's footprint includes suspect pixels"
     fits:tunit: ''
   - name: r_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_interpolatedCenter'
@@ -4324,7 +4324,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s center is close to suspect pixels
+    description: "Source's center is close to suspect pixels"
     fits:tunit: ''
   - name: r_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_clippedCenter'
@@ -5292,7 +5292,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s footprint includes suspect pixels
+    description: "Source's footprint includes suspect pixels"
     fits:tunit: ''
   - name: u_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_interpolatedCenter'
@@ -5324,7 +5324,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s center is close to suspect pixels
+    description: "Source's center is close to suspect pixels"
     fits:tunit: ''
   - name: u_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_clippedCenter'
@@ -6292,7 +6292,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s footprint includes suspect pixels
+    description: "Source's footprint includes suspect pixels"
     fits:tunit: ''
   - name: y_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_interpolatedCenter'
@@ -6324,7 +6324,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s center is close to suspect pixels
+    description: "Source's center is close to suspect pixels"
     fits:tunit: ''
   - name: y_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_clippedCenter'
@@ -7292,7 +7292,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s footprint includes suspect pixels
+    description: "Source's footprint includes suspect pixels"
     fits:tunit: ''
   - name: z_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_interpolatedCenter'
@@ -7324,7 +7324,7 @@ tables:
     mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
-    description: Source''s center is close to suspect pixels
+    description: "Source's center is close to suspect pixels"
     fits:tunit: ''
   - name: z_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_clippedCenter'
