@@ -34,6 +34,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: obs_id
         "@id": "ObsPlan.obs_id"
         description: Observation ID
@@ -46,6 +47,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: obs_collection
         "@id": "ObsPlan.obs_collection"
         description: Name of the data collection
@@ -58,6 +60,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 80
       - name: s_ra
         "@id": "ObsPlan.s_ra"
         description: Central right ascension, ICRS
@@ -108,6 +111,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 400
       - name: s_resolution
         "@id": "ObsPlan.s_resolution"
         description: Spatial resolution of data as FWHM
@@ -213,6 +217,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: pol_states
         "@id": "ObsPlan.pol_states"
         description: List of polarization states or NULL if not applicable
@@ -224,6 +229,7 @@ tables:
         tap:column_index: 18
         ivoa:unit:
         datatype: string
+        length: 40
         votable:arraysize: "*"
       - name: pol_xel
         "@id": "ObsPlan.pol_xel"
@@ -248,6 +254,7 @@ tables:
         ivoa:unit: d
         datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: instrument_name
         "@id": "ObsPlan.instrument_name"
         description: Name of the instrument used for this observation
@@ -260,6 +267,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: t_plan_exptime
         "@id": "ObsPlan.t_plan_exptime"
         description: Planned or scheduled exposure time
@@ -284,6 +292,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 11
       - name: priority
         "@id": "ObsPlan.priority"
         description: "Priority level { 0, 1, 2}"
@@ -308,6 +317,7 @@ tables:
         ivoa:unit:
         datatype: string
         votable:arraysize: "*"
+        length: 11
       - name: tracking_type
         "@id": "ObsPlan.tracking_type"
         description: One of the following values\u0003A
@@ -321,6 +331,7 @@ tables:
         ivoa:unit: m
         datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: rubin_rot_sky_pos
         "@id": "ObsPlan.rubin_rot_sky_pos"
         description: From scheduler rotation angle
