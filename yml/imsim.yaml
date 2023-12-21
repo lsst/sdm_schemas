@@ -1018,6 +1018,126 @@ tables:
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
+  - name: g_hsm_moments_30
+    "@id": "#Object.g_hsm_moments_30"
+    datatype: double
+    description: HSM higher order moments 30. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_30
+    "@id": "#Object.g_hsm_momentsPsf_30"
+    datatype: double
+    description: HSM higher order PSF moments 30. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_21
+    "@id": "#Object.g_hsm_moments_21"
+    datatype: double
+    description: HSM higher order moments 21. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_21
+    "@id": "#Object.g_hsm_momentsPsf_21"
+    datatype: double
+    description: HSM higher order PSF moments 21. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_12
+    "@id": "#Object.g_hsm_moments_12"
+    datatype: double
+    description: HSM higher order moments 12. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_12
+    "@id": "#Object.g_hsm_momentsPsf_12"
+    datatype: double
+    description: HSM higher order PSF moments 12. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_03
+    "@id": "#Object.g_hsm_moments_03"
+    datatype: double
+    description: HSM higher order moments 03. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_03
+    "@id": "#Object.g_hsm_momentsPsf_03"
+    datatype: double
+    description: HSM higher order PSF moments 03. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_40
+    "@id": "#Object.g_hsm_moments_40"
+    datatype: double
+    description: HSM higher order moments 40. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_40
+    "@id": "#Object.g_hsm_momentsPsf_40"
+    datatype: double
+    description: HSM higher order PSF moments 40. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_31
+    "@id": "#Object.g_hsm_moments_31"
+    datatype: double
+    description: HSM higher order moments 31. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_31
+    "@id": "#Object.g_hsm_momentsPsf_31"
+    datatype: double
+    description: HSM higher order PSF moments 31. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_22
+    "@id": "#Object.g_hsm_moments_22"
+    datatype: double
+    description: HSM higher order moments 22. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_22
+    "@id": "#Object.g_hsm_momentsPsf_22"
+    datatype: double
+    description: HSM higher order PSF moments 22. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_13
+    "@id": "#Object.g_hsm_moments_13"
+    datatype: double
+    description: HSM higher order moments 13. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_13
+    "@id": "#Object.g_hsm_momentsPsf_13"
+    datatype: double
+    description: HSM higher order PSF moments 13. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_04
+    "@id": "#Object.g_hsm_moments_04"
+    datatype: double
+    description: HSM higher order moments 04. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_momentsPsf_04
+    "@id": "#Object.g_hsm_momentsPsf_04"
+    datatype: double
+    description: HSM higher order PSF moments 04. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_hsm_moments_flag
+    "@id": "#Object.g_hsm_moments_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with g_i_flag. Measured on g-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: g_hsm_momentsPsf_flag
+    "@id": "#Object.g_hsm_momentsPsf_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with g-band._iPSF_flag. Measured on g-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: g_kronFlux
     "@id": "#Object.g_kronFlux"
     datatype: double
@@ -2026,6 +2146,126 @@ tables:
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
+  - name: i_hsm_moments_30
+    "@id": "#Object.i_hsm_moments_30"
+    datatype: double
+    description: HSM higher order moments 30. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_30
+    "@id": "#Object.i_hsm_momentsPsf_30"
+    datatype: double
+    description: HSM higher order PSF moments 30. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_21
+    "@id": "#Object.i_hsm_moments_21"
+    datatype: double
+    description: HSM higher order moments 21. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_21
+    "@id": "#Object.i_hsm_momentsPsf_21"
+    datatype: double
+    description: HSM higher order PSF moments 21. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_12
+    "@id": "#Object.i_hsm_moments_12"
+    datatype: double
+    description: HSM higher order moments 12. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_12
+    "@id": "#Object.i_hsm_momentsPsf_12"
+    datatype: double
+    description: HSM higher order PSF moments 12. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_03
+    "@id": "#Object.i_hsm_moments_03"
+    datatype: double
+    description: HSM higher order moments 03. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_03
+    "@id": "#Object.i_hsm_momentsPsf_03"
+    datatype: double
+    description: HSM higher order PSF moments 03. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_40
+    "@id": "#Object.i_hsm_moments_40"
+    datatype: double
+    description: HSM higher order moments 40. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_40
+    "@id": "#Object.i_hsm_momentsPsf_40"
+    datatype: double
+    description: HSM higher order PSF moments 40. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_31
+    "@id": "#Object.i_hsm_moments_31"
+    datatype: double
+    description: HSM higher order moments 31. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_31
+    "@id": "#Object.i_hsm_momentsPsf_31"
+    datatype: double
+    description: HSM higher order PSF moments 31. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_22
+    "@id": "#Object.i_hsm_moments_22"
+    datatype: double
+    description: HSM higher order moments 22. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_22
+    "@id": "#Object.i_hsm_momentsPsf_22"
+    datatype: double
+    description: HSM higher order PSF moments 22. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_13
+    "@id": "#Object.i_hsm_moments_13"
+    datatype: double
+    description: HSM higher order moments 13. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_13
+    "@id": "#Object.i_hsm_momentsPsf_13"
+    datatype: double
+    description: HSM higher order PSF moments 13. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_04
+    "@id": "#Object.i_hsm_moments_04"
+    datatype: double
+    description: HSM higher order moments 04. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_momentsPsf_04
+    "@id": "#Object.i_hsm_momentsPsf_04"
+    datatype: double
+    description: HSM higher order PSF moments 04. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_hsm_moments_flag
+    "@id": "#Object.i_hsm_moments_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with i_i_flag. Measured on i-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: i_hsm_momentsPsf_flag
+    "@id": "#Object.i_hsm_momentsPsf_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with i_iPSF_flag. Measured on i-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: i_kronFlux
     "@id": "#Object.i_kronFlux"
     datatype: double
@@ -3034,6 +3274,126 @@ tables:
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
+  - name: r_hsm_moments_30
+    "@id": "#Object.r_hsm_moments_30"
+    datatype: double
+    description: HSM higher order moments 30. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_30
+    "@id": "#Object.r_hsm_momentsPsf_30"
+    datatype: double
+    description: HSM higher order PSF moments 30. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_21
+    "@id": "#Object.r_hsm_moments_21"
+    datatype: double
+    description: HSM higher order moments 21. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_21
+    "@id": "#Object.r_hsm_momentsPsf_21"
+    datatype: double
+    description: HSM higher order PSF moments 21. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_12
+    "@id": "#Object.r_hsm_moments_12"
+    datatype: double
+    description: HSM higher order moments 12. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_12
+    "@id": "#Object.r_hsm_momentsPsf_12"
+    datatype: double
+    description: HSM higher order PSF moments 12. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_03
+    "@id": "#Object.r_hsm_moments_03"
+    datatype: double
+    description: HSM higher order moments 03. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_03
+    "@id": "#Object.r_hsm_momentsPsf_03"
+    datatype: double
+    description: HSM higher order PSF moments 03. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_40
+    "@id": "#Object.r_hsm_moments_40"
+    datatype: double
+    description: HSM higher order moments 40. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_40
+    "@id": "#Object.r_hsm_momentsPsf_40"
+    datatype: double
+    description: HSM higher order PSF moments 40. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_31
+    "@id": "#Object.r_hsm_moments_31"
+    datatype: double
+    description: HSM higher order moments 31. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_31
+    "@id": "#Object.r_hsm_momentsPsf_31"
+    datatype: double
+    description: HSM higher order PSF moments 31. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_22
+    "@id": "#Object.r_hsm_moments_22"
+    datatype: double
+    description: HSM higher order moments 22. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_22
+    "@id": "#Object.r_hsm_momentsPsf_22"
+    datatype: double
+    description: HSM higher order PSF moments 22. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_13
+    "@id": "#Object.r_hsm_moments_13"
+    datatype: double
+    description: HSM higher order moments 13. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_13
+    "@id": "#Object.r_hsm_momentsPsf_13"
+    datatype: double
+    description: HSM higher order PSF moments 13. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_04
+    "@id": "#Object.r_hsm_moments_04"
+    datatype: double
+    description: HSM higher order moments 04. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_momentsPsf_04
+    "@id": "#Object.r_hsm_momentsPsf_04"
+    datatype: double
+    description: HSM higher order PSF moments 04. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_hsm_moments_flag
+    "@id": "#Object.r_hsm_moments_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with r_i_flag. Measured on r-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: r_hsm_momentsPsf_flag
+    "@id": "#Object.r_hsm_momentsPsf_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with r_iPSF_flag. Measured on r-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: r_kronFlux
     "@id": "#Object.r_kronFlux"
     datatype: double
@@ -4042,6 +4402,126 @@ tables:
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
+  - name: u_hsm_moments_30
+    "@id": "#Object.u_hsm_moments_30"
+    datatype: double
+    description: HSM higher order moments 30. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_30
+    "@id": "#Object.u_hsm_momentsPsf_30"
+    datatype: double
+    description: HSM higher order PSF moments 30. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_21
+    "@id": "#Object.u_hsm_moments_21"
+    datatype: double
+    description: HSM higher order moments 21. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_21
+    "@id": "#Object.u_hsm_momentsPsf_21"
+    datatype: double
+    description: HSM higher order PSF moments 21. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_12
+    "@id": "#Object.u_hsm_moments_12"
+    datatype: double
+    description: HSM higher order moments 12. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_12
+    "@id": "#Object.u_hsm_momentsPsf_12"
+    datatype: double
+    description: HSM higher order PSF moments 12. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_03
+    "@id": "#Object.u_hsm_moments_03"
+    datatype: double
+    description: HSM higher order moments 03. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_03
+    "@id": "#Object.u_hsm_momentsPsf_03"
+    datatype: double
+    description: HSM higher order PSF moments 03. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_40
+    "@id": "#Object.u_hsm_moments_40"
+    datatype: double
+    description: HSM higher order moments 40. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_40
+    "@id": "#Object.u_hsm_momentsPsf_40"
+    datatype: double
+    description: HSM higher order PSF moments 40. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_31
+    "@id": "#Object.u_hsm_moments_31"
+    datatype: double
+    description: HSM higher order moments 31. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_31
+    "@id": "#Object.u_hsm_momentsPsf_31"
+    datatype: double
+    description: HSM higher order PSF moments 31. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_22
+    "@id": "#Object.u_hsm_moments_22"
+    datatype: double
+    description: HSM higher order moments 22. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_22
+    "@id": "#Object.u_hsm_momentsPsf_22"
+    datatype: double
+    description: HSM higher order PSF moments 22. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_13
+    "@id": "#Object.u_hsm_moments_13"
+    datatype: double
+    description: HSM higher order moments 13. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_13
+    "@id": "#Object.u_hsm_momentsPsf_13"
+    datatype: double
+    description: HSM higher order PSF moments 13. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_04
+    "@id": "#Object.u_hsm_moments_04"
+    datatype: double
+    description: HSM higher order moments 04. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_momentsPsf_04
+    "@id": "#Object.u_hsm_momentsPsf_04"
+    datatype: double
+    description: HSM higher order PSF moments 04. Measured on u-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: u_hsm_moments_flag
+    "@id": "#Object.u_hsm_moments_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with u_i_flag. Measured on u-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: u_hsm_momentsPsf_flag
+    "@id": "#Object.u_hsm_momentsPsf_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with u_iPSF_flag. Measured on u-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: u_kronFlux
     "@id": "#Object.u_kronFlux"
     datatype: double
@@ -5050,6 +5530,126 @@ tables:
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
+  - name: y_hsm_moments_30
+    "@id": "#Object.y_hsm_moments_30"
+    datatype: double
+    description: HSM higher order moments 30. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_30
+    "@id": "#Object.y_hsm_momentsPsf_30"
+    datatype: double
+    description: HSM higher order PSF moments 30. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_21
+    "@id": "#Object.y_hsm_moments_21"
+    datatype: double
+    description: HSM higher order moments 21. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_21
+    "@id": "#Object.y_hsm_momentsPsf_21"
+    datatype: double
+    description: HSM higher order PSF moments 21. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_12
+    "@id": "#Object.y_hsm_moments_12"
+    datatype: double
+    description: HSM higher order moments 12. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_12
+    "@id": "#Object.y_hsm_momentsPsf_12"
+    datatype: double
+    description: HSM higher order PSF moments 12. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_03
+    "@id": "#Object.y_hsm_moments_03"
+    datatype: double
+    description: HSM higher order moments 03. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_03
+    "@id": "#Object.y_hsm_momentsPsf_03"
+    datatype: double
+    description: HSM higher order PSF moments 03. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_40
+    "@id": "#Object.y_hsm_moments_40"
+    datatype: double
+    description: HSM higher order moments 40. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_40
+    "@id": "#Object.y_hsm_momentsPsf_40"
+    datatype: double
+    description: HSM higher order PSF moments 40. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_31
+    "@id": "#Object.y_hsm_moments_31"
+    datatype: double
+    description: HSM higher order moments 31. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_31
+    "@id": "#Object.y_hsm_momentsPsf_31"
+    datatype: double
+    description: HSM higher order PSF moments 31. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_22
+    "@id": "#Object.y_hsm_moments_22"
+    datatype: double
+    description: HSM higher order moments 22. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_22
+    "@id": "#Object.y_hsm_momentsPsf_22"
+    datatype: double
+    description: HSM higher order PSF moments 22. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_13
+    "@id": "#Object.y_hsm_moments_13"
+    datatype: double
+    description: HSM higher order moments 13. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_13
+    "@id": "#Object.y_hsm_momentsPsf_13"
+    datatype: double
+    description: HSM higher order PSF moments 13. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_04
+    "@id": "#Object.y_hsm_moments_04"
+    datatype: double
+    description: HSM higher order moments 04. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_momentsPsf_04
+    "@id": "#Object.y_hsm_momentsPsf_04"
+    datatype: double
+    description: HSM higher order PSF moments 04. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_hsm_moments_flag
+    "@id": "#Object.y_hsm_moments_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with y_i_flag. Measured on y-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: y_hsm_momentsPsf_flag
+    "@id": "#Object.y_hsm_momentsPsf_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with y_iPSF_flag. Measured on y-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: y_kronFlux
     "@id": "#Object.y_kronFlux"
     datatype: double
@@ -6058,6 +6658,126 @@ tables:
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel^2
+  - name: z_hsm_moments_30
+    "@id": "#Object.z_hsm_moments_30"
+    datatype: double
+    description: HSM higher order moments 30. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_30
+    "@id": "#Object.z_hsm_momentsPsf_30"
+    datatype: double
+    description: HSM higher order PSF moments 30. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_21
+    "@id": "#Object.z_hsm_moments_21"
+    datatype: double
+    description: HSM higher order moments 21. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_21
+    "@id": "#Object.z_hsm_momentsPsf_21"
+    datatype: double
+    description: HSM higher order PSF moments 21. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_12
+    "@id": "#Object.z_hsm_moments_12"
+    datatype: double
+    description: HSM higher order moments 12. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_12
+    "@id": "#Object.z_hsm_momentsPsf_12"
+    datatype: double
+    description: HSM higher order PSF moments 12. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_03
+    "@id": "#Object.z_hsm_moments_03"
+    datatype: double
+    description: HSM higher order moments 03. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_03
+    "@id": "#Object.z_hsm_momentsPsf_03"
+    datatype: double
+    description: HSM higher order PSF moments 03. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_40
+    "@id": "#Object.z_hsm_moments_40"
+    datatype: double
+    description: HSM higher order moments 40. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_40
+    "@id": "#Object.z_hsm_momentsPsf_40"
+    datatype: double
+    description: HSM higher order PSF moments 40. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_31
+    "@id": "#Object.z_hsm_moments_31"
+    datatype: double
+    description: HSM higher order moments 31. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_31
+    "@id": "#Object.z_hsm_momentsPsf_31"
+    datatype: double
+    description: HSM higher order PSF moments 31. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_22
+    "@id": "#Object.z_hsm_moments_22"
+    datatype: double
+    description: HSM higher order moments 22. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_22
+    "@id": "#Object.z_hsm_momentsPsf_22"
+    datatype: double
+    description: HSM higher order PSF moments 22. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_13
+    "@id": "#Object.z_hsm_moments_13"
+    datatype: double
+    description: HSM higher order moments 13. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_13
+    "@id": "#Object.z_hsm_momentsPsf_13"
+    datatype: double
+    description: HSM higher order PSF moments 13. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_04
+    "@id": "#Object.z_hsm_moments_04"
+    datatype: double
+    description: HSM higher order moments 04. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_momentsPsf_04
+    "@id": "#Object.z_hsm_momentsPsf_04"
+    datatype: double
+    description: HSM higher order PSF moments 04. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_hsm_moments_flag
+    "@id": "#Object.z_hsm_moments_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with z_i_flag. Measured on z-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: z_hsm_momentsPsf_flag
+    "@id": "#Object.z_hsm_momentsPsf_flag"
+    datatype: boolean
+    description: General failure flag, to be used in conjunction with z_iPSF_flag. Measured on z-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: z_kronFlux
     "@id": "#Object.z_kronFlux"
     datatype: double
