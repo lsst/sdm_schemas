@@ -153,7 +153,6 @@ tables:
   - name: pmParallaxNdata
     "@id": "#DiaObject.pmParallaxNdata"
     datatype: int
-    nullable: false
     description: The number of data points used to fit the model.
     mysql:datatype: INTEGER
   - name: u_psfFluxMean
@@ -186,7 +185,6 @@ tables:
   - name: u_psfFluxNdata
     "@id": "#DiaObject.u_psfFluxNdata"
     datatype: int
-    nullable: false
     description: The number of data points used to compute u_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: u_fpFluxMean
@@ -240,7 +238,6 @@ tables:
   - name: g_psfFluxNdata
     "@id": "#DiaObject.g_psfFluxNdata"
     datatype: int
-    nullable: false
     description: The number of data points used to compute g_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: g_fpFluxMean
@@ -294,7 +291,6 @@ tables:
   - name: r_psfFluxNdata
     "@id": "#DiaObject.r_psfFluxNdata"
     datatype: int
-    nullable: false
     description: The number of data points used to compute r_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: r_fpFluxMean
@@ -348,7 +344,6 @@ tables:
   - name: i_psfFluxNdata
     "@id": "#DiaObject.i_psfFluxNdata"
     datatype: int
-    nullable: false
     description: The number of data points used to compute i_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: i_fpFluxMean
@@ -402,7 +397,6 @@ tables:
   - name: z_psfFluxNdata
     "@id": "#DiaObject.z_psfFluxNdata"
     datatype: int
-    nullable: false
     description: The number of data points used to compute z_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: z_fpFluxMean
@@ -456,7 +450,6 @@ tables:
   - name: y_psfFluxNdata
     "@id": "#DiaObject.y_psfFluxNdata"
     datatype: int
-    nullable: false
     description: The number of data points used to compute y_psfFluxChi2.
     mysql:datatype: INTEGER
   - name: y_fpFluxMean
@@ -567,7 +560,6 @@ tables:
   - name: nearbyObj1
     "@id": "#DiaObject.nearbyObj1"
     datatype: long
-    nullable: false
     description: Id of the closest nearby object.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
@@ -586,7 +578,6 @@ tables:
   - name: nearbyObj2
     "@id": "#DiaObject.nearbyObj2"
     datatype: long
-    nullable: false
     description: Id of the second-closest nearby object.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
@@ -605,7 +596,6 @@ tables:
   - name: nearbyObj3
     "@id": "#DiaObject.nearbyObj3"
     datatype: long
-    nullable: false
     description: Id of the third-closest nearby object.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
@@ -1948,7 +1938,6 @@ tables:
   - name: trailNdata
     "@id": "#DiaSource.trailNdata"
     datatype: int
-    nullable: false
     value: "0"
     description: The number of data points (pixels) used to fit the trailed source model.
     mysql:datatype: INTEGER
