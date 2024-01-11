@@ -2,9 +2,6 @@ name: Validate SDM schemas using Felis
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
 
 jobs:
   validate:
