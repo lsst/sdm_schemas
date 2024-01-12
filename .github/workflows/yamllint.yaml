@@ -2,9 +2,6 @@ name: Lint YAML Files
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
 
 jobs:
   call-workflow:
