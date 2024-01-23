@@ -25,7 +25,7 @@ jobs:
         # required dependencies for the tap-schema build.
         run: |
           python -m pip install --upgrade pip
-          python -m pip install git+http://github.com/lsst/felis.git@main#egg=felis
+          python -m pip install git+http://github.com/lsst/felis.git@main#egg=lsst-felis
         working-directory: ./tap-schema
 
       - name: Log in to Docker Hub
