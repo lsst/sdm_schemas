@@ -1412,7 +1412,7 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit:
   - name: g_deblend_fluxOverlapFraction
-    "@id": "#Object.g_deblend_fluxOverlap"
+    "@id": "#Object.g_deblend_fluxOverlapFraction"
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
@@ -2540,7 +2540,7 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit:
   - name: i_deblend_fluxOverlapFraction
-    "@id": "#Object.i_deblend_fluxOverlap"
+    "@id": "#Object.i_deblend_fluxOverlapFraction"
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
@@ -3668,7 +3668,7 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit:
   - name: r_deblend_fluxOverlapFraction
-    "@id": "#Object.r_deblend_fluxOverlap"
+    "@id": "#Object.r_deblend_fluxOverlapFraction"
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
@@ -4796,7 +4796,7 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit:
   - name: u_deblend_fluxOverlapFraction
-    "@id": "#Object.u_deblend_fluxOverlap"
+    "@id": "#Object.u_deblend_fluxOverlapFraction"
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
@@ -5924,7 +5924,7 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit:
   - name: y_deblend_fluxOverlapFraction
-    "@id": "#Object.y_deblend_fluxOverlap"
+    "@id": "#Object.y_deblend_fluxOverlapFraction"
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
@@ -7052,7 +7052,7 @@ tables:
     mysql:datatype: FLOAT
     fits:tunit:
   - name: z_deblend_fluxOverlapFraction
-    "@id": "#Object.z_deblend_fluxOverlap"
+    "@id": "#Object.z_deblend_fluxOverlapFraction"
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
