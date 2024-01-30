@@ -209,6 +209,12 @@ tables:
     description: Set to 1 for extended sources, 0 for point sources. Reference band.
     mysql:datatype: DOUBLE
     fits:tunit:
+  - name: refSizeExtendedness
+    "@id": "#Object.refSizeExtendedness"
+    datatype: double
+    description: Moments-based measure of an object to be a galaxy. Reference band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
   - name: refFwhm
     "@id": "#Object.refFwhm"
     datatype: double
@@ -680,6 +686,18 @@ tables:
     fits:tunit:
   - name: g_extendedness_flag
     "@id": "#Object.g_extendedness_flag"
+    datatype: boolean
+    description: Set to 1 for any fatal failure. Measured on g-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: g_sizeExtendedness
+    "@id": "#Object.g_sizeExtendedness"
+    datatype: double
+    description: Moments-based measure of an object to be a galaxy. Measured on g-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: g_sizeExtendedness_flag
+    "@id": "#Object.g_sizeExtendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on g-band.
     mysql:datatype: BOOLEAN
@@ -1807,6 +1825,18 @@ tables:
     description: Set to 1 for any fatal failure. Measured on i-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
+  - name: i_sizeExtendedness
+    "@id": "#Object.i_sizeExtendedness"
+    datatype: double
+    description: Moments-based measure of an object to be a galaxy. Measured on i-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: i_sizeExtendedness_flag
+    "@id": "#Object.i_sizeExtendedness_flag"
+    datatype: boolean
+    description: Set to 1 for any fatal failure. Measured on i-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: i_free_cModelFlux
     "@id": "#Object.i_free_cModelFlux"
     datatype: double
@@ -2926,6 +2956,18 @@ tables:
     fits:tunit:
   - name: r_extendedness_flag
     "@id": "#Object.r_extendedness_flag"
+    datatype: boolean
+    description: Set to 1 for any fatal failure. Measured on r-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: r_sizeExtendedness
+    "@id": "#Object.r_sizeExtendedness"
+    datatype: double
+    description: Moments-based measure of an object to be a galaxy. Measured on r-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: r_sizeExtendedness_flag
+    "@id": "#Object.r_sizeExtendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on r-band.
     mysql:datatype: BOOLEAN
@@ -4053,6 +4095,18 @@ tables:
     description: Set to 1 for any fatal failure. Measured on y-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
+  - name: y_sizeExtendedness
+    "@id": "#Object.y_sizeExtendedness"
+    datatype: double
+    description: Moments-based measure of an object to be a galaxy. Measured on y-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: y_sizeExtendedness_flag
+    "@id": "#Object.y_sizeExtendedness_flag"
+    datatype: boolean
+    description: Set to 1 for any fatal failure. Measured on y-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: y_free_cModelFlux
     "@id": "#Object.y_free_cModelFlux"
     datatype: double
@@ -5176,6 +5230,18 @@ tables:
     description: Set to 1 for any fatal failure. Measured on z-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
+  - name: z_sizeExtendedness
+    "@id": "#Object.z_sizeExtendedness"
+    datatype: double
+    description: Moments-based measure of an object to be a galaxy. Measured on z-band.
+    mysql:datatype: DOUBLE
+    fits:tunit:
+  - name: z_sizeExtendedness_flag
+    "@id": "#Object.z_sizeExtendedness_flag"
+    datatype: boolean
+    description: Set to 1 for any fatal failure. Measured on z-band.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: z_free_cModelFlux
     "@id": "#Object.z_free_cModelFlux"
     datatype: double
@@ -6264,6 +6330,12 @@ tables:
     description: Set to 1 for extended sources, 0 for point sources.
     mysql:datatype: DOUBLE
     fits:tunit:
+  - name: sizeExtendedness
+    "@id": "#Source.sizeExtendedness"
+    datatype: double
+    description: Moments-based measure of a source to be a galaxy.
+    mysql:datatype: DOUBLE
+    fits:tunit:
   - name: localPhotoCalib
     "@id": "#Source.localPhotoCalib"
     datatype: double
@@ -6422,6 +6494,12 @@ tables:
     fits:tunit: count
   - name: extendedness_flag
     "@id": "#Source.extendedness_flag"
+    datatype: boolean
+    description: Set to 1 for any fatal failure.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
+  - name: sizeExtendedness_flag
+    "@id": "#Source.sizeExtendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure.
     mysql:datatype: BOOLEAN
