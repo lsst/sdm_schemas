@@ -9403,6 +9403,30 @@ tables:
     mysql:datatype: BOOLEAN
     description: Streak in the Source center.
     fits:tunit:
+  - name: pixelFlags_injected
+    "@id": "#DiaSource.pixelFlags_injected"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Injection in the Source footprint.
+    fits:tunit:
+  - name: pixelFlags_injectedCenter
+    "@id": "#DiaSource.pixelFlags_injectedCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Injection in the Source center.
+    fits:tunit:
+  - name: pixelFlags_injected_template
+    "@id": "#DiaSource.pixelFlags_injected_template"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Template injection in the Source footprint.
+    fits:tunit:
+  - name: pixelFlags_injected_templateCenter
+    "@id": "#DiaSource.pixelFlags_injected_templateCenter"
+    datatype: boolean
+    mysql:datatype: BOOLEAN
+    description: Template injection in the Source center.
+    fits:tunit:
   - name: psfFlux
     "@id": "#DiaSource.psfFlux"
     datatype: double
