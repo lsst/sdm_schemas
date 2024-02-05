@@ -1,0 +1,64 @@
+---
+title: DP0.2 Table Relationships
+---
+erDiagram
+    Object {
+        long objectId UK
+        long tract FK
+        long patch FK
+    }
+    Object ||--o{ MatchesTruth : matches
+    Object }o..|| CoaddPatches : "found in"
+    Object ||--|{ ForcedSource : seeds
+
+    Source {
+        long ccdVisitId FK
+        long visit FK
+    }
+    Source }o..|| CcdVisit : "found in"
+    Source }o..|| Visit : "found in"
+    ForcedSource {
+        long objectId FK
+        long ccdVisitId FK
+        long tract FK
+        long patch FK
+    }
+    ForcedSource }o..|| CcdVisit : "measured in"
+    DiaObject {
+        long diaObjectId UK
+        long nDiaSources
+    }
+    DiaObject |o..|{ DiaSource : "built from"
+    DiaObject ||--|{ ForcedSourceOnDiaObject : "seeds"
+    DiaSource {
+        long diaObjectId FK
+        long ccdVisitId FK
+    }
+    DiaSource }o..|| CcdVisit : "found in"
+    ForcedSourceOnDiaObject {
+        long diaObjectId FK
+        long ccdVisitId FK
+        long tract FK
+        long patch FK
+    }
+    ForcedSourceOnDiaObject }o..|| CcdVisit : "measured in"
+    CcdVisit {
+        long ccdVisitId UK
+        long visitId FK
+    }
+     Visit {
+        long visit UK
+    }
+    Visit ||--|{ CcdVisit : contains
+    CoaddPatches {
+        long lsst_tract PK
+        long lsst_patch PK
+    }
+    MatchesTruth {
+        string id_truth_type FK
+        long match_objectId FK
+    }
+    TruthSummary {
+        string id_truth_type PK
+    }
+    TruthSummary ||--o{ MatchesTruth : matches
