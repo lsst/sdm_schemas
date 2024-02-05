@@ -112,14 +112,18 @@ tables:
   - name: lsst_filter
     datatype: char
     description: Physical filter designation from the LSSTCam filter set
+name: cdb_latiss
+"@id": "#cdb_latiss"
+description: Consolidated Database for LATISS
+tables:
 - name: Exposure
   columns:
   - name: exposure_id
     datatype: long
     description: Unique identifier.
-  - name: instrument_name
+  - name: exposure_name
     datatype: char
-    description: The name of the instrument used for the observation
+    description: Official name of the exposure.
   - name: controller
     datatype: char
     description: The abbreviation of the controller used for the observation (O, C)
@@ -145,21 +149,36 @@ tables:
   - name: skyRotation
     datatype: double
     description: Targeted sky rotation angle.
+  - name: azimuth_start
+    datatype: double
+    description: Azimuth of focal plane center at the start of the exposure.
+  - name: azimuth_end
+    datatype: double
+    description: Azimuth of focal plane center at the end of the exposure.
   - name: azimuth
     datatype: double
     description: Azimuth of focal plane center at the middle of the exposure.
+  - name: altitude_start
+    datatype: double
+    description: Altitude of focal plane center at the start of the exposure.
+  - name: altitude_end
+    datatype: double
+    description: Altitude of focal plane center at the end of the exposure.
   - name: altitude
     datatype: double
     description: Altitude of focal plane center at the middle of the exposure.
+  - name: zenithDistance_start
+    datatype: double
+    description: Zenith distance at the start of the exposure.
+  - name: zenithDistance_end
+    datatype: double
+    description: Zenith distance at the end of the exposure.
   - name: zenithDistance
     datatype: double
     description: Zenith distance at the middle of the exposure.
   - name: airmass
     datatype: double
     description: Airmass of the observed line of sight at the middle of the exposure.
-  - name: expTime
-    datatype: double
-    description: Spatially-averaged duration of exposure, accurate to 10ms.
   - name: expMidpt
     datatype: timestamp
     description: Midpoint time for exposure at the fiducial center of the focal plane
@@ -175,6 +194,46 @@ tables:
   - name: obsStartMJD
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
+  - name: obsEnd
+    datatype: timestamp
+    description: End time of the exposure at the fiducial center of the focal plane
+      array, TAI, accurate to 10ms.
+  - name: obsEndMJD
+    datatype: double
+    description: End of the exposure in MJD, TAI, accurate to 10ms.
+  - name: expTime
+    datatype: double
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+  - name: shutTime
+    datatype: double
+    description: Spatially-averaged shutter-open dduration, accurate to 10ms.
+  - name: darkTime
+    datatype: double
+    description: Duration from last clear to readout, accurate to 10ms.
+  - name: group_id
+    datatype: char
+    description: Identifier for the group that this exposure is part of.
+  - name: curindex
+    datatype: int
+    description: Number (1-based) of the observation within its group.
+  - name: maxindex
+    datatype: int
+    description: Expected number of observations within the group.
+  - name: imgtype
+    datatype: char
+    description: Type of exposure taken.
+  - name: emulated
+    datatype: boolean
+    description: True if the exposure was taken in emulation mode.
+  - name: science_program
+    datatype: char
+    description: Science program.
+  - name: observation_reason
+    datatype: char
+    description: Reason for the observation.
+  - name: target_name
+    datatype: char
+    description: Target of the observation.
   - name: shutterOpenBegin
     datatype: timestamp
     description: Start of shutter opening.  TAI, accurate to 10ms.
@@ -187,6 +246,24 @@ tables:
   - name: shutterCloseEnd
     datatype: timestamp
     description: End of shutter opening.  TAI, accurate to 10ms.
+  - name: airTemp
+    datatype: float
+    description: Outside air temperature.
+  - name: pressure
+    datatype: float
+    description: Outside air pressure.
+  - name: humidity
+    datatype: float
+    description: Outside relative humidity.
+  - name: wind_speed
+    datatype: float
+    description: Outside wind speed.
+  - name: wind_dir
+    datatype: float
+    description: Wind direction.
+  - name: dimm_seeing
+    datatype: float
+    description: Seeing as measured by external DIMM.
   - name: exposureInOODS
     datatype: boolean
     description: Are all detectors ingested into the OODS?
@@ -201,47 +278,10 @@ tables:
   - name: exposure_id
     datatype: long
     description: Reference to the corresponding entry in the Exposure table.
-  - name: physical_filter
-    datatype: char
-    description: ID of physical filter, the filter associated with a particular instrument.
-  - name: band
-    datatype: char
-    description: Name of the band used to take the exposure where this source was
-      measured. Abstract filter that is not associated with a particular instrument.
-  - name: ra
-    datatype: double
-    description: RA of Ccd center.
-  - name: decl
-    datatype: double
-    description: Declination of Ccd center.
-  - name: zenithDistance
-    datatype: float
-    description: Zenith distance at observation mid-point.
   - name: detector
     datatype: long
     description: Detector ID. A detector associated with a particular instrument (not
       an observation of that detector)
-  - name: skyRotation
-    datatype: double
-    description: Sky rotation angle.
-  - name: expMidpt
-    datatype: timestamp
-    description: Midpoint for exposure. TAI, accurate to 10ms.
-  - name: expMidptMJD
-    datatype: double
-    description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
-  - name: expTime
-    datatype: double
-    description: Spatially-averaged duration of exposure, accurate to 10ms.
-  - name: obsStart
-    datatype: timestamp
-    description: Start of the exposure, TAI, accurate to 10ms.
-  - name: obsStartMJD
-    datatype: double
-    description: Start of the exposure in MJD, TAI, accurate to 10ms.
-  - name: darkTime
-    datatype: double
-    description: Average dark current accumulation time, accurate to 10ms.
   - name: xSize
     datatype: long
     description: Number of columns in the image.
