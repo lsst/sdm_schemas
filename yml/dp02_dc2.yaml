@@ -8155,7 +8155,8 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description: Effective mid-exposure time for this diaSource.
-    fits:tunit:
+    fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
   - name: parentDiaSourceId
     "@id": "#DiaSource.parentDiaSourceId"
     datatype: long
@@ -8790,6 +8791,7 @@ tables:
     description: Spatially-average duration of exposure, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
+    ivoa:ucd: time.duration;obs.exposure
   - name: expMidpt
     '@id': '#Visit.expMidpt'
     datatype: timestamp
@@ -8805,6 +8807,7 @@ tables:
       TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
@@ -8817,6 +8820,8 @@ tables:
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
+    fits:tunit: d
+    ivoa:ucd: time.start;obs.exposure
 - name: CcdVisit
   '@id': '#CcdVisit'
   description: "Metadata about the 189 individual CCD images for each Visit in the
@@ -8927,12 +8932,14 @@ tables:
     description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
   - name: expTime
     '@id': '#CcdVisit.expTime'
     datatype: double
     description: Spatially-averaged duration of exposure, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
+    ivoa:ucd: time.duration;obs.exposure
   - name: obsStart
     '@id': '#CcdVisit.obsStart'
     datatype: timestamp
@@ -8944,6 +8951,8 @@ tables:
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
+    fits:tunit: d
+    ivoa:ucd: time.start;obs.exposure
   - name: darkTime
     '@id': '#CcdVisit.darkTime'
     datatype: double
