@@ -9067,6 +9067,8 @@ tables:
     '@id': '#MatchesTruth.match_candidate'
     datatype: boolean
     mysql:datatype: BOOLEAN
+    tap:column_index: 999
+    tap:principal: 0
     description: True for sources that were selected for matching
   # match_row refers to the the position in a per-tract Object parquet file.
   #   - name: match_row
@@ -9078,27 +9080,38 @@ tables:
     '@id': '#MatchesTruth.match_count'
     datatype: int
     mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 0
     description: Number of candidate object matches within match radius
   - name: match_chisq
     '@id': '#MatchesTruth.match_chisq'
     datatype: double
     mysql:datatype: DOUBLE
+    tap:column_index: 999
+    tap:principal: 0
     description: The chi-squared value of the (best) match
   - name: match_n_chisq_finite
     '@id': '#MatchesTruth.match_n_chisq_finite'
     datatype: int
     mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 0
     description: The number of finite columns used to compute the match chisq
   - name: id
     '@id': '#MatchesTruth.id'
     datatype: char
     length: 16
     mysql:datatype: CHAR(16)
+    tap:column_index: 999
+    tap:principal: 0
     description: id for TruthSummary source. Potentially non-unique; use id_truth_type for JOINs.
+    ivoa:ucd: meta.id.assoc
   - name: truth_type
     '@id': '#MatchesTruth.truth_type'
     datatype: long
     mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 0
     description: Type of TruthSummary source; 1 for galaxies, 2 for stars, and 3 for SNe
   - name: match_objectId
     '@id': '#MatchesTruth.match_objectId'
@@ -9107,6 +9120,7 @@ tables:
     tap:column_index: 1
     tap:principal: 1
     description: objectId of matched entry in the Object table, if any
+    ivoa:ucd: meta.id.assoc
   - name: id_truth_type
     '@id': '#MatchesTruth.id_truth_type'
     datatype: char
@@ -9114,6 +9128,24 @@ tables:
     tap:column_index: 2
     tap:principal: 1
     description: Combination of TruthSummary id and truth_type fields, used for JOINs.
+    ivoa:ucd: meta.id.assoc
+  constraints:
+  - name: Obj_MatTru
+    "@type": "ForeignKey"
+    "@id": "#FK_MatchesTruth_match_objectId_Object_objectId"
+    description: Link Object to potential matches to Truth entries
+    columns:
+    - "#MatchesTruth.match_objectId"
+    referencedColumns:
+    - "#Object.objectId"
+  - name: Tru_MatTru
+    "@type": "ForeignKey"
+    "@id": "#FK_MatchesTruth_id_truth_type_TruthSummary_id_truth_type"
+    description: Link Truth entries to potential matches to Objects
+    columns:
+    - "#MatchesTruth.id_truth_type"
+    referencedColumns:
+    - "#TruthSummary.id_truth_type"
 # - name: MatchesObject
 #   '@id': '#MatchesObject'
 #   description: Match information for objectTable_tract sources
@@ -9153,7 +9185,10 @@ tables:
     '@id': '#TruthSummary.id_truth_type'
     datatype: char
     mysql:datatype: CHAR(22)
+    tap:column_index: 0
+    tap:principal: 1
     description: Combination of id and truth_type fields, used for JOINs with MatchesTruth.
+    ivoa:ucd: meta.id
   - name: id
     '@id': '#TruthSummary.id'
     datatype: char
@@ -9162,6 +9197,7 @@ tables:
     tap:column_index: 1
     tap:principal: 1
     description: Unique object ID
+    ivoa:ucd: meta.id;meta.main
   - name: host_galaxy
     '@id': '#TruthSummary.host_galaxy'
     datatype: long
