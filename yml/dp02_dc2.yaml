@@ -15,7 +15,7 @@ tables:
     datatype: long
     description: Unique id. Unique ObjectID
     mysql:datatype: BIGINT
-    ivoa:ucd: meta.id;src
+    ivoa:ucd: meta.id;src;meta.main
   - name: coord_dec
     "@id": "#Object.coord_dec"
     datatype: double
@@ -102,12 +102,14 @@ tables:
     description: Unique ID of parent source. Reference band.
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id.parent
   - name: patch
     "@id": "#Object.patch"
     datatype: long
     description: Skymap patch ID
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id.part;obs.field
   - name: refBand
     "@id": "#Object.refBand"
     datatype: char
@@ -116,6 +118,7 @@ tables:
     mysql:datatype: CHAR(1)
     fits:tunit:
     votable:arraysize: "*"
+    ivoa:ucd: meta.id;instr.filter;meta.main
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
     datatype: double
@@ -171,6 +174,7 @@ tables:
     description: Skymap tract ID
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id;obs.field
   - name: x
     "@id": "#Object.x"
     datatype: double
@@ -5985,7 +5989,7 @@ tables:
     nullable: false
     description: Unique id. Unique Source ID. Primary Key.
     mysql:datatype: BIGINT
-    ivoa:ucd: meta.id;src
+    ivoa:ucd: meta.id;src;meta.main
   - name: coord_ra
     "@id": "#Source.coord_ra"
     datatype: double
@@ -6006,12 +6010,14 @@ tables:
     description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id;obs.image
   - name: parentSourceId
     "@id": "#Source.parentSourceId"
     datatype: long
     description: Unique ID of parent source
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id.parent
   - name: x
     "@id": "#Source.x"
     datatype: double
@@ -6852,6 +6858,15 @@ tables:
     description: ID of visit, the identifier for an observation within a sequence of observations.
     mysql:datatype: BIGINT
     fits:tunit:
+  constraints:
+  - name: CcdV_Src
+    "@type": "ForeignKey"
+    "@id": "#FK_Source_ccdVisitId_CcdVisit_ccdVisitId"
+    description: Link CCD-level images to associated Sources
+    columns:
+    - "#Source.ccdVisitId"
+    referencedColumns:
+    - "#CcdVisit.ccdVisitId"
 - name: ForcedSource
   "@id": "#ForcedSource"
   description: "Forced-photometry measurements on individual single-epoch visit images and
@@ -7222,6 +7237,14 @@ tables:
     - "#ForcedSource.objectId"
     referencedColumns:
     - "#Object.objectId"
+  - name: CcdV_FS
+    "@type": "ForeignKey"
+    "@id": "#FK_ForcedSource_ccdVisitId_CcdVisit_ccdVisitId"
+    description: Link CCD-level images to associated ForcedSources
+    columns:
+    - "#ForcedSource.ccdVisitId"
+    referencedColumns:
+    - "#CcdVisit.ccdVisitId"
 - name: DiaObject
   "@id": "#DiaObject"
   description: "Properties of time-varying astronomical objects based on association
@@ -7241,6 +7264,7 @@ tables:
     datatype: long
     mysql:datatype: BIGINT
     description: Unique id.
+    ivoa:ucd: meta.id;meta.main
   - name: gPSFluxChi2
     "@id": "#DiaObject.gPSFluxChi2"
     datatype: double
@@ -7964,6 +7988,7 @@ tables:
     mysql:datatype: BIGINT
     description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
     fits:tunit:
+    ivoa:ucd: meta.id;obs.image
   - name: centroid_flag
     "@id": "#DiaSource.centroid_flag"
     datatype: boolean
@@ -8009,12 +8034,14 @@ tables:
     mysql:datatype: BIGINT
     description: Unique DiaObject ID. Primary Key of the DIA Object Table
     fits:tunit:
+    ivoa:ucd: meta.id.assoc;src
   - name: diaSourceId
     "@id": "#DiaSource.diaSourceId"
     datatype: long
     mysql:datatype: BIGINT
     description: Unique ID
     fits:tunit:
+    ivoa:ucd: meta.id;src;meta.main
   - name: dipAngle
     "@id": "#DiaSource.dipAngle"
     datatype: double
@@ -8402,7 +8429,7 @@ tables:
     mysql:datatype: BIGINT
     description: Unique DiaObject ID. Primary Key of the DiaObject Table
     fits:tunit:
-    ivoa:ucd: meta.id
+    ivoa:ucd: meta.id;src
     tap:principal: 1
     tap:column_index: 10
   - name: forcedSourceOnDiaObjectId
@@ -8411,7 +8438,7 @@ tables:
     mysql:datatype: BIGINT
     description: Unique ID of forced source. Primary Key.
     fits:tunit:
-    ivoa:ucd: meta.id;meta.main
+    ivoa:ucd: meta.id;src;meta.main
     tap:principal: 1
     tap:column_index: 100
   - name: localBackground_instFlux
@@ -8519,7 +8546,7 @@ tables:
     mysql:datatype: BIGINT
     description: Skymap patch ID
     fits:tunit:
-    ivoa:ucd: meta.id.part
+    ivoa:ucd: meta.id.part;obs.field
     tap:principal: 0
     tap:column_index: 150
   - name: pixelFlags_bad
@@ -8681,7 +8708,7 @@ tables:
     mysql:datatype: BIGINT
     description: Skymap tract ID
     fits:tunit:
-    ivoa:ucd: meta.id
+    ivoa:ucd: meta.id;obs.field
     tap:principal: 0
     tap:column_index: 140
 - name: Visit
@@ -8695,7 +8722,7 @@ tables:
     datatype: long
     description: Unique identifier.
     mysql:datatype: INTEGER
-    ivoa:ucd: meta.id;obs.image
+    ivoa:ucd: meta.id;obs;meta.main
   - name: physical_filter
     '@id': '#Visit.physical_filter'
     datatype: char
@@ -8801,11 +8828,13 @@ tables:
     datatype: long
     description: Primary key (unique identifier).
     mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;obs.image;meta.main
   - name: visitId
     '@id': '#CcdVisit.visitId'
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
     mysql:datatype: INTEGER
+    ivoa:ucd: meta.id.parent;obs
   - name: physical_filter
     '@id': '#CcdVisit.physical_filter'
     datatype: char
@@ -8814,6 +8843,7 @@ tables:
     votable:arraysize: "*"
     mysql:datatype: CHAR(32)
     fits:tunit:
+    ivoa:ucd: meta.id;instr.filter
   - name: band
     '@id': '#CcdVisit.band'
     datatype: char
@@ -8823,6 +8853,7 @@ tables:
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
     fits:tunit:
+    ivoa:ucd: meta.id;instr.filter
   - name: ra
     '@id': '#CcdVisit.ra'
     datatype: double
@@ -9006,7 +9037,7 @@ tables:
     "@id": "#coaddpatches.lsst_tract"
     description: "ID number of the top level, 'tract', within the standard LSST skymap"
     nullable: false
-    ivoa:ucd: meta.id.part
+    ivoa:ucd: meta.id;obs.field
     tap:std: 0
     tap:principal: 1
     ivoa:unit:
@@ -9015,7 +9046,7 @@ tables:
     "@id": "#coaddpatches.lsst_patch"
     description: "ID number of the second level, 'patch', within the standard LSST skymap"
     nullable: false
-    ivoa:ucd: meta.id.part
+    ivoa:ucd: meta.id.part;obs.field
     tap:std: 0
     tap:principal: 1
     ivoa:unit:
