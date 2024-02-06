@@ -15,7 +15,7 @@ tables:
     datatype: long
     description: Unique id. Unique ObjectID
     mysql:datatype: BIGINT
-    ivoa:ucd: meta.id;src
+    ivoa:ucd: meta.id;src;meta.main
   - name: coord_dec
     "@id": "#Object.coord_dec"
     datatype: double
@@ -102,12 +102,14 @@ tables:
     description: Unique ID of parent source. Reference band.
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id.parent
   - name: patch
     "@id": "#Object.patch"
     datatype: long
     description: Skymap patch ID
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id.part;obs.field
   - name: refBand
     "@id": "#Object.refBand"
     datatype: char
@@ -116,6 +118,7 @@ tables:
     mysql:datatype: CHAR(1)
     fits:tunit:
     votable:arraysize: "*"
+    ivoa:ucd: meta.id;instr.filter;meta.main
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
     datatype: double
@@ -171,6 +174,7 @@ tables:
     description: Skymap tract ID
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id;obs.field
   - name: x
     "@id": "#Object.x"
     datatype: double
@@ -5985,7 +5989,7 @@ tables:
     nullable: false
     description: Unique id. Unique Source ID. Primary Key.
     mysql:datatype: BIGINT
-    ivoa:ucd: meta.id;src
+    ivoa:ucd: meta.id;src;meta.main
   - name: coord_ra
     "@id": "#Source.coord_ra"
     datatype: double
@@ -6006,12 +6010,14 @@ tables:
     description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id;obs.image
   - name: parentSourceId
     "@id": "#Source.parentSourceId"
     datatype: long
     description: Unique ID of parent source
     mysql:datatype: BIGINT
     fits:tunit:
+    ivoa:ucd: meta.id.parent
   - name: x
     "@id": "#Source.x"
     datatype: double
@@ -6852,6 +6858,15 @@ tables:
     description: ID of visit, the identifier for an observation within a sequence of observations.
     mysql:datatype: BIGINT
     fits:tunit:
+  constraints:
+  - name: CcdV_Src
+    "@type": "ForeignKey"
+    "@id": "#FK_Source_ccdVisitId_CcdVisit_ccdVisitId"
+    description: Link CCD-level images to associated Sources
+    columns:
+    - "#Source.ccdVisitId"
+    referencedColumns:
+    - "#CcdVisit.ccdVisitId"
 - name: ForcedSource
   "@id": "#ForcedSource"
   description: "Forced-photometry measurements on individual single-epoch visit images and
@@ -7222,6 +7237,14 @@ tables:
     - "#ForcedSource.objectId"
     referencedColumns:
     - "#Object.objectId"
+  - name: CcdV_FS
+    "@type": "ForeignKey"
+    "@id": "#FK_ForcedSource_ccdVisitId_CcdVisit_ccdVisitId"
+    description: Link CCD-level images to associated ForcedSources
+    columns:
+    - "#ForcedSource.ccdVisitId"
+    referencedColumns:
+    - "#CcdVisit.ccdVisitId"
 - name: DiaObject
   "@id": "#DiaObject"
   description: "Properties of time-varying astronomical objects based on association
@@ -7241,6 +7264,7 @@ tables:
     datatype: long
     mysql:datatype: BIGINT
     description: Unique id.
+    ivoa:ucd: meta.id;meta.main
   - name: gPSFluxChi2
     "@id": "#DiaObject.gPSFluxChi2"
     datatype: double
@@ -7964,6 +7988,7 @@ tables:
     mysql:datatype: BIGINT
     description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
     fits:tunit:
+    ivoa:ucd: meta.id;obs.image
   - name: centroid_flag
     "@id": "#DiaSource.centroid_flag"
     datatype: boolean
@@ -8009,12 +8034,14 @@ tables:
     mysql:datatype: BIGINT
     description: Unique DiaObject ID. Primary Key of the DIA Object Table
     fits:tunit:
+    ivoa:ucd: meta.id.assoc;src
   - name: diaSourceId
     "@id": "#DiaSource.diaSourceId"
     datatype: long
     mysql:datatype: BIGINT
     description: Unique ID
     fits:tunit:
+    ivoa:ucd: meta.id;src;meta.main
   - name: dipAngle
     "@id": "#DiaSource.dipAngle"
     datatype: double
@@ -8128,7 +8155,8 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description: Effective mid-exposure time for this diaSource.
-    fits:tunit:
+    fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
   - name: parentDiaSourceId
     "@id": "#DiaSource.parentDiaSourceId"
     datatype: long
@@ -8402,7 +8430,7 @@ tables:
     mysql:datatype: BIGINT
     description: Unique DiaObject ID. Primary Key of the DiaObject Table
     fits:tunit:
-    ivoa:ucd: meta.id
+    ivoa:ucd: meta.id;src
     tap:principal: 1
     tap:column_index: 10
   - name: forcedSourceOnDiaObjectId
@@ -8411,7 +8439,7 @@ tables:
     mysql:datatype: BIGINT
     description: Unique ID of forced source. Primary Key.
     fits:tunit:
-    ivoa:ucd: meta.id;meta.main
+    ivoa:ucd: meta.id;src;meta.main
     tap:principal: 1
     tap:column_index: 100
   - name: localBackground_instFlux
@@ -8519,7 +8547,7 @@ tables:
     mysql:datatype: BIGINT
     description: Skymap patch ID
     fits:tunit:
-    ivoa:ucd: meta.id.part
+    ivoa:ucd: meta.id.part;obs.field
     tap:principal: 0
     tap:column_index: 150
   - name: pixelFlags_bad
@@ -8681,7 +8709,7 @@ tables:
     mysql:datatype: BIGINT
     description: Skymap tract ID
     fits:tunit:
-    ivoa:ucd: meta.id
+    ivoa:ucd: meta.id;obs.field
     tap:principal: 0
     tap:column_index: 140
 - name: Visit
@@ -8695,7 +8723,7 @@ tables:
     datatype: long
     description: Unique identifier.
     mysql:datatype: INTEGER
-    ivoa:ucd: meta.id;obs.image
+    ivoa:ucd: meta.id;obs;meta.main
   - name: physical_filter
     '@id': '#Visit.physical_filter'
     datatype: char
@@ -8763,6 +8791,7 @@ tables:
     description: Spatially-average duration of exposure, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
+    ivoa:ucd: time.duration;obs.exposure
   - name: expMidpt
     '@id': '#Visit.expMidpt'
     datatype: timestamp
@@ -8778,6 +8807,7 @@ tables:
       TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
@@ -8790,6 +8820,8 @@ tables:
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
+    fits:tunit: d
+    ivoa:ucd: time.start;obs.exposure
 - name: CcdVisit
   '@id': '#CcdVisit'
   description: "Metadata about the 189 individual CCD images for each Visit in the
@@ -8801,11 +8833,13 @@ tables:
     datatype: long
     description: Primary key (unique identifier).
     mysql:datatype: BIGINT
+    ivoa:ucd: meta.id;obs.image;meta.main
   - name: visitId
     '@id': '#CcdVisit.visitId'
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
     mysql:datatype: INTEGER
+    ivoa:ucd: meta.id.parent;obs
   - name: physical_filter
     '@id': '#CcdVisit.physical_filter'
     datatype: char
@@ -8814,6 +8848,7 @@ tables:
     votable:arraysize: "*"
     mysql:datatype: CHAR(32)
     fits:tunit:
+    ivoa:ucd: meta.id;instr.filter
   - name: band
     '@id': '#CcdVisit.band'
     datatype: char
@@ -8823,6 +8858,7 @@ tables:
     votable:arraysize: "*"
     mysql:datatype: CHAR(1)
     fits:tunit:
+    ivoa:ucd: meta.id;instr.filter
   - name: ra
     '@id': '#CcdVisit.ra'
     datatype: double
@@ -8896,12 +8932,14 @@ tables:
     description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
   - name: expTime
     '@id': '#CcdVisit.expTime'
     datatype: double
     description: Spatially-averaged duration of exposure, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
+    ivoa:ucd: time.duration;obs.exposure
   - name: obsStart
     '@id': '#CcdVisit.obsStart'
     datatype: timestamp
@@ -8913,6 +8951,8 @@ tables:
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     mysql:datatype: DOUBLE
+    fits:tunit: d
+    ivoa:ucd: time.start;obs.exposure
   - name: darkTime
     '@id': '#CcdVisit.darkTime'
     datatype: double
@@ -9006,7 +9046,7 @@ tables:
     "@id": "#coaddpatches.lsst_tract"
     description: "ID number of the top level, 'tract', within the standard LSST skymap"
     nullable: false
-    ivoa:ucd: meta.id.part
+    ivoa:ucd: meta.id;obs.field
     tap:std: 0
     tap:principal: 1
     ivoa:unit:
@@ -9015,7 +9055,7 @@ tables:
     "@id": "#coaddpatches.lsst_patch"
     description: "ID number of the second level, 'patch', within the standard LSST skymap"
     nullable: false
-    ivoa:ucd: meta.id.part
+    ivoa:ucd: meta.id.part;obs.field
     tap:std: 0
     tap:principal: 1
     ivoa:unit:
@@ -9067,6 +9107,8 @@ tables:
     '@id': '#MatchesTruth.match_candidate'
     datatype: boolean
     mysql:datatype: BOOLEAN
+    tap:column_index: 999
+    tap:principal: 0
     description: True for sources that were selected for matching
   # match_row refers to the the position in a per-tract Object parquet file.
   #   - name: match_row
@@ -9078,27 +9120,38 @@ tables:
     '@id': '#MatchesTruth.match_count'
     datatype: int
     mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 0
     description: Number of candidate object matches within match radius
   - name: match_chisq
     '@id': '#MatchesTruth.match_chisq'
     datatype: double
     mysql:datatype: DOUBLE
+    tap:column_index: 999
+    tap:principal: 0
     description: The chi-squared value of the (best) match
   - name: match_n_chisq_finite
     '@id': '#MatchesTruth.match_n_chisq_finite'
     datatype: int
     mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 0
     description: The number of finite columns used to compute the match chisq
   - name: id
     '@id': '#MatchesTruth.id'
     datatype: char
     length: 16
     mysql:datatype: CHAR(16)
+    tap:column_index: 999
+    tap:principal: 0
     description: id for TruthSummary source. Potentially non-unique; use id_truth_type for JOINs.
+    ivoa:ucd: meta.id.assoc
   - name: truth_type
     '@id': '#MatchesTruth.truth_type'
     datatype: long
     mysql:datatype: INTEGER
+    tap:column_index: 999
+    tap:principal: 0
     description: Type of TruthSummary source; 1 for galaxies, 2 for stars, and 3 for SNe
   - name: match_objectId
     '@id': '#MatchesTruth.match_objectId'
@@ -9107,6 +9160,7 @@ tables:
     tap:column_index: 1
     tap:principal: 1
     description: objectId of matched entry in the Object table, if any
+    ivoa:ucd: meta.id.assoc
   - name: id_truth_type
     '@id': '#MatchesTruth.id_truth_type'
     datatype: char
@@ -9114,6 +9168,24 @@ tables:
     tap:column_index: 2
     tap:principal: 1
     description: Combination of TruthSummary id and truth_type fields, used for JOINs.
+    ivoa:ucd: meta.id.assoc
+  constraints:
+  - name: Obj_MatTru
+    "@type": "ForeignKey"
+    "@id": "#FK_MatchesTruth_match_objectId_Object_objectId"
+    description: Link Object to potential matches to Truth entries
+    columns:
+    - "#MatchesTruth.match_objectId"
+    referencedColumns:
+    - "#Object.objectId"
+  - name: Tru_MatTru
+    "@type": "ForeignKey"
+    "@id": "#FK_MatchesTruth_id_truth_type_TruthSummary_id_truth_type"
+    description: Link Truth entries to potential matches to Objects
+    columns:
+    - "#MatchesTruth.id_truth_type"
+    referencedColumns:
+    - "#TruthSummary.id_truth_type"
 # - name: MatchesObject
 #   '@id': '#MatchesObject'
 #   description: Match information for objectTable_tract sources
@@ -9153,7 +9225,10 @@ tables:
     '@id': '#TruthSummary.id_truth_type'
     datatype: char
     mysql:datatype: CHAR(22)
+    tap:column_index: 0
+    tap:principal: 1
     description: Combination of id and truth_type fields, used for JOINs with MatchesTruth.
+    ivoa:ucd: meta.id
   - name: id
     '@id': '#TruthSummary.id'
     datatype: char
@@ -9162,6 +9237,7 @@ tables:
     tap:column_index: 1
     tap:principal: 1
     description: Unique object ID
+    ivoa:ucd: meta.id;meta.main
   - name: host_galaxy
     '@id': '#TruthSummary.host_galaxy'
     datatype: long
