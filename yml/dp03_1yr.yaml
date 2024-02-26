@@ -13,6 +13,7 @@ tables:
   primaryKey: "#SSObject.ssObjectId"
   mysql:engine: MyISAM
   mysql:charset: utf8mb4
+  tap:table_index: 1
   columns:
   - name: ssObjectId
     "@id": "#SSObject.ssObjectId"
@@ -359,8 +360,8 @@ tables:
     ivoa:ucd: meta.code
 - name: DiaSource
   "@id": "#DiaSource"
-  description: Table to store 'difference image sources'; - sources detected at SNR
-    >=5 on difference images.
+  description: "Table to store 'difference image sources'; - sources detected at SNR >=5 on difference images."
+  tap:table_index: 3
   columns:
   - name: diaSourceId
     "@id": "#DiaSource.diaSourceId"
@@ -395,6 +396,7 @@ tables:
   - name: nameTrue
     "@id": "#DiaSource.nameTrue"
     datatype: char
+    description: MPC or simulation designation of the moving object
     length: 20
     mysql:datatype: CHAR(20)
   - name: ssObjectReassocTime
@@ -455,6 +457,7 @@ tables:
   - name: band
     "@id": "#DiaSource.band"
     datatype: char
+    description: Name of the band used to take the exposure where this source was measured
     length: 1
     mysql:datatype: CHAR(1)
   - name: mag
@@ -470,14 +473,17 @@ tables:
   - name: magTrueVband
     "@id": "#DiaSource.magTrueVband"
     datatype: float
+    description: True (noiseless) V-band magnitude of the simulated diaSource
     mysql:datatype: FLOAT
   - name: raTrue
     "@id": "#DiaSource.raTrue"
     datatype: double
+    description: True (noiseless) right ascension of the simulated diaSource
     mysql:datatype: DOUBLE
   - name: decTrue
     "@id": "#DiaSource.decTrue"
     datatype: double
+    description: True (noiseless) declination of the simulated diaSource
     mysql:datatype: DOUBLE
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
@@ -502,6 +508,7 @@ tables:
   primaryKey: "#SSSource.ssObjectId"
   mysql:engine: MyISAM
   mysql:charset: utf8mb4
+  tap:table_index: 4
   columns:
   - name: ssObjectId
     "@id": "#SSSource.ssObjectId"
@@ -607,73 +614,73 @@ tables:
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float
-    description: Cartesian heliocentric coordinates (at the emit time)
+    description: Cartesian heliocentric X coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricY
     "@id": "#SSSource.heliocentricY"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Y coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricZ
     "@id": "#SSSource.heliocentricZ"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Z coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVX
     "@id": "#SSSource.heliocentricVX"
     datatype: float
-    description: Cartesian heliocentric velocities (at the emit time)
+    description: Cartesian heliocentric X velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVY
     "@id": "#SSSource.heliocentricVY"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Y velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVZ
     "@id": "#SSSource.heliocentricVZ"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Z velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricX
     "@id": "#SSSource.topocentricX"
     datatype: float
-    description: Cartesian topocentric coordinates (at the emit time)
+    description: Cartesian topocentric X coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricY
     "@id": "#SSSource.topocentricY"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Y coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricZ
     "@id": "#SSSource.topocentricZ"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Z coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVX
     "@id": "#SSSource.topocentricVX"
     datatype: float
-    description: Cartesian topocentric velocities (at the emit time)
+    description: Cartesian topocentric X velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVY
     "@id": "#SSSource.topocentricVY"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Y velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVZ
     "@id": "#SSSource.topocentricVZ"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Z velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
 - name: MPCORB
@@ -683,6 +690,7 @@ tables:
   primaryKey: "#MPCORB.mpcDesignation"
   mysql:engine: MyISAM
   mysql:charset: utf8mb4
+  tap:table_index: 2
   columns:
   - name: mpcDesignation
     "@id": "#MPCORB.mpcDesignation"
