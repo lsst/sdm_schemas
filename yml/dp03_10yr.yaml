@@ -13,6 +13,7 @@ tables:
   primaryKey: "#SSObject.ssObjectId"
   mysql:engine: MyISAM
   mysql:charset: utf8mb4
+  tap:table_index: 1
   columns:
   - name: ssObjectId
     "@id": "#SSObject.ssObjectId"
@@ -359,8 +360,8 @@ tables:
     ivoa:ucd: meta.code
 - name: DiaSource
   "@id": "#DiaSource"
-  description: Table to store 'difference image sources' - sources detected at SNR
-    >=5 on difference images.
+  description: "Table to store 'difference image sources' - sources detected at SNR >=5 on difference images."
+  tap:table_index: 3
   columns:
   - name: diaSourceId
     "@id": "#DiaSource.diaSourceId"
@@ -511,6 +512,7 @@ tables:
   primaryKey: "#SSSource.ssObjectId"
   mysql:engine: MyISAM
   mysql:charset: utf8mb4
+  tap:table_index: 4
   columns:
   - name: ssObjectId
     "@id": "#SSSource.ssObjectId"
@@ -701,6 +703,7 @@ tables:
   primaryKey: "#MPCORB.mpcDesignation"
   mysql:engine: MyISAM
   mysql:charset: utf8mb4
+  tap:table_index: 2
   columns:
   - name: mpcDesignation
     "@id": "#MPCORB.mpcDesignation"
