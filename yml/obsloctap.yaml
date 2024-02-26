@@ -10,7 +10,7 @@ tables:
     tap:table_index: 1
     columns:
       - name: t_planning
-        "@id": "ObsPlan.t_planning"
+        "@id": "#ObsPlan.t_planning"
         description: Time in MJD when this observation has been added or
           modified into the planning log
         nullable: false
@@ -23,7 +23,7 @@ tables:
         datatype: double
         votable:arraysize:
       - name: target_name
-        "@id": "ObsPlan.target_name"
+        "@id": "#ObsPlan.target_name"
         description: Astronomical object observed, if any
         nullable: true
         ivoa:ucd: meta.id;src
@@ -32,10 +32,11 @@ tables:
         tap:principal: 1
         tap:column_index: 2
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: obs_id
-        "@id": "ObsPlan.obs_id"
+        "@id": "#ObsPlan.obs_id"
         description: Observation ID
         nullable: false
         ivoa:ucd: meta.id
@@ -44,10 +45,11 @@ tables:
         tap:principal: 1
         tap:column_index: 3
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: obs_collection
-        "@id": "ObsPlan.obs_collection"
+        "@id": "#ObsPlan.obs_collection"
         description: Name of the data collection
         nullable: true
         ivoa:ucd: meta.id
@@ -56,10 +58,11 @@ tables:
         tap:principal: 1
         tap:column_index: 4
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 80
       - name: s_ra
-        "@id": "ObsPlan.s_ra"
+        "@id": "#ObsPlan.s_ra"
         description: Central right ascension, ICRS
         nullable: true
         ivoa:ucd: pos.eq.ra
@@ -71,7 +74,7 @@ tables:
         ivoa:unit: deg
         datatype: double
       - name: s_dec
-        "@id": "ObsPlan.s_dec"
+        "@id": "#ObsPlan.s_dec"
         description: Central declination, ICRS
         nullable: true
         ivoa:ucd: pos.eq.dec
@@ -84,7 +87,7 @@ tables:
         datatype: double
         votable:arraysize:
       - name: s_fov
-        "@id": "ObsPlan.s_fov"
+        "@id": "#ObsPlan.s_fov"
         description: Diameter (bounds) of the covered region
         nullable: true
         ivoa:ucd: phys.angSize;instr.fov
@@ -96,7 +99,7 @@ tables:
         datatype: double
         votable:arraysize:
       - name: s_region
-        "@id": "ObsPlan.s_region"
+        "@id": "#ObsPlan.s_region"
         description: Sky region covered by the data product
           (expressed in ICRS frame)
         nullable: true
@@ -106,10 +109,11 @@ tables:
         tap:principal: 0
         tap:column_index: 8
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 400
       - name: s_resolution
-        "@id": "ObsPlan.s_resolution"
+        "@id": "#ObsPlan.s_resolution"
         description: Spatial resolution of data as FWHM
         nullable: true
         ivoa:ucd: pos.angResolution
@@ -121,7 +125,7 @@ tables:
         datatype: double
         votable:arraysize:
       - name: t_min
-        "@id": "ObsPlan.t_min"
+        "@id": "#ObsPlan.t_min"
         description: Start time in MJD
         nullable: false
         ivoa:ucd: time.start;obs.exposure
@@ -133,7 +137,7 @@ tables:
         datatype: double
         votable:arraysize:
       - name: t_max
-        "@id": "ObsPlan.t_max"
+        "@id": "#ObsPlan.t_max"
         description: Stop time in MJD
         nullable: false
         ivoa:ucd: time.end;obs.exposure
@@ -145,7 +149,7 @@ tables:
         datatype: double
         votable:arraysize:
       - name: t_exptime
-        "@id": "ObsPlan.t_exptime"
+        "@id": "#ObsPlan.t_exptime"
         description: Total exposure time
         nullable: false
         ivoa:ucd: time.duration;obs.exposure
@@ -156,7 +160,7 @@ tables:
         ivoa:unit: s
         datatype: double
       - name: t_resolution
-        "@id": "ObsPlan.t_resolution"
+        "@id": "#ObsPlan.t_resolution"
         description: Temporal resolution FWHM
         nullable: true
         ivoa:ucd: time.resolution
@@ -167,7 +171,7 @@ tables:
         ivoa:unit: s
         datatype: double
       - name: em_min
-        "@id": "ObsPlan.em_min"
+        "@id": "#ObsPlan.em_min"
         description: Start in spectral coordinates
         nullable: true
         ivoa:ucd: em.wl;stat.min
@@ -178,7 +182,7 @@ tables:
         ivoa:unit: m
         datatype: double
       - name: em_max
-        "@id": "ObsPlan.em_max"
+        "@id": "#ObsPlan.em_max"
         description: Stop in spectral coordinates
         nullable: true
         ivoa:ucd: em.wl;stat.max
@@ -190,7 +194,7 @@ tables:
         datatype: double
         votable:arraysize:
       - name: em_res_power
-        "@id": "ObsPlan.em_res_power"
+        "@id": "#ObsPlan.em_res_power"
         description: Spectral resolving power
         nullable: true
         ivoa:ucd: spect.resolution
@@ -201,7 +205,7 @@ tables:
         ivoa:unit:
         datatype: double
       - name: o_ucd
-        "@id": "ObsPlan.o_ucd"
+        "@id": "#ObsPlan.o_ucd"
         description: UCD of observable (e.g., phot.flux.density,
           phot.count, etc.)
         nullable: true
@@ -211,10 +215,11 @@ tables:
         tap:principal: 0
         tap:column_index: 17
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: pol_states
-        "@id": "ObsPlan.pol_states"
+        "@id": "#ObsPlan.pol_states"
         description: List of polarization states or NULL if not applicable
         nullable: true
         ivoa:ucd: meta.code;phys.polarization
@@ -223,10 +228,11 @@ tables:
         tap:principal: 0
         tap:column_index: 18
         ivoa:unit:
-        datatype: char
+        datatype: string
+        length: 40
         votable:arraysize: "*"
       - name: pol_xel
-        "@id": "ObsPlan.pol_xel"
+        "@id": "#ObsPlan.pol_xel"
         description: Number of polarization samples
         nullable: true
         ivoa:ucd: meta.number
@@ -237,7 +243,7 @@ tables:
         ivoa:unit:
         datatype: int
       - name: facility_name
-        "@id": "ObsPlan.facility_name"
+        "@id": "#ObsPlan.facility_name"
         description: Name of the facility used for this observation
         nullable: false
         ivoa:ucd: meta.id;instr.tel
@@ -246,10 +252,11 @@ tables:
         tap:principal: 1
         tap:column_index: 20
         ivoa:unit: d
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: instrument_name
-        "@id": "ObsPlan.instrument_name"
+        "@id": "#ObsPlan.instrument_name"
         description: Name of the instrument used for this observation
         nullable: true
         ivoa:ucd: meta.id;instr
@@ -258,10 +265,11 @@ tables:
         tap:principal: 1
         tap:column_index: 21
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: t_plan_exptime
-        "@id": "ObsPlan.t_plan_exptime"
+        "@id": "#ObsPlan.t_plan_exptime"
         description: Planned or scheduled exposure time
         nullable: true
         ivoa:ucd: time.duration;obs.exposure
@@ -272,9 +280,9 @@ tables:
         ivoa:unit: s
         datatype: double
       - name: category
-        "@id": "ObsPlan.category"
+        "@id": "#ObsPlan.category"
         description: Observation category. One of the following
-          values\u0003A Fixed, Coordinated, Window, Other
+          values Fixed, Coordinated, Window, Other
         nullable: false
         ivoa:ucd:
         votable:utype:
@@ -282,10 +290,11 @@ tables:
         tap:principal: 1
         tap:column_index: 23
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 11
       - name: priority
-        "@id": "ObsPlan.priority"
+        "@id": "#ObsPlan.priority"
         description: "Priority level { 0, 1, 2}"
         nullable: false
         ivoa:ucd:
@@ -296,7 +305,7 @@ tables:
         ivoa:unit:
         datatype: int
       - name: execution_status
-        "@id": "ObsPlan.execution_status"
+        "@id": "#ObsPlan.execution_status"
         description: One of the following values\u0003A
           Planned, Scheduled, Unscheduled, Performed, Aborted
         nullable: false
@@ -306,10 +315,11 @@ tables:
         tap:principal: 1
         tap:column_index: 25
         ivoa:unit:
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 11
       - name: tracking_type
-        "@id": "ObsPlan.tracking_type"
+        "@id": "#ObsPlan.tracking_type"
         description: One of the following values\u0003A
           Sidereal, Solar-system-object-tracking, Fixed-az-el-transit
         nullable: false
@@ -319,10 +329,11 @@ tables:
         tap:principal: 0
         tap:column_index: 26
         ivoa:unit: m
-        datatype: char
+        datatype: string
         votable:arraysize: "*"
+        length: 40
       - name: rubin_rot_sky_pos
-        "@id": "ObsPlan.rubin_rot_sky_pos"
+        "@id": "#ObsPlan.rubin_rot_sky_pos"
         description: From scheduler rotation angle
           Not in the IVOA ObsPlan table
         nullable: true
@@ -332,7 +343,7 @@ tables:
         ivoa:unit: deg
         datatype: float
       - name: rubin_nexp
-        "@id": "ObsPlan.rubin_nexp"
+        "@id": "#ObsPlan.rubin_nexp"
         description: number of exposures to take usually 1 or 2
           Not in the IVOA ObsPlan table
         nullable: true
