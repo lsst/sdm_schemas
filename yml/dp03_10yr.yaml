@@ -396,6 +396,7 @@ tables:
   - name: nameTrue
     "@id": "#DiaSource.nameTrue"
     datatype: char
+    description: MPC or simulation designation of the moving object
     length: 20
     mysql:datatype: CHAR(20)
   - name: ssObjectReassocTime
@@ -456,6 +457,7 @@ tables:
   - name: band
     "@id": "#DiaSource.band"
     datatype: char
+    description: Name of the band used to take the exposure where this source was measured
     length: 1
     mysql:datatype: CHAR(1)
   - name: mag
@@ -471,14 +473,17 @@ tables:
   - name: magTrueVband
     "@id": "#DiaSource.magTrueVband"
     datatype: float
+    description: True (noiseless) V-band magnitude of the simulated diaSource
     mysql:datatype: FLOAT
   - name: raTrue
     "@id": "#DiaSource.raTrue"
     datatype: double
+    description: True (noiseless) right ascension of the simulated diaSource
     mysql:datatype: DOUBLE
   - name: decTrue
     "@id": "#DiaSource.decTrue"
     datatype: double
+    description: True (noiseless) declination of the simulated diaSource
     mysql:datatype: DOUBLE
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
