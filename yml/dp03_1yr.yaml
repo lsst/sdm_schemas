@@ -609,73 +609,73 @@ tables:
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float
-    description: Cartesian heliocentric coordinates (at the emit time)
+    description: Cartesian heliocentric X coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricY
     "@id": "#SSSource.heliocentricY"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Y coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricZ
     "@id": "#SSSource.heliocentricZ"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Z coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVX
     "@id": "#SSSource.heliocentricVX"
     datatype: float
-    description: Cartesian heliocentric velocities (at the emit time)
+    description: Cartesian heliocentric X velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVY
     "@id": "#SSSource.heliocentricVY"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Y velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVZ
     "@id": "#SSSource.heliocentricVZ"
     datatype: float
-    description: ''
+    description: Cartesian heliocentric Z velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricX
     "@id": "#SSSource.topocentricX"
     datatype: float
-    description: Cartesian topocentric coordinates (at the emit time)
+    description: Cartesian topocentric X coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricY
     "@id": "#SSSource.topocentricY"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Y coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricZ
     "@id": "#SSSource.topocentricZ"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Z coordinate (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVX
     "@id": "#SSSource.topocentricVX"
     datatype: float
-    description: Cartesian topocentric velocities (at the emit time)
+    description: Cartesian topocentric X velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVY
     "@id": "#SSSource.topocentricVY"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Y velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVZ
     "@id": "#SSSource.topocentricVZ"
     datatype: float
-    description: ''
+    description: Cartesian topocentric Z velocity (at the emit time)
     mysql:datatype: FLOAT
     fits:tunit: AU
 - name: MPCORB
