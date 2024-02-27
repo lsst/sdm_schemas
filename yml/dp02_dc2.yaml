@@ -8712,6 +8712,15 @@ tables:
     ivoa:ucd: meta.id;obs.field
     tap:principal: 0
     tap:column_index: 140
+  constraints:
+  - name: DiaO_FSoDiaO
+    "@type": "ForeignKey"
+    "@id": "#FK_ForcedSourceOnDiaObject_diaObjectId_DiaObject_diaObjectId"
+    description: Link DiaObject to associated ForcedSourceOnDiaObjects
+    columns:
+    - "#ForcedSourceOnDiaObject.diaObjectId"
+    referencedColumns:
+    - "#DiaObject.diaObjectId"
 - name: Visit
   '@id': '#Visit'
   description: "Metadata about the pointings of the DC2 simulated survey,
