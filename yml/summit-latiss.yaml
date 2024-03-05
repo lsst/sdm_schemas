@@ -1,649 +1,987 @@
 ---
-name: summitcdb
-"@id": "#summit_cdb"
-description: Summit Consolidated Database
-tables:
-- name: ObsCore
-  columns:
-  - name: dataproduct_type
-    datatype: char
-    description: Data product (file content) primary type
-  - name: dataproduct_subtype
-    datatype: char
-    description: Data product specific type
-  - name: facility_name
-    datatype: char
-    description: The name of the facility, telescope, or space craft used for the
-      observation
-  - name: calib_level
-    datatype: int
-    description: 'Calibration level of the observation: in {0, 1, 2, 3, 4}'
-  - name: target_name
-    datatype: char
-    description: Object of interest
-  - name: obs_id
-    datatype: char
-    description: Internal ID given by the ObsTAP service
-  - name: obs_collection
-    datatype: char
-    description: Name of the data collection
-  - name: obs_publisher_did
-    datatype: char
-    description: ID for the Dataset given by the publisher
-  - name: access_url
-    datatype: char
-    description: URL used to access dataset
-  - name: access_format
-    datatype: char
-    description: Content format of the dataset
-  - name: s_ra
-    datatype: double
-    description: Central Spatial Position in ICRS; Right ascension
-  - name: s_dec
-    datatype: double
-    description: Central Spatial Position in ICRS; Declination
-  - name: s_fov
-    datatype: double
-    description: Estimated size of the covered region as the diameter of a containing
-      circle
-  - name: s_region
-    datatype: char
-    description: Sky region covered by the data product (expressed in ICRS frame)
-  - name: s_resolution
-    datatype: double
-    description: Spatial resolution of data as FWHM of PSF
-  - name: s_xel1
-    datatype: long
-    description: Number of elements along the first coordinate of the spatial axis
-  - name: s_xel2
-    datatype: long
-    description: Number of elements along the second coordinate of the spatial axis
-  - name: t_xel
-    datatype: long
-    description: Number of elements along the time axis
-  - name: t_min
-    datatype: double
-    description: Start time in MJD
-  - name: t_max
-    datatype: double
-    description: Stop time in MJD
-  - name: t_exptime
-    datatype: double
-    description: Total exposure time
-  - name: t_resolution
-    datatype: double
-    description: Temporal resolution FWHM
-  - name: em_xel
-    datatype: long
-    description: Number of elements along the spectral axis
-  - name: em_min
-    datatype: double
-    description: start in spectral coordinates
-  - name: em_max
-    datatype: double
-    description: stop in spectral coordinates
-  - name: em_res_power
-    datatype: double
-    description: Value of the resolving power along the spectral axis (R)
-  - name: o_ucd
-    datatype: char
-    description: Nature of the observable axis
-  - name: pol_xel
-    datatype: long
-    description: Number of elements along the polarization axis
-  - name: instrument_name
-    datatype: char
-    description: The name of the instrument used for the observation
-  - name: lsst_visit
-    datatype: long
-    description: Identifier for a specific LSSTCam pointing
-  - name: lsst_detector
-    datatype: long
-    description: Identifier for CCD within the LSSTCam focal plane
-  - name: lsst_tract
-    datatype: long
-    description: Upper level of LSST coadd skymap hierarchy
-  - name: lsst_patch
-    datatype: long
-    description: Lower level of LSST coadd skymap hierarchy
-  - name: lsst_band
-    datatype: char
-    description: Abstract filter band designation
-  - name: lsst_filter
-    datatype: char
-    description: Physical filter designation from the LSSTCam filter set
 name: cdb_latiss
 "@id": "#cdb_latiss"
 description: Consolidated Database for LATISS
 tables:
 - name: Exposure
+  "@id": "#Exposure"
+  primaryKey:
+  - "#Exposure.day_obs"
+  - "#Exposure.seq_num"
+  constraints:
+  - name: un_exposure_id
+    "@id": "#Exposure.un_exposure_id"
+    "@type": Unique
+    description: Ensure exposure_id is unique.
+    columns:
+    - "#Exposure.exposure_id"
   columns:
   - name: exposure_id
+    "@id": "#Exposure.exposure_id"
     datatype: long
     description: Unique identifier.
   - name: exposure_name
-    datatype: char
+    "@id": "#Exposure.exposure_name"
+    datatype: string
+    length: 20
     description: Official name of the exposure.
   - name: controller
-    datatype: char
+    "@id": "#Exposure.controller"
+    datatype: string
+    length: 1
     description: The abbreviation of the controller used for the observation (O, C)
   - name: day_obs
+    "@id": "#Exposure.day_obs"
     datatype: long
     description: Day of observation
   - name: seq_num
+    "@id": "#Exposure.seq_num"
     datatype: long
     description: Sequence number
   - name: physical_filter
-    datatype: char
+    "@id": "#Exposure.physical_filter"
+    datatype: string
+    length: 64
+    nullable: true
     description: ID of physical filter, the filter associated with a particular instrument.
   - name: band
-    datatype: char
+    "@id": "#Exposure.band"
+    datatype: string
+    length: 32
+    nullable: true
     description: Name of the band used to take the exposure where this source was
       measured. Abstract filter that is not associated with a particular instrument.
   - name: ra
+    "@id": "#Exposure.ra"
     datatype: double
+    nullable: true
     description: RA of targeted focal plane center.
   - name: decl
+    "@id": "#Exposure.decl"
     datatype: double
+    nullable: true
     description: Declination of targeted focal plane center
   - name: skyRotation
+    "@id": "#Exposure.skyRotation"
     datatype: double
+    nullable: true
     description: Targeted sky rotation angle.
   - name: azimuth_start
+    "@id": "#Exposure.azimuth_start"
     datatype: double
+    nullable: true
     description: Azimuth of focal plane center at the start of the exposure.
   - name: azimuth_end
+    "@id": "#Exposure.azimuth_end"
     datatype: double
+    nullable: true
     description: Azimuth of focal plane center at the end of the exposure.
   - name: azimuth
+    "@id": "#Exposure.azimuth"
     datatype: double
+    nullable: true
     description: Azimuth of focal plane center at the middle of the exposure.
   - name: altitude_start
+    "@id": "#Exposure.altitude_start"
     datatype: double
+    nullable: true
     description: Altitude of focal plane center at the start of the exposure.
   - name: altitude_end
+    "@id": "#Exposure.altitude_end"
     datatype: double
+    nullable: true
     description: Altitude of focal plane center at the end of the exposure.
   - name: altitude
+    "@id": "#Exposure.altitude"
     datatype: double
+    nullable: true
     description: Altitude of focal plane center at the middle of the exposure.
   - name: zenithDistance_start
+    "@id": "#Exposure.zenithDistance_start"
     datatype: double
+    nullable: true
     description: Zenith distance at the start of the exposure.
   - name: zenithDistance_end
+    "@id": "#Exposure.zenithDistance_end"
     datatype: double
+    nullable: true
     description: Zenith distance at the end of the exposure.
   - name: zenithDistance
+    "@id": "#Exposure.zenithDistance"
     datatype: double
+    nullable: true
     description: Zenith distance at the middle of the exposure.
   - name: airmass
+    "@id": "#Exposure.airmass"
     datatype: double
+    nullable: true
     description: Airmass of the observed line of sight at the middle of the exposure.
   - name: expMidpt
+    "@id": "#Exposure.expMidpt"
     datatype: timestamp
+    length: 64
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array. TAI, accurate to 10ms.
   - name: expMidptMJD
+    "@id": "#Exposure.expMidptMJD"
     datatype: double
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array in MJD. TAI, accurate to 10ms.
   - name: obsStart
+    "@id": "#Exposure.obsStart"
     datatype: timestamp
+    length: 64
     description: Start time of the exposure at the fiducial center of the focal plane
       array, TAI, accurate to 10ms.
   - name: obsStartMJD
+    "@id": "#Exposure.obsStartMJD"
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
   - name: obsEnd
+    "@id": "#Exposure.obsEnd"
     datatype: timestamp
+    length: 64
     description: End time of the exposure at the fiducial center of the focal plane
       array, TAI, accurate to 10ms.
   - name: obsEndMJD
+    "@id": "#Exposure.obsEndMJD"
     datatype: double
     description: End of the exposure in MJD, TAI, accurate to 10ms.
   - name: expTime
+    "@id": "#Exposure.expTime"
     datatype: double
     description: Spatially-averaged duration of exposure, accurate to 10ms.
   - name: shutTime
+    "@id": "#Exposure.shutTime"
     datatype: double
     description: Spatially-averaged shutter-open dduration, accurate to 10ms.
   - name: darkTime
+    "@id": "#Exposure.darkTime"
     datatype: double
     description: Duration from last clear to readout, accurate to 10ms.
   - name: group_id
-    datatype: char
+    "@id": "#Exposure.group_id"
+    datatype: string
+    length: 64
     description: Identifier for the group that this exposure is part of.
   - name: curindex
+    "@id": "#Exposure.curindex"
     datatype: int
     description: Number (1-based) of the observation within its group.
   - name: maxindex
+    "@id": "#Exposure.maxindex"
     datatype: int
     description: Expected number of observations within the group.
   - name: imgtype
-    datatype: char
+    "@id": "#Exposure.imgtype"
+    datatype: string
+    length: 64
+    nullable: true
     description: Type of exposure taken.
   - name: emulated
+    "@id": "#Exposure.emulated"
     datatype: boolean
+    nullable: true
     description: True if the exposure was taken in emulation mode.
   - name: science_program
-    datatype: char
+    "@id": "#Exposure.science_program"
+    datatype: string
+    length: 1024
+    nullable: true
     description: Science program.
   - name: observation_reason
-    datatype: char
+    "@id": "#Exposure.observation_reason"
+    datatype: string
+    length: 1024
+    nullable: true
     description: Reason for the observation.
   - name: target_name
-    datatype: char
+    "@id": "#Exposure.target_name"
+    datatype: string
+    length: 1024
+    nullable: true
     description: Target of the observation.
   - name: shutterOpenBegin
+    "@id": "#Exposure.shutterOpenBegin"
     datatype: timestamp
+    length: 64
+    nullable: true
     description: Start of shutter opening.  TAI, accurate to 10ms.
   - name: shutterOpenEnd
+    "@id": "#Exposure.shutterOpenEnd"
     datatype: timestamp
+    length: 64
+    nullable: true
     description: End of shutter opening.  TAI, accurate to 10ms.
   - name: shutterCloseBegin
+    "@id": "#Exposure.shutterCloseBegin"
     datatype: timestamp
+    length: 64
+    nullable: true
     description: Start of shutter closing.  TAI, accurate to 10ms.
   - name: shutterCloseEnd
+    "@id": "#Exposure.shutterCloseEnd"
     datatype: timestamp
+    length: 64
+    nullable: true
     description: End of shutter opening.  TAI, accurate to 10ms.
   - name: airTemp
+    "@id": "#Exposure.airTemp"
     datatype: float
+    nullable: true
     description: Outside air temperature.
   - name: pressure
+    "@id": "#Exposure.pressure"
     datatype: float
+    nullable: true
     description: Outside air pressure.
   - name: humidity
+    "@id": "#Exposure.humidity"
     datatype: float
+    nullable: true
     description: Outside relative humidity.
   - name: wind_speed
+    "@id": "#Exposure.wind_speed"
     datatype: float
+    nullable: true
     description: Outside wind speed.
   - name: wind_dir
+    "@id": "#Exposure.wind_dir"
     datatype: float
+    nullable: true
     description: Wind direction.
   - name: dimm_seeing
+    "@id": "#Exposure.dimm_seeing"
     datatype: float
+    nullable: true
     description: Seeing as measured by external DIMM.
-  - name: exposureInOODS
+  - name: shut_lower
+    "@id": "#Exposure.shut_lower"
+    datatype: float
+    nullable: true
+    description: Dome dropout door opening percentage
+  - name: shut_upper
+    "@id": "#Exposure.shut_upper"
+    datatype: float
+    nullable: true
+    description: Dome main door opening percentage
+  - name: focus_z
+    "@id": "#Exposure.focus_z"
+    datatype: float
+    nullable: true
+    description: Focus Z position
+  - name: dome_azimuth
+    "@id": "#Exposure.dome_azimuth"
+    datatype: float
+    nullable: true
+    description: Dome azimuth
+  - name: simulated
+    "@id": "#Exposure.simulated"
     datatype: boolean
+    nullable: true
+    description: Were any control system components simulated?
+  - name: exposureInOODS
+    "@id": "#Exposure.exposureInOODS"
+    datatype: boolean
+    nullable: true
     description: Are all detectors ingested into the OODS?
   - name: exposureInUSDF
+    "@id": "#Exposure.exposureInUSDF"
     datatype: boolean
+    nullable: true
     description: Are all detectors ingested into the USDF?
 - name: CcdExposure
+  "@id": "#CcdExposure"
   columns:
   - name: ccdExposureId
+    "@id": "#CcdExposure.ccdExposureId"
     datatype: long
     description: Primary key (unique identifier).
   - name: exposure_id
+    "@id": "#CcdExposure.exposure_id"
     datatype: long
     description: Reference to the corresponding entry in the Exposure table.
   - name: detector
+    "@id": "#CcdExposure.detector"
     datatype: long
     description: Detector ID. A detector associated with a particular instrument (not
       an observation of that detector)
   - name: xSize
+    "@id": "#CcdExposure.xSize"
     datatype: long
     description: Number of columns in the image.
   - name: ySize
+    "@id": "#CcdExposure.ySize"
     datatype: long
     description: Number of rows in the image.
   - name: llcra
+    "@id": "#CcdExposure.llcra"
     datatype: double
+    nullable: true
     description: RA of lower left corner.
   - name: llcdec
+    "@id": "#CcdExposure.llcdec"
     datatype: double
+    nullable: true
     description: Declination of lower left corner.
   - name: ulcra
+    "@id": "#CcdExposure.ulcra"
     datatype: double
+    nullable: true
     description: RA of upper left corner.
   - name: ulcdec
+    "@id": "#CcdExposure.ulcdec"
     datatype: double
+    nullable: true
     description: Declination of upper left corner.
   - name: urcra
+    "@id": "#CcdExposure.urcra"
     datatype: double
+    nullable: true
     description: RA of upper right corner.
   - name: urcdec
+    "@id": "#CcdExposure.urcdec"
     datatype: double
+    nullable: true
     description: Declination of upper right corner.
   - name: lrcra
+    "@id": "#CcdExposure.lrcra"
     datatype: double
+    nullable: true
     description: RA of lower right corner.
   - name: lrcdec
+    "@id": "#CcdExposure.lrcdec"
     datatype: double
+    nullable: true
     description: Declination of lower right corner.
+  - name: temp_set
+    "@id": "#CcdExposure.temp_set"
+    datatype: float
+    nullable: true
+    description: Temperature setpoint of CCD.
+  - name: ccdtemp
+    "@id": "#CcdExposure.ccdtemp"
+    datatype: float
+    nullable: true
+    description: Temperature of CCD.
   - name: imageInOODS
+    "@id": "#CcdExposure.imageInOODS"
     datatype: boolean
+    nullable: true
     description: Has this detector been ingested into the OODS?
   - name: imageInUSDF
+    "@id": "#CcdExposure.imageInUSDF"
     datatype: boolean
+    nullable: true
     description: Has this detector been ingested into the USDF?
 - name: Visit
+  "@id": "#Visit"
   columns:
   - name: visit
+    "@id": "#Visit.visit"
     datatype: long
     description: Unique identifier.
   - name: physical_filter
-    datatype: char
+    "@id": "#Visit.physical_filter"
+    datatype: string
+    length: 64
     description: ID of physical filter, the filter associated with a particular instrument.
   - name: band
-    datatype: char
+    "@id": "#Visit.band"
+    datatype: string
+    length: 32
     description: Name of the band used to take the exposure where this source was
       measured. Abstract filter that is not associated with a particular instrument.
   - name: ra
+    "@id": "#Visit.ra"
     datatype: double
     description: RA of focal plane center.
   - name: decl
+    "@id": "#Visit.decl"
     datatype: double
     description: Declination of focal plane center
   - name: skyRotation
+    "@id": "#Visit.skyRotation"
     datatype: double
     description: Sky rotation angle.
   - name: azimuth
+    "@id": "#Visit.azimuth"
     datatype: double
     description: Azimuth of focal plane center at the middle of the exposure.
   - name: altitude
+    "@id": "#Visit.altitude"
     datatype: double
     description: Altitude of focal plane center at the middle of the exposure.
   - name: zenithDistance
+    "@id": "#Visit.zenithDistance"
     datatype: double
     description: Zenith distance at the middle of the exposure.
   - name: airmass
+    "@id": "#Visit.airmass"
     datatype: double
     description: Airmass of the observed line of sight.
   - name: expTime
+    "@id": "#Visit.expTime"
     datatype: double
     description: Spatially-averaged duration of exposure, accurate to 10ms.
   - name: expMidpt
+    "@id": "#Visit.expMidpt"
     datatype: timestamp
+    length: 64
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array. TAI, accurate to 10ms.
   - name: expMidptMJD
+    "@id": "#Visit.expMidptMJD"
     datatype: double
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array in MJD. TAI, accurate to 10ms.
   - name: obsStart
+    "@id": "#Visit.obsStart"
     datatype: timestamp
+    length: 64
     description: Start time of the exposure at the fiducial center of the focal plane
       array, TAI, accurate to 10ms.
   - name: obsStartMJD
+    "@id": "#Visit.obsStartMJD"
     datatype: double
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
 - name: CcdVisit
+  "@id": "#CcdVisit"
   columns:
   - name: ccdVisitId
+    "@id": "#CcdVisit.ccdVisitId"
     datatype: long
     description: Primary key (unique identifier).
   - name: visitId
+    "@id": "#CcdVisit.visitId"
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
-  - name: physical_filter
-    datatype: char
-    description: ID of physical filter, the filter associated with a particular instrument.
-  - name: band
-    datatype: char
-    description: Name of the band used to take the exposure where this source was
-      measured. Abstract filter that is not associated with a particular instrument.
-  - name: ra
-    datatype: double
-    description: RA of Ccd center.
-  - name: decl
-    datatype: double
-    description: Declination of Ccd center.
-  - name: zenithDistance
-    datatype: float
-    description: Zenith distance at observation mid-point.
-  - name: photometricCalib
-    datatype: float
-    description: Conversion from DN to nanojansky for Ccd.
-  - name: psfSigma
-    datatype: float
-    description: PSF model second-moments determinant radius (center of chip)
-  - name: skyBg
-    datatype: float
-    description: Average sky background.
-  - name: skyNoise
-    datatype: float
-    description: RMS noise of the sky background.
   - name: detector
+    "@id": "#CcdVisit.detector"
     datatype: long
     description: Detector ID. A detector associated with a particular instrument (not
       an observation of that detector)
-  - name: seeing
+  - name: ra
+    "@id": "#CcdVisit.ra"
     datatype: double
+    nullable: true
+    description: RA of Ccd center.
+  - name: decl
+    "@id": "#CcdVisit.decl"
+    datatype: double
+    nullable: true
+    description: Declination of Ccd center.
+  - name: zenithDistance
+    "@id": "#CcdVisit.zenithDistance"
+    datatype: float
+    nullable: true
+    description: Zenith distance at observation mid-point.
+  - name: photometricCalib
+    "@id": "#CcdVisit.photometricCalib"
+    datatype: float
+    nullable: true
+    description: Conversion from DN to nanojansky for Ccd.
+  - name: psfSigma
+    "@id": "#CcdVisit.psfSigma"
+    datatype: float
+    nullable: true
+    description: PSF model second-moments determinant radius (center of chip)
+  - name: skyBg
+    "@id": "#CcdVisit.skyBg"
+    datatype: float
+    nullable: true
+    description: Average sky background.
+  - name: skyNoise
+    "@id": "#CcdVisit.skyNoise"
+    datatype: float
+    nullable: true
+    description: RMS noise of the sky background.
+  - name: seeing
+    "@id": "#CcdVisit.seeing"
+    datatype: double
+    nullable: true
     description: Mean measured FWHM of the PSF.
   - name: skyRotation
+    "@id": "#CcdVisit.skyRotation"
     datatype: double
+    nullable: true
     description: Sky rotation angle.
   - name: expMidpt
+    "@id": "#CcdVisit.expMidpt"
     datatype: timestamp
+    length: 64
+    nullable: true
     description: Midpoint for exposure. TAI, accurate to 10ms.
   - name: expMidptMJD
+    "@id": "#CcdVisit.expMidptMJD"
     datatype: double
+    nullable: true
     description: Midpoint for exposure in MJD. TAI, accurate to 10ms.
   - name: expTime
+    "@id": "#CcdVisit.expTime"
     datatype: double
+    nullable: true
     description: Spatially-averaged duration of exposure, accurate to 10ms.
   - name: obsStart
+    "@id": "#CcdVisit.obsStart"
     datatype: timestamp
+    length: 64
+    nullable: true
     description: Start of the exposure, TAI, accurate to 10ms.
   - name: obsStartMJD
+    "@id": "#CcdVisit.obsStartMJD"
     datatype: double
+    nullable: true
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
   - name: darkTime
+    "@id": "#CcdVisit.darkTime"
     datatype: double
+    nullable: true
     description: Average dark current accumulation time, accurate to 10ms.
   - name: xSize
+    "@id": "#CcdVisit.xSize"
     datatype: long
+    nullable: true
     description: Number of columns in the image.
   - name: ySize
+    "@id": "#CcdVisit.ySize"
     datatype: long
+    nullable: true
     description: Number of rows in the image.
   - name: llcra
+    "@id": "#CcdVisit.llcra"
     datatype: double
+    nullable: true
     description: RA of lower left corner.
   - name: llcdec
+    "@id": "#CcdVisit.llcdec"
     datatype: double
+    nullable: true
     description: Declination of lower left corner.
   - name: ulcra
+    "@id": "#CcdVisit.ulcra"
     datatype: double
+    nullable: true
     description: RA of upper left corner.
   - name: ulcdec
+    "@id": "#CcdVisit.ulcdec"
     datatype: double
+    nullable: true
     description: Declination of upper left corner.
   - name: urcra
+    "@id": "#CcdVisit.urcra"
     datatype: double
+    nullable: true
     description: RA of upper right corner.
   - name: urcdec
+    "@id": "#CcdVisit.urcdec"
     datatype: double
+    nullable: true
     description: Declination of upper right corner.
   - name: lrcra
+    "@id": "#CcdVisit.lrcra"
     datatype: double
+    nullable: true
     description: RA of lower right corner.
   - name: lrcdec
+    "@id": "#CcdVisit.lrcdec"
     datatype: double
+    nullable: true
     description: Declination of lower right corner.
   - name: astromOffsetMean
+    "@id": "#CcdVisit.astromOffsetMean"
     datatype: double
+    nullable: true
     description: Mean offset of astrometric calibration matches (arcsec)
   - name: astromOffsetStd
+    "@id": "#CcdVisit.astromOffsetStd"
     datatype: double
+    nullable: true
     description: Standard deviation of offsets of astrometric calibration matches
       (arcsec)
   - name: nPsfStar
+    "@id": "#CcdVisit.nPsfStar"
     datatype: int
+    nullable: true
     description: Number of stars used for PSF model
   - name: psfStarDeltaE1Median
+    "@id": "#CcdVisit.psfStarDeltaE1Median"
     datatype: double
+    nullable: true
     description: Median E1 residual (starE1 - psfE1) for psf stars
   - name: psfStarDeltaE2Median
+    "@id": "#CcdVisit.psfStarDeltaE2Median"
     datatype: double
+    nullable: true
     description: Median E2 residual (starE2 - psfE2) for psf stars
   - name: psfStarDeltaE1Scatter
+    "@id": "#CcdVisit.psfStarDeltaE1Scatter"
     datatype: double
+    nullable: true
     description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for psf stars
   - name: psfStarDeltaE2Scatter
+    "@id": "#CcdVisit.psfStarDeltaE2Scatter"
     datatype: double
+    nullable: true
     description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for psf stars
   - name: psfStarDeltaSizeMedian
+    "@id": "#CcdVisit.psfStarDeltaSizeMedian"
     datatype: double
+    nullable: true
     description: Median size residual (starSize - psfSize) for psf stars (pixel)
   - name: psfStarDeltaSizeScatter
+    "@id": "#CcdVisit.psfStarDeltaSizeScatter"
     datatype: double
+    nullable: true
     description: Scatter (via MAD) of size residual (starSize - psfSize) for stars
       (pixel)
   - name: psfStarScaledDeltaSizeScatter
+    "@id": "#CcdVisit.psfStarScaledDeltaSizeScatter"
     datatype: double
+    nullable: true
     description: Scatter (via MAD) of size residual scaled by median size squared
   - name: psfTraceRadiusDelta
+    "@id": "#CcdVisit.psfTraceRadiusDelta"
     datatype: double
+    nullable: true
     description: Delta (max - min) of model psf trace radius values evaluated on a
       grid of unmasked pixels (pixel)
   - name: maxDistToNearestPsf
+    "@id": "#CcdVisit.maxDistToNearestPsf"
     datatype: double
+    nullable: true
     description: Maximum distance of an unmasked pixel to its nearest model psf star
       (pixel)
 - name: ExposureEFD
+  "@id": "#ExposureEFD"
   columns:
+  - name: exposure_id
+    "@id": "#ExposureEFD.exposure_id"
+    datatype: long
+    description: Reference to the corresponding entry in the Exposure table.
   - name: ATAOS_focusOffsetSummary_total
+    "@id": "#ExposureEFD.ATAOS_focusOffsetSummary_total"
     datatype: double
+    nullable: true
     description: ''
   - name: ATAOS_focusOffsetSummary_userApplied
+    "@id": "#ExposureEFD.ATAOS_focusOffsetSummary_userApplied"
     datatype: double
+    nullable: true
     description: ''
   - name: ATAOS_focusOffsetSummary_filter
+    "@id": "#ExposureEFD.ATAOS_focusOffsetSummary_filter"
     datatype: double
+    nullable: true
     description: ''
   - name: ATAOS_focusOffsetSummary_disperser
+    "@id": "#ExposureEFD.ATAOS_focusOffsetSummary_disperser"
     datatype: double
+    nullable: true
     description: ''
   - name: ATAOS_focusOffsetSummary_wavelength
+    "@id": "#ExposureEFD.ATAOS_focusOffsetSummary_wavelength"
     datatype: double
+    nullable: true
     description: ''
   - name: ATDome_vignetted
+    "@id": "#ExposureEFD.ATDome_vignetted"
     datatype: boolean
+    nullable: true
     description: Is any part of the camera field of view blocked by dome components?
   - name: ATMCS_measuredTorque_elevationMax
+    "@id": "#ExposureEFD.ATMCS_measuredTorque_elevationMax"
     datatype: double
+    nullable: true
     description: Maximum torque applied by the elevation motor during the exposure
   - name: ATMCS_measuredTorque_azimuth1Max
+    "@id": "#ExposureEFD.ATMCS_measuredTorque_azimuth1Max"
     datatype: double
+    nullable: true
     description: ''
   - name: ATMCS_measuredTorque_azimuth2Max
+    "@id": "#ExposureEFD.ATMCS_measuredTorque_azimuth2Max"
     datatype: double
+    nullable: true
     description: ''
   - name: ATMCS_measuredTorque_nasmyth1Max
+    "@id": "#ExposureEFD.ATMCS_measuredTorque_nasmyth1Max"
     datatype: double
+    nullable: true
     description: ''
   - name: ATMCS_measuredTorque_nasmyth2Max
+    "@id": "#ExposureEFD.ATMCS_measuredTorque_nasmyth2Max"
     datatype: double
+    nullable: true
     description: ''
   - name: ATMCS_measuredTorque_m3Max
+    "@id": "#ExposureEFD.ATMCS_measuredTorque_m3Max"
     datatype: double
+    nullable: true
     description: ''
   - name: ATPtg_warning
+    "@id": "#ExposureEFD.ATPtg_warning"
     datatype: boolean
+    nullable: true
     description: Were any pointing system warnings triggered during the exposure?
   - name: MTAOS_cameraHexapodCorrection_x
+    "@id": "#ExposureEFD.MTAOS_cameraHexapodCorrection_x"
     datatype: double
+    nullable: true
     description: ''
   - name: MTAOS_cameraHexapodCorrection_y
+    "@id": "#ExposureEFD.MTAOS_cameraHexapodCorrection_y"
     datatype: double
+    nullable: true
     description: ''
   - name: MTAOS_cameraHexapodCorrection_z
+    "@id": "#ExposureEFD.MTAOS_cameraHexapodCorrection_z"
     datatype: double
+    nullable: true
     description: ''
   - name: MTAOS_cameraHexapodCorrection_u
+    "@id": "#ExposureEFD.MTAOS_cameraHexapodCorrection_u"
     datatype: double
+    nullable: true
     description: ''
   - name: MTAOS_cameraHexapodCorrection_v
+    "@id": "#ExposureEFD.MTAOS_cameraHexapodCorrection_v"
     datatype: double
+    nullable: true
     description: ''
   - name: MTAOS_cameraHexapodCorrection_w
+    "@id": "#ExposureEFD.MTAOS_cameraHexapodCorrection_w"
     datatype: double
+    nullable: true
     description: ''
-  - name: MTAOS_wavefrontError_zernikes(4-22)
-    datatype: double(19)
+  - name: MTAOS_wavefrontError_zernikes4
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes4"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes5
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes5"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes6
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes6"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes7
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes7"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes8
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes8"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes9
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes9"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes10
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes10"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes11
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes11"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes12
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes12"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes13
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes13"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes14
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes14"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes15
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes15"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes16
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes16"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes17
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes17"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes18
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes18"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes19
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes19"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes20
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes20"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes21
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes21"
+    datatype: double
+    nullable: true
+    description: ''
+  - name: MTAOS_wavefrontError_zernikes22
+    "@id": "#ExposureEFD.MTAOS_wavefrontError_zernikes22"
+    datatype: double
+    nullable: true
     description: ''
   - name: DIMM_measurement_fwhm
+    "@id": "#ExposureEFD.DIMM_measurement_fwhm"
     datatype: double
+    nullable: true
     description: Combined full width half maximum for the period of the exposure
   - name: ESS_pressure
+    "@id": "#ExposureEFD.ESS_pressure"
     datatype: double
+    nullable: true
     description: Average pressure for the period of the exposure
   - name: ESS_relativeHumidity
+    "@id": "#ExposureEFD.ESS_relativeHumidity"
     datatype: double
+    nullable: true
     description: Average relative humidity for the period of the exposure
   - name: ESS_temperature
+    "@id": "#ExposureEFD.ESS_temperature"
     datatype: double
+    nullable: true
     description: Average temperature for the period of the exposure
   - name: WeatherStation_temperature
+    "@id": "#ExposureEFD.WeatherStation_temperature"
     datatype: double
+    nullable: true
     description: Average air temperature for the period of the exposure
   - name: WeatherStation_pressure
+    "@id": "#ExposureEFD.WeatherStation_pressure"
     datatype: double
+    nullable: true
     description: Average pressure for the period of the exposure
   - name: WeatherStation_relativeHumidity
+    "@id": "#ExposureEFD.WeatherStation_relativeHumidity"
     datatype: double
+    nullable: true
     description: Average relative humidity for the period of the exposure
   - name: WeatherStation_windDirection
+    "@id": "#ExposureEFD.WeatherStation_windDirection"
     datatype: double
+    nullable: true
     description: Vector average of wind direction for the period of the exposure
   - name: WeatherStation_windSpeed
+    "@id": "#ExposureEFD.WeatherStation_windSpeed"
     datatype: double
+    nullable: true
     description: Average of wind speed for the period of the exposure
   - name: Camera_alertRaised
+    "@id": "#ExposureEFD.Camera_alertRaised"
     datatype: boolean
+    nullable: true
     description: Did any camera subsystem raise an alert?
   - name: Camera_rebTotalPower
+    "@id": "#ExposureEFD.Camera_rebTotalPower"
     datatype: double
+    nullable: true
     description: Wattage
 - name: ExposureCcdEFD
+  "@id": "#ExposureCcdEFD"
   columns:
   - name: Camera_gDV
+    "@id": "#ExposureCcdEFD.Camera_gDV"
     datatype: double
+    nullable: true
     description: Voltage
   - name: Camera_oDI
+    "@id": "#ExposureCcdEFD.Camera_oDI"
     datatype: double
+    nullable: true
     description: Current in mA
   - name: Camera_oDV
+    "@id": "#ExposureCcdEFD.Camera_oDV"
     datatype: double
+    nullable: true
     description: Voltage
   - name: Camera_oGV
+    "@id": "#ExposureCcdEFD.Camera_oGV"
     datatype: double
+    nullable: true
     description: Voltage
   - name: Camera_rDV
+    "@id": "#ExposureCcdEFD.Camera_rDV"
     datatype: double
+    nullable: true
     description: Voltage
   - name: Camera_temp
+    "@id": "#ExposureCcdEFD.Camera_temp"
     datatype: double
+    nullable: true
     description: Temperature in Celsius
 - name: ExposureRebEFD
+  "@id": "#ExposureRebEFD"
   columns:
   - name: Camera_anaI
+    "@id": "#ExposureRebEFD.Camera_anaI"
     datatype: double
+    nullable: true
     description: Current in mA
   - name: Camera_anaV
+    "@id": "#ExposureRebEFD.Camera_anaV"
     datatype: double
+    nullable: true
     description: Voltage
   - name: Camera_aspiclTemp0
+    "@id": "#ExposureRebEFD.Camera_aspiclTemp0"
     datatype: double
+    nullable: true
     description: Temperature in Celsius
   - name: Camera_aspicuTemp0
+    "@id": "#ExposureRebEFD.Camera_aspicuTemp0"
     datatype: double
+    nullable: true
     description: Temperature in Celsius
   - name: Camera_clkHI
+    "@id": "#ExposureRebEFD.Camera_clkHI"
     datatype: double
+    nullable: true
     description: Current in mA
   - name: Camera_clkHV
+    "@id": "#ExposureRebEFD.Camera_clkHV"
     datatype: double
+    nullable: true
     description: Voltage
   - name: Camera_clkLV
+    "@id": "#ExposureRebEFD.Camera_clkLV"
     datatype: double
+    nullable: true
     description: Voltage
   - name: Camera_digI
+    "@id": "#ExposureRebEFD.Camera_digI"
     datatype: double
+    nullable: true
     description: Current in mA
   - name: Camera_digV
+    "@id": "#ExposureRebEFD.Camera_digV"
     datatype: double
+    nullable: true
     description: Voltage
