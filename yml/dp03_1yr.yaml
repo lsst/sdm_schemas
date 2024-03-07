@@ -103,7 +103,7 @@ tables:
     description: H-G12 covariance (u band)
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: u_Chi2
     "@id": "#SSObject.u_Chi2"
     datatype: float
@@ -147,7 +147,7 @@ tables:
     description: H-G12 covariance (g band)
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: g_Chi2
     "@id": "#SSObject.g_Chi2"
     datatype: float
@@ -191,7 +191,7 @@ tables:
     description: H-G12 covariance (r band)
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: r_Chi2
     "@id": "#SSObject.r_Chi2"
     datatype: float
@@ -235,7 +235,7 @@ tables:
     description: H-G12 covariance (i band)
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: i_Chi2
     "@id": "#SSObject.i_Chi2"
     datatype: float
@@ -279,7 +279,7 @@ tables:
     description: H-G12 covariance (z band)
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: z_Chi2
     "@id": "#SSObject.z_Chi2"
     datatype: float
@@ -323,7 +323,7 @@ tables:
     description: H-G12 covariance (y band)
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: y_Chi2
     "@id": "#SSObject.y_Chi2"
     datatype: float
@@ -445,7 +445,7 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance
   - name: snr
     "@id": "#DiaSource.snr"
@@ -610,7 +610,7 @@ tables:
     datatype: float
     description: Predicted R.A./Dec covariance
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float

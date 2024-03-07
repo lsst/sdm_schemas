@@ -84,7 +84,7 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
   - name: radecMjdTai
     "@id": "#DiaObject.radecMjdTai"
     datatype: double
@@ -139,21 +139,21 @@ tables:
     datatype: float
     description: Covariance of pmRa and pmDec.
     mysql:datatype: FLOAT
-    fits:tunit: "mas^2/yr^2"
+    fits:tunit: "mas**2/yr**2"
     ivoa:ucd: stat.covariance;pos.eq
   - name: pmRa_parallax_Cov
     "@id": "#DiaObject.pmRa_parallax_Cov"
     datatype: float
     description: Covariance of pmRa and parallax.
     mysql:datatype: FLOAT
-    fits:tunit: mas^2/yr
+    fits:tunit: mas**2/yr
     ivoa:ucd: stat.covariance
   - name: pmDec_parallax_Cov
     "@id": "#DiaObject.pmDec_parallax_Cov"
     datatype: float
     description: Covariance of pmDec and parallax.
     mysql:datatype: FLOAT
-    fits:tunit: mas^2/yr
+    fits:tunit: mas**2/yr
     ivoa:ucd: stat.covariance
   - name: pmParallaxLnL
     "@id": "#DiaObject.pmParallaxLnL"
@@ -1323,7 +1323,7 @@ tables:
     description: H-G12 covariance (u band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: u_Chi2
     "@id": "#SSObject.u_Chi2"
     datatype: float
@@ -1367,7 +1367,7 @@ tables:
     description: H-G12 covariance (g band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: g_Chi2
     "@id": "#SSObject.g_Chi2"
     datatype: float
@@ -1411,7 +1411,7 @@ tables:
     description: H-G12 covariance (r band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: r_Chi2
     "@id": "#SSObject.r_Chi2"
     datatype: float
@@ -1455,7 +1455,7 @@ tables:
     description: H-G12 covariance (i band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: i_Chi2
     "@id": "#SSObject.i_Chi2"
     datatype: float
@@ -1499,7 +1499,7 @@ tables:
     description: H-G12 covariance (z band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: z_Chi2
     "@id": "#SSObject.z_Chi2"
     datatype: float
@@ -1543,7 +1543,7 @@ tables:
     description: H-G12 covariance (y band).
     mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
-    fits:tunit: mag^2
+    fits:tunit: mag**2
   - name: y_Chi2
     "@id": "#SSObject.y_Chi2"
     datatype: float
@@ -1673,7 +1673,7 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance
   - name: x
     "@id": "#DiaSource.x"
@@ -1710,7 +1710,7 @@ tables:
     datatype: float
     description: Covariance between x and y.
     mysql:datatype: FLOAT
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
     ivoa:ucd: stat.covariance
   - name: apFlux
     "@id": "#DiaSource.apFlux"
@@ -1794,7 +1794,7 @@ tables:
     datatype: float
     description: Covariance between psfRa and psfDec.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance
   - name: psfLnL
     "@id": "#DiaSource.psfLnL"
@@ -2186,88 +2186,88 @@ tables:
     datatype: float
     description: Estimated sky background at the position (centroid) of the object.
     mysql:datatype: FLOAT
-    fits:tunit: nJy/arcsec^2
+    fits:tunit: nJy/arcsec**2
   - name: fpBkgdErr
     "@id": "#DiaSource.fpBkgdErr"
     datatype: float
     description: Estimated uncertainty of fpBkgd.
     mysql:datatype: FLOAT
-    fits:tunit: nJy/arcsec^2
+    fits:tunit: nJy/arcsec**2
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
   - name: ixxErr
     "@id": "#DiaSource.ixxErr"
     datatype: float
     description: Uncertainty of ixx.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
     ivoa:ucd: stat.error
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
   - name: iyyErr
     "@id": "#DiaSource.iyyErr"
     datatype: float
     description: Uncertainty of iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
     ivoa:ucd: stat.error
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
   - name: ixyErr
     "@id": "#DiaSource.ixyErr"
     datatype: float
     description: Uncertainty of ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
     ivoa:ucd: stat.error
   - name: ixx_iyy_Cov
     "@id": "#DiaSource.ixx_iyy_Cov"
     datatype: float
     description: Covariance of ixx and iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy^2*arcsec^4
+    fits:tunit: nJy**2*arcsec**4
   - name: ixx_ixy_Cov
     "@id": "#DiaSource.ixx_ixy_Cov"
     datatype: float
     description: Covariance of ixx and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy^2*arcsec^4
+    fits:tunit: nJy**2*arcsec**4
   - name: iyy_ixy_Cov
     "@id": "#DiaSource.iyy_ixy_Cov"
     datatype: float
     description: Covariance of iyy and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy^2*arcsec^4
+    fits:tunit: nJy**2*arcsec**4
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec^2
+    fits:tunit: nJy*arcsec**2
   - name: extendedness
     "@id": "#DiaSource.extendedness"
     datatype: float
@@ -2534,7 +2534,7 @@ tables:
     "@id": "#DiaObjectLast.ra_dec_Cov"
     datatype: float
     description: Covariance between ra and dec.
-    fits:tunit: deg^2
+    fits:tunit: deg**2
   - name: radecMjdTai
     "@id": "#DiaObjectLast.radecMjdTai"
     datatype: double
@@ -2583,19 +2583,19 @@ tables:
     datatype: float
     description: Covariance of pmRa and pmDec.
     ivoa:ucd: stat.covariance;pos.eq
-    fits:tunit: mas^2/yr^2
+    fits:tunit: mas**2/yr**2
   - name: pmRa_parallax_Cov
     "@id": "#DiaObjectLast.pmRa_parallax_Cov"
     datatype: float
     description: Covariance of pmRa and parallax.
     ivoa:ucd: stat.covariance
-    fits:tunit: mas^2/yr
+    fits:tunit: mas**2/yr
   - name: pmDec_parallax_Cov
     "@id": "#DiaObjectLast.pmDec_parallax_Cov"
     datatype: float
     description: Covariance of pmDec and parallax.
     ivoa:ucd: stat.covariance
-    fits:tunit: mas^2/yr
+    fits:tunit: mas**2/yr
   primaryKey: "#DiaObjectLast.diaObjectId"
 - name: MPCORB
   "@id": "#MPCORB"
@@ -3002,7 +3002,7 @@ tables:
     datatype: float
     description: Predicted R.A./Dec covariance
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float
