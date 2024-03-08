@@ -1435,6 +1435,12 @@ tables:
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
+  - name: g_deblend_zeroFlux
+    "@id": "#Object.g_deblend_zeroFlux"
+    datatype: boolean
+    description: True when there was no flux attributed to this object after flux redistribution in the deblender.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
     datatype: double
@@ -2574,6 +2580,12 @@ tables:
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
+    fits:tunit:
+  - name: i_deblend_zeroFlux
+    "@id": "#Object.i_deblend_zeroFlux"
+    datatype: boolean
+    description: True when there was no flux attributed to this object after flux redistribution in the deblender.
+    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
@@ -3715,6 +3727,12 @@ tables:
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
+  - name: r_deblend_zeroFlux
+    "@id": "#Object.r_deblend_zeroFlux"
+    datatype: boolean
+    description: True when there was no flux attributed to this object after flux redistribution in the deblender.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: u_ap03Flux
     "@id": "#Object.u_ap03Flux"
     datatype: double
@@ -4854,6 +4872,12 @@ tables:
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
+    fits:tunit:
+  - name: u_deblend_zeroFlux
+    "@id": "#Object.u_deblend_zeroFlux"
+    datatype: boolean
+    description: True when there was no flux attributed to this object after flux redistribution in the deblender.
+    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
@@ -5995,6 +6019,12 @@ tables:
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
     fits:tunit:
+  - name: y_deblend_zeroFlux
+    "@id": "#Object.y_deblend_zeroFlux"
+    datatype: boolean
+    description: True when there was no flux attributed to this object after flux redistribution in the deblender.
+    mysql:datatype: BOOLEAN
+    fits:tunit:
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
     datatype: double
@@ -7134,6 +7164,12 @@ tables:
     datatype: float
     description: Fraction of flux from neighbors / source flux in the deconvolved footprint.
     mysql:datatype: FLOAT
+    fits:tunit:
+  - name: z_deblend_zeroFlux
+    "@id": "#Object.z_deblend_zeroFlux"
+    datatype: boolean
+    description: True when there was no flux attributed to this object after flux redistribution in the deblender.
+    mysql:datatype: BOOLEAN
     fits:tunit:
 
 
