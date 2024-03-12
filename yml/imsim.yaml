@@ -52,7 +52,7 @@ tables:
     datatype: float
     description: Covariance between fiducial ICRS Right Ascension and Declination of centroid
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec;meta.main
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
@@ -240,19 +240,19 @@ tables:
     datatype: double
     description: HSM moments. Reference band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: shape_xy
     "@id": "#Object.shape_xy"
     datatype: double
     description: HSM moments. Reference band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: shape_yy
     "@id": "#Object.shape_yy"
     datatype: double
     description: HSM moments. Reference band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: sky_object
     "@id": "#Object.sky_object"
     datatype: boolean
@@ -486,13 +486,13 @@ tables:
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_bdE2
     "@id": "#Object.g_bdE2"
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_bdFluxB
     "@id": "#Object.g_bdFluxB"
     datatype: double
@@ -522,13 +522,13 @@ tables:
     datatype: double
     description: Half-light ellipse of the de Vaucouleur fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_bdReD
     "@id": "#Object.g_bdReD"
     datatype: double
     description: Half-light ellipse of the exponential fit. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_blendedness
     "@id": "#Object.g_blendedness"
     datatype: double
@@ -759,7 +759,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_gaap0p7Flux
     "@id": "#Object.g_gaap0p7Flux"
     datatype: double
@@ -939,7 +939,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_i_flag
     "@id": "#Object.g_i_flag"
     datatype: boolean
@@ -969,73 +969,73 @@ tables:
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_ixxDebiasedPSF
     "@id": "#Object.g_ixxDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_ixxPSF
     "@id": "#Object.g_ixxPSF"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_ixxRound
     "@id": "#Object.g_ixxRound"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_ixy
     "@id": "#Object.g_ixy"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_ixyDebiasedPSF
     "@id": "#Object.g_ixyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_ixyPSF
     "@id": "#Object.g_ixyPSF"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_ixyRound
     "@id": "#Object.g_ixyRound"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_iyy
     "@id": "#Object.g_iyy"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_iyyDebiasedPSF
     "@id": "#Object.g_iyyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_iyyPSF
     "@id": "#Object.g_iyyPSF"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_iyyRound
     "@id": "#Object.g_iyyRound"
     datatype: double
     description: HSM moments. Measured on g-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: g_hsm_moments_30
     "@id": "#Object.g_hsm_moments_30"
     datatype: double
@@ -1409,7 +1409,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination, measured on g-band.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: g_deblend_dataCoverage
     "@id": "#Object.g_deblend_dataCoverage"
@@ -1626,13 +1626,13 @@ tables:
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_bdE2
     "@id": "#Object.i_bdE2"
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_bdFluxB
     "@id": "#Object.i_bdFluxB"
     datatype: double
@@ -1662,13 +1662,13 @@ tables:
     datatype: double
     description: Half-light ellipse of the de Vaucouleur fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_bdReD
     "@id": "#Object.i_bdReD"
     datatype: double
     description: Half-light ellipse of the exponential fit. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_blendedness
     "@id": "#Object.i_blendedness"
     datatype: double
@@ -1899,7 +1899,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_gaap0p7Flux
     "@id": "#Object.i_gaap0p7Flux"
     datatype: double
@@ -2079,7 +2079,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_i_flag
     "@id": "#Object.i_i_flag"
     datatype: boolean
@@ -2109,73 +2109,73 @@ tables:
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_ixxDebiasedPSF
     "@id": "#Object.i_ixxDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_ixxPSF
     "@id": "#Object.i_ixxPSF"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_ixxRound
     "@id": "#Object.i_ixxRound"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_ixy
     "@id": "#Object.i_ixy"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_ixyDebiasedPSF
     "@id": "#Object.i_ixyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_ixyPSF
     "@id": "#Object.i_ixyPSF"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_ixyRound
     "@id": "#Object.i_ixyRound"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_iyy
     "@id": "#Object.i_iyy"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_iyyDebiasedPSF
     "@id": "#Object.i_iyyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_iyyPSF
     "@id": "#Object.i_iyyPSF"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_iyyRound
     "@id": "#Object.i_iyyRound"
     datatype: double
     description: HSM moments. Measured on i-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: i_hsm_moments_30
     "@id": "#Object.i_hsm_moments_30"
     datatype: double
@@ -2549,7 +2549,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination, measured on i-band.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: i_deblend_dataCoverage
     "@id": "#Object.i_deblend_dataCoverage"
@@ -2766,13 +2766,13 @@ tables:
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_bdE2
     "@id": "#Object.r_bdE2"
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_bdFluxB
     "@id": "#Object.r_bdFluxB"
     datatype: double
@@ -2802,13 +2802,13 @@ tables:
     datatype: double
     description: Half-light ellipse of the de Vaucouleur fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_bdReD
     "@id": "#Object.r_bdReD"
     datatype: double
     description: Half-light ellipse of the exponential fit. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_blendedness
     "@id": "#Object.r_blendedness"
     datatype: double
@@ -3039,7 +3039,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_gaap0p7Flux
     "@id": "#Object.r_gaap0p7Flux"
     datatype: double
@@ -3219,7 +3219,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_i_flag
     "@id": "#Object.r_i_flag"
     datatype: boolean
@@ -3249,73 +3249,73 @@ tables:
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_ixxDebiasedPSF
     "@id": "#Object.r_ixxDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_ixxPSF
     "@id": "#Object.r_ixxPSF"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_ixxRound
     "@id": "#Object.r_ixxRound"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_ixy
     "@id": "#Object.r_ixy"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_ixyDebiasedPSF
     "@id": "#Object.r_ixyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_ixyPSF
     "@id": "#Object.r_ixyPSF"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_ixyRound
     "@id": "#Object.r_ixyRound"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_iyy
     "@id": "#Object.r_iyy"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_iyyDebiasedPSF
     "@id": "#Object.r_iyyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_iyyPSF
     "@id": "#Object.r_iyyPSF"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_iyyRound
     "@id": "#Object.r_iyyRound"
     datatype: double
     description: HSM moments. Measured on r-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: r_hsm_moments_30
     "@id": "#Object.r_hsm_moments_30"
     datatype: double
@@ -3689,7 +3689,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination, measured on r-band.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: r_deblend_dataCoverage
     "@id": "#Object.r_deblend_dataCoverage"
@@ -3906,13 +3906,13 @@ tables:
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_bdE2
     "@id": "#Object.u_bdE2"
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_bdFluxB
     "@id": "#Object.u_bdFluxB"
     datatype: double
@@ -3942,13 +3942,13 @@ tables:
     datatype: double
     description: Half-light ellipse of the de Vaucouleur fit. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_bdReD
     "@id": "#Object.u_bdReD"
     datatype: double
     description: Half-light ellipse of the exponential fit. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_blendedness
     "@id": "#Object.u_blendedness"
     datatype: double
@@ -4179,7 +4179,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_gaap0p7Flux
     "@id": "#Object.u_gaap0p7Flux"
     datatype: double
@@ -4359,7 +4359,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_i_flag
     "@id": "#Object.u_i_flag"
     datatype: boolean
@@ -4389,73 +4389,73 @@ tables:
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_ixxDebiasedPSF
     "@id": "#Object.u_ixxDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_ixxPSF
     "@id": "#Object.u_ixxPSF"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_ixxRound
     "@id": "#Object.u_ixxRound"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_ixy
     "@id": "#Object.u_ixy"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_ixyDebiasedPSF
     "@id": "#Object.u_ixyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_ixyPSF
     "@id": "#Object.u_ixyPSF"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_ixyRound
     "@id": "#Object.u_ixyRound"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_iyy
     "@id": "#Object.u_iyy"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_iyyDebiasedPSF
     "@id": "#Object.u_iyyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_iyyPSF
     "@id": "#Object.u_iyyPSF"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_iyyRound
     "@id": "#Object.u_iyyRound"
     datatype: double
     description: HSM moments. Measured on u-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: u_hsm_moments_30
     "@id": "#Object.u_hsm_moments_30"
     datatype: double
@@ -4829,7 +4829,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination, measured on u-band.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: u_deblend_dataCoverage
     "@id": "#Object.u_deblend_dataCoverage"
@@ -5046,13 +5046,13 @@ tables:
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_bdE2
     "@id": "#Object.y_bdE2"
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_bdFluxB
     "@id": "#Object.y_bdFluxB"
     datatype: double
@@ -5082,13 +5082,13 @@ tables:
     datatype: double
     description: Half-light ellipse of the de Vaucouleur fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_bdReD
     "@id": "#Object.y_bdReD"
     datatype: double
     description: Half-light ellipse of the exponential fit. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_blendedness
     "@id": "#Object.y_blendedness"
     datatype: double
@@ -5319,7 +5319,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_gaap0p7Flux
     "@id": "#Object.y_gaap0p7Flux"
     datatype: double
@@ -5499,7 +5499,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_i_flag
     "@id": "#Object.y_i_flag"
     datatype: boolean
@@ -5529,73 +5529,73 @@ tables:
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_ixxDebiasedPSF
     "@id": "#Object.y_ixxDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_ixxPSF
     "@id": "#Object.y_ixxPSF"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_ixxRound
     "@id": "#Object.y_ixxRound"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_ixy
     "@id": "#Object.y_ixy"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_ixyDebiasedPSF
     "@id": "#Object.y_ixyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_ixyPSF
     "@id": "#Object.y_ixyPSF"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_ixyRound
     "@id": "#Object.y_ixyRound"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_iyy
     "@id": "#Object.y_iyy"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_iyyDebiasedPSF
     "@id": "#Object.y_iyyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_iyyPSF
     "@id": "#Object.y_iyyPSF"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_iyyRound
     "@id": "#Object.y_iyyRound"
     datatype: double
     description: HSM moments. Measured on y-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: y_hsm_moments_30
     "@id": "#Object.y_hsm_moments_30"
     datatype: double
@@ -5969,7 +5969,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination, measured on y-band.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: y_deblend_dataCoverage
     "@id": "#Object.y_deblend_dataCoverage"
@@ -6186,13 +6186,13 @@ tables:
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_bdE2
     "@id": "#Object.z_bdE2"
     datatype: double
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_bdFluxB
     "@id": "#Object.z_bdFluxB"
     datatype: double
@@ -6222,13 +6222,13 @@ tables:
     datatype: double
     description: Half-light ellipse of the de Vaucouleur fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_bdReD
     "@id": "#Object.z_bdReD"
     datatype: double
     description: Half-light ellipse of the exponential fit. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_blendedness
     "@id": "#Object.z_blendedness"
     datatype: double
@@ -6459,7 +6459,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_gaap0p7Flux
     "@id": "#Object.z_gaap0p7Flux"
     datatype: double
@@ -6639,7 +6639,7 @@ tables:
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_i_flag
     "@id": "#Object.z_i_flag"
     datatype: boolean
@@ -6669,73 +6669,73 @@ tables:
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_ixxDebiasedPSF
     "@id": "#Object.z_ixxDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_ixxPSF
     "@id": "#Object.z_ixxPSF"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_ixxRound
     "@id": "#Object.z_ixxRound"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_ixy
     "@id": "#Object.z_ixy"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_ixyDebiasedPSF
     "@id": "#Object.z_ixyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_ixyPSF
     "@id": "#Object.z_ixyPSF"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_ixyRound
     "@id": "#Object.z_ixyRound"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_iyy
     "@id": "#Object.z_iyy"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_iyyDebiasedPSF
     "@id": "#Object.z_iyyDebiasedPSF"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_iyyPSF
     "@id": "#Object.z_iyyPSF"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_iyyRound
     "@id": "#Object.z_iyyRound"
     datatype: double
     description: HSM moments. Measured on z-band.
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: z_hsm_moments_30
     "@id": "#Object.z_hsm_moments_30"
     datatype: double
@@ -7109,7 +7109,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination, measured on z-band.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: z_deblend_dataCoverage
     "@id": "#Object.z_deblend_dataCoverage"
@@ -7233,7 +7233,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: decl
     "@id": "#Source.decl"
@@ -7445,55 +7445,55 @@ tables:
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: iyy
     "@id": "#Source.iyy"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: ixy
     "@id": "#Source.ixy"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: ixxPSF
     "@id": "#Source.ixxPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: iyyPSF
     "@id": "#Source.iyyPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: ixyPSF
     "@id": "#Source.ixyPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: ixxDebiasedPSF
     "@id": "#Source.ixxDebiasedPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: iyyDebiasedPSF
     "@id": "#Source.iyyDebiasedPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: ixyDebiasedPSF
     "@id": "#Source.ixyDebiasedPSF"
     datatype: double
     description: HSM moments
     mysql:datatype: DOUBLE
-    fits:tunit: pixel^2
+    fits:tunit: pixel**2
   - name: gaussianFlux
     "@id": "#Source.gaussianFlux"
     datatype: double
@@ -9275,37 +9275,37 @@ tables:
     datatype: double
     mysql:datatype: DOUBLE
     description: Elliptical Gaussian adaptive moments.
-    fits:tunit: arcsec^2
+    fits:tunit: arcsec**2
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: double
     mysql:datatype: DOUBLE
     description: Adaptive moments of the PSF model at the object position.
-    fits:tunit: arcsec^2
+    fits:tunit: arcsec**2
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: double
     mysql:datatype: DOUBLE
     description: Elliptical Gaussian adaptive moments.
-    fits:tunit: arcsec^2
+    fits:tunit: arcsec**2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: double
     mysql:datatype: DOUBLE
     description: Adaptive moments of the PSF model at the object position.
-    fits:tunit: arcsec^2
+    fits:tunit: arcsec**2
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: double
     mysql:datatype: DOUBLE
     description: Elliptical Gaussian adaptive moments.
-    fits:tunit: arcsec^2
+    fits:tunit: arcsec**2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: double
     mysql:datatype: DOUBLE
     description: Adaptive moments of the PSF model at the object position.
-    fits:tunit: arcsec^2
+    fits:tunit: arcsec**2
   - name: midpointMjdTai
     "@id": "#DiaSource.midpointMjdTai"
     datatype: double
@@ -9476,7 +9476,7 @@ tables:
     datatype: float
     description: Covariance between right ascension and declination.
     mysql:datatype: FLOAT
-    fits:tunit: deg^2
+    fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: shape_flag
     "@id": "#DiaSource.shape_flag"
