@@ -1780,14 +1780,14 @@ tables:
     datatype: float
     description: Covariance between psfFlux and psfRa.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*deg
+    fits:tunit: nJy.deg
     ivoa:ucd: stat.covariance
   - name: psfFlux_psfDec_Cov
     "@id": "#DiaSource.psfFlux_psfDec_Cov"
     datatype: float
     description: Covariance between psfFlux and psfDec.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*deg
+    fits:tunit: nJy.deg
     ivoa:ucd: stat.covariance
   - name: psfRa_psfDec_Cov
     "@id": "#DiaSource.psfRa_psfDec_Cov"
@@ -2198,76 +2198,76 @@ tables:
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
   - name: ixxErr
     "@id": "#DiaSource.ixxErr"
     datatype: float
     description: Uncertainty of ixx.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
     ivoa:ucd: stat.error
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
   - name: iyyErr
     "@id": "#DiaSource.iyyErr"
     datatype: float
     description: Uncertainty of iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
     ivoa:ucd: stat.error
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
   - name: ixyErr
     "@id": "#DiaSource.ixyErr"
     datatype: float
     description: Uncertainty of ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
     ivoa:ucd: stat.error
   - name: ixx_iyy_Cov
     "@id": "#DiaSource.ixx_iyy_Cov"
     datatype: float
     description: Covariance of ixx and iyy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy**2*arcsec**4
+    fits:tunit: nJy**2.arcsec**4
   - name: ixx_ixy_Cov
     "@id": "#DiaSource.ixx_ixy_Cov"
     datatype: float
     description: Covariance of ixx and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy**2*arcsec**4
+    fits:tunit: nJy**2.arcsec**4
   - name: iyy_ixy_Cov
     "@id": "#DiaSource.iyy_ixy_Cov"
     datatype: float
     description: Covariance of iyy and ixy.
     mysql:datatype: FLOAT
-    fits:tunit: nJy**2*arcsec**4
+    fits:tunit: nJy**2.arcsec**4
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     mysql:datatype: FLOAT
-    fits:tunit: nJy*arcsec**2
+    fits:tunit: nJy.arcsec**2
   - name: extendedness
     "@id": "#DiaSource.extendedness"
     datatype: float

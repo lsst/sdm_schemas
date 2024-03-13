@@ -1272,7 +1272,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xx
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: base_SdssShape_instFlux_yy_Cov
     '@id': '#reference.base_SdssShape_instFlux_yy_Cov'
     datatype: double
@@ -1280,7 +1280,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_yy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: base_SdssShape_instFlux_xy_Cov
     '@id': '#reference.base_SdssShape_instFlux_xy_Cov'
     datatype: double
@@ -1288,7 +1288,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: base_SdssShape_flag
     '@id': '#reference.base_SdssShape_flag'
     datatype: boolean
@@ -2741,7 +2741,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xx
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: g_base_SdssShape_instFlux_yy_Cov
     '@id': '#forced_photometry.g_base_SdssShape_instFlux_yy_Cov'
     datatype: double
@@ -2749,7 +2749,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_yy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: g_base_SdssShape_instFlux_xy_Cov
     '@id': '#forced_photometry.g_base_SdssShape_instFlux_xy_Cov'
     datatype: double
@@ -2757,7 +2757,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: g_base_SdssShape_flag
     '@id': '#forced_photometry.g_base_SdssShape_flag'
     datatype: boolean
@@ -3741,7 +3741,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xx
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: i_base_SdssShape_instFlux_yy_Cov
     '@id': '#forced_photometry.i_base_SdssShape_instFlux_yy_Cov'
     datatype: double
@@ -3749,7 +3749,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_yy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: i_base_SdssShape_instFlux_xy_Cov
     '@id': '#forced_photometry.i_base_SdssShape_instFlux_xy_Cov'
     datatype: double
@@ -3757,7 +3757,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: i_base_SdssShape_flag
     '@id': '#forced_photometry.i_base_SdssShape_flag'
     datatype: boolean
@@ -4741,7 +4741,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xx
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: r_base_SdssShape_instFlux_yy_Cov
     '@id': '#forced_photometry.r_base_SdssShape_instFlux_yy_Cov'
     datatype: double
@@ -4749,7 +4749,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_yy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: r_base_SdssShape_instFlux_xy_Cov
     '@id': '#forced_photometry.r_base_SdssShape_instFlux_xy_Cov'
     datatype: double
@@ -4757,7 +4757,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: r_base_SdssShape_flag
     '@id': '#forced_photometry.r_base_SdssShape_flag'
     datatype: boolean
@@ -5741,7 +5741,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xx
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: u_base_SdssShape_instFlux_yy_Cov
     '@id': '#forced_photometry.u_base_SdssShape_instFlux_yy_Cov'
     datatype: double
@@ -5749,7 +5749,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_yy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: u_base_SdssShape_instFlux_xy_Cov
     '@id': '#forced_photometry.u_base_SdssShape_instFlux_xy_Cov'
     datatype: double
@@ -5757,7 +5757,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: u_base_SdssShape_flag
     '@id': '#forced_photometry.u_base_SdssShape_flag'
     datatype: boolean
@@ -6741,7 +6741,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xx
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: y_base_SdssShape_instFlux_yy_Cov
     '@id': '#forced_photometry.y_base_SdssShape_instFlux_yy_Cov'
     datatype: double
@@ -6749,7 +6749,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_yy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: y_base_SdssShape_instFlux_xy_Cov
     '@id': '#forced_photometry.y_base_SdssShape_instFlux_xy_Cov'
     datatype: double
@@ -6757,7 +6757,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: y_base_SdssShape_flag
     '@id': '#forced_photometry.y_base_SdssShape_flag'
     datatype: boolean
@@ -7741,7 +7741,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xx
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: z_base_SdssShape_instFlux_yy_Cov
     '@id': '#forced_photometry.z_base_SdssShape_instFlux_yy_Cov'
     datatype: double
@@ -7749,7 +7749,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_yy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: z_base_SdssShape_instFlux_xy_Cov
     '@id': '#forced_photometry.z_base_SdssShape_instFlux_xy_Cov'
     datatype: double
@@ -7757,7 +7757,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: uncertainty covariance between base_SdssShape_instFlux and base_SdssShape_xy
-    fits:tunit: count*pixel**2
+    fits:tunit: count.pixel**2
   - name: z_base_SdssShape_flag
     '@id': '#forced_photometry.z_base_SdssShape_flag'
     datatype: boolean
@@ -8359,7 +8359,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*arcsec**2
+    fits:tunit: nmgy.arcsec**2
   - name: Iyy_pixel
     '@id': '#object.Iyy_pixel'
     datatype: double
@@ -8367,7 +8367,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*arcsec**2
+    fits:tunit: nmgy.arcsec**2
   - name: Ixy_pixel
     '@id': '#object.Ixy_pixel'
     datatype: double
@@ -8375,7 +8375,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*arcsec**2
+    fits:tunit: nmgy.arcsec**2
   - name: I_flag
     '@id': '#object.I_flag'
     datatype: boolean
@@ -8390,7 +8390,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*arcsec**2
+    fits:tunit: nmgy.arcsec**2
   - name: IyyPSF_pixel
     '@id': '#object.IyyPSF_pixel'
     datatype: double
@@ -8398,7 +8398,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*arcsec**2
+    fits:tunit: nmgy.arcsec**2
   - name: IxyPSF_pixel
     '@id': '#object.IxyPSF_pixel'
     datatype: double
@@ -8406,7 +8406,7 @@ tables:
     mysql:datatype: DOUBLE
     tap:column_index: 999
     tap:principal: 0
-    fits:tunit: nmgy*arcsec**2
+    fits:tunit: nmgy.arcsec**2
   - name: mag_g_cModel
     '@id': '#object.mag_g_cModel'
     datatype: double
