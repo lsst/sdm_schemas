@@ -8838,7 +8838,6 @@ tables:
     description: Midpoint time for exposure at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
     fits:tunit:
-    ivoa:ucd: time.epoch;obs.exposure
     tap:principal: 0
     tap:column_index: 6
   - name: expMidptMJD
@@ -9010,7 +9009,6 @@ tables:
     length: 6
     mysql:datatype: DATETIME(6)
     description: Midpoint for exposure. TAI, accurate to 10ms.
-    ivoa:ucd: time.epoch;obs.exposure
     tap:principal: 0
     tap:column_index: 8
   - name: expMidptMJD
