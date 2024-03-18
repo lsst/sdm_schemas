@@ -2646,25 +2646,25 @@ tables:
     datatype: double
     description: 'MPCORB: Mean anomaly at the epoch, in degrees'
     mysql:datatype: DOUBLE
-    fits:tunit: degree
+    fits:tunit: deg
   - name: peri
     "@id": "#MPCORB.peri"
     datatype: double
     description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degree
+    fits:tunit: deg
   - name: node
     "@id": "#MPCORB.node"
     datatype: double
     description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degree
+    fits:tunit: deg
   - name: incl
     "@id": "#MPCORB.incl"
     datatype: double
     description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
     mysql:datatype: DOUBLE
-    fits:tunit: degree
+    fits:tunit: deg
   - name: e
     "@id": "#MPCORB.e"
     datatype: double
@@ -2675,7 +2675,7 @@ tables:
     datatype: double
     description: 'MPCORB: Mean daily motion (degrees per day)'
     mysql:datatype: DOUBLE
-    fits:tunit: degree/d
+    fits:tunit: deg/d
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
