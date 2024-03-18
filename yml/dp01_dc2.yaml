@@ -1555,7 +1555,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: Time spent in stage
-    fits:tunit: second
+    fits:tunit: s
   - name: modelfit_CModel_exp_instFlux
     '@id': '#reference.modelfit_CModel_exp_instFlux'
     datatype: double
@@ -1667,7 +1667,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: Time spent in stage
-    fits:tunit: second
+    fits:tunit: s
   - name: modelfit_CModel_dev_instFlux
     '@id': '#reference.modelfit_CModel_dev_instFlux'
     datatype: double
@@ -1779,7 +1779,7 @@ tables:
     tap:column_index: 999
     tap:principal: 0
     description: Time spent in stage
-    fits:tunit: second
+    fits:tunit: s
   - name: modelfit_CModel_instFlux
     '@id': '#reference.modelfit_CModel_instFlux'
     datatype: double
