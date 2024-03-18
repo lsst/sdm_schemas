@@ -834,7 +834,7 @@ tables:
     "@id": "#DiaObject.u_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the u band fluxes.
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: u_psfFluxLinearIntercept
     "@id": "#DiaObject.u_psfFluxLinearIntercept"
     datatype: float
@@ -843,7 +843,7 @@ tables:
     "@id": "#DiaObject.u_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between u band flux obsevations max(delta_flux/delta_time).
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: u_psfFluxErrMean
     "@id": "#DiaObject.u_psfFluxErrMean"
     datatype: float
@@ -901,7 +901,7 @@ tables:
     "@id": "#DiaObject.g_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the g band fluxes.
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: g_psfFluxLinearIntercept
     "@id": "#DiaObject.g_psfFluxLinearIntercept"
     datatype: float
@@ -911,7 +911,7 @@ tables:
     "@id": "#DiaObject.g_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between g band flux obsevations max(delta_flux/delta_time).
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: g_psfFluxErrMean
     "@id": "#DiaObject.g_psfFluxErrMean"
     datatype: float
@@ -969,7 +969,7 @@ tables:
     "@id": "#DiaObject.r_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the r band fluxes.
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: r_psfFluxLinearIntercept
     "@id": "#DiaObject.r_psfFluxLinearIntercept"
     datatype: float
@@ -979,7 +979,7 @@ tables:
     "@id": "#DiaObject.r_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between r band flux obsevations max(delta_flux/delta_time).
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: r_psfFluxErrMean
     "@id": "#DiaObject.r_psfFluxErrMean"
     datatype: float
@@ -1037,7 +1037,7 @@ tables:
     "@id": "#DiaObject.i_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the i band fluxes.
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: i_psfFluxLinearIntercept
     "@id": "#DiaObject.i_psfFluxLinearIntercept"
     datatype: float
@@ -1047,7 +1047,7 @@ tables:
     "@id": "#DiaObject.i_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between i band flux obsevations max(delta_flux/delta_time).
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: i_psfFluxErrMean
     "@id": "#DiaObject.i_psfFluxErrMean"
     datatype: float
@@ -1105,7 +1105,7 @@ tables:
     "@id": "#DiaObject.z_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the z band fluxes.
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: z_psfFluxLinearIntercept
     "@id": "#DiaObject.z_psfFluxLinearIntercept"
     datatype: float
@@ -1115,7 +1115,7 @@ tables:
     "@id": "#DiaObject.z_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between z band flux obsevations max(delta_flux/delta_time).
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: z_psfFluxErrMean
     "@id": "#DiaObject.z_psfFluxErrMean"
     datatype: float
@@ -1173,7 +1173,7 @@ tables:
     "@id": "#DiaObject.y_psfFluxLinearSlope"
     datatype: float
     description: Linear best fit slope of the y band fluxes.
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: y_psfFluxLinearIntercept
     "@id": "#DiaObject.y_psfFluxLinearIntercept"
     datatype: float
@@ -1183,7 +1183,7 @@ tables:
     "@id": "#DiaObject.y_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between y band flux obsevations max(delta_flux/delta_time)
-    fits:tunit: nJy/day
+    fits:tunit: nJy/d
   - name: y_psfFluxErrMean
     "@id": "#DiaObject.y_psfFluxErrMean"
     datatype: float
@@ -1241,20 +1241,20 @@ tables:
       to the MPC. May be NULL if not an LSST discovery. The date format will follow
       general LSST conventions (MJD TAI, at the moment).
     mysql:datatype: DOUBLE
-    fits:tunit: day
+    fits:tunit: d
   - name: firstObservationDate
     "@id": "#SSObject.firstObservationDate"
     datatype: double
     description: The time of the first LSST observation of this object (could be precovered)
       as Modified Julian Date, International Atomic Time.
     mysql:datatype: DOUBLE
-    fits:tunit: day
+    fits:tunit: d
   - name: arc
     "@id": "#SSObject.arc"
     datatype: float
     description: Arc of LSST observations.
     mysql:datatype: FLOAT
-    fits:tunit: day
+    fits:tunit: d
   - name: numObs
     "@id": "#SSObject.numObs"
     datatype: int
@@ -2640,7 +2640,7 @@ tables:
     datatype: double
     description: 'MPCORB: Epoch (in MJD, .0 TT)'
     mysql:datatype: DOUBLE
-    fits:tunit: day
+    fits:tunit: d
   - name: M
     "@id": "#MPCORB.M"
     datatype: double
@@ -2675,7 +2675,7 @@ tables:
     datatype: double
     description: 'MPCORB: Mean daily motion (degrees per day)'
     mysql:datatype: DOUBLE
-    fits:tunit: degree/day
+    fits:tunit: degree/d
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
@@ -2709,7 +2709,7 @@ tables:
     datatype: float
     description: 'MPCORB: Arc (days), for single-opposition objects'
     mysql:datatype: FLOAT
-    fits:tunit: day
+    fits:tunit: d
   - name: arcStart
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
@@ -2765,7 +2765,7 @@ tables:
     datatype: float
     description: 'MPCORB: Date of last observation included in orbit solution'
     mysql:datatype: FLOAT
-    fits:tunit: day
+    fits:tunit: d
 - name: MPCORBDESIGMAP
   "@id": "#MPCORBDESIGMAP"
   description: The mapping between old and new provisional MPC designation, produced
