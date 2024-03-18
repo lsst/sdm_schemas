@@ -51,13 +51,13 @@ tables:
   - name: detect_isDeblendedModelSource
     "@id": "#Object.detect_isDeblendedModelSource"
     datatype: boolean
-    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudoFilterList) and is a deblended child
+    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky source and is a deblended child
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isDeblendedSource
     "@id": "#Object.detect_isDeblendedSource"
     datatype: boolean
-    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudoFilterList) and is either an unblended isolated source or a deblended child from a parent with
+    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky source and is either an unblended isolated source or a deblended child from a parent with
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isIsolated
@@ -75,7 +75,7 @@ tables:
   - name: detect_isPrimary
     "@id": "#Object.detect_isPrimary"
     datatype: boolean
-    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudoFilterList)
+    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky source
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isTractInner
@@ -87,7 +87,7 @@ tables:
   - name: footprintArea
     "@id": "#Object.footprintArea"
     datatype: int
-    description: Number of pixels in the sources detection footprint. Reference band.
+    description: Number of pixels in the source's detection footprint. Reference band.
     mysql:datatype: INTEGER
     fits:tunit: pixel
   - name: merge_peak_sky
@@ -140,7 +140,7 @@ tables:
   - name: shape_xx
     "@id": "#Object.shape_xx"
     datatype: double
-    description: HSM moments. Reference band.
+    description: Hirata-Seljak-Mandelbaum (HSM) moments. Reference band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel**2
   - name: shape_xy
@@ -178,7 +178,7 @@ tables:
   - name: x
     "@id": "#Object.x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Reference band.
+    description: Centroid from SDSS Centroid algorithm. Reference band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: xErr
@@ -196,7 +196,7 @@ tables:
   - name: y
     "@id": "#Object.y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Reference band.
+    description: Centroid from SDSS Centroid algorithm. Reference band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: yErr
@@ -406,13 +406,13 @@ tables:
   - name: g_bdFluxB
     "@id": "#Object.g_bdFluxB"
     datatype: double
-    description: Flux from the de Vaucouleur fit. Measured on g-band.
+    description: Flux from the de Vaucouleurs fit. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_bdFluxBErr
     "@id": "#Object.g_bdFluxBErr"
     datatype: double
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on g-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_bdFluxD
@@ -430,7 +430,7 @@ tables:
   - name: g_bdReB
     "@id": "#Object.g_bdReB"
     datatype: double
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on g-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel**2
   - name: g_bdReD
@@ -556,7 +556,7 @@ tables:
   - name: g_centroid_x
     "@id": "#Object.g_centroid_x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: g_centroid_xErr
@@ -568,7 +568,7 @@ tables:
   - name: g_centroid_y
     "@id": "#Object.g_centroid_y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: g_centroid_yErr
@@ -580,7 +580,7 @@ tables:
   - name: g_decl
     "@id": "#Object.g_decl"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Position in Declination. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -647,13 +647,13 @@ tables:
   - name: g_gaap0p5Flux
     "@id": "#Object.g_gaap0p5Flux"
     datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap0p5FluxErr
     "@id": "#Object.g_gaap0p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap0p5Flux_flag_bigPsf
@@ -665,13 +665,13 @@ tables:
   - name: g_gaap0p7Flux
     "@id": "#Object.g_gaap0p7Flux"
     datatype: double
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap0p7FluxErr
     "@id": "#Object.g_gaap0p7FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap0p7Flux_flag_bigPsf
@@ -683,13 +683,13 @@ tables:
   - name: g_gaap1p0Flux
     "@id": "#Object.g_gaap1p0Flux"
     datatype: double
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap1p0FluxErr
     "@id": "#Object.g_gaap1p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap1p0Flux_flag_bigPsf
@@ -701,13 +701,13 @@ tables:
   - name: g_gaap1p5Flux
     "@id": "#Object.g_gaap1p5Flux"
     datatype: double
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap1p5FluxErr
     "@id": "#Object.g_gaap1p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap1p5Flux_flag_bigPsf
@@ -719,13 +719,13 @@ tables:
   - name: g_gaap2p5Flux
     "@id": "#Object.g_gaap2p5Flux"
     datatype: double
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap2p5FluxErr
     "@id": "#Object.g_gaap2p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap2p5Flux_flag_bigPsf
@@ -737,13 +737,13 @@ tables:
   - name: g_gaap3p0Flux
     "@id": "#Object.g_gaap3p0Flux"
     datatype: double
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap3p0FluxErr
     "@id": "#Object.g_gaap3p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaap3p0Flux_flag_bigPsf
@@ -773,13 +773,13 @@ tables:
   - name: g_gaapOptimalFlux
     "@id": "#Object.g_gaapOptimalFlux"
     datatype: double
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaapOptimalFluxErr
     "@id": "#Object.g_gaapOptimalFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaapOptimalFlux_flag_bigPsf
@@ -791,13 +791,13 @@ tables:
   - name: g_gaapPsfFlux
     "@id": "#Object.g_gaapPsfFlux"
     datatype: double
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_gaapPsfFluxErr
     "@id": "#Object.g_gaapPsfFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
+    description: GaaP flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: g_hsmShapeRegauss_e1
@@ -851,7 +851,7 @@ tables:
   - name: g_inputCount
     "@id": "#Object.g_inputCount"
     datatype: int
-    description: Number of images contributing at center, not including anyclipping. Forced on g-band.
+    description: Number of images contributing at center, not including any clipping. Forced on g-band.
     mysql:datatype: INTEGER
     fits:tunit:
   - name: g_inputCount_flag
@@ -989,7 +989,7 @@ tables:
   - name: g_kronFlux_flag_no_minimum_radius
     "@id": "#Object.g_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description: Minimum radius could not enforced, no minimum value or PSF. Measured on g-band.
+    description: Minimum radius could not be enforced, no minimum value or PSF. Measured on g-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_small_radius
@@ -1109,13 +1109,13 @@ tables:
   - name: g_pixelFlags_suspect
     "@id": "#Object.g_pixelFlags_suspect"
     datatype: boolean
-    description: Sources footprint includes suspect pixels. Measured on g-band.
+    description: Source's footprint includes suspect pixels. Measured on g-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_suspectCenter
     "@id": "#Object.g_pixelFlags_suspectCenter"
     datatype: boolean
-    description: Sources center is close to suspect pixels. Measured on g-band.
+    description: Source's center is close to suspect pixels. Measured on g-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_psfFlux
@@ -1163,7 +1163,7 @@ tables:
   - name: g_ra
     "@id": "#Object.g_ra"
     datatype: double
-    description: Position in ra/dec. Measured on g-band.
+    description: Position in Right Ascension. Measured on g-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -1368,13 +1368,13 @@ tables:
   - name: i_bdFluxB
     "@id": "#Object.i_bdFluxB"
     datatype: double
-    description: Flux from the de Vaucouleur fit. Measured on i-band.
+    description: Flux from the de Vaucouleurs fit. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_bdFluxBErr
     "@id": "#Object.i_bdFluxBErr"
     datatype: double
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on i-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_bdFluxD
@@ -1392,7 +1392,7 @@ tables:
   - name: i_bdReB
     "@id": "#Object.i_bdReB"
     datatype: double
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on i-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel**2
   - name: i_bdReD
@@ -1518,7 +1518,7 @@ tables:
   - name: i_centroid_x
     "@id": "#Object.i_centroid_x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: i_centroid_xErr
@@ -1530,7 +1530,7 @@ tables:
   - name: i_centroid_y
     "@id": "#Object.i_centroid_y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: i_centroid_yErr
@@ -1542,7 +1542,7 @@ tables:
   - name: i_decl
     "@id": "#Object.i_decl"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Position in Declination. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -1609,13 +1609,13 @@ tables:
   - name: i_gaap0p5Flux
     "@id": "#Object.i_gaap0p5Flux"
     datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap0p5FluxErr
     "@id": "#Object.i_gaap0p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap0p5Flux_flag_bigPsf
@@ -1627,13 +1627,13 @@ tables:
   - name: i_gaap0p7Flux
     "@id": "#Object.i_gaap0p7Flux"
     datatype: double
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap0p7FluxErr
     "@id": "#Object.i_gaap0p7FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap0p7Flux_flag_bigPsf
@@ -1645,13 +1645,13 @@ tables:
   - name: i_gaap1p0Flux
     "@id": "#Object.i_gaap1p0Flux"
     datatype: double
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap1p0FluxErr
     "@id": "#Object.i_gaap1p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap1p0Flux_flag_bigPsf
@@ -1663,13 +1663,13 @@ tables:
   - name: i_gaap1p5Flux
     "@id": "#Object.i_gaap1p5Flux"
     datatype: double
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap1p5FluxErr
     "@id": "#Object.i_gaap1p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap1p5Flux_flag_bigPsf
@@ -1681,13 +1681,13 @@ tables:
   - name: i_gaap2p5Flux
     "@id": "#Object.i_gaap2p5Flux"
     datatype: double
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap2p5FluxErr
     "@id": "#Object.i_gaap2p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap2p5Flux_flag_bigPsf
@@ -1699,13 +1699,13 @@ tables:
   - name: i_gaap3p0Flux
     "@id": "#Object.i_gaap3p0Flux"
     datatype: double
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap3p0FluxErr
     "@id": "#Object.i_gaap3p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaap3p0Flux_flag_bigPsf
@@ -1735,13 +1735,13 @@ tables:
   - name: i_gaapOptimalFlux
     "@id": "#Object.i_gaapOptimalFlux"
     datatype: double
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaapOptimalFluxErr
     "@id": "#Object.i_gaapOptimalFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaapOptimalFlux_flag_bigPsf
@@ -1753,13 +1753,13 @@ tables:
   - name: i_gaapPsfFlux
     "@id": "#Object.i_gaapPsfFlux"
     datatype: double
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_gaapPsfFluxErr
     "@id": "#Object.i_gaapPsfFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
+    description: GaaP flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: i_hsmShapeRegauss_e1
@@ -1813,7 +1813,7 @@ tables:
   - name: i_inputCount
     "@id": "#Object.i_inputCount"
     datatype: int
-    description: Number of images contributing at center, not including anyclipping. Forced on i-band.
+    description: Number of images contributing at center, not including any clipping. Forced on i-band.
     mysql:datatype: INTEGER
     fits:tunit:
   - name: i_inputCount_flag
@@ -1951,7 +1951,7 @@ tables:
   - name: i_kronFlux_flag_no_minimum_radius
     "@id": "#Object.i_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description: Minimum radius could not enforced, no minimum value or PSF. Measured on i-band.
+    description: Minimum radius could not be enforced, no minimum value or PSF. Measured on i-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_small_radius
@@ -2071,13 +2071,13 @@ tables:
   - name: i_pixelFlags_suspect
     "@id": "#Object.i_pixelFlags_suspect"
     datatype: boolean
-    description: Sources footprint includes suspect pixels. Measured on i-band.
+    description: Source's footprint includes suspect pixels. Measured on i-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_suspectCenter
     "@id": "#Object.i_pixelFlags_suspectCenter"
     datatype: boolean
-    description: Sources center is close to suspect pixels. Measured on i-band.
+    description: Source's center is close to suspect pixels. Measured on i-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_psfFlux
@@ -2125,7 +2125,7 @@ tables:
   - name: i_ra
     "@id": "#Object.i_ra"
     datatype: double
-    description: Position in ra/dec. Measured on i-band.
+    description: Position in Right Ascension. Measured on i-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -2330,13 +2330,13 @@ tables:
   - name: r_bdFluxB
     "@id": "#Object.r_bdFluxB"
     datatype: double
-    description: Flux from the de Vaucouleur fit. Measured on r-band.
+    description: Flux from the de Vaucouleurs fit. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_bdFluxBErr
     "@id": "#Object.r_bdFluxBErr"
     datatype: double
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on r-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_bdFluxD
@@ -2354,7 +2354,7 @@ tables:
   - name: r_bdReB
     "@id": "#Object.r_bdReB"
     datatype: double
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on r-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel**2
   - name: r_bdReD
@@ -2480,7 +2480,7 @@ tables:
   - name: r_centroid_x
     "@id": "#Object.r_centroid_x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: r_centroid_xErr
@@ -2492,7 +2492,7 @@ tables:
   - name: r_centroid_y
     "@id": "#Object.r_centroid_y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: r_centroid_yErr
@@ -2504,7 +2504,7 @@ tables:
   - name: r_decl
     "@id": "#Object.r_decl"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Position in Declination. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -2571,13 +2571,13 @@ tables:
   - name: r_gaap0p5Flux
     "@id": "#Object.r_gaap0p5Flux"
     datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap0p5FluxErr
     "@id": "#Object.r_gaap0p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap0p5Flux_flag_bigPsf
@@ -2589,13 +2589,13 @@ tables:
   - name: r_gaap0p7Flux
     "@id": "#Object.r_gaap0p7Flux"
     datatype: double
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap0p7FluxErr
     "@id": "#Object.r_gaap0p7FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap0p7Flux_flag_bigPsf
@@ -2607,13 +2607,13 @@ tables:
   - name: r_gaap1p0Flux
     "@id": "#Object.r_gaap1p0Flux"
     datatype: double
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap1p0FluxErr
     "@id": "#Object.r_gaap1p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap1p0Flux_flag_bigPsf
@@ -2625,13 +2625,13 @@ tables:
   - name: r_gaap1p5Flux
     "@id": "#Object.r_gaap1p5Flux"
     datatype: double
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap1p5FluxErr
     "@id": "#Object.r_gaap1p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap1p5Flux_flag_bigPsf
@@ -2643,13 +2643,13 @@ tables:
   - name: r_gaap2p5Flux
     "@id": "#Object.r_gaap2p5Flux"
     datatype: double
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap2p5FluxErr
     "@id": "#Object.r_gaap2p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap2p5Flux_flag_bigPsf
@@ -2661,13 +2661,13 @@ tables:
   - name: r_gaap3p0Flux
     "@id": "#Object.r_gaap3p0Flux"
     datatype: double
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap3p0FluxErr
     "@id": "#Object.r_gaap3p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaap3p0Flux_flag_bigPsf
@@ -2697,13 +2697,13 @@ tables:
   - name: r_gaapOptimalFlux
     "@id": "#Object.r_gaapOptimalFlux"
     datatype: double
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaapOptimalFluxErr
     "@id": "#Object.r_gaapOptimalFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaapOptimalFlux_flag_bigPsf
@@ -2715,13 +2715,13 @@ tables:
   - name: r_gaapPsfFlux
     "@id": "#Object.r_gaapPsfFlux"
     datatype: double
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_gaapPsfFluxErr
     "@id": "#Object.r_gaapPsfFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
+    description: GaaP flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: r_hsmShapeRegauss_e1
@@ -2775,7 +2775,7 @@ tables:
   - name: r_inputCount
     "@id": "#Object.r_inputCount"
     datatype: int
-    description: Number of images contributing at center, not including anyclipping. Forced on r-band.
+    description: Number of images contributing at center, not including any clipping. Forced on r-band.
     mysql:datatype: INTEGER
     fits:tunit:
   - name: r_inputCount_flag
@@ -2913,7 +2913,7 @@ tables:
   - name: r_kronFlux_flag_no_minimum_radius
     "@id": "#Object.r_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description: Minimum radius could not enforced, no minimum value or PSF. Measured on r-band.
+    description: Minimum radius could not be enforced, no minimum value or PSF. Measured on r-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_small_radius
@@ -3033,13 +3033,13 @@ tables:
   - name: r_pixelFlags_suspect
     "@id": "#Object.r_pixelFlags_suspect"
     datatype: boolean
-    description: Sources footprint includes suspect pixels. Measured on r-band.
+    description: Source's footprint includes suspect pixels. Measured on r-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_suspectCenter
     "@id": "#Object.r_pixelFlags_suspectCenter"
     datatype: boolean
-    description: Sources center is close to suspect pixels. Measured on r-band.
+    description: Source's center is close to suspect pixels. Measured on r-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_psfFlux
@@ -3087,7 +3087,7 @@ tables:
   - name: r_ra
     "@id": "#Object.r_ra"
     datatype: double
-    description: Position in ra/dec. Measured on r-band.
+    description: Position in Right Ascension. Measured on r-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -3292,13 +3292,13 @@ tables:
   - name: u_bdFluxB
     "@id": "#Object.u_bdFluxB"
     datatype: double
-    description: Flux from the de Vaucouleur fit. Measured on u-band.
+    description: Flux from the de Vaucouleurs fit. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_bdFluxBErr
     "@id": "#Object.u_bdFluxBErr"
     datatype: double
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on u-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_bdFluxD
@@ -3316,7 +3316,7 @@ tables:
   - name: u_bdReB
     "@id": "#Object.u_bdReB"
     datatype: double
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on u-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel**2
   - name: u_bdReD
@@ -3442,7 +3442,7 @@ tables:
   - name: u_centroid_x
     "@id": "#Object.u_centroid_x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: u_centroid_xErr
@@ -3454,7 +3454,7 @@ tables:
   - name: u_centroid_y
     "@id": "#Object.u_centroid_y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: u_centroid_yErr
@@ -3466,7 +3466,7 @@ tables:
   - name: u_decl
     "@id": "#Object.u_decl"
     datatype: double
-    description: Position in ra/dec. Measured on u-band.
+    description: Position in Declination. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -3533,13 +3533,13 @@ tables:
   - name: u_gaap0p5Flux
     "@id": "#Object.u_gaap0p5Flux"
     datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap0p5FluxErr
     "@id": "#Object.u_gaap0p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap0p5Flux_flag_bigPsf
@@ -3551,13 +3551,13 @@ tables:
   - name: u_gaap0p7Flux
     "@id": "#Object.u_gaap0p7Flux"
     datatype: double
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap0p7FluxErr
     "@id": "#Object.u_gaap0p7FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap0p7Flux_flag_bigPsf
@@ -3569,13 +3569,13 @@ tables:
   - name: u_gaap1p0Flux
     "@id": "#Object.u_gaap1p0Flux"
     datatype: double
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap1p0FluxErr
     "@id": "#Object.u_gaap1p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap1p0Flux_flag_bigPsf
@@ -3587,13 +3587,13 @@ tables:
   - name: u_gaap1p5Flux
     "@id": "#Object.u_gaap1p5Flux"
     datatype: double
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap1p5FluxErr
     "@id": "#Object.u_gaap1p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap1p5Flux_flag_bigPsf
@@ -3605,13 +3605,13 @@ tables:
   - name: u_gaap2p5Flux
     "@id": "#Object.u_gaap2p5Flux"
     datatype: double
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap2p5FluxErr
     "@id": "#Object.u_gaap2p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap2p5Flux_flag_bigPsf
@@ -3623,13 +3623,13 @@ tables:
   - name: u_gaap3p0Flux
     "@id": "#Object.u_gaap3p0Flux"
     datatype: double
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap3p0FluxErr
     "@id": "#Object.u_gaap3p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaap3p0Flux_flag_bigPsf
@@ -3659,13 +3659,13 @@ tables:
   - name: u_gaapOptimalFlux
     "@id": "#Object.u_gaapOptimalFlux"
     datatype: double
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaapOptimalFluxErr
     "@id": "#Object.u_gaapOptimalFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaapOptimalFlux_flag_bigPsf
@@ -3677,13 +3677,13 @@ tables:
   - name: u_gaapPsfFlux
     "@id": "#Object.u_gaapPsfFlux"
     datatype: double
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_gaapPsfFluxErr
     "@id": "#Object.u_gaapPsfFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
+    description: GaaP flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: u_hsmShapeRegauss_e1
@@ -3737,7 +3737,7 @@ tables:
   - name: u_inputCount
     "@id": "#Object.u_inputCount"
     datatype: int
-    description: Number of images contributing at center, not including anyclipping. Forced on u-band.
+    description: Number of images contributing at center, not including any clipping. Forced on u-band.
     mysql:datatype: INTEGER
     fits:tunit:
   - name: u_inputCount_flag
@@ -3875,7 +3875,7 @@ tables:
   - name: u_kronFlux_flag_no_minimum_radius
     "@id": "#Object.u_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description: Minimum radius could not enforced, no minimum value or PSF. Measured on u-band.
+    description: Minimum radius could not be enforced, no minimum value or PSF. Measured on u-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_small_radius
@@ -3995,13 +3995,13 @@ tables:
   - name: u_pixelFlags_suspect
     "@id": "#Object.u_pixelFlags_suspect"
     datatype: boolean
-    description: Sources footprint includes suspect pixels. Measured on u-band.
+    description: Source's footprint includes suspect pixels. Measured on u-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_suspectCenter
     "@id": "#Object.u_pixelFlags_suspectCenter"
     datatype: boolean
-    description: Sources center is close to suspect pixels. Measured on u-band.
+    description: Source's center is close to suspect pixels. Measured on u-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_psfFlux
@@ -4049,7 +4049,7 @@ tables:
   - name: u_ra
     "@id": "#Object.u_ra"
     datatype: double
-    description: Position in ra/dec. Measured on u-band.
+    description: Position in Right Ascension. Measured on u-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -4254,13 +4254,13 @@ tables:
   - name: y_bdFluxB
     "@id": "#Object.y_bdFluxB"
     datatype: double
-    description: Flux from the de Vaucouleur fit. Measured on y-band.
+    description: Flux from the de Vaucouleurs fit. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_bdFluxBErr
     "@id": "#Object.y_bdFluxBErr"
     datatype: double
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on y-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_bdFluxD
@@ -4278,7 +4278,7 @@ tables:
   - name: y_bdReB
     "@id": "#Object.y_bdReB"
     datatype: double
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on y-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel**2
   - name: y_bdReD
@@ -4404,7 +4404,7 @@ tables:
   - name: y_centroid_x
     "@id": "#Object.y_centroid_x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: y_centroid_xErr
@@ -4416,7 +4416,7 @@ tables:
   - name: y_centroid_y
     "@id": "#Object.y_centroid_y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: y_centroid_yErr
@@ -4428,7 +4428,7 @@ tables:
   - name: y_decl
     "@id": "#Object.y_decl"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Position in Declination. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -4495,13 +4495,13 @@ tables:
   - name: y_gaap0p5Flux
     "@id": "#Object.y_gaap0p5Flux"
     datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap0p5FluxErr
     "@id": "#Object.y_gaap0p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap0p5Flux_flag_bigPsf
@@ -4513,13 +4513,13 @@ tables:
   - name: y_gaap0p7Flux
     "@id": "#Object.y_gaap0p7Flux"
     datatype: double
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap0p7FluxErr
     "@id": "#Object.y_gaap0p7FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap0p7Flux_flag_bigPsf
@@ -4531,13 +4531,13 @@ tables:
   - name: y_gaap1p0Flux
     "@id": "#Object.y_gaap1p0Flux"
     datatype: double
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap1p0FluxErr
     "@id": "#Object.y_gaap1p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap1p0Flux_flag_bigPsf
@@ -4549,13 +4549,13 @@ tables:
   - name: y_gaap1p5Flux
     "@id": "#Object.y_gaap1p5Flux"
     datatype: double
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap1p5FluxErr
     "@id": "#Object.y_gaap1p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap1p5Flux_flag_bigPsf
@@ -4567,13 +4567,13 @@ tables:
   - name: y_gaap2p5Flux
     "@id": "#Object.y_gaap2p5Flux"
     datatype: double
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap2p5FluxErr
     "@id": "#Object.y_gaap2p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap2p5Flux_flag_bigPsf
@@ -4585,13 +4585,13 @@ tables:
   - name: y_gaap3p0Flux
     "@id": "#Object.y_gaap3p0Flux"
     datatype: double
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap3p0FluxErr
     "@id": "#Object.y_gaap3p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaap3p0Flux_flag_bigPsf
@@ -4621,13 +4621,13 @@ tables:
   - name: y_gaapOptimalFlux
     "@id": "#Object.y_gaapOptimalFlux"
     datatype: double
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaapOptimalFluxErr
     "@id": "#Object.y_gaapOptimalFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaapOptimalFlux_flag_bigPsf
@@ -4639,13 +4639,13 @@ tables:
   - name: y_gaapPsfFlux
     "@id": "#Object.y_gaapPsfFlux"
     datatype: double
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_gaapPsfFluxErr
     "@id": "#Object.y_gaapPsfFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
+    description: GaaP flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: y_hsmShapeRegauss_e1
@@ -4699,7 +4699,7 @@ tables:
   - name: y_inputCount
     "@id": "#Object.y_inputCount"
     datatype: int
-    description: Number of images contributing at center, not including anyclipping. Forced on y-band.
+    description: Number of images contributing at center, not including any clipping. Forced on y-band.
     mysql:datatype: INTEGER
     fits:tunit:
   - name: y_inputCount_flag
@@ -4837,7 +4837,7 @@ tables:
   - name: y_kronFlux_flag_no_minimum_radius
     "@id": "#Object.y_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description: Minimum radius could not enforced, no minimum value or PSF. Measured on y-band.
+    description: Minimum radius could not be enforced, no minimum value or PSF. Measured on y-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_small_radius
@@ -4957,13 +4957,13 @@ tables:
   - name: y_pixelFlags_suspect
     "@id": "#Object.y_pixelFlags_suspect"
     datatype: boolean
-    description: Sources footprint includes suspect pixels. Measured on y-band.
+    description: Source's footprint includes suspect pixels. Measured on y-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_suspectCenter
     "@id": "#Object.y_pixelFlags_suspectCenter"
     datatype: boolean
-    description: Sources center is close to suspect pixels. Measured on y-band.
+    description: Source's center is close to suspect pixels. Measured on y-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_psfFlux
@@ -5011,7 +5011,7 @@ tables:
   - name: y_ra
     "@id": "#Object.y_ra"
     datatype: double
-    description: Position in ra/dec. Measured on y-band.
+    description: Position in Right Ascension. Measured on y-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -5216,13 +5216,13 @@ tables:
   - name: z_bdFluxB
     "@id": "#Object.z_bdFluxB"
     datatype: double
-    description: Flux from the de Vaucouleur fit. Measured on z-band.
+    description: Flux from the de Vaucouleurs fit. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_bdFluxBErr
     "@id": "#Object.z_bdFluxBErr"
     datatype: double
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on z-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_bdFluxD
@@ -5240,7 +5240,7 @@ tables:
   - name: z_bdReB
     "@id": "#Object.z_bdReB"
     datatype: double
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on z-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel**2
   - name: z_bdReD
@@ -5366,7 +5366,7 @@ tables:
   - name: z_centroid_x
     "@id": "#Object.z_centroid_x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: z_centroid_xErr
@@ -5378,7 +5378,7 @@ tables:
   - name: z_centroid_y
     "@id": "#Object.z_centroid_y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
+    description: Centroid from SDSS Centroid algorithm. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: z_centroid_yErr
@@ -5390,7 +5390,7 @@ tables:
   - name: z_decl
     "@id": "#Object.z_decl"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Position in Declination. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -5457,13 +5457,13 @@ tables:
   - name: z_gaap0p5Flux
     "@id": "#Object.z_gaap0p5Flux"
     datatype: double
-    description: GAaP Flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap0p5FluxErr
     "@id": "#Object.z_gaap0p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with 0.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap0p5Flux_flag_bigPsf
@@ -5475,13 +5475,13 @@ tables:
   - name: z_gaap0p7Flux
     "@id": "#Object.z_gaap0p7Flux"
     datatype: double
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap0p7FluxErr
     "@id": "#Object.z_gaap0p7FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap0p7Flux_flag_bigPsf
@@ -5493,13 +5493,13 @@ tables:
   - name: z_gaap1p0Flux
     "@id": "#Object.z_gaap1p0Flux"
     datatype: double
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap1p0FluxErr
     "@id": "#Object.z_gaap1p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap1p0Flux_flag_bigPsf
@@ -5511,13 +5511,13 @@ tables:
   - name: z_gaap1p5Flux
     "@id": "#Object.z_gaap1p5Flux"
     datatype: double
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap1p5FluxErr
     "@id": "#Object.z_gaap1p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap1p5Flux_flag_bigPsf
@@ -5529,13 +5529,13 @@ tables:
   - name: z_gaap2p5Flux
     "@id": "#Object.z_gaap2p5Flux"
     datatype: double
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap2p5FluxErr
     "@id": "#Object.z_gaap2p5FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap2p5Flux_flag_bigPsf
@@ -5547,13 +5547,13 @@ tables:
   - name: z_gaap3p0Flux
     "@id": "#Object.z_gaap3p0Flux"
     datatype: double
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap3p0FluxErr
     "@id": "#Object.z_gaap3p0FluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaap3p0Flux_flag_bigPsf
@@ -5583,13 +5583,13 @@ tables:
   - name: z_gaapOptimalFlux
     "@id": "#Object.z_gaapOptimalFlux"
     datatype: double
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaapOptimalFluxErr
     "@id": "#Object.z_gaapOptimalFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaapOptimalFlux_flag_bigPsf
@@ -5601,13 +5601,13 @@ tables:
   - name: z_gaapPsfFlux
     "@id": "#Object.z_gaapPsfFlux"
     datatype: double
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_gaapPsfFluxErr
     "@id": "#Object.z_gaapPsfFluxErr"
     datatype: double
-    description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
+    description: GaaP flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: nJy
   - name: z_hsmShapeRegauss_e1
@@ -5661,7 +5661,7 @@ tables:
   - name: z_inputCount
     "@id": "#Object.z_inputCount"
     datatype: int
-    description: Number of images contributing at center, not including anyclipping. Forced on z-band.
+    description: Number of images contributing at center, not including any clipping. Forced on z-band.
     mysql:datatype: INTEGER
     fits:tunit:
   - name: z_inputCount_flag
@@ -5799,7 +5799,7 @@ tables:
   - name: z_kronFlux_flag_no_minimum_radius
     "@id": "#Object.z_kronFlux_flag_no_minimum_radius"
     datatype: boolean
-    description: Minimum radius could not enforced, no minimum value or PSF. Measured on z-band.
+    description: Minimum radius could not be enforced, no minimum value or PSF. Measured on z-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_small_radius
@@ -5919,13 +5919,13 @@ tables:
   - name: z_pixelFlags_suspect
     "@id": "#Object.z_pixelFlags_suspect"
     datatype: boolean
-    description: Sources footprint includes suspect pixels. Measured on z-band.
+    description: Source's footprint includes suspect pixels. Measured on z-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_suspectCenter
     "@id": "#Object.z_pixelFlags_suspectCenter"
     datatype: boolean
-    description: Sources center is close to suspect pixels. Measured on z-band.
+    description: Source's center is close to suspect pixels. Measured on z-band.
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_psfFlux
@@ -5973,7 +5973,7 @@ tables:
   - name: z_ra
     "@id": "#Object.z_ra"
     datatype: double
-    description: Position in ra/dec. Measured on z-band.
+    description: Position in Right Ascension. Measured on z-band.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -6021,13 +6021,13 @@ tables:
   - name: x
     "@id": "#Source.x"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm
+    description: Centroid from SDSS Centroid algorithm
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: y
     "@id": "#Source.y"
     datatype: double
-    description: Centroid from Sdss Centroid algorithm
+    description: Centroid from SDSS Centroid algorithm
     mysql:datatype: DOUBLE
     fits:tunit: pixel
   - name: xErr
@@ -6045,14 +6045,14 @@ tables:
   - name: ra
     "@id": "#Source.ra"
     datatype: double
-    description: Position in ra/dec
+    description: Position in Right Ascension
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: decl
     "@id": "#Source.decl"
     datatype: double
-    description: Position in ra/dec
+    description: Position in Declination
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
@@ -6323,7 +6323,7 @@ tables:
   - name: localPhotoCalibErr
     "@id": "#Source.localPhotoCalibErr"
     datatype: double
-    description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
+    description: Uncertainty on the local approximation of the PhotoCalib calibration factor at the location of the src.
     mysql:datatype: DOUBLE
     fits:tunit:
   - name: localWcs_flag
@@ -6437,7 +6437,7 @@ tables:
   - name: footprintArea_value
     "@id": "#Source.footprintArea_value"
     datatype: int
-    description: Number of pixels in the sources detection footprint.
+    description: Number of pixels in the source's detection footprint.
     mysql:datatype: INTEGER
     fits:tunit: pixel
   - name: jacobian_flag
@@ -6539,13 +6539,13 @@ tables:
   - name: pixelFlags_suspect
     "@id": "#Source.pixelFlags_suspect"
     datatype: boolean
-    description: Sources footprint includes suspect pixels
+    description: Source's footprint includes suspect pixels
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_suspectCenter
     "@id": "#Source.pixelFlags_suspectCenter"
     datatype: boolean
-    description: Sources center is close to suspect pixels
+    description: Source's center is close to suspect pixels
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: psfFlux_apCorr
@@ -6611,7 +6611,7 @@ tables:
   - name: centroid_flag_badError
     "@id": "#Source.centroid_flag_badError"
     datatype: boolean
-    description: Error on x and/or y position is NaN
+    description: Uncertainty on x and/or y position is NaN
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag_edge
@@ -6665,7 +6665,7 @@ tables:
   - name: calib_detected
     "@id": "#Source.calib_detected"
     datatype: boolean
-    description: Source was detected as an icSource
+    description: Source was detected as an image characterization source (icSrc)
     mysql:datatype: BOOLEAN
     fits:tunit:
   - name: calib_photometry_reserved
@@ -7016,7 +7016,7 @@ tables:
     "@id": "#ForcedSource.localPhotoCalibErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
+    description: Uncertainty on the local approximation of the PhotoCalib calibration factor at the location of the src.
     fits:tunit:
     ivoa:ucd: stat.error;phot.calib
     tap:principal: 0
@@ -7160,7 +7160,7 @@ tables:
     "@id": "#ForcedSource.pixelFlags_suspectCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Sources center is close to suspect pixels
+    description: Source's center is close to suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
     tap:principal: 0
@@ -7169,7 +7169,7 @@ tables:
     "@id": "#ForcedSource.pixelFlags_suspect"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Sources footprint includes suspect pixels
+    description: Source's footprint includes suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
     tap:principal: 0
@@ -7274,7 +7274,7 @@ tables:
     "@id": "#DiaObject.gPSFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Mean of the diaSource PSF flux errors
+    description: Mean of the diaSource PSF flux uncertainties
   - name: gPSFluxLinearIntercept
     "@id": "#DiaObject.gPSFluxLinearIntercept"
     datatype: double
@@ -7384,7 +7384,7 @@ tables:
     "@id": "#DiaObject.iPSFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Mean of the diaSource PSF flux errors
+    description: Mean of the diaSource PSF flux uncertainties
   - name: iPSFluxLinearIntercept
     "@id": "#DiaObject.iPSFluxLinearIntercept"
     datatype: double
@@ -7504,7 +7504,7 @@ tables:
     "@id": "#DiaObject.rPSFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Mean of the diaSource PSF flux errors
+    description: Mean of the diaSource PSF flux uncertainties
   - name: rPSFluxLinearIntercept
     "@id": "#DiaObject.rPSFluxLinearIntercept"
     datatype: double
@@ -7626,7 +7626,7 @@ tables:
     "@id": "#DiaObject.uPSFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Mean of the diaSource PSF flux errors
+    description: Mean of the diaSource PSF flux uncertainties
   - name: uPSFluxLinearIntercept
     "@id": "#DiaObject.uPSFluxLinearIntercept"
     datatype: double
@@ -7736,7 +7736,7 @@ tables:
     "@id": "#DiaObject.yPSFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Mean of the diaSource PSF flux errors
+    description: Mean of the diaSource PSF flux uncertainties
   - name: yPSFluxLinearIntercept
     "@id": "#DiaObject.yPSFluxLinearIntercept"
     datatype: double
@@ -7846,7 +7846,7 @@ tables:
     "@id": "#DiaObject.zPSFluxErrMean"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Mean of the diaSource PSF flux errors
+    description: Mean of the diaSource PSF flux uncertainties
   - name: zPSFluxLinearIntercept
     "@id": "#DiaObject.zPSFluxLinearIntercept"
     datatype: double
@@ -8025,7 +8025,7 @@ tables:
     "@id": "#DiaSource.decl"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Position in ra/dec
+    description: Position in Declination
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: diaObjectId
@@ -8227,13 +8227,13 @@ tables:
     "@id": "#DiaSource.pixelFlags_suspect"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Sources footprint includes suspect pixels
+    description: Source's footprint includes suspect pixels
     fits:tunit:
   - name: pixelFlags_suspectCenter
     "@id": "#DiaSource.pixelFlags_suspectCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Sources center is close to suspect pixels
+    description: Source's center is close to suspect pixels
     fits:tunit:
   - name: pixelId
     "@id": "#DiaSource.pixelId"
@@ -8275,7 +8275,7 @@ tables:
     "@id": "#DiaSource.ra"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Position in ra/dec
+    description: Position in Right Ascension
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: shape_flag
@@ -8324,7 +8324,7 @@ tables:
     "@id": "#DiaSource.ssObjectId"
     datatype: long
     mysql:datatype: BIGINT
-    description: Id of the ssObject this source was associated with, if any. If not, it is set to 0
+    description: Id of the solar system object (ssObject) this source was associated with, if any. If not, it is set to 0
     fits:tunit:
   - name: totFlux
     "@id": "#DiaSource.totFlux"
@@ -8473,7 +8473,7 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.localPhotoCalibErr"
     datatype: double
     mysql:datatype: DOUBLE
-    description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
+    description: Uncertainty on the local approximation of the PhotoCalib calibration factor at the location of the src.
     fits:tunit:
     ivoa:ucd: stat.error;phot.calib
     tap:principal: 0
@@ -8626,7 +8626,7 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspect"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Sources footprint includes suspect pixels
+    description: Source's footprint includes suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
     tap:principal: 0
@@ -8635,7 +8635,7 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspectCenter"
     datatype: boolean
     mysql:datatype: BOOLEAN
-    description: Sources center is close to suspect pixels
+    description: Source's center is close to suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
     tap:principal: 0
@@ -8824,7 +8824,7 @@ tables:
   - name: expTime
     '@id': '#Visit.expTime'
     datatype: double
-    description: Spatially-average duration of exposure, accurate to 10ms.
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
     mysql:datatype: DOUBLE
     fits:tunit: s
     ivoa:ucd: time.duration;obs.exposure
@@ -8917,7 +8917,7 @@ tables:
   - name: ra
     '@id': '#CcdVisit.ra'
     datatype: double
-    description: RA of Ccd center.
+    description: RA of CCD center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra;meta.main
@@ -8926,7 +8926,7 @@ tables:
   - name: decl
     '@id': '#CcdVisit.decl'
     datatype: double
-    description: Declination of Ccd center.
+    description: Declination of CCD center.
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec;meta.main
@@ -8944,7 +8944,7 @@ tables:
   - name: zeroPoint
     '@id': '#CcdVisit.zeroPoint'
     datatype: float
-    description: Zero-point for the Ccd, estimated at Ccd center.
+    description: Zero-point for the CCD, estimated at CCD center.
     mysql:datatype: FLOAT
     fits:tunit: mag
     ivoa:ucd: arith.zp;instr.calib
