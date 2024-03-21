@@ -7173,13 +7173,13 @@ tables:
     datatype: float
     description: Average sky background.
     mysql:datatype: FLOAT
-    fits:tunit: DN
+    fits:tunit: adu
   - name: skyNoise
     '@id': '#CcdVisit.skyNoise'
     datatype: float
     description: RMS noise of the sky background.
     mysql:datatype: FLOAT
-    fits:tunit: DN
+    fits:tunit: adu
   - name: detector
     '@id': '#CcdVisit.detector'
     datatype: long

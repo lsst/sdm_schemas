@@ -8964,7 +8964,7 @@ tables:
     datatype: float
     description: Average sky background.
     mysql:datatype: FLOAT
-    fits:tunit: DN
+    fits:tunit: adu
     ivoa:ucd: instr.skyLevel
     tap:principal: 0
     tap:column_index: 18
@@ -8973,7 +8973,7 @@ tables:
     datatype: float
     description: RMS noise of the sky background.
     mysql:datatype: FLOAT
-    fits:tunit: DN
+    fits:tunit: adu
     ivoa:ucd: stat.rms;instr.skyLevel
     tap:principal: 0
     tap:column_index: 19
