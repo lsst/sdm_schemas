@@ -9641,6 +9641,24 @@ tables:
   - name: ext_trailedSources_Naive_flag_edge
     "@id": "#DiaSource.ext_trailedSources_Naive_flag_edge"
     datatype: boolean
+    description: This flag is set if a trailed source contains edge pixels.
+    fits:tunit:
+    mysql:datatype: BOOLEAN
+  - name: ext_trailedSources_Naive_flag_nan
+    "@id": "#DiaSource.ext_trailedSources_Naive_flag_nan"
+    datatype: boolean
+    description: This flag is set if a trailed source end points contains a nan.
+    fits:tunit:
+    mysql:datatype: BOOLEAN
+  - name: ext_trailedSources_Naive_flag_suspect_long_trail
+    "@id": "#DiaSource.ext_trailedSources_Naive_flag_suspect_long_trail"
+    datatype: boolean
+    description: This flag is set if a trailed sources psf is twice the size of its footprint.
+    fits:tunit:
+    mysql:datatype: BOOLEAN
+  - name: ext_trailedSources_Naive_flag_off_image
+    "@id": "#DiaSource.ext_trailedSources_Naive_flag_off_image"
+    datatype: boolean
     description: This flag is set if a trailed source extends onto or past edge pixels.
     fits:tunit:
     mysql:datatype: BOOLEAN
