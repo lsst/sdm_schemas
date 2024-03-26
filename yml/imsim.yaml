@@ -9169,18 +9169,6 @@ tables:
     mysql:datatype: BOOLEAN
     description: General failure flag, set if anything went wrong.
     fits:tunit:
-  - name: centroid_neg_flag
-    "@id": "#DiaSource.centroid_neg_flag"
-    datatype: boolean
-    mysql:datatype: BOOLEAN
-    description: Failure flag for negative, set if anything went wrong.
-    fits:tunit:
-  - name: centroid_pos_flag
-    "@id": "#DiaSource.centroid_pos_flag"
-    datatype: boolean
-    mysql:datatype: BOOLEAN
-    description: Failure flag for positive, set if anything went wrong.
-    fits:tunit:
   - name: coord_dec
     "@id": "#DiaSource.coord_dec"
     datatype: double
