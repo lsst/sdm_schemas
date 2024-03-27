@@ -16,12 +16,16 @@ tables:
     length: 1024
     nullable: false
     description: Name or key for a metadata item.
+    mysql:datatype: TEXT
+    postgresql:datatype: TEXT
   - name: value
     "@id": "#metadata.value"
     datatype: text
     length: 65535
     nullable: false
     description: Content of the metadata item in string representation.
+    mysql:datatype: TEXT
+    postgresql:datatype: TEXT
   primaryKey: "#metadata.name"
 - name: DiaObject
   "@id": "#DiaObject"
