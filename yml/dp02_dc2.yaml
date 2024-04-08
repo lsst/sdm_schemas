@@ -8087,6 +8087,7 @@ tables:
   - name: filterName
     "@id": "#DiaSource.filterName"
     datatype: char
+    length: 1
     mysql:datatype: CHAR(1)
     description: Band used to take this observation
     fits:tunit:
@@ -9283,6 +9284,7 @@ tables:
   - name: id_truth_type
     '@id': '#MatchesTruth.id_truth_type'
     datatype: char
+    length: 18
     mysql:datatype: CHAR(18)
     tap:column_index: 2
     tap:principal: 1
@@ -9343,6 +9345,7 @@ tables:
   - name: id_truth_type
     '@id': '#TruthSummary.id_truth_type'
     datatype: char
+    length: 22
     mysql:datatype: CHAR(22)
     tap:column_index: 0
     tap:principal: 1
