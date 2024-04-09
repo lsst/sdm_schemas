@@ -9260,6 +9260,7 @@ tables:
   - name: band
     "@id": "#DiaSource.band"
     datatype: char
+    length: 1
     mysql:datatype: CHAR(1)
     description: Band used to take this observation.
     fits:tunit:
