@@ -1,10 +1,9 @@
 ---
 name: dp03_catalogs_10yr
 "@id": "#dp03_catalogs_10yr"
-description: >
-  Data Preview 0.3 (ten-year version): Contains the catalog products of a Solar System Science
+description: "Data Preview 0.3 (ten-year version): Contains the catalog products of a Solar System Science
   Collaboration simulation of the results of SSO analysis of the wide-fast-deep data
-  from the full LSST ten-year dataset.
+  from the full LSST ten-year dataset."
 tables:
 - name: SSObject
   "@id": "#SSObject"
@@ -429,7 +428,7 @@ tables:
   - name: dec
     "@id": "#DiaSource.dec"
     datatype: double
-    description: " Dec-coordinate of the center of this diaSource."
+    description: "Dec-coordinate of the center of this diaSource."
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec

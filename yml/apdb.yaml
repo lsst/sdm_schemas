@@ -1990,7 +1990,7 @@ tables:
   - name: dipoleRa
     "@id": "#DiaSource.dipoleRa"
     datatype: double
-    description: " Right ascension coordinate of centroid for dipole model."
+    description: "Right ascension coordinate of centroid for dipole model."
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
@@ -2004,7 +2004,7 @@ tables:
   - name: dipoleDec
     "@id": "#DiaSource.dipoleDec"
     datatype: double
-    description: " Declination coordinate of centroid for dipole model."
+    description: "Declination coordinate of centroid for dipole model."
     mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
