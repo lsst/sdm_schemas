@@ -1231,6 +1231,7 @@ tables:
     "@id": "#SSObject.ssObjectId"
     datatype: long
     nullable: false
+    autoincrement: false
     description: Unique identifier.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
@@ -1587,6 +1588,7 @@ tables:
     "@id": "#DiaSource.diaSourceId"
     datatype: long
     nullable: false
+    autoincrement: false
     description: Unique identifier of this DiaSource.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
@@ -2496,6 +2498,7 @@ tables:
     "@id": "#DiaObjectLast.diaObjectId"
     datatype: long
     nullable: false
+    autoincrement: false
     description: Unique id.
     ivoa:ucd: meta.id;src
   - name: lastNonForcedSource
@@ -2809,6 +2812,7 @@ tables:
   - name: ssObjectId
     "@id": "#SSSource.ssObjectId"
     datatype: long
+    autoincrement: false
     description: Unique identifier of the object.
     mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
