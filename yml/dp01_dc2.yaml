@@ -51,7 +51,6 @@ tables:
   - name: detect_isPrimary
     '@id': '#position.detect_isPrimary'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: true if source has no children and is in the inner region of a coadd
@@ -68,7 +67,6 @@ tables:
   - name: detect_isPatchInner
     '@id': '#position.detect_isPatchInner'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: true if source is in the inner region of a coadd patch
@@ -76,7 +74,6 @@ tables:
   - name: detect_isTractInner
     '@id': '#position.detect_isTractInner'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: true if source is in the inner region of a coadd tract
@@ -84,7 +81,6 @@ tables:
   - name: merge_footprint_i
     '@id': '#position.merge_footprint_i'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Detection footprint overlapped with a detection from filter i
@@ -92,7 +88,6 @@ tables:
   - name: merge_footprint_r
     '@id': '#position.merge_footprint_r'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Detection footprint overlapped with a detection from filter r
@@ -100,7 +95,6 @@ tables:
   - name: merge_footprint_z
     '@id': '#position.merge_footprint_z'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Detection footprint overlapped with a detection from filter z
@@ -108,7 +102,6 @@ tables:
   - name: merge_footprint_y
     '@id': '#position.merge_footprint_y'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Detection footprint overlapped with a detection from filter y
@@ -116,7 +109,6 @@ tables:
   - name: merge_footprint_g
     '@id': '#position.merge_footprint_g'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Detection footprint overlapped with a detection from filter g
@@ -124,7 +116,6 @@ tables:
   - name: merge_footprint_u
     '@id': '#position.merge_footprint_u'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Detection footprint overlapped with a detection from filter u
@@ -132,7 +123,6 @@ tables:
   - name: merge_footprint_sky
     '@id': '#position.merge_footprint_sky'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Detection footprint overlapped with a detection from filter sky
@@ -140,7 +130,6 @@ tables:
   - name: merge_peak_i
     '@id': '#position.merge_peak_i'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Peak detected in filter i
@@ -148,7 +137,6 @@ tables:
   - name: merge_peak_r
     '@id': '#position.merge_peak_r'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Peak detected in filter r
@@ -156,7 +144,6 @@ tables:
   - name: merge_peak_z
     '@id': '#position.merge_peak_z'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Peak detected in filter z
@@ -164,7 +151,6 @@ tables:
   - name: merge_peak_y
     '@id': '#position.merge_peak_y'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Peak detected in filter y
@@ -172,7 +158,6 @@ tables:
   - name: merge_peak_g
     '@id': '#position.merge_peak_g'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Peak detected in filter g
@@ -180,7 +165,6 @@ tables:
   - name: merge_peak_u
     '@id': '#position.merge_peak_u'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Peak detected in filter u
@@ -188,7 +172,6 @@ tables:
   - name: merge_peak_sky
     '@id': '#position.merge_peak_sky'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Peak detected in filter sky
@@ -196,7 +179,6 @@ tables:
   - name: merge_measurement_i
     '@id': '#position.merge_measurement_i'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Flag field set if the measurements here are from the i filter
@@ -204,7 +186,6 @@ tables:
   - name: merge_measurement_r
     '@id': '#position.merge_measurement_r'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Flag field set if the measurements here are from the r filter
@@ -212,7 +193,6 @@ tables:
   - name: merge_measurement_z
     '@id': '#position.merge_measurement_z'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Flag field set if the measurements here are from the z filter
@@ -220,7 +200,6 @@ tables:
   - name: merge_measurement_y
     '@id': '#position.merge_measurement_y'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Flag field set if the measurements here are from the y filter
@@ -228,7 +207,6 @@ tables:
   - name: merge_measurement_g
     '@id': '#position.merge_measurement_g'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Flag field set if the measurements here are from the g filter
@@ -236,7 +214,6 @@ tables:
   - name: merge_measurement_u
     '@id': '#position.merge_measurement_u'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Flag field set if the measurements here are from the u filter
@@ -302,7 +279,6 @@ tables:
   - name: base_SdssCentroid_flag
     '@id': '#reference.base_SdssCentroid_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -310,7 +286,6 @@ tables:
   - name: base_SdssCentroid_flag_edge
     '@id': '#reference.base_SdssCentroid_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object too close to edge
@@ -318,7 +293,6 @@ tables:
   - name: base_SdssCentroid_flag_noSecondDerivative
     '@id': '#reference.base_SdssCentroid_flag_noSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Vanishing second derivative
@@ -326,7 +300,6 @@ tables:
   - name: base_SdssCentroid_flag_almostNoSecondDerivative
     '@id': '#reference.base_SdssCentroid_flag_almostNoSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Almost vanishing second derivative
@@ -334,7 +307,6 @@ tables:
   - name: base_SdssCentroid_flag_notAtMaximum
     '@id': '#reference.base_SdssCentroid_flag_notAtMaximum'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object is not at a maximum
@@ -342,7 +314,6 @@ tables:
   - name: base_SdssCentroid_flag_resetToPeak
     '@id': '#reference.base_SdssCentroid_flag_resetToPeak'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if CentroidChecker reset the centroid
@@ -385,7 +356,6 @@ tables:
   - name: base_PsfFlux_flag
     '@id': '#reference.base_PsfFlux_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -393,7 +363,6 @@ tables:
   - name: base_PsfFlux_flag_noGoodPixels
     '@id': '#reference.base_PsfFlux_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: not enough non-rejected pixels in data to attempt the fit
@@ -401,7 +370,6 @@ tables:
   - name: base_PsfFlux_flag_edge
     '@id': '#reference.base_PsfFlux_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: object was too close to the edge of the image to use the full PSF
@@ -410,7 +378,6 @@ tables:
   - name: base_PsfFlux_flag_apCorr
     '@id': '#reference.base_PsfFlux_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct base_PsfFlux
@@ -418,7 +385,6 @@ tables:
   - name: base_PsfFlux_flag_badCentroid
     '@id': '#reference.base_PsfFlux_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -581,7 +547,6 @@ tables:
   - name: base_ClassificationExtendedness_flag
     '@id': '#reference.base_ClassificationExtendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set to 1 for any fatal failure.
@@ -606,7 +571,6 @@ tables:
   - name: base_Blendedness_flag
     '@id': '#reference.base_Blendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -614,7 +578,6 @@ tables:
   - name: base_Blendedness_flag_noCentroid
     '@id': '#reference.base_Blendedness_flag_noCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object has no centroid
@@ -622,7 +585,6 @@ tables:
   - name: base_Blendedness_flag_noShape
     '@id': '#reference.base_Blendedness_flag_noShape'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object has no shape
@@ -630,7 +592,6 @@ tables:
   - name: base_PixelFlags_flag
     '@id': '#reference.base_PixelFlags_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General failure flag, set if anything went wrong
@@ -638,7 +599,6 @@ tables:
   - name: base_PixelFlags_flag_offimage
     '@id': '#reference.base_PixelFlags_flag_offimage'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is off image
@@ -646,7 +606,6 @@ tables:
   - name: base_PixelFlags_flag_edge
     '@id': '#reference.base_PixelFlags_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
@@ -654,7 +613,6 @@ tables:
   - name: base_PixelFlags_flag_interpolated
     '@id': '#reference.base_PixelFlags_flag_interpolated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source footprint
@@ -662,7 +620,6 @@ tables:
   - name: base_PixelFlags_flag_saturated
     '@id': '#reference.base_PixelFlags_flag_saturated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source footprint
@@ -670,7 +627,6 @@ tables:
   - name: base_PixelFlags_flag_cr
     '@id': '#reference.base_PixelFlags_flag_cr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source footprint
@@ -678,7 +634,6 @@ tables:
   - name: base_PixelFlags_flag_bad
     '@id': '#reference.base_PixelFlags_flag_bad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Bad pixel in the Source footprint
@@ -686,7 +641,6 @@ tables:
   - name: base_PixelFlags_flag_suspect
     '@id': '#reference.base_PixelFlags_flag_suspect'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's footprint includes suspect pixels"
@@ -694,7 +648,6 @@ tables:
   - name: base_PixelFlags_flag_interpolatedCenter
     '@id': '#reference.base_PixelFlags_flag_interpolatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source center
@@ -702,7 +655,6 @@ tables:
   - name: base_PixelFlags_flag_saturatedCenter
     '@id': '#reference.base_PixelFlags_flag_saturatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source center
@@ -710,7 +662,6 @@ tables:
   - name: base_PixelFlags_flag_crCenter
     '@id': '#reference.base_PixelFlags_flag_crCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source center
@@ -718,7 +669,6 @@ tables:
   - name: base_PixelFlags_flag_suspectCenter
     '@id': '#reference.base_PixelFlags_flag_suspectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's center is close to suspect pixels"
@@ -726,7 +676,6 @@ tables:
   - name: base_PixelFlags_flag_clippedCenter
     '@id': '#reference.base_PixelFlags_flag_clippedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to CLIPPED pixels
@@ -734,7 +683,6 @@ tables:
   - name: base_PixelFlags_flag_sensor_edgeCenter
     '@id': '#reference.base_PixelFlags_flag_sensor_edgeCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to SENSOR_EDGE pixels
@@ -742,7 +690,6 @@ tables:
   - name: base_PixelFlags_flag_inexact_psfCenter
     '@id': '#reference.base_PixelFlags_flag_inexact_psfCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to INEXACT_PSF pixels
@@ -750,7 +697,6 @@ tables:
   - name: base_PixelFlags_flag_bright_objectCenter
     '@id': '#reference.base_PixelFlags_flag_bright_objectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to BRIGHT_OBJECT pixels
@@ -758,7 +704,6 @@ tables:
   - name: base_PixelFlags_flag_clipped
     '@id': '#reference.base_PixelFlags_flag_clipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes CLIPPED pixels
@@ -766,7 +711,6 @@ tables:
   - name: base_PixelFlags_flag_sensor_edge
     '@id': '#reference.base_PixelFlags_flag_sensor_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes SENSOR_EDGE pixels
@@ -774,7 +718,6 @@ tables:
   - name: base_PixelFlags_flag_inexact_psf
     '@id': '#reference.base_PixelFlags_flag_inexact_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes INEXACT_PSF pixels
@@ -782,7 +725,6 @@ tables:
   - name: base_PixelFlags_flag_bright_object
     '@id': '#reference.base_PixelFlags_flag_bright_object'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes BRIGHT_OBJECT pixels
@@ -790,7 +732,6 @@ tables:
   - name: good
     '@id': '#reference.good'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if the source has no flagged pixels.
@@ -832,7 +773,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMoments_flag
     '@id': '#reference.ext_shapeHSM_HsmSourceMoments_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: general failure flag, set if anything went wrong
@@ -840,7 +780,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMoments_flag_no_pixels
     '@id': '#reference.ext_shapeHSM_HsmSourceMoments_flag_no_pixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no pixels to measure
@@ -848,7 +787,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMoments_flag_not_contained
     '@id': '#reference.ext_shapeHSM_HsmSourceMoments_flag_not_contained'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: center not contained in footprint bounding box
@@ -856,7 +794,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMoments_flag_parent_source
     '@id': '#reference.ext_shapeHSM_HsmSourceMoments_flag_parent_source'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: parent source, ignored
@@ -864,7 +801,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMoments_flag_badCentroid
     '@id': '#reference.ext_shapeHSM_HsmSourceMoments_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -977,7 +913,6 @@ tables:
   - name: ext_shapeHSM_HsmPsfMoments_flag
     '@id': '#reference.ext_shapeHSM_HsmPsfMoments_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: general failure flag, set if anything went wrong
@@ -985,7 +920,6 @@ tables:
   - name: ext_shapeHSM_HsmPsfMoments_flag_no_pixels
     '@id': '#reference.ext_shapeHSM_HsmPsfMoments_flag_no_pixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no pixels to measure
@@ -993,7 +927,6 @@ tables:
   - name: ext_shapeHSM_HsmPsfMoments_flag_not_contained
     '@id': '#reference.ext_shapeHSM_HsmPsfMoments_flag_not_contained'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: center not contained in footprint bounding box
@@ -1001,7 +934,6 @@ tables:
   - name: ext_shapeHSM_HsmPsfMoments_flag_parent_source
     '@id': '#reference.ext_shapeHSM_HsmPsfMoments_flag_parent_source'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: parent source, ignored
@@ -1009,7 +941,6 @@ tables:
   - name: ext_shapeHSM_HsmShapeRegauss_flag
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: general failure flag, set if anything went wrong
@@ -1017,7 +948,6 @@ tables:
   - name: ext_shapeHSM_HsmShapeRegauss_flag_no_pixels
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_flag_no_pixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no pixels to measure
@@ -1025,7 +955,6 @@ tables:
   - name: ext_shapeHSM_HsmShapeRegauss_flag_not_contained
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_flag_not_contained'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: center not contained in footprint bounding box
@@ -1033,7 +962,6 @@ tables:
   - name: ext_shapeHSM_HsmShapeRegauss_flag_parent_source
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_flag_parent_source'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: parent source, ignored
@@ -1041,7 +969,6 @@ tables:
   - name: ext_shapeHSM_HsmShapeRegauss_flag_galsim
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_flag_galsim'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: GalSim failure
@@ -1049,7 +976,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMomentsRound_flag
     '@id': '#reference.ext_shapeHSM_HsmSourceMomentsRound_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: general failure flag, set if anything went wrong
@@ -1057,7 +983,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMomentsRound_flag_no_pixels
     '@id': '#reference.ext_shapeHSM_HsmSourceMomentsRound_flag_no_pixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no pixels to measure
@@ -1065,7 +990,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMomentsRound_flag_not_contained
     '@id': '#reference.ext_shapeHSM_HsmSourceMomentsRound_flag_not_contained'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: center not contained in footprint bounding box
@@ -1073,7 +997,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMomentsRound_flag_parent_source
     '@id': '#reference.ext_shapeHSM_HsmSourceMomentsRound_flag_parent_source'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: parent source, ignored
@@ -1081,7 +1004,6 @@ tables:
   - name: ext_shapeHSM_HsmPsfMoments_flag_badCentroid
     '@id': '#reference.ext_shapeHSM_HsmPsfMoments_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -1089,7 +1011,6 @@ tables:
   - name: ext_shapeHSM_HsmShapeRegauss_flag_badCentroid
     '@id': '#reference.ext_shapeHSM_HsmShapeRegauss_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -1097,7 +1018,6 @@ tables:
   - name: ext_shapeHSM_HsmSourceMomentsRound_flag_badCentroid
     '@id': '#reference.ext_shapeHSM_HsmSourceMomentsRound_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -1217,7 +1137,6 @@ tables:
   - name: base_SdssShape_flag
     '@id': '#reference.base_SdssShape_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -1225,7 +1144,6 @@ tables:
   - name: base_SdssShape_flag_unweightedBad
     '@id': '#reference.base_SdssShape_flag_unweightedBad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Both weighted and unweighted moments were invalid
@@ -1233,7 +1151,6 @@ tables:
   - name: base_SdssShape_flag_unweighted
     '@id': '#reference.base_SdssShape_flag_unweighted'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Weighted moments converged to an invalid value; using unweighted
@@ -1242,7 +1159,6 @@ tables:
   - name: base_SdssShape_flag_shift
     '@id': '#reference.base_SdssShape_flag_shift'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: centroid shifted by more than the maximum allowed amount
@@ -1250,7 +1166,6 @@ tables:
   - name: base_SdssShape_flag_maxIter
     '@id': '#reference.base_SdssShape_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Too many iterations in adaptive moments
@@ -1258,7 +1173,6 @@ tables:
   - name: base_SdssShape_flag_psf
     '@id': '#reference.base_SdssShape_flag_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Failure in measuring PSF model shape
@@ -1266,7 +1180,6 @@ tables:
   - name: base_SdssShape_flag_badCentroid
     '@id': '#reference.base_SdssShape_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -1295,7 +1208,6 @@ tables:
   - name: deblend_deblendedAsPsf
     '@id': '#reference.deblend_deblendedAsPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Deblender thought this source looked like a PSF
@@ -1303,7 +1215,6 @@ tables:
   - name: deblend_tooManyPeaks
     '@id': '#reference.deblend_tooManyPeaks'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source had too many peaks; only the brightest were included
@@ -1311,7 +1222,6 @@ tables:
   - name: deblend_parentTooBig
     '@id': '#reference.deblend_parentTooBig'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Parent footprint covered too many pixels
@@ -1319,7 +1229,6 @@ tables:
   - name: deblend_masked
     '@id': '#reference.deblend_masked'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Parent footprint was predominantly masked
@@ -1327,7 +1236,6 @@ tables:
   - name: deblend_skipped
     '@id': '#reference.deblend_skipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Deblender skipped this source
@@ -1335,7 +1243,6 @@ tables:
   - name: deblend_rampedTemplate
     '@id': '#reference.deblend_rampedTemplate'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: This source was near an image edge and the deblender used "ramp"
@@ -1344,7 +1251,6 @@ tables:
   - name: deblend_patchedTemplate
     '@id': '#reference.deblend_patchedTemplate'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: This source was near an image edge and the deblender used "patched"
@@ -1353,7 +1259,6 @@ tables:
   - name: deblend_hasStrayFlux
     '@id': '#reference.deblend_hasStrayFlux'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: This source was assigned some stray flux
@@ -1822,7 +1727,6 @@ tables:
   - name: modelfit_CModel_initial_flag
     '@id': '#reference.modelfit_CModel_initial_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the initial flux failed
@@ -1830,7 +1734,6 @@ tables:
   - name: modelfit_CModel_initial_flag_trSmall
     '@id': '#reference.modelfit_CModel_initial_flag_trSmall'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the optimizer converged because the trust radius became too small;
@@ -1840,7 +1743,6 @@ tables:
   - name: modelfit_CModel_initial_flag_maxIter
     '@id': '#reference.modelfit_CModel_initial_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the optimizer hit the maximum number of iterations and did not converge
@@ -1848,7 +1750,6 @@ tables:
   - name: modelfit_CModel_initial_flag_numericError
     '@id': '#reference.modelfit_CModel_initial_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -1858,7 +1759,6 @@ tables:
   - name: modelfit_CModel_exp_flag
     '@id': '#reference.modelfit_CModel_exp_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the exponential flux failed
@@ -1866,7 +1766,6 @@ tables:
   - name: modelfit_CModel_exp_flag_trSmall
     '@id': '#reference.modelfit_CModel_exp_flag_trSmall'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the optimizer converged because the trust radius became too small;
@@ -1876,7 +1775,6 @@ tables:
   - name: modelfit_CModel_exp_flag_maxIter
     '@id': '#reference.modelfit_CModel_exp_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the optimizer hit the maximum number of iterations and did not converge
@@ -1884,7 +1782,6 @@ tables:
   - name: modelfit_CModel_exp_flag_numericError
     '@id': '#reference.modelfit_CModel_exp_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -1894,7 +1791,6 @@ tables:
   - name: modelfit_CModel_dev_flag
     '@id': '#reference.modelfit_CModel_dev_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the de Vaucouleur flux failed
@@ -1902,7 +1798,6 @@ tables:
   - name: modelfit_CModel_dev_flag_trSmall
     '@id': '#reference.modelfit_CModel_dev_flag_trSmall'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the optimizer converged because the trust radius became too small;
@@ -1912,7 +1807,6 @@ tables:
   - name: modelfit_CModel_dev_flag_maxIter
     '@id': '#reference.modelfit_CModel_dev_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the optimizer hit the maximum number of iterations and did not converge
@@ -1920,7 +1814,6 @@ tables:
   - name: modelfit_CModel_dev_flag_numericError
     '@id': '#reference.modelfit_CModel_dev_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -1930,7 +1823,6 @@ tables:
   - name: modelfit_CModel_flag
     '@id': '#reference.modelfit_CModel_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: flag set if the final cmodel fit (or any previous fit) failed
@@ -1938,7 +1830,6 @@ tables:
   - name: modelfit_CModel_flag_region_maxArea
     '@id': '#reference.modelfit_CModel_flag_region_maxArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: number of pixels in fit region exceeded the region.maxArea value
@@ -1946,7 +1837,6 @@ tables:
   - name: modelfit_CModel_flag_region_maxBadPixelFraction
     '@id': '#reference.modelfit_CModel_flag_region_maxBadPixelFraction'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the fraction of bad/clipped pixels in the fit region exceeded region.maxBadPixelFraction
@@ -1954,7 +1844,6 @@ tables:
   - name: modelfit_CModel_flags_region_usedFootprintArea
     '@id': '#reference.modelfit_CModel_flags_region_usedFootprintArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the pixel region for the initial fit was defined by the area of the
@@ -1963,7 +1852,6 @@ tables:
   - name: modelfit_CModel_flags_region_usedPsfArea
     '@id': '#reference.modelfit_CModel_flags_region_usedPsfArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the pixel region for the initial fit was set to a fixed factor of
@@ -1972,7 +1860,6 @@ tables:
   - name: modelfit_CModel_flags_region_usedInitialEllipseMin
     '@id': '#reference.modelfit_CModel_flags_region_usedInitialEllipseMin'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the pixel region for the final fit was set to the lower bound defined
@@ -1981,7 +1868,6 @@ tables:
   - name: modelfit_CModel_flags_region_usedInitialEllipseMax
     '@id': '#reference.modelfit_CModel_flags_region_usedInitialEllipseMax'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the pixel region for the final fit was set to the upper bound defined
@@ -1990,7 +1876,6 @@ tables:
   - name: modelfit_CModel_flag_noShape
     '@id': '#reference.modelfit_CModel_flag_noShape'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the shape slot needed to initialize the parameters failed or was
@@ -1999,7 +1884,6 @@ tables:
   - name: modelfit_CModel_flags_smallShape
     '@id': '#reference.modelfit_CModel_flags_smallShape'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: initial parameter guess resulted in negative radius; used minimum
@@ -2008,7 +1892,6 @@ tables:
   - name: modelfit_CModel_flag_noShapeletPsf
     '@id': '#reference.modelfit_CModel_flag_noShapeletPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the multishapelet fit to the PSF model did not succeed
@@ -2016,7 +1899,6 @@ tables:
   - name: modelfit_CModel_flag_badCentroid
     '@id': '#reference.modelfit_CModel_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: input centroid was not within the fit region (probably because it''s
@@ -2025,7 +1907,6 @@ tables:
   - name: modelfit_CModel_exp_flag_apCorr
     '@id': '#reference.modelfit_CModel_exp_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_exp
@@ -2033,7 +1914,6 @@ tables:
   - name: modelfit_CModel_initial_flag_apCorr
     '@id': '#reference.modelfit_CModel_initial_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_initial
@@ -2041,7 +1921,6 @@ tables:
   - name: modelfit_CModel_dev_flag_apCorr
     '@id': '#reference.modelfit_CModel_dev_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_dev
@@ -2049,7 +1928,6 @@ tables:
   - name: modelfit_CModel_flag_apCorr
     '@id': '#reference.modelfit_CModel_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel
@@ -2087,7 +1965,6 @@ tables:
   - name: g_base_PixelFlags_flag
     '@id': '#forced_photometry.g_base_PixelFlags_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General failure flag, set if anything went wrong
@@ -2095,7 +1972,6 @@ tables:
   - name: g_base_PixelFlags_flag_offimage
     '@id': '#forced_photometry.g_base_PixelFlags_flag_offimage'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is off image
@@ -2103,7 +1979,6 @@ tables:
   - name: g_base_PixelFlags_flag_edge
     '@id': '#forced_photometry.g_base_PixelFlags_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
@@ -2111,7 +1986,6 @@ tables:
   - name: g_base_PixelFlags_flag_interpolated
     '@id': '#forced_photometry.g_base_PixelFlags_flag_interpolated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source footprint
@@ -2119,7 +1993,6 @@ tables:
   - name: g_base_PixelFlags_flag_saturated
     '@id': '#forced_photometry.g_base_PixelFlags_flag_saturated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source footprint
@@ -2127,7 +2000,6 @@ tables:
   - name: g_base_PixelFlags_flag_cr
     '@id': '#forced_photometry.g_base_PixelFlags_flag_cr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source footprint
@@ -2135,7 +2007,6 @@ tables:
   - name: g_base_PixelFlags_flag_bad
     '@id': '#forced_photometry.g_base_PixelFlags_flag_bad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Bad pixel in the Source footprint
@@ -2143,7 +2014,6 @@ tables:
   - name: g_base_PixelFlags_flag_suspect
     '@id': '#forced_photometry.g_base_PixelFlags_flag_suspect'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's footprint includes suspect pixels"
@@ -2151,7 +2021,6 @@ tables:
   - name: g_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_interpolatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source center
@@ -2159,7 +2028,6 @@ tables:
   - name: g_base_PixelFlags_flag_saturatedCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_saturatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source center
@@ -2167,7 +2035,6 @@ tables:
   - name: g_base_PixelFlags_flag_crCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_crCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source center
@@ -2175,7 +2042,6 @@ tables:
   - name: g_base_PixelFlags_flag_suspectCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_suspectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's center is close to suspect pixels"
@@ -2183,7 +2049,6 @@ tables:
   - name: g_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_clippedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to CLIPPED pixels
@@ -2191,7 +2056,6 @@ tables:
   - name: g_base_PixelFlags_flag_sensor_edgeCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_sensor_edgeCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to SENSOR_EDGE pixels
@@ -2199,7 +2063,6 @@ tables:
   - name: g_base_PixelFlags_flag_rejectedCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_rejectedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to REJECTED pixels
@@ -2207,7 +2070,6 @@ tables:
   - name: g_base_PixelFlags_flag_inexact_psfCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_inexact_psfCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to INEXACT_PSF pixels
@@ -2215,7 +2077,6 @@ tables:
   - name: g_base_PixelFlags_flag_bright_objectCenter
     '@id': '#forced_photometry.g_base_PixelFlags_flag_bright_objectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to BRIGHT_OBJECT pixels
@@ -2223,7 +2084,6 @@ tables:
   - name: g_base_PixelFlags_flag_clipped
     '@id': '#forced_photometry.g_base_PixelFlags_flag_clipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes CLIPPED pixels
@@ -2231,7 +2091,6 @@ tables:
   - name: g_base_PixelFlags_flag_sensor_edge
     '@id': '#forced_photometry.g_base_PixelFlags_flag_sensor_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes SENSOR_EDGE pixels
@@ -2239,7 +2098,6 @@ tables:
   - name: g_base_PixelFlags_flag_rejected
     '@id': '#forced_photometry.g_base_PixelFlags_flag_rejected'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes REJECTED pixels
@@ -2247,7 +2105,6 @@ tables:
   - name: g_base_PixelFlags_flag_inexact_psf
     '@id': '#forced_photometry.g_base_PixelFlags_flag_inexact_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes INEXACT_PSF pixels
@@ -2255,7 +2112,6 @@ tables:
   - name: g_base_PixelFlags_flag_bright_object
     '@id': '#forced_photometry.g_base_PixelFlags_flag_bright_object'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes BRIGHT_OBJECT pixels
@@ -2263,7 +2119,6 @@ tables:
   - name: g_good
     '@id': '#forced_photometry.g_good'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if the source has no flagged pixels.
@@ -2277,7 +2132,6 @@ tables:
   - name: g_base_ClassificationExtendedness_flag
     '@id': '#forced_photometry.g_base_ClassificationExtendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Set to 1 for any fatal failure.
@@ -2334,7 +2188,6 @@ tables:
   - name: g_modelfit_CModel_flag
     '@id': '#forced_photometry.g_modelfit_CModel_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set if the final cmodel fit (or any previous fit) failed
@@ -2342,7 +2195,6 @@ tables:
   - name: g_modelfit_CModel_flag_region_maxArea
     '@id': '#forced_photometry.g_modelfit_CModel_flag_region_maxArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: number of pixels in fit region exceeded the region.maxArea value
@@ -2350,7 +2202,6 @@ tables:
   - name: g_modelfit_CModel_flag_region_maxBadPixelFraction
     '@id': '#forced_photometry.g_modelfit_CModel_flag_region_maxBadPixelFraction'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the fraction of bad/clipped pixels in the fit region exceeded region.maxBadPixelFraction
@@ -2358,7 +2209,6 @@ tables:
   - name: g_modelfit_CModel_flag_badReference
     '@id': '#forced_photometry.g_modelfit_CModel_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -2366,7 +2216,6 @@ tables:
   - name: g_modelfit_CModel_flag_noShapeletPsf
     '@id': '#forced_photometry.g_modelfit_CModel_flag_noShapeletPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the multishapelet fit to the PSF model did not succeed
@@ -2374,7 +2223,6 @@ tables:
   - name: g_modelfit_CModel_flag_badCentroid
     '@id': '#forced_photometry.g_modelfit_CModel_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: input centroid was not within the fit region (probably because it''s
@@ -2383,7 +2231,6 @@ tables:
   - name: g_modelfit_CModel_flag_apCorr
     '@id': '#forced_photometry.g_modelfit_CModel_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel
@@ -2419,7 +2266,6 @@ tables:
   - name: g_base_SdssCentroid_flag
     '@id': '#forced_photometry.g_base_SdssCentroid_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2427,7 +2273,6 @@ tables:
   - name: g_base_SdssCentroid_flag_edge
     '@id': '#forced_photometry.g_base_SdssCentroid_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object too close to edge
@@ -2435,7 +2280,6 @@ tables:
   - name: g_base_SdssCentroid_flag_noSecondDerivative
     '@id': '#forced_photometry.g_base_SdssCentroid_flag_noSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Vanishing second derivative
@@ -2443,7 +2287,6 @@ tables:
   - name: g_base_SdssCentroid_flag_almostNoSecondDerivative
     '@id': '#forced_photometry.g_base_SdssCentroid_flag_almostNoSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Almost vanishing second derivative
@@ -2451,7 +2294,6 @@ tables:
   - name: g_base_SdssCentroid_flag_notAtMaximum
     '@id': '#forced_photometry.g_base_SdssCentroid_flag_notAtMaximum'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object is not at a maximum
@@ -2459,7 +2301,6 @@ tables:
   - name: g_base_SdssCentroid_flag_resetToPeak
     '@id': '#forced_photometry.g_base_SdssCentroid_flag_resetToPeak'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if CentroidChecker reset the centroid
@@ -2467,7 +2308,6 @@ tables:
   - name: g_base_SdssCentroid_flag_badInitialCentroid
     '@id': '#forced_photometry.g_base_SdssCentroid_flag_badInitialCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: whether the reference centroid is marked as bad
@@ -2587,7 +2427,6 @@ tables:
   - name: g_base_SdssShape_flag
     '@id': '#forced_photometry.g_base_SdssShape_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2595,7 +2434,6 @@ tables:
   - name: g_base_SdssShape_flag_unweightedBad
     '@id': '#forced_photometry.g_base_SdssShape_flag_unweightedBad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Both weighted and unweighted moments were invalid
@@ -2603,7 +2441,6 @@ tables:
   - name: g_base_SdssShape_flag_unweighted
     '@id': '#forced_photometry.g_base_SdssShape_flag_unweighted'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Weighted moments converged to an invalid value; using unweighted
@@ -2612,7 +2449,6 @@ tables:
   - name: g_base_SdssShape_flag_shift
     '@id': '#forced_photometry.g_base_SdssShape_flag_shift'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: centroid shifted by more than the maximum allowed amount
@@ -2620,7 +2456,6 @@ tables:
   - name: g_base_SdssShape_flag_maxIter
     '@id': '#forced_photometry.g_base_SdssShape_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Too many iterations in adaptive moments
@@ -2628,7 +2463,6 @@ tables:
   - name: g_base_SdssShape_flag_psf
     '@id': '#forced_photometry.g_base_SdssShape_flag_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Failure in measuring PSF model shape
@@ -2636,7 +2470,6 @@ tables:
   - name: g_base_SdssShape_flag_badCentroid
     '@id': '#forced_photometry.g_base_SdssShape_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2679,7 +2512,6 @@ tables:
   - name: g_base_PsfFlux_flag
     '@id': '#forced_photometry.g_base_PsfFlux_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2687,7 +2519,6 @@ tables:
   - name: g_base_PsfFlux_flag_noGoodPixels
     '@id': '#forced_photometry.g_base_PsfFlux_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: not enough non-rejected pixels in data to attempt the fit
@@ -2695,7 +2526,6 @@ tables:
   - name: g_base_PsfFlux_flag_edge
     '@id': '#forced_photometry.g_base_PsfFlux_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: object was too close to the edge of the image to use the full PSF
@@ -2704,7 +2534,6 @@ tables:
   - name: g_base_PsfFlux_flag_apCorr
     '@id': '#forced_photometry.g_base_PsfFlux_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct base_PsfFlux
@@ -2712,7 +2541,6 @@ tables:
   - name: g_base_PsfFlux_flag_badCentroid
     '@id': '#forced_photometry.g_base_PsfFlux_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2727,7 +2555,6 @@ tables:
   - name: g_base_InputCount_flag
     '@id': '#forced_photometry.g_base_InputCount_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -2735,7 +2562,6 @@ tables:
   - name: g_base_InputCount_flag_noInputs
     '@id': '#forced_photometry.g_base_InputCount_flag_noInputs'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: No coadd inputs available
@@ -2743,7 +2569,6 @@ tables:
   - name: g_base_InputCount_flag_badCentroid
     '@id': '#forced_photometry.g_base_InputCount_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2758,7 +2583,6 @@ tables:
   - name: g_base_Variance_flag
     '@id': '#forced_photometry.g_base_Variance_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -2766,7 +2590,6 @@ tables:
   - name: g_base_Variance_flag_emptyFootprint
     '@id': '#forced_photometry.g_base_Variance_flag_emptyFootprint'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set to True when the footprint has no usable pixels
@@ -2774,7 +2597,6 @@ tables:
   - name: g_base_Variance_flag_badCentroid
     '@id': '#forced_photometry.g_base_Variance_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2796,7 +2618,6 @@ tables:
   - name: g_base_LocalBackground_flag
     '@id': '#forced_photometry.g_base_LocalBackground_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2804,7 +2625,6 @@ tables:
   - name: g_base_LocalBackground_flag_noGoodPixels
     '@id': '#forced_photometry.g_base_LocalBackground_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no good pixels in the annulus
@@ -2812,7 +2632,6 @@ tables:
   - name: g_base_LocalBackground_flag_noPsf
     '@id': '#forced_photometry.g_base_LocalBackground_flag_noPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no PSF provided
@@ -2820,7 +2639,6 @@ tables:
   - name: g_base_LocalBackground_flag_badCentroid
     '@id': '#forced_photometry.g_base_LocalBackground_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -2933,7 +2751,6 @@ tables:
   - name: g_modelfit_CModel_initial_flag
     '@id': '#forced_photometry.g_modelfit_CModel_initial_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the initial flux failed
@@ -2941,7 +2758,6 @@ tables:
   - name: g_modelfit_CModel_initial_flag_badReference
     '@id': '#forced_photometry.g_modelfit_CModel_initial_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -2949,7 +2765,6 @@ tables:
   - name: g_modelfit_CModel_initial_flag_numericError
     '@id': '#forced_photometry.g_modelfit_CModel_initial_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -2959,7 +2774,6 @@ tables:
   - name: g_modelfit_CModel_exp_flag
     '@id': '#forced_photometry.g_modelfit_CModel_exp_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the exponential flux failed
@@ -2967,7 +2781,6 @@ tables:
   - name: g_modelfit_CModel_exp_flag_badReference
     '@id': '#forced_photometry.g_modelfit_CModel_exp_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -2975,7 +2788,6 @@ tables:
   - name: g_modelfit_CModel_exp_flag_numericError
     '@id': '#forced_photometry.g_modelfit_CModel_exp_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -2985,7 +2797,6 @@ tables:
   - name: g_modelfit_CModel_dev_flag
     '@id': '#forced_photometry.g_modelfit_CModel_dev_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the de Vaucouleur flux failed
@@ -2993,7 +2804,6 @@ tables:
   - name: g_modelfit_CModel_dev_flag_badReference
     '@id': '#forced_photometry.g_modelfit_CModel_dev_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -3001,7 +2811,6 @@ tables:
   - name: g_modelfit_CModel_dev_flag_numericError
     '@id': '#forced_photometry.g_modelfit_CModel_dev_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -3011,7 +2820,6 @@ tables:
   - name: g_modelfit_CModel_exp_flag_apCorr
     '@id': '#forced_photometry.g_modelfit_CModel_exp_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_exp
@@ -3019,7 +2827,6 @@ tables:
   - name: g_modelfit_CModel_dev_flag_apCorr
     '@id': '#forced_photometry.g_modelfit_CModel_dev_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_dev
@@ -3027,7 +2834,6 @@ tables:
   - name: g_modelfit_CModel_initial_flag_apCorr
     '@id': '#forced_photometry.g_modelfit_CModel_initial_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_initial
@@ -3035,7 +2841,6 @@ tables:
   - name: i_base_PixelFlags_flag
     '@id': '#forced_photometry.i_base_PixelFlags_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General failure flag, set if anything went wrong
@@ -3043,7 +2848,6 @@ tables:
   - name: i_base_PixelFlags_flag_offimage
     '@id': '#forced_photometry.i_base_PixelFlags_flag_offimage'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is off image
@@ -3051,7 +2855,6 @@ tables:
   - name: i_base_PixelFlags_flag_edge
     '@id': '#forced_photometry.i_base_PixelFlags_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
@@ -3059,7 +2862,6 @@ tables:
   - name: i_base_PixelFlags_flag_interpolated
     '@id': '#forced_photometry.i_base_PixelFlags_flag_interpolated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source footprint
@@ -3067,7 +2869,6 @@ tables:
   - name: i_base_PixelFlags_flag_saturated
     '@id': '#forced_photometry.i_base_PixelFlags_flag_saturated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source footprint
@@ -3075,7 +2876,6 @@ tables:
   - name: i_base_PixelFlags_flag_cr
     '@id': '#forced_photometry.i_base_PixelFlags_flag_cr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source footprint
@@ -3083,7 +2883,6 @@ tables:
   - name: i_base_PixelFlags_flag_bad
     '@id': '#forced_photometry.i_base_PixelFlags_flag_bad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Bad pixel in the Source footprint
@@ -3091,7 +2890,6 @@ tables:
   - name: i_base_PixelFlags_flag_suspect
     '@id': '#forced_photometry.i_base_PixelFlags_flag_suspect'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's footprint includes suspect pixels"
@@ -3099,7 +2897,6 @@ tables:
   - name: i_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_interpolatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source center
@@ -3107,7 +2904,6 @@ tables:
   - name: i_base_PixelFlags_flag_saturatedCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_saturatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source center
@@ -3115,7 +2911,6 @@ tables:
   - name: i_base_PixelFlags_flag_crCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_crCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source center
@@ -3123,7 +2918,6 @@ tables:
   - name: i_base_PixelFlags_flag_suspectCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_suspectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's center is close to suspect pixels"
@@ -3131,7 +2925,6 @@ tables:
   - name: i_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_clippedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to CLIPPED pixels
@@ -3139,7 +2932,6 @@ tables:
   - name: i_base_PixelFlags_flag_sensor_edgeCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_sensor_edgeCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to SENSOR_EDGE pixels
@@ -3147,7 +2939,6 @@ tables:
   - name: i_base_PixelFlags_flag_rejectedCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_rejectedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to REJECTED pixels
@@ -3155,7 +2946,6 @@ tables:
   - name: i_base_PixelFlags_flag_inexact_psfCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_inexact_psfCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to INEXACT_PSF pixels
@@ -3163,7 +2953,6 @@ tables:
   - name: i_base_PixelFlags_flag_bright_objectCenter
     '@id': '#forced_photometry.i_base_PixelFlags_flag_bright_objectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to BRIGHT_OBJECT pixels
@@ -3171,7 +2960,6 @@ tables:
   - name: i_base_PixelFlags_flag_clipped
     '@id': '#forced_photometry.i_base_PixelFlags_flag_clipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes CLIPPED pixels
@@ -3179,7 +2967,6 @@ tables:
   - name: i_base_PixelFlags_flag_sensor_edge
     '@id': '#forced_photometry.i_base_PixelFlags_flag_sensor_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes SENSOR_EDGE pixels
@@ -3187,7 +2974,6 @@ tables:
   - name: i_base_PixelFlags_flag_rejected
     '@id': '#forced_photometry.i_base_PixelFlags_flag_rejected'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes REJECTED pixels
@@ -3195,7 +2981,6 @@ tables:
   - name: i_base_PixelFlags_flag_inexact_psf
     '@id': '#forced_photometry.i_base_PixelFlags_flag_inexact_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes INEXACT_PSF pixels
@@ -3203,7 +2988,6 @@ tables:
   - name: i_base_PixelFlags_flag_bright_object
     '@id': '#forced_photometry.i_base_PixelFlags_flag_bright_object'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes BRIGHT_OBJECT pixels
@@ -3211,7 +2995,6 @@ tables:
   - name: i_good
     '@id': '#forced_photometry.i_good'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if the source has no flagged pixels.
@@ -3225,7 +3008,6 @@ tables:
   - name: i_base_ClassificationExtendedness_flag
     '@id': '#forced_photometry.i_base_ClassificationExtendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Set to 1 for any fatal failure.
@@ -3282,7 +3064,6 @@ tables:
   - name: i_modelfit_CModel_flag
     '@id': '#forced_photometry.i_modelfit_CModel_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set if the final cmodel fit (or any previous fit) failed
@@ -3290,7 +3071,6 @@ tables:
   - name: i_modelfit_CModel_flag_region_maxArea
     '@id': '#forced_photometry.i_modelfit_CModel_flag_region_maxArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: number of pixels in fit region exceeded the region.maxArea value
@@ -3298,7 +3078,6 @@ tables:
   - name: i_modelfit_CModel_flag_region_maxBadPixelFraction
     '@id': '#forced_photometry.i_modelfit_CModel_flag_region_maxBadPixelFraction'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the fraction of bad/clipped pixels in the fit region exceeded region.maxBadPixelFraction
@@ -3306,7 +3085,6 @@ tables:
   - name: i_modelfit_CModel_flag_badReference
     '@id': '#forced_photometry.i_modelfit_CModel_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -3314,7 +3092,6 @@ tables:
   - name: i_modelfit_CModel_flag_noShapeletPsf
     '@id': '#forced_photometry.i_modelfit_CModel_flag_noShapeletPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the multishapelet fit to the PSF model did not succeed
@@ -3322,7 +3099,6 @@ tables:
   - name: i_modelfit_CModel_flag_badCentroid
     '@id': '#forced_photometry.i_modelfit_CModel_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: input centroid was not within the fit region (probably because it''s
@@ -3331,7 +3107,6 @@ tables:
   - name: i_modelfit_CModel_flag_apCorr
     '@id': '#forced_photometry.i_modelfit_CModel_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel
@@ -3367,7 +3142,6 @@ tables:
   - name: i_base_SdssCentroid_flag
     '@id': '#forced_photometry.i_base_SdssCentroid_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3375,7 +3149,6 @@ tables:
   - name: i_base_SdssCentroid_flag_edge
     '@id': '#forced_photometry.i_base_SdssCentroid_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object too close to edge
@@ -3383,7 +3156,6 @@ tables:
   - name: i_base_SdssCentroid_flag_noSecondDerivative
     '@id': '#forced_photometry.i_base_SdssCentroid_flag_noSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Vanishing second derivative
@@ -3391,7 +3163,6 @@ tables:
   - name: i_base_SdssCentroid_flag_almostNoSecondDerivative
     '@id': '#forced_photometry.i_base_SdssCentroid_flag_almostNoSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Almost vanishing second derivative
@@ -3399,7 +3170,6 @@ tables:
   - name: i_base_SdssCentroid_flag_notAtMaximum
     '@id': '#forced_photometry.i_base_SdssCentroid_flag_notAtMaximum'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object is not at a maximum
@@ -3407,7 +3177,6 @@ tables:
   - name: i_base_SdssCentroid_flag_resetToPeak
     '@id': '#forced_photometry.i_base_SdssCentroid_flag_resetToPeak'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if CentroidChecker reset the centroid
@@ -3415,7 +3184,6 @@ tables:
   - name: i_base_SdssCentroid_flag_badInitialCentroid
     '@id': '#forced_photometry.i_base_SdssCentroid_flag_badInitialCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: whether the reference centroid is marked as bad
@@ -3535,7 +3303,6 @@ tables:
   - name: i_base_SdssShape_flag
     '@id': '#forced_photometry.i_base_SdssShape_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3543,7 +3310,6 @@ tables:
   - name: i_base_SdssShape_flag_unweightedBad
     '@id': '#forced_photometry.i_base_SdssShape_flag_unweightedBad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Both weighted and unweighted moments were invalid
@@ -3551,7 +3317,6 @@ tables:
   - name: i_base_SdssShape_flag_unweighted
     '@id': '#forced_photometry.i_base_SdssShape_flag_unweighted'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Weighted moments converged to an invalid value; using unweighted
@@ -3560,7 +3325,6 @@ tables:
   - name: i_base_SdssShape_flag_shift
     '@id': '#forced_photometry.i_base_SdssShape_flag_shift'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: centroid shifted by more than the maximum allowed amount
@@ -3568,7 +3332,6 @@ tables:
   - name: i_base_SdssShape_flag_maxIter
     '@id': '#forced_photometry.i_base_SdssShape_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Too many iterations in adaptive moments
@@ -3576,7 +3339,6 @@ tables:
   - name: i_base_SdssShape_flag_psf
     '@id': '#forced_photometry.i_base_SdssShape_flag_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Failure in measuring PSF model shape
@@ -3584,7 +3346,6 @@ tables:
   - name: i_base_SdssShape_flag_badCentroid
     '@id': '#forced_photometry.i_base_SdssShape_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3627,7 +3388,6 @@ tables:
   - name: i_base_PsfFlux_flag
     '@id': '#forced_photometry.i_base_PsfFlux_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3635,7 +3395,6 @@ tables:
   - name: i_base_PsfFlux_flag_noGoodPixels
     '@id': '#forced_photometry.i_base_PsfFlux_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: not enough non-rejected pixels in data to attempt the fit
@@ -3643,7 +3402,6 @@ tables:
   - name: i_base_PsfFlux_flag_edge
     '@id': '#forced_photometry.i_base_PsfFlux_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: object was too close to the edge of the image to use the full PSF
@@ -3652,7 +3410,6 @@ tables:
   - name: i_base_PsfFlux_flag_apCorr
     '@id': '#forced_photometry.i_base_PsfFlux_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct base_PsfFlux
@@ -3660,7 +3417,6 @@ tables:
   - name: i_base_PsfFlux_flag_badCentroid
     '@id': '#forced_photometry.i_base_PsfFlux_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3675,7 +3431,6 @@ tables:
   - name: i_base_InputCount_flag
     '@id': '#forced_photometry.i_base_InputCount_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -3683,7 +3438,6 @@ tables:
   - name: i_base_InputCount_flag_noInputs
     '@id': '#forced_photometry.i_base_InputCount_flag_noInputs'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: No coadd inputs available
@@ -3691,7 +3445,6 @@ tables:
   - name: i_base_InputCount_flag_badCentroid
     '@id': '#forced_photometry.i_base_InputCount_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3706,7 +3459,6 @@ tables:
   - name: i_base_Variance_flag
     '@id': '#forced_photometry.i_base_Variance_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -3714,7 +3466,6 @@ tables:
   - name: i_base_Variance_flag_emptyFootprint
     '@id': '#forced_photometry.i_base_Variance_flag_emptyFootprint'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set to True when the footprint has no usable pixels
@@ -3722,7 +3473,6 @@ tables:
   - name: i_base_Variance_flag_badCentroid
     '@id': '#forced_photometry.i_base_Variance_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3744,7 +3494,6 @@ tables:
   - name: i_base_LocalBackground_flag
     '@id': '#forced_photometry.i_base_LocalBackground_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3752,7 +3501,6 @@ tables:
   - name: i_base_LocalBackground_flag_noGoodPixels
     '@id': '#forced_photometry.i_base_LocalBackground_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no good pixels in the annulus
@@ -3760,7 +3508,6 @@ tables:
   - name: i_base_LocalBackground_flag_noPsf
     '@id': '#forced_photometry.i_base_LocalBackground_flag_noPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no PSF provided
@@ -3768,7 +3515,6 @@ tables:
   - name: i_base_LocalBackground_flag_badCentroid
     '@id': '#forced_photometry.i_base_LocalBackground_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -3881,7 +3627,6 @@ tables:
   - name: i_modelfit_CModel_initial_flag
     '@id': '#forced_photometry.i_modelfit_CModel_initial_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the initial flux failed
@@ -3889,7 +3634,6 @@ tables:
   - name: i_modelfit_CModel_initial_flag_badReference
     '@id': '#forced_photometry.i_modelfit_CModel_initial_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -3897,7 +3641,6 @@ tables:
   - name: i_modelfit_CModel_initial_flag_numericError
     '@id': '#forced_photometry.i_modelfit_CModel_initial_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -3907,7 +3650,6 @@ tables:
   - name: i_modelfit_CModel_exp_flag
     '@id': '#forced_photometry.i_modelfit_CModel_exp_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the exponential flux failed
@@ -3915,7 +3657,6 @@ tables:
   - name: i_modelfit_CModel_exp_flag_badReference
     '@id': '#forced_photometry.i_modelfit_CModel_exp_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -3923,7 +3664,6 @@ tables:
   - name: i_modelfit_CModel_exp_flag_numericError
     '@id': '#forced_photometry.i_modelfit_CModel_exp_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -3933,7 +3673,6 @@ tables:
   - name: i_modelfit_CModel_dev_flag
     '@id': '#forced_photometry.i_modelfit_CModel_dev_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the de Vaucouleur flux failed
@@ -3941,7 +3680,6 @@ tables:
   - name: i_modelfit_CModel_dev_flag_badReference
     '@id': '#forced_photometry.i_modelfit_CModel_dev_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -3949,7 +3687,6 @@ tables:
   - name: i_modelfit_CModel_dev_flag_numericError
     '@id': '#forced_photometry.i_modelfit_CModel_dev_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -3959,7 +3696,6 @@ tables:
   - name: i_modelfit_CModel_exp_flag_apCorr
     '@id': '#forced_photometry.i_modelfit_CModel_exp_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_exp
@@ -3967,7 +3703,6 @@ tables:
   - name: i_modelfit_CModel_dev_flag_apCorr
     '@id': '#forced_photometry.i_modelfit_CModel_dev_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_dev
@@ -3975,7 +3710,6 @@ tables:
   - name: i_modelfit_CModel_initial_flag_apCorr
     '@id': '#forced_photometry.i_modelfit_CModel_initial_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_initial
@@ -3983,7 +3717,6 @@ tables:
   - name: r_base_PixelFlags_flag
     '@id': '#forced_photometry.r_base_PixelFlags_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General failure flag, set if anything went wrong
@@ -3991,7 +3724,6 @@ tables:
   - name: r_base_PixelFlags_flag_offimage
     '@id': '#forced_photometry.r_base_PixelFlags_flag_offimage'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is off image
@@ -3999,7 +3731,6 @@ tables:
   - name: r_base_PixelFlags_flag_edge
     '@id': '#forced_photometry.r_base_PixelFlags_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
@@ -4007,7 +3738,6 @@ tables:
   - name: r_base_PixelFlags_flag_interpolated
     '@id': '#forced_photometry.r_base_PixelFlags_flag_interpolated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source footprint
@@ -4015,7 +3745,6 @@ tables:
   - name: r_base_PixelFlags_flag_saturated
     '@id': '#forced_photometry.r_base_PixelFlags_flag_saturated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source footprint
@@ -4023,7 +3752,6 @@ tables:
   - name: r_base_PixelFlags_flag_cr
     '@id': '#forced_photometry.r_base_PixelFlags_flag_cr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source footprint
@@ -4031,7 +3759,6 @@ tables:
   - name: r_base_PixelFlags_flag_bad
     '@id': '#forced_photometry.r_base_PixelFlags_flag_bad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Bad pixel in the Source footprint
@@ -4039,7 +3766,6 @@ tables:
   - name: r_base_PixelFlags_flag_suspect
     '@id': '#forced_photometry.r_base_PixelFlags_flag_suspect'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's footprint includes suspect pixels"
@@ -4047,7 +3773,6 @@ tables:
   - name: r_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_interpolatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source center
@@ -4055,7 +3780,6 @@ tables:
   - name: r_base_PixelFlags_flag_saturatedCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_saturatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source center
@@ -4063,7 +3787,6 @@ tables:
   - name: r_base_PixelFlags_flag_crCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_crCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source center
@@ -4071,7 +3794,6 @@ tables:
   - name: r_base_PixelFlags_flag_suspectCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_suspectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's center is close to suspect pixels"
@@ -4079,7 +3801,6 @@ tables:
   - name: r_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_clippedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to CLIPPED pixels
@@ -4087,7 +3808,6 @@ tables:
   - name: r_base_PixelFlags_flag_sensor_edgeCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_sensor_edgeCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to SENSOR_EDGE pixels
@@ -4095,7 +3815,6 @@ tables:
   - name: r_base_PixelFlags_flag_rejectedCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_rejectedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to REJECTED pixels
@@ -4103,7 +3822,6 @@ tables:
   - name: r_base_PixelFlags_flag_inexact_psfCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_inexact_psfCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to INEXACT_PSF pixels
@@ -4111,7 +3829,6 @@ tables:
   - name: r_base_PixelFlags_flag_bright_objectCenter
     '@id': '#forced_photometry.r_base_PixelFlags_flag_bright_objectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to BRIGHT_OBJECT pixels
@@ -4119,7 +3836,6 @@ tables:
   - name: r_base_PixelFlags_flag_clipped
     '@id': '#forced_photometry.r_base_PixelFlags_flag_clipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes CLIPPED pixels
@@ -4127,7 +3843,6 @@ tables:
   - name: r_base_PixelFlags_flag_sensor_edge
     '@id': '#forced_photometry.r_base_PixelFlags_flag_sensor_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes SENSOR_EDGE pixels
@@ -4135,7 +3850,6 @@ tables:
   - name: r_base_PixelFlags_flag_rejected
     '@id': '#forced_photometry.r_base_PixelFlags_flag_rejected'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes REJECTED pixels
@@ -4143,7 +3857,6 @@ tables:
   - name: r_base_PixelFlags_flag_inexact_psf
     '@id': '#forced_photometry.r_base_PixelFlags_flag_inexact_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes INEXACT_PSF pixels
@@ -4151,7 +3864,6 @@ tables:
   - name: r_base_PixelFlags_flag_bright_object
     '@id': '#forced_photometry.r_base_PixelFlags_flag_bright_object'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes BRIGHT_OBJECT pixels
@@ -4159,7 +3871,6 @@ tables:
   - name: r_good
     '@id': '#forced_photometry.r_good'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if the source has no flagged pixels.
@@ -4173,7 +3884,6 @@ tables:
   - name: r_base_ClassificationExtendedness_flag
     '@id': '#forced_photometry.r_base_ClassificationExtendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Set to 1 for any fatal failure.
@@ -4230,7 +3940,6 @@ tables:
   - name: r_modelfit_CModel_flag
     '@id': '#forced_photometry.r_modelfit_CModel_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set if the final cmodel fit (or any previous fit) failed
@@ -4238,7 +3947,6 @@ tables:
   - name: r_modelfit_CModel_flag_region_maxArea
     '@id': '#forced_photometry.r_modelfit_CModel_flag_region_maxArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: number of pixels in fit region exceeded the region.maxArea value
@@ -4246,7 +3954,6 @@ tables:
   - name: r_modelfit_CModel_flag_region_maxBadPixelFraction
     '@id': '#forced_photometry.r_modelfit_CModel_flag_region_maxBadPixelFraction'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the fraction of bad/clipped pixels in the fit region exceeded region.maxBadPixelFraction
@@ -4254,7 +3961,6 @@ tables:
   - name: r_modelfit_CModel_flag_badReference
     '@id': '#forced_photometry.r_modelfit_CModel_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -4262,7 +3968,6 @@ tables:
   - name: r_modelfit_CModel_flag_noShapeletPsf
     '@id': '#forced_photometry.r_modelfit_CModel_flag_noShapeletPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the multishapelet fit to the PSF model did not succeed
@@ -4270,7 +3975,6 @@ tables:
   - name: r_modelfit_CModel_flag_badCentroid
     '@id': '#forced_photometry.r_modelfit_CModel_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: input centroid was not within the fit region (probably because it''s
@@ -4279,7 +3983,6 @@ tables:
   - name: r_modelfit_CModel_flag_apCorr
     '@id': '#forced_photometry.r_modelfit_CModel_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel
@@ -4315,7 +4018,6 @@ tables:
   - name: r_base_SdssCentroid_flag
     '@id': '#forced_photometry.r_base_SdssCentroid_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4323,7 +4025,6 @@ tables:
   - name: r_base_SdssCentroid_flag_edge
     '@id': '#forced_photometry.r_base_SdssCentroid_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object too close to edge
@@ -4331,7 +4032,6 @@ tables:
   - name: r_base_SdssCentroid_flag_noSecondDerivative
     '@id': '#forced_photometry.r_base_SdssCentroid_flag_noSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Vanishing second derivative
@@ -4339,7 +4039,6 @@ tables:
   - name: r_base_SdssCentroid_flag_almostNoSecondDerivative
     '@id': '#forced_photometry.r_base_SdssCentroid_flag_almostNoSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Almost vanishing second derivative
@@ -4347,7 +4046,6 @@ tables:
   - name: r_base_SdssCentroid_flag_notAtMaximum
     '@id': '#forced_photometry.r_base_SdssCentroid_flag_notAtMaximum'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object is not at a maximum
@@ -4355,7 +4053,6 @@ tables:
   - name: r_base_SdssCentroid_flag_resetToPeak
     '@id': '#forced_photometry.r_base_SdssCentroid_flag_resetToPeak'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if CentroidChecker reset the centroid
@@ -4363,7 +4060,6 @@ tables:
   - name: r_base_SdssCentroid_flag_badInitialCentroid
     '@id': '#forced_photometry.r_base_SdssCentroid_flag_badInitialCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: whether the reference centroid is marked as bad
@@ -4483,7 +4179,6 @@ tables:
   - name: r_base_SdssShape_flag
     '@id': '#forced_photometry.r_base_SdssShape_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4491,7 +4186,6 @@ tables:
   - name: r_base_SdssShape_flag_unweightedBad
     '@id': '#forced_photometry.r_base_SdssShape_flag_unweightedBad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Both weighted and unweighted moments were invalid
@@ -4499,7 +4193,6 @@ tables:
   - name: r_base_SdssShape_flag_unweighted
     '@id': '#forced_photometry.r_base_SdssShape_flag_unweighted'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Weighted moments converged to an invalid value; using unweighted
@@ -4508,7 +4201,6 @@ tables:
   - name: r_base_SdssShape_flag_shift
     '@id': '#forced_photometry.r_base_SdssShape_flag_shift'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: centroid shifted by more than the maximum allowed amount
@@ -4516,7 +4208,6 @@ tables:
   - name: r_base_SdssShape_flag_maxIter
     '@id': '#forced_photometry.r_base_SdssShape_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Too many iterations in adaptive moments
@@ -4524,7 +4215,6 @@ tables:
   - name: r_base_SdssShape_flag_psf
     '@id': '#forced_photometry.r_base_SdssShape_flag_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Failure in measuring PSF model shape
@@ -4532,7 +4222,6 @@ tables:
   - name: r_base_SdssShape_flag_badCentroid
     '@id': '#forced_photometry.r_base_SdssShape_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4575,7 +4264,6 @@ tables:
   - name: r_base_PsfFlux_flag
     '@id': '#forced_photometry.r_base_PsfFlux_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4583,7 +4271,6 @@ tables:
   - name: r_base_PsfFlux_flag_noGoodPixels
     '@id': '#forced_photometry.r_base_PsfFlux_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: not enough non-rejected pixels in data to attempt the fit
@@ -4591,7 +4278,6 @@ tables:
   - name: r_base_PsfFlux_flag_edge
     '@id': '#forced_photometry.r_base_PsfFlux_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: object was too close to the edge of the image to use the full PSF
@@ -4600,7 +4286,6 @@ tables:
   - name: r_base_PsfFlux_flag_apCorr
     '@id': '#forced_photometry.r_base_PsfFlux_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct base_PsfFlux
@@ -4608,7 +4293,6 @@ tables:
   - name: r_base_PsfFlux_flag_badCentroid
     '@id': '#forced_photometry.r_base_PsfFlux_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4623,7 +4307,6 @@ tables:
   - name: r_base_InputCount_flag
     '@id': '#forced_photometry.r_base_InputCount_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -4631,7 +4314,6 @@ tables:
   - name: r_base_InputCount_flag_noInputs
     '@id': '#forced_photometry.r_base_InputCount_flag_noInputs'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: No coadd inputs available
@@ -4639,7 +4321,6 @@ tables:
   - name: r_base_InputCount_flag_badCentroid
     '@id': '#forced_photometry.r_base_InputCount_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4654,7 +4335,6 @@ tables:
   - name: r_base_Variance_flag
     '@id': '#forced_photometry.r_base_Variance_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -4662,7 +4342,6 @@ tables:
   - name: r_base_Variance_flag_emptyFootprint
     '@id': '#forced_photometry.r_base_Variance_flag_emptyFootprint'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set to True when the footprint has no usable pixels
@@ -4670,7 +4349,6 @@ tables:
   - name: r_base_Variance_flag_badCentroid
     '@id': '#forced_photometry.r_base_Variance_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4692,7 +4370,6 @@ tables:
   - name: r_base_LocalBackground_flag
     '@id': '#forced_photometry.r_base_LocalBackground_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4700,7 +4377,6 @@ tables:
   - name: r_base_LocalBackground_flag_noGoodPixels
     '@id': '#forced_photometry.r_base_LocalBackground_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no good pixels in the annulus
@@ -4708,7 +4384,6 @@ tables:
   - name: r_base_LocalBackground_flag_noPsf
     '@id': '#forced_photometry.r_base_LocalBackground_flag_noPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no PSF provided
@@ -4716,7 +4391,6 @@ tables:
   - name: r_base_LocalBackground_flag_badCentroid
     '@id': '#forced_photometry.r_base_LocalBackground_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -4829,7 +4503,6 @@ tables:
   - name: r_modelfit_CModel_initial_flag
     '@id': '#forced_photometry.r_modelfit_CModel_initial_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the initial flux failed
@@ -4837,7 +4510,6 @@ tables:
   - name: r_modelfit_CModel_initial_flag_badReference
     '@id': '#forced_photometry.r_modelfit_CModel_initial_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -4845,7 +4517,6 @@ tables:
   - name: r_modelfit_CModel_initial_flag_numericError
     '@id': '#forced_photometry.r_modelfit_CModel_initial_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -4855,7 +4526,6 @@ tables:
   - name: r_modelfit_CModel_exp_flag
     '@id': '#forced_photometry.r_modelfit_CModel_exp_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the exponential flux failed
@@ -4863,7 +4533,6 @@ tables:
   - name: r_modelfit_CModel_exp_flag_badReference
     '@id': '#forced_photometry.r_modelfit_CModel_exp_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -4871,7 +4540,6 @@ tables:
   - name: r_modelfit_CModel_exp_flag_numericError
     '@id': '#forced_photometry.r_modelfit_CModel_exp_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -4881,7 +4549,6 @@ tables:
   - name: r_modelfit_CModel_dev_flag
     '@id': '#forced_photometry.r_modelfit_CModel_dev_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the de Vaucouleur flux failed
@@ -4889,7 +4556,6 @@ tables:
   - name: r_modelfit_CModel_dev_flag_badReference
     '@id': '#forced_photometry.r_modelfit_CModel_dev_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -4897,7 +4563,6 @@ tables:
   - name: r_modelfit_CModel_dev_flag_numericError
     '@id': '#forced_photometry.r_modelfit_CModel_dev_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -4907,7 +4572,6 @@ tables:
   - name: r_modelfit_CModel_exp_flag_apCorr
     '@id': '#forced_photometry.r_modelfit_CModel_exp_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_exp
@@ -4915,7 +4579,6 @@ tables:
   - name: r_modelfit_CModel_dev_flag_apCorr
     '@id': '#forced_photometry.r_modelfit_CModel_dev_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_dev
@@ -4923,7 +4586,6 @@ tables:
   - name: r_modelfit_CModel_initial_flag_apCorr
     '@id': '#forced_photometry.r_modelfit_CModel_initial_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_initial
@@ -4931,7 +4593,6 @@ tables:
   - name: u_base_PixelFlags_flag
     '@id': '#forced_photometry.u_base_PixelFlags_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General failure flag, set if anything went wrong
@@ -4939,7 +4600,6 @@ tables:
   - name: u_base_PixelFlags_flag_offimage
     '@id': '#forced_photometry.u_base_PixelFlags_flag_offimage'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is off image
@@ -4947,7 +4607,6 @@ tables:
   - name: u_base_PixelFlags_flag_edge
     '@id': '#forced_photometry.u_base_PixelFlags_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
@@ -4955,7 +4614,6 @@ tables:
   - name: u_base_PixelFlags_flag_interpolated
     '@id': '#forced_photometry.u_base_PixelFlags_flag_interpolated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source footprint
@@ -4963,7 +4621,6 @@ tables:
   - name: u_base_PixelFlags_flag_saturated
     '@id': '#forced_photometry.u_base_PixelFlags_flag_saturated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source footprint
@@ -4971,7 +4628,6 @@ tables:
   - name: u_base_PixelFlags_flag_cr
     '@id': '#forced_photometry.u_base_PixelFlags_flag_cr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source footprint
@@ -4979,7 +4635,6 @@ tables:
   - name: u_base_PixelFlags_flag_bad
     '@id': '#forced_photometry.u_base_PixelFlags_flag_bad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Bad pixel in the Source footprint
@@ -4987,7 +4642,6 @@ tables:
   - name: u_base_PixelFlags_flag_suspect
     '@id': '#forced_photometry.u_base_PixelFlags_flag_suspect'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's footprint includes suspect pixels"
@@ -4995,7 +4649,6 @@ tables:
   - name: u_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_interpolatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source center
@@ -5003,7 +4656,6 @@ tables:
   - name: u_base_PixelFlags_flag_saturatedCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_saturatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source center
@@ -5011,7 +4663,6 @@ tables:
   - name: u_base_PixelFlags_flag_crCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_crCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source center
@@ -5019,7 +4670,6 @@ tables:
   - name: u_base_PixelFlags_flag_suspectCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_suspectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's center is close to suspect pixels"
@@ -5027,7 +4677,6 @@ tables:
   - name: u_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_clippedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to CLIPPED pixels
@@ -5035,7 +4684,6 @@ tables:
   - name: u_base_PixelFlags_flag_sensor_edgeCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_sensor_edgeCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to SENSOR_EDGE pixels
@@ -5043,7 +4691,6 @@ tables:
   - name: u_base_PixelFlags_flag_rejectedCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_rejectedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to REJECTED pixels
@@ -5051,7 +4698,6 @@ tables:
   - name: u_base_PixelFlags_flag_inexact_psfCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_inexact_psfCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to INEXACT_PSF pixels
@@ -5059,7 +4705,6 @@ tables:
   - name: u_base_PixelFlags_flag_bright_objectCenter
     '@id': '#forced_photometry.u_base_PixelFlags_flag_bright_objectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to BRIGHT_OBJECT pixels
@@ -5067,7 +4712,6 @@ tables:
   - name: u_base_PixelFlags_flag_clipped
     '@id': '#forced_photometry.u_base_PixelFlags_flag_clipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes CLIPPED pixels
@@ -5075,7 +4719,6 @@ tables:
   - name: u_base_PixelFlags_flag_sensor_edge
     '@id': '#forced_photometry.u_base_PixelFlags_flag_sensor_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes SENSOR_EDGE pixels
@@ -5083,7 +4726,6 @@ tables:
   - name: u_base_PixelFlags_flag_rejected
     '@id': '#forced_photometry.u_base_PixelFlags_flag_rejected'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes REJECTED pixels
@@ -5091,7 +4733,6 @@ tables:
   - name: u_base_PixelFlags_flag_inexact_psf
     '@id': '#forced_photometry.u_base_PixelFlags_flag_inexact_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes INEXACT_PSF pixels
@@ -5099,7 +4740,6 @@ tables:
   - name: u_base_PixelFlags_flag_bright_object
     '@id': '#forced_photometry.u_base_PixelFlags_flag_bright_object'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes BRIGHT_OBJECT pixels
@@ -5107,7 +4747,6 @@ tables:
   - name: u_good
     '@id': '#forced_photometry.u_good'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if the source has no flagged pixels.
@@ -5121,7 +4760,6 @@ tables:
   - name: u_base_ClassificationExtendedness_flag
     '@id': '#forced_photometry.u_base_ClassificationExtendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Set to 1 for any fatal failure.
@@ -5178,7 +4816,6 @@ tables:
   - name: u_modelfit_CModel_flag
     '@id': '#forced_photometry.u_modelfit_CModel_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set if the final cmodel fit (or any previous fit) failed
@@ -5186,7 +4823,6 @@ tables:
   - name: u_modelfit_CModel_flag_region_maxArea
     '@id': '#forced_photometry.u_modelfit_CModel_flag_region_maxArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: number of pixels in fit region exceeded the region.maxArea value
@@ -5194,7 +4830,6 @@ tables:
   - name: u_modelfit_CModel_flag_region_maxBadPixelFraction
     '@id': '#forced_photometry.u_modelfit_CModel_flag_region_maxBadPixelFraction'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the fraction of bad/clipped pixels in the fit region exceeded region.maxBadPixelFraction
@@ -5202,7 +4837,6 @@ tables:
   - name: u_modelfit_CModel_flag_badReference
     '@id': '#forced_photometry.u_modelfit_CModel_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -5210,7 +4844,6 @@ tables:
   - name: u_modelfit_CModel_flag_noShapeletPsf
     '@id': '#forced_photometry.u_modelfit_CModel_flag_noShapeletPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the multishapelet fit to the PSF model did not succeed
@@ -5218,7 +4851,6 @@ tables:
   - name: u_modelfit_CModel_flag_badCentroid
     '@id': '#forced_photometry.u_modelfit_CModel_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: input centroid was not within the fit region (probably because it''s
@@ -5227,7 +4859,6 @@ tables:
   - name: u_modelfit_CModel_flag_apCorr
     '@id': '#forced_photometry.u_modelfit_CModel_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel
@@ -5263,7 +4894,6 @@ tables:
   - name: u_base_SdssCentroid_flag
     '@id': '#forced_photometry.u_base_SdssCentroid_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5271,7 +4901,6 @@ tables:
   - name: u_base_SdssCentroid_flag_edge
     '@id': '#forced_photometry.u_base_SdssCentroid_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object too close to edge
@@ -5279,7 +4908,6 @@ tables:
   - name: u_base_SdssCentroid_flag_noSecondDerivative
     '@id': '#forced_photometry.u_base_SdssCentroid_flag_noSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Vanishing second derivative
@@ -5287,7 +4915,6 @@ tables:
   - name: u_base_SdssCentroid_flag_almostNoSecondDerivative
     '@id': '#forced_photometry.u_base_SdssCentroid_flag_almostNoSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Almost vanishing second derivative
@@ -5295,7 +4922,6 @@ tables:
   - name: u_base_SdssCentroid_flag_notAtMaximum
     '@id': '#forced_photometry.u_base_SdssCentroid_flag_notAtMaximum'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object is not at a maximum
@@ -5303,7 +4929,6 @@ tables:
   - name: u_base_SdssCentroid_flag_resetToPeak
     '@id': '#forced_photometry.u_base_SdssCentroid_flag_resetToPeak'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if CentroidChecker reset the centroid
@@ -5311,7 +4936,6 @@ tables:
   - name: u_base_SdssCentroid_flag_badInitialCentroid
     '@id': '#forced_photometry.u_base_SdssCentroid_flag_badInitialCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: whether the reference centroid is marked as bad
@@ -5431,7 +5055,6 @@ tables:
   - name: u_base_SdssShape_flag
     '@id': '#forced_photometry.u_base_SdssShape_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5439,7 +5062,6 @@ tables:
   - name: u_base_SdssShape_flag_unweightedBad
     '@id': '#forced_photometry.u_base_SdssShape_flag_unweightedBad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Both weighted and unweighted moments were invalid
@@ -5447,7 +5069,6 @@ tables:
   - name: u_base_SdssShape_flag_unweighted
     '@id': '#forced_photometry.u_base_SdssShape_flag_unweighted'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Weighted moments converged to an invalid value; using unweighted
@@ -5456,7 +5077,6 @@ tables:
   - name: u_base_SdssShape_flag_shift
     '@id': '#forced_photometry.u_base_SdssShape_flag_shift'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: centroid shifted by more than the maximum allowed amount
@@ -5464,7 +5084,6 @@ tables:
   - name: u_base_SdssShape_flag_maxIter
     '@id': '#forced_photometry.u_base_SdssShape_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Too many iterations in adaptive moments
@@ -5472,7 +5091,6 @@ tables:
   - name: u_base_SdssShape_flag_psf
     '@id': '#forced_photometry.u_base_SdssShape_flag_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Failure in measuring PSF model shape
@@ -5480,7 +5098,6 @@ tables:
   - name: u_base_SdssShape_flag_badCentroid
     '@id': '#forced_photometry.u_base_SdssShape_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5523,7 +5140,6 @@ tables:
   - name: u_base_PsfFlux_flag
     '@id': '#forced_photometry.u_base_PsfFlux_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5531,7 +5147,6 @@ tables:
   - name: u_base_PsfFlux_flag_noGoodPixels
     '@id': '#forced_photometry.u_base_PsfFlux_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: not enough non-rejected pixels in data to attempt the fit
@@ -5539,7 +5154,6 @@ tables:
   - name: u_base_PsfFlux_flag_edge
     '@id': '#forced_photometry.u_base_PsfFlux_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: object was too close to the edge of the image to use the full PSF
@@ -5548,7 +5162,6 @@ tables:
   - name: u_base_PsfFlux_flag_apCorr
     '@id': '#forced_photometry.u_base_PsfFlux_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct base_PsfFlux
@@ -5556,7 +5169,6 @@ tables:
   - name: u_base_PsfFlux_flag_badCentroid
     '@id': '#forced_photometry.u_base_PsfFlux_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5571,7 +5183,6 @@ tables:
   - name: u_base_InputCount_flag
     '@id': '#forced_photometry.u_base_InputCount_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -5579,7 +5190,6 @@ tables:
   - name: u_base_InputCount_flag_noInputs
     '@id': '#forced_photometry.u_base_InputCount_flag_noInputs'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: No coadd inputs available
@@ -5587,7 +5197,6 @@ tables:
   - name: u_base_InputCount_flag_badCentroid
     '@id': '#forced_photometry.u_base_InputCount_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5602,7 +5211,6 @@ tables:
   - name: u_base_Variance_flag
     '@id': '#forced_photometry.u_base_Variance_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -5610,7 +5218,6 @@ tables:
   - name: u_base_Variance_flag_emptyFootprint
     '@id': '#forced_photometry.u_base_Variance_flag_emptyFootprint'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set to True when the footprint has no usable pixels
@@ -5618,7 +5225,6 @@ tables:
   - name: u_base_Variance_flag_badCentroid
     '@id': '#forced_photometry.u_base_Variance_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5640,7 +5246,6 @@ tables:
   - name: u_base_LocalBackground_flag
     '@id': '#forced_photometry.u_base_LocalBackground_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5648,7 +5253,6 @@ tables:
   - name: u_base_LocalBackground_flag_noGoodPixels
     '@id': '#forced_photometry.u_base_LocalBackground_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no good pixels in the annulus
@@ -5656,7 +5260,6 @@ tables:
   - name: u_base_LocalBackground_flag_noPsf
     '@id': '#forced_photometry.u_base_LocalBackground_flag_noPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no PSF provided
@@ -5664,7 +5267,6 @@ tables:
   - name: u_base_LocalBackground_flag_badCentroid
     '@id': '#forced_photometry.u_base_LocalBackground_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -5777,7 +5379,6 @@ tables:
   - name: u_modelfit_CModel_initial_flag
     '@id': '#forced_photometry.u_modelfit_CModel_initial_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the initial flux failed
@@ -5785,7 +5386,6 @@ tables:
   - name: u_modelfit_CModel_initial_flag_badReference
     '@id': '#forced_photometry.u_modelfit_CModel_initial_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -5793,7 +5393,6 @@ tables:
   - name: u_modelfit_CModel_initial_flag_numericError
     '@id': '#forced_photometry.u_modelfit_CModel_initial_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -5803,7 +5402,6 @@ tables:
   - name: u_modelfit_CModel_exp_flag
     '@id': '#forced_photometry.u_modelfit_CModel_exp_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the exponential flux failed
@@ -5811,7 +5409,6 @@ tables:
   - name: u_modelfit_CModel_exp_flag_badReference
     '@id': '#forced_photometry.u_modelfit_CModel_exp_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -5819,7 +5416,6 @@ tables:
   - name: u_modelfit_CModel_exp_flag_numericError
     '@id': '#forced_photometry.u_modelfit_CModel_exp_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -5829,7 +5425,6 @@ tables:
   - name: u_modelfit_CModel_dev_flag
     '@id': '#forced_photometry.u_modelfit_CModel_dev_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the de Vaucouleur flux failed
@@ -5837,7 +5432,6 @@ tables:
   - name: u_modelfit_CModel_dev_flag_badReference
     '@id': '#forced_photometry.u_modelfit_CModel_dev_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -5845,7 +5439,6 @@ tables:
   - name: u_modelfit_CModel_dev_flag_numericError
     '@id': '#forced_photometry.u_modelfit_CModel_dev_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -5855,7 +5448,6 @@ tables:
   - name: u_modelfit_CModel_exp_flag_apCorr
     '@id': '#forced_photometry.u_modelfit_CModel_exp_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_exp
@@ -5863,7 +5455,6 @@ tables:
   - name: u_modelfit_CModel_dev_flag_apCorr
     '@id': '#forced_photometry.u_modelfit_CModel_dev_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_dev
@@ -5871,7 +5462,6 @@ tables:
   - name: u_modelfit_CModel_initial_flag_apCorr
     '@id': '#forced_photometry.u_modelfit_CModel_initial_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_initial
@@ -5879,7 +5469,6 @@ tables:
   - name: y_base_PixelFlags_flag
     '@id': '#forced_photometry.y_base_PixelFlags_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General failure flag, set if anything went wrong
@@ -5887,7 +5476,6 @@ tables:
   - name: y_base_PixelFlags_flag_offimage
     '@id': '#forced_photometry.y_base_PixelFlags_flag_offimage'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is off image
@@ -5895,7 +5483,6 @@ tables:
   - name: y_base_PixelFlags_flag_edge
     '@id': '#forced_photometry.y_base_PixelFlags_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
@@ -5903,7 +5490,6 @@ tables:
   - name: y_base_PixelFlags_flag_interpolated
     '@id': '#forced_photometry.y_base_PixelFlags_flag_interpolated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source footprint
@@ -5911,7 +5497,6 @@ tables:
   - name: y_base_PixelFlags_flag_saturated
     '@id': '#forced_photometry.y_base_PixelFlags_flag_saturated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source footprint
@@ -5919,7 +5504,6 @@ tables:
   - name: y_base_PixelFlags_flag_cr
     '@id': '#forced_photometry.y_base_PixelFlags_flag_cr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source footprint
@@ -5927,7 +5511,6 @@ tables:
   - name: y_base_PixelFlags_flag_bad
     '@id': '#forced_photometry.y_base_PixelFlags_flag_bad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Bad pixel in the Source footprint
@@ -5935,7 +5518,6 @@ tables:
   - name: y_base_PixelFlags_flag_suspect
     '@id': '#forced_photometry.y_base_PixelFlags_flag_suspect'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's footprint includes suspect pixels"
@@ -5943,7 +5525,6 @@ tables:
   - name: y_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_interpolatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source center
@@ -5951,7 +5532,6 @@ tables:
   - name: y_base_PixelFlags_flag_saturatedCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_saturatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source center
@@ -5959,7 +5539,6 @@ tables:
   - name: y_base_PixelFlags_flag_crCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_crCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source center
@@ -5967,7 +5546,6 @@ tables:
   - name: y_base_PixelFlags_flag_suspectCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_suspectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's center is close to suspect pixels"
@@ -5975,7 +5553,6 @@ tables:
   - name: y_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_clippedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to CLIPPED pixels
@@ -5983,7 +5560,6 @@ tables:
   - name: y_base_PixelFlags_flag_sensor_edgeCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_sensor_edgeCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to SENSOR_EDGE pixels
@@ -5991,7 +5567,6 @@ tables:
   - name: y_base_PixelFlags_flag_rejectedCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_rejectedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to REJECTED pixels
@@ -5999,7 +5574,6 @@ tables:
   - name: y_base_PixelFlags_flag_inexact_psfCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_inexact_psfCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to INEXACT_PSF pixels
@@ -6007,7 +5581,6 @@ tables:
   - name: y_base_PixelFlags_flag_bright_objectCenter
     '@id': '#forced_photometry.y_base_PixelFlags_flag_bright_objectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to BRIGHT_OBJECT pixels
@@ -6015,7 +5588,6 @@ tables:
   - name: y_base_PixelFlags_flag_clipped
     '@id': '#forced_photometry.y_base_PixelFlags_flag_clipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes CLIPPED pixels
@@ -6023,7 +5595,6 @@ tables:
   - name: y_base_PixelFlags_flag_sensor_edge
     '@id': '#forced_photometry.y_base_PixelFlags_flag_sensor_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes SENSOR_EDGE pixels
@@ -6031,7 +5602,6 @@ tables:
   - name: y_base_PixelFlags_flag_rejected
     '@id': '#forced_photometry.y_base_PixelFlags_flag_rejected'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes REJECTED pixels
@@ -6039,7 +5609,6 @@ tables:
   - name: y_base_PixelFlags_flag_inexact_psf
     '@id': '#forced_photometry.y_base_PixelFlags_flag_inexact_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes INEXACT_PSF pixels
@@ -6047,7 +5616,6 @@ tables:
   - name: y_base_PixelFlags_flag_bright_object
     '@id': '#forced_photometry.y_base_PixelFlags_flag_bright_object'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes BRIGHT_OBJECT pixels
@@ -6055,7 +5623,6 @@ tables:
   - name: y_good
     '@id': '#forced_photometry.y_good'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if the source has no flagged pixels.
@@ -6069,7 +5636,6 @@ tables:
   - name: y_base_ClassificationExtendedness_flag
     '@id': '#forced_photometry.y_base_ClassificationExtendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Set to 1 for any fatal failure.
@@ -6126,7 +5692,6 @@ tables:
   - name: y_modelfit_CModel_flag
     '@id': '#forced_photometry.y_modelfit_CModel_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set if the final cmodel fit (or any previous fit) failed
@@ -6134,7 +5699,6 @@ tables:
   - name: y_modelfit_CModel_flag_region_maxArea
     '@id': '#forced_photometry.y_modelfit_CModel_flag_region_maxArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: number of pixels in fit region exceeded the region.maxArea value
@@ -6142,7 +5706,6 @@ tables:
   - name: y_modelfit_CModel_flag_region_maxBadPixelFraction
     '@id': '#forced_photometry.y_modelfit_CModel_flag_region_maxBadPixelFraction'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the fraction of bad/clipped pixels in the fit region exceeded region.maxBadPixelFraction
@@ -6150,7 +5713,6 @@ tables:
   - name: y_modelfit_CModel_flag_badReference
     '@id': '#forced_photometry.y_modelfit_CModel_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -6158,7 +5720,6 @@ tables:
   - name: y_modelfit_CModel_flag_noShapeletPsf
     '@id': '#forced_photometry.y_modelfit_CModel_flag_noShapeletPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the multishapelet fit to the PSF model did not succeed
@@ -6166,7 +5727,6 @@ tables:
   - name: y_modelfit_CModel_flag_badCentroid
     '@id': '#forced_photometry.y_modelfit_CModel_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: input centroid was not within the fit region (probably because it''s
@@ -6175,7 +5735,6 @@ tables:
   - name: y_modelfit_CModel_flag_apCorr
     '@id': '#forced_photometry.y_modelfit_CModel_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel
@@ -6211,7 +5770,6 @@ tables:
   - name: y_base_SdssCentroid_flag
     '@id': '#forced_photometry.y_base_SdssCentroid_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6219,7 +5777,6 @@ tables:
   - name: y_base_SdssCentroid_flag_edge
     '@id': '#forced_photometry.y_base_SdssCentroid_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object too close to edge
@@ -6227,7 +5784,6 @@ tables:
   - name: y_base_SdssCentroid_flag_noSecondDerivative
     '@id': '#forced_photometry.y_base_SdssCentroid_flag_noSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Vanishing second derivative
@@ -6235,7 +5791,6 @@ tables:
   - name: y_base_SdssCentroid_flag_almostNoSecondDerivative
     '@id': '#forced_photometry.y_base_SdssCentroid_flag_almostNoSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Almost vanishing second derivative
@@ -6243,7 +5798,6 @@ tables:
   - name: y_base_SdssCentroid_flag_notAtMaximum
     '@id': '#forced_photometry.y_base_SdssCentroid_flag_notAtMaximum'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object is not at a maximum
@@ -6251,7 +5805,6 @@ tables:
   - name: y_base_SdssCentroid_flag_resetToPeak
     '@id': '#forced_photometry.y_base_SdssCentroid_flag_resetToPeak'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if CentroidChecker reset the centroid
@@ -6259,7 +5812,6 @@ tables:
   - name: y_base_SdssCentroid_flag_badInitialCentroid
     '@id': '#forced_photometry.y_base_SdssCentroid_flag_badInitialCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: whether the reference centroid is marked as bad
@@ -6379,7 +5931,6 @@ tables:
   - name: y_base_SdssShape_flag
     '@id': '#forced_photometry.y_base_SdssShape_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6387,7 +5938,6 @@ tables:
   - name: y_base_SdssShape_flag_unweightedBad
     '@id': '#forced_photometry.y_base_SdssShape_flag_unweightedBad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Both weighted and unweighted moments were invalid
@@ -6395,7 +5945,6 @@ tables:
   - name: y_base_SdssShape_flag_unweighted
     '@id': '#forced_photometry.y_base_SdssShape_flag_unweighted'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Weighted moments converged to an invalid value; using unweighted
@@ -6404,7 +5953,6 @@ tables:
   - name: y_base_SdssShape_flag_shift
     '@id': '#forced_photometry.y_base_SdssShape_flag_shift'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: centroid shifted by more than the maximum allowed amount
@@ -6412,7 +5960,6 @@ tables:
   - name: y_base_SdssShape_flag_maxIter
     '@id': '#forced_photometry.y_base_SdssShape_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Too many iterations in adaptive moments
@@ -6420,7 +5967,6 @@ tables:
   - name: y_base_SdssShape_flag_psf
     '@id': '#forced_photometry.y_base_SdssShape_flag_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Failure in measuring PSF model shape
@@ -6428,7 +5974,6 @@ tables:
   - name: y_base_SdssShape_flag_badCentroid
     '@id': '#forced_photometry.y_base_SdssShape_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6471,7 +6016,6 @@ tables:
   - name: y_base_PsfFlux_flag
     '@id': '#forced_photometry.y_base_PsfFlux_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6479,7 +6023,6 @@ tables:
   - name: y_base_PsfFlux_flag_noGoodPixels
     '@id': '#forced_photometry.y_base_PsfFlux_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: not enough non-rejected pixels in data to attempt the fit
@@ -6487,7 +6030,6 @@ tables:
   - name: y_base_PsfFlux_flag_edge
     '@id': '#forced_photometry.y_base_PsfFlux_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: object was too close to the edge of the image to use the full PSF
@@ -6496,7 +6038,6 @@ tables:
   - name: y_base_PsfFlux_flag_apCorr
     '@id': '#forced_photometry.y_base_PsfFlux_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct base_PsfFlux
@@ -6504,7 +6045,6 @@ tables:
   - name: y_base_PsfFlux_flag_badCentroid
     '@id': '#forced_photometry.y_base_PsfFlux_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6519,7 +6059,6 @@ tables:
   - name: y_base_InputCount_flag
     '@id': '#forced_photometry.y_base_InputCount_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -6527,7 +6066,6 @@ tables:
   - name: y_base_InputCount_flag_noInputs
     '@id': '#forced_photometry.y_base_InputCount_flag_noInputs'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: No coadd inputs available
@@ -6535,7 +6073,6 @@ tables:
   - name: y_base_InputCount_flag_badCentroid
     '@id': '#forced_photometry.y_base_InputCount_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6550,7 +6087,6 @@ tables:
   - name: y_base_Variance_flag
     '@id': '#forced_photometry.y_base_Variance_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -6558,7 +6094,6 @@ tables:
   - name: y_base_Variance_flag_emptyFootprint
     '@id': '#forced_photometry.y_base_Variance_flag_emptyFootprint'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set to True when the footprint has no usable pixels
@@ -6566,7 +6101,6 @@ tables:
   - name: y_base_Variance_flag_badCentroid
     '@id': '#forced_photometry.y_base_Variance_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6588,7 +6122,6 @@ tables:
   - name: y_base_LocalBackground_flag
     '@id': '#forced_photometry.y_base_LocalBackground_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6596,7 +6129,6 @@ tables:
   - name: y_base_LocalBackground_flag_noGoodPixels
     '@id': '#forced_photometry.y_base_LocalBackground_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no good pixels in the annulus
@@ -6604,7 +6136,6 @@ tables:
   - name: y_base_LocalBackground_flag_noPsf
     '@id': '#forced_photometry.y_base_LocalBackground_flag_noPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no PSF provided
@@ -6612,7 +6143,6 @@ tables:
   - name: y_base_LocalBackground_flag_badCentroid
     '@id': '#forced_photometry.y_base_LocalBackground_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -6725,7 +6255,6 @@ tables:
   - name: y_modelfit_CModel_initial_flag
     '@id': '#forced_photometry.y_modelfit_CModel_initial_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the initial flux failed
@@ -6733,7 +6262,6 @@ tables:
   - name: y_modelfit_CModel_initial_flag_badReference
     '@id': '#forced_photometry.y_modelfit_CModel_initial_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -6741,7 +6269,6 @@ tables:
   - name: y_modelfit_CModel_initial_flag_numericError
     '@id': '#forced_photometry.y_modelfit_CModel_initial_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -6751,7 +6278,6 @@ tables:
   - name: y_modelfit_CModel_exp_flag
     '@id': '#forced_photometry.y_modelfit_CModel_exp_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the exponential flux failed
@@ -6759,7 +6285,6 @@ tables:
   - name: y_modelfit_CModel_exp_flag_badReference
     '@id': '#forced_photometry.y_modelfit_CModel_exp_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -6767,7 +6292,6 @@ tables:
   - name: y_modelfit_CModel_exp_flag_numericError
     '@id': '#forced_photometry.y_modelfit_CModel_exp_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -6777,7 +6301,6 @@ tables:
   - name: y_modelfit_CModel_dev_flag
     '@id': '#forced_photometry.y_modelfit_CModel_dev_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the de Vaucouleur flux failed
@@ -6785,7 +6308,6 @@ tables:
   - name: y_modelfit_CModel_dev_flag_badReference
     '@id': '#forced_photometry.y_modelfit_CModel_dev_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -6793,7 +6315,6 @@ tables:
   - name: y_modelfit_CModel_dev_flag_numericError
     '@id': '#forced_photometry.y_modelfit_CModel_dev_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -6803,7 +6324,6 @@ tables:
   - name: y_modelfit_CModel_exp_flag_apCorr
     '@id': '#forced_photometry.y_modelfit_CModel_exp_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_exp
@@ -6811,7 +6331,6 @@ tables:
   - name: y_modelfit_CModel_dev_flag_apCorr
     '@id': '#forced_photometry.y_modelfit_CModel_dev_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_dev
@@ -6819,7 +6338,6 @@ tables:
   - name: y_modelfit_CModel_initial_flag_apCorr
     '@id': '#forced_photometry.y_modelfit_CModel_initial_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_initial
@@ -6827,7 +6345,6 @@ tables:
   - name: z_base_PixelFlags_flag
     '@id': '#forced_photometry.z_base_PixelFlags_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General failure flag, set if anything went wrong
@@ -6835,7 +6352,6 @@ tables:
   - name: z_base_PixelFlags_flag_offimage
     '@id': '#forced_photometry.z_base_PixelFlags_flag_offimage'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is off image
@@ -6843,7 +6359,6 @@ tables:
   - name: z_base_PixelFlags_flag_edge
     '@id': '#forced_photometry.z_base_PixelFlags_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
@@ -6851,7 +6366,6 @@ tables:
   - name: z_base_PixelFlags_flag_interpolated
     '@id': '#forced_photometry.z_base_PixelFlags_flag_interpolated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source footprint
@@ -6859,7 +6373,6 @@ tables:
   - name: z_base_PixelFlags_flag_saturated
     '@id': '#forced_photometry.z_base_PixelFlags_flag_saturated'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source footprint
@@ -6867,7 +6380,6 @@ tables:
   - name: z_base_PixelFlags_flag_cr
     '@id': '#forced_photometry.z_base_PixelFlags_flag_cr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source footprint
@@ -6875,7 +6387,6 @@ tables:
   - name: z_base_PixelFlags_flag_bad
     '@id': '#forced_photometry.z_base_PixelFlags_flag_bad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Bad pixel in the Source footprint
@@ -6883,7 +6394,6 @@ tables:
   - name: z_base_PixelFlags_flag_suspect
     '@id': '#forced_photometry.z_base_PixelFlags_flag_suspect'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's footprint includes suspect pixels"
@@ -6891,7 +6401,6 @@ tables:
   - name: z_base_PixelFlags_flag_interpolatedCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_interpolatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Interpolated pixel in the Source center
@@ -6899,7 +6408,6 @@ tables:
   - name: z_base_PixelFlags_flag_saturatedCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_saturatedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Saturated pixel in the Source center
@@ -6907,7 +6415,6 @@ tables:
   - name: z_base_PixelFlags_flag_crCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_crCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Cosmic ray in the Source center
@@ -6915,7 +6422,6 @@ tables:
   - name: z_base_PixelFlags_flag_suspectCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_suspectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: "Source's center is close to suspect pixels"
@@ -6923,7 +6429,6 @@ tables:
   - name: z_base_PixelFlags_flag_clippedCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_clippedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to CLIPPED pixels
@@ -6931,7 +6436,6 @@ tables:
   - name: z_base_PixelFlags_flag_sensor_edgeCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_sensor_edgeCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to SENSOR_EDGE pixels
@@ -6939,7 +6443,6 @@ tables:
   - name: z_base_PixelFlags_flag_rejectedCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_rejectedCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to REJECTED pixels
@@ -6947,7 +6450,6 @@ tables:
   - name: z_base_PixelFlags_flag_inexact_psfCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_inexact_psfCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to INEXACT_PSF pixels
@@ -6955,7 +6457,6 @@ tables:
   - name: z_base_PixelFlags_flag_bright_objectCenter
     '@id': '#forced_photometry.z_base_PixelFlags_flag_bright_objectCenter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source center is close to BRIGHT_OBJECT pixels
@@ -6963,7 +6464,6 @@ tables:
   - name: z_base_PixelFlags_flag_clipped
     '@id': '#forced_photometry.z_base_PixelFlags_flag_clipped'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes CLIPPED pixels
@@ -6971,7 +6471,6 @@ tables:
   - name: z_base_PixelFlags_flag_sensor_edge
     '@id': '#forced_photometry.z_base_PixelFlags_flag_sensor_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes SENSOR_EDGE pixels
@@ -6979,7 +6478,6 @@ tables:
   - name: z_base_PixelFlags_flag_rejected
     '@id': '#forced_photometry.z_base_PixelFlags_flag_rejected'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes REJECTED pixels
@@ -6987,7 +6485,6 @@ tables:
   - name: z_base_PixelFlags_flag_inexact_psf
     '@id': '#forced_photometry.z_base_PixelFlags_flag_inexact_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes INEXACT_PSF pixels
@@ -6995,7 +6492,6 @@ tables:
   - name: z_base_PixelFlags_flag_bright_object
     '@id': '#forced_photometry.z_base_PixelFlags_flag_bright_object'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Source footprint includes BRIGHT_OBJECT pixels
@@ -7003,7 +6499,6 @@ tables:
   - name: z_good
     '@id': '#forced_photometry.z_good'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if the source has no flagged pixels.
@@ -7017,7 +6512,6 @@ tables:
   - name: z_base_ClassificationExtendedness_flag
     '@id': '#forced_photometry.z_base_ClassificationExtendedness_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Set to 1 for any fatal failure.
@@ -7074,7 +6568,6 @@ tables:
   - name: z_modelfit_CModel_flag
     '@id': '#forced_photometry.z_modelfit_CModel_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set if the final cmodel fit (or any previous fit) failed
@@ -7082,7 +6575,6 @@ tables:
   - name: z_modelfit_CModel_flag_region_maxArea
     '@id': '#forced_photometry.z_modelfit_CModel_flag_region_maxArea'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: number of pixels in fit region exceeded the region.maxArea value
@@ -7090,7 +6582,6 @@ tables:
   - name: z_modelfit_CModel_flag_region_maxBadPixelFraction
     '@id': '#forced_photometry.z_modelfit_CModel_flag_region_maxBadPixelFraction'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the fraction of bad/clipped pixels in the fit region exceeded region.maxBadPixelFraction
@@ -7098,7 +6589,6 @@ tables:
   - name: z_modelfit_CModel_flag_badReference
     '@id': '#forced_photometry.z_modelfit_CModel_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -7106,7 +6596,6 @@ tables:
   - name: z_modelfit_CModel_flag_noShapeletPsf
     '@id': '#forced_photometry.z_modelfit_CModel_flag_noShapeletPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: the multishapelet fit to the PSF model did not succeed
@@ -7114,7 +6603,6 @@ tables:
   - name: z_modelfit_CModel_flag_badCentroid
     '@id': '#forced_photometry.z_modelfit_CModel_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: input centroid was not within the fit region (probably because it''s
@@ -7123,7 +6611,6 @@ tables:
   - name: z_modelfit_CModel_flag_apCorr
     '@id': '#forced_photometry.z_modelfit_CModel_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel
@@ -7159,7 +6646,6 @@ tables:
   - name: z_base_SdssCentroid_flag
     '@id': '#forced_photometry.z_base_SdssCentroid_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7167,7 +6653,6 @@ tables:
   - name: z_base_SdssCentroid_flag_edge
     '@id': '#forced_photometry.z_base_SdssCentroid_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object too close to edge
@@ -7175,7 +6660,6 @@ tables:
   - name: z_base_SdssCentroid_flag_noSecondDerivative
     '@id': '#forced_photometry.z_base_SdssCentroid_flag_noSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Vanishing second derivative
@@ -7183,7 +6667,6 @@ tables:
   - name: z_base_SdssCentroid_flag_almostNoSecondDerivative
     '@id': '#forced_photometry.z_base_SdssCentroid_flag_almostNoSecondDerivative'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Almost vanishing second derivative
@@ -7191,7 +6674,6 @@ tables:
   - name: z_base_SdssCentroid_flag_notAtMaximum
     '@id': '#forced_photometry.z_base_SdssCentroid_flag_notAtMaximum'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Object is not at a maximum
@@ -7199,7 +6681,6 @@ tables:
   - name: z_base_SdssCentroid_flag_resetToPeak
     '@id': '#forced_photometry.z_base_SdssCentroid_flag_resetToPeak'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if CentroidChecker reset the centroid
@@ -7207,7 +6688,6 @@ tables:
   - name: z_base_SdssCentroid_flag_badInitialCentroid
     '@id': '#forced_photometry.z_base_SdssCentroid_flag_badInitialCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: whether the reference centroid is marked as bad
@@ -7327,7 +6807,6 @@ tables:
   - name: z_base_SdssShape_flag
     '@id': '#forced_photometry.z_base_SdssShape_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7335,7 +6814,6 @@ tables:
   - name: z_base_SdssShape_flag_unweightedBad
     '@id': '#forced_photometry.z_base_SdssShape_flag_unweightedBad'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Both weighted and unweighted moments were invalid
@@ -7343,7 +6821,6 @@ tables:
   - name: z_base_SdssShape_flag_unweighted
     '@id': '#forced_photometry.z_base_SdssShape_flag_unweighted'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Weighted moments converged to an invalid value; using unweighted
@@ -7352,7 +6829,6 @@ tables:
   - name: z_base_SdssShape_flag_shift
     '@id': '#forced_photometry.z_base_SdssShape_flag_shift'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: centroid shifted by more than the maximum allowed amount
@@ -7360,7 +6836,6 @@ tables:
   - name: z_base_SdssShape_flag_maxIter
     '@id': '#forced_photometry.z_base_SdssShape_flag_maxIter'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Too many iterations in adaptive moments
@@ -7368,7 +6843,6 @@ tables:
   - name: z_base_SdssShape_flag_psf
     '@id': '#forced_photometry.z_base_SdssShape_flag_psf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Failure in measuring PSF model shape
@@ -7376,7 +6850,6 @@ tables:
   - name: z_base_SdssShape_flag_badCentroid
     '@id': '#forced_photometry.z_base_SdssShape_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7419,7 +6892,6 @@ tables:
   - name: z_base_PsfFlux_flag
     '@id': '#forced_photometry.z_base_PsfFlux_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7427,7 +6899,6 @@ tables:
   - name: z_base_PsfFlux_flag_noGoodPixels
     '@id': '#forced_photometry.z_base_PsfFlux_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: not enough non-rejected pixels in data to attempt the fit
@@ -7435,7 +6906,6 @@ tables:
   - name: z_base_PsfFlux_flag_edge
     '@id': '#forced_photometry.z_base_PsfFlux_flag_edge'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: object was too close to the edge of the image to use the full PSF
@@ -7444,7 +6914,6 @@ tables:
   - name: z_base_PsfFlux_flag_apCorr
     '@id': '#forced_photometry.z_base_PsfFlux_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct base_PsfFlux
@@ -7452,7 +6921,6 @@ tables:
   - name: z_base_PsfFlux_flag_badCentroid
     '@id': '#forced_photometry.z_base_PsfFlux_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7467,7 +6935,6 @@ tables:
   - name: z_base_InputCount_flag
     '@id': '#forced_photometry.z_base_InputCount_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -7475,7 +6942,6 @@ tables:
   - name: z_base_InputCount_flag_noInputs
     '@id': '#forced_photometry.z_base_InputCount_flag_noInputs'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: No coadd inputs available
@@ -7483,7 +6949,6 @@ tables:
   - name: z_base_InputCount_flag_badCentroid
     '@id': '#forced_photometry.z_base_InputCount_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7498,7 +6963,6 @@ tables:
   - name: z_base_Variance_flag
     '@id': '#forced_photometry.z_base_Variance_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set for any fatal failure
@@ -7506,7 +6970,6 @@ tables:
   - name: z_base_Variance_flag_emptyFootprint
     '@id': '#forced_photometry.z_base_Variance_flag_emptyFootprint'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: Set to True when the footprint has no usable pixels
@@ -7514,7 +6977,6 @@ tables:
   - name: z_base_Variance_flag_badCentroid
     '@id': '#forced_photometry.z_base_Variance_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7536,7 +6998,6 @@ tables:
   - name: z_base_LocalBackground_flag
     '@id': '#forced_photometry.z_base_LocalBackground_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7544,7 +7005,6 @@ tables:
   - name: z_base_LocalBackground_flag_noGoodPixels
     '@id': '#forced_photometry.z_base_LocalBackground_flag_noGoodPixels'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no good pixels in the annulus
@@ -7552,7 +7012,6 @@ tables:
   - name: z_base_LocalBackground_flag_noPsf
     '@id': '#forced_photometry.z_base_LocalBackground_flag_noPsf'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: no PSF provided
@@ -7560,7 +7019,6 @@ tables:
   - name: z_base_LocalBackground_flag_badCentroid
     '@id': '#forced_photometry.z_base_LocalBackground_flag_badCentroid'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: General Failure Flag
@@ -7673,7 +7131,6 @@ tables:
   - name: z_modelfit_CModel_initial_flag
     '@id': '#forced_photometry.z_modelfit_CModel_initial_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the initial flux failed
@@ -7681,7 +7138,6 @@ tables:
   - name: z_modelfit_CModel_initial_flag_badReference
     '@id': '#forced_photometry.z_modelfit_CModel_initial_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -7689,7 +7145,6 @@ tables:
   - name: z_modelfit_CModel_initial_flag_numericError
     '@id': '#forced_photometry.z_modelfit_CModel_initial_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -7699,7 +7154,6 @@ tables:
   - name: z_modelfit_CModel_exp_flag
     '@id': '#forced_photometry.z_modelfit_CModel_exp_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the exponential flux failed
@@ -7707,7 +7161,6 @@ tables:
   - name: z_modelfit_CModel_exp_flag_badReference
     '@id': '#forced_photometry.z_modelfit_CModel_exp_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -7715,7 +7168,6 @@ tables:
   - name: z_modelfit_CModel_exp_flag_numericError
     '@id': '#forced_photometry.z_modelfit_CModel_exp_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -7725,7 +7177,6 @@ tables:
   - name: z_modelfit_CModel_dev_flag
     '@id': '#forced_photometry.z_modelfit_CModel_dev_flag'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: flag set when the flux for the de Vaucouleur flux failed
@@ -7733,7 +7184,6 @@ tables:
   - name: z_modelfit_CModel_dev_flag_badReference
     '@id': '#forced_photometry.z_modelfit_CModel_dev_flag_badReference'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: The original fit in the reference catalog failed.
@@ -7741,7 +7191,6 @@ tables:
   - name: z_modelfit_CModel_dev_flag_numericError
     '@id': '#forced_photometry.z_modelfit_CModel_dev_flag_numericError'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: numerical underflow or overflow in model evaluation; usually this
@@ -7751,7 +7200,6 @@ tables:
   - name: z_modelfit_CModel_exp_flag_apCorr
     '@id': '#forced_photometry.z_modelfit_CModel_exp_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_exp
@@ -7759,7 +7207,6 @@ tables:
   - name: z_modelfit_CModel_dev_flag_apCorr
     '@id': '#forced_photometry.z_modelfit_CModel_dev_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_dev
@@ -7767,7 +7214,6 @@ tables:
   - name: z_modelfit_CModel_initial_flag_apCorr
     '@id': '#forced_photometry.z_modelfit_CModel_initial_flag_apCorr'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: set if unable to aperture correct modelfit_CModel_initial
@@ -7860,7 +7306,6 @@ tables:
     '@id': '#object.xy_flag'
     datatype: boolean
     description: Flag for issues with x and y
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: psNdata
@@ -7907,7 +7352,6 @@ tables:
     '@id': '#object.I_flag'
     datatype: boolean
     description: Flag for issues with Ixx_pixel, Iyy_pixel, and Ixy_pixel.
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: IxxPSF_pixel
@@ -8115,42 +7559,36 @@ tables:
     '@id': '#object.psFlux_flag_g'
     datatype: boolean
     description: flag for issues with psFlux_g
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: psFlux_flag_i
     '@id': '#object.psFlux_flag_i'
     datatype: boolean
     description: flag for issues with psFlux_i
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: psFlux_flag_r
     '@id': '#object.psFlux_flag_r'
     datatype: boolean
     description: flag for issues with psFlux_r
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: psFlux_flag_u
     '@id': '#object.psFlux_flag_u'
     datatype: boolean
     description: flag for issues with psFlux_u
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: psFlux_flag_y
     '@id': '#object.psFlux_flag_y'
     datatype: boolean
     description: flag for issues with psFlux_y
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: psFlux_flag_z
     '@id': '#object.psFlux_flag_z'
     datatype: boolean
     description: flag for issues with psFlux_zs
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: psFluxErr_g
@@ -8295,42 +7733,36 @@ tables:
     '@id': '#object.I_flag_g'
     datatype: boolean
     description: Flag for issues with second moments of source intensity, g band
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: I_flag_i
     '@id': '#object.I_flag_i'
     datatype: boolean
     description: Flag for issues with second moments of source intensity, i band
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: I_flag_r
     '@id': '#object.I_flag_r'
     datatype: boolean
     description: Flag for issues with second moments of source intensity, r band
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: I_flag_u
     '@id': '#object.I_flag_u'
     datatype: boolean
     description: Flag for issues with second moments of source intensity, u band
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: I_flag_y
     '@id': '#object.I_flag_y'
     datatype: boolean
     description: Flag for issues with second moments of source intensity, y band
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: I_flag_z
     '@id': '#object.I_flag_z'
     datatype: boolean
     description: Flag for issues with second moments of source intensity, z band
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
   - name: Ixx_pixel_g
@@ -8589,14 +8021,12 @@ tables:
     '@id': '#object.good'
     datatype: boolean
     description: True if the source has no flagged pixels
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
   - name: clean
     '@id': '#object.clean'
     datatype: boolean
     description: True if the source has no flagged pixels and is not deblended
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
   - name: cModelFlux_g
@@ -8674,42 +8104,36 @@ tables:
   - name: cModelFlux_flag_g
     '@id': '#object.cModelFlux_flag_g'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_i
     '@id': '#object.cModelFlux_flag_i'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_r
     '@id': '#object.cModelFlux_flag_r'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_u
     '@id': '#object.cModelFlux_flag_u'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_y
     '@id': '#object.cModelFlux_flag_y'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
   - name: cModelFlux_flag_z
     '@id': '#object.cModelFlux_flag_z'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: Flag for issues with cModelFlux_flag_<band>
@@ -8944,14 +8368,12 @@ tables:
   - name: is_good_match
     '@id': '#truth_match.is_good_match'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if this object--truth matching pair satisfies all matching criteria
   - name: is_nearest_neighbor
     '@id': '#truth_match.is_nearest_neighbor'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True if this truth entry is the nearest neighbor of the object specified
@@ -8959,7 +8381,6 @@ tables:
   - name: is_unique_truth_entry
     '@id': '#truth_match.is_unique_truth_entry'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 1
     description: True for truth entries that appear for the first time in this truth

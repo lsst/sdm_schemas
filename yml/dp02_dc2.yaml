@@ -36,49 +36,41 @@ tables:
     "@id": "#Object.deblend_skipped"
     datatype: boolean
     description: Deblender skipped this source
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_fromBlend
     "@id": "#Object.detect_fromBlend"
     datatype: boolean
     description: This source is deblended from a parent with more than one child.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isDeblendedModelSource
     "@id": "#Object.detect_isDeblendedModelSource"
     datatype: boolean
     description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky source and is a deblended child
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isDeblendedSource
     "@id": "#Object.detect_isDeblendedSource"
     datatype: boolean
     description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky source and is either an unblended isolated source or a deblended child from a parent with
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isIsolated
     "@id": "#Object.detect_isIsolated"
     datatype: boolean
     description: This source is not a part of a blend.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isPatchInner
     "@id": "#Object.detect_isPatchInner"
     datatype: boolean
     description: True if source is in the inner region of a coadd patch
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isPrimary
     "@id": "#Object.detect_isPrimary"
     datatype: boolean
     description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky source
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isTractInner
     "@id": "#Object.detect_isTractInner"
     datatype: boolean
     description: True if source is in the inner region of a coadd tract
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: footprintArea
     "@id": "#Object.footprintArea"
@@ -89,7 +81,6 @@ tables:
     "@id": "#Object.merge_peak_sky"
     datatype: boolean
     description: Peak detected in filter sky
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: parentObjectId
     "@id": "#Object.parentObjectId"
@@ -126,7 +117,6 @@ tables:
     "@id": "#Object.shape_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Reference band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: shape_xx
     "@id": "#Object.shape_xx"
@@ -147,7 +137,6 @@ tables:
     "@id": "#Object.sky_object"
     datatype: boolean
     description: No source was detected here. This object exists to characterize properties of the sky background
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: skymap
     "@id": "#Object.skymap"
@@ -176,7 +165,6 @@ tables:
     "@id": "#Object.xy_flag"
     datatype: boolean
     description: General Failure Flag. Reference band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y
     "@id": "#Object.y"
@@ -202,7 +190,6 @@ tables:
     "@id": "#Object.g_ap03Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap06Flux
     "@id": "#Object.g_ap06Flux"
@@ -218,7 +205,6 @@ tables:
     "@id": "#Object.g_ap06Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap09Flux
     "@id": "#Object.g_ap09Flux"
@@ -234,7 +220,6 @@ tables:
     "@id": "#Object.g_ap09Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap12Flux
     "@id": "#Object.g_ap12Flux"
@@ -250,7 +235,6 @@ tables:
     "@id": "#Object.g_ap12Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap17Flux
     "@id": "#Object.g_ap17Flux"
@@ -266,7 +250,6 @@ tables:
     "@id": "#Object.g_ap17Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap25Flux
     "@id": "#Object.g_ap25Flux"
@@ -282,7 +265,6 @@ tables:
     "@id": "#Object.g_ap25Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap35Flux
     "@id": "#Object.g_ap35Flux"
@@ -298,7 +280,6 @@ tables:
     "@id": "#Object.g_ap35Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap50Flux
     "@id": "#Object.g_ap50Flux"
@@ -314,7 +295,6 @@ tables:
     "@id": "#Object.g_ap50Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ap70Flux
     "@id": "#Object.g_ap70Flux"
@@ -330,25 +310,21 @@ tables:
     "@id": "#Object.g_ap70Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_apFlux_flag
     "@id": "#Object.g_apFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_apFlux_flag_apertureTruncated
     "@id": "#Object.g_apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.g_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_bdChi2
     "@id": "#Object.g_bdChi2"
@@ -404,7 +380,6 @@ tables:
     "@id": "#Object.g_blendedness_flag"
     datatype: boolean
     description: General Failure Flag. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_cModelFlux
     "@id": "#Object.g_cModelFlux"
@@ -425,13 +400,11 @@ tables:
     "@id": "#Object.g_cModel_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_cModel_flag_apCorr
     "@id": "#Object.g_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calibFlux
     "@id": "#Object.g_calibFlux"
@@ -447,61 +420,51 @@ tables:
     "@id": "#Object.g_calibFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calibFlux_flag_apertureTruncated
     "@id": "#Object.g_calibFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.g_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calib_astrometry_used
     "@id": "#Object.g_calib_astrometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calib_photometry_reserved
     "@id": "#Object.g_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calib_photometry_used
     "@id": "#Object.g_calib_photometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calib_psf_candidate
     "@id": "#Object.g_calib_psf_candidate"
     datatype: boolean
     description: Propagated from sources. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calib_psf_reserved
     "@id": "#Object.g_calib_psf_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_calib_psf_used
     "@id": "#Object.g_calib_psf_used"
     datatype: boolean
     description: Propagated from sources. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_centroid_flag
     "@id": "#Object.g_centroid_flag"
     datatype: boolean
     description: General Failure Flag. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_centroid_x
     "@id": "#Object.g_centroid_x"
@@ -538,7 +501,6 @@ tables:
     "@id": "#Object.g_extendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_free_cModelFlux
     "@id": "#Object.g_free_cModelFlux"
@@ -554,7 +516,6 @@ tables:
     "@id": "#Object.g_free_cModelFlux_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_free_cModelFlux_inner
     "@id": "#Object.g_free_cModelFlux_inner"
@@ -575,7 +536,6 @@ tables:
     "@id": "#Object.g_free_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_fwhm
     "@id": "#Object.g_fwhm"
@@ -596,7 +556,6 @@ tables:
     "@id": "#Object.g_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaap0p7Flux
     "@id": "#Object.g_gaap0p7Flux"
@@ -612,7 +571,6 @@ tables:
     "@id": "#Object.g_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaap1p0Flux
     "@id": "#Object.g_gaap1p0Flux"
@@ -628,7 +586,6 @@ tables:
     "@id": "#Object.g_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaap1p5Flux
     "@id": "#Object.g_gaap1p5Flux"
@@ -644,7 +601,6 @@ tables:
     "@id": "#Object.g_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaap2p5Flux
     "@id": "#Object.g_gaap2p5Flux"
@@ -660,7 +616,6 @@ tables:
     "@id": "#Object.g_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaap3p0Flux
     "@id": "#Object.g_gaap3p0Flux"
@@ -676,25 +631,21 @@ tables:
     "@id": "#Object.g_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaapFlux_flag
     "@id": "#Object.g_gaapFlux_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaapFlux_flag_edge
     "@id": "#Object.g_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaapFlux_flag_gaussianization
     "@id": "#Object.g_gaapFlux_flag_gaussianization"
     datatype: boolean
     description: PSF Gaussianization failed when trying to scale by this factor. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaapOptimalFlux
     "@id": "#Object.g_gaapOptimalFlux"
@@ -710,7 +661,6 @@ tables:
     "@id": "#Object.g_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_gaapPsfFlux
     "@id": "#Object.g_gaapPsfFlux"
@@ -736,7 +686,6 @@ tables:
     "@id": "#Object.g_hsmShapeRegauss_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_hsmShapeRegauss_sigma
     "@id": "#Object.g_hsmShapeRegauss_sigma"
@@ -747,13 +696,11 @@ tables:
     "@id": "#Object.g_iDebiasedPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_iPSF_flag
     "@id": "#Object.g_iPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_iRound_flag
     "@id": "#Object.g_iRound_flag"
@@ -764,7 +711,6 @@ tables:
     "@id": "#Object.g_i_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_inputCount
     "@id": "#Object.g_inputCount"
@@ -775,13 +721,11 @@ tables:
     "@id": "#Object.g_inputCount_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_inputCount_flag_noInputs
     "@id": "#Object.g_inputCount_flag_noInputs"
     datatype: boolean
     description: No coadd inputs available. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ixx
     "@id": "#Object.g_ixx"
@@ -857,61 +801,51 @@ tables:
     "@id": "#Object.g_kronFlux_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_bad_radius
     "@id": "#Object.g_kronFlux_flag_bad_radius"
     datatype: boolean
     description: Bad Kron radius. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_bad_shape
     "@id": "#Object.g_kronFlux_flag_bad_shape"
     datatype: boolean
     description: Shape for measuring Kron radius is bad; used PSF shape. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.g_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
     description: Bad shape and no PSF. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_edge
     "@id": "#Object.g_kronFlux_flag_edge"
     datatype: boolean
     description: Bad measurement due to image edge. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_no_fallback_radius
     "@id": "#Object.g_kronFlux_flag_no_fallback_radius"
     datatype: boolean
     description: No minimum radius and no PSF provided. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_no_minimum_radius
     "@id": "#Object.g_kronFlux_flag_no_minimum_radius"
     datatype: boolean
     description: Minimum radius could not be enforced, no minimum value or PSF. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_small_radius
     "@id": "#Object.g_kronFlux_flag_small_radius"
     datatype: boolean
     description: Measured Kron radius was smaller than that of the PSF. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_used_minimum_radius
     "@id": "#Object.g_kronFlux_flag_used_minimum_radius"
     datatype: boolean
     description: Used the minimum radius for the Kron aperture. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronFlux_flag_used_psf_radius
     "@id": "#Object.g_kronFlux_flag_used_psf_radius"
     datatype: boolean
     description: Used the PSF Kron radius for the Kron aperture. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_kronRad
     "@id": "#Object.g_kronRad"
@@ -922,103 +856,86 @@ tables:
     "@id": "#Object.g_pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the Source footprint. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_clipped
     "@id": "#Object.g_pixelFlags_clipped"
     datatype: boolean
     description: Source footprint includes CLIPPED pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_clippedCenter
     "@id": "#Object.g_pixelFlags_clippedCenter"
     datatype: boolean
     description: Source center is close to CLIPPED pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_cr
     "@id": "#Object.g_pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the Source footprint. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_crCenter
     "@id": "#Object.g_pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the Source center. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_edge
     "@id": "#Object.g_pixelFlags_edge"
     datatype: boolean
     description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_inexact_psf
     "@id": "#Object.g_pixelFlags_inexact_psf"
     datatype: boolean
     description: Source footprint includes INEXACT_PSF pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_inexact_psfCenter
     "@id": "#Object.g_pixelFlags_inexact_psfCenter"
     datatype: boolean
     description: Source center is close to INEXACT_PSF pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_interpolated
     "@id": "#Object.g_pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_interpolatedCenter
     "@id": "#Object.g_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_offimage
     "@id": "#Object.g_pixelFlags_offimage"
     datatype: boolean
     description: Source center is off image. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_saturated
     "@id": "#Object.g_pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the Source footprint. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_saturatedCenter
     "@id": "#Object.g_pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the Source center. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_sensor_edge
     "@id": "#Object.g_pixelFlags_sensor_edge"
     datatype: boolean
     description: Source footprint includes SENSOR_EDGE pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_sensor_edgeCenter
     "@id": "#Object.g_pixelFlags_sensor_edgeCenter"
     datatype: boolean
     description: Source center is close to SENSOR_EDGE pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_suspect
     "@id": "#Object.g_pixelFlags_suspect"
     datatype: boolean
     description: Source's footprint includes suspect pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_pixelFlags_suspectCenter
     "@id": "#Object.g_pixelFlags_suspectCenter"
     datatype: boolean
     description: Source's center is close to suspect pixels. Measured on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_psfFlux
     "@id": "#Object.g_psfFlux"
@@ -1039,25 +956,21 @@ tables:
     "@id": "#Object.g_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_psfFlux_flag_apCorr
     "@id": "#Object.g_psfFlux_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct base_PsfFlux. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_psfFlux_flag_edge
     "@id": "#Object.g_psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_psfFlux_flag_noGoodPixels
     "@id": "#Object.g_psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit. Forced on g-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: g_ra
     "@id": "#Object.g_ra"
@@ -1079,7 +992,6 @@ tables:
     "@id": "#Object.i_ap03Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap06Flux
     "@id": "#Object.i_ap06Flux"
@@ -1095,7 +1007,6 @@ tables:
     "@id": "#Object.i_ap06Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap09Flux
     "@id": "#Object.i_ap09Flux"
@@ -1111,7 +1022,6 @@ tables:
     "@id": "#Object.i_ap09Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap12Flux
     "@id": "#Object.i_ap12Flux"
@@ -1127,7 +1037,6 @@ tables:
     "@id": "#Object.i_ap12Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap17Flux
     "@id": "#Object.i_ap17Flux"
@@ -1143,7 +1052,6 @@ tables:
     "@id": "#Object.i_ap17Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap25Flux
     "@id": "#Object.i_ap25Flux"
@@ -1159,7 +1067,6 @@ tables:
     "@id": "#Object.i_ap25Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap35Flux
     "@id": "#Object.i_ap35Flux"
@@ -1175,7 +1082,6 @@ tables:
     "@id": "#Object.i_ap35Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap50Flux
     "@id": "#Object.i_ap50Flux"
@@ -1191,7 +1097,6 @@ tables:
     "@id": "#Object.i_ap50Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ap70Flux
     "@id": "#Object.i_ap70Flux"
@@ -1207,25 +1112,21 @@ tables:
     "@id": "#Object.i_ap70Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_apFlux_flag
     "@id": "#Object.i_apFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_apFlux_flag_apertureTruncated
     "@id": "#Object.i_apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.i_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_bdChi2
     "@id": "#Object.i_bdChi2"
@@ -1281,7 +1182,6 @@ tables:
     "@id": "#Object.i_blendedness_flag"
     datatype: boolean
     description: General Failure Flag. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_cModelFlux
     "@id": "#Object.i_cModelFlux"
@@ -1302,13 +1202,11 @@ tables:
     "@id": "#Object.i_cModel_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_cModel_flag_apCorr
     "@id": "#Object.i_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calibFlux
     "@id": "#Object.i_calibFlux"
@@ -1324,61 +1222,51 @@ tables:
     "@id": "#Object.i_calibFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calibFlux_flag_apertureTruncated
     "@id": "#Object.i_calibFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.i_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calib_astrometry_used
     "@id": "#Object.i_calib_astrometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calib_photometry_reserved
     "@id": "#Object.i_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calib_photometry_used
     "@id": "#Object.i_calib_photometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calib_psf_candidate
     "@id": "#Object.i_calib_psf_candidate"
     datatype: boolean
     description: Propagated from sources. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calib_psf_reserved
     "@id": "#Object.i_calib_psf_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_calib_psf_used
     "@id": "#Object.i_calib_psf_used"
     datatype: boolean
     description: Propagated from sources. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_centroid_flag
     "@id": "#Object.i_centroid_flag"
     datatype: boolean
     description: General Failure Flag. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_centroid_x
     "@id": "#Object.i_centroid_x"
@@ -1415,7 +1303,6 @@ tables:
     "@id": "#Object.i_extendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_free_cModelFlux
     "@id": "#Object.i_free_cModelFlux"
@@ -1431,7 +1318,6 @@ tables:
     "@id": "#Object.i_free_cModelFlux_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_free_cModelFlux_inner
     "@id": "#Object.i_free_cModelFlux_inner"
@@ -1452,7 +1338,6 @@ tables:
     "@id": "#Object.i_free_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_fwhm
     "@id": "#Object.i_fwhm"
@@ -1473,7 +1358,6 @@ tables:
     "@id": "#Object.i_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaap0p7Flux
     "@id": "#Object.i_gaap0p7Flux"
@@ -1489,7 +1373,6 @@ tables:
     "@id": "#Object.i_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaap1p0Flux
     "@id": "#Object.i_gaap1p0Flux"
@@ -1505,7 +1388,6 @@ tables:
     "@id": "#Object.i_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaap1p5Flux
     "@id": "#Object.i_gaap1p5Flux"
@@ -1521,7 +1403,6 @@ tables:
     "@id": "#Object.i_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaap2p5Flux
     "@id": "#Object.i_gaap2p5Flux"
@@ -1537,7 +1418,6 @@ tables:
     "@id": "#Object.i_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaap3p0Flux
     "@id": "#Object.i_gaap3p0Flux"
@@ -1553,25 +1433,21 @@ tables:
     "@id": "#Object.i_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaapFlux_flag
     "@id": "#Object.i_gaapFlux_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaapFlux_flag_edge
     "@id": "#Object.i_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaapFlux_flag_gaussianization
     "@id": "#Object.i_gaapFlux_flag_gaussianization"
     datatype: boolean
     description: PSF Gaussianization failed when trying to scale by this factor. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaapOptimalFlux
     "@id": "#Object.i_gaapOptimalFlux"
@@ -1587,7 +1463,6 @@ tables:
     "@id": "#Object.i_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_gaapPsfFlux
     "@id": "#Object.i_gaapPsfFlux"
@@ -1613,7 +1488,6 @@ tables:
     "@id": "#Object.i_hsmShapeRegauss_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_hsmShapeRegauss_sigma
     "@id": "#Object.i_hsmShapeRegauss_sigma"
@@ -1624,13 +1498,11 @@ tables:
     "@id": "#Object.i_iDebiasedPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_iPSF_flag
     "@id": "#Object.i_iPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_iRound_flag
     "@id": "#Object.i_iRound_flag"
@@ -1641,7 +1513,6 @@ tables:
     "@id": "#Object.i_i_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_inputCount
     "@id": "#Object.i_inputCount"
@@ -1652,13 +1523,11 @@ tables:
     "@id": "#Object.i_inputCount_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_inputCount_flag_noInputs
     "@id": "#Object.i_inputCount_flag_noInputs"
     datatype: boolean
     description: No coadd inputs available. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ixx
     "@id": "#Object.i_ixx"
@@ -1734,61 +1603,51 @@ tables:
     "@id": "#Object.i_kronFlux_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_bad_radius
     "@id": "#Object.i_kronFlux_flag_bad_radius"
     datatype: boolean
     description: Bad Kron radius. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_bad_shape
     "@id": "#Object.i_kronFlux_flag_bad_shape"
     datatype: boolean
     description: Shape for measuring Kron radius is bad; used PSF shape. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.i_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
     description: Bad shape and no PSF. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_edge
     "@id": "#Object.i_kronFlux_flag_edge"
     datatype: boolean
     description: Bad measurement due to image edge. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_no_fallback_radius
     "@id": "#Object.i_kronFlux_flag_no_fallback_radius"
     datatype: boolean
     description: No minimum radius and no PSF provided. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_no_minimum_radius
     "@id": "#Object.i_kronFlux_flag_no_minimum_radius"
     datatype: boolean
     description: Minimum radius could not be enforced, no minimum value or PSF. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_small_radius
     "@id": "#Object.i_kronFlux_flag_small_radius"
     datatype: boolean
     description: Measured Kron radius was smaller than that of the PSF. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_used_minimum_radius
     "@id": "#Object.i_kronFlux_flag_used_minimum_radius"
     datatype: boolean
     description: Used the minimum radius for the Kron aperture. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronFlux_flag_used_psf_radius
     "@id": "#Object.i_kronFlux_flag_used_psf_radius"
     datatype: boolean
     description: Used the PSF Kron radius for the Kron aperture. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_kronRad
     "@id": "#Object.i_kronRad"
@@ -1799,103 +1658,86 @@ tables:
     "@id": "#Object.i_pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the Source footprint. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_clipped
     "@id": "#Object.i_pixelFlags_clipped"
     datatype: boolean
     description: Source footprint includes CLIPPED pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_clippedCenter
     "@id": "#Object.i_pixelFlags_clippedCenter"
     datatype: boolean
     description: Source center is close to CLIPPED pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_cr
     "@id": "#Object.i_pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the Source footprint. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_crCenter
     "@id": "#Object.i_pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the Source center. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_edge
     "@id": "#Object.i_pixelFlags_edge"
     datatype: boolean
     description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_inexact_psf
     "@id": "#Object.i_pixelFlags_inexact_psf"
     datatype: boolean
     description: Source footprint includes INEXACT_PSF pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_inexact_psfCenter
     "@id": "#Object.i_pixelFlags_inexact_psfCenter"
     datatype: boolean
     description: Source center is close to INEXACT_PSF pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_interpolated
     "@id": "#Object.i_pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_interpolatedCenter
     "@id": "#Object.i_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_offimage
     "@id": "#Object.i_pixelFlags_offimage"
     datatype: boolean
     description: Source center is off image. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_saturated
     "@id": "#Object.i_pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the Source footprint. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_saturatedCenter
     "@id": "#Object.i_pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the Source center. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_sensor_edge
     "@id": "#Object.i_pixelFlags_sensor_edge"
     datatype: boolean
     description: Source footprint includes SENSOR_EDGE pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_sensor_edgeCenter
     "@id": "#Object.i_pixelFlags_sensor_edgeCenter"
     datatype: boolean
     description: Source center is close to SENSOR_EDGE pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_suspect
     "@id": "#Object.i_pixelFlags_suspect"
     datatype: boolean
     description: Source's footprint includes suspect pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_pixelFlags_suspectCenter
     "@id": "#Object.i_pixelFlags_suspectCenter"
     datatype: boolean
     description: Source's center is close to suspect pixels. Measured on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_psfFlux
     "@id": "#Object.i_psfFlux"
@@ -1916,25 +1758,21 @@ tables:
     "@id": "#Object.i_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_psfFlux_flag_apCorr
     "@id": "#Object.i_psfFlux_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct base_PsfFlux. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_psfFlux_flag_edge
     "@id": "#Object.i_psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_psfFlux_flag_noGoodPixels
     "@id": "#Object.i_psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit. Forced on i-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: i_ra
     "@id": "#Object.i_ra"
@@ -1956,7 +1794,6 @@ tables:
     "@id": "#Object.r_ap03Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap06Flux
     "@id": "#Object.r_ap06Flux"
@@ -1972,7 +1809,6 @@ tables:
     "@id": "#Object.r_ap06Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap09Flux
     "@id": "#Object.r_ap09Flux"
@@ -1988,7 +1824,6 @@ tables:
     "@id": "#Object.r_ap09Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap12Flux
     "@id": "#Object.r_ap12Flux"
@@ -2004,7 +1839,6 @@ tables:
     "@id": "#Object.r_ap12Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap17Flux
     "@id": "#Object.r_ap17Flux"
@@ -2020,7 +1854,6 @@ tables:
     "@id": "#Object.r_ap17Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap25Flux
     "@id": "#Object.r_ap25Flux"
@@ -2036,7 +1869,6 @@ tables:
     "@id": "#Object.r_ap25Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap35Flux
     "@id": "#Object.r_ap35Flux"
@@ -2052,7 +1884,6 @@ tables:
     "@id": "#Object.r_ap35Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap50Flux
     "@id": "#Object.r_ap50Flux"
@@ -2068,7 +1899,6 @@ tables:
     "@id": "#Object.r_ap50Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ap70Flux
     "@id": "#Object.r_ap70Flux"
@@ -2084,25 +1914,21 @@ tables:
     "@id": "#Object.r_ap70Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_apFlux_flag
     "@id": "#Object.r_apFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_apFlux_flag_apertureTruncated
     "@id": "#Object.r_apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.r_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_bdChi2
     "@id": "#Object.r_bdChi2"
@@ -2158,7 +1984,6 @@ tables:
     "@id": "#Object.r_blendedness_flag"
     datatype: boolean
     description: General Failure Flag. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_cModelFlux
     "@id": "#Object.r_cModelFlux"
@@ -2179,13 +2004,11 @@ tables:
     "@id": "#Object.r_cModel_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_cModel_flag_apCorr
     "@id": "#Object.r_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calibFlux
     "@id": "#Object.r_calibFlux"
@@ -2201,61 +2024,51 @@ tables:
     "@id": "#Object.r_calibFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calibFlux_flag_apertureTruncated
     "@id": "#Object.r_calibFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.r_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calib_astrometry_used
     "@id": "#Object.r_calib_astrometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calib_photometry_reserved
     "@id": "#Object.r_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calib_photometry_used
     "@id": "#Object.r_calib_photometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calib_psf_candidate
     "@id": "#Object.r_calib_psf_candidate"
     datatype: boolean
     description: Propagated from sources. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calib_psf_reserved
     "@id": "#Object.r_calib_psf_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_calib_psf_used
     "@id": "#Object.r_calib_psf_used"
     datatype: boolean
     description: Propagated from sources. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_centroid_flag
     "@id": "#Object.r_centroid_flag"
     datatype: boolean
     description: General Failure Flag. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_centroid_x
     "@id": "#Object.r_centroid_x"
@@ -2292,7 +2105,6 @@ tables:
     "@id": "#Object.r_extendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_free_cModelFlux
     "@id": "#Object.r_free_cModelFlux"
@@ -2308,7 +2120,6 @@ tables:
     "@id": "#Object.r_free_cModelFlux_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_free_cModelFlux_inner
     "@id": "#Object.r_free_cModelFlux_inner"
@@ -2329,7 +2140,6 @@ tables:
     "@id": "#Object.r_free_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_fwhm
     "@id": "#Object.r_fwhm"
@@ -2350,7 +2160,6 @@ tables:
     "@id": "#Object.r_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaap0p7Flux
     "@id": "#Object.r_gaap0p7Flux"
@@ -2366,7 +2175,6 @@ tables:
     "@id": "#Object.r_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaap1p0Flux
     "@id": "#Object.r_gaap1p0Flux"
@@ -2382,7 +2190,6 @@ tables:
     "@id": "#Object.r_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaap1p5Flux
     "@id": "#Object.r_gaap1p5Flux"
@@ -2398,7 +2205,6 @@ tables:
     "@id": "#Object.r_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaap2p5Flux
     "@id": "#Object.r_gaap2p5Flux"
@@ -2414,7 +2220,6 @@ tables:
     "@id": "#Object.r_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaap3p0Flux
     "@id": "#Object.r_gaap3p0Flux"
@@ -2430,25 +2235,21 @@ tables:
     "@id": "#Object.r_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaapFlux_flag
     "@id": "#Object.r_gaapFlux_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaapFlux_flag_edge
     "@id": "#Object.r_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaapFlux_flag_gaussianization
     "@id": "#Object.r_gaapFlux_flag_gaussianization"
     datatype: boolean
     description: PSF Gaussianization failed when trying to scale by this factor. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaapOptimalFlux
     "@id": "#Object.r_gaapOptimalFlux"
@@ -2464,7 +2265,6 @@ tables:
     "@id": "#Object.r_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_gaapPsfFlux
     "@id": "#Object.r_gaapPsfFlux"
@@ -2490,7 +2290,6 @@ tables:
     "@id": "#Object.r_hsmShapeRegauss_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_hsmShapeRegauss_sigma
     "@id": "#Object.r_hsmShapeRegauss_sigma"
@@ -2501,13 +2300,11 @@ tables:
     "@id": "#Object.r_iDebiasedPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_iPSF_flag
     "@id": "#Object.r_iPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_iRound_flag
     "@id": "#Object.r_iRound_flag"
@@ -2518,7 +2315,6 @@ tables:
     "@id": "#Object.r_i_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_inputCount
     "@id": "#Object.r_inputCount"
@@ -2529,13 +2325,11 @@ tables:
     "@id": "#Object.r_inputCount_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_inputCount_flag_noInputs
     "@id": "#Object.r_inputCount_flag_noInputs"
     datatype: boolean
     description: No coadd inputs available. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ixx
     "@id": "#Object.r_ixx"
@@ -2611,61 +2405,51 @@ tables:
     "@id": "#Object.r_kronFlux_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_bad_radius
     "@id": "#Object.r_kronFlux_flag_bad_radius"
     datatype: boolean
     description: Bad Kron radius. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_bad_shape
     "@id": "#Object.r_kronFlux_flag_bad_shape"
     datatype: boolean
     description: Shape for measuring Kron radius is bad; used PSF shape. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.r_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
     description: Bad shape and no PSF. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_edge
     "@id": "#Object.r_kronFlux_flag_edge"
     datatype: boolean
     description: Bad measurement due to image edge. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_no_fallback_radius
     "@id": "#Object.r_kronFlux_flag_no_fallback_radius"
     datatype: boolean
     description: No minimum radius and no PSF provided. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_no_minimum_radius
     "@id": "#Object.r_kronFlux_flag_no_minimum_radius"
     datatype: boolean
     description: Minimum radius could not be enforced, no minimum value or PSF. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_small_radius
     "@id": "#Object.r_kronFlux_flag_small_radius"
     datatype: boolean
     description: Measured Kron radius was smaller than that of the PSF. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_used_minimum_radius
     "@id": "#Object.r_kronFlux_flag_used_minimum_radius"
     datatype: boolean
     description: Used the minimum radius for the Kron aperture. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronFlux_flag_used_psf_radius
     "@id": "#Object.r_kronFlux_flag_used_psf_radius"
     datatype: boolean
     description: Used the PSF Kron radius for the Kron aperture. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_kronRad
     "@id": "#Object.r_kronRad"
@@ -2676,103 +2460,86 @@ tables:
     "@id": "#Object.r_pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the Source footprint. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_clipped
     "@id": "#Object.r_pixelFlags_clipped"
     datatype: boolean
     description: Source footprint includes CLIPPED pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_clippedCenter
     "@id": "#Object.r_pixelFlags_clippedCenter"
     datatype: boolean
     description: Source center is close to CLIPPED pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_cr
     "@id": "#Object.r_pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the Source footprint. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_crCenter
     "@id": "#Object.r_pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the Source center. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_edge
     "@id": "#Object.r_pixelFlags_edge"
     datatype: boolean
     description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_inexact_psf
     "@id": "#Object.r_pixelFlags_inexact_psf"
     datatype: boolean
     description: Source footprint includes INEXACT_PSF pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_inexact_psfCenter
     "@id": "#Object.r_pixelFlags_inexact_psfCenter"
     datatype: boolean
     description: Source center is close to INEXACT_PSF pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_interpolated
     "@id": "#Object.r_pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_interpolatedCenter
     "@id": "#Object.r_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_offimage
     "@id": "#Object.r_pixelFlags_offimage"
     datatype: boolean
     description: Source center is off image. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_saturated
     "@id": "#Object.r_pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the Source footprint. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_saturatedCenter
     "@id": "#Object.r_pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the Source center. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_sensor_edge
     "@id": "#Object.r_pixelFlags_sensor_edge"
     datatype: boolean
     description: Source footprint includes SENSOR_EDGE pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_sensor_edgeCenter
     "@id": "#Object.r_pixelFlags_sensor_edgeCenter"
     datatype: boolean
     description: Source center is close to SENSOR_EDGE pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_suspect
     "@id": "#Object.r_pixelFlags_suspect"
     datatype: boolean
     description: Source's footprint includes suspect pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_pixelFlags_suspectCenter
     "@id": "#Object.r_pixelFlags_suspectCenter"
     datatype: boolean
     description: Source's center is close to suspect pixels. Measured on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_psfFlux
     "@id": "#Object.r_psfFlux"
@@ -2793,25 +2560,21 @@ tables:
     "@id": "#Object.r_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_psfFlux_flag_apCorr
     "@id": "#Object.r_psfFlux_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct base_PsfFlux. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_psfFlux_flag_edge
     "@id": "#Object.r_psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_psfFlux_flag_noGoodPixels
     "@id": "#Object.r_psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit. Forced on r-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: r_ra
     "@id": "#Object.r_ra"
@@ -2833,7 +2596,6 @@ tables:
     "@id": "#Object.u_ap03Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap06Flux
     "@id": "#Object.u_ap06Flux"
@@ -2849,7 +2611,6 @@ tables:
     "@id": "#Object.u_ap06Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap09Flux
     "@id": "#Object.u_ap09Flux"
@@ -2865,7 +2626,6 @@ tables:
     "@id": "#Object.u_ap09Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap12Flux
     "@id": "#Object.u_ap12Flux"
@@ -2881,7 +2641,6 @@ tables:
     "@id": "#Object.u_ap12Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap17Flux
     "@id": "#Object.u_ap17Flux"
@@ -2897,7 +2656,6 @@ tables:
     "@id": "#Object.u_ap17Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap25Flux
     "@id": "#Object.u_ap25Flux"
@@ -2913,7 +2671,6 @@ tables:
     "@id": "#Object.u_ap25Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap35Flux
     "@id": "#Object.u_ap35Flux"
@@ -2929,7 +2686,6 @@ tables:
     "@id": "#Object.u_ap35Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap50Flux
     "@id": "#Object.u_ap50Flux"
@@ -2945,7 +2701,6 @@ tables:
     "@id": "#Object.u_ap50Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ap70Flux
     "@id": "#Object.u_ap70Flux"
@@ -2961,25 +2716,21 @@ tables:
     "@id": "#Object.u_ap70Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_apFlux_flag
     "@id": "#Object.u_apFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_apFlux_flag_apertureTruncated
     "@id": "#Object.u_apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.u_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_bdChi2
     "@id": "#Object.u_bdChi2"
@@ -3035,7 +2786,6 @@ tables:
     "@id": "#Object.u_blendedness_flag"
     datatype: boolean
     description: General Failure Flag. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_cModelFlux
     "@id": "#Object.u_cModelFlux"
@@ -3056,13 +2806,11 @@ tables:
     "@id": "#Object.u_cModel_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_cModel_flag_apCorr
     "@id": "#Object.u_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calibFlux
     "@id": "#Object.u_calibFlux"
@@ -3078,61 +2826,51 @@ tables:
     "@id": "#Object.u_calibFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calibFlux_flag_apertureTruncated
     "@id": "#Object.u_calibFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.u_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calib_astrometry_used
     "@id": "#Object.u_calib_astrometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calib_photometry_reserved
     "@id": "#Object.u_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calib_photometry_used
     "@id": "#Object.u_calib_photometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calib_psf_candidate
     "@id": "#Object.u_calib_psf_candidate"
     datatype: boolean
     description: Propagated from sources. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calib_psf_reserved
     "@id": "#Object.u_calib_psf_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_calib_psf_used
     "@id": "#Object.u_calib_psf_used"
     datatype: boolean
     description: Propagated from sources. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_centroid_flag
     "@id": "#Object.u_centroid_flag"
     datatype: boolean
     description: General Failure Flag. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_centroid_x
     "@id": "#Object.u_centroid_x"
@@ -3169,7 +2907,6 @@ tables:
     "@id": "#Object.u_extendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_free_cModelFlux
     "@id": "#Object.u_free_cModelFlux"
@@ -3185,7 +2922,6 @@ tables:
     "@id": "#Object.u_free_cModelFlux_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_free_cModelFlux_inner
     "@id": "#Object.u_free_cModelFlux_inner"
@@ -3206,7 +2942,6 @@ tables:
     "@id": "#Object.u_free_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_fwhm
     "@id": "#Object.u_fwhm"
@@ -3227,7 +2962,6 @@ tables:
     "@id": "#Object.u_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaap0p7Flux
     "@id": "#Object.u_gaap0p7Flux"
@@ -3243,7 +2977,6 @@ tables:
     "@id": "#Object.u_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaap1p0Flux
     "@id": "#Object.u_gaap1p0Flux"
@@ -3259,7 +2992,6 @@ tables:
     "@id": "#Object.u_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaap1p5Flux
     "@id": "#Object.u_gaap1p5Flux"
@@ -3275,7 +3007,6 @@ tables:
     "@id": "#Object.u_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaap2p5Flux
     "@id": "#Object.u_gaap2p5Flux"
@@ -3291,7 +3022,6 @@ tables:
     "@id": "#Object.u_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaap3p0Flux
     "@id": "#Object.u_gaap3p0Flux"
@@ -3307,25 +3037,21 @@ tables:
     "@id": "#Object.u_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaapFlux_flag
     "@id": "#Object.u_gaapFlux_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaapFlux_flag_edge
     "@id": "#Object.u_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaapFlux_flag_gaussianization
     "@id": "#Object.u_gaapFlux_flag_gaussianization"
     datatype: boolean
     description: PSF Gaussianization failed when trying to scale by this factor. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaapOptimalFlux
     "@id": "#Object.u_gaapOptimalFlux"
@@ -3341,7 +3067,6 @@ tables:
     "@id": "#Object.u_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_gaapPsfFlux
     "@id": "#Object.u_gaapPsfFlux"
@@ -3367,7 +3092,6 @@ tables:
     "@id": "#Object.u_hsmShapeRegauss_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_hsmShapeRegauss_sigma
     "@id": "#Object.u_hsmShapeRegauss_sigma"
@@ -3378,13 +3102,11 @@ tables:
     "@id": "#Object.u_iDebiasedPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_iPSF_flag
     "@id": "#Object.u_iPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_iRound_flag
     "@id": "#Object.u_iRound_flag"
@@ -3395,7 +3117,6 @@ tables:
     "@id": "#Object.u_i_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_inputCount
     "@id": "#Object.u_inputCount"
@@ -3406,13 +3127,11 @@ tables:
     "@id": "#Object.u_inputCount_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_inputCount_flag_noInputs
     "@id": "#Object.u_inputCount_flag_noInputs"
     datatype: boolean
     description: No coadd inputs available. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ixx
     "@id": "#Object.u_ixx"
@@ -3488,61 +3207,51 @@ tables:
     "@id": "#Object.u_kronFlux_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_bad_radius
     "@id": "#Object.u_kronFlux_flag_bad_radius"
     datatype: boolean
     description: Bad Kron radius. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_bad_shape
     "@id": "#Object.u_kronFlux_flag_bad_shape"
     datatype: boolean
     description: Shape for measuring Kron radius is bad; used PSF shape. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.u_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
     description: Bad shape and no PSF. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_edge
     "@id": "#Object.u_kronFlux_flag_edge"
     datatype: boolean
     description: Bad measurement due to image edge. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_no_fallback_radius
     "@id": "#Object.u_kronFlux_flag_no_fallback_radius"
     datatype: boolean
     description: No minimum radius and no PSF provided. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_no_minimum_radius
     "@id": "#Object.u_kronFlux_flag_no_minimum_radius"
     datatype: boolean
     description: Minimum radius could not be enforced, no minimum value or PSF. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_small_radius
     "@id": "#Object.u_kronFlux_flag_small_radius"
     datatype: boolean
     description: Measured Kron radius was smaller than that of the PSF. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_used_minimum_radius
     "@id": "#Object.u_kronFlux_flag_used_minimum_radius"
     datatype: boolean
     description: Used the minimum radius for the Kron aperture. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronFlux_flag_used_psf_radius
     "@id": "#Object.u_kronFlux_flag_used_psf_radius"
     datatype: boolean
     description: Used the PSF Kron radius for the Kron aperture. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_kronRad
     "@id": "#Object.u_kronRad"
@@ -3553,103 +3262,86 @@ tables:
     "@id": "#Object.u_pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the Source footprint. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_clipped
     "@id": "#Object.u_pixelFlags_clipped"
     datatype: boolean
     description: Source footprint includes CLIPPED pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_clippedCenter
     "@id": "#Object.u_pixelFlags_clippedCenter"
     datatype: boolean
     description: Source center is close to CLIPPED pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_cr
     "@id": "#Object.u_pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the Source footprint. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_crCenter
     "@id": "#Object.u_pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the Source center. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_edge
     "@id": "#Object.u_pixelFlags_edge"
     datatype: boolean
     description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_inexact_psf
     "@id": "#Object.u_pixelFlags_inexact_psf"
     datatype: boolean
     description: Source footprint includes INEXACT_PSF pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_inexact_psfCenter
     "@id": "#Object.u_pixelFlags_inexact_psfCenter"
     datatype: boolean
     description: Source center is close to INEXACT_PSF pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_interpolated
     "@id": "#Object.u_pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_interpolatedCenter
     "@id": "#Object.u_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_offimage
     "@id": "#Object.u_pixelFlags_offimage"
     datatype: boolean
     description: Source center is off image. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_saturated
     "@id": "#Object.u_pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the Source footprint. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_saturatedCenter
     "@id": "#Object.u_pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the Source center. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_sensor_edge
     "@id": "#Object.u_pixelFlags_sensor_edge"
     datatype: boolean
     description: Source footprint includes SENSOR_EDGE pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_sensor_edgeCenter
     "@id": "#Object.u_pixelFlags_sensor_edgeCenter"
     datatype: boolean
     description: Source center is close to SENSOR_EDGE pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_suspect
     "@id": "#Object.u_pixelFlags_suspect"
     datatype: boolean
     description: Source's footprint includes suspect pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_pixelFlags_suspectCenter
     "@id": "#Object.u_pixelFlags_suspectCenter"
     datatype: boolean
     description: Source's center is close to suspect pixels. Measured on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_psfFlux
     "@id": "#Object.u_psfFlux"
@@ -3670,25 +3362,21 @@ tables:
     "@id": "#Object.u_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_psfFlux_flag_apCorr
     "@id": "#Object.u_psfFlux_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct base_PsfFlux. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_psfFlux_flag_edge
     "@id": "#Object.u_psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_psfFlux_flag_noGoodPixels
     "@id": "#Object.u_psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit. Forced on u-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: u_ra
     "@id": "#Object.u_ra"
@@ -3710,7 +3398,6 @@ tables:
     "@id": "#Object.y_ap03Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap06Flux
     "@id": "#Object.y_ap06Flux"
@@ -3726,7 +3413,6 @@ tables:
     "@id": "#Object.y_ap06Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap09Flux
     "@id": "#Object.y_ap09Flux"
@@ -3742,7 +3428,6 @@ tables:
     "@id": "#Object.y_ap09Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap12Flux
     "@id": "#Object.y_ap12Flux"
@@ -3758,7 +3443,6 @@ tables:
     "@id": "#Object.y_ap12Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap17Flux
     "@id": "#Object.y_ap17Flux"
@@ -3774,7 +3458,6 @@ tables:
     "@id": "#Object.y_ap17Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap25Flux
     "@id": "#Object.y_ap25Flux"
@@ -3790,7 +3473,6 @@ tables:
     "@id": "#Object.y_ap25Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap35Flux
     "@id": "#Object.y_ap35Flux"
@@ -3806,7 +3488,6 @@ tables:
     "@id": "#Object.y_ap35Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap50Flux
     "@id": "#Object.y_ap50Flux"
@@ -3822,7 +3503,6 @@ tables:
     "@id": "#Object.y_ap50Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ap70Flux
     "@id": "#Object.y_ap70Flux"
@@ -3838,25 +3518,21 @@ tables:
     "@id": "#Object.y_ap70Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_apFlux_flag
     "@id": "#Object.y_apFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_apFlux_flag_apertureTruncated
     "@id": "#Object.y_apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.y_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_bdChi2
     "@id": "#Object.y_bdChi2"
@@ -3912,7 +3588,6 @@ tables:
     "@id": "#Object.y_blendedness_flag"
     datatype: boolean
     description: General Failure Flag. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_cModelFlux
     "@id": "#Object.y_cModelFlux"
@@ -3933,13 +3608,11 @@ tables:
     "@id": "#Object.y_cModel_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_cModel_flag_apCorr
     "@id": "#Object.y_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calibFlux
     "@id": "#Object.y_calibFlux"
@@ -3955,61 +3628,51 @@ tables:
     "@id": "#Object.y_calibFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calibFlux_flag_apertureTruncated
     "@id": "#Object.y_calibFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.y_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calib_astrometry_used
     "@id": "#Object.y_calib_astrometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calib_photometry_reserved
     "@id": "#Object.y_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calib_photometry_used
     "@id": "#Object.y_calib_photometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calib_psf_candidate
     "@id": "#Object.y_calib_psf_candidate"
     datatype: boolean
     description: Propagated from sources. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calib_psf_reserved
     "@id": "#Object.y_calib_psf_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_calib_psf_used
     "@id": "#Object.y_calib_psf_used"
     datatype: boolean
     description: Propagated from sources. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_centroid_flag
     "@id": "#Object.y_centroid_flag"
     datatype: boolean
     description: General Failure Flag. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_centroid_x
     "@id": "#Object.y_centroid_x"
@@ -4046,7 +3709,6 @@ tables:
     "@id": "#Object.y_extendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_free_cModelFlux
     "@id": "#Object.y_free_cModelFlux"
@@ -4062,7 +3724,6 @@ tables:
     "@id": "#Object.y_free_cModelFlux_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_free_cModelFlux_inner
     "@id": "#Object.y_free_cModelFlux_inner"
@@ -4083,7 +3744,6 @@ tables:
     "@id": "#Object.y_free_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_fwhm
     "@id": "#Object.y_fwhm"
@@ -4104,7 +3764,6 @@ tables:
     "@id": "#Object.y_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaap0p7Flux
     "@id": "#Object.y_gaap0p7Flux"
@@ -4120,7 +3779,6 @@ tables:
     "@id": "#Object.y_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaap1p0Flux
     "@id": "#Object.y_gaap1p0Flux"
@@ -4136,7 +3794,6 @@ tables:
     "@id": "#Object.y_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaap1p5Flux
     "@id": "#Object.y_gaap1p5Flux"
@@ -4152,7 +3809,6 @@ tables:
     "@id": "#Object.y_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaap2p5Flux
     "@id": "#Object.y_gaap2p5Flux"
@@ -4168,7 +3824,6 @@ tables:
     "@id": "#Object.y_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaap3p0Flux
     "@id": "#Object.y_gaap3p0Flux"
@@ -4184,25 +3839,21 @@ tables:
     "@id": "#Object.y_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaapFlux_flag
     "@id": "#Object.y_gaapFlux_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaapFlux_flag_edge
     "@id": "#Object.y_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaapFlux_flag_gaussianization
     "@id": "#Object.y_gaapFlux_flag_gaussianization"
     datatype: boolean
     description: PSF Gaussianization failed when trying to scale by this factor. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaapOptimalFlux
     "@id": "#Object.y_gaapOptimalFlux"
@@ -4218,7 +3869,6 @@ tables:
     "@id": "#Object.y_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_gaapPsfFlux
     "@id": "#Object.y_gaapPsfFlux"
@@ -4244,7 +3894,6 @@ tables:
     "@id": "#Object.y_hsmShapeRegauss_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_hsmShapeRegauss_sigma
     "@id": "#Object.y_hsmShapeRegauss_sigma"
@@ -4255,13 +3904,11 @@ tables:
     "@id": "#Object.y_iDebiasedPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_iPSF_flag
     "@id": "#Object.y_iPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_iRound_flag
     "@id": "#Object.y_iRound_flag"
@@ -4272,7 +3919,6 @@ tables:
     "@id": "#Object.y_i_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_inputCount
     "@id": "#Object.y_inputCount"
@@ -4283,13 +3929,11 @@ tables:
     "@id": "#Object.y_inputCount_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_inputCount_flag_noInputs
     "@id": "#Object.y_inputCount_flag_noInputs"
     datatype: boolean
     description: No coadd inputs available. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ixx
     "@id": "#Object.y_ixx"
@@ -4365,61 +4009,51 @@ tables:
     "@id": "#Object.y_kronFlux_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_bad_radius
     "@id": "#Object.y_kronFlux_flag_bad_radius"
     datatype: boolean
     description: Bad Kron radius. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_bad_shape
     "@id": "#Object.y_kronFlux_flag_bad_shape"
     datatype: boolean
     description: Shape for measuring Kron radius is bad; used PSF shape. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.y_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
     description: Bad shape and no PSF. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_edge
     "@id": "#Object.y_kronFlux_flag_edge"
     datatype: boolean
     description: Bad measurement due to image edge. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_no_fallback_radius
     "@id": "#Object.y_kronFlux_flag_no_fallback_radius"
     datatype: boolean
     description: No minimum radius and no PSF provided. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_no_minimum_radius
     "@id": "#Object.y_kronFlux_flag_no_minimum_radius"
     datatype: boolean
     description: Minimum radius could not be enforced, no minimum value or PSF. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_small_radius
     "@id": "#Object.y_kronFlux_flag_small_radius"
     datatype: boolean
     description: Measured Kron radius was smaller than that of the PSF. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_used_minimum_radius
     "@id": "#Object.y_kronFlux_flag_used_minimum_radius"
     datatype: boolean
     description: Used the minimum radius for the Kron aperture. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronFlux_flag_used_psf_radius
     "@id": "#Object.y_kronFlux_flag_used_psf_radius"
     datatype: boolean
     description: Used the PSF Kron radius for the Kron aperture. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_kronRad
     "@id": "#Object.y_kronRad"
@@ -4430,103 +4064,86 @@ tables:
     "@id": "#Object.y_pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the Source footprint. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_clipped
     "@id": "#Object.y_pixelFlags_clipped"
     datatype: boolean
     description: Source footprint includes CLIPPED pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_clippedCenter
     "@id": "#Object.y_pixelFlags_clippedCenter"
     datatype: boolean
     description: Source center is close to CLIPPED pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_cr
     "@id": "#Object.y_pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the Source footprint. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_crCenter
     "@id": "#Object.y_pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the Source center. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_edge
     "@id": "#Object.y_pixelFlags_edge"
     datatype: boolean
     description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_inexact_psf
     "@id": "#Object.y_pixelFlags_inexact_psf"
     datatype: boolean
     description: Source footprint includes INEXACT_PSF pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_inexact_psfCenter
     "@id": "#Object.y_pixelFlags_inexact_psfCenter"
     datatype: boolean
     description: Source center is close to INEXACT_PSF pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_interpolated
     "@id": "#Object.y_pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_interpolatedCenter
     "@id": "#Object.y_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_offimage
     "@id": "#Object.y_pixelFlags_offimage"
     datatype: boolean
     description: Source center is off image. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_saturated
     "@id": "#Object.y_pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the Source footprint. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_saturatedCenter
     "@id": "#Object.y_pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the Source center. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_sensor_edge
     "@id": "#Object.y_pixelFlags_sensor_edge"
     datatype: boolean
     description: Source footprint includes SENSOR_EDGE pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_sensor_edgeCenter
     "@id": "#Object.y_pixelFlags_sensor_edgeCenter"
     datatype: boolean
     description: Source center is close to SENSOR_EDGE pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_suspect
     "@id": "#Object.y_pixelFlags_suspect"
     datatype: boolean
     description: Source's footprint includes suspect pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_pixelFlags_suspectCenter
     "@id": "#Object.y_pixelFlags_suspectCenter"
     datatype: boolean
     description: Source's center is close to suspect pixels. Measured on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_psfFlux
     "@id": "#Object.y_psfFlux"
@@ -4547,25 +4164,21 @@ tables:
     "@id": "#Object.y_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_psfFlux_flag_apCorr
     "@id": "#Object.y_psfFlux_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct base_PsfFlux. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_psfFlux_flag_edge
     "@id": "#Object.y_psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_psfFlux_flag_noGoodPixels
     "@id": "#Object.y_psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit. Forced on y-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: y_ra
     "@id": "#Object.y_ra"
@@ -4587,7 +4200,6 @@ tables:
     "@id": "#Object.z_ap03Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap06Flux
     "@id": "#Object.z_ap06Flux"
@@ -4603,7 +4215,6 @@ tables:
     "@id": "#Object.z_ap06Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap09Flux
     "@id": "#Object.z_ap09Flux"
@@ -4619,7 +4230,6 @@ tables:
     "@id": "#Object.z_ap09Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap12Flux
     "@id": "#Object.z_ap12Flux"
@@ -4635,7 +4245,6 @@ tables:
     "@id": "#Object.z_ap12Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap17Flux
     "@id": "#Object.z_ap17Flux"
@@ -4651,7 +4260,6 @@ tables:
     "@id": "#Object.z_ap17Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap25Flux
     "@id": "#Object.z_ap25Flux"
@@ -4667,7 +4275,6 @@ tables:
     "@id": "#Object.z_ap25Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap35Flux
     "@id": "#Object.z_ap35Flux"
@@ -4683,7 +4290,6 @@ tables:
     "@id": "#Object.z_ap35Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap50Flux
     "@id": "#Object.z_ap50Flux"
@@ -4699,7 +4305,6 @@ tables:
     "@id": "#Object.z_ap50Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ap70Flux
     "@id": "#Object.z_ap70Flux"
@@ -4715,25 +4320,21 @@ tables:
     "@id": "#Object.z_ap70Flux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_apFlux_flag
     "@id": "#Object.z_apFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_apFlux_flag_apertureTruncated
     "@id": "#Object.z_apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_apFlux_flag_sincCoeffsTruncated
     "@id": "#Object.z_apFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_bdChi2
     "@id": "#Object.z_bdChi2"
@@ -4789,7 +4390,6 @@ tables:
     "@id": "#Object.z_blendedness_flag"
     datatype: boolean
     description: General Failure Flag. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_cModelFlux
     "@id": "#Object.z_cModelFlux"
@@ -4810,13 +4410,11 @@ tables:
     "@id": "#Object.z_cModel_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_cModel_flag_apCorr
     "@id": "#Object.z_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calibFlux
     "@id": "#Object.z_calibFlux"
@@ -4832,61 +4430,51 @@ tables:
     "@id": "#Object.z_calibFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calibFlux_flag_apertureTruncated
     "@id": "#Object.z_calibFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calibFlux_flag_sincCoeffsTruncated
     "@id": "#Object.z_calibFlux_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calib_astrometry_used
     "@id": "#Object.z_calib_astrometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calib_photometry_reserved
     "@id": "#Object.z_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calib_photometry_used
     "@id": "#Object.z_calib_photometry_used"
     datatype: boolean
     description: Propagated from sources. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calib_psf_candidate
     "@id": "#Object.z_calib_psf_candidate"
     datatype: boolean
     description: Propagated from sources. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calib_psf_reserved
     "@id": "#Object.z_calib_psf_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_calib_psf_used
     "@id": "#Object.z_calib_psf_used"
     datatype: boolean
     description: Propagated from sources. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_centroid_flag
     "@id": "#Object.z_centroid_flag"
     datatype: boolean
     description: General Failure Flag. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_centroid_x
     "@id": "#Object.z_centroid_x"
@@ -4923,7 +4511,6 @@ tables:
     "@id": "#Object.z_extendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_free_cModelFlux
     "@id": "#Object.z_free_cModelFlux"
@@ -4939,7 +4526,6 @@ tables:
     "@id": "#Object.z_free_cModelFlux_flag"
     datatype: boolean
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_free_cModelFlux_inner
     "@id": "#Object.z_free_cModelFlux_inner"
@@ -4960,7 +4546,6 @@ tables:
     "@id": "#Object.z_free_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_fwhm
     "@id": "#Object.z_fwhm"
@@ -4981,7 +4566,6 @@ tables:
     "@id": "#Object.z_gaap0p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaap0p7Flux
     "@id": "#Object.z_gaap0p7Flux"
@@ -4997,7 +4581,6 @@ tables:
     "@id": "#Object.z_gaap0p7Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaap1p0Flux
     "@id": "#Object.z_gaap1p0Flux"
@@ -5013,7 +4596,6 @@ tables:
     "@id": "#Object.z_gaap1p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaap1p5Flux
     "@id": "#Object.z_gaap1p5Flux"
@@ -5029,7 +4611,6 @@ tables:
     "@id": "#Object.z_gaap1p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaap2p5Flux
     "@id": "#Object.z_gaap2p5Flux"
@@ -5045,7 +4626,6 @@ tables:
     "@id": "#Object.z_gaap2p5Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaap3p0Flux
     "@id": "#Object.z_gaap3p0Flux"
@@ -5061,25 +4641,21 @@ tables:
     "@id": "#Object.z_gaap3p0Flux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaapFlux_flag
     "@id": "#Object.z_gaapFlux_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaapFlux_flag_edge
     "@id": "#Object.z_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaapFlux_flag_gaussianization
     "@id": "#Object.z_gaapFlux_flag_gaussianization"
     datatype: boolean
     description: PSF Gaussianization failed when trying to scale by this factor. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaapOptimalFlux
     "@id": "#Object.z_gaapOptimalFlux"
@@ -5095,7 +4671,6 @@ tables:
     "@id": "#Object.z_gaapOptimalFlux_flag_bigPsf"
     datatype: boolean
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_gaapPsfFlux
     "@id": "#Object.z_gaapPsfFlux"
@@ -5121,7 +4696,6 @@ tables:
     "@id": "#Object.z_hsmShapeRegauss_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_hsmShapeRegauss_sigma
     "@id": "#Object.z_hsmShapeRegauss_sigma"
@@ -5132,13 +4706,11 @@ tables:
     "@id": "#Object.z_iDebiasedPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_iPSF_flag
     "@id": "#Object.z_iPSF_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_iRound_flag
     "@id": "#Object.z_iRound_flag"
@@ -5149,7 +4721,6 @@ tables:
     "@id": "#Object.z_i_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_inputCount
     "@id": "#Object.z_inputCount"
@@ -5160,13 +4731,11 @@ tables:
     "@id": "#Object.z_inputCount_flag"
     datatype: boolean
     description: Set for any fatal failure. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_inputCount_flag_noInputs
     "@id": "#Object.z_inputCount_flag_noInputs"
     datatype: boolean
     description: No coadd inputs available. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ixx
     "@id": "#Object.z_ixx"
@@ -5242,61 +4811,51 @@ tables:
     "@id": "#Object.z_kronFlux_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_bad_radius
     "@id": "#Object.z_kronFlux_flag_bad_radius"
     datatype: boolean
     description: Bad Kron radius. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_bad_shape
     "@id": "#Object.z_kronFlux_flag_bad_shape"
     datatype: boolean
     description: Shape for measuring Kron radius is bad; used PSF shape. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_bad_shape_no_psf
     "@id": "#Object.z_kronFlux_flag_bad_shape_no_psf"
     datatype: boolean
     description: Bad shape and no PSF. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_edge
     "@id": "#Object.z_kronFlux_flag_edge"
     datatype: boolean
     description: Bad measurement due to image edge. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_no_fallback_radius
     "@id": "#Object.z_kronFlux_flag_no_fallback_radius"
     datatype: boolean
     description: No minimum radius and no PSF provided. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_no_minimum_radius
     "@id": "#Object.z_kronFlux_flag_no_minimum_radius"
     datatype: boolean
     description: Minimum radius could not be enforced, no minimum value or PSF. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_small_radius
     "@id": "#Object.z_kronFlux_flag_small_radius"
     datatype: boolean
     description: Measured Kron radius was smaller than that of the PSF. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_used_minimum_radius
     "@id": "#Object.z_kronFlux_flag_used_minimum_radius"
     datatype: boolean
     description: Used the minimum radius for the Kron aperture. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronFlux_flag_used_psf_radius
     "@id": "#Object.z_kronFlux_flag_used_psf_radius"
     datatype: boolean
     description: Used the PSF Kron radius for the Kron aperture. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_kronRad
     "@id": "#Object.z_kronRad"
@@ -5307,103 +4866,86 @@ tables:
     "@id": "#Object.z_pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the Source footprint. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_clipped
     "@id": "#Object.z_pixelFlags_clipped"
     datatype: boolean
     description: Source footprint includes CLIPPED pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_clippedCenter
     "@id": "#Object.z_pixelFlags_clippedCenter"
     datatype: boolean
     description: Source center is close to CLIPPED pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_cr
     "@id": "#Object.z_pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the Source footprint. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_crCenter
     "@id": "#Object.z_pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the Source center. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_edge
     "@id": "#Object.z_pixelFlags_edge"
     datatype: boolean
     description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_inexact_psf
     "@id": "#Object.z_pixelFlags_inexact_psf"
     datatype: boolean
     description: Source footprint includes INEXACT_PSF pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_inexact_psfCenter
     "@id": "#Object.z_pixelFlags_inexact_psfCenter"
     datatype: boolean
     description: Source center is close to INEXACT_PSF pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_interpolated
     "@id": "#Object.z_pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_interpolatedCenter
     "@id": "#Object.z_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_offimage
     "@id": "#Object.z_pixelFlags_offimage"
     datatype: boolean
     description: Source center is off image. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_saturated
     "@id": "#Object.z_pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the Source footprint. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_saturatedCenter
     "@id": "#Object.z_pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the Source center. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_sensor_edge
     "@id": "#Object.z_pixelFlags_sensor_edge"
     datatype: boolean
     description: Source footprint includes SENSOR_EDGE pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_sensor_edgeCenter
     "@id": "#Object.z_pixelFlags_sensor_edgeCenter"
     datatype: boolean
     description: Source center is close to SENSOR_EDGE pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_suspect
     "@id": "#Object.z_pixelFlags_suspect"
     datatype: boolean
     description: Source's footprint includes suspect pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_pixelFlags_suspectCenter
     "@id": "#Object.z_pixelFlags_suspectCenter"
     datatype: boolean
     description: Source's center is close to suspect pixels. Measured on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_psfFlux
     "@id": "#Object.z_psfFlux"
@@ -5424,25 +4966,21 @@ tables:
     "@id": "#Object.z_psfFlux_flag"
     datatype: boolean
     description: General Failure Flag. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_psfFlux_flag_apCorr
     "@id": "#Object.z_psfFlux_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct base_PsfFlux. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_psfFlux_flag_edge
     "@id": "#Object.z_psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_psfFlux_flag_noGoodPixels
     "@id": "#Object.z_psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit. Forced on z-band.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: z_ra
     "@id": "#Object.z_ra"
@@ -5542,7 +5080,6 @@ tables:
     "@id": "#Source.ap03Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap06Flux
     "@id": "#Source.ap06Flux"
@@ -5558,7 +5095,6 @@ tables:
     "@id": "#Source.ap06Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap09Flux
     "@id": "#Source.ap09Flux"
@@ -5574,7 +5110,6 @@ tables:
     "@id": "#Source.ap09Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap12Flux
     "@id": "#Source.ap12Flux"
@@ -5590,7 +5125,6 @@ tables:
     "@id": "#Source.ap12Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap17Flux
     "@id": "#Source.ap17Flux"
@@ -5606,7 +5140,6 @@ tables:
     "@id": "#Source.ap17Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap25Flux
     "@id": "#Source.ap25Flux"
@@ -5622,7 +5155,6 @@ tables:
     "@id": "#Source.ap25Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap35Flux
     "@id": "#Source.ap35Flux"
@@ -5638,7 +5170,6 @@ tables:
     "@id": "#Source.ap35Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap50Flux
     "@id": "#Source.ap50Flux"
@@ -5654,7 +5185,6 @@ tables:
     "@id": "#Source.ap50Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: ap70Flux
     "@id": "#Source.ap70Flux"
@@ -5670,7 +5200,6 @@ tables:
     "@id": "#Source.ap70Flux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: sky
     "@id": "#Source.sky"
@@ -5746,7 +5275,6 @@ tables:
     "@id": "#Source.localPhotoCalib_flag"
     datatype: boolean
     description: Set for any fatal failure
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: localPhotoCalibErr
     "@id": "#Source.localPhotoCalibErr"
@@ -5757,7 +5285,6 @@ tables:
     "@id": "#Source.localWcs_flag"
     datatype: boolean
     description: Set for any fatal failure
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: localWcs_CDMatrix_2_1
     "@id": "#Source.localWcs_CDMatrix_2_1"
@@ -5788,37 +5315,31 @@ tables:
     "@id": "#Source.blendedness_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: blendedness_flag_noCentroid
     "@id": "#Source.blendedness_flag_noCentroid"
     datatype: boolean
     description: Object has no centroid
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: blendedness_flag_noShape
     "@id": "#Source.blendedness_flag_noShape"
     datatype: boolean
     description: Object has no shape
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: apFlux_12_0_flag
     "@id": "#Source.apFlux_12_0_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: apFlux_12_0_flag_apertureTruncated
     "@id": "#Source.apFlux_12_0_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: apFlux_12_0_flag_sincCoeffsTruncated
     "@id": "#Source.apFlux_12_0_flag_sincCoeffsTruncated"
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: apFlux_12_0_instFlux
     "@id": "#Source.apFlux_12_0_instFlux"
@@ -5834,7 +5355,6 @@ tables:
     "@id": "#Source.apFlux_17_0_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: apFlux_17_0_instFlux
     "@id": "#Source.apFlux_17_0_instFlux"
@@ -5850,7 +5370,6 @@ tables:
     "@id": "#Source.extendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: footprintArea_value
     "@id": "#Source.footprintArea_value"
@@ -5861,7 +5380,6 @@ tables:
     "@id": "#Source.jacobian_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: jacobian_value
     "@id": "#Source.jacobian_value"
@@ -5882,85 +5400,71 @@ tables:
     "@id": "#Source.localBackground_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: localBackground_flag_noGoodPixels
     "@id": "#Source.localBackground_flag_noGoodPixels"
     datatype: boolean
     description: No good pixels in the annulus
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: localBackground_flag_noPsf
     "@id": "#Source.localBackground_flag_noPsf"
     datatype: boolean
     description: No PSF provided
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_bad
     "@id": "#Source.pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the Source footprint
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_cr
     "@id": "#Source.pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the Source footprint
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_crCenter
     "@id": "#Source.pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the Source center
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_edge
     "@id": "#Source.pixelFlags_edge"
     datatype: boolean
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#Source.pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_interpolatedCenter
     "@id": "#Source.pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_offimage
     "@id": "#Source.pixelFlags_offimage"
     datatype: boolean
     description: Source center is off image
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_saturated
     "@id": "#Source.pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the Source footprint
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_saturatedCenter
     "@id": "#Source.pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the Source center
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_suspect
     "@id": "#Source.pixelFlags_suspect"
     datatype: boolean
     description: Source's footprint includes suspect pixels
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: pixelFlags_suspectCenter
     "@id": "#Source.pixelFlags_suspectCenter"
     datatype: boolean
     description: Source's center is close to suspect pixels
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: psfFlux_apCorr
     "@id": "#Source.psfFlux_apCorr"
@@ -5981,85 +5485,71 @@ tables:
     "@id": "#Source.psfFlux_flag"
     datatype: boolean
     description: Failure to derive linear least-squares fit of psf model forced on the calexp
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: psfFlux_flag_apCorr
     "@id": "#Source.psfFlux_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct base_PsfFlux
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: psfFlux_flag_edge
     "@id": "#Source.psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: psfFlux_flag_noGoodPixels
     "@id": "#Source.psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: gaussianFlux_flag
     "@id": "#Source.gaussianFlux_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag
     "@id": "#Source.centroid_flag"
     datatype: boolean
     description: General Failure Flag
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag_almostNoSecondDerivative
     "@id": "#Source.centroid_flag_almostNoSecondDerivative"
     datatype: boolean
     description: Almost vanishing second derivative
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag_badError
     "@id": "#Source.centroid_flag_badError"
     datatype: boolean
     description: Uncertainty on x and/or y position is NaN
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag_edge
     "@id": "#Source.centroid_flag_edge"
     datatype: boolean
     description: Object too close to edge
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag_noSecondDerivative
     "@id": "#Source.centroid_flag_noSecondDerivative"
     datatype: boolean
     description: Vanishing second derivative
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag_notAtMaximum
     "@id": "#Source.centroid_flag_notAtMaximum"
     datatype: boolean
     description: Object is not at a maximum
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: centroid_flag_resetToPeak
     "@id": "#Source.centroid_flag_resetToPeak"
     datatype: boolean
     description: Set if CentroidChecker reset the centroid
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: variance_flag
     "@id": "#Source.variance_flag"
     datatype: boolean
     description: Set for any fatal failure
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: variance_flag_emptyFootprint
     "@id": "#Source.variance_flag_emptyFootprint"
     datatype: boolean
     description: Set to True when the footprint has no usable pixels
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: variance_value
     "@id": "#Source.variance_value"
@@ -6070,61 +5560,51 @@ tables:
     "@id": "#Source.calib_astrometry_used"
     datatype: boolean
     description: Set if source was used in astrometric calibration
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: calib_detected
     "@id": "#Source.calib_detected"
     datatype: boolean
     description: Source was detected as an image characterization source (icSrc)
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: calib_photometry_reserved
     "@id": "#Source.calib_photometry_reserved"
     datatype: boolean
     description: Set if source was reserved from photometric calibration
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: calib_photometry_used
     "@id": "#Source.calib_photometry_used"
     datatype: boolean
     description: Set if source was used in photometric calibration
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: calib_psf_candidate
     "@id": "#Source.calib_psf_candidate"
     datatype: boolean
     description: Flag set if the source was a candidate for PSF determination, as determined by the star selector.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: calib_psf_reserved
     "@id": "#Source.calib_psf_reserved"
     datatype: boolean
     description: Set if source was reserved from PSF determination
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: calib_psf_used
     "@id": "#Source.calib_psf_used"
     datatype: boolean
     description: Flag set if the source was actually used for PSF determination, as determined by the
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_deblendedAsPsf
     "@id": "#Source.deblend_deblendedAsPsf"
     datatype: boolean
     description: Deblender thought this source looked like a PSF
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_hasStrayFlux
     "@id": "#Source.deblend_hasStrayFlux"
     datatype: boolean
     description: This source was assigned some stray flux
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_masked
     "@id": "#Source.deblend_masked"
     datatype: boolean
     description: Parent footprint was predominantly masked
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_nChild
     "@id": "#Source.deblend_nChild"
@@ -6135,97 +5615,81 @@ tables:
     "@id": "#Source.deblend_parentTooBig"
     datatype: boolean
     description: Parent footprint covered too many pixels
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_patchedTemplate
     "@id": "#Source.deblend_patchedTemplate"
     datatype: boolean
     description: This source was near an image edge and the deblender used patched edge-handling.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_rampedTemplate
     "@id": "#Source.deblend_rampedTemplate"
     datatype: boolean
     description: This source was near an image edge and the deblender used ramp edge-handling.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_skipped
     "@id": "#Source.deblend_skipped"
     datatype: boolean
     description: Deblender skipped this source
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: deblend_tooManyPeaks
     "@id": "#Source.deblend_tooManyPeaks"
     datatype: boolean
     description: Source had too many peaks; only the brightest were included
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmPsfMoments_flag
     "@id": "#Source.hsmPsfMoments_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmPsfMoments_flag_no_pixels
     "@id": "#Source.hsmPsfMoments_flag_no_pixels"
     datatype: boolean
     description: No pixels to measure
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmPsfMoments_flag_not_contained
     "@id": "#Source.hsmPsfMoments_flag_not_contained"
     datatype: boolean
     description: Center not contained in footprint bounding box
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmPsfMoments_flag_parent_source
     "@id": "#Source.hsmPsfMoments_flag_parent_source"
     datatype: boolean
     description: Parent source, ignored
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmShapeRegauss_flag
     "@id": "#Source.hsmShapeRegauss_flag"
     datatype: boolean
     description: General failure flag, set if anything went wrong
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmShapeRegauss_flag_galsim
     "@id": "#Source.hsmShapeRegauss_flag_galsim"
     datatype: boolean
     description: GalSim failure
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmShapeRegauss_flag_no_pixels
     "@id": "#Source.hsmShapeRegauss_flag_no_pixels"
     datatype: boolean
     description: No pixels to measure
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmShapeRegauss_flag_not_contained
     "@id": "#Source.hsmShapeRegauss_flag_not_contained"
     datatype: boolean
     description: Center not contained in footprint bounding box
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: hsmShapeRegauss_flag_parent_source
     "@id": "#Source.hsmShapeRegauss_flag_parent_source"
     datatype: boolean
     description: Parent source, ignored
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: sky_source
     "@id": "#Source.sky_source"
     datatype: boolean
     description: Sky objects.
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: detect_isPrimary
     "@id": "#Source.detect_isPrimary"
     datatype: boolean
     description: True if Object seed has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky object
-    mysql:datatype: BOOLEAN
     fits:tunit:
   - name: band
     "@id": "#Source.band"
@@ -6368,7 +5832,6 @@ tables:
   - name: detect_isPatchInner
     "@id": "#ForcedSource.detect_isPatchInner"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: True if Object seed is in the inner region of a coadd patch
     fits:tunit:
     ivoa:ucd: meta.code
@@ -6377,7 +5840,6 @@ tables:
   - name: detect_isPrimary
     "@id": "#ForcedSource.detect_isPrimary"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: True if Object seed has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky object
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -6386,7 +5848,6 @@ tables:
   - name: detect_isTractInner
     "@id": "#ForcedSource.detect_isTractInner"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: True if Object seed is in the inner region of a coadd tract
     fits:tunit:
     ivoa:ucd: meta.code
@@ -6419,7 +5880,6 @@ tables:
   - name: localPhotoCalib_flag
     "@id": "#ForcedSource.localPhotoCalib_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Set for any fatal failure
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -6468,7 +5928,6 @@ tables:
   - name: localWcs_flag
     "@id": "#ForcedSource.localWcs_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Set for any fatal failure
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -6477,7 +5936,6 @@ tables:
   - name: pixelFlags_bad
     "@id": "#ForcedSource.pixelFlags_bad"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Bad pixel in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6486,7 +5944,6 @@ tables:
   - name: pixelFlags_crCenter
     "@id": "#ForcedSource.pixelFlags_crCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Cosmic ray in the Source center
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6495,7 +5952,6 @@ tables:
   - name: pixelFlags_cr
     "@id": "#ForcedSource.pixelFlags_cr"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Cosmic ray in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6504,7 +5960,6 @@ tables:
   - name: pixelFlags_edge
     "@id": "#ForcedSource.pixelFlags_edge"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6513,7 +5968,6 @@ tables:
   - name: pixelFlags_interpolatedCenter
     "@id": "#ForcedSource.pixelFlags_interpolatedCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Interpolated pixel in the Source center
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6522,7 +5976,6 @@ tables:
   - name: pixelFlags_interpolated
     "@id": "#ForcedSource.pixelFlags_interpolated"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Interpolated pixel in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6531,7 +5984,6 @@ tables:
   - name: pixelFlags_saturatedCenter
     "@id": "#ForcedSource.pixelFlags_saturatedCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Saturated pixel in the Source center
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6540,7 +5992,6 @@ tables:
   - name: pixelFlags_saturated
     "@id": "#ForcedSource.pixelFlags_saturated"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Saturated pixel in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6549,7 +6000,6 @@ tables:
   - name: pixelFlags_suspectCenter
     "@id": "#ForcedSource.pixelFlags_suspectCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source's center is close to suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6558,7 +6008,6 @@ tables:
   - name: pixelFlags_suspect
     "@id": "#ForcedSource.pixelFlags_suspect"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source's footprint includes suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -6575,7 +6024,6 @@ tables:
   - name: psfDiffFlux_flag
     "@id": "#ForcedSource.psfDiffFlux_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure to derive linear least-squares fit of psf model forced on the image difference
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -6600,7 +6048,6 @@ tables:
   - name: psfFlux_flag
     "@id": "#ForcedSource.psfFlux_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure to derive linear least-squares fit of psf model forced on the calexp
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -7213,13 +6660,11 @@ tables:
   - name: apFlux_flag
     "@id": "#DiaSource.apFlux_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: General Failure Flag
     fits:tunit:
   - name: apFlux_flag_apertureTruncated
     "@id": "#DiaSource.apFlux_flag_apertureTruncated"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Aperture did not fit within measurement image
     fits:tunit:
   - name: bboxSize
@@ -7236,19 +6681,16 @@ tables:
   - name: centroid_flag
     "@id": "#DiaSource.centroid_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: General failure flag, set if anything went wrong
     fits:tunit:
   - name: centroid_neg_flag
     "@id": "#DiaSource.centroid_neg_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure flag for negative, set if anything went wrong
     fits:tunit:
   - name: centroid_pos_flag
     "@id": "#DiaSource.centroid_pos_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure flag for positive, set if anything went wrong
     fits:tunit:
   - name: coord_dec
@@ -7326,25 +6768,21 @@ tables:
   - name: forced_PsfFlux_flag
     "@id": "#DiaSource.forced_PsfFlux_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Forced PSF flux general failure flag.
     fits:tunit:
   - name: forced_PsfFlux_flag_edge
     "@id": "#DiaSource.forced_PsfFlux_flag_edge"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Forced PSF flux object was too close to the edge of the image to use the full PSF model.
     fits:tunit:
   - name: forced_PsfFlux_flag_noGoodPixels
     "@id": "#DiaSource.forced_PsfFlux_flag_noGoodPixels"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
     fits:tunit:
   - name: isDipole
     "@id": "#DiaSource.isDipole"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Flag indicating diaSource is classified as a dipole
     fits:tunit:
   - name: ixx
@@ -7391,73 +6829,61 @@ tables:
   - name: pixelFlags
     "@id": "#DiaSource.pixelFlags"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: General failure flag, set if anything went wrong
     fits:tunit:
   - name: pixelFlags_bad
     "@id": "#DiaSource.pixelFlags_bad"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Bad pixel in the Source footprint
     fits:tunit:
   - name: pixelFlags_cr
     "@id": "#DiaSource.pixelFlags_cr"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Cosmic ray in the Source footprint
     fits:tunit:
   - name: pixelFlags_crCenter
     "@id": "#DiaSource.pixelFlags_crCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Cosmic ray in the Source center
     fits:tunit:
   - name: pixelFlags_edge
     "@id": "#DiaSource.pixelFlags_edge"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
     fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#DiaSource.pixelFlags_interpolated"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Interpolated pixel in the Source footprint
     fits:tunit:
   - name: pixelFlags_interpolatedCenter
     "@id": "#DiaSource.pixelFlags_interpolatedCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Interpolated pixel in the Source center
     fits:tunit:
   - name: pixelFlags_offimage
     "@id": "#DiaSource.pixelFlags_offimage"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source center is off image
     fits:tunit:
   - name: pixelFlags_saturated
     "@id": "#DiaSource.pixelFlags_saturated"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Saturated pixel in the Source footprint
     fits:tunit:
   - name: pixelFlags_saturatedCenter
     "@id": "#DiaSource.pixelFlags_saturatedCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Saturated pixel in the Source center
     fits:tunit:
   - name: pixelFlags_suspect
     "@id": "#DiaSource.pixelFlags_suspect"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source's footprint includes suspect pixels
     fits:tunit:
   - name: pixelFlags_suspectCenter
     "@id": "#DiaSource.pixelFlags_suspectCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source's center is close to suspect pixels
     fits:tunit:
   - name: pixelId
@@ -7478,19 +6904,16 @@ tables:
   - name: psfFlux_flag
     "@id": "#DiaSource.psfFlux_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure to derive linear least-squares fit of psf model forced on the calexp
     fits:tunit:
   - name: psfFlux_flag_edge
     "@id": "#DiaSource.psfFlux_flag_edge"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Object was too close to the edge of the image to use the full PSF model
     fits:tunit:
   - name: psfFlux_flag_noGoodPixels
     "@id": "#DiaSource.psfFlux_flag_noGoodPixels"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Not enough non-rejected pixels in data to attempt the fit
     fits:tunit:
   - name: ra
@@ -7502,37 +6925,31 @@ tables:
   - name: shape_flag
     "@id": "#DiaSource.shape_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: General Failure Flag
     fits:tunit:
   - name: shape_flag_maxIter
     "@id": "#DiaSource.shape_flag_maxIter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Too many iterations in adaptive moments
     fits:tunit:
   - name: shape_flag_psf
     "@id": "#DiaSource.shape_flag_psf"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure in measuring PSF model shape
     fits:tunit:
   - name: shape_flag_shift
     "@id": "#DiaSource.shape_flag_shift"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Centroid shifted by more than the maximum allowed amount
     fits:tunit:
   - name: shape_flag_unweighted
     "@id": "#DiaSource.shape_flag_unweighted"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Weighted moments converged to an invalid value; using unweighted moments
     fits:tunit:
   - name: shape_flag_unweightedBad
     "@id": "#DiaSource.shape_flag_unweightedBad"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Both weighted and unweighted moments were invalid
     fits:tunit:
   - name: snr
@@ -7685,7 +7102,6 @@ tables:
   - name: localPhotoCalib_flag
     "@id": "#ForcedSourceOnDiaObject.localPhotoCalib_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Set for any fatal failure
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -7726,7 +7142,6 @@ tables:
   - name: localWcs_flag
     "@id": "#ForcedSourceOnDiaObject.localWcs_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Set for any fatal failure
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -7751,7 +7166,6 @@ tables:
   - name: pixelFlags_bad
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_bad"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Bad pixel in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7760,7 +7174,6 @@ tables:
   - name: pixelFlags_cr
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_cr"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Cosmic ray in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7769,7 +7182,6 @@ tables:
   - name: pixelFlags_crCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_crCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Cosmic ray in the Source center
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7778,7 +7190,6 @@ tables:
   - name: pixelFlags_edge
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_edge"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source is outside usable exposure region (masked EDGE or NO_DATA)
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7787,7 +7198,6 @@ tables:
   - name: pixelFlags_interpolated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolated"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Interpolated pixel in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7796,7 +7206,6 @@ tables:
   - name: pixelFlags_interpolatedCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolatedCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Interpolated pixel in the Source center
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7805,7 +7214,6 @@ tables:
   - name: pixelFlags_saturated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturated"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Saturated pixel in the Source footprint
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7814,7 +7222,6 @@ tables:
   - name: pixelFlags_saturatedCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturatedCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Saturated pixel in the Source center
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7823,7 +7230,6 @@ tables:
   - name: pixelFlags_suspect
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspect"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source's footprint includes suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7832,7 +7238,6 @@ tables:
   - name: pixelFlags_suspectCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspectCenter"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Source's center is close to suspect pixels
     fits:tunit:
     ivoa:ucd: meta.code.qual;instr.pixel
@@ -7857,7 +7262,6 @@ tables:
   - name: psfDiffFlux_flag
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure to derive linear least-squares fit of psf model forced on the image difference
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -7882,7 +7286,6 @@ tables:
   - name: psfFlux_flag
     "@id": "#ForcedSourceOnDiaObject.psfFlux_flag"
     datatype: boolean
-    mysql:datatype: BOOLEAN
     description: Failure to derive linear least-squares fit of psf model forced on the calexp
     fits:tunit:
     ivoa:ucd: meta.code.qual
@@ -8388,7 +7791,6 @@ tables:
   - name: match_candidate
     '@id': '#MatchesTruth.match_candidate'
     datatype: boolean
-    mysql:datatype: BOOLEAN
     tap:column_index: 999
     tap:principal: 0
     description: True for sources that were selected for matching
