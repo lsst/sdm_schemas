@@ -33,7 +33,6 @@ tables:
     datatype: long
     nullable: false
     description: Unique identifier of this DiaObject.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: validityStart
     "@id": "#DiaObject.validityStart"
@@ -54,14 +53,12 @@ tables:
     datatype: double
     nullable: false
     description: Right ascension coordinate of the position of the object at time radecMjdTai.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: raErr
     "@id": "#DiaObject.raErr"
     datatype: float
     description: Uncertainty of ra.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
@@ -69,90 +66,77 @@ tables:
     datatype: double
     nullable: false
     description: Declination coordinate of the position of the object at time radecMjdTai.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: decErr
     "@id": "#DiaObject.decErr"
     datatype: float
     description: Uncertainty of dec.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
     "@id": "#DiaObject.ra_dec_Cov"
     datatype: float
     description: Covariance between ra and dec.
-    mysql:datatype: FLOAT
     fits:tunit: deg**2
   - name: radecMjdTai
     "@id": "#DiaObject.radecMjdTai"
     datatype: double
     description: Time at which the object was at a position ra/dec, expressed
       as Modified Julian Date, International Atomic Time.
-    mysql:datatype: DOUBLE
     ivoa:ucd: time.epoch
   - name: pmRa
     "@id": "#DiaObject.pmRa"
     datatype: float
     description: Proper motion in right ascension.
-    mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
   - name: pmRaErr
     "@id": "#DiaObject.pmRaErr"
     datatype: float
     description: Uncertainty of pmRa.
-    mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: stat.error;pos.pm
   - name: pmDec
     "@id": "#DiaObject.pmDec"
     datatype: float
     description: Proper motion of declination.
-    mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: pos.pm
   - name: pmDecErr
     "@id": "#DiaObject.pmDecErr"
     datatype: float
     description: Uncertainty of pmDec.
-    mysql:datatype: FLOAT
     fits:tunit: mas/yr
     ivoa:ucd: stat.error;pos.pm
   - name: parallax
     "@id": "#DiaObject.parallax"
     datatype: float
     description: Parallax.
-    mysql:datatype: FLOAT
     fits:tunit: mas
     ivoa:ucd: pos.parallax
   - name: parallaxErr
     "@id": "#DiaObject.parallaxErr"
     datatype: float
     description: Uncertainty of parallax.
-    mysql:datatype: FLOAT
     fits:tunit: mas
     ivoa:ucd: stat.error;pos.parallax
   - name: pmRa_pmDec_Cov
     "@id": "#DiaObject.pmRa_pmDec_Cov"
     datatype: float
     description: Covariance of pmRa and pmDec.
-    mysql:datatype: FLOAT
     fits:tunit: "mas**2/yr**2"
     ivoa:ucd: stat.covariance;pos.eq
   - name: pmRa_parallax_Cov
     "@id": "#DiaObject.pmRa_parallax_Cov"
     datatype: float
     description: Covariance of pmRa and parallax.
-    mysql:datatype: FLOAT
     fits:tunit: mas**2/yr
     ivoa:ucd: stat.covariance
   - name: pmDec_parallax_Cov
     "@id": "#DiaObject.pmDec_parallax_Cov"
     datatype: float
     description: Covariance of pmDec and parallax.
-    mysql:datatype: FLOAT
     fits:tunit: mas**2/yr
     ivoa:ucd: stat.covariance
   - name: pmParallaxLnL
@@ -160,335 +144,284 @@ tables:
     datatype: float
     description: Natural log of the likelihood of the linear proper motion parallax
       fit.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.likelihood
   - name: pmParallaxChi2
     "@id": "#DiaObject.pmParallaxChi2"
     datatype: float
     description: Chi^2 static of the model fit.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: pmParallaxNdata
     "@id": "#DiaObject.pmParallaxNdata"
     datatype: int
     description: The number of data points used to fit the model.
-    mysql:datatype: INTEGER
   - name: u_psfFluxMean
     "@id": "#DiaObject.u_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for u filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: u_psfFluxMeanErr
     "@id": "#DiaObject.u_psfFluxMeanErr"
     datatype: float
     description: Standard error of u_psfFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: u_psfFluxSigma
     "@id": "#DiaObject.u_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of u_psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: u_psfFluxChi2
     "@id": "#DiaObject.u_psfFluxChi2"
     datatype: float
     description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: u_psfFluxNdata
     "@id": "#DiaObject.u_psfFluxNdata"
     datatype: int
     description: The number of data points used to compute u_psfFluxChi2.
-    mysql:datatype: INTEGER
   - name: u_fpFluxMean
     "@id": "#DiaObject.u_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: u_fpFluxMeanErr
     "@id": "#DiaObject.u_fpFluxMeanErr"
     datatype: float
     description: Standard error of u_fpFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: u_fpFluxSigma
     "@id": "#DiaObject.u_fpFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of u_fpFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: g_psfFluxMean
     "@id": "#DiaObject.g_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for g filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: g_psfFluxMeanErr
     "@id": "#DiaObject.g_psfFluxMeanErr"
     datatype: float
     description: Standard error of g_psfFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: g_psfFluxSigma
     "@id": "#DiaObject.g_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of g_psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: g_psfFluxChi2
     "@id": "#DiaObject.g_psfFluxChi2"
     datatype: float
     description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: g_psfFluxNdata
     "@id": "#DiaObject.g_psfFluxNdata"
     datatype: int
     description: The number of data points used to compute g_psfFluxChi2.
-    mysql:datatype: INTEGER
   - name: g_fpFluxMean
     "@id": "#DiaObject.g_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: g_fpFluxMeanErr
     "@id": "#DiaObject.g_fpFluxMeanErr"
     datatype: float
     description: Standard error of g_fpFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: g_fpFluxSigma
     "@id": "#DiaObject.g_fpFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of g_fpFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: r_psfFluxMean
     "@id": "#DiaObject.r_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for r filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: r_psfFluxMeanErr
     "@id": "#DiaObject.r_psfFluxMeanErr"
     datatype: float
     description: Standard error of r_psfFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: r_psfFluxSigma
     "@id": "#DiaObject.r_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of r_psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: r_psfFluxChi2
     "@id": "#DiaObject.r_psfFluxChi2"
     datatype: float
     description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: r_psfFluxNdata
     "@id": "#DiaObject.r_psfFluxNdata"
     datatype: int
     description: The number of data points used to compute r_psfFluxChi2.
-    mysql:datatype: INTEGER
   - name: r_fpFluxMean
     "@id": "#DiaObject.r_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: r_fpFluxMeanErr
     "@id": "#DiaObject.r_fpFluxMeanErr"
     datatype: float
     description: Standard error of r_fpFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: r_fpFluxSigma
     "@id": "#DiaObject.r_fpFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of r_fpFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: i_psfFluxMean
     "@id": "#DiaObject.i_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for i filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: i_psfFluxMeanErr
     "@id": "#DiaObject.i_psfFluxMeanErr"
     datatype: float
     description: Standard error of i_psfFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: i_psfFluxSigma
     "@id": "#DiaObject.i_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of i_psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: i_psfFluxChi2
     "@id": "#DiaObject.i_psfFluxChi2"
     datatype: float
     description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: i_psfFluxNdata
     "@id": "#DiaObject.i_psfFluxNdata"
     datatype: int
     description: The number of data points used to compute i_psfFluxChi2.
-    mysql:datatype: INTEGER
   - name: i_fpFluxMean
     "@id": "#DiaObject.i_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: i_fpFluxMeanErr
     "@id": "#DiaObject.i_fpFluxMeanErr"
     datatype: float
     description: Standard error of i_fpFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: i_fpFluxSigma
     "@id": "#DiaObject.i_fpFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of i_fpFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: z_psfFluxMean
     "@id": "#DiaObject.z_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for z filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: z_psfFluxMeanErr
     "@id": "#DiaObject.z_psfFluxMeanErr"
     datatype: float
     description: Standard error of z_psfFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: z_psfFluxSigma
     "@id": "#DiaObject.z_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of z_psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: z_psfFluxChi2
     "@id": "#DiaObject.z_psfFluxChi2"
     datatype: float
     description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: z_psfFluxNdata
     "@id": "#DiaObject.z_psfFluxNdata"
     datatype: int
     description: The number of data points used to compute z_psfFluxChi2.
-    mysql:datatype: INTEGER
   - name: z_fpFluxMean
     "@id": "#DiaObject.z_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: z_fpFluxMeanErr
     "@id": "#DiaObject.z_fpFluxMeanErr"
     datatype: float
     description: Standard error of z_fpFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: z_fpFluxSigma
     "@id": "#DiaObject.z_fpFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of z_fpFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: y_psfFluxMean
     "@id": "#DiaObject.y_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for y filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: y_psfFluxMeanErr
     "@id": "#DiaObject.y_psfFluxMeanErr"
     datatype: float
     description: Standard error of y_psfFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: y_psfFluxSigma
     "@id": "#DiaObject.y_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of y_psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: y_psfFluxChi2
     "@id": "#DiaObject.y_psfFluxChi2"
     datatype: float
     description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: y_psfFluxNdata
     "@id": "#DiaObject.y_psfFluxNdata"
     datatype: int
     description: The number of data points used to compute y_psfFluxChi2.
-    mysql:datatype: INTEGER
   - name: y_fpFluxMean
     "@id": "#DiaObject.y_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: y_fpFluxMeanErr
     "@id": "#DiaObject.y_fpFluxMeanErr"
     datatype: float
     description: Standard error of y_fpFluxMean.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: y_fpFluxSigma
     "@id": "#DiaObject.y_fpFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of y_fpFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: u_lcPeriodic
@@ -579,89 +512,74 @@ tables:
     "@id": "#DiaObject.nearbyObj1"
     datatype: long
     description: Id of the closest nearby object.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: nearbyObj1Dist
     "@id": "#DiaObject.nearbyObj1Dist"
     datatype: float
     description: Distance to nearbyObj1.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
   - name: nearbyObj1LnP
     "@id": "#DiaObject.nearbyObj1LnP"
     datatype: float
     description: Natural log of the probability that the observed diaObject is the
       same as the nearbyObj1.
-    mysql:datatype: FLOAT
   - name: nearbyObj2
     "@id": "#DiaObject.nearbyObj2"
     datatype: long
     description: Id of the second-closest nearby object.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: nearbyObj2Dist
     "@id": "#DiaObject.nearbyObj2Dist"
     datatype: float
     description: Distance to nearbyObj2.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
   - name: nearbyObj2LnP
     "@id": "#DiaObject.nearbyObj2LnP"
     datatype: float
     description: Natural log of the probability that the observed diaObject is the
       same as the nearbyObj2.
-    mysql:datatype: FLOAT
   - name: nearbyObj3
     "@id": "#DiaObject.nearbyObj3"
     datatype: long
     description: Id of the third-closest nearby object.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: nearbyObj3Dist
     "@id": "#DiaObject.nearbyObj3Dist"
     datatype: float
     description: Distance to nearbyObj3.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
   - name: nearbyObj3LnP
     "@id": "#DiaObject.nearbyObj3LnP"
     datatype: float
     description: Natural log of the probability that the observed diaObject is the
       same as the nearbyObj3.
-    mysql:datatype: FLOAT
   - name: nearbyExtObj1
     "@id": "#DiaObject.nearbyExtObj1"
     datatype: long
     description: Id of the closest extended DR Object by second moment-based separation.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: nearbyExtObj1Sep
     "@id": "#DiaObject.nearbyExtObj1Sep"
     datatype: float
     description: Second moment-based separation of nearbyExtObj1 (unitless).
-    mysql:datatype: FLOAT
   - name: nearbyExtObj2
     "@id": "#DiaObject.nearbyExtObj2"
     datatype: long
     description: Id of the second closest extended DR Object by second moment-based separation.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: nearbyExtObj2Sep
     "@id": "#DiaObject.nearbyExtObj2Sep"
     datatype: float
     description: Second moment-based separation of nearbyExtObj2 (unitless).
-    mysql:datatype: FLOAT
   - name: nearbyExtObj3
     "@id": "#DiaObject.nearbyExtObj3"
     datatype: long
     description: Id of the third closest extended DR Object by second moment-based separation.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: nearbyExtObj3Sep
     "@id": "#DiaObject.nearbyExtObj3Sep"
     datatype: float
     description: Second moment-based separation of nearbyExtObj3 (unitless).
-    mysql:datatype: FLOAT
   - name: nearbyLowzGal
     "@id": "#DiaObject.nearbyLowzGal"
     datatype: string
@@ -673,7 +591,6 @@ tables:
     datatype: float
     fits:tunit: arcsec
     description: Separation distance of nearbyLowzGal.
-    mysql:datatype: FLOAT
   - name: u_scienceFluxMean
     "@id": "#DiaObject.u_scienceFluxMean"
     datatype: float
@@ -1195,7 +1112,6 @@ tables:
     nullable: false
     value: "0"
     description: Flags, bitwise OR tbd.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.code
   - name: lastNonForcedSource
     "@id": "#DiaObject.lastNonForcedSource"
@@ -1233,7 +1149,6 @@ tables:
     nullable: false
     autoincrement: false
     description: Unique identifier.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: discoverySubmissionDate
     "@id": "#SSObject.discoverySubmissionDate"
@@ -1241,26 +1156,22 @@ tables:
     description: The date the LSST first linked and submitted the discovery observations
       to the MPC. May be NULL if not an LSST discovery. The date format will follow
       general LSST conventions (MJD TAI, at the moment).
-    mysql:datatype: DOUBLE
     fits:tunit: d
   - name: firstObservationDate
     "@id": "#SSObject.firstObservationDate"
     datatype: double
     description: The time of the first LSST observation of this object (could be precovered)
       as Modified Julian Date, International Atomic Time.
-    mysql:datatype: DOUBLE
     fits:tunit: d
   - name: arc
     "@id": "#SSObject.arc"
     datatype: float
     description: Arc of LSST observations.
-    mysql:datatype: FLOAT
     fits:tunit: d
   - name: numObs
     "@id": "#SSObject.numObs"
     datatype: int
     description: Number of LSST observations of this object.
-    mysql:datatype: INTEGER
   - name: lcPeriodic
     "@id": "#SSObject.lcPeriodic"
     datatype: binary
@@ -1272,312 +1183,262 @@ tables:
     "@id": "#SSObject.MOID"
     datatype: float
     description: Minimum orbit intersection distance to Earth.
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: MOIDTrueAnomaly
     "@id": "#SSObject.MOIDTrueAnomaly"
     datatype: float
     description: True anomaly of the MOID point.
-    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: MOIDEclipticLongitude
     "@id": "#SSObject.MOIDEclipticLongitude"
     datatype: float
     description: Ecliptic longitude of the MOID point.
-    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: MOIDDeltaV
     "@id": "#SSObject.MOIDDeltaV"
     datatype: float
     description: DeltaV at the MOID point.
-    mysql:datatype: FLOAT
     fits:tunit: km/s
   - name: u_H
     "@id": "#SSObject.u_H"
     datatype: float
     description: Best fit absolute magnitude (u band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: u_G12
     "@id": "#SSObject.u_G12"
     datatype: float
     description: Best fit G12 slope parameter (u band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: u_HErr
     "@id": "#SSObject.u_HErr"
     datatype: float
     description: Uncertainty of H (u band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: u_G12Err
     "@id": "#SSObject.u_G12Err"
     datatype: float
     description: Uncertainty of G12 (u band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: u_H_u_G12_Cov
     "@id": "#SSObject.u_H_u_G12_Cov"
     datatype: float
     description: H-G12 covariance (u band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag**2
   - name: u_Chi2
     "@id": "#SSObject.u_Chi2"
     datatype: float
     description: Chi^2 statistic of the phase curve fit (u band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: u_Ndata
     "@id": "#SSObject.u_Ndata"
     datatype: int
     description: The number of data points used to fit the phase curve (u band).
-    mysql:datatype: INTEGER
   - name: g_H
     "@id": "#SSObject.g_H"
     datatype: float
     description: Best fit absolute magnitude (g band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: g_G12
     "@id": "#SSObject.g_G12"
     datatype: float
     description: Best fit G12 slope parameter (g band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: g_HErr
     "@id": "#SSObject.g_HErr"
     datatype: float
     description: Uncertainty of H (g band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: g_G12Err
     "@id": "#SSObject.g_G12Err"
     datatype: float
     description: Uncertainty of G12 (g band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: g_H_g_G12_Cov
     "@id": "#SSObject.g_H_g_G12_Cov"
     datatype: float
     description: H-G12 covariance (g band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag**2
   - name: g_Chi2
     "@id": "#SSObject.g_Chi2"
     datatype: float
     description: Chi^2 statistic of the phase curve fit (g band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: g_Ndata
     "@id": "#SSObject.g_Ndata"
     datatype: int
     description: The number of data points used to fit the phase curve (g band).
-    mysql:datatype: INTEGER
   - name: r_H
     "@id": "#SSObject.r_H"
     datatype: float
     description: Best fit absolute magnitude (r band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: r_G12
     "@id": "#SSObject.r_G12"
     datatype: float
     description: Best fit G12 slope parameter (r band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: r_HErr
     "@id": "#SSObject.r_HErr"
     datatype: float
     description: Uncertainty of H (r band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: r_G12Err
     "@id": "#SSObject.r_G12Err"
     datatype: float
     description: Uncertainty of G12 (r band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: r_H_r_G12_Cov
     "@id": "#SSObject.r_H_r_G12_Cov"
     datatype: float
     description: H-G12 covariance (r band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag**2
   - name: r_Chi2
     "@id": "#SSObject.r_Chi2"
     datatype: float
     description: Chi^2 statistic of the phase curve fit (r band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: r_Ndata
     "@id": "#SSObject.r_Ndata"
     datatype: int
     description: The number of data points used to fit the phase curve (r band).
-    mysql:datatype: INTEGER
   - name: i_H
     "@id": "#SSObject.i_H"
     datatype: float
     description: Best fit absolute magnitude (i band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: i_G12
     "@id": "#SSObject.i_G12"
     datatype: float
     description: Best fit G12 slope parameter (i band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: i_HErr
     "@id": "#SSObject.i_HErr"
     datatype: float
     description: Uncertainty of H (i band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: i_G12Err
     "@id": "#SSObject.i_G12Err"
     datatype: float
     description: Uncertainty of G12 (i band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: i_H_i_G12_Cov
     "@id": "#SSObject.i_H_i_G12_Cov"
     datatype: float
     description: H-G12 covariance (i band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag**2
   - name: i_Chi2
     "@id": "#SSObject.i_Chi2"
     datatype: float
     description: Chi^2 statistic of the phase curve fit (i band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: i_Ndata
     "@id": "#SSObject.i_Ndata"
     datatype: int
     description: The number of data points used to fit the phase curve (i band).
-    mysql:datatype: INTEGER
   - name: z_H
     "@id": "#SSObject.z_H"
     datatype: float
     description: Best fit absolute magnitude (z band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: z_G12
     "@id": "#SSObject.z_G12"
     datatype: float
     description: Best fit G12 slope parameter (z band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: z_HErr
     "@id": "#SSObject.z_HErr"
     datatype: float
     description: Uncertainty of H (z band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: z_G12Err
     "@id": "#SSObject.z_G12Err"
     datatype: float
     description: Uncertainty of G12 (z band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: z_H_z_G12_Cov
     "@id": "#SSObject.z_H_z_G12_Cov"
     datatype: float
     description: H-G12 covariance (z band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag**2
   - name: z_Chi2
     "@id": "#SSObject.z_Chi2"
     datatype: float
     description: Chi^2 statistic of the phase curve fit (z band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: z_Ndata
     "@id": "#SSObject.z_Ndata"
     datatype: int
     description: The number of data points used to fit the phase curve (z band).
-    mysql:datatype: INTEGER
   - name: y_H
     "@id": "#SSObject.y_H"
     datatype: float
     description: Best fit absolute magnitude (y band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: y_G12
     "@id": "#SSObject.y_G12"
     datatype: float
     description: Best fit G12 slope parameter (y band).
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: y_HErr
     "@id": "#SSObject.y_HErr"
     datatype: float
     description: Uncertainty of H (y band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: y_G12Err
     "@id": "#SSObject.y_G12Err"
     datatype: float
     description: Uncertainty of G12 (y band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.error
     fits:tunit: mag
   - name: y_H_y_G12_Cov
     "@id": "#SSObject.y_H_y_G12_Cov"
     datatype: float
     description: H-G12 covariance (y band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
     fits:tunit: mag**2
   - name: y_Chi2
     "@id": "#SSObject.y_Chi2"
     datatype: float
     description: Chi^2 statistic of the phase curve fit (y band).
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: y_Ndata
     "@id": "#SSObject.y_Ndata"
     datatype: int
     description: The number of data points used to fit the phase curve (y band).
-    mysql:datatype: INTEGER
   - name: maxExtendedness
     "@id": "#SSObject.maxExtendedness"
     datatype: float
     description: maximum `extendedness` value from the DIASource.
-    mysql:datatype: FLOAT
   - name: minExtendedness
     "@id": "#SSObject.minExtendedness"
     datatype: float
     description: minimum `extendedness` value from the DIASource.
-    mysql:datatype: FLOAT
   - name: medianExtendedness
     "@id": "#SSObject.medianExtendedness"
     datatype: float
     description: median `extendedness` value from the DIASource.
-    mysql:datatype: FLOAT
   - name: flags
     "@id": "#SSObject.flags"
     datatype: long
     nullable: false
     description: Flags, bitwise OR tbd.
     value: "0"
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.code
 - name: DiaSource
   "@id": "#DiaSource"
@@ -1590,14 +1451,12 @@ tables:
     nullable: false
     autoincrement: false
     description: Unique identifier of this DiaSource.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
   - name: ccdVisitId
     "@id": "#DiaSource.ccdVisitId"
     datatype: long
     nullable: false
     description: Id of the ccdVisit where this diaSource was measured.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
   - name: diaObjectId
     "@id": "#DiaSource.diaObjectId"
@@ -1606,7 +1465,6 @@ tables:
     description: Id of the diaObject this source was associated with, if any. If not,
       it is set to NULL (each diaSource will be associated with either a diaObject
       or ssObject).
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: ssObjectId
     "@id": "#DiaSource.ssObjectId"
@@ -1615,14 +1473,12 @@ tables:
     description: Id of the ssObject this source was associated with, if any. If not,
       it is set to NULL (each diaSource will be associated with either a diaObject
       or ssObject).
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: parentDiaSourceId
     "@id": "#DiaSource.parentDiaSourceId"
     datatype: long
     description: Id of the parent diaSource this diaSource has been deblended from,
       if any.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
@@ -1637,7 +1493,6 @@ tables:
     nullable: false
     description: Effective mid-visit time for this diaSource, expressed as Modified
       Julian Date, International Atomic Time.
-    mysql:datatype: DOUBLE
     fits:tunit: d
     ivoa:ucd: time.epoch
   - name: ra
@@ -1645,14 +1500,12 @@ tables:
     datatype: double
     nullable: false
     description: Right ascension coordinate of the center of this diaSource.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: raErr
     "@id": "#DiaSource.raErr"
     datatype: float
     description: Uncertainty of ra.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
@@ -1660,21 +1513,18 @@ tables:
     datatype: double
     nullable: false
     description: Declination coordinate of the center of this diaSource.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: decErr
     "@id": "#DiaSource.decErr"
     datatype: float
     description: Uncertainty of dec.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
     "@id": "#DiaSource.ra_dec_Cov"
     datatype: float
     description: Covariance between ra and dec.
-    mysql:datatype: FLOAT
     fits:tunit: deg**2
     ivoa:ucd: stat.covariance
   - name: x
@@ -1682,14 +1532,12 @@ tables:
     datatype: float
     nullable: false
     description: x position computed by a centroiding algorithm.
-    mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.x
   - name: xErr
     "@id": "#DiaSource.xErr"
     datatype: float
     description: Uncertainty of x.
-    mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: stat.error;pos.cartesian.x
   - name: y
@@ -1697,35 +1545,30 @@ tables:
     datatype: float
     nullable: false
     description: y position computed by a centroiding algorithm.
-    mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.y
   - name: yErr
     "@id": "#DiaSource.yErr"
     datatype: float
     description: Uncertainty of y.
-    mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: stat.error;pos.cartesian.y
   - name: x_y_Cov
     "@id": "#DiaSource.x_y_Cov"
     datatype: float
     description: Covariance between x and y.
-    mysql:datatype: FLOAT
     fits:tunit: pixel**2
     ivoa:ucd: stat.covariance
   - name: apFlux
     "@id": "#DiaSource.apFlux"
     datatype: float
     description: Flux in a 12 pixel radius aperture on the difference image.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: apFluxErr
     "@id": "#DiaSource.apFluxErr"
     datatype: float
     description: Estimated uncertainty of apFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: snr
@@ -1733,69 +1576,59 @@ tables:
     datatype: float
     description: The signal-to-noise ratio at which this source was detected in the
       difference image.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.snr
   - name: psfFlux
     "@id": "#DiaSource.psfFlux"
     datatype: float
     description: Flux for Point Source model. Note this actually measures
       the flux difference between the template and the visit image.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: psfFluxErr
     "@id": "#DiaSource.psfFluxErr"
     datatype: float
     description: Uncertainty of psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: psfRa
     "@id": "#DiaSource.psfRa"
     datatype: double
     description: Right ascension coordinate of centroid for point source model.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: psfRaErr
     "@id": "#DiaSource.psfRaErr"
     datatype: float
     description: Uncertainty of psfRa.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: psfDec
     "@id": "#DiaSource.psfDec"
     datatype: double
     description: Declination coordinate of centroid for point source model.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: psfDecErr
     "@id": "#DiaSource.psfDecErr"
     datatype: float
     description: Uncertainty of psfDec.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: psfFlux_psfRa_Cov
     "@id": "#DiaSource.psfFlux_psfRa_Cov"
     datatype: float
     description: Covariance between psfFlux and psfRa.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.deg
     ivoa:ucd: stat.covariance
   - name: psfFlux_psfDec_Cov
     "@id": "#DiaSource.psfFlux_psfDec_Cov"
     datatype: float
     description: Covariance between psfFlux and psfDec.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.deg
     ivoa:ucd: stat.covariance
   - name: psfRa_psfDec_Cov
     "@id": "#DiaSource.psfRa_psfDec_Cov"
     datatype: float
     description: Covariance between psfRa and psfDec.
-    mysql:datatype: FLOAT
     fits:tunit: deg**2
     ivoa:ucd: stat.covariance
   - name: psfLnL
@@ -1803,176 +1636,148 @@ tables:
     datatype: float
     description: Natural log likelihood of the observed data given the point source
       model.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.likelihood
   - name: psfChi2
     "@id": "#DiaSource.psfChi2"
     datatype: float
     description: Chi^2 statistic of the point source model fit.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: psfNdata
     "@id": "#DiaSource.psfNdata"
     datatype: int
     description: The number of data points (pixels) used to fit the point source model.
-    mysql:datatype: INTEGER
   - name: trailFlux
     "@id": "#DiaSource.trailFlux"
     datatype: float
     description: Flux for a trailed source model. Note this actually measures
       the flux difference between the template and the visit image.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: trailFluxErr
     "@id": "#DiaSource.trailFluxErr"
     datatype: float
     description: Uncertainty of trailFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: trailRa
     "@id": "#DiaSource.trailRa"
     datatype: double
     description: Right ascension coordinate of centroid for trailed source model.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: trailRaErr
     "@id": "#DiaSource.trailRaErr"
     datatype: float
     description: Uncertainty of trailRa.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: trailDec
     "@id": "#DiaSource.trailDec"
     datatype: double
     description: Declination coordinate of centroid for trailed source model.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: trailDecErr
     "@id": "#DiaSource.trailDecErr"
     datatype: float
     description: Uncertainty of trailDec.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: trailLength
     "@id": "#DiaSource.trailLength"
     datatype: float
     description: Maximum likelihood fit of trail length.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
   - name: trailLengthErr
     "@id": "#DiaSource.trailLengthErr"
     datatype: float
     description: Uncertainty of trailLength.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: trailAngle
     "@id": "#DiaSource.trailAngle"
     datatype: float
     description: Maximum likelihood fit of the angle between the meridian through
       the centroid and the trail direction (bearing).
-    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: trailAngleErr
     "@id": "#DiaSource.trailAngleErr"
     datatype: float
     description: Uncertainty of trailAngle.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: trailFlux_trailRa_Cov
     "@id": "#DiaSource.trailFlux_trailRa_Cov"
     datatype: float
     description: Covariance of trailFlux and trailRa.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailFlux_trailDec_Cov
     "@id": "#DiaSource.trailFlux_trailDec_Cov"
     datatype: float
     description: Covariance of trailFlux and trailDec.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailFlux_trailLength_Cov
     "@id": "#DiaSource.trailFlux_trailLength_Cov"
     datatype: float
     description: Covariance of trailFlux and trailLength
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailFlux_trailAngle_Cov
     "@id": "#DiaSource.trailFlux_trailAngle_Cov"
     datatype: float
     description: Covariance of trailFlux and trailAngle
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailRa_trailDec_Cov
     "@id": "#DiaSource.trailRa_trailDec_Cov"
     datatype: float
     description: Covariance of trailRa and trailDec.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailRa_trailLength_Cov
     "@id": "#DiaSource.trailRa_trailLength_Cov"
     datatype: float
     description: Covariance of trailRa and trailLength.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailRa_trailAngle_Cov
     "@id": "#DiaSource.trailRa_trailAngle_Cov"
     datatype: float
     description: Covariance of trailRa and trailAngle.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailDec_trailLength_Cov
     "@id": "#DiaSource.trailDec_trailLength_Cov"
     datatype: float
     description: Covariance of trailDec and trailLength.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailDec_trailAngle_Cov
     "@id": "#DiaSource.trailDec_trailAngle_Cov"
     datatype: float
     description: Covariance of trailDec and trailAngle.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailLength_trailAngle_Cov
     "@id": "#DiaSource.trailLength_trailAngle_Cov"
     datatype: float
     description: Covariance of trailLength and trailAngle
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: trailLnL
     "@id": "#DiaSource.trailLnL"
     datatype: float
     description: Natural log likelihood of the observed data given the trailed source
       model.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.likelihood
   - name: trailChi2
     "@id": "#DiaSource.trailChi2"
     datatype: float
     description: Chi^2 statistic of the trailed source model fit.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: trailNdata
     "@id": "#DiaSource.trailNdata"
     datatype: int
     value: "0"
     description: The number of data points (pixels) used to fit the trailed source model.
-    mysql:datatype: INTEGER
   - name: dipoleMeanFlux
     "@id": "#DiaSource.dipoleMeanFlux"
     datatype: float
     description: Maximum likelihood value for the mean absolute flux of the two lobes
       for a dipole model.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: dipoleMeanFluxErr
     "@id": "#DiaSource.dipoleMeanFluxErr"
     datatype: float
     description: Uncertainty of dipoleMeanFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: dipoleFluxDiff
@@ -1980,55 +1785,47 @@ tables:
     datatype: float
     description: Maximum likelihood value for the difference of absolute fluxes of
       the two lobes for a dipole model.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: dipoleFluxDiffErr
     "@id": "#DiaSource.dipoleFluxDiffErr"
     datatype: float
     description: Uncertainty of dipoleFluxDiff.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: dipoleRa
     "@id": "#DiaSource.dipoleRa"
     datatype: double
     description: "Right ascension coordinate of centroid for dipole model."
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: dipoleRaErr
     "@id": "#DiaSource.dipoleRaErr"
     datatype: float
     description: Uncertainty of dipoleRa.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dipoleDec
     "@id": "#DiaSource.dipoleDec"
     datatype: double
     description: "Declination coordinate of centroid for dipole model."
-    mysql:datatype: DOUBLE
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: dipoleDecErr
     "@id": "#DiaSource.dipoleDecErr"
     datatype: float
     description: Uncertainty of dipoleDec.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: dipoleLength
     "@id": "#DiaSource.dipoleLength"
     datatype: float
     description: Maximum likelihood value for the lobe separation in dipole model.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
     ivoa:ucd: pos.angDistance
   - name: dipoleLengthErr
     "@id": "#DiaSource.dipoleLengthErr"
     datatype: float
     description: Uncertainty of dipoleLength.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
     ivoa:ucd: stat.error;pos.angDistance
   - name: dipoleAngle
@@ -2036,137 +1833,115 @@ tables:
     datatype: float
     description: Maximum likelihood fit of the angle between the meridian through
       the centroid and the dipole direction (bearing, from negative to positive lobe).
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: pos.posAng
   - name: dipoleAngleErr
     "@id": "#DiaSource.dipoleAngleErr"
     datatype: float
     description: Uncertainty of dipoleAngle.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.posAng
   - name: dipoleMeanFlux_dipoleFluxDiff_Cov
     "@id": "#DiaSource.dipoleMeanFlux_dipoleFluxDiff_Cov"
     datatype: float
     description: Covariance of dipoleMeanFlux and dipoleFluxDiff.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleMeanFlux_dipoleRa_Cov
     "@id": "#DiaSource.dipoleMeanFlux_dipoleRa_Cov"
     datatype: float
     description: Covariance of dipoleMeanFlux and dipoleRa.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleMeanFlux_dipoleDec_Cov
     "@id": "#DiaSource.dipoleMeanFlux_dipoleDec_Cov"
     datatype: float
     description: Covariance of dipoleMeanFlux and dipoleDec.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleMeanFlux_dipoleLength_Cov
     "@id": "#DiaSource.dipoleMeanFlux_dipoleLength_Cov"
     datatype: float
     description: Covariance of dipoleMeanFlux and dipoleLength.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleMeanFlux_dipoleAngle_Cov
     "@id": "#DiaSource.dipoleMeanFlux_dipoleAngle_Cov"
     datatype: float
     description: Covariance of dipoleMeanFlux and dipoleAngle.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleFluxDiff_dipoleRa_Cov
     "@id": "#DiaSource.dipoleFluxDiff_dipoleRa_Cov"
     datatype: float
     description: Covariance of dipoleFluxDiff and dipoleRa.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleFluxDiff_dipoleDec_Cov
     "@id": "#DiaSource.dipoleFluxDiff_dipoleDec_Cov"
     datatype: float
     description: Covariance of dipoleFluxDiff and dipoleDec.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleFluxDiff_dipoleLength_Cov
     "@id": "#DiaSource.dipoleFluxDiff_dipoleLength_Cov"
     datatype: float
     description: Covariance of dipoleFluxDiff and dipoleLength.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleFluxDiff_dipoleAngle_Cov
     "@id": "#DiaSource.dipoleFluxDiff_dipoleAngle_Cov"
     datatype: float
     description: Covariance of dipoleFluxDiff and dipoleAngle.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleRa_dipoleDec_Cov
     "@id": "#DiaSource.dipoleRa_dipoleDec_Cov"
     datatype: float
     description: Covariance of dipoleRa and dipoleDec.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleRa_dipoleLength_Cov
     "@id": "#DiaSource.dipoleRa_dipoleLength_Cov"
     datatype: float
     description: Covariance of dipoleRa and dipoleLength.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleRa_dipoleAngle_Cov
     "@id": "#DiaSource.dipoleRa_dipoleAngle_Cov"
     datatype: float
     description: Covariance of dipoleRa and dipoleAngle.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleDec_dipoleLength_Cov
     "@id": "#DiaSource.dipoleDec_dipoleLength_Cov"
     datatype: float
     description: Covariance of dipoleDec and dipoleLength.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleDec_dipoleAngle_Cov
     "@id": "#DiaSource.dipoleDec_dipoleAngle_Cov"
     datatype: float
     description: Covariance of dipoleDec and dipoleAngle.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleLength_dipoleAngle_Cov
     "@id": "#DiaSource.dipoleLength_dipoleAngle_Cov"
     datatype: float
     description: Covariance of dipoleLength and dipoleAngle.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.covariance
   - name: dipoleLnL
     "@id": "#DiaSource.dipoleLnL"
     datatype: float
     description: Natural log likelihood of the observed data given the dipole source
       model.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.likelihood
   - name: dipoleChi2
     "@id": "#DiaSource.dipoleChi2"
     datatype: float
     description: Chi^2 statistic of the model fit.
-    mysql:datatype: FLOAT
     ivoa:ucd: stat.fit.chi2
   - name: dipoleNdata
     "@id": "#DiaSource.dipoleNdata"
     datatype: int
     description: The number of data points (pixels) used to fit the model.
-    mysql:datatype: INTEGER
   - name: scienceFlux
     "@id": "#DiaSource.scienceFlux"
     datatype: float
     description: Forced photometry flux for a point source model measured on the visit image
       centered at DiaSource position.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: scienceFluxErr
     "@id": "#DiaSource.scienceFluxErr"
     datatype: float
     description: Estimated uncertainty of scienceFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: snapDiffFlux
@@ -2174,101 +1949,85 @@ tables:
     datatype: float
     description: Calibrated flux for Point Source model centered on radec but measured
       on the difference of snaps comprising this visit.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
   - name: snapDiffFluxErr
     "@id": "#DiaSource.snapDiffFluxErr"
     datatype: float
     description: Estimated uncertainty of snapDiffFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: fpBkgd
     "@id": "#DiaSource.fpBkgd"
     datatype: float
     description: Estimated sky background at the position (centroid) of the object.
-    mysql:datatype: FLOAT
     fits:tunit: nJy/arcsec**2
   - name: fpBkgdErr
     "@id": "#DiaSource.fpBkgdErr"
     datatype: float
     description: Estimated uncertainty of fpBkgd.
-    mysql:datatype: FLOAT
     fits:tunit: nJy/arcsec**2
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: float
     description: Adaptive second moment of the source intensity.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
   - name: ixxErr
     "@id": "#DiaSource.ixxErr"
     datatype: float
     description: Uncertainty of ixx.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
     ivoa:ucd: stat.error
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: float
     description: Adaptive second moment of the source intensity.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
   - name: iyyErr
     "@id": "#DiaSource.iyyErr"
     datatype: float
     description: Uncertainty of iyy.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
     ivoa:ucd: stat.error
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: float
     description: Adaptive second moment of the source intensity.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
   - name: ixyErr
     "@id": "#DiaSource.ixyErr"
     datatype: float
     description: Uncertainty of ixy.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
     ivoa:ucd: stat.error
   - name: ixx_iyy_Cov
     "@id": "#DiaSource.ixx_iyy_Cov"
     datatype: float
     description: Covariance of ixx and iyy.
-    mysql:datatype: FLOAT
     fits:tunit: nJy**2.arcsec**4
   - name: ixx_ixy_Cov
     "@id": "#DiaSource.ixx_ixy_Cov"
     datatype: float
     description: Covariance of ixx and ixy.
-    mysql:datatype: FLOAT
     fits:tunit: nJy**2.arcsec**4
   - name: iyy_ixy_Cov
     "@id": "#DiaSource.iyy_ixy_Cov"
     datatype: float
     description: Covariance of iyy and ixy.
-    mysql:datatype: FLOAT
     fits:tunit: nJy**2.arcsec**4
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
   - name: iyyPSF
     "@id": "#DiaSource.iyyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
   - name: ixyPSF
     "@id": "#DiaSource.ixyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
-    mysql:datatype: FLOAT
     fits:tunit: nJy.arcsec**2
   - name: extendedness
     "@id": "#DiaSource.extendedness"
@@ -2278,21 +2037,18 @@ tables:
       models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
       that the source is extended. extendedness = 0 implies a high degree of confidence
       that the source is point-like.
-    mysql:datatype: FLOAT
   - name: reliability
     "@id": "#DiaSource.reliability"
     datatype: float
     description: A measure of reliability, computed using information from the source
       and image characterization, as well as the information on the Telescope and
       Camera system (e.g., ghost maps, defect maps, etc.).
-    mysql:datatype: FLOAT
   - name: flags
     "@id": "#DiaSource.flags"
     datatype: long
     nullable: false
     description: Flags, bitwise OR tbd.
     value: "0"
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.code
   - name: band
     "@id": "#DiaSource.band"
@@ -2352,41 +2108,35 @@ tables:
     datatype: long
     nullable: false
     description: Id of the DiaObject that this DiaForcedSource was associated with.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: ccdVisitId
     "@id": "#DiaForcedSource.ccdVisitId"
     datatype: long
     nullable: false
     description: Id of the ccdVisit where this forcedSource was measured.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;obs.image
   - name: psfFlux
     "@id": "#DiaForcedSource.psfFlux"
     datatype: float
     description: Point Source model flux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: psfFluxErr
     "@id": "#DiaForcedSource.psfFluxErr"
     datatype: float
     description: Uncertainty of psfFlux.
-    mysql:datatype: FLOAT
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: x
     "@id": "#DiaForcedSource.x"
     datatype: float
     description: x position at which psfFlux has been measured.
-    mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.x
   - name: y
     "@id": "#DiaForcedSource.y"
     datatype: float
     description: y position at which psfFlux has been measured.
-    mysql:datatype: FLOAT
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.y
   - name: flags
@@ -2394,7 +2144,6 @@ tables:
     datatype: long
     description: Flags, bitwise OR tbd
     value: "0"
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.code
   - name: midpointMjdTai
     "@id": "#DiaForcedSource.midpointMjdTai"
@@ -2457,27 +2206,23 @@ tables:
     datatype: long
     nullable: false
     description: Id of diaObject.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: objectId
     "@id": "#DiaObject_To_Object_Match.objectId"
     datatype: long
     nullable: false
     description: Id of a nearby object.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: dist
     "@id": "#DiaObject_To_Object_Match.dist"
     datatype: float
     description: The distance between the diaObject and the object.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
   - name: lnP
     "@id": "#DiaObject_To_Object_Match.lnP"
     datatype: float
     description: Natural log of the probability that the observed diaObject is the
       same as the nearby object.
-    mysql:datatype: FLOAT
   indexes:
   - name: IDX_DiaObjectToObjectMatch_diaObjectId
     "@id": "#IDX_DiaObjectToObjectMatch_diaObjectId"
@@ -2620,70 +2365,58 @@ tables:
     datatype: int
     description: MPC number (if the asteroid has been numbered; NULL otherwise). Provided
       for convenience.
-    mysql:datatype: INTEGER
   - name: ssObjectId
     "@id": "#MPCORB.ssObjectId"
     datatype: long
     description: LSST unique identifier (if observed by LSST)
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: mpcH
     "@id": "#MPCORB.mpcH"
     datatype: float
     description: 'MPCORB: Absolute magnitude, H'
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: mpcG
     "@id": "#MPCORB.mpcG"
     datatype: float
     description: 'MPCORB: Slope parameter, G'
-    mysql:datatype: FLOAT
   - name: epoch
     "@id": "#MPCORB.epoch"
     datatype: double
     description: 'MPCORB: Epoch (in MJD, .0 TT)'
-    mysql:datatype: DOUBLE
     fits:tunit: d
   - name: M
     "@id": "#MPCORB.M"
     datatype: double
     description: 'MPCORB: Mean anomaly at the epoch, in degrees'
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: peri
     "@id": "#MPCORB.peri"
     datatype: double
     description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: node
     "@id": "#MPCORB.node"
     datatype: double
     description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: incl
     "@id": "#MPCORB.incl"
     datatype: double
     description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: e
     "@id": "#MPCORB.e"
     datatype: double
     description: 'MPCORB: Orbital eccentricity'
-    mysql:datatype: DOUBLE
   - name: n
     "@id": "#MPCORB.n"
     datatype: double
     description: 'MPCORB: Mean daily motion (degrees per day)'
-    mysql:datatype: DOUBLE
     fits:tunit: deg/d
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
     description: 'MPCORB: Semimajor axis (AU)'
-    mysql:datatype: DOUBLE
     fits:tunit: AU
   - name: uncertaintyParameter
     "@id": "#MPCORB.uncertaintyParameter"
@@ -2701,17 +2434,14 @@ tables:
     "@id": "#MPCORB.nobs"
     datatype: int
     description: 'MPCORB: Number of observations'
-    mysql:datatype: INTEGER
   - name: nopp
     "@id": "#MPCORB.nopp"
     datatype: int
     description: 'MPCORB: Number of oppositions'
-    mysql:datatype: INTEGER
   - name: arc
     "@id": "#MPCORB.arc"
     datatype: float
     description: 'MPCORB: Arc (days), for single-opposition objects'
-    mysql:datatype: FLOAT
     fits:tunit: d
   - name: arcStart
     "@id": "#MPCORB.arcStart"
@@ -2729,7 +2459,6 @@ tables:
     "@id": "#MPCORB.rms"
     datatype: float
     description: 'MPCORB: r.m.s residual (")'
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
   - name: pertsShort
     "@id": "#MPCORB.pertsShort"
@@ -2756,7 +2485,6 @@ tables:
     datatype: int
     description: 'MPCORB: 4-hexdigit flags. See https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
       for details'
-    mysql:datatype: INTEGER
   - name: fullDesignation
     "@id": "#MPCORB.fullDesignation"
     datatype: char
@@ -2767,7 +2495,6 @@ tables:
     "@id": "#MPCORB.lastIncludedObservation"
     datatype: float
     description: 'MPCORB: Date of last observation included in orbit solution'
-    mysql:datatype: FLOAT
     fits:tunit: d
 - name: MPCORBDESIGMAP
   "@id": "#MPCORBDESIGMAP"
@@ -2788,7 +2515,6 @@ tables:
     "@id": "#MPCORBDESIGMAP.mpcNumber"
     datatype: int
     description: MPC number (if the asteroid has been numbered)
-    mysql:datatype: INTEGER
   - name: otherDesignation
     "@id": "#MPCORBDESIGMAP.otherDesignation"
     datatype: char
@@ -2799,7 +2525,6 @@ tables:
     "@id": "#MPCORBDESIGMAP.ssObjectId"
     datatype: long
     description: LSST unique identifier (if observed by LSST)
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
 - name: SSSource
   "@id": "#SSSource"
@@ -2814,270 +2539,223 @@ tables:
     datatype: long
     autoincrement: false
     description: Unique identifier of the object.
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: diaSourceId
     "@id": "#SSSource.diaSourceId"
     datatype: long
     description: Unique identifier of the observation
-    mysql:datatype: BIGINT
     ivoa:ucd: meta.id;src
   - name: mpcUniqueId
     "@id": "#SSSource.mpcUniqueId"
     datatype: long
     description: MPC unique identifier of the observation
-    mysql:datatype: BIGINT
   - name: nearbyObj1
     "@id": "#SSSource.nearbyObj1"
     datatype: long
     description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-    mysql:datatype: BIGINT
   - name: nearbyObj2
     "@id": "#SSSource.nearbyObj2"
     datatype: long
     description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-    mysql:datatype: BIGINT
   - name: nearbyObj3
     "@id": "#SSSource.nearbyObj3"
     datatype: long
     description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-    mysql:datatype: BIGINT
   - name: nearbyObj4
     "@id": "#SSSource.nearbyObj4"
     datatype: long
     description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-    mysql:datatype: BIGINT
   - name: nearbyObj5
     "@id": "#SSSource.nearbyObj5"
     datatype: long
     description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-    mysql:datatype: BIGINT
   - name: nearbyObj6
     "@id": "#SSSource.nearbyObj6"
     datatype: long
     description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-    mysql:datatype: BIGINT
   - name: nearbyObjDist1
     "@id": "#SSSource.nearbyObjDist1"
     datatype: float
     description: Distances to nearbyObj
-    mysql:datatype: FLOAT
   - name: nearbyObjDist2
     "@id": "#SSSource.nearbyObjDist2"
     datatype: float
     description: Distances to nearbyObj
-    mysql:datatype: FLOAT
   - name: nearbyObjDist3
     "@id": "#SSSource.nearbyObjDist3"
     datatype: float
     description: Distances to nearbyObj
-    mysql:datatype: FLOAT
   - name: nearbyObjDist4
     "@id": "#SSSource.nearbyObjDist4"
     datatype: float
     description: Distances to nearbyObj
-    mysql:datatype: FLOAT
   - name: nearbyObjDist5
     "@id": "#SSSource.nearbyObjDist5"
     datatype: float
     description: Distances to nearbyObj
-    mysql:datatype: FLOAT
   - name: nearbyObjDist6
     "@id": "#SSSource.nearbyObjDist6"
     datatype: float
     description: Distances to nearbyObj
-    mysql:datatype: FLOAT
   - name: nearbyObjLnP1
     "@id": "#SSSource.nearbyObjLnP1"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
       same as the nearby Object
-    mysql:datatype: FLOAT
   - name: nearbyObjLnP2
     "@id": "#SSSource.nearbyObjLnP2"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
       same as the nearby Object
-    mysql:datatype: FLOAT
   - name: nearbyObjLnP3
     "@id": "#SSSource.nearbyObjLnP3"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
       same as the nearby Object
-    mysql:datatype: FLOAT
   - name: nearbyObjLnP4
     "@id": "#SSSource.nearbyObjLnP4"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
       same as the nearby Object
-    mysql:datatype: FLOAT
   - name: nearbyObjLnP5
     "@id": "#SSSource.nearbyObjLnP5"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
       same as the nearby Object
-    mysql:datatype: FLOAT
   - name: nearbyObjLnP6
     "@id": "#SSSource.nearbyObjLnP6"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
       same as the nearby Object
-    mysql:datatype: FLOAT
   - name: eclipticLambda
     "@id": "#SSSource.eclipticLambda"
     datatype: double
     description: Ecliptic longitude
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: eclipticBeta
     "@id": "#SSSource.eclipticBeta"
     datatype: double
     description: Ecliptic latitude
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: galacticL
     "@id": "#SSSource.galacticL"
     datatype: double
     description: Galactic longitude
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: galacticB
     "@id": "#SSSource.galacticB"
     datatype: double
     description: Galactic latitute
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: phaseAngle
     "@id": "#SSSource.phaseAngle"
     datatype: float
     description: Phase angle
-    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: heliocentricDist
     "@id": "#SSSource.heliocentricDist"
     datatype: float
     description: Heliocentric distance
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricDist
     "@id": "#SSSource.topocentricDist"
     datatype: float
     description: Topocentric distace
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: predictedMagnitude
     "@id": "#SSSource.predictedMagnitude"
     datatype: float
     description: Predicted magnitude
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: predictedMagnitudeSigma
     "@id": "#SSSource.predictedMagnitudeSigma"
     datatype: float
     description: Prediction uncertainty (1-sigma)
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: residualRa
     "@id": "#SSSource.residualRa"
     datatype: double
     description: Residual R.A. vs. ephemeris
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: residualDec
     "@id": "#SSSource.residualDec"
     datatype: double
     description: Residual Dec vs. ephemeris
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: predictedRaSigma
     "@id": "#SSSource.predictedRaSigma"
     datatype: float
     description: Predicted R.A. uncertainty
-    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: predictedDecSigma
     "@id": "#SSSource.predictedDecSigma"
     datatype: float
     description: Predicted Dec uncertainty
-    mysql:datatype: FLOAT
     fits:tunit: deg
   - name: predictedRaDecCov
     "@id": "#SSSource.predictedRaDecCov"
     datatype: float
     description: Predicted R.A./Dec covariance
-    mysql:datatype: FLOAT
     fits:tunit: deg**2
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float
     description: Cartesian heliocentric X coordinate (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricY
     "@id": "#SSSource.heliocentricY"
     datatype: float
     description: Cartesian heliocentric Y coordinate (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricZ
     "@id": "#SSSource.heliocentricZ"
     datatype: float
     description: Cartesian heliocentric Z coordinate (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVX
     "@id": "#SSSource.heliocentricVX"
     datatype: float
     description: Cartesian heliocentric X velocity (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVY
     "@id": "#SSSource.heliocentricVY"
     datatype: float
     description: Cartesian heliocentric Y velocity (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: heliocentricVZ
     "@id": "#SSSource.heliocentricVZ"
     datatype: float
     description: Cartesian heliocentric Z velocity (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricX
     "@id": "#SSSource.topocentricX"
     datatype: float
     description: Cartesian topocentric X coordinate (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricY
     "@id": "#SSSource.topocentricY"
     datatype: float
     description: Cartesian topocentric Y coordinate (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricZ
     "@id": "#SSSource.topocentricZ"
     datatype: float
     description: Cartesian topocentric Z coordinate (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVX
     "@id": "#SSSource.topocentricVX"
     datatype: float
     description: Cartesian topocentric X velocity (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVY
     "@id": "#SSSource.topocentricVY"
     datatype: float
     description: Cartesian topocentric Y velocity (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
   - name: topocentricVZ
     "@id": "#SSSource.topocentricVZ"
     datatype: float
     description: Cartesian topocentric Z velocity (at the emit time)
-    mysql:datatype: FLOAT
     fits:tunit: AU
 - name: DetectorVisitProcessingSummary
   '@id': '#DetectorVisitProcessingSummary'
@@ -3087,7 +2765,6 @@ tables:
     '@id': '#DetectorVisitProcessingSummary.ccdVisitId'
     datatype: long
     description: Unique identifier.
-    mysql:datatype: BIGINT
   - name: visit
     '@id': '#DetectorVisitProcessingSummary.visit'
     datatype: long
@@ -3097,42 +2774,35 @@ tables:
     '@id': '#DetectorVisitProcessingSummary.detector'
     datatype: long
     description: Id of the detector on the instrument that took this visit.
-    mysql:datatype: BIGINT
   - name: ra
     '@id': '#DetectorVisitProcessingSummary.ra'
     datatype: double
     description: Right Ascension of detector center.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: dec
     '@id': '#DetectorVisitProcessingSummary.dec'
     datatype: double
     description: Declination of detector center.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: zeroPoint
     '@id': '#DetectorVisitProcessingSummary.zeroPoint'
     datatype: float
     description: Zero-point for the detector, estimated at detector center.
-    mysql:datatype: FLOAT
     fits:tunit: mag
   - name: psfSigma
     '@id': '#DetectorVisitProcessingSummary.psfSigma'
     datatype: float
     description: PSF model second-moments determinant radius (center of detector).
-    mysql:datatype: FLOAT
     fits:tunit: pixel
   - name: skyBg
     '@id': '#DetectorVisitProcessingSummary.skyBg'
     datatype: float
     description: Average sky background.
-    mysql:datatype: FLOAT
     fits:tunit: adu
   - name: skyNoise
     '@id': '#DetectorVisitProcessingSummary.skyNoise'
     datatype: float
     description: RMS noise of the sky background.
-    mysql:datatype: FLOAT
     fits:tunit: adu
   - name: seeing
     '@id': '#DetectorVisitProcessingSummary.seeing'
@@ -3156,49 +2826,41 @@ tables:
     '@id': '#DetectorVisitProcessingSummary.llcra'
     datatype: double
     description: RA of lower left corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: llcdec
     '@id': '#DetectorVisitProcessingSummary.llcdec'
     datatype: double
     description: Declination of lower left corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: ulcra
     '@id': '#DetectorVisitProcessingSummary.ulcra'
     datatype: double
     description: RA of upper left corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: ulcdec
     '@id': '#DetectorVisitProcessingSummary.ulcdec'
     datatype: double
     description: Declination of upper left corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: urcra
     '@id': '#DetectorVisitProcessingSummary.urcra'
     datatype: double
     description: RA of upper right corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: urcdec
     '@id': '#DetectorVisitProcessingSummary.urcdec'
     datatype: double
     description: Declination of upper right corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: lrcra
     '@id': '#DetectorVisitProcessingSummary.lrcra'
     datatype: double
     description: RA of lower right corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: lrcdec
     '@id': '#DetectorVisitProcessingSummary.lrcdec'
     datatype: double
     description: Declination of lower right corner.
-    mysql:datatype: DOUBLE
     fits:tunit: deg
   - name: astromOffsetMean
     '@id': '#DetectorVisitProcessingSummary.astromOffsetMean'
