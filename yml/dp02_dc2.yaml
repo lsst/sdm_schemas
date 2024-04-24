@@ -99,7 +99,6 @@ tables:
     datatype: char
     length: 1
     description: Reference band - parameters measured on coadds of this band were used for multi-band forced photometry
-    mysql:datatype: CHAR(1)
     fits:tunit:
     votable:arraysize: "*"
     ivoa:ucd: meta.id;instr.filter;meta.main
@@ -143,7 +142,6 @@ tables:
     datatype: char
     description: Name of skymap used for coadd projection
     length: 12
-    mysql:datatype: CHAR(12)
     fits:tunit:
   - name: tract
     "@id": "#Object.tract"
@@ -5696,7 +5694,6 @@ tables:
     datatype: char
     length: 1
     description: Name of the band used to take the exposure where this source was measured. Abstract filter that is not associated with a particular instrument
-    mysql:datatype: CHAR(1)
     fits:tunit:
     votable:arraysize: "*"
   - name: instrument
@@ -5704,7 +5701,6 @@ tables:
     datatype: char
     description: ID of instrument, the entity that produces observations.
     length: 13
-    mysql:datatype: CHAR(13)
     fits:tunit:
   - name: detector
     "@id": "#Source.detector"
@@ -5716,7 +5712,6 @@ tables:
     datatype: char
     description: ID of physical filter, the filter associated with a particular instrument.
     length: 9
-    mysql:datatype: CHAR(9)
     fits:tunit:
   - name: visit_system
     "@id": "#Source.visit_system"
@@ -5789,7 +5784,6 @@ tables:
     "@id": "#ForcedSource.skymap"
     datatype: char
     length: 12
-    mysql:datatype: CHAR(12)
     description: Name of skymap used for coadd projection
     fits:tunit:
     tap:principal: 0
@@ -5814,7 +5808,6 @@ tables:
     "@id": "#ForcedSource.band"
     datatype: char
     length: 1
-    mysql:datatype: CHAR(1)
     description: Abstract filter that is not associated with a particular instrument
     fits:tunit:
     votable:arraysize: "*"
@@ -6762,7 +6755,6 @@ tables:
     "@id": "#DiaSource.filterName"
     datatype: char
     length: 1
-    mysql:datatype: CHAR(1)
     description: Band used to take this observation
     fits:tunit:
   - name: forced_PsfFlux_flag
@@ -7020,7 +7012,6 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.band"
     datatype: char
     length: 1
-    mysql:datatype: CHAR(1)
     description: Abstract filter that is not associated with a particular instrument
     fits:tunit:
     votable:arraysize: "*"
@@ -7295,7 +7286,6 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.skymap"
     datatype: char
     length: 12
-    mysql:datatype: CHAR(12)
     description: Name of skymap used for coadd projection
     fits:tunit:
     tap:principal: 0
@@ -7349,7 +7339,6 @@ tables:
     description: Name of the band used to take the exposure where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(1)
     fits:tunit:
     ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
@@ -7484,7 +7473,6 @@ tables:
     length: 32
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(32)
     fits:tunit:
     ivoa:ucd: meta.id;instr.filter
     tap:principal: 0
@@ -7496,7 +7484,6 @@ tables:
     description: Name of the band used to take the exposure where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(1)
     fits:tunit:
     ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
@@ -7822,7 +7809,6 @@ tables:
     '@id': '#MatchesTruth.id'
     datatype: char
     length: 16
-    mysql:datatype: CHAR(16)
     tap:column_index: 999
     tap:principal: 0
     description: id for TruthSummary source. Potentially non-unique; use id_truth_type for JOINs.
@@ -7845,7 +7831,6 @@ tables:
     '@id': '#MatchesTruth.id_truth_type'
     datatype: char
     length: 18
-    mysql:datatype: CHAR(18)
     tap:column_index: 2
     tap:principal: 1
     description: Combination of TruthSummary id and truth_type fields, used for JOINs.
@@ -7906,7 +7891,6 @@ tables:
     '@id': '#TruthSummary.id_truth_type'
     datatype: char
     length: 22
-    mysql:datatype: CHAR(22)
     tap:column_index: 0
     tap:principal: 1
     description: Combination of id and truth_type fields, used for JOINs with MatchesTruth.
@@ -7915,7 +7899,6 @@ tables:
     '@id': '#TruthSummary.id'
     datatype: char
     length: 20
-    mysql:datatype: CHAR(20)
     tap:column_index: 1
     tap:principal: 1
     description: Unique object ID

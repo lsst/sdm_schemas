@@ -338,7 +338,6 @@ tables:
     datatype: char
     description: MPC or simulation designation of the moving object
     length: 20
-    mysql:datatype: CHAR(20)
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
     datatype: timestamp
@@ -392,7 +391,6 @@ tables:
     datatype: char
     description: Name of the band used to take the exposure where this source was measured
     length: 1
-    mysql:datatype: CHAR(1)
   - name: mag
     "@id": "#DiaSource.mag"
     datatype: float

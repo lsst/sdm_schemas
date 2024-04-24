@@ -178,7 +178,6 @@ tables:
     datatype: char
     length: 1
     description: Reference band - parameters measured on coadds of this band were used for multi-band forced photometry
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
@@ -6813,7 +6812,6 @@ tables:
     datatype: char
     length: 1
     description: Name of the band used to take the exposure where this source was measured. Abstract filter that is not associated with a particular instrument
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: detector
     "@id": "#Source.detector"
@@ -6825,7 +6823,6 @@ tables:
     datatype: char
     description: ID of physical filter, the filter associated with a particular instrument.
     length: 9
-    mysql:datatype: CHAR(9)
     fits:tunit:
   - name: visit
     "@id": "#Source.visit"
@@ -6879,7 +6876,6 @@ tables:
     "@id": "#ForcedSource.band"
     datatype: char
     length: 1
-    mysql:datatype: CHAR(1)
     description: Abstract filter that is not associated with a particular instrument
     fits:tunit:
   - name: ccdVisitId
@@ -7716,7 +7712,6 @@ tables:
     "@id": "#DiaSource.band"
     datatype: char
     length: 1
-    mysql:datatype: CHAR(1)
     description: Band used to take this observation.
     fits:tunit:
   - name: forced_PsfFlux_flag
@@ -8253,7 +8248,6 @@ tables:
     '@id': '#MatchesTruth.id'
     datatype: char
     length: 16
-    mysql:datatype: CHAR(16)
     description: id for truth_summary source.
   - name: truth_type
     '@id': '#MatchesTruth.truth_type'
@@ -8283,7 +8277,6 @@ tables:
     '@id': '#MatchesObject.match_id'
     datatype: char
     length: 16
-    mysql:datatype: CHAR(16)
     description: id of matched truth_summary source, if any
   - name: match_truth_type
     '@id': '#MatchesObject.match_truth_type'
@@ -8309,7 +8302,6 @@ tables:
     length: 32
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(32)
     fits:tunit:
   - name: band
     '@id': '#Visit.band'
@@ -8318,7 +8310,6 @@ tables:
     description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: ra
     '@id': '#Visit.ra'
@@ -8412,7 +8403,6 @@ tables:
     length: 32
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(32)
     fits:tunit:
   - name: band
     '@id': '#CcdVisit.band'
@@ -8421,7 +8411,6 @@ tables:
     description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: ra
     '@id': '#CcdVisit.ra'
