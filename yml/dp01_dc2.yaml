@@ -7266,7 +7266,6 @@ tables:
     '@id': '#object.patch'
     datatype: char
     length: 3
-    mysql:datatype: CHAR(3)
     tap:column_index: 999
     tap:principal: 1
     description: patch ID
@@ -8182,7 +8181,6 @@ tables:
     '@id': '#truth_match.id'
     datatype: char
     length: 20
-    mysql:datatype: CHAR(20)
     tap:column_index: 1
     tap:principal: 1
     description: Unique object ID
@@ -8329,7 +8327,6 @@ tables:
     '@id': '#truth_match.patch'
     datatype: char
     length: 3
-    mysql:datatype: CHAR(3)
     tap:column_index: 999
     tap:principal: 1
     description: Patch ID in Sky Map (as a string, x,y)

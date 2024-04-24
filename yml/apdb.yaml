@@ -585,7 +585,6 @@ tables:
     datatype: string
     length: 64
     description: External catalog name of the nearest low-z potential host.
-    mysql:datatype: VARCHAR(64)
   - name: nearbyLowzGalSep
     "@id": "#DiaObject.nearbyLowzGalSep"
     datatype: float
@@ -2055,7 +2054,6 @@ tables:
     datatype: char
     length: 1
     description: Filter band this source was observed with.
-    mysql:datatype: CHAR(1)
   - name: isDipole
     "@id": "#DiaSource.isDipole"
     datatype: boolean
@@ -2172,7 +2170,6 @@ tables:
     length: 1
     description: Filter band this source was observed with.
     ivoa:ucd: meta.id;instr.filter
-    mysql:datatype: CHAR(1)
   - name: time_processed
     "@id": "#DiaForcedSource.time_processed"
     datatype: timestamp

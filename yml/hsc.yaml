@@ -170,7 +170,6 @@ tables:
     datatype: char
     length: 1
     description: Reference band - parameters measured on coadds of this band were used for multi-band forced photometry
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
@@ -5815,7 +5814,6 @@ tables:
     datatype: char
     length: 1
     description: Name of the band used to take the exposure where this source was measured. Abstract filter that is not associated with a particular instrument
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: detector
     "@id": "#Source.detector"
@@ -5827,7 +5825,6 @@ tables:
     datatype: char
     description: ID of physical filter, the filter associated with a particular instrument.
     length: 5
-    mysql:datatype: CHAR(5)
     fits:tunit:
   - name: visit
     "@id": "#Source.visit"
@@ -5850,7 +5847,6 @@ tables:
     length: 32
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(32)
     fits:tunit:
   - name: band
     '@id': '#Visit.band'
@@ -5859,7 +5855,6 @@ tables:
     description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: ra
     '@id': '#Visit.ra'
@@ -5953,7 +5948,6 @@ tables:
     length: 32
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(32)
     fits:tunit:
   - name: band
     '@id': '#CcdVisit.band'
@@ -5962,7 +5956,6 @@ tables:
     description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(1)
     fits:tunit:
   - name: ra
     '@id': '#CcdVisit.ra'
