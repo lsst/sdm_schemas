@@ -7327,7 +7327,6 @@ tables:
     length: 32
     description: ID of physical filter, the filter associated with a particular instrument.
     votable:arraysize: "*"
-    mysql:datatype: CHAR(32)
     fits:tunit:
     ivoa:ucd: meta.id;instr.filter
     tap:principal: 0
