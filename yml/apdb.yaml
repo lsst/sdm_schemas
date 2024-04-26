@@ -1109,7 +1109,7 @@ tables:
     "@id": "#DiaObject.flags"
     datatype: long
     nullable: false
-    value: "0"
+    value: 0
     description: Flags, bitwise OR tbd.
     ivoa:ucd: meta.code
   - name: lastNonForcedSource
@@ -1437,7 +1437,7 @@ tables:
     datatype: long
     nullable: false
     description: Flags, bitwise OR tbd.
-    value: "0"
+    value: 0
     ivoa:ucd: meta.code
 - name: DiaSource
   "@id": "#DiaSource"
@@ -1765,7 +1765,7 @@ tables:
   - name: trailNdata
     "@id": "#DiaSource.trailNdata"
     datatype: int
-    value: "0"
+    value: 0
     description: The number of data points (pixels) used to fit the trailed source model.
   - name: dipoleMeanFlux
     "@id": "#DiaSource.dipoleMeanFlux"
@@ -2047,7 +2047,7 @@ tables:
     datatype: long
     nullable: false
     description: Flags, bitwise OR tbd.
-    value: "0"
+    value: 0
     ivoa:ucd: meta.code
   - name: band
     "@id": "#DiaSource.band"
@@ -2141,7 +2141,7 @@ tables:
     "@id": "#DiaForcedSource.flags"
     datatype: long
     description: Flags, bitwise OR tbd
-    value: "0"
+    value: 0
     ivoa:ucd: meta.code
   - name: midpointMjdTai
     "@id": "#DiaForcedSource.midpointMjdTai"
