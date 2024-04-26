@@ -6011,11 +6011,19 @@ tables:
     description: Fiducial ICRS Declination of centroid used for database indexing
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec;meta.main
-  - name: ccdVisitId
-    "@id": "#Source.ccdVisitId"
+  - name: visit
+    "@id": "#Source.visit"
     datatype: long
-    description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
-    fits:tunit:
+    nullable: false
+    description: Id of the visit where this source was measured.
+    ivoa:ucd: meta.id;obs.image
+  - name: detector
+    "@id": "#Source.detector"
+    datatype: short
+    nullable: false
+    description: Id of the detector where this source was measured.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
+    ivoa:ucd: meta.id;obs.image
   - name: parentSourceId
     "@id": "#Source.parentSourceId"
     datatype: long
@@ -6813,21 +6821,11 @@ tables:
     length: 1
     description: Name of the band used to take the exposure where this source was measured. Abstract filter that is not associated with a particular instrument
     fits:tunit:
-  - name: detector
-    "@id": "#Source.detector"
-    datatype: long
-    description: Detector ID. A detector associated with a particular instrument (not an observation of that detector)
-    fits:tunit:
   - name: physical_filter
     "@id": "#Source.physical_filter"
     datatype: char
     description: ID of physical filter, the filter associated with a particular instrument.
     length: 9
-    fits:tunit:
-  - name: visit
-    "@id": "#Source.visit"
-    datatype: long
-    description: ID of visit, the identifier for an observation within a sequence of observations.
     fits:tunit:
 - name: ForcedSource
   "@id": "#ForcedSource"
@@ -6850,6 +6848,19 @@ tables:
     datatype: long
     description: Unique ObjectId of the parent of the ObjectId in context of the deblender.
     fits:tunit:
+  - name: visit
+    "@id": "#ForcedSource.visit"
+    datatype: long
+    nullable: false
+    description: Id of the visit where this source was measured.
+    ivoa:ucd: meta.id;obs.image
+  - name: detector
+    "@id": "#ForcedSource.detector"
+    datatype: short
+    nullable: false
+    description: Id of the detector where this source was measured.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
+    ivoa:ucd: meta.id;obs.image
   - name: coord_ra
     "@id": "#ForcedSource.coord_ra"
     datatype: double
@@ -6877,11 +6888,6 @@ tables:
     datatype: char
     length: 1
     description: Abstract filter that is not associated with a particular instrument
-    fits:tunit:
-  - name: ccdVisitId
-    "@id": "#ForcedSource.ccdVisitId"
-    datatype: long
-    description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
     fits:tunit:
   - name: detect_isPatchInner
     "@id": "#ForcedSource.detect_isPatchInner"
@@ -7624,11 +7630,19 @@ tables:
     datatype: long
     description: Bounding box of diaSource footprint.
     fits:tunit:
-  - name: ccdVisitId
-    "@id": "#DiaSource.ccdVisitId"
+  - name: visit
+    "@id": "#DiaSource.visit"
     datatype: long
-    description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
-    fits:tunit:
+    nullable: false
+    description: Id of the visit where this diaSource was measured.
+    ivoa:ucd: meta.id;obs.image
+  - name: detector
+    "@id": "#DiaSource.detector"
+    datatype: short
+    nullable: false
+    description: Id of the detector where this diaSource was measured.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
+    ivoa:ucd: meta.id;obs.image
   - name: centroid_flag
     "@id": "#DiaSource.centroid_flag"
     datatype: boolean
@@ -8034,11 +8048,19 @@ tables:
     length: 1
     description: Abstract filter that is not associated with a particular instrument
     fits:tunit:
-  - name: ccdVisitId
-    "@id": "#ForcedSourceOnDiaObject.ccdVisitId"
+  - name: visit
+    "@id": "#ForcedSourceOnDiaObject.visit"
     datatype: long
-    description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
-    fits:tunit:
+    nullable: false
+    description: Id of the visit where this forced source was measured.
+    ivoa:ucd: meta.id;obs.image
+  - name: detector
+    "@id": "#ForcedSourceOnDiaObject.detector"
+    datatype: short
+    nullable: false
+    description: Id of the detector where this forced source was measured.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
+    ivoa:ucd: meta.id;obs.image
   - name: coord_dec
     "@id": "#ForcedSourceOnDiaObject.coord_dec"
     datatype: double
@@ -8392,11 +8414,15 @@ tables:
     '@id': '#CcdVisit.ccdVisitId'
     datatype: long
     description: Primary key (unique identifier).
-  - name: visitId
-    '@id': '#CcdVisit.visitId'
+  - name: visit
+    '@id': '#CcdVisit.visit'
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
     mysql:datatype: INTEGER
+  - name: detector
+    '@id': '#CcdVisit.detector'
+    datatype: short
+    description: Detector ID. A detector associated with a particular instrument (not an observation of that detector).
   - name: physical_filter
     '@id': '#CcdVisit.physical_filter'
     datatype: char
@@ -8452,10 +8478,6 @@ tables:
     datatype: float
     description: RMS noise of the sky background.
     fits:tunit: adu
-  - name: detector
-    '@id': '#CcdVisit.detector'
-    datatype: long
-    description: Detector ID. A detector associated with a particular instrument (not an observation of that detector)
   - name: seeing
     '@id': '#CcdVisit.seeing'
     datatype: double
