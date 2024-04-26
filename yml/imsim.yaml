@@ -8031,7 +8031,7 @@ tables:
   - name: band
     "@id": "#ForcedSourceOnDiaObject.band"
     datatype: char
-    mysql:datatype: CHAR(1)
+    length: 1
     description: Abstract filter that is not associated with a particular instrument
     fits:tunit:
   - name: ccdVisitId

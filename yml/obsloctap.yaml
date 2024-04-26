@@ -215,9 +215,9 @@ tables:
         tap:principal: 0
         tap:column_index: 17
         ivoa:unit:
-        datatype: string
-        votable:arraysize: "*"
+        datatype: char
         length: 40
+        votable:arraysize: "*"
       - name: pol_states
         "@id": "#ObsPlan.pol_states"
         description: List of polarization states or NULL if not applicable
