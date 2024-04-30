@@ -19,7 +19,7 @@ tables:
     tap:principal: 1
     tap:column_index: 10
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 128
   - name: dataproduct_subtype
     "@id": "ObsCore.dataproduct_subtype"
@@ -31,7 +31,7 @@ tables:
     tap:principal: 1
     tap:column_index: 20
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 64
   - name: obs_title
     "@id": "ObsCore.obs_title"
@@ -43,8 +43,8 @@ tables:
     tap:principal: 1
     tap:column_index: 225
     ivoa:unit:
-    datatype: char
-    length: 255  # FIXME: Not clear what should be the length; ObsCore REC suggests not unbounded ("single line of text")
+    datatype: string
+    length: 256
     votable:arraysize: "*"
   - name: facility_name
     "@id": "ObsCore.facility_name"
@@ -56,7 +56,7 @@ tables:
     tap:principal: 1
     tap:column_index: 210
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 128
   - name: calib_level
     "@id": "ObsCore.calib_level"
@@ -79,7 +79,7 @@ tables:
     tap:principal: 0
     tap:column_index: 270
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 32
   - name: obs_id
     "@id": "ObsCore.obs_id"
@@ -91,7 +91,7 @@ tables:
     tap:principal: 1
     tap:column_index: 180
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 128
   - name: obs_collection
     "@id": "ObsCore.obs_collection"
@@ -103,7 +103,7 @@ tables:
     tap:principal: 1
     tap:column_index: 190
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 128
   - name: obs_publisher_did
     "@id": "ObsCore.obs_publisher_did"
@@ -115,7 +115,7 @@ tables:
     tap:principal: 0
     tap:column_index: 260
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 256
   - name: access_url
     "@id": "ObsCore.access_url"
@@ -140,7 +140,7 @@ tables:
     tap:principal: 1
     tap:column_index: 250
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 128
   - name: s_ra
     "@id": "ObsCore.s_ra"
@@ -329,7 +329,7 @@ tables:
     tap:principal: 1
     tap:column_index: 200
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 32
   - name: pol_xel
     "@id": "ObsCore.pol_xel"
@@ -352,7 +352,7 @@ tables:
     tap:principal: 1
     tap:column_index: 220
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 128
   - name: lsst_visit
     "@id": "ObsCore.lsst_visit"
@@ -419,7 +419,7 @@ tables:
     tap:principal: 1
     tap:column_index: 40
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 10
     votable:arraysize: 10
   - name: lsst_filter
@@ -432,6 +432,6 @@ tables:
     tap:principal: 1
     tap:column_index: 90
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 10
     votable:arraysize: 10
