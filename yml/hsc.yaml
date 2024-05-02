@@ -6176,6 +6176,16 @@ tables:
     datatype: double
     description: Delta (max - min) of model psf trace radius values evaluated on a grid of unmasked pixels (pixel)
     fits:tunit: pixel
+  - name: psfApFluxDelta
+    '@id': '#CcdVisit.psfApFluxDelta'
+    datatype: double
+    description: Delta (max - min) of model psf aperture flux (with aperture radius of max(2, 3*psfSigma)) values evaluated on a grid of unmasked pixels
+    fits:tunit:
+  - name: psfApCorrSigmaScaledDelta
+    '@id': '#CcdVisit.psfApCorrSigmaScaledDelta'
+    datatype: double
+    description: Delta (max - min) of psf flux aperture correction factors scaled (divided) by the psfSigma evaluated on a grid of unmasked pixels
+    fits:tunit:
   - name: maxDistToNearestPsf
     '@id': '#CcdVisit.maxDistToNearestPsf'
     datatype: double
