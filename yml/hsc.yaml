@@ -5019,11 +5019,19 @@ tables:
     datatype: double
     description: Fiducial ICRS Declination of centroid used for database indexing
     fits:tunit: deg
-  - name: ccdVisitId
-    "@id": "#Source.ccdVisitId"
+  - name: visit
+    "@id": "#Source.visit"
     datatype: long
-    description: Unique ID of CCD and visit where this source was detected and measured. Primary Key of the CcdVisit Table.
-    fits:tunit:
+    nullable: false
+    description: Id of the visit where this source was measured.
+    ivoa:ucd: meta.id;obs.image
+  - name: detector
+    "@id": "#Source.detector"
+    datatype: short
+    nullable: false
+    description: Id of the detector where this source was measured.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
+    ivoa:ucd: meta.id;obs.image
   - name: parentSourceId
     "@id": "#Source.parentSourceId"
     datatype: long
@@ -5815,21 +5823,11 @@ tables:
     length: 1
     description: Name of the band used to take the exposure where this source was measured. Abstract filter that is not associated with a particular instrument
     fits:tunit:
-  - name: detector
-    "@id": "#Source.detector"
-    datatype: long
-    description: Detector ID. A detector associated with a particular instrument (not an observation of that detector)
-    fits:tunit:
   - name: physical_filter
     "@id": "#Source.physical_filter"
     datatype: char
     description: ID of physical filter, the filter associated with a particular instrument.
     length: 5
-    fits:tunit:
-  - name: visit
-    "@id": "#Source.visit"
-    datatype: long
-    description: ID of visit, the identifier for an observation within a sequence of observations.
     fits:tunit:
 - name: Visit
   '@id': '#Visit'
