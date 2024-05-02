@@ -985,3 +985,38 @@ tables:
     datatype: double
     nullable: true
     description: Voltage
+- name: Exposure_flexdata
+  "@id": "#Exposure_flexdata"
+  primaryKey:
+  - "#Exposure_flexdata.obs_id"
+  - "#Exposure_flexdata.key"
+  columns:
+  - name: obs_id
+    "@id": "#Exposure_flexdata.obs_id"
+    datatype: long
+    description: Unique identifier.
+  - name: key
+    "@id": "#Exposure_flexdata.key"
+    datatype: string
+    description: Name of key.
+  - name: value
+    "@id": "#Exposure_flexdata.value"
+    datatype: string
+    description: Content of value as a string.
+- name: Exposure_flexdata_schema
+  "@id": "#Exposure_flexdata_schema"
+  primaryKey:
+  - "#Exposure_flexdata_schema.key"
+  columns:
+  - name: key
+    "@id": "#Exposure_flexdata_schema.key"
+    datatype: string
+    description: Name of key.
+  - name: dtype
+    "@id": "#Exposure_flexdata_schema.dtype"
+    datatype: string
+    description: Name of the data type of the value.
+  - name: doc
+    "@id": "#Exposure_flexdata_schema.doc"
+    datatype: string
+    description: Documentation string.  Can include units and IVOA UCD.
