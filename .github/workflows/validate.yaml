@@ -22,4 +22,4 @@ jobs:
           pip install 'lsst-felis @ git+https://github.com/lsst/felis@main'
 
       - name: Validate YAML files
-        run: felis validate ./yml/*.yaml
+        run: felis validate --check-redundant-datatypes ./yml/*.yaml
