@@ -2938,13 +2938,3 @@ tables:
     datatype: double
     description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel).
     fits:tunit: pixel
-- name: Instrument
-  '@id': '#Instrument'
-  description: The instrument that took this data.
-  columns:
-  - name: instrument
-    '@id': '#Instrument.instrument'
-    datatype: string
-    length: 32
-    description: Name of the instrument that took this data.
-    mysql:datatype: VARCHAR(64)
