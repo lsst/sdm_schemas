@@ -19,8 +19,8 @@ tables:
     tap:principal: 1
     tap:column_index: 10
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 128
+    datatype: string
+    length: 128
   - name: dataproduct_subtype
     "@id": "ObsCore.dataproduct_subtype"
     description: Data product specific type
@@ -31,8 +31,8 @@ tables:
     tap:principal: 1
     tap:column_index: 20
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 64
+    datatype: string
+    length: 64
   - name: facility_name
     "@id": "ObsCore.facility_name"
     description: The name of the facility, telescope, or space craft used for the observation
@@ -43,8 +43,8 @@ tables:
     tap:principal: 1
     tap:column_index: 210
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 128
+    datatype: string
+    length: 128
   - name: calib_level
     "@id": "ObsCore.calib_level"
     description: "Calibration level of the observation: in {0, 1, 2, 3, 4}"
@@ -66,8 +66,8 @@ tables:
     tap:principal: 0
     tap:column_index: 270
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 32
+    datatype: string
+    length: 32
   - name: obs_id
     "@id": "ObsCore.obs_id"
     description: Internal ID given by the ObsTAP service
@@ -78,8 +78,8 @@ tables:
     tap:principal: 1
     tap:column_index: 180
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 128
+    datatype: string
+    length: 128
   - name: obs_collection
     "@id": "ObsCore.obs_collection"
     description: Name of the data collection
@@ -90,8 +90,8 @@ tables:
     tap:principal: 1
     tap:column_index: 190
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 128
+    datatype: string
+    length: 128
   - name: obs_publisher_did
     "@id": "ObsCore.obs_publisher_did"
     description: ID for the Dataset given by the publisher
@@ -102,8 +102,8 @@ tables:
     tap:principal: 0
     tap:column_index: 260
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 256
+    datatype: string
+    length: 256
   - name: access_url
     "@id": "ObsCore.access_url"
     description: URL used to access dataset
@@ -114,7 +114,7 @@ tables:
     tap:principal: 1
     tap:column_index: 240
     ivoa:unit:
-    datatype: char
+    datatype: text
     votable:arraysize: "*"
     votable:xtype: clob
   - name: access_format
@@ -127,8 +127,8 @@ tables:
     tap:principal: 1
     tap:column_index: 250
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 128
+    datatype: string
+    length: 128
   - name: s_ra
     "@id": "ObsCore.s_ra"
     description: Central Spatial Position in ICRS; Right ascension
@@ -172,8 +172,8 @@ tables:
     tap:principal: 1
     tap:column_index: 230
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 512
+    datatype: string
+    length: 512
   - name: s_resolution
     "@id": "ObsCore.s_resolution"
     description: Spatial resolution of data as FWHM of PSF
@@ -316,8 +316,8 @@ tables:
     tap:principal: 1
     tap:column_index: 200
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 32
+    datatype: string
+    length: 32
   - name: pol_xel
     "@id": "ObsCore.pol_xel"
     description: Number of elements along the polarization axis
@@ -339,8 +339,8 @@ tables:
     tap:principal: 1
     tap:column_index: 220
     ivoa:unit:
-    datatype: char
-    votable:arraysize: 128
+    datatype: string
+    length: 128
   - name: lsst_visit
     "@id": "ObsCore.lsst_visit"
     description: Identifier for a specific LSSTCam pointing
@@ -395,7 +395,7 @@ tables:
     tap:principal: 1
     tap:column_index: 40
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 10
     votable:arraysize: 10
   - name: lsst_filter
@@ -408,6 +408,6 @@ tables:
     tap:principal: 1
     tap:column_index: 90
     ivoa:unit:
-    datatype: char
+    datatype: string
     length: 10
     votable:arraysize: 10
