@@ -8033,8 +8033,8 @@ tables:
       and image characterization, as well as the information on the Telescope and
       Camera system (e.g., ghost maps, defect maps, etc.).
     fits:tunit:
-  - name: ext_trailedSources_Naive_flag_edge
-    "@id": "#DiaSource.ext_trailedSources_Naive_flag_edge"
+  - name: trail_flag_edge
+    "@id": "#DiaSource.trail_flag_edge"
     datatype: boolean
     description: This flag is set if a trailed source extends onto or past edge pixels.
     fits:tunit:

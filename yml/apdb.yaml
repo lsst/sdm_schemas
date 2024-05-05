@@ -1793,7 +1793,7 @@ tables:
   - name: trail_flag_edge
     "@id": "#DiaSource.trail_flag_edge"
     datatype: boolean
-    description: Trailed source extends to the edge.
+    description: This flag is set if a trailed source extends onto or past edge pixels.
     fits:tunit:
   - name: dipoleMeanFlux
     "@id": "#DiaSource.dipoleMeanFlux"
