@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "0.1.1"
+version: "1.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -1451,11 +1451,18 @@ tables:
     autoincrement: false
     description: Unique identifier of this DiaSource.
     ivoa:ucd: meta.id;obs.image
-  - name: ccdVisitId
-    "@id": "#DiaSource.ccdVisitId"
+  - name: visit
+    "@id": "#DiaSource.visit"
     datatype: long
     nullable: false
-    description: Id of the ccdVisit where this diaSource was measured.
+    description: Id of the visit where this diaSource was measured.
+    ivoa:ucd: meta.id;obs.image
+  - name: detector
+    "@id": "#DiaSource.detector"
+    datatype: short
+    nullable: false
+    description: Id of the detector where this diaSource was measured.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
   - name: diaObjectId
     "@id": "#DiaSource.diaObjectId"
@@ -2077,10 +2084,11 @@ tables:
     datatype: long
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
-  - name: IDX_DiaSource_ccdVisitId
-    "@id": "#IDX_DiaSource_ccdVisitId"
+  - name: IDX_DiaSource_visitDetector
+    "@id": "#IDX_DiaSource_visitDetector"
     columns:
-    - "#DiaSource.ccdVisitId"
+    - "#DiaSource.visit"
+    - "#DiaSource.detector"
   - name: IDX_DiaSource_diaObjectId
     "@id": "#IDX_DiaSource_diaObjectId"
     columns:
@@ -2107,11 +2115,18 @@ tables:
     nullable: false
     description: Id of the DiaObject that this DiaForcedSource was associated with.
     ivoa:ucd: meta.id;src
-  - name: ccdVisitId
-    "@id": "#DiaForcedSource.ccdVisitId"
+  - name: visit
+    "@id": "#DiaForcedSource.visit"
     datatype: long
     nullable: false
-    description: Id of the ccdVisit where this forcedSource was measured.
+    description: Id of the visit where this forcedSource was measured.
+    ivoa:ucd: meta.id;obs.image
+  - name: detector
+    "@id": "#DiaForcedSource.detector"
+    datatype: short
+    nullable: false
+    description: Id of the detector where this forcedSource was measured.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
   - name: psfFlux
     "@id": "#DiaForcedSource.psfFlux"
@@ -2186,12 +2201,14 @@ tables:
     mysql:datatype: DATETIME
   primaryKey:
   - "#DiaForcedSource.diaObjectId"
-  - "#DiaForcedSource.ccdVisitId"
+  - "#DiaForcedSource.visit"
+  - "#DiaForcedSource.detector"
   indexes:
-  - name: IDX_DiaForcedSource_ccdVisitId
-    "@id": "#IDX_DiaForcedSource_ccdVisitId"
+  - name: IDX_DiaForcedSource_visitDetector
+    "@id": "#IDX_DiaForcedSource_visitDetector"
     columns:
-    - "#DiaForcedSource.ccdVisitId"
+    - "#DiaForcedSource.visit"
+    - "#DiaForcedSource.detector"
   mysql:engine: MyISAM
   mysql:charset: latin1
 - name: DiaObject_To_Object_Match
@@ -2758,19 +2775,21 @@ tables:
   '@id': '#DetectorVisitProcessingSummary'
   description: Properties of an image from one processing of a single detector in a visit.
   columns:
-  - name: ccdVisitId
-    '@id': '#DetectorVisitProcessingSummary.ccdVisitId'
-    datatype: long
-    description: Unique identifier.
   - name: visit
     '@id': '#DetectorVisitProcessingSummary.visit'
     datatype: long
+    nullable: false
     description: Id of the visit this visit was a part of.
     mysql:datatype: INTEGER
+    ivoa:ucd: meta.id;obs.image
   - name: detector
     '@id': '#DetectorVisitProcessingSummary.detector'
-    datatype: long
+    datatype: short
+    nullable: false
     description: Id of the detector on the instrument that took this visit.
+      Datatype short instead of byte because of DB concerns about unsigned bytes.
+    ivoa:ucd: meta.id;obs.image
+    # TODO: we probably need to add an index on the above two for this table.
   - name: ra
     '@id': '#DetectorVisitProcessingSummary.ra'
     datatype: double
@@ -2919,13 +2938,3 @@ tables:
     datatype: double
     description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel).
     fits:tunit: pixel
-- name: Instrument
-  '@id': '#Instrument'
-  description: The instrument that took this data.
-  columns:
-  - name: instrument
-    '@id': '#Instrument.instrument'
-    datatype: string
-    length: 32
-    description: Name of the instrument that took this data.
-    mysql:datatype: VARCHAR(64)
