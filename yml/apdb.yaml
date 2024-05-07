@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "1.0.0"
+version: "1.1.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -424,90 +424,6 @@ tables:
     description: Standard deviation of the distribution of y_fpFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: u_lcPeriodic
-    "@id": "#DiaObject.u_lcPeriodic"
-    datatype: binary
-    length: 128
-    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
-      periodogram for u filter. [32 FLOAT].
-    mysql:datatype: BLOB
-  - name: g_lcPeriodic
-    "@id": "#DiaObject.g_lcPeriodic"
-    datatype: binary
-    length: 128
-    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
-      periodogram for g filter. [32 FLOAT].
-    mysql:datatype: BLOB
-  - name: r_lcPeriodic
-    "@id": "#DiaObject.r_lcPeriodic"
-    datatype: binary
-    length: 128
-    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
-      periodogram for r filter. [32 FLOAT].
-    mysql:datatype: BLOB
-  - name: i_lcPeriodic
-    "@id": "#DiaObject.i_lcPeriodic"
-    datatype: binary
-    length: 128
-    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
-      periodogram for i filter. [32 FLOAT].
-    mysql:datatype: BLOB
-  - name: z_lcPeriodic
-    "@id": "#DiaObject.z_lcPeriodic"
-    datatype: binary
-    length: 128
-    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
-      periodogram for z filter. [32 FLOAT].
-    mysql:datatype: BLOB
-  - name: y_lcPeriodic
-    "@id": "#DiaObject.y_lcPeriodic"
-    datatype: binary
-    length: 128
-    description: Periodic features extracted from light-curves using generalized Lomb-Scargle
-      periodogram for y filter. [32 FLOAT].
-    mysql:datatype: BLOB
-  - name: u_lcNonPeriodic
-    "@id": "#DiaObject.u_lcNonPeriodic"
-    datatype: binary
-    length: 80
-    description: Non-periodic features extracted from light-curves using generalized
-      Lomb-Scargle periodogram for u filter. [20 FLOAT].
-    mysql:datatype: BLOB
-  - name: g_lcNonPeriodic
-    "@id": "#DiaObject.g_lcNonPeriodic"
-    datatype: binary
-    length: 80
-    description: Non-periodic features extracted from light-curves using generalized
-      Lomb-Scargle periodogram for g filter. [20 FLOAT].
-    mysql:datatype: BLOB
-  - name: r_lcNonPeriodic
-    "@id": "#DiaObject.r_lcNonPeriodic"
-    datatype: binary
-    length: 80
-    description: Non-periodic features extracted from light-curves using generalized
-      Lomb-Scargle periodogram for r filter. [20 FLOAT].
-    mysql:datatype: BLOB
-  - name: i_lcNonPeriodic
-    "@id": "#DiaObject.i_lcNonPeriodic"
-    datatype: binary
-    length: 80
-    description: Non-periodic features extracted from light-curves using generalized
-      Lomb-Scargle periodogram for i filter. [20 FLOAT].
-    mysql:datatype: BLOB
-  - name: z_lcNonPeriodic
-    "@id": "#DiaObject.z_lcNonPeriodic"
-    datatype: binary
-    length: 80
-    description: Non-periodic features extracted from light-curves using generalized
-      Lomb-Scargle periodogram for z filter. [20 FLOAT].
-    mysql:datatype: BLOB
-  - name: y_lcNonPeriodic
-    "@id": "#DiaObject.y_lcNonPeriodic"
-    datatype: binary
-    length: 80
-    description: Non-periodic features extracted from light-curves using generalized
-      Lomb-Scargle periodogram for y filter. [20 FLOAT].
-    mysql:datatype: BLOB
   - name: nearbyObj1
     "@id": "#DiaObject.nearbyObj1"
     datatype: long
