@@ -15,6 +15,7 @@ tables:
     datatype: long
     description: Unique id. Unique ObjectID
     ivoa:ucd: meta.id;src;meta.main
+    mysql:datatype: BIGINT
   - name: coord_dec
     "@id": "#Object.coord_dec"
     datatype: double
