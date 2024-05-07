@@ -1105,13 +1105,6 @@ tables:
     datatype: float
     description: Mean of the y band flux errors.
     fits:tunit: nJy
-  - name: flags
-    "@id": "#DiaObject.flags"
-    datatype: long
-    nullable: false
-    value: 0
-    description: Flags, bitwise OR tbd.
-    ivoa:ucd: meta.code
   - name: lastNonForcedSource
     "@id": "#DiaObject.lastNonForcedSource"
     datatype: timestamp
@@ -1432,13 +1425,6 @@ tables:
     "@id": "#SSObject.medianExtendedness"
     datatype: float
     description: median `extendedness` value from the DIASource.
-  - name: flags
-    "@id": "#SSObject.flags"
-    datatype: long
-    nullable: false
-    description: Flags, bitwise OR tbd.
-    value: 0
-    ivoa:ucd: meta.code
 - name: DiaSource
   "@id": "#DiaSource"
   description: Table to store 'difference image sources'; - sources detected at
@@ -1565,6 +1551,11 @@ tables:
     description: Covariance between x and y.
     fits:tunit: pixel**2
     ivoa:ucd: stat.covariance
+  - name: centroid_flag
+    "@id": "#DiaSource.centroid_flag"
+    datatype: boolean
+    description: General centroid algorithm failure flag; set if anything went wrong when fitting the centroid. Another centroid flag field should also be set to provide more information.
+    fits:tunit:
   - name: apFlux
     "@id": "#DiaSource.apFlux"
     datatype: float
@@ -1577,6 +1568,16 @@ tables:
     description: Estimated uncertainty of apFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
+  - name: apFlux_flag
+    "@id": "#DiaSource.apFlux_flag"
+    datatype: boolean
+    description: General aperture flux algorithm failure flag; set if anything went wrong when measuring aperture fluxes. Another apFlux flag field should also be set to provide more information.
+    fits:tunit:
+  - name: apFlux_flag_apertureTruncated
+    "@id": "#DiaSource.apFlux_flag_apertureTruncated"
+    datatype: boolean
+    description: Aperture did not fit within measurement image.
+    fits:tunit:
   - name: snr
     "@id": "#DiaSource.snr"
     datatype: float
@@ -1652,6 +1653,21 @@ tables:
     "@id": "#DiaSource.psfNdata"
     datatype: int
     description: The number of data points (pixels) used to fit the point source model.
+  - name: psfFlux_flag
+    "@id": "#DiaSource.psfFlux_flag"
+    datatype: boolean
+    description: Failure to derive linear least-squares fit of psf model. Another psfFlux flag field should also be set to provide more information.
+    fits:tunit:
+  - name: psfFlux_flag_edge
+    "@id": "#DiaSource.psfFlux_flag_edge"
+    datatype: boolean
+    description: Object was too close to the edge of the image to use the full PSF model.
+    fits:tunit:
+  - name: psfFlux_flag_noGoodPixels
+    "@id": "#DiaSource.psfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description: Not enough non-rejected pixels in data to attempt the fit.
+    fits:tunit:
   - name: trailFlux
     "@id": "#DiaSource.trailFlux"
     datatype: float
@@ -1774,6 +1790,11 @@ tables:
     datatype: int
     value: 0
     description: The number of data points (pixels) used to fit the trailed source model.
+  - name: trail_flag_edge
+    "@id": "#DiaSource.trail_flag_edge"
+    datatype: boolean
+    description: This flag is set if a trailed source extends onto or past edge pixels.
+    fits:tunit:
   - name: dipoleMeanFlux
     "@id": "#DiaSource.dipoleMeanFlux"
     datatype: float
@@ -1801,7 +1822,7 @@ tables:
   - name: dipoleRa
     "@id": "#DiaSource.dipoleRa"
     datatype: double
-    description: "Right ascension coordinate of centroid for dipole model."
+    description: Right ascension coordinate of centroid for dipole model.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: dipoleRaErr
@@ -1813,7 +1834,7 @@ tables:
   - name: dipoleDec
     "@id": "#DiaSource.dipoleDec"
     datatype: double
-    description: "Declination coordinate of centroid for dipole model."
+    description: Declination coordinate of centroid for dipole model.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: dipoleDecErr
@@ -1950,6 +1971,21 @@ tables:
     description: Estimated uncertainty of scienceFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
+  - name: forced_PsfFlux_flag
+    "@id": "#DiaSource.forced_PsfFlux_flag"
+    datatype: boolean
+    description: Forced PSF photometry on science image failed. Another forced_PsfFlux flag field should also be set to provide more information.
+    fits:tunit:
+  - name: forced_PsfFlux_flag_edge
+    "@id": "#DiaSource.forced_PsfFlux_flag_edge"
+    datatype: boolean
+    description: Forced PSF flux on science image was too close to the edge of the image to use the full PSF model.
+    fits:tunit:
+  - name: forced_PsfFlux_flag_noGoodPixels
+    "@id": "#DiaSource.forced_PsfFlux_flag_noGoodPixels"
+    datatype: boolean
+    description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
+    fits:tunit:
   - name: snapDiffFlux
     "@id": "#DiaSource.snapDiffFlux"
     datatype: float
@@ -2035,6 +2071,26 @@ tables:
     datatype: float
     description: Adaptive second moment for the PSF.
     fits:tunit: nJy.arcsec**2
+  - name: shape_flag
+    "@id": "#DiaSource.shape_flag"
+    datatype: boolean
+    description: General source shape algorithm failure flag; set if anything went wrong when measuring the shape. Another shape flag field should also be set to provide more information.
+    fits:tunit:
+  - name: shape_flag_no_pixels
+    "@id": "#DiaSource.shape_flag_no_pixels"
+    datatype: boolean
+    description: No pixels to measure shape.
+    fits:tunit:
+  - name: shape_flag_not_contained
+    "@id": "#DiaSource.shape_flag_not_contained"
+    datatype: boolean
+    description: Center not contained in footprint bounding box.
+    fits:tunit:
+  - name: shape_flag_parent_source
+    "@id": "#DiaSource.shape_flag_parent_source"
+    datatype: boolean
+    description: This source is a parent source; we should only be measuring on deblended children in difference imaging.
+    fits:tunit:
   - name: extendedness
     "@id": "#DiaSource.extendedness"
     datatype: float
@@ -2049,13 +2105,6 @@ tables:
     description: A measure of reliability, computed using information from the source
       and image characterization, as well as the information on the Telescope and
       Camera system (e.g., ghost maps, defect maps, etc.).
-  - name: flags
-    "@id": "#DiaSource.flags"
-    datatype: long
-    nullable: false
-    description: Flags, bitwise OR tbd.
-    value: 0
-    ivoa:ucd: meta.code
   - name: band
     "@id": "#DiaSource.band"
     datatype: char
@@ -2082,6 +2131,96 @@ tables:
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: long
+  - name: pixelFlags
+    "@id": "#DiaSource.pixelFlags"
+    datatype: boolean
+    description: General pixel flags failure; set if anything went wrong when setting pixels flags from this footprint's mask. This implies that some pixelFlags for this source may be incorrectly set to False.
+    fits:tunit:
+  - name: pixelFlags_bad
+    "@id": "#DiaSource.pixelFlags_bad"
+    datatype: boolean
+    description: Bad pixel in the DiaSource footprint.
+    fits:tunit:
+  - name: pixelFlags_cr
+    "@id": "#DiaSource.pixelFlags_cr"
+    datatype: boolean
+    description: Cosmic ray in the DiaSource footprint.
+    fits:tunit:
+  - name: pixelFlags_crCenter
+    "@id": "#DiaSource.pixelFlags_crCenter"
+    datatype: boolean
+    description: Cosmic ray in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_edge
+    "@id": "#DiaSource.pixelFlags_edge"
+    datatype: boolean
+    description: Some of the source footprint is outside usable exposure region (masked EDGE or NO_DATA, or centroid off image).
+    fits:tunit:
+  - name: pixelFlags_interpolated
+    "@id": "#DiaSource.pixelFlags_interpolated"
+    datatype: boolean
+    description: Interpolated pixel in the DiaSource footprint.
+    fits:tunit:
+  - name: pixelFlags_interpolatedCenter
+    "@id": "#DiaSource.pixelFlags_interpolatedCenter"
+    datatype: boolean
+    description: Interpolated pixel in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_offimage
+    "@id": "#DiaSource.pixelFlags_offimage"
+    datatype: boolean
+    description: DiaSource center is off image.
+    fits:tunit:
+  - name: pixelFlags_saturated
+    "@id": "#DiaSource.pixelFlags_saturated"
+    datatype: boolean
+    description: Saturated pixel in the DiaSource footprint.
+    fits:tunit:
+  - name: pixelFlags_saturatedCenter
+    "@id": "#DiaSource.pixelFlags_saturatedCenter"
+    datatype: boolean
+    description: Saturated pixel in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_suspect
+    "@id": "#DiaSource.pixelFlags_suspect"
+    datatype: boolean
+    description: DiaSource's footprint includes suspect pixels.
+    fits:tunit:
+  - name: pixelFlags_suspectCenter
+    "@id": "#DiaSource.pixelFlags_suspectCenter"
+    datatype: boolean
+    description: Suspect pixel in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_streak
+    "@id": "#DiaSource.pixelFlags_streak"
+    datatype: boolean
+    description: Streak in the DiaSource footprint.
+    fits:tunit:
+  - name: pixelFlags_streakCenter
+    "@id": "#DiaSource.pixelFlags_streakCenter"
+    datatype: boolean
+    description: Streak in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_injected
+    "@id": "#DiaSource.pixelFlags_injected"
+    datatype: boolean
+    description: Injection in the DiaSource footprint.
+    fits:tunit:
+  - name: pixelFlags_injectedCenter
+    "@id": "#DiaSource.pixelFlags_injectedCenter"
+    datatype: boolean
+    description: Injection in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_injected_template
+    "@id": "#DiaSource.pixelFlags_injected_template"
+    datatype: boolean
+    description: Template injection in the DiaSource footprint.
+    fits:tunit:
+  - name: pixelFlags_injected_templateCenter
+    "@id": "#DiaSource.pixelFlags_injected_templateCenter"
+    datatype: boolean
+    description: Template injection in the 3x3 region around the centroid.
+    fits:tunit:
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
   - name: IDX_DiaSource_visitDetector
@@ -2152,12 +2291,6 @@ tables:
     description: y position at which psfFlux has been measured.
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.y
-  - name: flags
-    "@id": "#DiaForcedSource.flags"
-    datatype: long
-    description: Flags, bitwise OR tbd
-    value: 0
-    ivoa:ucd: meta.code
   - name: midpointMjdTai
     "@id": "#DiaForcedSource.midpointMjdTai"
     datatype: double
@@ -2371,7 +2504,7 @@ tables:
     "@id": "#MPCORB.mpcDesignation"
     datatype: char
     length: 8
-    description: 'MPCORB: Number or provisional designation (in packed form)'
+    description: Number or provisional designation (in packed form).
     mysql:datatype: VARCHAR(8)
     ivoa:ucd: meta.id;src
   - name: mpcNumber
@@ -2382,133 +2515,133 @@ tables:
   - name: ssObjectId
     "@id": "#MPCORB.ssObjectId"
     datatype: long
-    description: LSST unique identifier (if observed by LSST)
+    description: LSST unique identifier (if observed by LSST).
     ivoa:ucd: meta.id;src
   - name: mpcH
     "@id": "#MPCORB.mpcH"
     datatype: float
-    description: 'MPCORB: Absolute magnitude, H'
+    description: Absolute magnitude, H.
     fits:tunit: mag
   - name: mpcG
     "@id": "#MPCORB.mpcG"
     datatype: float
-    description: 'MPCORB: Slope parameter, G'
+    description: Slope parameter, G.
   - name: epoch
     "@id": "#MPCORB.epoch"
     datatype: double
-    description: 'MPCORB: Epoch (in MJD, .0 TT)'
+    description: Epoch (in MJD, .0 TT).
     fits:tunit: d
   - name: M
     "@id": "#MPCORB.M"
     datatype: double
-    description: 'MPCORB: Mean anomaly at the epoch, in degrees'
+    description: Mean anomaly at the epoch, in degrees.
     fits:tunit: deg
   - name: peri
     "@id": "#MPCORB.peri"
     datatype: double
-    description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
+    description: Argument of perihelion, J2000.0 (degrees).
     fits:tunit: deg
   - name: node
     "@id": "#MPCORB.node"
     datatype: double
-    description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
+    description: Longitude of the ascending node, J2000.0 (degrees).
     fits:tunit: deg
   - name: incl
     "@id": "#MPCORB.incl"
     datatype: double
-    description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
+    description: Inclination to the ecliptic, J2000.0 (degrees).
     fits:tunit: deg
   - name: e
     "@id": "#MPCORB.e"
     datatype: double
-    description: 'MPCORB: Orbital eccentricity'
+    description: Orbital eccentricity.
   - name: n
     "@id": "#MPCORB.n"
     datatype: double
-    description: 'MPCORB: Mean daily motion (degrees per day)'
+    description: Mean daily motion (degrees per day).
     fits:tunit: deg/d
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
-    description: 'MPCORB: Semimajor axis (AU)'
+    description: Semimajor axis (AU).
     fits:tunit: AU
   - name: uncertaintyParameter
     "@id": "#MPCORB.uncertaintyParameter"
     datatype: char
     length: 1
-    description: 'MPCORB: Uncertainty parameter, U'
+    description: Uncertainty parameter, U.
     mysql:datatype: VARCHAR(1)
   - name: reference
     "@id": "#MPCORB.reference"
     datatype: char
     length: 9
-    description: 'MPCORB: Reference'
+    description: Reference.
     mysql:datatype: VARCHAR(9)
   - name: nobs
     "@id": "#MPCORB.nobs"
     datatype: int
-    description: 'MPCORB: Number of observations'
+    description: Number of observations.
   - name: nopp
     "@id": "#MPCORB.nopp"
     datatype: int
-    description: 'MPCORB: Number of oppositions'
+    description: Number of oppositions.
   - name: arc
     "@id": "#MPCORB.arc"
     datatype: float
-    description: 'MPCORB: Arc (days), for single-opposition objects'
+    description: Arc (days), for single-opposition objects.
     fits:tunit: d
   - name: arcStart
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
     length: 6
-    description: 'MPCORB: Year of first observation (for multi-opposition objects)'
+    description: Year of first observation (for multi-opposition objects).
     mysql:datatype: DATETIME
   - name: arcEnd
     "@id": "#MPCORB.arcEnd"
     datatype: timestamp
     length: 6
-    description: 'MPCORB: Year of last observation (for multi-opposition objects)'
+    description: Year of last observation (for multi-opposition objects).
     mysql:datatype: DATETIME
   - name: rms
     "@id": "#MPCORB.rms"
     datatype: float
-    description: 'MPCORB: r.m.s residual (")'
+    description: r.m.s residual (arcsec).
     fits:tunit: arcsec
   - name: pertsShort
     "@id": "#MPCORB.pertsShort"
     datatype: char
     length: 3
-    description: 'MPCORB: Coarse indicator of perturbers (blank if unperturbed one-opposition
+    description: Coarse indicator of perturbers (blank if unperturbed one-opposition.
       object)'
     mysql:datatype: VARCHAR(3)
   - name: pertsLong
     "@id": "#MPCORB.pertsLong"
     datatype: char
     length: 3
-    description: 'MPCORB: Precise indicator of perturbers (blank if unperturbed one-opposition
+    description: Precise indicator of perturbers (blank if unperturbed one-opposition.
       object)'
     mysql:datatype: VARCHAR(3)
   - name: computer
     "@id": "#MPCORB.computer"
     datatype: char
     length: 10
-    description: 'MPCORB: Computer name'
+    description: Computer name.
     mysql:datatype: VARCHAR(10)
   - name: flags
     "@id": "#MPCORB.flags"
     datatype: int
-    description: 'MPCORB: 4-hexdigit flags. See https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
+    description: 4-hexdigit flags. See https://minorplanetcenter.net//iau/info/MPOrbitFormat.html.
       for details'
   - name: fullDesignation
     "@id": "#MPCORB.fullDesignation"
     datatype: char
     length: 26
-    description: 'MPCORB: Readable designation'
+    description: Readable designation.
     mysql:datatype: VARCHAR(26)
   - name: lastIncludedObservation
     "@id": "#MPCORB.lastIncludedObservation"
     datatype: float
-    description: 'MPCORB: Date of last observation included in orbit solution'
+    description: Date of last observation included in orbit solution.
     fits:tunit: d
 - name: MPCORBDESIGMAP
   "@id": "#MPCORBDESIGMAP"
@@ -2522,23 +2655,23 @@ tables:
     "@id": "#MPCORBDESIGMAP.mpcDesignation"
     datatype: char
     length: 8
-    description: Either the MPC provisional or permanent designation
+    description: Either the MPC provisional or permanent designation.
     mysql:datatype: VARCHAR(8)
     ivoa:ucd: meta.id;src
   - name: mpcNumber
     "@id": "#MPCORBDESIGMAP.mpcNumber"
     datatype: int
-    description: MPC number (if the asteroid has been numbered)
+    description: MPC number (if the asteroid has been numbered).
   - name: otherDesignation
     "@id": "#MPCORBDESIGMAP.otherDesignation"
     datatype: char
     length: 8
-    description: Other designation by which this object is known
+    description: Other designation by which this object is known.
     mysql:datatype: VARCHAR(8)
   - name: ssObjectId
     "@id": "#MPCORBDESIGMAP.ssObjectId"
     datatype: long
-    description: LSST unique identifier (if observed by LSST)
+    description: LSST unique identifier (if observed by LSST).
     ivoa:ucd: meta.id;src
 - name: SSSource
   "@id": "#SSSource"
@@ -2557,12 +2690,12 @@ tables:
   - name: diaSourceId
     "@id": "#SSSource.diaSourceId"
     datatype: long
-    description: Unique identifier of the observation
+    description: Unique identifier of the observation.
     ivoa:ucd: meta.id;src
   - name: mpcUniqueId
     "@id": "#SSSource.mpcUniqueId"
     datatype: long
-    description: MPC unique identifier of the observation
+    description: MPC unique identifier of the observation.
   - name: nearbyObj1
     "@id": "#SSSource.nearbyObj1"
     datatype: long
@@ -2590,186 +2723,186 @@ tables:
   - name: nearbyObjDist1
     "@id": "#SSSource.nearbyObjDist1"
     datatype: float
-    description: Distances to nearbyObj
+    description: Distances to nearbyObj.
   - name: nearbyObjDist2
     "@id": "#SSSource.nearbyObjDist2"
     datatype: float
-    description: Distances to nearbyObj
+    description: Distances to nearbyObj.
   - name: nearbyObjDist3
     "@id": "#SSSource.nearbyObjDist3"
     datatype: float
-    description: Distances to nearbyObj
+    description: Distances to nearbyObj.
   - name: nearbyObjDist4
     "@id": "#SSSource.nearbyObjDist4"
     datatype: float
-    description: Distances to nearbyObj
+    description: Distances to nearbyObj.
   - name: nearbyObjDist5
     "@id": "#SSSource.nearbyObjDist5"
     datatype: float
-    description: Distances to nearbyObj
+    description: Distances to nearbyObj.
   - name: nearbyObjDist6
     "@id": "#SSSource.nearbyObjDist6"
     datatype: float
-    description: Distances to nearbyObj
+    description: Distances to nearbyObj.
   - name: nearbyObjLnP1
     "@id": "#SSSource.nearbyObjLnP1"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object
+      same as the nearby Object.
   - name: nearbyObjLnP2
     "@id": "#SSSource.nearbyObjLnP2"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object
+      same as the nearby Object.
   - name: nearbyObjLnP3
     "@id": "#SSSource.nearbyObjLnP3"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object
+      same as the nearby Object.
   - name: nearbyObjLnP4
     "@id": "#SSSource.nearbyObjLnP4"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object
+      same as the nearby Object.
   - name: nearbyObjLnP5
     "@id": "#SSSource.nearbyObjLnP5"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object
+      same as the nearby Object.
   - name: nearbyObjLnP6
     "@id": "#SSSource.nearbyObjLnP6"
     datatype: float
     description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object
+      same as the nearby Object.
   - name: eclipticLambda
     "@id": "#SSSource.eclipticLambda"
     datatype: double
-    description: Ecliptic longitude
+    description: Ecliptic longitude.
     fits:tunit: deg
   - name: eclipticBeta
     "@id": "#SSSource.eclipticBeta"
     datatype: double
-    description: Ecliptic latitude
+    description: Ecliptic latitude.
     fits:tunit: deg
   - name: galacticL
     "@id": "#SSSource.galacticL"
     datatype: double
-    description: Galactic longitude
+    description: Galactic longitude.
     fits:tunit: deg
   - name: galacticB
     "@id": "#SSSource.galacticB"
     datatype: double
-    description: Galactic latitute
+    description: Galactic latitute.
     fits:tunit: deg
   - name: phaseAngle
     "@id": "#SSSource.phaseAngle"
     datatype: float
-    description: Phase angle
+    description: Phase angle.
     fits:tunit: deg
   - name: heliocentricDist
     "@id": "#SSSource.heliocentricDist"
     datatype: float
-    description: Heliocentric distance
+    description: Heliocentric distance.
     fits:tunit: AU
   - name: topocentricDist
     "@id": "#SSSource.topocentricDist"
     datatype: float
-    description: Topocentric distace
+    description: Topocentric distace.
     fits:tunit: AU
   - name: predictedMagnitude
     "@id": "#SSSource.predictedMagnitude"
     datatype: float
-    description: Predicted magnitude
+    description: Predicted magnitude.
     fits:tunit: mag
   - name: predictedMagnitudeSigma
     "@id": "#SSSource.predictedMagnitudeSigma"
     datatype: float
-    description: Prediction uncertainty (1-sigma)
+    description: Prediction uncertainty (1-sigma).
     fits:tunit: mag
   - name: residualRa
     "@id": "#SSSource.residualRa"
     datatype: double
-    description: Residual R.A. vs. ephemeris
+    description: Residual R.A. vs. ephemeris.
     fits:tunit: deg
   - name: residualDec
     "@id": "#SSSource.residualDec"
     datatype: double
-    description: Residual Dec vs. ephemeris
+    description: Residual Dec vs. ephemeris.
     fits:tunit: deg
   - name: predictedRaSigma
     "@id": "#SSSource.predictedRaSigma"
     datatype: float
-    description: Predicted R.A. uncertainty
+    description: Predicted R.A. uncertainty.
     fits:tunit: deg
   - name: predictedDecSigma
     "@id": "#SSSource.predictedDecSigma"
     datatype: float
-    description: Predicted Dec uncertainty
+    description: Predicted Dec uncertainty.
     fits:tunit: deg
   - name: predictedRaDecCov
     "@id": "#SSSource.predictedRaDecCov"
     datatype: float
-    description: Predicted R.A./Dec covariance
+    description: Predicted R.A./Dec covariance.
     fits:tunit: deg**2
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float
-    description: Cartesian heliocentric X coordinate (at the emit time)
+    description: Cartesian heliocentric X coordinate (at the emit time).
     fits:tunit: AU
   - name: heliocentricY
     "@id": "#SSSource.heliocentricY"
     datatype: float
-    description: Cartesian heliocentric Y coordinate (at the emit time)
+    description: Cartesian heliocentric Y coordinate (at the emit time).
     fits:tunit: AU
   - name: heliocentricZ
     "@id": "#SSSource.heliocentricZ"
     datatype: float
-    description: Cartesian heliocentric Z coordinate (at the emit time)
+    description: Cartesian heliocentric Z coordinate (at the emit time).
     fits:tunit: AU
   - name: heliocentricVX
     "@id": "#SSSource.heliocentricVX"
     datatype: float
-    description: Cartesian heliocentric X velocity (at the emit time)
+    description: Cartesian heliocentric X velocity (at the emit time).
     fits:tunit: AU
   - name: heliocentricVY
     "@id": "#SSSource.heliocentricVY"
     datatype: float
-    description: Cartesian heliocentric Y velocity (at the emit time)
+    description: Cartesian heliocentric Y velocity (at the emit time).
     fits:tunit: AU
   - name: heliocentricVZ
     "@id": "#SSSource.heliocentricVZ"
     datatype: float
-    description: Cartesian heliocentric Z velocity (at the emit time)
+    description: Cartesian heliocentric Z velocity (at the emit time).
     fits:tunit: AU
   - name: topocentricX
     "@id": "#SSSource.topocentricX"
     datatype: float
-    description: Cartesian topocentric X coordinate (at the emit time)
+    description: Cartesian topocentric X coordinate (at the emit time).
     fits:tunit: AU
   - name: topocentricY
     "@id": "#SSSource.topocentricY"
     datatype: float
-    description: Cartesian topocentric Y coordinate (at the emit time)
+    description: Cartesian topocentric Y coordinate (at the emit time).
     fits:tunit: AU
   - name: topocentricZ
     "@id": "#SSSource.topocentricZ"
     datatype: float
-    description: Cartesian topocentric Z coordinate (at the emit time)
+    description: Cartesian topocentric Z coordinate (at the emit time).
     fits:tunit: AU
   - name: topocentricVX
     "@id": "#SSSource.topocentricVX"
     datatype: float
-    description: Cartesian topocentric X velocity (at the emit time)
+    description: Cartesian topocentric X velocity (at the emit time).
     fits:tunit: AU
   - name: topocentricVY
     "@id": "#SSSource.topocentricVY"
     datatype: float
-    description: Cartesian topocentric Y velocity (at the emit time)
+    description: Cartesian topocentric Y velocity (at the emit time).
     fits:tunit: AU
   - name: topocentricVZ
     "@id": "#SSSource.topocentricVZ"
     datatype: float
-    description: Cartesian topocentric Z velocity (at the emit time)
+    description: Cartesian topocentric Z velocity (at the emit time).
     fits:tunit: AU
 - name: DetectorVisitProcessingSummary
   '@id': '#DetectorVisitProcessingSummary'
