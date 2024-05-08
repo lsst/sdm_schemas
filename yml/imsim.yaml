@@ -7049,6 +7049,11 @@ tables:
     datatype: boolean
     description: Streak in the Source center.
     fits:tunit:
+  - name: invalidPsfFlag
+    "@id": "#ForcedSource.invalidPsfFlag"
+    datatype: boolean
+    description: Source has an invalid PSF.
+    fits:tunit:
   - name: psfDiffFluxErr
     "@id": "#ForcedSource.psfDiffFluxErr"
     datatype: double
@@ -8237,6 +8242,11 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_streakCenter"
     datatype: boolean
     description: Streak in the Source center.
+    fits:tunit:
+  - name: invalidPsfFlag
+    "@id": "#ForcedSourceOnDiaObject.invalidPsfFlag"
+    datatype: boolean
+    description: Forced source has an invalid PSF.
     fits:tunit:
   - name: psfDiffFlux
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux"
