@@ -1127,6 +1127,11 @@ tables:
     datatype: boolean
     description: Streak in the Source center. Measured on g-band.
     fits:tunit:
+  - name: g_invalidPsfFlag
+    "@id": "#Object.g_invalidPsfFlag"
+    datatype: boolean
+    description: This object has an invalid PSF (usually no inputs). Measured on g-band.
+    fits:tunit:
   - name: g_psfFlux
     "@id": "#Object.g_psfFlux"
     datatype: double
@@ -2082,6 +2087,11 @@ tables:
     "@id": "#Object.i_pixelFlags_streakCenter"
     datatype: boolean
     description: Streak in the Source center. Measured on i-band.
+    fits:tunit:
+  - name: i_invalidPsfFlag
+    "@id": "#Object.i_invalidPsfFlag"
+    datatype: boolean
+    description: This object has an invalid PSF (usually no inputs). Measured on i-band.
     fits:tunit:
   - name: i_psfFlux
     "@id": "#Object.i_psfFlux"
@@ -3039,6 +3049,11 @@ tables:
     datatype: boolean
     description: Streak in the Source center. Measured on r-band.
     fits:tunit:
+  - name: r_invalidPsfFlag
+    "@id": "#Object.r_invalidPsfFlag"
+    datatype: boolean
+    description: This object has an invalid PSF (usually no inputs). Measured on r-band.
+    fits:tunit:
   - name: r_psfFlux
     "@id": "#Object.r_psfFlux"
     datatype: double
@@ -3994,6 +4009,11 @@ tables:
     "@id": "#Object.u_pixelFlags_streakCenter"
     datatype: boolean
     description: Streak in the Source center. Measured on u-band.
+    fits:tunit:
+  - name: u_invalidPsfFlag
+    "@id": "#Object.u_invalidPsfFlag"
+    datatype: boolean
+    description: This object has an invalid PSF (usually no inputs). Measured on u-band.
     fits:tunit:
   - name: u_psfFlux
     "@id": "#Object.u_psfFlux"
@@ -4951,6 +4971,11 @@ tables:
     datatype: boolean
     description: Streak in the Source center. Measured on y-band.
     fits:tunit:
+  - name: y_invalidPsfFlag
+    "@id": "#Object.y_invalidPsfFlag"
+    datatype: boolean
+    description: This object has an invalid PSF (usually no inputs). Measured on y-band.
+    fits:tunit:
   - name: y_psfFlux
     "@id": "#Object.y_psfFlux"
     datatype: double
@@ -5907,6 +5932,11 @@ tables:
     datatype: boolean
     description: Streak in the Source center. Measured on z-band.
     fits:tunit:
+  - name: z_invalidPsfFlag
+    "@id": "#Object.z_invalidPsfFlag"
+    datatype: boolean
+    description: This object has an invalid PSF (usually no inputs). Measured on z-band.
+    fits:tunit:
   - name: z_psfFlux
     "@id": "#Object.z_psfFlux"
     datatype: double
@@ -6560,6 +6590,11 @@ tables:
     datatype: boolean
     description: Streak in the Source center.
     fits:tunit:
+  - name: invalidPsfFlag
+    "@id": "#Source.invalidPsfFlag"
+    datatype: boolean
+    description: Source has an invalid psf.
+    fits:tunit:
   - name: psfFlux_apCorr
     "@id": "#Source.psfFlux_apCorr"
     datatype: double
@@ -7013,6 +7048,11 @@ tables:
     "@id": "#ForcedSource.pixelFlags_streakCenter"
     datatype: boolean
     description: Streak in the Source center.
+    fits:tunit:
+  - name: invalidPsfFlag
+    "@id": "#ForcedSource.invalidPsfFlag"
+    datatype: boolean
+    description: Source has an invalid PSF.
     fits:tunit:
   - name: psfDiffFluxErr
     "@id": "#ForcedSource.psfDiffFluxErr"
@@ -8202,6 +8242,11 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_streakCenter"
     datatype: boolean
     description: Streak in the Source center.
+    fits:tunit:
+  - name: invalidPsfFlag
+    "@id": "#ForcedSourceOnDiaObject.invalidPsfFlag"
+    datatype: boolean
+    description: Forced source has an invalid PSF.
     fits:tunit:
   - name: psfDiffFlux
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux"
