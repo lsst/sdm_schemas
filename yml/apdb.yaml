@@ -13,13 +13,11 @@ tables:
   - name: name
     "@id": "#metadata.name"
     datatype: text
-    length: 1024
     nullable: false
     description: Name or key for a metadata item.
   - name: value
     "@id": "#metadata.value"
     datatype: text
-    length: 65535
     nullable: false
     description: Content of the metadata item in string representation.
   primaryKey: "#metadata.name"
