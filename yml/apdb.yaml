@@ -13,13 +13,11 @@ tables:
   - name: name
     "@id": "#metadata.name"
     datatype: text
-    length: 1024
     nullable: false
     description: Name or key for a metadata item.
   - name: value
     "@id": "#metadata.value"
     datatype: text
-    length: 65535
     nullable: false
     description: Content of the metadata item in string representation.
   primaryKey: "#metadata.name"
@@ -37,17 +35,13 @@ tables:
   - name: validityStart
     "@id": "#DiaObject.validityStart"
     datatype: timestamp
-    length: 6
     nullable: false
     description: Processing time when validity of this diaObject starts.
-    mysql:datatype: DATETIME
   - name: validityEnd
     "@id": "#DiaObject.validityEnd"
     datatype: timestamp
-    length: 6
     nullable: true
     description: Processing time when validity of this diaObject ends.
-    mysql:datatype: DATETIME
   - name: ra
     "@id": "#DiaObject.ra"
     datatype: double
@@ -1024,10 +1018,8 @@ tables:
   - name: lastNonForcedSource
     "@id": "#DiaObject.lastNonForcedSource"
     datatype: timestamp
-    length: 6
     nullable: false
     description: Last time when non-forced DIASource was seen for this object.
-    mysql:datatype: DATETIME
   - name: nDiaSources
     "@id": "#DiaObject.nDiaSources"
     datatype: int
@@ -1391,10 +1383,8 @@ tables:
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
     datatype: timestamp
-    length: 6
     description: Time when this diaSource was reassociated from diaObject to ssObject
       (if such reassociation happens, otherwise NULL).
-    mysql:datatype: DATETIME
   - name: midpointMjdTai
     "@id": "#DiaSource.midpointMjdTai"
     datatype: double
@@ -2033,17 +2023,13 @@ tables:
   - name: time_processed
     "@id": "#DiaSource.time_processed"
     datatype: timestamp
-    length: 6
     nullable: false
     description: Time when the image was processed and this DiaSource record was generated.
-    mysql:datatype: DATETIME
   - name: time_withdrawn
     "@id": "#DiaSource.time_withdrawn"
     datatype: timestamp
-    length: 6
     nullable: true
     description: Time when this record was marked invalid.
-    mysql:datatype: DATETIME
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: long
@@ -2237,17 +2223,13 @@ tables:
   - name: time_processed
     "@id": "#DiaForcedSource.time_processed"
     datatype: timestamp
-    length: 6
     nullable: false
     description: Time when this record was generated.
-    mysql:datatype: DATETIME
   - name: time_withdrawn
     "@id": "#DiaForcedSource.time_withdrawn"
     datatype: timestamp
-    length: 6
     nullable: true
     description: Time when this record was marked invalid.
-    mysql:datatype: DATETIME
   primaryKey:
   - "#DiaForcedSource.diaObjectId"
   - "#DiaForcedSource.visit"
@@ -2312,7 +2294,6 @@ tables:
   - name: lastNonForcedSource
     "@id": "#DiaObjectLast.lastNonForcedSource"
     datatype: timestamp
-    length: 6
     nullable: false
     description: Last time when non-forced DIASource was seen for this object.
   - name: ra
@@ -2509,15 +2490,11 @@ tables:
   - name: arcStart
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
-    length: 6
     description: Year of first observation (for multi-opposition objects).
-    mysql:datatype: DATETIME
   - name: arcEnd
     "@id": "#MPCORB.arcEnd"
     datatype: timestamp
-    length: 6
     description: Year of last observation (for multi-opposition objects).
-    mysql:datatype: DATETIME
   - name: rms
     "@id": "#MPCORB.rms"
     datatype: float

@@ -5934,7 +5934,6 @@ tables:
   - name: midpoint
     '@id': '#Visit.midpoint'
     datatype: timestamp
-    length: 6
     mysql:datatype: DATETIME(6)
     description: Midpoint time of the visit at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
@@ -5948,7 +5947,6 @@ tables:
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
-    length: 6
     mysql:datatype: DATETIME(6)
     description: Start time of the visit at the fiducial center of the focal plane array,
       TAI, accurate to 10ms.
@@ -6043,7 +6041,6 @@ tables:
   - name: midpoint
     '@id': '#CcdVisit.midpoint'
     datatype: timestamp
-    length: 6
     mysql:datatype: DATETIME(6)
     description: Midpoint of this visit. TAI, accurate to 10ms.
   - name: midpointMjdTai
@@ -6060,7 +6057,6 @@ tables:
   - name: obsStart
     '@id': '#CcdVisit.obsStart'
     datatype: timestamp
-    length: 6
     mysql:datatype: DATETIME(6)
     description: Start of the visit, TAI, accurate to 10ms.
   - name: obsStartMjdTai
