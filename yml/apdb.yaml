@@ -2156,6 +2156,20 @@ tables:
     nullable: false
     description: Id of the DiaObject that this DiaForcedSource was associated with.
     ivoa:ucd: meta.id;src
+  - name: ra
+    "@id": "#DiaForcedSource.ra"
+    datatype: double
+    nullable: false
+    description: Right ascension coordinate of the position of the object at time radecMjdTai.
+    ivoa:ucd: pos.eq.ra
+    fits:tunit: deg
+  - name: dec
+    "@id": "#DiaForcedSource.dec"
+    datatype: double
+    nullable: false
+    description: Declination coordinate of the position of the object at time radecMjdTai.
+    ivoa:ucd: pos.eq.dec
+    fits:tunit: deg
   - name: visit
     "@id": "#DiaForcedSource.visit"
     datatype: long
