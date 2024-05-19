@@ -1,10 +1,9 @@
 ---
-name: cdb_latiss
-"@id": "#cdb_latiss"
-description: Consolidated Database for LATISS
+name: cdb_lsstcomcamsim
+"@id": "#cdb_lsstcomcamsim"
+description: Consolidated Database for LSSTComCamSim
 version:
-  current: "1.1.0"
-  read_compatible: ["1.0.0"]
+  current: "1.0.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -233,30 +232,6 @@ tables:
     datatype: string
     length: 64
     description: Target of the observation.
-  - name: shutter_open_begin
-    "@id": "#exposure.shutter_open_begin"
-    datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
-    description: Start of shutter opening.  TAI, accurate to 10ms.
-    ivoa:ucd: time.start
-  - name: shutter_open_end
-    "@id": "#exposure.shutter_open_end"
-    datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
-    description: End of shutter opening.  TAI, accurate to 10ms.
-    ivoa:ucd: time.end
-  - name: shutter_close_begin
-    "@id": "#exposure.shutter_close_begin"
-    datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
-    description: Start of shutter closing.  TAI, accurate to 10ms.
-    ivoa:ucd: time.start
-  - name: shutter_close_end
-    "@id": "#exposure.shutter_close_end"
-    datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
-    description: End of shutter opening.  TAI, accurate to 10ms.
-    ivoa:ucd: time.end
   - name: air_temp
     "@id": "#exposure.air_temp"
     datatype: float
@@ -286,22 +261,10 @@ tables:
     datatype: float
     description: Seeing as measured by external DIMM (FWHM).
     ivoa:unit: arcsec
-  - name: shut_lower
-    "@id": "#exposure.shut_lower"
-    datatype: float
-    description: Dome dropout door opening percentage.
-  - name: shut_upper
-    "@id": "#exposure.shut_upper"
-    datatype: float
-    description: Dome main door opening percentage.
   - name: focus_z
     "@id": "#exposure.focus_z"
     datatype: float
     description: Focus Z position.
-  - name: dome_azimuth
-    "@id": "#exposure.dome_azimuth"
-    datatype: float
-    description: Dome azimuth.
   - name: simulated
     "@id": "#exposure.simulated"
     datatype: boolean
