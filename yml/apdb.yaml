@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "1.1.0"
+version: "2.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -2195,18 +2195,6 @@ tables:
     description: Uncertainty of psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
-  - name: x
-    "@id": "#DiaForcedSource.x"
-    datatype: float
-    description: x position at which psfFlux has been measured.
-    fits:tunit: pixel
-    ivoa:ucd: pos.cartesian.x
-  - name: y
-    "@id": "#DiaForcedSource.y"
-    datatype: float
-    description: y position at which psfFlux has been measured.
-    fits:tunit: pixel
-    ivoa:ucd: pos.cartesian.y
   - name: midpointMjdTai
     "@id": "#DiaForcedSource.midpointMjdTai"
     datatype: double
