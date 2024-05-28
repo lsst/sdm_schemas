@@ -480,12 +480,12 @@ tables:
   primaryKey:
   - "#visit1.visit_id"
   columns:
-  - name: visit1_id
+  - name: visit_id
     "@id": "#visit1.visit_id"
     datatype: long
     nullable: false
     description: Unique identifier.
-  - name: visit1_name
+  - name: exposure_name
     "@id": "#visit1.exposure_name"
     datatype: string
     length: 20
@@ -744,9 +744,9 @@ tables:
   - name: fk_obs_id
     "@id": "#visit1_quicklook.fk_obs_id"
     "@type": ForeignKey
-    description: Quicklook visit_id must be a Visit1 visit_id.
+    description: Quicklook visit_id must be an Exposure exposure_id.
     columns: ["#visit1_quicklook.visit_id"]
-    referencedColumns: ["#visit1.visit_id"]
+    referencedColumns: ["#exposure.exposure_id"]
   columns:
   - name: visit_id
     "@id": "#visit1_quicklook.visit_id"
@@ -1143,9 +1143,9 @@ tables:
   - name: fk_obs_id
     "@id": "#ccdvisit1_quicklook.fk_obs_id"
     "@type": ForeignKey
-    description: Quicklook ccdvisit_id must be a ccdvisit1 ccdvisit_id.
+    description: Quicklook ccdvisit_id must be a CcdExposure ccdexposure_id.
     columns: ["#ccdvisit1_quicklook.ccdvisit_id"]
-    referencedColumns: ["#ccdvisit1.ccdvisit_id"]
+    referencedColumns: ["#ccdexposure.ccdexposure_id"]
   columns:
   - name: ccdvisit_id
     "@id": "#ccdvisit1_quicklook.ccdvisit_id"
