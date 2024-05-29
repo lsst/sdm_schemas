@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
+    <INFO name="$dp03_catalogs_1yr_MPCORB_fullDesignation$" ID="$dp03_catalogs_1yr_MPCORB_fullDesignation$" value="this will be dropped..." />
+    <RESOURCE type="meta" utype="adhoc:service">
+      <DESCRIPTION>Look up MPC object by designation</DESCRIPTION>
+      <GROUP name="inputParams">
+        <PARAM name="designation" datatype="char" arraysize="*">
+          <DESCRIPTION>DP0.3 SSO full MPC designation</DESCRIPTION>
+        </PARAM>
+      </GROUP>
+      <PARAM name="accessURL" datatype="char" arraysize="*" value="$baseUrl$/api/mpc-lookup/search"/>
+      <PARAM name="contentType" datatype="char" arraysize="*" value="text/html"/>
+    </RESOURCE>
+</VOTABLE>
