@@ -2143,7 +2143,7 @@ tables:
 - name: DiaForcedSource
   "@id": "#DiaForcedSource"
   description: Forced-photometry source measurement on an individual difference Exposure
-    based on a Multifit shape model derived from a deep detection.
+    for all objects in the DiaObject table.
   columns:
   - name: diaForcedSourceId
     "@id": "#DiaForcedSource.diaForcedSourceId"
@@ -2160,14 +2160,14 @@ tables:
     "@id": "#DiaForcedSource.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecMjdTai.
+    description: Right ascension coordinate of the position of the DiaObject at time radecMjdTai.
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
   - name: dec
     "@id": "#DiaForcedSource.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecMjdTai.
+    description: Declination coordinate of the position of the DiaObject at time radecMjdTai.
     ivoa:ucd: pos.eq.dec
     fits:tunit: deg
   - name: visit
