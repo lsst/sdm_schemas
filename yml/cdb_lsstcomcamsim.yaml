@@ -3,7 +3,7 @@ name: cdb_lsstcomcamsim
 "@id": "#cdb_lsstcomcamsim"
 description: Consolidated Database for LSSTComCamSim
 version:
-  current: "1.0.0"
+  current: "2.0.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -79,61 +79,61 @@ tables:
     ivoa:unit: deg
   - name: azimuth_start
     "@id": "#exposure.azimuth_start"
-    datatype: double
+    datatype: float
     description: Azimuth of focal plane center at the start of the exposure.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth_end
     "@id": "#exposure.azimuth_end"
-    datatype: double
+    datatype: float
     description: Azimuth of focal plane center at the end of the exposure.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth
     "@id": "#exposure.azimuth"
-    datatype: double
+    datatype: float
     description: Azimuth of focal plane center at the middle of the exposure.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: altitude_start
     "@id": "#exposure.altitude_start"
-    datatype: double
+    datatype: float
     description: Altitude of focal plane center at the start of the exposure.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude_end
     "@id": "#exposure.altitude_end"
-    datatype: double
+    datatype: float
     description: Altitude of focal plane center at the end of the exposure.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude
     "@id": "#exposure.altitude"
-    datatype: double
+    datatype: float
     description: Altitude of focal plane center at the middle of the exposure.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: zenith_distance_start
     "@id": "#exposure.zenith_distance_start"
-    datatype: double
+    datatype: float
     description: Zenith distance at the start of the exposure.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance_end
     "@id": "#exposure.zenith_distance_end"
-    datatype: double
+    datatype: float
     description: Zenith distance at the end of the exposure.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance
     "@id": "#exposure.zenith_distance"
-    datatype: double
+    datatype: float
     description: Zenith distance at the middle of the exposure.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: airmass
     "@id": "#exposure.airmass"
-    datatype: double
+    datatype: float
     description: Airmass of the observed line of sight at the middle of the exposure.
     ivoa:ucd: obs.airMass
   - name: exp_midpt
@@ -178,19 +178,19 @@ tables:
     ivoa:unit: d
   - name: exp_time
     "@id": "#exposure.exp_time"
-    datatype: double
+    datatype: float
     description: Spatially-averaged duration of exposure, accurate to 10ms.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: shut_time
     "@id": "#exposure.shut_time"
-    datatype: double
+    datatype: float
     description: Spatially-averaged shutter-open duration, accurate to 10ms.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: dark_time
     "@id": "#exposure.dark_time"
-    datatype: double
+    datatype: float
     description: Duration from last clear to readout, accurate to 10ms.
     ivoa:ucd: time.interval
     ivoa:unit: s
@@ -541,61 +541,61 @@ tables:
     ivoa:unit: deg
   - name: azimuth_start
     "@id": "#visit1.azimuth_start"
-    datatype: double
+    datatype: float
     description: Azimuth of focal plane center at the start of the visit.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth_end
     "@id": "#visit1.azimuth_end"
-    datatype: double
+    datatype: float
     description: Azimuth of focal plane center at the end of the visit.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth
     "@id": "#visit1.azimuth"
-    datatype: double
+    datatype: float
     description: Azimuth of focal plane center at the middle of the visit.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: altitude_start
     "@id": "#visit1.altitude_start"
-    datatype: double
+    datatype: float
     description: Altitude of focal plane center at the start of the visit.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude_end
     "@id": "#visit1.altitude_end"
-    datatype: double
+    datatype: float
     description: Altitude of focal plane center at the end of the visit.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude
     "@id": "#visit1.altitude"
-    datatype: double
+    datatype: float
     description: Altitude of focal plane center at the middle of the visit.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: zenith_distance_start
     "@id": "#visit1.zenith_distance_start"
-    datatype: double
+    datatype: float
     description: Zenith distance at the start of the visit.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance_end
     "@id": "#visit1.zenith_distance_end"
-    datatype: double
+    datatype: float
     description: Zenith distance at the end of the visit.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance
     "@id": "#visit1.zenith_distance"
-    datatype: double
+    datatype: float
     description: Zenith distance at the middle of the visit.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: airmass
     "@id": "#visit1.airmass"
-    datatype: double
+    datatype: float
     description: Airmass of the observed line of sight at the middle of the visit.
     ivoa:ucd: obs.airMass
   - name: exp_midpt
@@ -640,19 +640,19 @@ tables:
     ivoa:unit: d
   - name: exp_time
     "@id": "#visit1.exp_time"
-    datatype: double
+    datatype: float
     description: Spatially-averaged duration of visit, accurate to 10ms.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: shut_time
     "@id": "#visit1.shut_time"
-    datatype: double
+    datatype: float
     description: Spatially-averaged shutter-open duration, accurate to 10ms.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: dark_time
     "@id": "#visit1.dark_time"
-    datatype: double
+    datatype: float
     description: Duration from last clear to readout, accurate to 10ms.
     ivoa:ucd: time.interval
     ivoa:unit: s
@@ -801,39 +801,39 @@ tables:
   - name: eff_time_psf_sigma_scale_min
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_min"
     datatype: float
-    description: Eff time PSF sigma scale (minimum across all detectors).
+    description: Effective exposure time, PSF sigma scale (minimum across all detectors).
   - name: eff_time_psf_sigma_scale_max
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_max"
     datatype: float
-    description: Eff time PSF sigma scale (maximum across all detectors).
+    description: Effective exposure time, PSF sigma scale (maximum across all detectors).
   - name: eff_time_psf_sigma_scale_median
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_median"
     datatype: float
-    description: Eff time PSF sigma scale (median across all detectors).
+    description: Effective exposure time, PSF sigma scale (median across all detectors).
   - name: eff_time_sky_bg_scale_min
     "@id": "#visit1_quicklook.eff_time_sky_bg_scale_min"
     datatype: float
-    description: Eff time sky background scale (minimum across all detectors).
+    description: Effective exposure time, sky background scale (minimum across all detectors).
   - name: eff_time_sky_bg_scale_max
     "@id": "#visit1_quicklook.eff_time_sky_bg_scale_max"
     datatype: float
-    description: Eff time sky background scale (maximum across all detectors).
+    description: Effective exposure time, sky background scale (maximum across all detectors).
   - name: eff_time_sky_bg_scale_median
     "@id": "#visit1_quicklook.eff_time_sky_bg_scale_median"
     datatype: float
-    description: Eff time sky background scale (median across all detectors).
+    description: Effective exposure time, sky background scale (median across all detectors).
   - name: eff_time_zero_point_scale_min
     "@id": "#visit1_quicklook.eff_time_zero_point_scale_min"
     datatype: float
-    description: Eff time zero point scale (minimum across all detectors).
+    description: Effective exposure time, zero point scale (minimum across all detectors).
   - name: eff_time_zero_point_scale_max
     "@id": "#visit1_quicklook.eff_time_zero_point_scale_max"
     datatype: float
-    description: Eff time zero point scale (maximum across all detectors).
+    description: Effective exposure time, zero point scale (maximum across all detectors).
   - name: eff_time_zero_point_scale_median
     "@id": "#visit1_quicklook.eff_time_zero_point_scale_median"
     datatype: float
-    description: Eff time zero point scale (median across all detectors).
+    description: Effective exposure time, zero point scale (median across all detectors).
   - name: max_dist_to_nearest_psf_min
     "@id": "#visit1_quicklook.max_dist_to_nearest_psf_min"
     datatype: float
@@ -849,15 +849,15 @@ tables:
   - name: mean_var_min
     "@id": "#visit1_quicklook.mean_var_min"
     datatype: float
-    description: Mean var (minimum across all detectors).
+    description: Mean of the variance plane (minimum across all detectors).
   - name: mean_var_max
     "@id": "#visit1_quicklook.mean_var_max"
     datatype: float
-    description: Mean var (maximum across all detectors).
+    description: Mean of the variance plane (maximum across all detectors).
   - name: mean_var_median
     "@id": "#visit1_quicklook.mean_var_median"
     datatype: float
-    description: Mean var (median across all detectors).
+    description: Mean of the variance plane (median across all detectors).
   - name: n_psf_star_min
     "@id": "#visit1_quicklook.n_psf_star_min"
     datatype: int
@@ -1175,7 +1175,7 @@ tables:
   - name: photometric_calib
     "@id": "#ccdvisit1_quicklook.photometric_calib"
     datatype: float
-    description: Conversion from DN to nanojansky for CCD.
+    description: Conversion from DN to nanojansky.
     ivoa:unit: nJy/count
   - name: psf_sigma
     "@id": "#ccdvisit1_quicklook.psf_sigma"
@@ -1189,20 +1189,28 @@ tables:
     "@id": "#ccdvisit1_quicklook.sky_noise"
     datatype: float
     description: RMS noise of the sky background.
-  - name: seeing
-    "@id": "#ccdvisit1_quicklook.seeing"
-    datatype: double
-    description: Mean measured FWHM of the PSF.
+  - name: zero_point
+    "@id": "#ccdvisit1_quicklook.zero_point"
+    datatype: float
+    description: Photometric zero point.
+  - name: psf_sigma
+    "@id": "#ccdvisit1_quicklook.psf_sigma"
+    datatype: float
+    description: PSF sigma.
   - name: astrom_offset_mean
     "@id": "#ccdvisit1_quicklook.astrom_offset_mean"
-    datatype: double
+    datatype: float
     description: Mean offset of astrometric calibration matches.
     ivoa:unit: arcsec
   - name: astrom_offset_std
     "@id": "#ccdvisit1_quicklook.astrom_offset_std"
-    datatype: double
+    datatype: float
     description: Standard deviation of offsets of astrometric calibration matches.
     ivoa:unit: arcsec
+  - name: mean_var
+    "@id": "#ccdvisit1_quicklook.mean_var"
+    datatype: float
+    description: Mean of the variance plane.
   - name: n_psf_star
     "@id": "#ccdvisit1_quicklook.n_psf_star"
     datatype: int
@@ -1210,41 +1218,41 @@ tables:
     ivoa:unit: count
   - name: psf_star_delta_e1_median
     "@id": "#ccdvisit1_quicklook.psf_star_delta_e1_median"
-    datatype: double
+    datatype: float
     description: Median E1 residual (starE1 - psfE1) for PSF stars.
   - name: psf_star_delta_e2_median
     "@id": "#ccdvisit1_quicklook.psf_star_delta_e2_median"
-    datatype: double
+    datatype: float
     description: Median E2 residual (starE2 - psfE2) for PSF stars.
   - name: psf_star_delta_e1_scatter
     "@id": "#ccdvisit1_quicklook.psf_star_delta_e1_scatter"
-    datatype: double
+    datatype: float
     description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for PSF stars.
   - name: psf_star_delta_e2_scatter
     "@id": "#ccdvisit1_quicklook.psf_star_delta_e2_scatter"
-    datatype: double
+    datatype: float
     description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for PSF stars.
   - name: psf_star_delta_size_median
     "@id": "#ccdvisit1_quicklook.psf_star_delta_size_median"
-    datatype: double
+    datatype: float
     description: Median size residual (starSize - psfSize) for PSF stars.
     ivoa:unit: pixel
   - name: psf_star_delta_size_scatter
     "@id": "#ccdvisit1_quicklook.psf_star_delta_size_scatter"
-    datatype: double
+    datatype: float
     description: Scatter (via MAD) of size residual (starSize - psfSize) for stars.
     ivoa:unit: pixel
   - name: psf_star_scaled_delta_size_scatter
     "@id": "#ccdvisit1_quicklook.psf_star_scaled_delta_size_scatter"
-    datatype: double
+    datatype: float
     description: Scatter (via MAD) of size residual scaled by median size squared.
   - name: psf_trace_radius_delta
     "@id": "#ccdvisit1_quicklook.psf_trace_radius_delta"
-    datatype: double
+    datatype: float
     description: Delta (max - min) of model PSF trace radius values evaluated on a grid of unmasked pixels.
     ivoa:unit: pixel
   - name: max_dist_to_nearest_psf
     "@id": "#ccdvisit1_quicklook.max_dist_to_nearest_psf"
-    datatype: double
+    datatype: float
     description: Maximum distance of an unmasked pixel to its nearest model PSF star.
     ivoa:unit: pixel
