@@ -2799,7 +2799,6 @@ tables:
     datatype: long
     nullable: false
     description: Id of the visit this visit was a part of.
-    mysql:datatype: INTEGER
     ivoa:ucd: meta.id;obs.image
   - name: detector
     '@id': '#DetectorVisitProcessingSummary.detector'
@@ -2843,19 +2842,16 @@ tables:
     '@id': '#DetectorVisitProcessingSummary.seeing'
     datatype: double
     description: Mean measured FWHM of the PSF.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
   - name: xSize
     '@id': '#DetectorVisitProcessingSummary.xSize'
     datatype: long
     description: Number of columns in the image.
-    mysql:datatype: INTEGER
     fits:tunit: pixel
   - name: ySize
     '@id': '#DetectorVisitProcessingSummary.ySize'
     datatype: long
     description: Number of rows in the image.
-    mysql:datatype: INTEGER
     fits:tunit: pixel
   - name: llcra
     '@id': '#DetectorVisitProcessingSummary.llcra'

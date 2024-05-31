@@ -7317,7 +7317,6 @@ tables:
     '@id': '#Visit.visit'
     datatype: long
     description: Unique identifier.
-    mysql:datatype: INTEGER
     ivoa:ucd: meta.id;obs;meta.main
     tap:principal: 1
     tap:column_index: 1
@@ -7386,7 +7385,6 @@ tables:
     '@id': '#Visit.zenithDistance'
     datatype: double
     description: Zenith distance at the middle of the exposure.
-    mysql:datatype: FLOAT
     fits:tunit: deg
     ivoa:ucd: pos.az.zd
     tap:principal: 0
@@ -7395,7 +7393,6 @@ tables:
     '@id': '#Visit.airmass'
     datatype: double
     description: Airmass of the observed line of sight.
-    mysql:datatype: FLOAT
     fits:tunit:
     ivoa:ucd: obs.airMass
     tap:principal: 1
@@ -7460,7 +7457,6 @@ tables:
     '@id': '#CcdVisit.visitId'
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
-    mysql:datatype: INTEGER
     ivoa:ucd: meta.id.parent;obs
     tap:principal: 1
     tap:column_index: 2
@@ -7552,7 +7548,6 @@ tables:
     '@id': '#CcdVisit.seeing'
     datatype: double
     description: Mean measured FWHM of the PSF.
-    mysql:datatype: FLOAT
     fits:tunit: arcsec
     ivoa:ucd: instr.obsty.seeing
     tap:principal: 1
@@ -7616,7 +7611,6 @@ tables:
     '@id': '#CcdVisit.xSize'
     datatype: long
     description: Number of columns in the image.
-    mysql:datatype: INTEGER
     fits:tunit: pixel
     ivoa:ucd: meta.number;instr.det
     tap:principal: 0
@@ -7625,7 +7619,6 @@ tables:
     '@id': '#CcdVisit.ySize'
     datatype: long
     description: Number of rows in the image.
-    mysql:datatype: INTEGER
     fits:tunit: pixel
     tap:principal: 0
     tap:column_index: 22
