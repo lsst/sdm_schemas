@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "1.1.0"
+version: "2.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -2143,7 +2143,7 @@ tables:
 - name: DiaForcedSource
   "@id": "#DiaForcedSource"
   description: Forced-photometry source measurement on an individual difference Exposure
-    based on a Multifit shape model derived from a deep detection.
+    for all objects in the DiaObject table.
   columns:
   - name: diaForcedSourceId
     "@id": "#DiaForcedSource.diaForcedSourceId"
@@ -2156,6 +2156,20 @@ tables:
     nullable: false
     description: Id of the DiaObject that this DiaForcedSource was associated with.
     ivoa:ucd: meta.id;src
+  - name: ra
+    "@id": "#DiaForcedSource.ra"
+    datatype: double
+    nullable: false
+    description: Right ascension coordinate of the position of the DiaObject at time radecMjdTai.
+    ivoa:ucd: pos.eq.ra
+    fits:tunit: deg
+  - name: dec
+    "@id": "#DiaForcedSource.dec"
+    datatype: double
+    nullable: false
+    description: Declination coordinate of the position of the DiaObject at time radecMjdTai.
+    ivoa:ucd: pos.eq.dec
+    fits:tunit: deg
   - name: visit
     "@id": "#DiaForcedSource.visit"
     datatype: long
@@ -2181,18 +2195,6 @@ tables:
     description: Uncertainty of psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
-  - name: x
-    "@id": "#DiaForcedSource.x"
-    datatype: float
-    description: x position at which psfFlux has been measured.
-    fits:tunit: pixel
-    ivoa:ucd: pos.cartesian.x
-  - name: y
-    "@id": "#DiaForcedSource.y"
-    datatype: float
-    description: y position at which psfFlux has been measured.
-    fits:tunit: pixel
-    ivoa:ucd: pos.cartesian.y
   - name: midpointMjdTai
     "@id": "#DiaForcedSource.midpointMjdTai"
     datatype: double
