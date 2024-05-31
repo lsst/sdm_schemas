@@ -1054,6 +1054,18 @@ tables:
     "@id": "#visit1_quicklook.sky_noise_median"
     datatype: float
     description: RMS noise of the sky background (median across all detectors).
+  - name: seeing_zenith_500nm_min
+    "@id": "#visit1_quicklook.seeing_zenith_500nm_min"
+    datatype: double
+    description: Measured PSF sigma, corrected to 500nm and an airmass of 1 (minimum across all detectors).
+  - name: seeing_zenith_500nm_max
+    "@id": "#visit1_quicklook.seeing_zenith_500nm_max"
+    datatype: double
+    description: Measured PSF sigma, corrected to 500nm and an airmass of 1 (maximum across all detectors).
+  - name: seeing_zenith_500nm_median
+    "@id": "#visit1_quicklook.seeing_zenith_500nm_median"
+    datatype: double
+    description: Measured PSF sigma, corrected to 500nm and an airmass of 1 (median across all detectors).
   - name: zero_point_min
     "@id": "#visit1_quicklook.zero_point_min"
     datatype: float
@@ -1193,10 +1205,10 @@ tables:
     "@id": "#ccdvisit1_quicklook.zero_point"
     datatype: float
     description: Photometric zero point.
-  - name: psf_sigma
-    "@id": "#ccdvisit1_quicklook.psf_sigma"
-    datatype: float
-    description: PSF sigma.
+  - name: seeing_zenith_500nm
+    "@id": "#ccdvisit1_quicklook.seeing_zenith_500nm"
+    datatype: double
+    description: Measured PSF sigma, corrected to 500nm and an airmass of 1.
   - name: astrom_offset_mean
     "@id": "#ccdvisit1_quicklook.astrom_offset_mean"
     datatype: float
