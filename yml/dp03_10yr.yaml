@@ -612,7 +612,6 @@ tables:
     datatype: char
     length: 8
     description: 'MPCORB: Number or provisional designation (in packed form)'
-    mysql:datatype: VARCHAR(8)
     ivoa:ucd: meta.id;src
   - name: mpcNumber
     "@id": "#MPCORB.mpcNumber"
@@ -677,13 +676,11 @@ tables:
     datatype: char
     length: 1
     description: 'MPCORB: Uncertainty parameter, U'
-    mysql:datatype: VARCHAR(1)
   - name: reference
     "@id": "#MPCORB.reference"
     datatype: char
     length: 9
     description: 'MPCORB: Reference'
-    mysql:datatype: VARCHAR(9)
   - name: nobs
     "@id": "#MPCORB.nobs"
     datatype: int
@@ -718,20 +715,17 @@ tables:
     length: 3
     description: 'MPCORB: Coarse indicator of perturbers (blank if unperturbed one-opposition
       object)'
-    mysql:datatype: VARCHAR(3)
   - name: pertsLong
     "@id": "#MPCORB.pertsLong"
     datatype: char
     length: 3
     description: 'MPCORB: Precise indicator of perturbers (blank if unperturbed one-opposition
       object)'
-    mysql:datatype: VARCHAR(3)
   - name: computer
     "@id": "#MPCORB.computer"
     datatype: char
     length: 10
     description: 'MPCORB: Computer name'
-    mysql:datatype: VARCHAR(10)
   - name: flags
     "@id": "#MPCORB.flags"
     datatype: int
@@ -742,7 +736,6 @@ tables:
     datatype: char
     length: 26
     description: 'MPCORB: Readable designation'
-    mysql:datatype: VARCHAR(26)
   - name: lastIncludedObservation
     "@id": "#MPCORB.lastIncludedObservation"
     datatype: float
