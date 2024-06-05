@@ -2404,7 +2404,6 @@ tables:
     datatype: char
     length: 8
     description: Number or provisional designation (in packed form).
-    mysql:datatype: VARCHAR(8)
     ivoa:ucd: meta.id;src
   - name: mpcNumber
     "@id": "#MPCORB.mpcNumber"
@@ -2469,13 +2468,11 @@ tables:
     datatype: char
     length: 1
     description: Uncertainty parameter, U.
-    mysql:datatype: VARCHAR(1)
   - name: reference
     "@id": "#MPCORB.reference"
     datatype: char
     length: 9
     description: Reference.
-    mysql:datatype: VARCHAR(9)
   - name: nobs
     "@id": "#MPCORB.nobs"
     datatype: int
@@ -2508,20 +2505,17 @@ tables:
     length: 3
     description: Coarse indicator of perturbers (blank if unperturbed one-opposition.
       object)'
-    mysql:datatype: VARCHAR(3)
   - name: pertsLong
     "@id": "#MPCORB.pertsLong"
     datatype: char
     length: 3
     description: Precise indicator of perturbers (blank if unperturbed one-opposition.
       object)'
-    mysql:datatype: VARCHAR(3)
   - name: computer
     "@id": "#MPCORB.computer"
     datatype: char
     length: 10
     description: Computer name.
-    mysql:datatype: VARCHAR(10)
   - name: flags
     "@id": "#MPCORB.flags"
     datatype: int
@@ -2532,7 +2526,6 @@ tables:
     datatype: char
     length: 26
     description: Readable designation.
-    mysql:datatype: VARCHAR(26)
   - name: lastIncludedObservation
     "@id": "#MPCORB.lastIncludedObservation"
     datatype: float
@@ -2551,7 +2544,6 @@ tables:
     datatype: char
     length: 8
     description: Either the MPC provisional or permanent designation.
-    mysql:datatype: VARCHAR(8)
     ivoa:ucd: meta.id;src
   - name: mpcNumber
     "@id": "#MPCORBDESIGMAP.mpcNumber"
@@ -2562,7 +2554,6 @@ tables:
     datatype: char
     length: 8
     description: Other designation by which this object is known.
-    mysql:datatype: VARCHAR(8)
   - name: ssObjectId
     "@id": "#MPCORBDESIGMAP.ssObjectId"
     datatype: long
