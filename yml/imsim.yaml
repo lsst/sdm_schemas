@@ -6475,6 +6475,21 @@ tables:
     datatype: double
     description: 1-sigma flux uncertainty
     fits:tunit: count
+  - name: normCompTophatFlux_flag
+    "@id": "#Source.normCompTophatFlux_flag"
+    datatype: boolean
+    description: General failure flag for normCompTophatFlux.
+    fits:tunit:
+  - name: normCompTophatFlux_instFlux
+    "@id": "#Source.normCompTophatFlux_instFlux"
+    datatype: double
+    description: Normalized compensated tophat flux for calibration
+    fits:tunit: count
+  - name: normCompTophatFlux_instFluxErr
+    "@id": "#Source.normCompTophatFlux_instFluxErr"
+    datatype: double
+    description: 1-sigma flux uncertainty on normCompTophatFlux_instFlux
+    fits:tunit: count
   - name: extendedness_flag
     "@id": "#Source.extendedness_flag"
     datatype: boolean
