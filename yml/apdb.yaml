@@ -2807,7 +2807,11 @@ tables:
     description: Id of the detector on the instrument that took this visit.
       Datatype short instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
-    # TODO: we probably need to add an index on the above two for this table.
+  - name: releaseId
+    '@id': '#DetectorVisitProcessingSummary.releaseId'
+    datatype: short
+    nullable: false
+    description: Id of the AP processing run summarized in this table. This id is used in the generator producing unique diaSourceIds and diaForcedSourceIds.
   - name: ra
     '@id': '#DetectorVisitProcessingSummary.ra'
     datatype: double
@@ -2963,3 +2967,7 @@ tables:
     datatype: double
     description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel).
     fits:tunit: pixel
+  primaryKey:
+  - "#DetectorVisitProcessingSummary.visit"
+  - "#DetectorVisitProcessingSummary.detector"
+  - "#DetectorVisitProcessingSummary.releaseId"
