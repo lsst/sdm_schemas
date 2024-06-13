@@ -1078,7 +1078,6 @@ tables:
     length: 768
     description: Periodic light curve features computed on phase/distance-corrected
       magnitudes (H), 6x32 floats.
-    mysql:datatype: BLOB(768)
   - name: MOID
     "@id": "#SSObject.MOID"
     datatype: float
