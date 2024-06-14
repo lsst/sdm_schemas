@@ -1033,15 +1033,11 @@ tables:
     "@id": "#IDX_DiaObject_validityStart"
     columns:
     - "#DiaObject.validityStart"
-  mysql:engine: MyISAM
-  mysql:charset: latin1
 - name: SSObject
   "@id": "#SSObject"
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
     Recomputed daily, upon MPCORB ingestion.
   primaryKey: "#SSObject.ssObjectId"
-  mysql:engine: MyISAM
-  mysql:charset: utf8mb4
   columns:
   - name: ssObjectId
     "@id": "#SSObject.ssObjectId"
@@ -2137,8 +2133,6 @@ tables:
     "@id": "#IDX_DiaSource_ssObjectId"
     columns:
     - "#DiaSource.ssObjectId"
-  mysql:engine: MyISAM
-  mysql:charset: latin1
 - name: DiaForcedSource
   "@id": "#DiaForcedSource"
   description: Forced-photometry source measurement on an individual difference Exposure
@@ -2241,8 +2235,6 @@ tables:
     columns:
     - "#DiaForcedSource.visit"
     - "#DiaForcedSource.detector"
-  mysql:engine: MyISAM
-  mysql:charset: latin1
 - name: DiaObject_To_Object_Match
   "@id": "#DiaObject_To_Object_Match"
   description: The table stores mapping of diaObjects to the nearby objects.
@@ -2278,8 +2270,6 @@ tables:
     "@id": "#IDX_DiaObjectToObjectMatch_objectId"
     columns:
     - "#DiaObject_To_Object_Match.objectId"
-  mysql:engine: MyISAM
-  mysql:charset: latin1
 - name: DiaObjectLast
   "@id": "#DiaObjectLast"
   description: Table with a subset of DiaObject columns used to store only the
@@ -2395,8 +2385,6 @@ tables:
   description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
     O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
   primaryKey: "#MPCORB.mpcDesignation"
-  mysql:engine: MyISAM
-  mysql:charset: utf8mb4
   columns:
   - name: mpcDesignation
     "@id": "#MPCORB.mpcDesignation"
@@ -2535,8 +2523,6 @@ tables:
   description: The mapping between old and new provisional MPC designation, produced
     by the Minor Planet Center. Ingested daily. O(few x 10M) rows by survey end.
   primaryKey: "#MPCORBDESIGMAP.mpcDesignation"
-  mysql:engine: MyISAM
-  mysql:charset: utf8mb4
   columns:
   - name: mpcDesignation
     "@id": "#MPCORBDESIGMAP.mpcDesignation"
@@ -2563,8 +2549,6 @@ tables:
   description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
     Recomputed daily, upon MPCORB ingestion.
   primaryKey: "#SSSource.ssObjectId"
-  mysql:engine: MyISAM
-  mysql:charset: utf8mb4
   columns:
   - name: ssObjectId
     "@id": "#SSSource.ssObjectId"
