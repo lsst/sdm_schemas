@@ -3,7 +3,8 @@ name: cdb_lsstcomcamsim
 "@id": "#cdb_lsstcomcamsim"
 description: Consolidated Database for LSSTComCamSim
 version:
-  current: "2.0.0"
+  current: "2.1.0"
+  read_compatible: ["2.0.0"]
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -753,6 +754,10 @@ tables:
     datatype: long
     nullable: false
     description: Unique identifier.
+  - name: n_inputs
+    "@id": "#visit1_quicklook.n_inputs"
+    datatype: int
+    description: Number of CCDs used to compute the visit aggregates.
   - name: astrom_offset_mean_min
     "@id": "#visit1_quicklook.astrom_offset_mean_min"
     datatype: float
@@ -1219,6 +1224,26 @@ tables:
     datatype: float
     description: Standard deviation of offsets of astrometric calibration matches.
     ivoa:unit: arcsec
+  - name: eff_time
+    "@id": "#ccdvisit1_quicklook.eff_time"
+    datatype: float
+    description: Effective exposure time.
+    ivoa:unit: s
+  - name: eff_time_psf_sigma_scale
+    "@id": "#ccdvisit1_quicklook.eff_time_psf_sigma_scale"
+    datatype: float
+    description: Effective exposure time, PSF sigma scale.
+    ivoa:unit: s
+  - name: eff_time_psf_sky_bg_scale
+    "@id": "#ccdvisit1_quicklook.eff_time_sky_bg_scale"
+    datatype: float
+    description: Effective exposure time, sky backgroundscale.
+    ivoa:unit: s
+  - name: eff_time_psf_zero_point_scale
+    "@id": "#ccdvisit1_quicklook.eff_time_zero_point_scale"
+    datatype: float
+    description: Effective exposure time, zero point scale.
+    ivoa:unit: s
   - name: mean_var
     "@id": "#ccdvisit1_quicklook.mean_var"
     datatype: float
@@ -1228,6 +1253,22 @@ tables:
     datatype: int
     description: Number of stars used for PSF model.
     ivoa:unit: count
+  - name: psf_area
+    "@id": "#ccdvisit1_quicklook.psf_area"
+    datatype: float
+    description: PSF area.
+  - name: psf_ixx
+    "@id": "#ccdvisit1_quicklook.psf_ixx"
+    datatype: float
+    description: PSF Ixx moment.
+  - name: psf_ixy
+    "@id": "#ccdvisit1_quicklook.psf_ixy"
+    datatype: float
+    description: PSF Ixy moment.
+  - name: psf_iyy
+    "@id": "#ccdvisit1_quicklook.psf_iyy"
+    datatype: float
+    description: PSF Iyy moment.
   - name: psf_star_delta_e1_median
     "@id": "#ccdvisit1_quicklook.psf_star_delta_e1_median"
     datatype: float
