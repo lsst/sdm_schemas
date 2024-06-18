@@ -8506,6 +8506,11 @@ tables:
     datatype: double
     description: Deprecated duplicate of dec.
     fits:tunit: deg
+  - name: pixelScale
+    '@id': '#CcdVisit.pixelScale'
+    datatype: float
+    description: "Measured detector pixel scale (arcsec/pixel)."
+    fits:tunit:
   - name: zenithDistance
     '@id': '#CcdVisit.zenithDistance'
     datatype: float
