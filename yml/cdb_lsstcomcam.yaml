@@ -1,9 +1,10 @@
 ---
-name: cdb_latiss
-"@id": "#cdb_latiss"
-description: Consolidated Database for LATISS
+name: cdb_lsstcomcam
+"@id": "#cdb_lsstcomcam"
+description: Consolidated Database for LSSTComCam
 version:
-  current: "2.0.0"
+  current: "2.1.0"
+  read_compatible: ["2.0.0"]
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -260,22 +261,10 @@ tables:
     datatype: float
     description: Seeing as measured by external DIMM (FWHM).
     ivoa:unit: arcsec
-  - name: shut_lower
-    "@id": "#exposure.shut_lower"
-    datatype: float
-    description: Dome dropout door opening percentage.
-  - name: shut_upper
-    "@id": "#exposure.shut_upper"
-    datatype: float
-    description: Dome main door opening percentage.
   - name: focus_z
     "@id": "#exposure.focus_z"
     datatype: float
     description: Focus Z position.
-  - name: dome_azimuth
-    "@id": "#exposure.dome_azimuth"
-    datatype: float
-    description: Dome azimuth.
   - name: simulated
     "@id": "#exposure.simulated"
     datatype: boolean
@@ -734,14 +723,6 @@ tables:
     datatype: float
     description: Seeing as measured by external DIMM (FWHM).
     ivoa:unit: arcsec
-  - name: shut_lower
-    "@id": "#visit1.shut_lower"
-    datatype: float
-    description: Dome dropout door opening percentage.
-  - name: shut_upper
-    "@id": "#evisit1.shut_upper"
-    datatype: float
-    description: Dome main door opening percentage.
   - name: focus_z
     "@id": "#visit1.focus_z"
     datatype: float
@@ -777,122 +758,370 @@ tables:
     "@id": "#visit1_quicklook.n_inputs"
     datatype: int
     description: Number of CCDs used to compute the visit aggregates.
-  - name: astrom_offset_mean
-    "@id": "#visit1_quicklook.astrom_offset_mean"
+  - name: astrom_offset_mean_min
+    "@id": "#visit1_quicklook.astrom_offset_mean_min"
     datatype: float
-    description: Mean offset of astrometric calibration matches.
+    description: Mean offset of astrometric calibration matches (minimum across all detectors).
     ivoa:unit: arcsec
-  - name: astrom_offset_std
-    "@id": "#visit1_quicklook.astrom_offset_std"
+  - name: astrom_offset_mean_max
+    "@id": "#visit1_quicklook.astrom_offset_mean_max"
     datatype: float
-    description: Standard deviation of offsets of astrometric calibration matches.
+    description: Mean offset of astrometric calibration matches (maximum across all detectors).
     ivoa:unit: arcsec
-  - name: eff_time
-    "@id": "#visit1_quicklook.eff_time"
+  - name: astrom_offset_mean_median
+    "@id": "#visit1_quicklook.astrom_offset_mean_median"
     datatype: float
-    description: Effective exposure time.
+    description: Mean offset of astrometric calibration matches (median across all detectors).
+    ivoa:unit: arcsec
+  - name: astrom_offset_std_min
+    "@id": "#visit1_quicklook.astrom_offset_std_min"
+    datatype: float
+    description: Standard deviation of offsets of astrometric calibration matches (minimum across all detectors).
+    ivoa:unit: arcsec
+  - name: astrom_offset_std_max
+    "@id": "#visit1_quicklook.astrom_offset_std_max"
+    datatype: float
+    description: Standard deviation of offsets of astrometric calibration matches (maximum across all detectors).
+    ivoa:unit: arcsec
+  - name: astrom_offset_std_median
+    "@id": "#visit1_quicklook.astrom_offset_std_median"
+    datatype: float
+    description: Standard deviation of offsets of astrometric calibration matches (median across all detectors).
+    ivoa:unit: arcsec
+  - name: eff_time_min
+    "@id": "#visit1_quicklook.eff_time_min"
+    datatype: float
+    description: Effective exposure time (minimum across all detectors).
     ivoa:unit: s
-  - name: eff_time_psf_sigma_scale
-    "@id": "#visit1_quicklook.eff_time_psf_sigma_scale"
+  - name: eff_time_max
+    "@id": "#visit1_quicklook.eff_time_max"
     datatype: float
-    description: Effective exposure time, PSF sigma scale.
-  - name: eff_time_sky_bg_scale
-    "@id": "#visit1_quicklook.eff_time_sky_bg_scale"
+    description: Effective exposure time (maximum across all detectors).
+    ivoa:unit: s
+  - name: eff_time_median
+    "@id": "#visit1_quicklook.eff_time_median"
     datatype: float
-    description: Effective exposure time, sky background scale.
-  - name: eff_time_zero_point_scale
-    "@id": "#visit1_quicklook.eff_time_zero_point_scale"
+    description: Effective exposure time (median across all detectors).
+    ivoa:unit: s
+  - name: eff_time_psf_sigma_scale_min
+    "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_min"
     datatype: float
-    description: Effective exposure time, zero point scale.
-  - name: max_dist_to_nearest_psf
-    "@id": "#visit1_quicklook.max_dist_to_nearest_psf"
+    description: Effective exposure time, PSF sigma scale (minimum across all detectors).
+  - name: eff_time_psf_sigma_scale_max
+    "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_max"
     datatype: float
-    description: Maximum distance of an unmasked pixel to its nearest model PSF star.
-  - name: mean_var
-    "@id": "#visit1_quicklook.mean_var"
+    description: Effective exposure time, PSF sigma scale (maximum across all detectors).
+  - name: eff_time_psf_sigma_scale_median
+    "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_median"
     datatype: float
-    description: Mean of the variance plane.
-  - name: n_psf_star
-    "@id": "#visit1_quicklook.n_psf_star"
+    description: Effective exposure time, PSF sigma scale (median across all detectors).
+  - name: eff_time_sky_bg_scale_min
+    "@id": "#visit1_quicklook.eff_time_sky_bg_scale_min"
+    datatype: float
+    description: Effective exposure time, sky background scale (minimum across all detectors).
+  - name: eff_time_sky_bg_scale_max
+    "@id": "#visit1_quicklook.eff_time_sky_bg_scale_max"
+    datatype: float
+    description: Effective exposure time, sky background scale (maximum across all detectors).
+  - name: eff_time_sky_bg_scale_median
+    "@id": "#visit1_quicklook.eff_time_sky_bg_scale_median"
+    datatype: float
+    description: Effective exposure time, sky background scale (median across all detectors).
+  - name: eff_time_zero_point_scale_min
+    "@id": "#visit1_quicklook.eff_time_zero_point_scale_min"
+    datatype: float
+    description: Effective exposure time, zero point scale (minimum across all detectors).
+  - name: eff_time_zero_point_scale_max
+    "@id": "#visit1_quicklook.eff_time_zero_point_scale_max"
+    datatype: float
+    description: Effective exposure time, zero point scale (maximum across all detectors).
+  - name: eff_time_zero_point_scale_median
+    "@id": "#visit1_quicklook.eff_time_zero_point_scale_median"
+    datatype: float
+    description: Effective exposure time, zero point scale (median across all detectors).
+  - name: max_dist_to_nearest_psf_min
+    "@id": "#visit1_quicklook.max_dist_to_nearest_psf_min"
+    datatype: float
+    description: Maximum distance of an unmasked pixel to its nearest model PSF star (minimum across all detectors).
+  - name: max_dist_to_nearest_psf_max
+    "@id": "#visit1_quicklook.max_dist_to_nearest_psf_max"
+    datatype: float
+    description: Maximum distance of an unmasked pixel to its nearest model PSF star (maximum across all detectors).
+  - name: max_dist_to_nearest_psf_median
+    "@id": "#visit1_quicklook.max_dist_to_nearest_psf_median"
+    datatype: float
+    description: Maximum distance of an unmasked pixel to its nearest model PSF star (median across all detectors).
+  - name: mean_var_min
+    "@id": "#visit1_quicklook.mean_var_min"
+    datatype: float
+    description: Mean of the variance plane (minimum across all detectors).
+  - name: mean_var_max
+    "@id": "#visit1_quicklook.mean_var_max"
+    datatype: float
+    description: Mean of the variance plane (maximum across all detectors).
+  - name: mean_var_median
+    "@id": "#visit1_quicklook.mean_var_median"
+    datatype: float
+    description: Mean of the variance plane (median across all detectors).
+  - name: n_psf_star_min
+    "@id": "#visit1_quicklook.n_psf_star_min"
     datatype: int
-    description: Number of stars used for PSF model.
-  - name: psf_area
-    "@id": "#visit1_quicklook.psf_area"
+    description: Number of stars used for PSF model (minimum across all detectors).
+  - name: n_psf_star_max
+    "@id": "#visit1_quicklook.n_psf_star_max"
+    datatype: int
+    description: Number of stars used for PSF model (maximum across all detectors).
+  - name: n_psf_star_median
+    "@id": "#visit1_quicklook.n_psf_star_median"
+    datatype: int
+    description: Number of stars used for PSF model (median across all detectors).
+  - name: n_psf_star_total
+    "@id": "#visit1_quicklook.n_psf_star_total"
+    datatype: int
+    description: Number of stars used for PSF model (total across all detectors).
+  - name: psf_area_min
+    "@id": "#visit1_quicklook.psf_area_min"
     datatype: float
-    description: PSF area.
-  - name: psf_ixx
-    "@id": "#visit1_quicklook.psf_ixx"
+    description: PSF area (minimum across all detectors).
+  - name: psf_area_max
+    "@id": "#visit1_quicklook.psf_area_max"
     datatype: float
-    description: PSF Ixx moment.
-  - name: psf_ixy
-    "@id": "#visit1_quicklook.psf_ixy"
+    description: PSF area (maximum across all detectors).
+  - name: psf_area_median
+    "@id": "#visit1_quicklook.psf_area_median"
     datatype: float
-    description: PSF Ixy moment.
-  - name: psf_iyy
-    "@id": "#visit1_quicklook.psf_iyy"
+    description: PSF area (median across all detectors).
+  - name: psf_ixx_min
+    "@id": "#visit1_quicklook.psf_ixx_min"
     datatype: float
-    description: PSF Iyy moment
-  - name: psf_sigma
-    "@id": "#visit1_quicklook.psf_sigma"
+    description: PSF Ixx moment (minimum across all detectors).
+  - name: psf_ixx_max
+    "@id": "#visit1_quicklook.psf_ixx_max"
     datatype: float
-    description: PSF sigma.
-  - name: psf_star_delta_e1_median
-    "@id": "#visit1_quicklook.psf_star_delta_e1_median"
+    description: PSF Ixx moment (maximum across all detectors).
+  - name: psf_ixx_median
+    "@id": "#visit1_quicklook.psf_ixx_median"
     datatype: float
-    description: Median E1 residual (starE1 - psfE1) for PSF stars.
-  - name: psf_star_delta_e1_scatter
-    "@id": "#visit1_quicklook.psf_star_delta_e1_scatter"
+    description: PSF Ixx moment (median across all detectors).
+  - name: psf_ixy_min
+    "@id": "#visit1_quicklook.psf_ixy_min"
     datatype: float
-    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for PSF stars.
-  - name: psf_star_delta_e2_median
-    "@id": "#visit1_quicklook.psf_star_delta_e2_median"
+    description: PSF Ixy moment (minimum across all detectors).
+  - name: psf_ixy_max
+    "@id": "#visit1_quicklook.psf_ixy_max"
     datatype: float
-    description: Median E2 residual (starE2 - psfE2) for PSF stars.
-  - name: psf_star_delta_e2_scatter
-    "@id": "#visit1_quicklook.psf_star_delta_e2_scatter"
+    description: PSF Ixy moment (maximum across all detectors).
+  - name: psf_ixy_median
+    "@id": "#visit1_quicklook.psf_ixy_median"
     datatype: float
-    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for PSF stars.
-  - name: psf_star_delta_size_median
-    "@id": "#visit1_quicklook.psf_star_delta_size_median"
+    description: PSF Ixy moment (median across all detectors).
+  - name: psf_iyy_min
+    "@id": "#visit1_quicklook.psf_iyy_min"
     datatype: float
-    description: Median size residual (starSize - psfSize) for PSF stars.
-  - name: psf_star_delta_size_scatter
-    "@id": "#visit1_quicklook.psf_star_delta_size_scatter"
+    description: PSF Iyy moment (minimum across all detectors).
+  - name: psf_iyy_max
+    "@id": "#visit1_quicklook.psf_iyy_max"
     datatype: float
-    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars.
-  - name: psf_star_scaled_delta_size_scatter
-    "@id": "#visit1_quicklook.psf_star_scaled_delta_size_scatter"
+    description: PSF Iyy moment (maximum across all detectors).
+  - name: psf_iyy_median
+    "@id": "#visit1_quicklook.psf_iyy_median"
     datatype: float
-    description: Scatter (via MAD) of size residual scaled by median size squared.
-  - name: psf_trace_radius_delta
-    "@id": "#visit1_quicklook.psf_trace_radius_delta"
+    description: PSF Iyy moment (median across all detectors).
+  - name: psf_sigma_min
+    "@id": "#visit1_quicklook.psf_sigma_min"
     datatype: float
-    description: Delta (max - min) of model PSF trace radius values evaluated on a grid of unmasked pixels.
-  - name: sky_bg
-    "@id": "#visit1_quicklook.sky_bg"
+    description: PSF sigma (minimum across all detectors).
+  - name: psf_sigma_max
+    "@id": "#visit1_quicklook.psf_sigma_max"
     datatype: float
-    description: Average sky background.
-  - name: sky_noise
-    "@id": "#visit1_quicklook.sky_noise"
+    description: PSF sigma (maximum across all detectors).
+  - name: psf_sigma_median
+    "@id": "#visit1_quicklook.psf_sigma_median"
     datatype: float
-    description: RMS noise of the sky background.
-  - name: seeing_zenith_500nm
-    "@id": "#visit1_quicklook.seeing_zenith_500nm"
+    description: PSF sigma (median across all detectors).
+  - name: psf_star_delta_e1_median_min
+    "@id": "#visit1_quicklook.psf_star_delta_e1_median_min"
+    datatype: float
+    description: Median E1 residual (starE1 - psfE1) for PSF stars (minimum across all detectors).
+  - name: psf_star_delta_e1_median_max
+    "@id": "#visit1_quicklook.psf_star_delta_e1_median_max"
+    datatype: float
+    description: Median E1 residual (starE1 - psfE1) for PSF stars (maximum across all detectors).
+  - name: psf_star_delta_e1_median_median
+    "@id": "#visit1_quicklook.psf_star_delta_e1_median_median"
+    datatype: float
+    description: Median E1 residual (starE1 - psfE1) for PSF stars (median across all detectors).
+  - name: psf_star_delta_e1_scatter_min
+    "@id": "#visit1_quicklook.psf_star_delta_e1_scatter_min"
+    datatype: float
+    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for PSF stars (minimum across all detectors).
+  - name: psf_star_delta_e1_scatter_max
+    "@id": "#visit1_quicklook.psf_star_delta_e1_scatter_max"
+    datatype: float
+    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for PSF stars (maximum across all detectors).
+  - name: psf_star_delta_e1_scatter_median
+    "@id": "#visit1_quicklook.psf_star_delta_e1_scatter_median"
+    datatype: float
+    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for PSF stars (median across all detectors).
+  - name: psf_star_delta_e2_median_min
+    "@id": "#visit1_quicklook.psf_star_delta_e2_median_min"
+    datatype: float
+    description: Median E2 residual (starE2 - psfE2) for PSF stars (minimum across all detectors).
+  - name: psf_star_delta_e2_median_max
+    "@id": "#visit1_quicklook.psf_star_delta_e2_median_max"
+    datatype: float
+    description: Median E2 residual (starE2 - psfE2) for PSF stars (maximum across all detectors).
+  - name: psf_star_delta_e2_median_median
+    "@id": "#visit1_quicklook.psf_star_delta_e2_median_median"
+    datatype: float
+    description: Median E2 residual (starE2 - psfE2) for PSF stars (median across all detectors).
+  - name: psf_star_delta_e2_scatter_min
+    "@id": "#visit1_quicklook.psf_star_delta_e2_scatter_min"
+    datatype: float
+    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for PSF stars (minimum across all detectors).
+  - name: psf_star_delta_e2_scatter_max
+    "@id": "#visit1_quicklook.psf_star_delta_e2_scatter_max"
+    datatype: float
+    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for PSF stars (maximum across all detectors).
+  - name: psf_star_delta_e2_scatter_median
+    "@id": "#visit1_quicklook.psf_star_delta_e2_scatter_median"
+    datatype: float
+    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for PSF stars (median across all detectors).
+  - name: psf_star_delta_size_median_min
+    "@id": "#visit1_quicklook.psf_star_delta_size_median_min"
+    datatype: float
+    description: Median size residual (starSize - psfSize) for PSF stars (minimum across all detectors).
+  - name: psf_star_delta_size_median_max
+    "@id": "#visit1_quicklook.psf_star_delta_size_median_max"
+    datatype: float
+    description: Median size residual (starSize - psfSize) for PSF stars (maximum across all detectors).
+  - name: psf_star_delta_size_median_median
+    "@id": "#visit1_quicklook.psf_star_delta_size_median_median"
+    datatype: float
+    description: Median size residual (starSize - psfSize) for PSF stars (median across all detectors).
+  - name: psf_star_delta_size_scatter_min
+    "@id": "#visit1_quicklook.psf_star_delta_size_scatter_min"
+    datatype: float
+    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars (minimum across all detectors).
+  - name: psf_star_delta_size_scatter_max
+    "@id": "#visit1_quicklook.psf_star_delta_size_scatter_max"
+    datatype: float
+    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars (maximum across all detectors).
+  - name: psf_star_delta_size_scatter_median
+    "@id": "#visit1_quicklook.psf_star_delta_size_scatter_median"
+    datatype: float
+    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars (median across all detectors).
+  - name: psf_star_scaled_delta_size_scatter_min
+    "@id": "#visit1_quicklook.psf_star_scaled_delta_size_scatter_min"
+    datatype: float
+    description: Scatter (via MAD) of size residual scaled by median size squared (minimum across all detectors).
+  - name: psf_star_scaled_delta_size_scatter_max
+    "@id": "#visit1_quicklook.psf_star_scaled_delta_size_scatter_max"
+    datatype: float
+    description: Scatter (via MAD) of size residual scaled by median size squared (maximum across all detectors).
+  - name: psf_star_scaled_delta_size_scatter_median
+    "@id": "#visit1_quicklook.psf_star_scaled_delta_size_scatter_median"
+    datatype: float
+    description: Scatter (via MAD) of size residual scaled by median size squared (median across all detectors).
+  - name: psf_trace_radius_delta_min
+    "@id": "#visit1_quicklook.psf_trace_radius_delta_min"
+    datatype: float
+    description: Delta (max - min) of model PSF trace radius values evaluated on a grid of unmasked pixels (minimum across all detectors).
+  - name: psf_trace_radius_delta_max
+    "@id": "#visit1_quicklook.psf_trace_radius_delta_max"
+    datatype: float
+    description: Delta (max - min) of model PSF trace radius values evaluated on a grid of unmasked pixels (maximum across all detectors).
+  - name: psf_trace_radius_delta_median
+    "@id": "#visit1_quicklook.psf_trace_radius_delta_median"
+    datatype: float
+    description: Delta (max - min) of model PSF trace radius values evaluated on a grid of unmasked pixels (median across all detectors).
+  - name: sky_bg_min
+    "@id": "#visit1_quicklook.sky_bg_min"
+    datatype: float
+    description: Average sky background (minimum across all detectors).
+  - name: sky_bg_max
+    "@id": "#visit1_quicklook.sky_bg_max"
+    datatype: float
+    description: Average sky background (maximum across all detectors).
+  - name: sky_bg_median
+    "@id": "#visit1_quicklook.sky_bg_median"
+    datatype: float
+    description: Average sky background (median across all detectors).
+  - name: sky_noise_min
+    "@id": "#visit1_quicklook.sky_noise_min"
+    datatype: float
+    description: RMS noise of the sky background (minimum across all detectors).
+  - name: sky_noise_max
+    "@id": "#visit1_quicklook.sky_noise_max"
+    datatype: float
+    description: RMS noise of the sky background (maximum across all detectors).
+  - name: sky_noise_median
+    "@id": "#visit1_quicklook.sky_noise_median"
+    datatype: float
+    description: RMS noise of the sky background (median across all detectors).
+  - name: seeing_zenith_500nm_min
+    "@id": "#visit1_quicklook.seeing_zenith_500nm_min"
     datatype: double
-    description: Measured PSF sigma, corrected to 500nm and an airmass of 1.
-  - name: zero_point
-    "@id": "#visit1_quicklook.zero_point"
+    description: Measured PSF sigma, corrected to 500nm and an airmass of 1 (minimum across all detectors).
+  - name: seeing_zenith_500nm_max
+    "@id": "#visit1_quicklook.seeing_zenith_500nm_max"
+    datatype: double
+    description: Measured PSF sigma, corrected to 500nm and an airmass of 1 (maximum across all detectors).
+  - name: seeing_zenith_500nm_median
+    "@id": "#visit1_quicklook.seeing_zenith_500nm_median"
+    datatype: double
+    description: Measured PSF sigma, corrected to 500nm and an airmass of 1 (median across all detectors).
+  - name: zero_point_min
+    "@id": "#visit1_quicklook.zero_point_min"
     datatype: float
-    description: Photometric zero point.
-  - name: low_snr_source_count
-    "@id": "#visit1_quicklook.low_snr_source_count"
+    description: Photometric zero point (minimum across all detectors).
+  - name: zero_point_max
+    "@id": "#visit1_quicklook.zero_point_max"
+    datatype: float
+    description: Photometric zero point (maximum across all detectors).
+  - name: zero_point_median
+    "@id": "#visit1_quicklook.zero_point_median"
+    datatype: float
+    description: Photometric zero point (median across all detectors).
+  - name: low_snr_source_count_min
+    "@id": "#visit1_quicklook.low_snr_source_count_min"
     datatype: int
-    description: Count of low signal-to-noise-ratio sources.
+    description: Count of low signal-to-noise-ratio sources (minimum across all detectors).
     ivoa:unit: count
-  - name: high_snr_source_count
-    "@id": "#visit1_quicklook.high_snr_source_count"
+  - name: low_snr_source_count_max
+    "@id": "#visit1_quicklook.low_snr_source_count_max"
     datatype: int
-    description: Count of high signal-to-noise-ratio sources.
+    description: Count of low signal-to-noise-ratio sources (maximum across all detectors).
+    ivoa:unit: count
+  - name: low_snr_source_count_median
+    "@id": "#visit1_quicklook.low_snr_source_count_median"
+    datatype: int
+    description: Count of low signal-to-noise-ratio sources (median across all detectors).
+    ivoa:unit: count
+  - name: low_snr_source_count_total
+    "@id": "#visit1_quicklook.low_snr_source_count_total"
+    datatype: int
+    description: Count of low signal-to-noise-ratio sources (total across all detectors).
+    ivoa:unit: count
+  - name: high_snr_source_count_min
+    "@id": "#visit1_quicklook.high_snr_source_count_min"
+    datatype: int
+    description: Count of high signal-to-noise-ratio sources (minimum across all detectors).
+    ivoa:unit: count
+  - name: high_snr_source_count_max
+    "@id": "#visit1_quicklook.high_snr_source_count_max"
+    datatype: int
+    description: Count of high signal-to-noise-ratio sources (maximum across all detectors).
+    ivoa:unit: count
+  - name: high_snr_source_count_median
+    "@id": "#visit1_quicklook.high_snr_source_count_median"
+    datatype: int
+    description: Count of high signal-to-noise-ratio sources (median across all detectors).
+    ivoa:unit: count
+  - name: high_snr_source_count_total
+    "@id": "#visit1_quicklook.high_snr_source_count_total"
+    datatype: int
+    description: Count of high signal-to-noise-ratio sources (total across all detectors).
     ivoa:unit: count
 - name: ccdvisit1
   "@id": "#ccdvisit1"
