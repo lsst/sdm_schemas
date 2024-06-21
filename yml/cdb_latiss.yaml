@@ -790,7 +790,7 @@ tables:
   - name: eff_time
     "@id": "#visit1_quicklook.eff_time"
     datatype: float
-    description: Effective exposure time.
+    description: Effective exposure time calculated from PSF sigma, sky background, and zero point.
     ivoa:unit: s
   - name: eff_time_psf_sigma_scale
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale"
