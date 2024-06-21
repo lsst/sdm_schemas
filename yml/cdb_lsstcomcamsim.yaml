@@ -1227,23 +1227,20 @@ tables:
   - name: eff_time
     "@id": "#ccdvisit1_quicklook.eff_time"
     datatype: float
-    description: Effective exposure time.
+    description: Effective exposure time calculated from PSF sigma, sky background, and zero point.
     ivoa:unit: s
   - name: eff_time_psf_sigma_scale
     "@id": "#ccdvisit1_quicklook.eff_time_psf_sigma_scale"
     datatype: float
     description: Effective exposure time, PSF sigma scale.
-    ivoa:unit: s
   - name: eff_time_psf_sky_bg_scale
     "@id": "#ccdvisit1_quicklook.eff_time_sky_bg_scale"
     datatype: float
-    description: Effective exposure time, sky backgroundscale.
-    ivoa:unit: s
+    description: Effective exposure time, sky background scale.
   - name: eff_time_psf_zero_point_scale
     "@id": "#ccdvisit1_quicklook.eff_time_zero_point_scale"
     datatype: float
     description: Effective exposure time, zero point scale.
-    ivoa:unit: s
   - name: mean_var
     "@id": "#ccdvisit1_quicklook.mean_var"
     datatype: float
