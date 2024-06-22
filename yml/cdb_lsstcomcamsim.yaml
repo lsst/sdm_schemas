@@ -806,39 +806,39 @@ tables:
   - name: eff_time_psf_sigma_scale_min
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_min"
     datatype: float
-    description: Effective exposure time, PSF sigma scale (minimum across all detectors).
+    description: Scale factor for effective exposure time based on PSF sigma (minimum across all detectors).
   - name: eff_time_psf_sigma_scale_max
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_max"
     datatype: float
-    description: Effective exposure time, PSF sigma scale (maximum across all detectors).
+    description: Scale factor for effective exposure time based on PSF sigma (maximum across all detectors).
   - name: eff_time_psf_sigma_scale_median
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale_median"
     datatype: float
-    description: Effective exposure time, PSF sigma scale (median across all detectors).
+    description: Scale factor for effective exposure time based on PSF sigma (median across all detectors).
   - name: eff_time_sky_bg_scale_min
     "@id": "#visit1_quicklook.eff_time_sky_bg_scale_min"
     datatype: float
-    description: Effective exposure time, sky background scale (minimum across all detectors).
+    description: Scale factor for effective exposure time based on sky background (minimum across all detectors).
   - name: eff_time_sky_bg_scale_max
     "@id": "#visit1_quicklook.eff_time_sky_bg_scale_max"
     datatype: float
-    description: Effective exposure time, sky background scale (maximum across all detectors).
+    description: Scale factor for effective exposure time based on sky background (maximum across all detectors).
   - name: eff_time_sky_bg_scale_median
     "@id": "#visit1_quicklook.eff_time_sky_bg_scale_median"
     datatype: float
-    description: Effective exposure time, sky background scale (median across all detectors).
+    description: Scale factor for effective exposure time based on sky background (median across all detectors).
   - name: eff_time_zero_point_scale_min
     "@id": "#visit1_quicklook.eff_time_zero_point_scale_min"
     datatype: float
-    description: Effective exposure time, zero point scale (minimum across all detectors).
+    description: Scale factor for effective exposure time based on zero point (minimum across all detectors).
   - name: eff_time_zero_point_scale_max
     "@id": "#visit1_quicklook.eff_time_zero_point_scale_max"
     datatype: float
-    description: Effective exposure time, zero point scale (maximum across all detectors).
+    description: Scale factor for effective exposure time based on zero point (maximum across all detectors).
   - name: eff_time_zero_point_scale_median
     "@id": "#visit1_quicklook.eff_time_zero_point_scale_median"
     datatype: float
-    description: Effective exposure time, zero point scale (median across all detectors).
+    description: Scale factor for effective exposure time based on zero point (median across all detectors).
   - name: max_dist_to_nearest_psf_min
     "@id": "#visit1_quicklook.max_dist_to_nearest_psf_min"
     datatype: float
@@ -1232,15 +1232,15 @@ tables:
   - name: eff_time_psf_sigma_scale
     "@id": "#ccdvisit1_quicklook.eff_time_psf_sigma_scale"
     datatype: float
-    description: Effective exposure time, PSF sigma scale.
-  - name: eff_time_psf_sky_bg_scale
+    description: Scale factor for effective exposure time based on PSF sigma.
+  - name: eff_time_sky_bg_scale
     "@id": "#ccdvisit1_quicklook.eff_time_sky_bg_scale"
     datatype: float
-    description: Effective exposure time, sky background scale.
-  - name: eff_time_psf_zero_point_scale
+    description: Scale factor for effective exposure time based on sky background.
+  - name: eff_time_zero_point_scale
     "@id": "#ccdvisit1_quicklook.eff_time_zero_point_scale"
     datatype: float
-    description: Effective exposure time, zero point scale.
+    description: Scale factor for effective exposure time based on zero point.
   - name: mean_var
     "@id": "#ccdvisit1_quicklook.mean_var"
     datatype: float
