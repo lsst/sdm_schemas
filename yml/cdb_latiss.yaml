@@ -795,15 +795,15 @@ tables:
   - name: eff_time_psf_sigma_scale
     "@id": "#visit1_quicklook.eff_time_psf_sigma_scale"
     datatype: float
-    description: Effective exposure time, PSF sigma scale.
+    description: Scale factor for effective exposure time based on PSF sigma.
   - name: eff_time_sky_bg_scale
     "@id": "#visit1_quicklook.eff_time_sky_bg_scale"
     datatype: float
-    description: Effective exposure time, sky background scale.
+    description: Scale factor for effective exposure time based on sky background.
   - name: eff_time_zero_point_scale
     "@id": "#visit1_quicklook.eff_time_zero_point_scale"
     datatype: float
-    description: Effective exposure time, zero point scale.
+    description: Scale factor for effective exposure time based on zero point.
   - name: max_dist_to_nearest_psf
     "@id": "#visit1_quicklook.max_dist_to_nearest_psf"
     datatype: float
@@ -1003,18 +1003,15 @@ tables:
   - name: eff_time_psf_sigma_scale
     "@id": "#ccdvisit1_quicklook.eff_time_psf_sigma_scale"
     datatype: float
-    description: Effective exposure time, PSF sigma scale.
-    ivoa:unit: s
-  - name: eff_time_psf_sky_bg_scale
+    description: Scale factor for effective exposure time based on PSF sigma.
+  - name: eff_time_sky_bg_scale
     "@id": "#ccdvisit1_quicklook.eff_time_sky_bg_scale"
     datatype: float
-    description: Effective exposure time, sky backgroundscale.
-    ivoa:unit: s
-  - name: eff_time_psf_zero_point_scale
+    description: Scale factor for effective exposure time based on sky background.
+  - name: eff_time_zero_point_scale
     "@id": "#ccdvisit1_quicklook.eff_time_zero_point_scale"
     datatype: float
-    description: Effective exposure time, zero point scale.
-    ivoa:unit: s
+    description: Scale factor for effective exposure time based on zero point.
   - name: mean_var
     "@id": "#ccdvisit1_quicklook.mean_var"
     datatype: float
