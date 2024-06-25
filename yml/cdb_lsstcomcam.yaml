@@ -3,8 +3,7 @@ name: cdb_lsstcomcam
 "@id": "#cdb_lsstcomcam"
 description: Consolidated Database for LSSTComCam
 version:
-  current: "2.1.0"
-  read_compatible: ["2.0.0"]
+  current: "3.0.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -269,6 +268,14 @@ tables:
     "@id": "#exposure.simulated"
     datatype: boolean
     description: Were any control system components simulated?
+  - name: vignette
+    "@id": "#exposure.vignette"
+    datatype: int
+    description: "Instrument blocked from the sky: Unknown = 0, No = 1, Partially = 2, Fully = 3."
+  - name: vignette_min
+    "@id": "#exposure.vignette_min"
+    datatype: int
+    description: Minimum value of vignette during the exposure.
   - name: s_region
     "@id": "#exposure.s_region"
     datatype: string
@@ -731,6 +738,14 @@ tables:
     "@id": "#visit1.simulated"
     datatype: boolean
     description: Were any control system components simulated?
+  - name: vignette
+    "@id": "#visit1.vignette"
+    datatype: int
+    description: "Instrument blocked from the sky: Unknown = 0, No = 1, Partially = 2, Fully = 3."
+  - name: vignette_min
+    "@id": "#visit1.vignette_min"
+    datatype: int
+    description: Minimum value of vignette during the exposure.
   - name: s_region
     "@id": "#visit1.s_region"
     datatype: string
