@@ -270,12 +270,14 @@ tables:
     description: Were any control system components simulated?
   - name: vignette
     "@id": "#exposure.vignette"
-    datatype: int
-    description: "Instrument blocked from the sky: Unknown = 0, No = 1, Partially = 2, Fully = 3."
+    datatype: string
+    length: 10
+    description: "Instrument blocked from the sky: UNKNOWN, NO, PARTIALLY, FULLY."
   - name: vignette_min
     "@id": "#exposure.vignette_min"
-    datatype: int
-    description: Minimum value of vignette during the exposure.
+    datatype: string
+    length: 10
+    description: "Lowest amount of instrument vignetting detected during the exposure: UNKNOWN, NO, PARTIALLY, FULLY."
   - name: s_region
     "@id": "#exposure.s_region"
     datatype: string
@@ -740,12 +742,14 @@ tables:
     description: Were any control system components simulated?
   - name: vignette
     "@id": "#visit1.vignette"
-    datatype: int
-    description: "Instrument blocked from the sky: Unknown = 0, No = 1, Partially = 2, Fully = 3."
+    datatype: string
+    length: 10
+    description: "Instrument blocked from the sky: UNKNOWN, NO, PARTIALLY, FULLY."
   - name: vignette_min
     "@id": "#visit1.vignette_min"
-    datatype: int
-    description: Minimum value of vignette during the visit.
+    datatype: string
+    length: 10
+    description: "Lowest amount of instrument vignetting detected during the visit: UNKNOWN, NO, PARTIALLY, FULLY."
   - name: s_region
     "@id": "#visit1.s_region"
     datatype: string
