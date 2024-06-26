@@ -139,7 +139,7 @@ tables:
   - name: exp_midpt
     "@id": "#exposure.exp_midpt"
     datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
+    precision: 6
     description: Midpoint time for exposure at the fiducial center of the focal plane.
       array. TAI, accurate to 10ms.
     ivoa:ucd: time.epoch
@@ -153,7 +153,7 @@ tables:
   - name: obs_start
     "@id": "#exposure.obs_start"
     datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
+    precision: 6
     description: Start time of the exposure at the fiducial center of the focal plane.
       array, TAI, accurate to 10ms.
     ivoa:ucd: time.start
@@ -166,7 +166,7 @@ tables:
   - name: obs_end
     "@id": "#exposure.obs_end"
     datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
+    precision: 6
     description: End time of the exposure at the fiducial center of the focal plane.
       array, TAI, accurate to 10ms.
     ivoa:ucd: time.end
@@ -611,7 +611,7 @@ tables:
   - name: exp_midpt
     "@id": "#visit1.exp_midpt"
     datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
+    precision: 6
     description: Midpoint time for visit at the fiducial center of the focal plane.
       array. TAI, accurate to 10ms.
     ivoa:ucd: time.epoch
@@ -625,7 +625,7 @@ tables:
   - name: obs_start
     "@id": "#visit1.obs_start"
     datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
+    precision: 6
     description: Start time of the visit at the fiducial center of the focal plane.
       array, TAI, accurate to 10ms.
     ivoa:ucd: time.start
@@ -638,7 +638,7 @@ tables:
   - name: obs_end
     "@id": "#visit1.obs_end"
     datatype: timestamp
-    postgresql:datatype: TIMESTAMP(6)
+    precision: 6
     description: End time of the visit at the fiducial center of the focal plane.
       array, TAI, accurate to 10ms.
     ivoa:ucd: time.end
