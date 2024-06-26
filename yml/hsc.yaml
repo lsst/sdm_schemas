@@ -5946,7 +5946,7 @@ tables:
   - name: midpoint
     '@id': '#Visit.midpoint'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Midpoint time of the visit at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
     fits:tunit:
@@ -5959,7 +5959,7 @@ tables:
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Start time of the visit at the fiducial center of the focal plane array,
       TAI, accurate to 10ms.
   - name: obsStartMjdTai
@@ -6056,7 +6056,7 @@ tables:
   - name: midpoint
     '@id': '#CcdVisit.midpoint'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Midpoint of this visit. TAI, accurate to 10ms.
   - name: midpointMjdTai
     '@id': '#CcdVisit.midpointMjdTai'
@@ -6072,7 +6072,7 @@ tables:
   - name: obsStart
     '@id': '#CcdVisit.obsStart'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Start of the visit, TAI, accurate to 10ms.
   - name: obsStartMjdTai
     '@id': '#CcdVisit.obsStartMjdTai'

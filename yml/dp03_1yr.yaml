@@ -343,7 +343,6 @@ tables:
     datatype: timestamp
     description: Time when this diaSource was reassociated from diaObject to ssObject
       (if such reassociation happens, otherwise NULL).
-    mysql:datatype: DATETIME
   - name: midPointMjdTai
     "@id": "#DiaSource.midPointMjdTai"
     datatype: double
@@ -680,12 +679,10 @@ tables:
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
     description: 'MPCORB: Year of first observation (for multi-opposition objects)'
-    mysql:datatype: DATETIME
   - name: arcEnd
     "@id": "#MPCORB.arcEnd"
     datatype: timestamp
     description: 'MPCORB: Year of last observation (for multi-opposition objects)'
-    mysql:datatype: DATETIME
   - name: rms
     "@id": "#MPCORB.rms"
     datatype: float
