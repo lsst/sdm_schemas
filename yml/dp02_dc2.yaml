@@ -7408,7 +7408,7 @@ tables:
   - name: expMidpt
     '@id': '#Visit.expMidpt'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Midpoint time for exposure at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
     fits:tunit:
@@ -7426,7 +7426,7 @@ tables:
   - name: obsStart
     '@id': '#Visit.obsStart'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Start time of the exposure at the fiducial center of the focal plane array,
       TAI, accurate to 10ms.
     ivoa:ucd: time.start;obs.exposure
@@ -7563,7 +7563,7 @@ tables:
   - name: expMidpt
     '@id': '#CcdVisit.expMidpt'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Midpoint for exposure. TAI, accurate to 10ms.
     tap:principal: 0
     tap:column_index: 8
@@ -7586,7 +7586,7 @@ tables:
   - name: obsStart
     '@id': '#CcdVisit.obsStart'
     datatype: timestamp
-    mysql:datatype: DATETIME(6)
+    precision: 6
     description: Start of the exposure, TAI, accurate to 10ms.
     ivoa:ucd: time.start;obs.exposure
     tap:principal: 0
