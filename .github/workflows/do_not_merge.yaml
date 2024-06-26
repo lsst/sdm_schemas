@@ -31,7 +31,7 @@ jobs:
       - name: Check requirements.txt for branches
         shell: bash
         run: |
-          FILE="requirements.txt tap-schema/requirements.txt"
+          FILE="requirements.txt"
           MATCH=tickets/DM-
           if grep -q $MATCH $FILE
           then
