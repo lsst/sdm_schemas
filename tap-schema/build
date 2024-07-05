@@ -9,7 +9,7 @@ shift
 schema_index=0
 for file in $@
 do
-    felis load-tap --tap-schema-index $schema_index --dry-run --engine-url=postgresql+psycopg2:// --tap-schema-name=tap_schema --tap-tables-postfix=11 $file > sql/`basename $file`.sql
+    felis load-tap --tap-schema-index $schema_index --dry-run --engine-url=mysql+mysqlconnector:// --tap-schema-name=tap_schema --tap-tables-postfix=11 $file > sql/`basename $file`.sql
     schema_index=$((schema_index+1))
 done
 
