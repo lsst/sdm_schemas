@@ -341,6 +341,7 @@ tables:
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
     datatype: timestamp
+    precision: 6
     description: Time when this diaSource was reassociated from diaObject to ssObject
       (if such reassociation happens, otherwise NULL).
   - name: midPointMjdTai
@@ -678,10 +679,12 @@ tables:
   - name: arcStart
     "@id": "#MPCORB.arcStart"
     datatype: timestamp
+    precision: 6
     description: 'MPCORB: Year of first observation (for multi-opposition objects)'
   - name: arcEnd
     "@id": "#MPCORB.arcEnd"
     datatype: timestamp
+    precision: 6
     description: 'MPCORB: Year of last observation (for multi-opposition objects)'
   - name: rms
     "@id": "#MPCORB.rms"
