@@ -7803,7 +7803,7 @@ tables:
     ivoa:ucd: meta.id.assoc
   - name: truth_type
     '@id': '#MatchesTruth.truth_type'
-    datatype: short
+    datatype: int
     tap:column_index: 999
     tap:principal: 0
     description: Type of TruthSummary source; 1 for galaxies, 2 for stars, and 3 for SNe
