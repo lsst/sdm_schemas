@@ -9,11 +9,4 @@ github repository.
 
 Schemas available here for browsing include:
 
-<ul>
-    {%- assign schemas = site.pages | where: 'dir','/browser/' | sort: 'sort-index' %}
-    {%- for schema in schemas %}
-    {%- if schema.name != 'index.md' %}
-    <li><a href="{{ schema.url | relative_url }}">{{ schema.title }}</a> {{ schema.content }}</li>
-    {%- endif %}
-    {%- endfor %}
-</ul>
+{% include _schema_list.html include_description=true %}
