@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <meta charset="UTF-8">
-
-{% seo %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <link rel="stylesheet" href="{{ '/assets/css/style2.css?v=' | append: site.time | relative_url }}">
+    {% include _site_header.html %}
   </head>
   <body>
     <div id="container">
@@ -53,7 +48,7 @@
             </table>
           </section>
           {%- endfor %}
-          {% include _site_footer.html %}
+          {% include _footer.html %}
         </main>
       </div>
     </div>
