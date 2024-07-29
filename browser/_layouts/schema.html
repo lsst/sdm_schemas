@@ -36,7 +36,9 @@
               </tr>
               {%- for col in table.columns %}
               <tr id="{{ col['@id'] | remove:'#' }}">
-                <td class="column-name">{{ col.name }}</td>
+                <td class="column-name">
+                    <a href="#{{ col['@id'] | remove:'#' }}">{{ col.name }}</a>
+                </td>
                 <td>{{ col.datatype }}</td>
                 <td>{{ col['ivoa:unit'] | default: col['fits:tunit'] }}</td>
                 <td>
