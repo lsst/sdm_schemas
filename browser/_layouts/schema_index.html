@@ -8,6 +8,9 @@
       <nav id="sidebar">
         {% include _logo.html %}
         <ul>
+            <li><b>Updated:</b> {% last_modified_at %}</li>
+        </ul>
+        <ul>
           <li><a href=".">Schema Browser</a></li>
           {% include _schema_list.html include_description=false %}
         </ul>
