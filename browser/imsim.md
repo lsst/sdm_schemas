@@ -1,6 +1,6 @@
 ---
 layout: schema
-title: LSSTCam-imSim Schema
+title: LSSTCam ImSim
 schema: imsim
 sort-index: 30
 ---

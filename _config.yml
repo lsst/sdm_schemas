@@ -1,11 +1,35 @@
 theme: jekyll-theme-cayman
+plugins:
+  - jekyll-last-modified-at
+last-modified-at:
+  date-format: '%B %d, %Y'
+
 data_dir: ./yml
-layouts_dir: ./browser/_layouts
+layouts_dir: _layouts
+source: ./browser
+baseurl: ""
+
+repository_url: "https://github.com/lsst/sdm_schemas"
+repository_name: "SDM Schemas"
+owner_url: "https://rubinobservatory.org/"
+owner_name: "Rubin Observatory"
+
 exclude:
   - Gemfile
   - /datalink
   - /tap-schema
   - /ups
   - /yml
+  - Makefile
+  - README.md
+  - requirements.txt
+  - yml/archive
+
 readme_index:
   remove_originals: true
+
+safe: false
+
+sass:
+  sass_dir: _sass
+  #  style: compressed
