@@ -5,16 +5,6 @@
 # build_datalink_metadata.py, run during the build.
 
 tables:
-  dp01_dc2_catalogs.forced_photometry:
-    lsst:minimal: []
-  dp01_dc2_catalogs.object:
-    lsst:minimal: []
-  dp01_dc2_catalogs.position:
-    lsst:minimal: []
-  dp01_dc2_catalogs.reference:
-    lsst:minimal: []
-  dp01_dc2_catalogs.truth_match:
-    lsst:minimal: []
   dp02_dc2_catalogs.CcdVisit:
     lsst:minimal: []
   dp02_dc2_catalogs.CoaddPatches:
