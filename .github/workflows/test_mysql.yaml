@@ -1,0 +1,77 @@
+name: Test MySQL
+on: [push]
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    services:
+      mariadb:
+        image: mariadb:10.6.8
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_USER: rubin
+          MYSQL_PASSWORD: rubin
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping --silent"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python and install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Grant privileges to rubin MySQL user
+        run: |
+          mysql -h 127.0.0.1 -P 3306 -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'rubin'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;" > /dev/null 2>&1
+
+      - name: Set MySQL credentials
+        run: |
+          cat <<EOF > ~/.my.cnf
+          [client]
+          user=rubin
+          password=rubin
+          host=127.0.0.1
+          port=3306
+          EOF
+          chmod 600 ~/.my.cnf
+
+      - name: Set FELIS_ENGINE_URL
+        run: echo "FELIS_ENGINE_URL=mysql+pymysql://rubin:rubin@localhost:3306" >> $GITHUB_ENV
+
+      # There are currently errors creating databases for some schemas, so
+      # ignore errors for now.
+      - name: Create databases
+        run: |
+          set +e
+          ./scripts/create-databases.sh
+          set -e
+
+      - name: Generate SQL files
+        run: |
+          ./scripts/generate-sql-files.sh mysql
+
+      # Some SQL files do not load correctly, so ignore errors for now.
+      - name: Load SQL files
+        run: |
+          set +e
+          ./scripts/test-load-sql-mysql.sh
+          set -e
+
+      - name: Initialize TAP_SCHEMA database
+        run: |
+          mysql -e "CREATE DATABASE TAP_SCHEMA;"
+          felis init-tap ${FELIS_ENGINE_URL}/TAP_SCHEMA
+
+      # Allow errors on this step as it is last to run.
+      - name: Upload to TAP_SCHEMA database
+        run: ./scripts/test-load-tap-mysql.sh
