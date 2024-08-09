@@ -48,7 +48,7 @@ jobs:
         run: ./scripts/generate-sql-files.sh postgresql
 
       - name: Load SQL files
-        run: ./scripts/test-load-sql-postgres.sh
+        run: ./scripts/test-load-sql.sh postgresql
 
       - name: Initialize TAP_SCHEMA database
         run: |
