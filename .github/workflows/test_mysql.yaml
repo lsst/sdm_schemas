@@ -64,7 +64,7 @@ jobs:
       - name: Load SQL files
         run: |
           set +e
-          ./scripts/test-load-sql-mysql.sh
+          ./scripts/test-load-sql.sh mysql
           set -e
 
       - name: Initialize TAP_SCHEMA database
