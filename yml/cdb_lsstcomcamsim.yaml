@@ -290,13 +290,13 @@ tables:
   - "#exposure_flexdata.obs_id"
   - "#exposure_flexdata.key"
   constraints:
-  - name: fk_obs_id
+  - name: fk_exposure_flexdata_obs_id
     "@id": "#exposure_flexdata.fk_obs_id"
     "@type": ForeignKey
     description: Flex data obs_id must be an Exposure exposure_id.
     columns: ["#exposure_flexdata.obs_id"]
     referencedColumns: ["#exposure.exposure_id"]
-  - name: fk_key
+  - name: fk_exposure_flexdata_key
     "@id": "#exposure_flexdata.fk_key"
     "@type": ForeignKey
     description: Flex data key must be listed in the schema.
@@ -398,7 +398,7 @@ tables:
   primaryKey:
   - "#ccdexposure_camera.ccdexposure_id"
   constraints:
-  - name: fk_ccdexposure_id
+  - name: fk_ccdexposure_camera_ccdexposure_id
     "@id": "#ccdexposure_camera.fk_ccdexposure_id"
     "@type": ForeignKey
     description: exposure_id must be in the Exposure table.
@@ -425,7 +425,7 @@ tables:
   - "#ccdexposure_flexdata.obs_id"
   - "#ccdexposure_flexdata.key"
   constraints:
-  - name: fk_obs_id
+  - name: fk_ccdexposure_flexdata_obs_id
     "@id": "#ccdexposure_flexdata.fk_obs_id"
     "@type": ForeignKey
     description: Flex data obs_id must be a CcdExposure ccdexposure_id.
@@ -761,7 +761,7 @@ tables:
   primaryKey:
   - "#visit1_quicklook.visit_id"
   constraints:
-  - name: fk_obs_id
+  - name: fk_visit1_quicklook_obs_id
     "@id": "#visit1_quicklook.fk_obs_id"
     "@type": ForeignKey
     description: Quicklook visit_id must be an Exposure exposure_id.
@@ -1176,7 +1176,7 @@ tables:
   primaryKey:
   - "#ccdvisit1_quicklook.ccdvisit_id"
   constraints:
-  - name: fk_obs_id
+  - name: fk_ccdvisit1_quicklook_obs_id
     "@id": "#ccdvisit1_quicklook.fk_obs_id"
     "@type": ForeignKey
     description: Quicklook ccdvisit_id must be a CcdExposure ccdexposure_id.
