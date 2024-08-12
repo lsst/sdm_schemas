@@ -15,6 +15,7 @@ tables:
     datatype: text
     nullable: false
     description: Name or key for a metadata item.
+    mysql:datatype: VARCHAR(64)  # DO NOT REMOVE: This is needed to make MySQL happy in CI.
   - name: value
     "@id": "#metadata.value"
     datatype: text
