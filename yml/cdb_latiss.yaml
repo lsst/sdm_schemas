@@ -914,6 +914,11 @@ tables:
     datatype: int
     description: Count of high signal-to-noise-ratio sources.
     ivoa:unit: count
+  - name: postisr_pixel_median
+    "@id": "#visit1_quicklook.postisr_pixel_median"
+    datatype: float
+    description: Median postISR pixel value.
+    ivoa:unit: electron
 - name: ccdvisit1
   "@id": "#ccdvisit1"
   primaryKey:
