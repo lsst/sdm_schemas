@@ -1142,6 +1142,21 @@ tables:
     datatype: int
     description: Count of high signal-to-noise-ratio sources (total across all detectors).
     ivoa:unit: count
+  - name: postisr_pixel_median_median
+    "@id": "#visit1_quicklook.postisr_pixel_median_median"
+    datatype: float
+    description: Median postISR pixel value (median across all detectors).
+    ivoa:unit: electron
+  - name: postisr_pixel_median_mean
+    "@id": "#visit1_quicklook.postisr_pixel_median_mean"
+    datatype: float
+    description: Median postISR pixel value (mean across all detectors).
+    ivoa:unit: electron
+  - name: postisr_pixel_median_max
+    "@id": "#visit1_quicklook.postisr_pixel_median_max"
+    datatype: float
+    description: Median postISR pixel value (max across all detectors).
+    ivoa:unit: electron
 - name: ccdvisit1
   "@id": "#ccdvisit1"
   primaryKey:
@@ -1325,3 +1340,8 @@ tables:
     datatype: float
     description: Maximum distance of an unmasked pixel to its nearest model PSF star.
     ivoa:unit: pixel
+  - name: postisr_pixel_median
+    "@id": "#visit1_quicklook.postisr_pixel_median"
+    datatype: float
+    description: Median postISR pixel value.
+    ivoa:unit: electron
