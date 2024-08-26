@@ -17,6 +17,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: calib_level
     "@id": "ObsCore.calib_level"
     description: "Calibration level of the observation: in {0, 1, 2, 3, 4}"
@@ -26,6 +29,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: int
   - name: obs_collection
     "@id": "ObsCore.obs_collection"
     description: Name of the data collection
@@ -35,6 +39,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: obs_id
     "@id": "ObsCore.obs_id"
     description: Internal ID given by the ObsTAP service
@@ -44,6 +51,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: obs_publisher_did
     "@id": "ObsCore.obs_publisher_did"
     description: ID for the Dataset given by the publisher
@@ -53,6 +63,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: access_url
     "@id": "ObsCore.access_url"
     description: URL used to access dataset
@@ -62,6 +75,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: access_format
     "@id": "ObsCore.access_format"
     description: Content format of the dataset
@@ -71,6 +87,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: access_estsize
     "@id": "ObsCore.access_estsize"
     description: "Estimated size of dataset: in kilobytes"
@@ -80,6 +99,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: kbyte
+    datatype: int
   - name: target_name
     "@id": "ObsCore.target_name"
     description: Object of interest
@@ -89,6 +109,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: s_ra
     "@id": "ObsCore.s_ra"
     description: Central Spatial Position in ICRS; Right ascension
@@ -98,6 +121,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: deg
+    datatype: double
   - name: s_dec
     "@id": "ObsCore.s_dec"
     description: Central Spatial Position in ICRS; Declination
@@ -107,6 +131,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: deg
+    datatype: double
   - name: s_fov
     "@id": "ObsCore.s_fov"
     description: Estimated size of the covered region as the diameter of a containing circle
@@ -116,6 +141,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: deg
+    datatype: double
   - name: s_region
     "@id": "ObsCore.s_region"
     description: Sky region covered by the data product (expressed in ICRS frame)
@@ -125,6 +151,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: s_resolution
     "@id": "ObsCore.s_resolution"
     description: Spatial resolution of data as FWHM of PSF
@@ -134,6 +163,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: arcsec
+    datatype: double
   - name: s_xel1
     "@id": "ObsCore.s_xel1"
     description: Number of elements along the first coordinate of the spatial axis
@@ -143,6 +173,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: int
   - name: s_xel2
     "@id": "ObsCore.s_xel2"
     description: Number of elements along the second coordinate of the spatial axis
@@ -152,6 +183,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: int
   - name: t_min
     "@id": "ObsCore.t_min"
     description: Start time in MJD
@@ -161,6 +193,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: d
+    datatype: double
   - name: t_max
     "@id": "ObsCore.t_max"
     description: Stop time in MJD
@@ -170,6 +203,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: d
+    datatype: double
   - name: t_exptime
     "@id": "ObsCore.t_exptime"
     description: Total exposure time
@@ -179,6 +213,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: s
+    datatype: double
   - name: t_resolution
     "@id": "ObsCore.t_resolution"
     description: Temporal resolution FWHM
@@ -188,6 +223,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: s
+    datatype: double
   - name: t_xel
     "@id": "ObsCore.t_xel"
     description: Number of elements along the time axis
@@ -197,6 +233,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: int
   - name: em_min
     "@id": "ObsCore.em_min"
     description: start in spectral coordinates
@@ -206,6 +243,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: m
+    datatype: double
   - name: em_max
     "@id": "ObsCore.em_max"
     description: stop in spectral coordinates
@@ -215,6 +253,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: m
+    datatype: double
   - name: em_res_power
     "@id": "ObsCore.em_res_power"
     description: Value of the resolving power along the spectral axis (R)
@@ -224,6 +263,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: double
   - name: em_xel
     "@id": "ObsCore.em_xel"
     description: Number of elements along the spectral axis
@@ -233,6 +273,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: int
   - name: o_ucd
     "@id": "ObsCore.o_ucd"
     description: Nature of the observable axis
@@ -242,6 +283,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: pol_states
     "@id": "ObsCore.pol_states"
     description: List of polarization states present in the data file
@@ -251,6 +295,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: pol_xel
     "@id": "ObsCore.pol_xel"
     description: Number of elements along the polarization axis
@@ -260,6 +307,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: int
   - name: facility_name
     "@id": "ObsCore.facility_name"
     description: The name of the facility, telescope, or space craft used for the observation
@@ -269,6 +317,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: instrument_name
     "@id": "ObsCore.instrument_name"
     description: The name of the instrument used for the observation
@@ -278,6 +329,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: dataproduct_subtype  # (optional)
     "@id": "ObsCore.dataproduct_subtype"
     description: Data product specific type
@@ -287,6 +341,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: target_class  # (optional)
     "@id": "ObsCore.target_class"
     description: Class of the Target object as in SSA
@@ -296,6 +353,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: obs_creation_date  # (optional)
     "@id": "ObsCore.obs_creation_date"
     description: Date when the dataset was created
@@ -305,6 +365,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: double
   - name: obs_creator_name  # (optional)
     "@id": "ObsCore.obs_creator_name"
     description: Name of the creator of the data
@@ -314,6 +375,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: obs_creator_did  # (optional)
     "@id": "ObsCore.obs_creator_did"
     description: IVOA dataset identifier given by the creator
@@ -323,6 +387,9 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: obs_title  # (optional)
     "@id": "ObsCore.obs_title"
     description: Brief description of dataset in free format
@@ -332,6 +399,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: publisher_id  # (optional)
     "@id": "ObsCore.publisher_id"
     description: IVOA-ID for the Publisher
@@ -341,6 +411,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: bib_reference  # (optional)
     "@id": "ObsCore.bib_reference"
     description: Service bibliographic reference
@@ -350,6 +423,9 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: data_rights  # (optional)
     "@id": "ObsCore.data_rights"
     description: Public/Secure/Proprietary/
@@ -359,6 +435,9 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: obs_release_date  # (optional)
     "@id": "ObsCore.obs_release_date"
     description: Observation release date (ISO 8601)
@@ -368,6 +447,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 32
   - name: s_ucd  # (optional)
     "@id": "ObsCore.s_ucd"
     description: UCD for the nature of the spatial axis (pos or u,v data)
@@ -377,6 +459,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: s_unit  # (optional)
     "@id": "ObsCore.s_unit"
     description: Unit used for spatial axis
@@ -386,6 +471,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: s_resolution_min  # (optional)
     "@id": "ObsCore.s_resolution_min"
     description: Resolution min value on spatial axis (FHWM of PSF)
@@ -395,6 +483,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: arcsec
+    datatype: double
   - name: s_resolution_max  # (optional)
     "@id": "ObsCore.s_resolution_max"
     description: Resolution max value on spatial axis
@@ -404,6 +493,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: arcsec
+    datatype: double
   - name: s_pixel_scale  # (optional)
     "@id": "ObsCore.s_pixel_scale"
     description: Sampling period in world coordinate units along the spatial axis
@@ -413,6 +503,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: arcsec
+    datatype: double
   - name: s_calib_status  # (optional)
     "@id": "ObsCore.s_calib_status"
     description: Type of calibration along the spatial axis
@@ -422,6 +513,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: s_stat_error  # (optional)
     "@id": "ObsCore.s_stat_error"
     description: Astrometric precision along the spatial axis
@@ -431,6 +525,7 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit: arcsec
+    datatype: double
   - name: t_calib_status  # (optional)
     "@id": "ObsCore.t_calib_status"
     description: Type of time coordinate calibration
@@ -440,6 +535,9 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: t_stat_error  # (optional)
     "@id": "ObsCore.t_stat_error"
     description: Time coord statistical error
@@ -449,6 +547,7 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit: s
+    datatype: double
   - name: em_ucd  # (optional)
     "@id": "ObsCore.em_ucd"
     description: Nature of the spectral axis
@@ -458,6 +557,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: em_unit  # (optional)
     "@id": "ObsCore.em_unit"
     description: Units along the spectral axis
@@ -467,6 +569,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: em_calib_status  # (optional)
     "@id": "ObsCore.em_calib_status"
     description: Type of spectral coord calibration
@@ -476,6 +581,9 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: em_res_power_min  # (optional)
     "@id": "ObsCore.em_res_power_min"
     description: Resolving power min value on spectral axis
@@ -485,6 +593,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: double
   - name: em_res_power_max  # (optional)
     "@id": "ObsCore.em_res_power_max"
     description: Resolving power max value on spectral axis
@@ -494,6 +603,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: double
   - name: em_resolution  # (optional)
     "@id": "ObsCore.em_resolution"
     description: Value of Resolution along the spectral axis
@@ -503,6 +613,7 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit: m
+    datatype: double
   - name: em_stat_error  # (optional)
     "@id": "ObsCore.em_stat_error"
     description: Spectral coord statistical error
@@ -512,6 +623,7 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit: m
+    datatype: double
   - name: o_unit  # (optional)
     "@id": "ObsCore.o_unit"
     description: Units used for the observable values
@@ -521,6 +633,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: o_calib_status  # (optional)
     "@id": "ObsCore.o_calib_status"
     description: Type of calibration for the observable coordinate
@@ -530,6 +645,9 @@ tables:
     tap:std: 1
     tap:principal: 1
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
   - name: o_stat_error  # (optional)
     "@id": "ObsCore.o_stat_error"
     description: Statistical error on the Observable axis
@@ -538,7 +656,8 @@ tables:
     votable:utype: Char.ObservableAxis.Accuracy.StatError.Refval.value
     tap:std: 1
     tap:principal: 0
-    ivoa:unit: same units as the value of the o_unit attribute
+    ivoa:unit:
+    datatype: double
   - name: proposal_id  # (optional)
     "@id": "ObsCore.proposal_id"
     description: Identifier of proposal to which observation belongs
@@ -548,3 +667,6 @@ tables:
     tap:std: 1
     tap:principal: 0
     ivoa:unit:
+    datatype: string
+    votable:arraysize: "*"
+    length: 255
