@@ -1,0 +1,397 @@
+---
+name: cdb_startrackernarrow
+"@id": "#cdb_startrackernarrow"
+description: Consolidated Database for StarTrackerNarrow
+version:
+  current: "1.0.0"
+tables:
+- name: exposure
+  "@id": "#exposure"
+  primaryKey:
+  - "#exposure.exposure_id"
+  constraints:
+  - name: un_day_obs_seq_num
+    "@id": "#exposure.un_day_obs_seq_num"
+    "@type": Unique
+    description: Ensure day_obs plus seq_num is unique.
+    columns:
+    - "#exposure.day_obs"
+    - "#exposure.seq_num"
+  columns:
+  - name: exposure_id
+    "@id": "#exposure.exposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: day_obs
+    "@id": "#exposure.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+  - name: seq_num
+    "@id": "#exposure.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+  - name: s_ra
+    "@id": "#exposure.s_ra"
+    datatype: double
+    description: Central Spatial Position in ICRS; Right ascension of targeted focal plane center.
+    tap:std: 1
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    ivoa:unit: deg
+  - name: s_dec
+    "@id": "#exposure.s_dec"
+    datatype: double
+    description: Central Spatial Position in ICRS; Declination of targeted focal plane center.
+    tap:std: 1
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    ivoa:unit: deg
+  - name: sky_rotation
+    "@id": "#exposure.sky_rotation"
+    datatype: double
+    description: Targeted sky rotation angle.
+    ivoa:ucd: pos.posAng
+    ivoa:unit: deg
+  - name: azimuth_start
+    "@id": "#exposure.azimuth_start"
+    datatype: float
+    description: Azimuth of focal plane center at the start of the exposure.
+    ivoa:ucd: pos.az.azi
+    ivoa:unit: deg
+  - name: azimuth_end
+    "@id": "#exposure.azimuth_end"
+    datatype: float
+    description: Azimuth of focal plane center at the end of the exposure.
+    ivoa:ucd: pos.az.azi
+    ivoa:unit: deg
+  - name: azimuth
+    "@id": "#exposure.azimuth"
+    datatype: float
+    description: Azimuth of focal plane center at the middle of the exposure.
+    ivoa:ucd: pos.az.azi
+    ivoa:unit: deg
+  - name: altitude_start
+    "@id": "#exposure.altitude_start"
+    datatype: float
+    description: Altitude of focal plane center at the start of the exposure.
+    ivoa:ucd: pos.az.alt
+    ivoa:unit: deg
+  - name: altitude_end
+    "@id": "#exposure.altitude_end"
+    datatype: float
+    description: Altitude of focal plane center at the end of the exposure.
+    ivoa:ucd: pos.az.alt
+    ivoa:unit: deg
+  - name: altitude
+    "@id": "#exposure.altitude"
+    datatype: float
+    description: Altitude of focal plane center at the middle of the exposure.
+    ivoa:ucd: pos.az.alt
+    ivoa:unit: deg
+  - name: zenith_distance_start
+    "@id": "#exposure.zenith_distance_start"
+    datatype: float
+    description: Zenith distance at the start of the exposure.
+    ivoa:ucd: pos.az.zd
+    ivoa:unit: deg
+  - name: zenith_distance_end
+    "@id": "#exposure.zenith_distance_end"
+    datatype: float
+    description: Zenith distance at the end of the exposure.
+    ivoa:ucd: pos.az.zd
+    ivoa:unit: deg
+  - name: zenith_distance
+    "@id": "#exposure.zenith_distance"
+    datatype: float
+    description: Zenith distance at the middle of the exposure.
+    ivoa:ucd: pos.az.zd
+    ivoa:unit: deg
+  - name: airmass
+    "@id": "#exposure.airmass"
+    datatype: float
+    description: Airmass of the observed line of sight at the middle of the exposure.
+    ivoa:ucd: obs.airMass
+  - name: exp_midpt
+    "@id": "#exposure.exp_midpt"
+    datatype: timestamp
+    precision: 6
+    description: Midpoint time for exposure at the fiducial center of the focal plane.
+      array. TAI, accurate to 10ms.
+    ivoa:ucd: time.epoch
+  - name: exp_midpt_mjd
+    "@id": "#exposure.exp_midpt_mjd"
+    datatype: double
+    description: Midpoint time for exposure at the fiducial center of the focal plane.
+      array in MJD. TAI, accurate to 10ms.
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+  - name: obs_start
+    "@id": "#exposure.obs_start"
+    datatype: timestamp
+    precision: 6
+    description: Start time of the exposure at the fiducial center of the focal plane.
+      array, TAI, accurate to 10ms.
+    ivoa:ucd: time.start
+  - name: obs_start_mjd
+    "@id": "#exposure.obs_start_mjd"
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    ivoa:ucd: time.start
+    ivoa:unit: d
+  - name: obs_end
+    "@id": "#exposure.obs_end"
+    datatype: timestamp
+    precision: 6
+    description: End time of the exposure at the fiducial center of the focal plane.
+      array, TAI, accurate to 10ms.
+    ivoa:ucd: time.end
+  - name: obs_end_mjd
+    "@id": "#exposure.obs_end_mjd"
+    datatype: double
+    description: End of the exposure in MJD, TAI, accurate to 10ms.
+    ivoa:ucd: time.end
+    ivoa:unit: d
+  - name: exp_time
+    "@id": "#exposure.exp_time"
+    datatype: float
+    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+  - name: img_type
+    "@id": "#exposure.img_type"
+    datatype: string
+    length: 64
+    description: Type of exposure taken.
+  - name: target_name
+    "@id": "#exposure.target_name"
+    datatype: string
+    length: 64
+    description: Target of the observation.
+  - name: air_temp
+    "@id": "#exposure.air_temp"
+    datatype: float
+    description: Outside air temperature in degC.
+    ivoa:ucd: phys.temperature
+  - name: pressure
+    "@id": "#exposure.pressure"
+    datatype: float
+    description: Outside air pressure.
+    ivoa:unit: Pa
+  - name: humidity
+    "@id": "#exposure.humidity"
+    datatype: float
+    description: Outside relative humidity.
+  - name: wind_speed
+    "@id": "#exposure.wind_speed"
+    datatype: float
+    description: Outside wind speed.
+    ivoa:unit: m/s
+  - name: wind_dir
+    "@id": "#exposure.wind_dir"
+    datatype: float
+    description: Wind direction.
+    ivoa:unit: deg
+  - name: dimm_seeing
+    "@id": "#exposure.dimm_seeing"
+    datatype: float
+    description: Seeing as measured by external DIMM (FWHM).
+    ivoa:unit: arcsec
+  - name: dome_azimuth
+    "@id": "#exposure.dome_azimuth"
+    datatype: float
+    description: Dome azimuth.
+  - name: vignette
+    "@id": "#exposure.vignette"
+    datatype: string
+    length: 10
+    description: "Instrument blocked from the sky: UNKNOWN, NO, PARTIALLY, FULLY."
+  - name: vignette_min
+    "@id": "#exposure.vignette_min"
+    datatype: string
+    length: 10
+    description: "Lowest amount of instrument vignetting detected during the exposure: UNKNOWN, NO, PARTIALLY, FULLY."
+- name: exposure_flexdata
+  "@id": "#exposure_flexdata"
+  primaryKey:
+  - "#exposure_flexdata.obs_id"
+  - "#exposure_flexdata.key"
+  constraints:
+  - name: fk_exposure_flexdata_obs_id
+    "@id": "#exposure_flexdata.fk_obs_id"
+    "@type": ForeignKey
+    description: Flex data obs_id must be an Exposure exposure_id.
+    columns: ["#exposure_flexdata.obs_id"]
+    referencedColumns: ["#exposure.exposure_id"]
+  - name: fk_exposure_flexdata_key
+    "@id": "#exposure_flexdata.fk_key"
+    "@type": ForeignKey
+    description: Flex data key must be listed in the schema.
+    columns: ["#exposure_flexdata.key"]
+    referencedColumns: ["#exposure_flexdata_schema.key"]
+  columns:
+  - name: obs_id
+    "@id": "#exposure_flexdata.obs_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: key
+    "@id": "#exposure_flexdata.key"
+    datatype: string
+    length: 128
+    nullable: false
+    description: Name of key.
+  - name: value
+    "@id": "#exposure_flexdata.value"
+    datatype: text
+    description: Content of value as a string.
+- name: exposure_flexdata_schema
+  "@id": "#exposure_flexdata_schema"
+  primaryKey:
+  - "#exposure_flexdata_schema.key"
+  columns:
+  - name: key
+    "@id": "#exposure_flexdata_schema.key"
+    datatype: string
+    length: 128
+    nullable: false
+    description: Name of key.
+  - name: dtype
+    "@id": "#exposure_flexdata_schema.dtype"
+    datatype: string
+    length: 64
+    nullable: false
+    description: Name of the data type of the value, one of bool, int, float, str.
+  - name: doc
+    "@id": "#exposure_flexdata_schema.doc"
+    datatype: text
+    nullable: false
+    description: Documentation string.
+  - name: unit
+    "@id": "#exposure_flexdata_schema.unit"
+    datatype: string
+    length: 128
+    description: Unit for the value. Should be from the IVOA (https://www.ivoa.net/documents/VOUnits/) or astropy.
+  - name: ucd
+    "@id": "#exposure_flexdata_schema.ucd"
+    datatype: string
+    length: 128
+    description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
+- name: exposure_quicklook
+  "@id": "#exposure_quicklook"
+  primaryKey:
+  - "#exposure_quicklook.exposure_id"
+  constraints:
+  - name: fk_exposure_quicklook_obs_id
+    "@id": "#exposure_quicklook.fk_obs_id"
+    "@type": ForeignKey
+    description: Quicklook exposure_id must be an Exposure exposure_id.
+    columns: ["#exposure_quicklook.exposure_id"]
+    referencedColumns: ["#exposure.exposure_id"]
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_quicklook.exposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: ra
+    "@id": "#exposure_quicklook.ra"
+    datatype: double
+    description: Central Spatial Position in ICRS; Right ascension of fitted WCS.
+    tap:std: 1
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    ivoa:unit: deg
+  - name: dec
+    "@id": "#exposure_quicklook.dec"
+    datatype: double
+    description: Central Spatial Position in ICRS; Declination of fitted WCS.
+    tap:std: 1
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    ivoa:unit: deg
+  - name: astrom_offset_mean
+    "@id": "#exposure_quicklook.astrom_offset_mean"
+    datatype: float
+    description: Mean offset of astrometric calibration matches.
+    ivoa:unit: arcsec
+  - name: astrom_offset_std
+    "@id": "#exposure_quicklook.astrom_offset_std"
+    datatype: float
+    description: Standard deviation of offsets of astrometric calibration matches.
+    ivoa:unit: arcsec
+  - name: mean_var
+    "@id": "#exposure_quicklook.mean_var"
+    datatype: float
+    description: Mean of the variance plane.
+  - name: n_psf_star
+    "@id": "#exposure_quicklook.n_psf_star"
+    datatype: int
+    description: Number of stars used for PSF model.
+  - name: psf_area
+    "@id": "#exposure_quicklook.psf_area"
+    datatype: float
+    description: PSF area.
+  - name: psf_ixx
+    "@id": "#exposure_quicklook.psf_ixx"
+    datatype: float
+    description: PSF Ixx moment.
+  - name: psf_ixy
+    "@id": "#exposure_quicklook.psf_ixy"
+    datatype: float
+    description: PSF Ixy moment.
+  - name: psf_iyy
+    "@id": "#exposure_quicklook.psf_iyy"
+    datatype: float
+    description: PSF Iyy moment
+  - name: psf_sigma
+    "@id": "#exposure_quicklook.psf_sigma"
+    datatype: float
+    description: PSF sigma.
+  - name: psf_star_delta_e1_median
+    "@id": "#exposure_quicklook.psf_star_delta_e1_median"
+    datatype: float
+    description: Median E1 residual (starE1 - psfE1) for PSF stars.
+  - name: psf_star_delta_e1_scatter
+    "@id": "#exposure_quicklook.psf_star_delta_e1_scatter"
+    datatype: float
+    description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for PSF stars.
+  - name: psf_star_delta_e2_median
+    "@id": "#exposure_quicklook.psf_star_delta_e2_median"
+    datatype: float
+    description: Median E2 residual (starE2 - psfE2) for PSF stars.
+  - name: psf_star_delta_e2_scatter
+    "@id": "#exposure_quicklook.psf_star_delta_e2_scatter"
+    datatype: float
+    description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for PSF stars.
+  - name: psf_star_delta_size_median
+    "@id": "#exposure_quicklook.psf_star_delta_size_median"
+    datatype: float
+    description: Median size residual (starSize - psfSize) for PSF stars.
+  - name: psf_star_delta_size_scatter
+    "@id": "#exposure_quicklook.psf_star_delta_size_scatter"
+    datatype: float
+    description: Scatter (via MAD) of size residual (starSize - psfSize) for stars.
+  - name: psf_star_scaled_delta_size_scatter
+    "@id": "#exposure_quicklook.psf_star_scaled_delta_size_scatter"
+    datatype: float
+    description: Scatter (via MAD) of size residual scaled by median size squared.
+  - name: psf_trace_radius_delta
+    "@id": "#exposure_quicklook.psf_trace_radius_delta"
+    datatype: float
+    description: Delta (max - min) of model PSF trace radius values evaluated on a grid of unmasked pixels.
+  - name: sky_bg
+    "@id": "#exposure_quicklook.sky_bg"
+    datatype: float
+    description: Average sky background.
+  - name: sky_noise
+    "@id": "#exposure_quicklook.sky_noise"
+    datatype: float
+    description: RMS noise of the sky background.
+  - name: source_count
+    "@id": "#exposure_quicklook.source_count"
+    datatype: int
+    description: Count of sources.
+    ivoa:unit: count
