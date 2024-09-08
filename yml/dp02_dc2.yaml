@@ -8,6 +8,7 @@ tables:
 - name: Object
   "@id": "#Object"
   description: "Properties of the astronomical objects detected and measured on the deep coadded images."
+  primaryKey: "#Object.objectId"
   tap:table_index: 1
   columns:
   - name: objectId
@@ -4990,6 +4991,7 @@ tables:
   "@id": "#Source"
   description: "Properties of detections on the single-epoch visit images, performed
     independently of the Object detections on coadded images."
+  primaryKey: "#Source.sourceId"
   tap:table_index: 2
   columns:
   - name: sourceId
@@ -5738,6 +5740,7 @@ tables:
     difference images, based on and linked to the entries in the Object table. Point-source
     PSF photometry is performed, based on coordinates from a reference band chosen for each
     Object and reported in the Object.refBand column."
+  primaryKey: "#ForcedSource.forcedSourceId"
   tap:table_index: 3
   columns:
   - name: forcedSourceId
@@ -6076,6 +6079,7 @@ tables:
   description: "Properties of time-varying astronomical objects based on association
     of data from one or more spatially-related DiaSource detections on individual
     single-epoch difference images."
+  primaryKey: "#DiaObject.diaObjectId"
   tap:table_index: 4
   columns:
   - name: decl
@@ -6638,6 +6642,7 @@ tables:
 - name: DiaSource
   "@id": "#DiaSource"
   description: "Properties of transient-object detections on the single-epoch difference images."
+  primaryKey: "#DiaSource.diaSourceId"
   tap:table_index: 5
   columns:
   - name: apFlux
@@ -7006,6 +7011,7 @@ tables:
   description: "Point-source forced-photometry measurements on individual single-epoch
     visit images and difference images, based on and linked to the entries in the
     DiaObject table."
+  primaryKey: "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"
   tap:table_index: 6
   columns:
   - name: band
@@ -7311,6 +7317,7 @@ tables:
   '@id': '#Visit'
   description: "Metadata about the pointings of the DC2 simulated survey,
     largely associated with the boresight of the entire focal plane."
+  primaryKey: "#Visit.visit"
   tap:table_index: 7
   columns:
   - name: visit
@@ -7444,6 +7451,7 @@ tables:
   '@id': '#CcdVisit'
   description: "Metadata about the 189 individual CCD images for each Visit in the
     DC2 simulated survey."
+  primaryKey: "#CcdVisit.ccdVisitId"
   tap:table_index: 8
   columns:
   - name: ccdVisitId
@@ -7872,6 +7880,7 @@ tables:
 - name: TruthSummary
   '@id': '#TruthSummary'
   description: Summary properties of objects from the DESC DC2 truth catalog, as described in arXiv:2101.04855. Includes the noiseless astrometric and photometric parameters.
+  primaryKey: "#TruthSummary.id_truth_type"
   tap:table_index: 10
   columns:
   - name: id_truth_type
