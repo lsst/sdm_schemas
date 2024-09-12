@@ -1107,16 +1107,16 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels. Measured on g-band.
     fits:tunit:
-  - name: g_pixelFlags_streak
-    "@id": "#Object.g_pixelFlags_streak"
-    datatype: boolean
-    description: Streak in the Source footprint. Measured on g-band.
-    fits:tunit:
-  - name: g_pixelFlags_streakCenter
-    "@id": "#Object.g_pixelFlags_streakCenter"
-    datatype: boolean
-    description: Streak in the Source center. Measured on g-band.
-    fits:tunit:
+  # - name: g_pixelFlags_streak
+  #   "@id": "#Object.g_pixelFlags_streak"
+  #   datatype: boolean
+  #   description: Streak in the Source footprint. Measured on g-band.
+  #   fits:tunit:
+  # - name: g_pixelFlags_streakCenter
+  #   "@id": "#Object.g_pixelFlags_streakCenter"
+  #   datatype: boolean
+  #   description: Streak in the Source center. Measured on g-band.
+  #   fits:tunit:
   - name: g_invalidPsfFlag
     "@id": "#Object.g_invalidPsfFlag"
     datatype: boolean
@@ -2063,16 +2063,16 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels. Measured on i-band.
     fits:tunit:
-  - name: i_pixelFlags_streak
-    "@id": "#Object.i_pixelFlags_streak"
-    datatype: boolean
-    description: Streak in the Source footprint. Measured on i-band.
-    fits:tunit:
-  - name: i_pixelFlags_streakCenter
-    "@id": "#Object.i_pixelFlags_streakCenter"
-    datatype: boolean
-    description: Streak in the Source center. Measured on i-band.
-    fits:tunit:
+  # - name: i_pixelFlags_streak
+  #   "@id": "#Object.i_pixelFlags_streak"
+  #   datatype: boolean
+  #   description: Streak in the Source footprint. Measured on i-band.
+  #   fits:tunit:
+  # - name: i_pixelFlags_streakCenter
+  #   "@id": "#Object.i_pixelFlags_streakCenter"
+  #   datatype: boolean
+  #   description: Streak in the Source center. Measured on i-band.
+  #   fits:tunit:
   - name: i_invalidPsfFlag
     "@id": "#Object.i_invalidPsfFlag"
     datatype: boolean
@@ -3019,16 +3019,16 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels. Measured on r-band.
     fits:tunit:
-  - name: r_pixelFlags_streak
-    "@id": "#Object.r_pixelFlags_streak"
-    datatype: boolean
-    description: Streak in the Source footprint. Measured on r-band.
-    fits:tunit:
-  - name: r_pixelFlags_streakCenter
-    "@id": "#Object.r_pixelFlags_streakCenter"
-    datatype: boolean
-    description: Streak in the Source center. Measured on r-band.
-    fits:tunit:
+  # - name: r_pixelFlags_streak
+  #   "@id": "#Object.r_pixelFlags_streak"
+  #   datatype: boolean
+  #   description: Streak in the Source footprint. Measured on r-band.
+  #   fits:tunit:
+  # - name: r_pixelFlags_streakCenter
+  #   "@id": "#Object.r_pixelFlags_streakCenter"
+  #   datatype: boolean
+  #   description: Streak in the Source center. Measured on r-band.
+  #   fits:tunit:
   - name: r_invalidPsfFlag
     "@id": "#Object.r_invalidPsfFlag"
     datatype: boolean
@@ -3975,16 +3975,16 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels. Measured on y-band.
     fits:tunit:
-  - name: y_pixelFlags_streak
-    "@id": "#Object.y_pixelFlags_streak"
-    datatype: boolean
-    description: Streak in the Source footprint. Measured on y-band.
-    fits:tunit:
-  - name: y_pixelFlags_streakCenter
-    "@id": "#Object.y_pixelFlags_streakCenter"
-    datatype: boolean
-    description: Streak in the Source center. Measured on y-band.
-    fits:tunit:
+  # - name: y_pixelFlags_streak
+  #   "@id": "#Object.y_pixelFlags_streak"
+  #   datatype: boolean
+  #   description: Streak in the Source footprint. Measured on y-band.
+  #   fits:tunit:
+  # - name: y_pixelFlags_streakCenter
+  #   "@id": "#Object.y_pixelFlags_streakCenter"
+  #   datatype: boolean
+  #   description: Streak in the Source center. Measured on y-band.
+  #   fits:tunit:
   - name: y_invalidPsfFlag
     "@id": "#Object.y_invalidPsfFlag"
     datatype: boolean
@@ -4931,16 +4931,16 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels. Measured on z-band.
     fits:tunit:
-  - name: z_pixelFlags_streak
-    "@id": "#Object.z_pixelFlags_streak"
-    datatype: boolean
-    description: Streak in the Source footprint. Measured on z-band.
-    fits:tunit:
-  - name: z_pixelFlags_streakCenter
-    "@id": "#Object.z_pixelFlags_streakCenter"
-    datatype: boolean
-    description: Streak in the Source center. Measured on z-band.
-    fits:tunit:
+  # - name: z_pixelFlags_streak
+  #   "@id": "#Object.z_pixelFlags_streak"
+  #   datatype: boolean
+  #   description: Streak in the Source footprint. Measured on z-band.
+  #   fits:tunit:
+  # - name: z_pixelFlags_streakCenter
+  #   "@id": "#Object.z_pixelFlags_streakCenter"
+  #   datatype: boolean
+  #   description: Streak in the Source center. Measured on z-band.
+  #   fits:tunit:
   - name: z_invalidPsfFlag
     "@id": "#Object.z_invalidPsfFlag"
     datatype: boolean
@@ -5592,16 +5592,16 @@ tables:
     datatype: boolean
     description: Sources center is close to suspect pixels
     fits:tunit:
-  - name: pixelFlags_streak
-    "@id": "#Source.pixelFlags_streak"
-    datatype: boolean
-    description: Streak in the Source footprint.
-    fits:tunit:
-  - name: pixelFlags_streakCenter
-    "@id": "#Source.pixelFlags_streakCenter"
-    datatype: boolean
-    description: Streak in the Source center.
-    fits:tunit:
+  # - name: pixelFlags_streak
+  #   "@id": "#Source.pixelFlags_streak"
+  #   datatype: boolean
+  #   description: Streak in the Source footprint.
+  #   fits:tunit:
+  # - name: pixelFlags_streakCenter
+  #   "@id": "#Source.pixelFlags_streakCenter"
+  #   datatype: boolean
+  #   description: Streak in the Source center.
+  #   fits:tunit:
   - name: invalidPsfFlag
     "@id": "#Source.invalidPsfFlag"
     datatype: boolean
