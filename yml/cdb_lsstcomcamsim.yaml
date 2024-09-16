@@ -312,6 +312,14 @@ tables:
     description: Flex data key must be listed in the schema.
     columns: ["#exposure_flexdata.key"]
     referencedColumns: ["#exposure_flexdata_schema.key"]
+  - name: un_exposure_flexdata_day_obs_seq_num_key
+    "@id": "#exposure_flexdata.un_exposure_flexdata_day_obs_seq_num_key"
+    "@type": Unique
+    description: Day obs + seq num + key must be unique.
+    columns:
+    - "#exposure_flexdata.day_obs"
+    - "#exposure_flexdata.seq_num"
+    - "#exposure_flexdata.key"
   columns:
   - name: obs_id
     "@id": "#exposure_flexdata.obs_id"
