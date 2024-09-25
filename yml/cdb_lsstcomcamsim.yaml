@@ -306,6 +306,12 @@ tables:
     description: Flex data day_obs must be an Exposure day_obs
     columns: ["#exposure_flexdata.day_obs", "#exposure_flexdata.seq_num"]
     referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: fk_exposure_flexdata_obs_id
+    "@id": "#exposure_flexdata.fk_exposure_flexdata_obs_id"
+    "@type": ForeignKey
+    description: Flex data obs_id must be an Exposure exposure_id.
+    columns: ["#exposure_flexdata.obs_id"]
+    referencedColumns: ["#exposure.exposure_id"]
   - name: fk_exposure_flexdata_key
     "@id": "#exposure_flexdata.fk_exposure_flexdata_key"
     "@type": ForeignKey
@@ -399,12 +405,25 @@ tables:
     - "#ccdexposure.day_obs"
     - "#ccdexposure.seq_num"
     - "#ccdexposure.detector"
+  - name: un_ccdexposure_exposure_id_detector
+    "@id": "#ccdexposure.un_ccdexposure_exposure_id_detector"
+    "@type": Unique
+    description: Ensure exposure_id plus detector is unique.
+    columns:
+    - "#ccdexposure.exposure_id"
+    - "#ccdexposure.detector"
   - name: fk_ccdexposure_day_obs_seq_num
     "@id": "#ccdexposure.fk_ccdexposure_day_obs_seq_num"
     "@type": ForeignKey
     description: day_obs must be in the Exposure table.
     columns: ["#ccdexposure.day_obs", "#ccdexposure.seq_num"]
     referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: fk_ccdexposure_exposure_id
+    "@id": "#ccdexposure.fk_ccdexposure_exposure_id"
+    "@type": ForeignKey
+    description: exposure_id must be in the Exposure table.
+    columns: ["#ccdexposure.exposure_id"]
+    referencedColumns: ["#exposure.exposure_id"]
   columns:
   - name: ccdexposure_id
     "@id": "#ccdexposure.ccdexposure_id"
