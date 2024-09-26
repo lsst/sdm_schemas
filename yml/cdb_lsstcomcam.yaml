@@ -3,20 +3,27 @@ name: cdb_lsstcomcam
 "@id": "#cdb_lsstcomcam"
 description: Consolidated Database for LSSTComCam
 version:
-  current: "3.1.0"
+  current: "3.2.0"
 tables:
 - name: exposure
   "@id": "#exposure"
   primaryKey:
-  - "#exposure.exposure_id"
+  - "#exposure.day_obs"
+  - "#exposure.seq_num"
   constraints:
-  - name: un_day_obs_seq_num
-    "@id": "#exposure.un_day_obs_seq_num"
+  - name: un_exposure_day_obs_seq_num
+    "@id": "#exposure.un_exposure_day_obs_seq_num"
     "@type": Unique
     description: Ensure day_obs plus seq_num is unique.
     columns:
     - "#exposure.day_obs"
     - "#exposure.seq_num"
+  - name: un_exposure_exposure_id
+    "@id": "#exposure.un_exposure_exposure_id"
+    "@type": Unique
+    description: Ensure exposure_id is unique.
+    columns:
+    - "#exposure.exposure_id"
   columns:
   - name: exposure_id
     "@id": "#exposure.exposure_id"
@@ -40,11 +47,13 @@ tables:
     datatype: int
     nullable: false
     description: Day of observation.
+    ivoa:ucd: meta.id.part
   - name: seq_num
     "@id": "#exposure.seq_num"
     datatype: int
     nullable: false
     description: Sequence number.
+    ivoa:ucd: meta.id.part
   - name: physical_filter
     "@id": "#exposure.physical_filter"
     datatype: string
@@ -287,27 +296,54 @@ tables:
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
   primaryKey:
-  - "#exposure_flexdata.obs_id"
+  - "#exposure_flexdata.day_obs"
+  - "#exposure_flexdata.seq_num"
   - "#exposure_flexdata.key"
   constraints:
+  - name: fk_exposure_flexdata_day_obs_seq_num
+    "@id": "#exposure_flexdata.fk_exposure_flexdata_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Flex data day_obs must be an Exposure day_obs
+    columns: ["#exposure_flexdata.day_obs", "#exposure_flexdata.seq_num"]
+    referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
   - name: fk_exposure_flexdata_obs_id
-    "@id": "#exposure_flexdata.fk_obs_id"
+    "@id": "#exposure_flexdata.fk_exposure_flexdata_obs_id"
     "@type": ForeignKey
     description: Flex data obs_id must be an Exposure exposure_id.
     columns: ["#exposure_flexdata.obs_id"]
     referencedColumns: ["#exposure.exposure_id"]
   - name: fk_exposure_flexdata_key
-    "@id": "#exposure_flexdata.fk_key"
+    "@id": "#exposure_flexdata.fk_exposure_flexdata_key"
     "@type": ForeignKey
     description: Flex data key must be listed in the schema.
     columns: ["#exposure_flexdata.key"]
     referencedColumns: ["#exposure_flexdata_schema.key"]
+  - name: un_exposure_flexdata_day_obs_seq_num_key
+    "@id": "#exposure_flexdata.un_exposure_flexdata_day_obs_seq_num_key"
+    "@type": Unique
+    description: Day obs + seq num + key must be unique.
+    columns:
+    - "#exposure_flexdata.day_obs"
+    - "#exposure_flexdata.seq_num"
+    - "#exposure_flexdata.key"
   columns:
   - name: obs_id
     "@id": "#exposure_flexdata.obs_id"
     datatype: long
     nullable: false
     description: Unique identifier.
+  - name: day_obs
+    "@id": "#exposure_flexdata.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#exposure_flexdata.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
   - name: key
     "@id": "#exposure_flexdata.key"
     datatype: string
@@ -355,15 +391,35 @@ tables:
   primaryKey:
   - "#ccdexposure.ccdexposure_id"
   constraints:
-  - name: un_exposure_id_detector
-    "@id": "#ccdexposure.un_exposure_id_detector"
+  - name: un_ccdexposure_ccdexposure_id
+    "@id": "#ccdexposure.un_ccdexposure_ccdexposure_id"
+    "@type": Unique
+    description: Ensure ccdexposure_id is unique.
+    columns:
+    - "#ccdexposure.ccdexposure_id"
+  - name: un_ccdexposure_day_obs_seq_num_detector
+    "@id": "#ccdexposure.un_ccdexposure_day_obs_seq_num_detector"
+    "@type": Unique
+    description: Ensure day_obs plus seq_num plus detector is unique.
+    columns:
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
+  - name: un_ccdexposure_exposure_id_detector
+    "@id": "#ccdexposure.un_ccdexposure_exposure_id_detector"
     "@type": Unique
     description: Ensure exposure_id plus detector is unique.
     columns:
     - "#ccdexposure.exposure_id"
     - "#ccdexposure.detector"
-  - name: fk_exposure_id
-    "@id": "#ccdexposure.fk_exposure_id"
+  - name: fk_ccdexposure_day_obs_seq_num
+    "@id": "#ccdexposure.fk_ccdexposure_day_obs_seq_num"
+    "@type": ForeignKey
+    description: day_obs must be in the Exposure table.
+    columns: ["#ccdexposure.day_obs", "#ccdexposure.seq_num"]
+    referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: fk_ccdexposure_exposure_id
+    "@id": "#ccdexposure.fk_ccdexposure_exposure_id"
     "@type": ForeignKey
     description: exposure_id must be in the Exposure table.
     columns: ["#ccdexposure.exposure_id"]
@@ -380,6 +436,17 @@ tables:
     datatype: long
     nullable: false
     description: Identifier of the exposure.
+  - name: day_obs
+    "@id": "#ccdexposure.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#ccdexposure.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
     ivoa:ucd: meta.id.part
   - name: detector
     "@id": "#ccdexposure.detector"
@@ -399,7 +466,7 @@ tables:
   - "#ccdexposure_camera.ccdexposure_id"
   constraints:
   - name: fk_ccdexposure_camera_ccdexposure_id
-    "@id": "#ccdexposure_camera.fk_ccdexposure_id"
+    "@id": "#ccdexposure_camera.fk_ccdexposure_camera_ccdexposure_id"
     "@type": ForeignKey
     description: exposure_id must be in the Exposure table.
     columns: ["#ccdexposure_camera.ccdexposure_id"]
@@ -426,13 +493,13 @@ tables:
   - "#ccdexposure_flexdata.key"
   constraints:
   - name: fk_ccdexposure_flexdata_obs_id
-    "@id": "#ccdexposure_flexdata.fk_obs_id"
+    "@id": "#ccdexposure_flexdata.fk_ccdexposure_flexdata_obs_id"
     "@type": ForeignKey
     description: Flex data obs_id must be a CcdExposure ccdexposure_id.
     columns: ["#ccdexposure_flexdata.obs_id"]
     referencedColumns: ["#ccdexposure.ccdexposure_id"]
   - name: fk_ccdexposure_flexdata_key
-    "@id": "#ccdexposure_flexdata.fk_key"
+    "@id": "#ccdexposure_flexdata.fk_ccdexposure_flexdata_key"
     "@type": ForeignKey
     description: Flex data key must be listed in the schema.
     columns: ["#ccdexposure_flexdata.key"]
@@ -488,7 +555,8 @@ tables:
 - name: visit1
   "@id": "#visit1"
   primaryKey:
-  - "#visit1.visit_id"
+  - "#visit1.day_obs"
+  - "#visit1.seq_num"
   columns:
   - name: visit_id
     "@id": "#visit1.visit_id"
@@ -512,11 +580,13 @@ tables:
     datatype: int
     nullable: false
     description: Day of observation.
+    ivoa:ucd: meta.id.part
   - name: seq_num
     "@id": "#visit1.seq_num"
     datatype: int
     nullable: false
     description: Sequence number.
+    ivoa:ucd: meta.id.part
   - name: physical_filter
     "@id": "#visit1.physical_filter"
     datatype: string
@@ -759,20 +829,39 @@ tables:
 - name: visit1_quicklook
   "@id": "#visit1_quicklook"
   primaryKey:
-  - "#visit1_quicklook.visit_id"
+  - "#visit1_quicklook.day_obs"
+  - "#visit1_quicklook.seq_num"
   constraints:
   - name: fk_visit1_quicklook_obs_id
-    "@id": "#visit1_quicklook.fk_obs_id"
+    "@id": "#visit1_quicklook.fk_visit1_quicklook_obs_id"
     "@type": ForeignKey
     description: Quicklook visit_id must be an Exposure exposure_id.
     columns: ["#visit1_quicklook.visit_id"]
     referencedColumns: ["#exposure.exposure_id"]
+  - name: fk_visit1_quicklook_day_obs_seq_num
+    "@id": "#visit1_quicklook.fk_visit1_quicklook_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Quicklook day_obs must be an Exposure day_obs.
+    columns: ["#visit1_quicklook.day_obs", "#visit1_quicklook.seq_num"]
+    referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
   columns:
   - name: visit_id
     "@id": "#visit1_quicklook.visit_id"
     datatype: long
     nullable: false
     description: Unique identifier.
+  - name: day_obs
+    "@id": "#visit1_quicklook.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#visit1_quicklook.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
   - name: n_inputs
     "@id": "#visit1_quicklook.n_inputs"
     datatype: int
@@ -1192,7 +1281,7 @@ tables:
   - "#ccdvisit1_quicklook.ccdvisit_id"
   constraints:
   - name: fk_ccdvisit1_quicklook_obs_id
-    "@id": "#ccdvisit1_quicklook.fk_obs_id"
+    "@id": "#ccdvisit1_quicklook.fk_ccdvisit1_quicklook_obs_id"
     "@type": ForeignKey
     description: Quicklook ccdvisit_id must be a CcdExposure ccdexposure_id.
     columns: ["#ccdvisit1_quicklook.ccdvisit_id"]
