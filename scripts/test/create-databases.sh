@@ -9,12 +9,11 @@ fi
 # Initialize a variable to track if any command fails
 error_occurred=0
 
-# Create databases from YAML files. Drop existing databases since some of
-# the schema names are duplicated and also ignore constraints since many
-# schemas are missing required indices for FK constraints.
+# Create databases from YAML files, dropping existing databases since some
+# names are duplicated across files.
 for yaml_file in yml/*.yaml; do
     echo "Creating database from $yaml_file..."
-    felis --log-level ERROR create --drop --ignore-constraints "$yaml_file"
+    felis --log-level ERROR create --drop "$yaml_file"
     # Check if the felis command was successful
     if [ $? -ne 0 ]; then
         echo "Error: Failed to create database from $yaml_file"
