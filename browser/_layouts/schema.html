@@ -2,8 +2,40 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     {% include _header.html %}
+    <!-- DataTables setup -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('table.schema-table').each(function() {
+            var table = $(this);
+            var tableName = table.closest('section').find('h2').text().trim();
+            table.DataTable({
+                "pageLength": 10, // Set the default number of entries to show
+                "order": [[5, 'asc'], [0, 'asc']], // Sort by TAP Column Index and then by Column Name
+                dom: 'Bfrtipl', // Add the buttons to the DataTable
+                buttons: [
+                    {
+                        extend: 'csvHtml5',
+                        filename: function() {
+                            return tableName;
+                        }
+                    }
+                ]
+            });
+        });
+    });
+    </script>
   </head>
   <body>
+    <p>
+    {%- assign schema_tables = site.data[page.schema].tables %}
+    </p>
     <div id="container">
       <nav id="sidebar">
         {% include _logo.html %}
@@ -15,7 +47,7 @@
           <ul>
             <li><a href="">{{ page.title }}</a></li>
             <ul>
-              {%- for table in site.data[page.schema].tables %}
+              {%- for table in schema_tables %}
               <li><a href="{{ table['@id'] }}">{{ table.name }}</a></li>
               {%- endfor %}
             </ul>
@@ -29,30 +61,48 @@
         <main class="main-content">
           <h1>{{ page.title }}</h1>
           {{ content }}
-          {%- for table in site.data[page.schema].tables %}
+          {%- for table in schema_tables %}
+          <hr style="margin-top: 20px; margin-bottom: 10px" />
           <section id="{{ table['@id'] | remove:'#' }}">
             <h2>{{ table.name }}</h2>
             <p>{{ table.description }}</p>
             <table class="schema-table">
-              <tr>
-                <th>Column Name</th>
-                <th>Data Type</th>
-                <th>Unit</th>
-                <th>Description [UCD]</th>
-              </tr>
-              {%- for col in table.columns %}
-              <tr id="{{ col['@id'] | remove:'#' }}">
-                <td class="column-name">
-                    <a href="#{{ col['@id'] | remove:'#' }}">{{ col.name }}</a>
-                </td>
-                <td>{{ col.datatype }}</td>
-                <td>{{ col['ivoa:unit'] | default: col['fits:tunit'] }}</td>
-                <td>
-                    {{- col.description | escape }}
-                    {%- if col['ivoa:ucd'] %} [{{col['ivoa:ucd']}}]{% endif -%}
-                </td>
-              </tr>
-              {%- endfor %}
+              <thead>
+                <tr>
+                  <th title="Name of the column in the database">Column Name</th>
+                  <th title="Data type of the column">Data Type</th>
+                  <th title="Measurement unit of the column in IVOA units">Unit</th>
+                  <th title="Description of the column">Description</th>
+                  <th title="IVOA Unified Content Descriptor (UCD) of the column">UCD</th>
+                  <th title="Index used to recommend column ordering for clients">Index</th>
+                  <th title="When set to 1, indicates that the column is considered a core part of the content">Principal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% assign sorted_by_name = table.columns | sort: 'name' %}
+                {% assign sorted_columns = sorted_by_name | sort: 'tap:column_index' %}
+                {% for col in sorted_columns %}
+                <tr id="{{ col['@id'] | remove:'#' }}">
+                  <td class="column-name">
+                  {{ col.name }}</a>
+                  </td>
+                  <td>{{ col.datatype }}</td>
+                  <td>{{ col['ivoa:unit'] | default: col['fits:tunit'] }}</td>
+                  <td>
+                  {{- col.description | escape }}
+                  </td>
+                  <td>
+                  {%- if col['ivoa:ucd'] %}{{col['ivoa:ucd']}}{% endif -%}
+                  </td>
+                  <td style="text-align: center;">
+                  {%- if col['tap:column_index'] %}{{col['tap:column_index']}}{% endif -%}
+                  </td>
+                  <td style="text-align: center;">
+                  {%- if col['tap:principal'] %}{{col['tap:principal']}}{% endif -%}
+                  </td>
+                </tr>
+                {%- endfor %}
+              </tbody>
             </table>
           </section>
           {%- endfor %}
