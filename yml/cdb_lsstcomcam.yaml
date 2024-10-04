@@ -3,7 +3,7 @@ name: cdb_lsstcomcam
 "@id": "#cdb_lsstcomcam"
 description: Consolidated Database for LSSTComCam
 version:
-  current: "3.2.0"
+  current: "3.3.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -1231,18 +1231,54 @@ tables:
     datatype: int
     description: Count of high signal-to-noise-ratio sources (total across all detectors).
     ivoa:unit: count
+- name: exposure_quicklook
+  "@id": "#exposure_quicklook"
+  primaryKey:
+  - "#exposure_quicklook.day_obs"
+  - "#exposure_quicklook.seq_num"
+  constraints:
+  - name: fk_exposure_quicklook_day_obs_seq_num
+    "@id": "#exposure_quicklook.fk_exposure_quicklook_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Quicklook day_obs must be an Exposure day_obs.
+    columns: ["#exposure_quicklook.day_obs", "#exposure_quicklook.seq_num"]
+    referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: fk_exposure_quicklook_obs_id
+    "@id": "#exposure_quicklook.fk_exposure_quicklook_obs_id"
+    "@type": ForeignKey
+    description: Quicklook exposure_id must be an Exposure id.
+    columns: ["#exposure_quicklook.exposure_id"]
+    referencedColumns: ["#exposure.exposure_id"]
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_quicklook.exposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: day_obs
+    "@id": "#exposure_quicklook.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#exposure_quicklook.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
   - name: postisr_pixel_median_median
-    "@id": "#visit1_quicklook.postisr_pixel_median_median"
+    "@id": "#exposure_quicklook.postisr_pixel_median_median"
     datatype: float
     description: Median postISR pixel value (median across all detectors).
     ivoa:unit: electron
   - name: postisr_pixel_median_mean
-    "@id": "#visit1_quicklook.postisr_pixel_median_mean"
+    "@id": "#exposure_quicklook.postisr_pixel_median_mean"
     datatype: float
     description: Median postISR pixel value (mean across all detectors).
     ivoa:unit: electron
   - name: postisr_pixel_median_max
-    "@id": "#visit1_quicklook.postisr_pixel_median_max"
+    "@id": "#exposure_quicklook.postisr_pixel_median_max"
     datatype: float
     description: Median postISR pixel value (max across all detectors).
     ivoa:unit: electron
@@ -1429,8 +1465,25 @@ tables:
     datatype: float
     description: Maximum distance of an unmasked pixel to its nearest model PSF star.
     ivoa:unit: pixel
+- name: ccdexposure_quicklook
+  "@id": "#ccdexposure_quicklook"
+  primaryKey:
+  - "#ccdexposure_quicklook.ccdexposure_id"
+  constraints:
+  - name: fk_ccdexposure_quicklook_obs_id
+    "@id": "#ccdexposure_quicklook.fk_ccdexposure_quicklook_obs_id"
+    "@type": ForeignKey
+    description: Quicklook ccdexposure_id must be a CcdExposure ccdexposure_id.
+    columns: ["#ccdexposure_quicklook.ccdexposure_id"]
+    referencedColumns: ["#ccdexposure.ccdexposure_id"]
+  columns:
+  - name: ccdexposure_id
+    "@id": "#ccdexposure_quicklook.ccdexposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
   - name: postisr_pixel_median
-    "@id": "#ccdvisit1_quicklook.postisr_pixel_median"
+    "@id": "#ccdexposure_quicklook.postisr_pixel_median"
     datatype: float
     description: Median postISR pixel value.
     ivoa:unit: electron
