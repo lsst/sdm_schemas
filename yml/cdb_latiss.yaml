@@ -3,7 +3,7 @@ name: cdb_latiss
 "@id": "#cdb_latiss"
 description: Consolidated Database for LATISS
 version:
-  current: "3.2.0"
+  current: "3.3.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -1003,8 +1003,44 @@ tables:
     datatype: int
     description: Count of high signal-to-noise-ratio sources.
     ivoa:unit: count
+- name: exposure_quicklook
+  "@id": "#exposure_quicklook"
+  primaryKey:
+  - "#exposure_quicklook.day_obs"
+  - "#exposure_quicklook.seq_num"
+  constraints:
+  - name: fk_exposure_quicklook_day_obs_seq_num
+    "@id": "#exposure_quicklook.fk_exposure_quicklook_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Quicklook day_obs must be an Exposure day_obs.
+    columns: ["#exposure_quicklook.day_obs", "#exposure_quicklook.seq_num"]
+    referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: fk_exposure_quicklook_obs_id
+    "@id": "#exposure_quicklook.fk_exposure_quicklook_obs_id"
+    "@type": ForeignKey
+    description: Quicklook exposure_id must be an Exposure id.
+    columns: ["#exposure_quicklook.exposure_id"]
+    referencedColumns: ["#exposure.exposure_id"]
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_quicklook.exposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: day_obs
+    "@id": "#exposure_quicklook.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#exposure_quicklook.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
   - name: postisr_pixel_median
-    "@id": "#visit1_quicklook.postisr_pixel_median"
+    "@id": "#exposure_quicklook.postisr_pixel_median"
     datatype: float
     description: Median postISR pixel value.
     ivoa:unit: electron
