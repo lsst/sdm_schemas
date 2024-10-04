@@ -3,7 +3,7 @@ name: cdb_latiss
 "@id": "#cdb_latiss"
 description: Consolidated Database for LATISS
 version:
-  current: "3.3.0"
+  current: "3.4.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -305,6 +305,41 @@ tables:
     length: 1024
     description: Sky region in STC-S format (https://www.ivoa.net/documents/STC-S/20130917/index.html).
     ivoa:ucd: pos.outline;obs.field
+  - name: mount_motion_image_degradation
+    "@id": "#exposure.mount_motion_image_degradation"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion.
+  - name: mount_motion_image_degradation_az
+    "@id": "#exposure.mount_motion_image_degradation_az"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion in azimuth.
+  - name: mount_motion_image_degradation_el
+    "@id": "#exposure.mount_motion_image_degradation_el"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion in elevation.
+  - name: mount_jitter_rms
+    "@id": "#exposure.mount_jitter_rms"
+    datatype: float
+    ivoa:unit: arcsec
+    description: RMS mount jitter.
+  - name: mount_jitter_rms_az
+    "@id": "#exposure.mount_jitter_rms_az"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Azimuth RMS mount jitter.
+  - name: mount_jitter_rms_el
+    "@id": "#exposure.mount_jitter_rms_el"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Elevation RMS mount jitter.
+  - name: mount_jitter_rms_rot
+    "@id": "#exposure.mount_jitter_rms_rotator"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Rotator RMS mount jitter.
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
   primaryKey:
