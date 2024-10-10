@@ -1,0 +1,213 @@
+---
+name: cdb_tma
+"@id": "#cdb_tma"
+description: Consolidated Database for the TMA itself
+version:
+  current: "2.2.0"
+  read_compatible: ["2.0.0"]
+tables:
+- name: tma_event
+  "@id": "#tma_event"
+  primaryKey:
+  - "#tma_event.event_id"
+  constraints:
+  - name: un_day_event_seq_num
+    "@id": "#tma_event.un_day_event_seq_num"
+    "@type": Unique
+    description: Ensure day_obs plus seq_num is unique.
+    columns:
+    - "#tma_event.day_obs"
+    - "#tma_event.seq_num"
+  columns:
+  - name: event_id
+    "@id": "#event.event_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: day_obs
+    "@id": "#event.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+  - name: seq_num
+    "@id": "#event.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+  # - name: sky_rotation
+  #   "@id": "#event.sky_rotation"
+  #   datatype: double
+  #   description: Targeted sky rotation angle.
+  #   ivoa:ucd: pos.posAng
+  #   ivoa:unit: deg
+  # - name: azimuth_start
+  #   "@id": "#event.azimuth_start"
+  #   datatype: float
+  #   description: Azimuth of focal plane center at the start of the event.
+  #   ivoa:ucd: pos.az.azi
+  #   ivoa:unit: deg
+  # - name: azimuth_end
+  #   "@id": "#event.azimuth_end"
+  #   datatype: float
+  #   description: Azimuth of focal plane center at the end of the event.
+  #   ivoa:ucd: pos.az.azi
+  #   ivoa:unit: deg
+  # - name: azimuth
+  #   "@id": "#event.azimuth"
+  #   datatype: float
+  #   description: Azimuth of focal plane center at the middle of the event.
+  #   ivoa:ucd: pos.az.azi
+  #   ivoa:unit: deg
+  # - name: altitude_start
+  #   "@id": "#event.altitude_start"
+  #   datatype: float
+  #   description: Altitude of focal plane center at the start of the event.
+  #   ivoa:ucd: pos.az.alt
+  #   ivoa:unit: deg
+  # - name: altitude_end
+  #   "@id": "#event.altitude_end"
+  #   datatype: float
+  #   description: Altitude of focal plane center at the end of the event.
+  #   ivoa:ucd: pos.az.alt
+  #   ivoa:unit: deg
+  # - name: altitude
+  #   "@id": "#event.altitude"
+  #   datatype: float
+  #   description: Altitude of focal plane center at the middle of the event.
+  #   ivoa:ucd: pos.az.alt
+  #   ivoa:unit: deg
+  # - name: zenith_distance_start
+  #   "@id": "#event.zenith_distance_start"
+  #   datatype: float
+  #   description: Zenith distance at the start of the event.
+  #   ivoa:ucd: pos.az.zd
+  #   ivoa:unit: deg
+  # - name: zenith_distance_end
+  #   "@id": "#event.zenith_distance_end"
+  #   datatype: float
+  #   description: Zenith distance at the end of the event.
+  #   ivoa:ucd: pos.az.zd
+  #   ivoa:unit: deg
+  # - name: zenith_distance
+  #   "@id": "#event.zenith_distance"
+  #   datatype: float
+  #   description: Zenith distance at the middle of the event.
+  #   ivoa:ucd: pos.az.zd
+  #   ivoa:unit: deg
+  - name: event_midpt
+    "@id": "#event.event_midpt"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: Midpoint time for event, TAI.
+    ivoa:ucd: time.epoch
+  - name: event_midpt_mjd
+    "@id": "#event.event_midpt_mjd"
+    datatype: double
+    description: Midpoint time for event in MJD, TAI.
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+  - name: event_start
+    "@id": "#event.event_start"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: Start time of the event, TAI.
+    ivoa:ucd: time.start
+  - name: event_start_mjd
+    "@id": "#event.event_start_mjd"
+    datatype: double
+    description: Start time of the event in MJD, TAI.
+    ivoa:ucd: time.start
+    ivoa:unit: d
+  - name: event_end
+    "@id": "#event.event_end"
+    datatype: timestamp
+    postgresql:datatype: TIMESTAMP(6)
+    description: End time of the event, TAI.
+    ivoa:ucd: time.end
+  - name: event_end_mjd
+    "@id": "#event.event_end_mjd"
+    datatype: double
+    description: End time of the event in MJD, TAI.
+    ivoa:ucd: time.end
+    ivoa:unit: d
+  - name: duration
+    "@id": "#event.duration"
+    datatype: float
+    description: Duration of the movement.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+
+
+
+  - name: img_type
+    "@id": "#event.img_type"
+    datatype: string
+    length: 64
+    description: Type of event taken.
+
+- name: event_flexdata
+  "@id": "#event_flexdata"
+  primaryKey:
+  - "#event_flexdata.event_id"
+  - "#event_flexdata.key"
+  constraints:
+  - name: fk_event_id
+    "@id": "#event_flexdata.fk_event_id"
+    "@type": ForeignKey
+    description: Flex data event_id must be an event event_id.
+    columns: ["#event_flexdata.event_id"]
+    referencedColumns: ["#event.event_id"]
+  - name: fk_key
+    "@id": "#event_flexdata.fk_key"
+    "@type": ForeignKey
+    description: Flex data key must be listed in the schema.
+    columns: ["#event_flexdata.key"]
+    referencedColumns: ["#event_flexdata_schema.key"]
+  columns:
+  - name: event_id
+    "@id": "#event_flexdata.event_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: key
+    "@id": "#event_flexdata.key"
+    datatype: string
+    length: 128
+    nullable: false
+    description: Name of key.
+  - name: value
+    "@id": "#event_flexdata.value"
+    datatype: text
+    description: Content of value as a string.
+- name: event_flexdata_schema
+  "@id": "#event_flexdata_schema"
+  primaryKey:
+  - "#event_flexdata_schema.key"
+  columns:
+  - name: key
+    "@id": "#event_flexdata_schema.key"
+    datatype: string
+    length: 128
+    nullable: false
+    description: Name of key.
+  - name: dtype
+    "@id": "#event_flexdata_schema.dtype"
+    datatype: string
+    length: 64
+    nullable: false
+    description: Name of the data type of the value, one of bool, int, float, str.
+  - name: doc
+    "@id": "#event_flexdata_schema.doc"
+    datatype: text
+    nullable: false
+    description: Documentation string.
+  - name: unit
+    "@id": "#event_flexdata_schema.unit"
+    datatype: string
+    length: 128
+    description: Unit for the value. Should be from the IVOA (https://www.ivoa.net/documents/VOUnits/) or astropy.
+  - name: ucd
+    "@id": "#event_flexdata_schema.ucd"
+    datatype: string
+    length: 128
+    description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
