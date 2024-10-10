@@ -37,7 +37,7 @@ Release assets
 
 Each release of `sdm_schemas` includes the following additional release
 assets, generated automatically via GitHub Actions when a new tag is created.
-   
+
  * `datalink-columns.zip` contains a set of YAML files with a restricted
    subset of the Felis schema. Currently, they identify the principal and
    minimal columns for a subset of the tables defined by the schema in
@@ -48,7 +48,7 @@ assets, generated automatically via GitHub Actions when a new tag is created.
    Minimal columns are still experimental and in flux. These files are
    intended for use with the
    [datalinker](https://github.com/lsst-sqre/datalinker) service of a
-   Rubin Science Platform depoyment.
+   Rubin Science Platform deployment.
 
  * `datalink-snippets.zip` contains a JSON manifest and a set of XML files
    that define VOTables following the IVOA DataLink specification. This
