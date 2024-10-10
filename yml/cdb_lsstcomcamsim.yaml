@@ -947,6 +947,21 @@ tables:
     "@id": "#visit1_quicklook.eff_time_zero_point_scale_median"
     datatype: float
     description: Scale factor for effective exposure time based on zero point (median across all detectors).
+  - name: stats_mag_lim_min
+    "@id": "#visit1_quicklook.stats_mag_lim_min"
+    datatype: float
+    description: Magnitude limit at fixed SNR (default SNR=5) calculated from exposure summary stats (minimum across all detectors).
+    ivoa:unit: mag
+  - name: stats_mag_lim_max
+    "@id": "#visit1_quicklook.stats_mag_lim_max"
+    datatype: float
+    description: Magnitude limit at fixed SNR (default SNR=5) calculated from exposure summary stats (maximum across all detectors).
+    ivoa:unit: mag
+  - name: stats_mag_lim_median
+    "@id": "#visit1_quicklook.stats_mag_lim_median"
+    datatype: float
+    description: Magnitude limit at fixed SNR (default SNR=5) calculated from exposure summary stats (median across all detectors).
+    ivoa:unit: mag
   - name: max_dist_to_nearest_psf_min
     "@id": "#visit1_quicklook.max_dist_to_nearest_psf_min"
     datatype: float
@@ -1364,6 +1379,11 @@ tables:
     "@id": "#ccdvisit1_quicklook.eff_time_zero_point_scale"
     datatype: float
     description: Scale factor for effective exposure time based on zero point.
+  - name: stats_mag_lim
+    "@id": "#ccdvisit1_quicklook.stats_mag_lim"
+    datatype: float
+    description: Magnitude limit at fixed SNR (default SNR=5) calculated from exposure summary stats.
+    ivoa:unit: mag
   - name: mean_var
     "@id": "#ccdvisit1_quicklook.mean_var"
     datatype: float

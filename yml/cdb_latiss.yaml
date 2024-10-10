@@ -948,6 +948,11 @@ tables:
     "@id": "#visit1_quicklook.eff_time_zero_point_scale"
     datatype: float
     description: Scale factor for effective exposure time based on zero point.
+  - name: stats_mag_lim
+    "@id": "#visit1_quicklook.stats_mag_lim"
+    datatype: float
+    description: Magnitude limit at fixed SNR (default SNR=5) calculated from exposure summary stats.
+    ivoa:unit: mag
   - name: max_dist_to_nearest_psf
     "@id": "#visit1_quicklook.max_dist_to_nearest_psf"
     datatype: float
