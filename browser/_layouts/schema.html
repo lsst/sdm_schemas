@@ -79,9 +79,7 @@
                 </tr>
               </thead>
               <tbody>
-                {% assign sorted_by_name = table.columns | sort: 'name' %}
-                {% assign sorted_columns = sorted_by_name | sort: 'tap:column_index' %}
-                {% for col in sorted_columns %}
+                {% for col in table.columns %}
                 <tr id="{{ col['@id'] | remove:'#' }}">
                   <td class="column-name">
                   {{ col.name }}</a>
