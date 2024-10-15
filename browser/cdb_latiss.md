@@ -1,7 +1,7 @@
 ---
 layout: schema
-title: Consolidated Database for LATISS
+title: ConsDB - LATISS
 schema: cdb_latiss
-sort-index: 50
+sort-index: 51
 ---
-The Consolidated Database Schema for LATISS describes the tables and views available as fixed metadata to describe LATISS exposures, visits, and parts thereof.
+{{ site.data[page.schema].description }}
