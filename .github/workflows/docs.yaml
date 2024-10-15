@@ -33,7 +33,7 @@ jobs:
         run: sudo apt-get install -y ruby-full build-essential zlib1g-dev
 
       - name: Install required Ruby gems
-        run: sudo gem install bundler jekyll jekyll-theme-cayman jekyll-last-modified-at
+        run: sudo gem install bundler jekyll jekyll-theme-cayman
 
       - name: Build the schema browser site
         run: jekyll build
