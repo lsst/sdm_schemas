@@ -8,7 +8,7 @@
       <nav id="sidebar">
         {% include _logo.html %}
         <ul>
-            <li><b>Updated:</b> {% last_modified_at %}</li>
+            <li><b>Updated:</b> {{ site.time | date: "%B %-d, %Y" }}</li>
         </ul>
         <ul>
           <li><a href=".">Schema Browser</a></li>
