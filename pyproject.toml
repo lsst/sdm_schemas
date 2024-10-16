@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools", "lsst-versions >= 1.3.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lsst-sdm-schemas"
+description = "Science Data Model (SDM) Schemas for Rubin Observatory"
+license = {text = "GNU General Public License v3 or later (GPLv3+)"}
+readme = "README.md"
+authors = [
+    {name="Rubin Observatory Data Management", email="dm-admin@lists.lsst.org"},
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy"
+]
+keywords = ["lsst"]
+dependencies = [
+    "lsst-felis @ git+http://github.com/lsst/felis.git@main",
+    "click",
+    "pyyaml",
+    "psycopg2",
+    "pymysql",
+    "cryptography"
+]
+requires-python = ">=3.11.0"
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://sdm-schemas.lsst.io"
+Source = "https://github.com/lsst/sdm_schemas"
+
+[project.optional-dependencies]
+test = [
+    "pytest >= 3.2"
+]
+
+[tool.setuptools]
+zip-safe = true
+license-files = ["COPYRIGHT", "LICENSE"]
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools.package-data]
+"lsst.sdm_schemas" = ["schemas/*.yaml"]
