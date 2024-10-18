@@ -67,6 +67,9 @@
         <ul>
             <li><b>Updated:</b> {{ site.time | date: "%B %-d, %Y" }}</li>
         </ul>
+        <label style="margin: 20px;">
+          <input title="Enables table pagination of schema data when checked" type="checkbox" id="toggle-pagination"> Table Pagination
+        </label>
         <ul>
           <li><a href=".">Schema Browser</a></li>
           <ul>
@@ -81,9 +84,6 @@
         <ul>
           <li><a href="/v">Change version</a></li>
         </ul>
-        <label style="margin: 20px;">
-          <input type="checkbox" id="toggle-pagination" checked> Table Pagination
-        </label>
       </nav>
       <div id="content">
         <main class="main-content">
@@ -110,7 +110,7 @@
                 {% for col in table.columns %}
                 <tr id="{{ col['@id'] | remove:'#' }}">
                   <td class="column-name">
-                  {{ col.name }}</a>
+                    <a href="{{ col['@id'] }}">{{ col.name }}</a>
                   </td>
                   <td>{{ col.datatype }}</td>
                   <td>{{ col['ivoa:unit'] | default: col['fits:tunit'] }}</td>
