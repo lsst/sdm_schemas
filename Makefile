@@ -16,8 +16,7 @@ init:
 		echo >&2 "For more information, visit: https://jekyllrb.com/docs/installation"; \
 		exit 1; \
 	}
-	gem install -q --silent --no-verbose jekyll bundler jekyll-theme-cayman jekyll-last-modified-at
-
+	gem install -q --silent --no-verbose jekyll bundler jekyll-theme-cayman
 # Run the web server and watch for changes
 run:
 	jekyll serve --watch
