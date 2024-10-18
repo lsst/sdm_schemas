@@ -12,13 +12,16 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
     <script>
     $(document).ready(function() {
+        var tables = [];
+        var isPaginationEnabled = $('#toggle-pagination').is(':checked');
+
         $('table.schema-table').each(function() {
             var table = $(this);
             var tableName = table.closest('section').find('h2').text().trim();
-            table.DataTable({
-                "pageLength": 10, // Set the default number of entries to show
+            var dataTable = table.DataTable({
+                "pageLength": isPaginationEnabled ? 10 : -1, // Set the default number of entries to show based on checkbox state
                 "order": [[5, 'asc'], [0, 'asc']], // Sort by TAP Column Index and then by Column Name
-                dom: 'Bfrtipl', // Add the buttons to the DataTable
+                dom: isPaginationEnabled ? 'Bfrtipl' : 'Bfrti', // Add the buttons to the DataTable and conditionally include pagination UI elements
                 buttons: [
                     {
                         extend: 'csvHtml5',
@@ -27,6 +30,28 @@
                         }
                     }
                 ]
+            });
+            tables.push(dataTable);
+        });
+
+        $('#toggle-pagination').change(function() {
+            var isChecked = $(this).is(':checked');
+            tables.forEach(function(dataTable) {
+                var table = dataTable.table().node();
+                $(table).DataTable().destroy(); // Destroy the existing DataTable instance
+                $(table).DataTable({
+                    "pageLength": isChecked ? 10 : -1, // Set the default number of entries to show based on checkbox state
+                    "order": [[5, 'asc'], [0, 'asc']], // Sort by TAP Column Index and then by Column Name
+                    dom: isChecked ? 'Bfrtipl' : 'Bfrti', // Add the buttons to the DataTable and conditionally include pagination UI elements
+                    buttons: [
+                        {
+                            extend: 'csvHtml5',
+                            filename: function() {
+                                return $(table).closest('section').find('h2').text().trim();
+                            }
+                        }
+                    ]
+                });
             });
         });
     });
@@ -56,6 +81,9 @@
         <ul>
           <li><a href="/v">Change version</a></li>
         </ul>
+        <label style="margin: 20px;">
+          <input type="checkbox" id="toggle-pagination" checked> Table Pagination
+        </label>
       </nav>
       <div id="content">
         <main class="main-content">
