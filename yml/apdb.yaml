@@ -2802,6 +2802,11 @@ tables:
     datatype: double
     description: Declination of detector center.
     fits:tunit: deg
+  - name: pixelScale
+    '@id': '#DetectorVisitProcessingSummary.pixelScale'
+    datatype: float
+    description: Measured detector pixel scale (arcsec/pixel).
+    fits:tunit:
   - name: zeroPoint
     '@id': '#DetectorVisitProcessingSummary.zeroPoint'
     datatype: float
