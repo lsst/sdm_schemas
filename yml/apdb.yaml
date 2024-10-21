@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "2.0.0"
+version: "2.0.1"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -2802,6 +2802,11 @@ tables:
     datatype: double
     description: Declination of detector center.
     fits:tunit: deg
+  - name: pixelScale
+    '@id': '#DetectorVisitProcessingSummary.pixelScale'
+    datatype: float
+    description: Measured detector pixel scale.
+    fits:tunit: arcsec/pixel
   - name: zeroPoint
     '@id': '#DetectorVisitProcessingSummary.zeroPoint'
     datatype: float
