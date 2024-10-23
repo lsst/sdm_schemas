@@ -1996,9 +1996,8 @@ tables:
   - name: extendedness
     "@id": "#DiaSource.extendedness"
     datatype: float
-    description: A measure of extendedness, Computed using a combination of available
-      moments and model fluxes or from a likelihood ratio of point/trailed source
-      models (exact algorithm TBD). extendedness = 1 implies a high degree of confidence
+    description: A measure of extendedness, computed by comparing an object's moment-based traced radius to
+      the PSF moments. extendedness = 1 implies a high degree of confidence
       that the source is extended. extendedness = 0 implies a high degree of confidence
       that the source is point-like.
   - name: reliability
