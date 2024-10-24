@@ -866,6 +866,21 @@ tables:
     "@id": "#visit1_quicklook.n_inputs"
     datatype: int
     description: Number of CCDs used to compute the visit aggregates.
+  - name: pixel_scale_min
+    "@id": "#visit1_quicklook.pixel_scale_min"
+    datatype: float
+    description: Measured detector pixel scale (minimum across all detectors).
+    ivoa:unit: arcsec/pixel
+  - name: pixel_scale_max
+    "@id": "#visit1_quicklook.pixel_scale_max"
+    datatype: float
+    description: Measured detector pixel scale (maximum across all detectors).
+    ivoa:unit: arcsec/pixel
+  - name: pixel_scale_median
+    "@id": "#visit1_quicklook.pixel_scale_median"
+    datatype: float
+    description: Measured detector pixel scale (median across all detectors).
+    ivoa:unit: arcsec/pixel
   - name: astrom_offset_mean_min
     "@id": "#visit1_quicklook.astrom_offset_mean_min"
     datatype: float
@@ -962,6 +977,30 @@ tables:
     datatype: float
     description: Magnitude limit at fixed SNR (default SNR=5) calculated from exposure summary stats (median across all detectors).
     ivoa:unit: mag
+  - name: psf_ap_flux_delta_min
+    "@id": "#visit1_quicklook.psf_ap_flux_delta_min"
+    datatype: float
+    description: Delta (max - min) of model psf aperture flux (with aperture radius of max(2, 3*psfSigma)) values evaluated on a grid of unmasked pixels (minimum across all detectors).
+  - name: psf_ap_flux_delta_max
+    "@id": "#visit1_quicklook.psf_ap_flux_delta_max"
+    datatype: float
+    description: Delta (max - min) of model psf aperture flux (with aperture radius of max(2, 3*psfSigma)) values evaluated on a grid of unmasked pixels (maximum across all detectors).
+  - name: psf_ap_flux_delta_median
+    "@id": "#visit1_quicklook.psf_ap_flux_delta_median"
+    datatype: float
+    description: Delta (max - min) of model psf aperture flux (with aperture radius of max(2, 3*psfSigma)) values evaluated on a grid of unmasked pixels (median across all detectors).
+  - name: psf_ap_corr_sigma_scaled_delta_min
+    "@id": "#visit1_quicklook.psf_ap_corr_sigma_scaled_delta_min"
+    datatype: float
+    description: Delta (max - min) of psf flux aperture correction factors scaled (divided) by the psfSigma evaluated on a grid of unmasked pixels (minimum across all detectors).
+  - name: psf_ap_corr_sigma_scaled_delta_max
+    "@id": "#visit1_quicklook.psf_ap_corr_sigma_scaled_delta_max"
+    datatype: float
+    description: Delta (max - min) of psf flux aperture correction factors scaled (divided) by the psfSigma evaluated on a grid of unmasked pixels (maximum across all detectors).
+  - name: psf_ap_corr_sigma_scaled_delta_median
+    "@id": "#visit1_quicklook.psf_ap_corr_sigma_scaled_delta_median"
+    datatype: float
+    description: Delta (max - min) of psf flux aperture correction factors scaled (divided) by the psfSigma evaluated on a grid of unmasked pixels (median across all detectors).
   - name: max_dist_to_nearest_psf_min
     "@id": "#visit1_quicklook.max_dist_to_nearest_psf_min"
     datatype: float
@@ -1352,6 +1391,11 @@ tables:
     "@id": "#ccdvisit1_quicklook.seeing_zenith_500nm"
     datatype: double
     description: Measured PSF sigma, corrected to 500nm and an airmass of 1.
+  - name: pixel_scale
+    "@id": "#ccdvisit1_quicklook.pixel_scale"
+    datatype: float
+    description: Measured detector pixel scale.
+    ivoa:unit: arcsec/pixel
   - name: astrom_offset_mean
     "@id": "#ccdvisit1_quicklook.astrom_offset_mean"
     datatype: float
@@ -1444,6 +1488,14 @@ tables:
     datatype: float
     description: Delta (max - min) of model PSF trace radius values evaluated on a grid of unmasked pixels.
     ivoa:unit: pixel
+  - name: psf_ap_flux_delta
+    "@id": "#ccdvisit1_quicklook.psf_ap_flux_delta"
+    datatype: float
+    description: Delta (max - min) of model psf aperture flux (with aperture radius of max(2, 3*psfSigma)) values evaluated on a grid of unmasked pixels.
+  - name: psf_ap_corr_sigma_scaled_delta
+    "@id": "#ccdvisit1_quicklook.psf_ap_corr_sigma_scaled_delta"
+    datatype: float
+    description: Delta (max - min) of psf flux aperture correction factors scaled (divided) by the psfSigma evaluated on a grid of unmasked pixels.
   - name: max_dist_to_nearest_psf
     "@id": "#ccdvisit1_quicklook.max_dist_to_nearest_psf"
     datatype: float
