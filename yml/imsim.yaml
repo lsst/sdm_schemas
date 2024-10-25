@@ -8092,6 +8092,13 @@ tables:
     datatype: boolean
     description: This flag is set if a trailed source contains edge pixels.
     fits:tunit:
+  - name: extendedness
+    "@id": "#DiaSource.extendedness"
+    datatype: double
+    description: A measure of extendedness, computed by comparing an object's moment-based traced radius to
+      the PSF moments. extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
