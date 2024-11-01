@@ -1056,17 +1056,20 @@ tables:
     "@id": "#visit1_quicklook.mean_var_min"
     datatype: float
     description: Mean of the variance plane (minimum across all detectors).
-    ivoa:unit: electron**2
+    ivoa:unit: count**2
+    ivoa:ucd: phot;phys.electron
   - name: mean_var_max
     "@id": "#visit1_quicklook.mean_var_max"
     datatype: float
     description: Mean of the variance plane (maximum across all detectors).
-    ivoa:unit: electron**2
+    ivoa:unit: count**2
+    ivoa:ucd: phot;phys.electron
   - name: mean_var_median
     "@id": "#visit1_quicklook.mean_var_median"
     datatype: float
     description: Mean of the variance plane (median across all detectors).
-    ivoa:unit: electron**2
+    ivoa:unit: count**2
+    ivoa:ucd: phot;phys.electron
   - name: n_psf_star_min
     "@id": "#visit1_quicklook.n_psf_star_min"
     datatype: int
@@ -1271,32 +1274,38 @@ tables:
     "@id": "#visit1_quicklook.sky_bg_min"
     datatype: float
     description: Average sky background (minimum across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: sky_bg_max
     "@id": "#visit1_quicklook.sky_bg_max"
     datatype: float
     description: Average sky background (maximum across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: sky_bg_median
     "@id": "#visit1_quicklook.sky_bg_median"
     datatype: float
     description: Average sky background (median across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: sky_noise_min
     "@id": "#visit1_quicklook.sky_noise_min"
     datatype: float
     description: RMS noise of the sky background (minimum across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: sky_noise_max
     "@id": "#visit1_quicklook.sky_noise_max"
     datatype: float
     description: RMS noise of the sky background (maximum across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: sky_noise_median
     "@id": "#visit1_quicklook.sky_noise_median"
     datatype: float
     description: RMS noise of the sky background (median across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: seeing_zenith_500nm_min
     "@id": "#visit1_quicklook.seeing_zenith_500nm_min"
     datatype: double
@@ -1404,17 +1413,20 @@ tables:
     "@id": "#exposure_quicklook.postisr_pixel_median_median"
     datatype: float
     description: Median postISR pixel value (median across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: postisr_pixel_median_mean
     "@id": "#exposure_quicklook.postisr_pixel_median_mean"
     datatype: float
     description: Median postISR pixel value (mean across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
   - name: postisr_pixel_median_max
     "@id": "#exposure_quicklook.postisr_pixel_median_max"
     datatype: float
     description: Median postISR pixel value (max across all detectors).
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
 - name: ccdvisit1
   "@id": "#ccdvisit1"
   primaryKey:
@@ -1637,4 +1649,5 @@ tables:
     "@id": "#ccdexposure_quicklook.postisr_pixel_median"
     datatype: float
     description: Median postISR pixel value.
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
