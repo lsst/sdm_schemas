@@ -31,6 +31,12 @@ dependencies = [
 requires-python = ">=3.11.0"
 dynamic = ["version"]
 
+[tool.setuptools.dynamic]
+version = { attr = "lsst_versions.get_lsst_version" }
+
+[tool.lsst_versions]
+write_to = "python/lsst/sdm_schemas/version.py"
+
 [project.urls]
 Homepage = "https://sdm-schemas.lsst.io"
 Source = "https://github.com/lsst/sdm_schemas"
