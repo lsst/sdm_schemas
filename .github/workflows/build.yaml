@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
+        with:
+          # Need to clone everything for the git tags.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
