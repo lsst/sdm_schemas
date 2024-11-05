@@ -1,6 +1,21 @@
 #!/bin/bash -ex
 ENVIRONMENT="$1"
-GIT_TAG=`echo $GITHUB_REF | sed -E 's,refs/(heads|tags)/,,' | sed -E 's,/,-,g'`
+
+echo "GITHUB_REF: $GITHUB_REF"
+if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+  # Tag
+  GIT_TAG=$(echo $GITHUB_REF | sed -E 's,refs/tags/,,')
+elif [[ "$GITHUB_REF" == refs/heads/* ]]; then
+  # Branch
+  GIT_TAG=$(echo $GITHUB_REF | sed -E 's,refs/heads/,,')
+elif [[ "$GITHUB_REF" == refs/pull/* ]]; then
+  # Pull Request
+  GIT_TAG=$GITHUB_HEAD_REF
+fi
+
+GIT_TAG=$(echo $GIT_TAG | sed -E 's,/,-,g')
+echo "GIT_TAG: $GIT_TAG"
+
 shift
 
 # Generate SQL files from Felis yaml files
