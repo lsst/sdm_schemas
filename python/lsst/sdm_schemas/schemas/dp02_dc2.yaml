@@ -3,7 +3,7 @@ name: dp02_dc2_catalogs
 "@id": "#dp02_dc2_catalogs"
 description: "Data Preview 0.2 contains the image and catalog products of the Rubin Science
   Pipelines v23 processing of the DESC Data Challenge 2 simulation, which covered 300 square
-  degrees of the wide-fast-deep LSST survey region over 5 years."
+  degrees of the wide-fast-deep LSST survey region over 5 years (dummy change)."
 tables:
 - name: Object
   "@id": "#Object"
@@ -8053,3 +8053,8 @@ tables:
     tap:column_index: 999
     tap:principal: 1
     description: 1 for galaxies, 2 for stars, and 3 for SNe
+  - name: dummy_column
+    '@id': '#TruthSummary.dummy_column'
+    datatype: string
+    length: 256
+    description: Dummy column for schema comparison testing
