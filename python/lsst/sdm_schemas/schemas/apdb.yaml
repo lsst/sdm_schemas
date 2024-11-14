@@ -2051,7 +2051,17 @@ tables:
   - name: pixelFlags_edge
     "@id": "#DiaSource.pixelFlags_edge"
     datatype: boolean
-    description: Some of the source footprint is outside usable exposure region (masked EDGE or NO_DATA, or centroid off image).
+    description: Some of the source footprint is outside usable exposure region (masked EDGE or centroid off image).
+    fits:tunit:
+  - name: pixelFlags_nodata
+    "@id": "#DiaSource.pixelFlags_nodata"
+    datatype: boolean
+    description: NO_DATA pixel in the source footprint.
+    fits:tunit:
+  - name: pixelFlags_nodataCenter
+    "@id": "#DiaSource.pixelFlags_nodataCenter"
+    datatype: boolean
+    description: NO_DATA pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#DiaSource.pixelFlags_interpolated"
