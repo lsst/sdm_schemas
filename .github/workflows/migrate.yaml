@@ -1,0 +1,48 @@
+name: Trigger Database Migrations
+
+on:
+  pull_request:
+  #  types: [closed]
+  #workflow_dispatch:  # Allow manual triggering for testing
+
+jobs:
+  migrate-cdb:
+    runs-on: ubuntu-latest
+    #if: github.event.pull_request.merged == true  # Only trigger on merged PRs
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Fetch main branch
+        run: git fetch origin main
+
+      - name: Set relative path to schema directory
+        run: |
+          echo "SCHEMA_DIR=python/lsst/sdm_schemas/schemas" >> $GITHUB_ENV
+
+      - name: Check for changed cdb schemas
+        run: |
+          CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- ${{ env.SCHEMA_DIR }} | grep -E '^cdb_.*\.yaml$')
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No cdb schema files changed"
+            exit 0
+          fi
+
+      - name: Trigger migration workflow in consdb repository
+        run: |
+          curl -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/lsst-dm/consdb/dispatches \
+          -d '{
+              "event_type": "migration",
+              "client_payload": {
+                "branch_name": "${{ github.head_ref }}",
+                "commit_sha": "${{ github.event.pull_request.merge_commit_sha }}"
+              }
+          }'
