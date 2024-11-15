@@ -1293,3 +1293,6 @@ tables:
     datatype: float
     description: Maximum distance of an unmasked pixel to its nearest model PSF star.
     ivoa:unit: pixel
+  - name: test_cdb_migrate
+    datatype: string
+    description: Test cdb migration by adding column
