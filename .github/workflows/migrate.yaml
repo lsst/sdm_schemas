@@ -27,14 +27,17 @@ jobs:
 
       - name: Check for changed cdb schemas  # TODO: Use 'felis diff -c alembic' when available
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- ${{ env.SCHEMA_DIR }} \
-            | xargs basename \
-            | grep -E '^cdb_.*\.yaml$')
-          echo "Changed cdb schema files: $CHANGED_FILES"
+          CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- ${{ env.SCHEMA_DIR }})
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No schema files changed"
+            exit 0
+          fi
+          CHANGED_FILES=$(echo $CHANGED_FILES | xargs basename | grep -E '^cdb_.*\.yaml$')
           if [ -z "$CHANGED_FILES" ]; then
             echo "No cdb schema files changed"
             exit 0
           fi
+          echo "Changed cdb schema files: $CHANGED_FILES"
 
       - name: Trigger migration workflow in consdb repository
         run: |
