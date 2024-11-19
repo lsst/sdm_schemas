@@ -293,41 +293,6 @@ tables:
     length: 1024
     description: Sky region in STC-S format (https://www.ivoa.net/documents/STC-S/20130917/index.html).
     ivoa:ucd: pos.outline;obs.field
-  - name: mount_motion_image_degradation
-    "@id": "#exposure.mount_motion_image_degradation"
-    datatype: float
-    ivoa:unit: arcsec
-    description: Image degradation due to mount motion.
-  - name: mount_motion_image_degradation_az
-    "@id": "#exposure.mount_motion_image_degradation_az"
-    datatype: float
-    ivoa:unit: arcsec
-    description: Image degradation due to mount motion in azimuth.
-  - name: mount_motion_image_degradation_rot
-    "@id": "#exposure.mount_motion_image_degradation_rotator"
-    datatype: float
-    ivoa:unit: arcsec
-    description: Image degradation due to rotator jitter.
-  - name: mount_jitter_rms
-    "@id": "#exposure.mount_jitter_rms"
-    datatype: float
-    ivoa:unit: arcsec
-    description: RMS mount jitter.
-  - name: mount_jitter_rms_az
-    "@id": "#exposure.mount_jitter_rms_az"
-    datatype: float
-    ivoa:unit: arcsec
-    description: Azimuth RMS mount jitter.
-  - name: mount_jitter_rms_el
-    "@id": "#exposure.mount_jitter_rms_el"
-    datatype: float
-    ivoa:unit: arcsec
-    description: Elevation RMS mount jitter.
-  - name: mount_jitter_rms_rot
-    "@id": "#exposure.mount_jitter_rms_rotator"
-    datatype: float
-    ivoa:unit: arcsec
-    description: Rotator RMS mount jitter.
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
   primaryKey:
@@ -1427,6 +1392,41 @@ tables:
     description: Median postISR pixel value (max across all detectors).
     ivoa:unit: count
     ivoa:ucd: phot;phys.electron
+  - name: mount_motion_image_degradation
+    "@id": "#exposure_quicklook.mount_motion_image_degradation"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion.
+  - name: mount_motion_image_degradation_az
+    "@id": "#exposure_quicklook.mount_motion_image_degradation_az"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion in azimuth.
+  - name: mount_motion_image_degradation_rot
+    "@id": "#exposure_quicklook.mount_motion_image_degradation_rotator"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to rotator jitter.
+  - name: mount_jitter_rms
+    "@id": "#exposure_quicklook.mount_jitter_rms"
+    datatype: float
+    ivoa:unit: arcsec
+    description: RMS mount jitter.
+  - name: mount_jitter_rms_az
+    "@id": "#exposure_quicklook.mount_jitter_rms_az"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Azimuth RMS mount jitter.
+  - name: mount_jitter_rms_el
+    "@id": "#exposure_quicklook.mount_jitter_rms_el"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Elevation RMS mount jitter.
+  - name: mount_jitter_rms_rot
+    "@id": "#exposure_quicklook.mount_jitter_rms_rotator"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Rotator RMS mount jitter.
 - name: ccdvisit1
   "@id": "#ccdvisit1"
   primaryKey:
