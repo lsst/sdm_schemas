@@ -36,7 +36,7 @@ jobs:
           uv pip install --system -r requirements.txt
         shell: bash
 
-      - name: Compare PR branch to main
+      - name: Compare PR to main
         working-directory: ${{ github.workspace }}/pr
         run: |
           CHANGED_FILES=()
