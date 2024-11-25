@@ -33,8 +33,12 @@ jobs:
 
       - name: Print branch name and commit SHA
         run: |
-          echo "Branch name: ${{ github.ref }}"
-          echo "Commit SHA: ${{ github.sha }}"
+          BRANCH_NAME=$(git log -1 --pretty=%d ${{ github.event.before }} | grep -o 'origin/[^,)]*' | sed 's|origin/||')
+          COMMIT_SHA=${{ github.sha }}
+          echo "Branch name: ${BRANCH_NAME}"
+          echo "Commit SHA: ${COMMIT_SHA}"
+          echo BRANCH_NAME=${BRANCH_NAME} >> $GITHUB_ENV
+          echo COMMIT_SHA=${COMMIT_SHA} >> $GITHUB_ENV
 
       - name: Trigger migration workflow in consdb repository
         uses: peter-evans/repository-dispatch@v3
@@ -42,4 +46,4 @@ jobs:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
           repository: JeremyMcCormick/consdb-dm-47507
           event-type: migration
-          client-payload: '{"branch_name": "${{ github.head_ref }}", "commit_sha": "${{ github.sha }}"}'
+          client-payload: '{"branch_name": "${BRANCH_NAME}", "commit_sha": "${COMMIT_SHA}"}'
