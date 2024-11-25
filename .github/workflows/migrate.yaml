@@ -42,14 +42,21 @@ jobs:
           CHANGED_FILES=()
           for schema_file in python/lsst/sdm_schemas/schemas/cdb_*.yaml; do
             echo "Checking schema file $schema_file"
-            diff_results=$(felis diff $schema_file ../main/python/lsst/sdm_schemas/schemas/$(basename $schema_file))
-            echo "$diff_results"
-            if [ $? -ne 0 ]; then
+            MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $schema_file)
+            if [ -f "$MAIN_FILE" ]; then
+              echo "Comparing $schema_file to $MAIN_FILE"
+              diff_results=$(felis diff $schema_file $MAIN_FILE)
+              echo "$diff_results"
+              if [ $? -ne 0 ]; then
                 echo "Error running felis diff on $schema_file"
                 exit 1
-            fi
-            if [ -n "$diff_results" ]; then
-              echo "Schema file $schema_file has changed"
+              fi
+              if [ -n "$diff_results" ]; then
+                echo "Schema file $schema_file has changed"
+                CHANGED_FILES+=($schema_file)
+              fi
+            else
+              echo "Schema file $schema_file is new"
               CHANGED_FILES+=($schema_file)
             fi
           done
