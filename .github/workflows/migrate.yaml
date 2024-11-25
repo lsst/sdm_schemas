@@ -2,20 +2,20 @@ name: Trigger Database Migrations
 
 on:
   pull_request:
-#    types: [closed]
+    types: [closed]
 
 jobs:
   migrate-cdb:
     runs-on: ubuntu-latest
-#    if: github.event.pull_request.merged == true  # Only trigger on merged PRs
+    if: github.event.pull_request.merged == true  # Only trigger on merged PRs
 
     steps:
 
-      - name: Checkout branch repo
+      - name: Checkout PR repo
         uses: actions/checkout@v4
         with:
-          path: branch
-          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          path: pr
 
       - name: Checkout main repo
         uses: actions/checkout@v4
@@ -30,35 +30,33 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        working-directory: ${{ github.workspace }}/branch
+        working-directory: ${{ github.workspace }}/pr
         run: |
           python -m pip install --upgrade pip uv
           uv pip install --system -r requirements.txt
         shell: bash
 
-      - name: Compare branch to main
-        working-directory: ${{ github.workspace }}/branch
+      - name: Compare PR branch to main
+        working-directory: ${{ github.workspace }}/pr
         run: |
           CHANGED_FILES=()
-          for schema_file in python/lsst/sdm_schemas/schemas/cdb_*.yaml; do
-            echo "Checking schema file $schema_file"
-            MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $schema_file)
+          for SCHEMA_FILE in python/lsst/sdm_schemas/schemas/cdb_*.yaml; do
+            MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $SCHEMA_FILE)
             if [ -f "$MAIN_FILE" ]; then
-              echo "Comparing $schema_file to $MAIN_FILE"
-              felis diff --comparator alembic $schema_file $MAIN_FILE # DEBUG
-              diff_results=$(felis diff --comparator alembic $schema_file $MAIN_FILE)
-              echo "$diff_results"
+              echo "Comparing $MAIN_FILE to $SCHEMA_FILE"
+              DIFF_RESULTS=$(felis diff --comparator alembic $MAIN_FILE $SCHEMA_FILE)
               if [ $? -ne 0 ]; then
-                echo "Error running felis diff on $schema_file"
+                echo "Error running felis diff on $SCHEMA_FILE"
                 exit 1
               fi
-              if [ -n "$diff_results" ]; then
-                echo "Schema file $schema_file has changed"
-                CHANGED_FILES+=($schema_file)
+              echo "$DIFF_RESULTS"
+              if [ -n "$DIFF_RESULTS" ]; then
+                echo "Schema file $SCHEMA_FILE has changed"
+                CHANGED_FILES+=($SCHEMA_FILE)
               fi
             else
-              echo "Schema file $schema_file is new"
-              CHANGED_FILES+=($schema_file)
+              echo "Schema file $SCHEMA_FILE is new"
+              CHANGED_FILES+=($SCHEMA_FILE)
             fi
           done
           if [ ${#CHANGED_FILES[@]} -eq 0 ]; then
@@ -68,31 +66,14 @@ jobs:
             echo "Changed schema files: ${CHANGED_FILES[@]}"
           fi
 
-      #- name: Check for changed cdb schemas
-      #  run: |
-      #    CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- python/lsst/sdm_schemas/schemas)
-      #    echo "Changed files: $CHANGED_FILES"
-      #    if [ -z "$CHANGED_FILES" ]; then
-      #      echo "No schema files changed"
-      #      exit 0
-      #    fi
-      #    CHANGED_FILES=$(echo $CHANGED_FILES | grep -E '/cdb_.*\.yaml$')
-      #    echo "Changed cdb schema files: $CHANGED_FILES"
-      #    if [ -z "$CHANGED_FILES" ]; then
-      #      echo "No cdb schema files changed"
-      #      exit 0
-      #    fi
-      #    echo "Changed cdb schema files: $CHANGED_FILES"
-
-      - name: Exit for testing
-        run: |
-          echo "Bye!"
-          exit 0
-
       - name: Trigger migration workflow in consdb repository
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
           repository: JeremyMcCormick/consdb-dm-47507
           event-type: migration
-          client-payload: '{"branch_name": "${{ github.head_ref }}", "commit_sha": "${{ github.event.pull_request.merge_commit_sha }}"}'
+          client-payload: |
+            {
+              "branch_name": "${{ github.event.pull_request.head.ref }}",
+              "commit_sha": "${{ github.event.pull_request.merge_commit_sha }}"
+            }
