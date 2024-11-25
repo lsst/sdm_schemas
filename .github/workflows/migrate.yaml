@@ -18,13 +18,14 @@ jobs:
 
       - name: Check for changed cdb schemas  # TODO: Use 'felis diff -c alembic' when available (DM-46130)
         run: |
-          git fetch origin main
           CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- python/lsst/sdm_schemas/schemas)
+          echo "Changed files: $CHANGED_FILES"
           if [ -z "$CHANGED_FILES" ]; then
             echo "No schema files changed"
             exit 0
           fi
           CHANGED_FILES=$(echo $CHANGED_FILES | grep -E '/cdb_.*\.yaml$')
+          echo "Changed cdb schema files: $CHANGED_FILES"
           if [ -z "$CHANGED_FILES" ]; then
             echo "No cdb schema files changed"
             exit 0
