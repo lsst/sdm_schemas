@@ -30,6 +30,9 @@ jobs:
           cd main
           git fetch origin main
           git reset --hard ${{ github.event.before }}
+          echo "Reset main to commit ${{ github.event.before }}"
+          echo "Last commit:"
+          git log -1 --pretty=format:"%s"
 
       - name: Setup Python
         uses: actions/setup-python@v5
