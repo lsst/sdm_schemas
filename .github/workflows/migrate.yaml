@@ -48,4 +48,4 @@ jobs:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
           repository: JeremyMcCormick/consdb-dm-47507
           event-type: migration
-          client-payload: '{"branch_name": "${BRANCH_NAME}", "commit_sha": "${COMMIT_SHA}"}'
+          client-payload: '{"branch_name": "${{ env.BRANCH_NAME }}", "commit_sha": "${{ env.COMMIT_SHA }}"}'
