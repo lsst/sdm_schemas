@@ -11,17 +11,37 @@ jobs:
 
     steps:
 
+      - name: Check for required SHA values
+        run: |
+          if [ -z "${{ github.event.pull_request.base.sha }}" ] || [ -z "${{ github.event.pull_request.merge_commit_sha }}" ]; then
+            echo "Error: Missing required SHA values in event payload."
+            exit 1
+          fi
+
       - name: Checkout PR repo
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
           path: pr
+          fetch-depth: 0
 
       - name: Checkout main repo
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.base.sha }}
           path: main
+          fetch-depth: 0
+
+      - name: Check for cdb schema changes using git diff
+        working-directory: ${{ github.workspace }}/pr
+        run: |
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.merge_commit_sha }} -- python/lsst/sdm_schemas/schemas/cdb_*.yaml)
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No cdb schema files changed"
+            exit 0
+          else
+            echo "Changed cdb schema files: $CHANGED_FILES"
+          fi
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -37,7 +57,7 @@ jobs:
           uv pip install --system -r requirements.txt
         shell: bash
 
-      - name: Compare PR to main
+      - name: Check for cdb changes requiring a migration
         working-directory: ${{ github.workspace }}/pr
         run: |
           CHANGED_FILES=()
