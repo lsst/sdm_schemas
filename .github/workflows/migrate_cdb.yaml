@@ -32,6 +32,7 @@ jobs:
       - name: Install dependencies
         working-directory: ${{ github.workspace }}/pr
         run: |
+          set -e
           python -m pip install --upgrade pip uv
           uv pip install --system -r requirements.txt
         shell: bash
