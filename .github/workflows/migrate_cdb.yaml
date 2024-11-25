@@ -93,7 +93,7 @@ jobs:
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
-          repository: JeremyMcCormick/consdb-dm-47507
+          repository: lsst-dm/consdb
           event-type: migration
           # Pass the branch name and commit SHA of the merged PR to the consdb migration workflow
           client-payload: |
