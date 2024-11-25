@@ -29,9 +29,9 @@ jobs:
         run: |
           cd main
           git fetch origin main
-          git reset --hard ${{ github.event.before }}
-          echo "Reset main to commit ${{ github.event.before }}"
-          echo "Last commit:"
+          git reset --hard ${{ github.event.pull_request.base.sha }}
+          echo "Reset main to commit ${{ github.event.pull_request.base.sha }}"
+          echo "Last commit message:"
           git log -1 --pretty=format:"%s"
 
       - name: Setup Python
