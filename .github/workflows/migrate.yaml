@@ -2,12 +2,12 @@ name: Trigger Database Migrations
 
 on:
   pull_request:
-    types: [closed]
+#    types: [closed]
 
 jobs:
   migrate-cdb:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true  # Only trigger on merged PRs
+    # if: github.event.pull_request.merged == true  # Only trigger on merged PRs
 
     steps:
 
