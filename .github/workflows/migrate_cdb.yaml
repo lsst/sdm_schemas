@@ -64,7 +64,7 @@ jobs:
           CHANGED_FILES=()
           while IFS= read -r SCHEMA_FILE; do
             echo "Checking $SCHEMA_FILE"
-            MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $SCHEMA_FILE)
+            MAIN_FILE=../main/$SCHEMA_FILE
             if [ -f "$MAIN_FILE" ]; then
               echo "Comparing $MAIN_FILE to $SCHEMA_FILE"
               DIFF_RESULTS=$(felis diff --comparator alembic $MAIN_FILE $SCHEMA_FILE)
