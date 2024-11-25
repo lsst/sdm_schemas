@@ -14,14 +14,22 @@ jobs:
       - name: Checkout PR repo
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.head_ref }}
           path: pr
+          fetch-path: 0
 
       - name: Checkout main repo
         uses: actions/checkout@v4
         with:
           path: main
           ref: main
+          fetch-depth: 0
+
+      - name: Reset main to commit before merge
+        run: |
+          cd main
+          git fetch origin main
+          git reset --hard ${{ github.event.before }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
