@@ -35,12 +35,12 @@ jobs:
       - name: Check for any cdb schema changes using git diff
         working-directory: ${{ github.workspace }}/pr
         run: |
-          CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.merge_commit_sha }} -- python/lsst/sdm_schemas/schemas/cdb_*.yaml)
-          if [ -z "$CHANGED_FILES" ]; then
+          DIFF_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.merge_commit_sha }} -- python/lsst/sdm_schemas/schemas/cdb_*.yaml)
+          if [ -z "$DIFF_FILES" ]; then
             echo "No cdb schema files changed"
             exit 0
           else
-            echo "Changed cdb schema files: $CHANGED_FILES"
+            echo "Changed cdb schema files: $DIFF_FILES"
           fi
 
       - name: Setup Python
@@ -61,7 +61,7 @@ jobs:
         working-directory: ${{ github.workspace }}/pr
         run: |
           CHANGED_FILES=()
-          for SCHEMA_FILE in python/lsst/sdm_schemas/schemas/cdb_*.yaml; do
+          for SCHEMA_FILE in ${DIFF_FILES}; do
             MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $SCHEMA_FILE)
             if [ -f "$MAIN_FILE" ]; then
               echo "Comparing $MAIN_FILE to $SCHEMA_FILE"
@@ -93,6 +93,7 @@ jobs:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
           repository: JeremyMcCormick/consdb-dm-47507
           event-type: migration
+          # Pass the branch name and commit SHA of the merged PR to the consdb migration workflow
           client-payload: |
             {
               "branch_name": "${{ github.event.pull_request.head.ref }}",
