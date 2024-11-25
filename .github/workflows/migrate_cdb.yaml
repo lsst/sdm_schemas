@@ -41,8 +41,8 @@ jobs:
             exit 0
           else
             echo "Changed cdb schema files: $DIFF_FILES"
+            echo "$DIFF_FILES" > diff_files.txt
           fi
-          echo "DIFF_FILES=$DIFF_FILES" >> $GITHUB_ENV
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -62,7 +62,7 @@ jobs:
         working-directory: ${{ github.workspace }}/pr
         run: |
           CHANGED_FILES=()
-          for SCHEMA_FILE in ${{ env.DIFF_FILES }}; do
+          while IFS= read -r SCHEMA_FILE; do
             MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $SCHEMA_FILE)
             if [ -f "$MAIN_FILE" ]; then
               echo "Comparing $MAIN_FILE to $SCHEMA_FILE"
@@ -80,7 +80,7 @@ jobs:
               echo "Schema file $SCHEMA_FILE is new"
               CHANGED_FILES+=($SCHEMA_FILE)
             fi
-          done
+          done < diff_files.txt
           if [ ${#CHANGED_FILES[@]} -eq 0 ]; then
             echo "No cdb schema files changed"
             exit 0
