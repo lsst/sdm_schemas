@@ -41,14 +41,15 @@ jobs:
         run: |
           CHANGED_FILES=()
           for schema_file in python/lsst/sdm_schemas/schemas/cdb_*.yaml; do
+            echo "Checking schema file $schema_file"
             diff_results=$(felis diff $schema_file ../main/python/lsst/sdm_schemas/schemas/$(basename $schema_file))
+            echo "$diff_results"
             if [ $? -ne 0 ]; then
                 echo "Error running felis diff on $schema_file"
                 exit 1
             fi
             if [ -n "$diff_results" ]; then
               echo "Schema file $schema_file has changed"
-              echo "$diff_results"
               CHANGED_FILES+=($schema_file)
             fi
           done
