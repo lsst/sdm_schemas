@@ -35,7 +35,8 @@ jobs:
       - name: Print branch name and commit SHA
         run: |
           BRANCH_NAME=${{ github.head_ref }}
-          COMMIT_SHA=${{ github.event.pull_request.merge_commit_sha }}
+          # COMMIT_SHA=${{ github.event.pull_request.merge_commit_sha }}
+          COMMIT_SHA=${{ github.event.pull_request.head.sha }}
           echo "Branch name: ${BRANCH_NAME}"
           echo "Commit SHA: ${COMMIT_SHA}"
           echo BRANCH_NAME=${BRANCH_NAME} >> $GITHUB_ENV
