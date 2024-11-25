@@ -21,7 +21,7 @@ jobs:
       - name: Checkout PR repo
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
           path: pr
           fetch-depth: 0
 
