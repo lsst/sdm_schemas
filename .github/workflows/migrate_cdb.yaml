@@ -32,7 +32,7 @@ jobs:
           path: main
           fetch-depth: 0
 
-      - name: Check for any cdb schema changes using git diff
+      - name: Check for cdb schema changes using git diff
         working-directory: ${{ github.workspace }}/pr
         run: |
           DIFF_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.merge_commit_sha }} -- python/lsst/sdm_schemas/schemas/cdb_*.yaml)
@@ -42,6 +42,7 @@ jobs:
           else
             echo "Changed cdb schema files: $DIFF_FILES"
           fi
+          echo "DIFF_FILES=$DIFF_FILES" >> $GITHUB_ENV
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -57,11 +58,11 @@ jobs:
           uv pip install --system -r requirements.txt
         shell: bash
 
-      - name: Check for cdb changes requiring a migration
+      - name: Check for cdb changes that require a migration
         working-directory: ${{ github.workspace }}/pr
         run: |
           CHANGED_FILES=()
-          for SCHEMA_FILE in ${DIFF_FILES}; do
+          for SCHEMA_FILE in ${{ env.DIFF_FILES }}; do
             MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $SCHEMA_FILE)
             if [ -f "$MAIN_FILE" ]; then
               echo "Comparing $MAIN_FILE to $SCHEMA_FILE"
