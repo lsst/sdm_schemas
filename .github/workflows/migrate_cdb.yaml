@@ -63,6 +63,7 @@ jobs:
         run: |
           CHANGED_FILES=()
           while IFS= read -r SCHEMA_FILE; do
+            echo "Checking $SCHEMA_FILE"
             MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $SCHEMA_FILE)
             if [ -f "$MAIN_FILE" ]; then
               echo "Comparing $MAIN_FILE to $SCHEMA_FILE"
