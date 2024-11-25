@@ -2,45 +2,77 @@ name: Trigger Database Migrations
 
 on:
   pull_request:
-#    types: [closed]
+    types: [closed]
 
 jobs:
   migrate-cdb:
     runs-on: ubuntu-latest
-    # if: github.event.pull_request.merged == true  # Only trigger on merged PRs
+    if: github.event.pull_request.merged == true  # Only trigger on merged PRs
 
     steps:
 
-      - name: Checkout code
+      - name: Checkout branch repo
         uses: actions/checkout@v4
         with:
+          path: branch
           fetch-depth: 0
 
-      - name: Check for changed cdb schemas  # TODO: Use 'felis diff -c alembic' when available (DM-46130)
+      - name: Checkout main repo
+        uses: actions/checkout@v4
+        with:
+          path: main
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- python/lsst/sdm_schemas/schemas)
-          echo "Changed files: $CHANGED_FILES"
-          if [ -z "$CHANGED_FILES" ]; then
+          python -m pip install --upgrade pip uv
+          uv pip install --system -r requirements.txt
+        shell: bash
+
+      - name: Compare branch to main
+        working-directory: ${{ github.workspace }}/branch
+        run: |
+          CHANGED_FILES=()
+          for schema_file in python/lsst/sdm_schemas/schemas/cdb_*.yaml; do
+            diff_results=$(felis diff $schema_file ../main/python/lsst/sdm_schemas/schemas/$(basename $schema_file))
+            if [ $? -ne 0 ]; then
+                echo "Error running felis diff on $schema_file"
+                exit 1
+            fi
+            if [ -n "$diff_results" ]; then
+              echo "Schema file $schema_file has changed"
+              echo "$diff_results"
+              CHANGED_FILES+=($schema_file)
+            fi
+          done
+          if [ ${#CHANGED_FILES[@]} -eq 0 ]; then
             echo "No schema files changed"
             exit 0
+          else
+            echo "Changed schema files: ${CHANGED_FILES[@]}"
           fi
-          CHANGED_FILES=$(echo $CHANGED_FILES | grep -E '/cdb_.*\.yaml$')
-          echo "Changed cdb schema files: $CHANGED_FILES"
-          if [ -z "$CHANGED_FILES" ]; then
-            echo "No cdb schema files changed"
-            exit 0
-          fi
-          echo "Changed cdb schema files: $CHANGED_FILES"
 
-      - name: Get the branch name and commit SHA
-        run: |
-          BRANCH_NAME=${{ github.head_ref }}
-          # COMMIT_SHA=${{ github.event.pull_request.merge_commit_sha }}
-          COMMIT_SHA=${{ github.event.pull_request.head.sha }}
-          echo "Branch name: ${BRANCH_NAME}"
-          echo "Commit SHA: ${COMMIT_SHA}"
-          echo BRANCH_NAME=${BRANCH_NAME} >> $GITHUB_ENV
-          echo COMMIT_SHA=${COMMIT_SHA} >> $GITHUB_ENV
+      #- name: Check for changed cdb schemas
+      #  run: |
+      #    CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- python/lsst/sdm_schemas/schemas)
+      #    echo "Changed files: $CHANGED_FILES"
+      #    if [ -z "$CHANGED_FILES" ]; then
+      #      echo "No schema files changed"
+      #      exit 0
+      #    fi
+      #    CHANGED_FILES=$(echo $CHANGED_FILES | grep -E '/cdb_.*\.yaml$')
+      #    echo "Changed cdb schema files: $CHANGED_FILES"
+      #    if [ -z "$CHANGED_FILES" ]; then
+      #      echo "No cdb schema files changed"
+      #      exit 0
+      #    fi
+      #    echo "Changed cdb schema files: $CHANGED_FILES"
 
       - name: Trigger migration workflow in consdb repository
         uses: peter-evans/repository-dispatch@v3
@@ -48,4 +80,4 @@ jobs:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
           repository: JeremyMcCormick/consdb-dm-47507
           event-type: migration
-          client-payload: '{"branch_name": "${{ env.BRANCH_NAME }}", "commit_sha": "${{ env.COMMIT_SHA }}"}'
+          client-payload: '{"branch_name": "${{ github.head_ref }}", "commit_sha": "${{ github.event.pull_request.merge_commit_sha }}"}'
