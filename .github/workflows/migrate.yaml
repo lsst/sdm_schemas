@@ -2,12 +2,12 @@ name: Trigger Database Migrations
 
 on:
   pull_request:
-    types: [closed]
+#    types: [closed]
 
 jobs:
   migrate-cdb:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true  # Only trigger on merged PRs
+#    if: github.event.pull_request.merged == true  # Only trigger on merged PRs
 
     steps:
 
@@ -45,7 +45,8 @@ jobs:
             MAIN_FILE=../main/python/lsst/sdm_schemas/schemas/$(basename $schema_file)
             if [ -f "$MAIN_FILE" ]; then
               echo "Comparing $schema_file to $MAIN_FILE"
-              diff_results=$(felis diff $schema_file $MAIN_FILE)
+              felis diff --comparator alembic $schema_file $MAIN_FILE # DEBUG
+              diff_results=$(felis diff --comparator alembic $schema_file $MAIN_FILE)
               echo "$diff_results"
               if [ $? -ne 0 ]; then
                 echo "Error running felis diff on $schema_file"
@@ -82,6 +83,11 @@ jobs:
       #      exit 0
       #    fi
       #    echo "Changed cdb schema files: $CHANGED_FILES"
+
+      - name: Exit for testing
+        run: |
+          echo "Bye!"
+          exit 0
 
       - name: Trigger migration workflow in consdb repository
         uses: peter-evans/repository-dispatch@v3
