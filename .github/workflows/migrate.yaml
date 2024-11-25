@@ -1,0 +1,44 @@
+name: Trigger Database Migrations
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  migrate-cdb:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for changed cdb schemas  # TODO: Use 'felis diff -c alembic' when available (DM-46130)
+        run: |
+          CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- python/lsst/sdm_schemas/schemas)
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No schema files changed"
+            exit 0
+          fi
+          CHANGED_FILES=$(echo $CHANGED_FILES | grep -E '/cdb_.*\.yaml$')
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No cdb schema files changed"
+            exit 0
+          fi
+          echo "Changed cdb schema files: $CHANGED_FILES"
+
+      - name: Print branch name and commit SHA
+        run: |
+          echo "Branch name: ${{ github.head_ref }}"
+          echo "Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
+
+      - name: Trigger migration workflow in consdb repository
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.REPO_DISPATCH_TOKEN }}
+          repository: JeremyMcCormick/consdb-dm-47507
+          event-type: migration
+          client-payload: '{"branch_name": "${{ github.head_ref }}", "commit_sha": "${{ github.event.pull_request.merge_commit_sha }}"}'
