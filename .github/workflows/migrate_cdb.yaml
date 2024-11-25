@@ -60,10 +60,10 @@ jobs:
             fi
           done
           if [ ${#CHANGED_FILES[@]} -eq 0 ]; then
-            echo "No schema files changed"
+            echo "No cdb schema files changed"
             exit 0
           else
-            echo "Changed schema files: ${CHANGED_FILES[@]}"
+            echo "Changed cdb schema files: ${CHANGED_FILES[@]}"
           fi
 
       - name: Trigger migration workflow in consdb repository
