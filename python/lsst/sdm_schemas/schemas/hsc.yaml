@@ -5653,11 +5653,6 @@ tables:
     datatype: boolean
     description: Set if source was used in astrometric calibration
     fits:tunit:
-  - name: calib_detected
-    "@id": "#Source.calib_detected"
-    datatype: boolean
-    description: Source was detected as an icSource
-    fits:tunit:
   - name: calib_photometry_reserved
     "@id": "#Source.calib_photometry_reserved"
     datatype: boolean
