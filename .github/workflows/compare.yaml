@@ -1,0 +1,92 @@
+name: Compare Schemas for Changes
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+  pull_request:
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          path: current-ref
+
+      - name: Fetch origin main
+        working-directory: current-ref
+        run: git fetch origin main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        working-directory: current-ref
+        run: |
+          python -m pip install --upgrade pip uv
+          uv pip install --system -r requirements.txt
+
+      - name: Set relative path to schema directory
+        run: |
+          echo "SCHEMA_DIR=python/lsst/sdm_schemas/schemas" >> $GITHUB_ENV
+
+      - name: Get list of changed YAML files
+        working-directory: current-ref
+        run: |
+          CHANGED_FILES=$(git diff --name-only origin/main..HEAD -- ${{ env.SCHEMA_DIR }} | grep '\.yaml$')
+          CHANGED_FILES=$(echo "$CHANGED_FILES" | sed "s|^${{ env.SCHEMA_DIR }}/||")
+          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+
+      - name: Check out main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-branch
+
+      - name: Run schema comparison with deepdiff
+        run: |
+          for file in ${{ env.CHANGED_FILES }}; do
+            echo "Comparing $file..."
+            MAIN_FILE=main-branch/${{ env.SCHEMA_DIR }}/$file
+            CURRENT_FILE=current-ref/${{ env.SCHEMA_DIR }}/$file
+            felis --log-level ERROR diff -c deepdiff $MAIN_FILE $CURRENT_FILE
+          done
+
+      - name: Run schema comparison with alembic
+        run: |
+          for file in ${{ env.CHANGED_FILES }}; do
+            echo "Comparing $file..."
+            MAIN_FILE=main-branch/${{ env.SCHEMA_DIR }}/$file
+            CURRENT_FILE=current-ref/${{ env.SCHEMA_DIR }}/$file
+            felis --log-level ERROR diff -c alembic $MAIN_FILE $CURRENT_FILE
+          done
+
+      - name: Run schema comparison on deployed schemas
+        run: |
+          ERROR_FLAG=0
+          DEPLOYED_SCHEMAS=$(cat current-ref/yml/deployed-schemas.txt)
+          for file in ${{ env.CHANGED_FILES }}; do
+            if echo "$DEPLOYED_SCHEMAS" | grep -q "^$file$"; then
+              echo "Comparing $file..."
+              MAIN_FILE=main-branch/${{ env.SCHEMA_DIR }}/$file
+              CURRENT_FILE=current-ref/${{ env.SCHEMA_DIR }}/$file
+              if ! felis --log-level ERROR diff -E -c alembic $MAIN_FILE $CURRENT_FILE; then
+                echo "Error comparing $file"
+                ERROR_FLAG=1
+              fi
+            else
+              echo "Skipping $file (not in DEPLOYED.txt)"
+            fi
+          done
+          if [ $ERROR_FLAG -ne 0 ]; then
+            echo "One or more schemas was changed."
+            exit 1
+          fi
