@@ -1,4 +1,4 @@
-name: Validate SDM schemas using Felis
+name: Validate Schemas
 
 on: [push, workflow_dispatch]
 
@@ -8,18 +8,10 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.12"
-          cache: "pip"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip uv
-          uv pip install --system -r requirements.txt
+      - name: Setup Python and install dependencies
+        uses: ./.github/actions/setup-test-environment
 
       - name: Validate YAML files
         run: felis validate --check-redundant-datatypes ./yml/*.yaml
