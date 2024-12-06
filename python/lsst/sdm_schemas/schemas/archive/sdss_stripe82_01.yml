@@ -985,8 +985,8 @@ tables:
     "@id": "#RunDeepSource.calib_detected"
     datatype: boolean
     mysql:datatype: BIT(1)
-  - name: flags_negative
-    "@id": "#RunDeepSource.flags_negative"
+  - name: is_negative
+    "@id": "#RunDeepSource.is_negative"
     datatype: boolean
     mysql:datatype: BIT(1)
   - name: deblend_nchild
