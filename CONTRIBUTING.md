@@ -37,23 +37,6 @@ The following generic guidelines can be used for this versioning scheme:
 
 Exactly how these versions are used and incremented is typically schema-dependent, and the [specific schema documentation](#specific-schema-documentation) should be consulted for those rules and guidelines.
 
-Typical Schema Changes
-----------------------
-
-Here are some guidelines for incrementing the version number based on what changes are being performed:
-
-| Change | Increment | Notes |
-|--------|-----------|-------|
-| Adding a table | `MAJOR` | Clients will want to access the new table, so this is backward incompatible.
-| Adding a column | `MAJOR` | Clients will want to access the new column, so this is incompatible with the existing schema.|
-| Removing a column | `MINOR` | Clients should not care about a missing column, so this should be backward compatible.|
-| Changing column type | `MINOR` or `PATCH` | This may not be backward compatible depending on client implementation, so the version should be changed accordingly.
-| Adding an index | `PATCH` | This should be fully backward compatible.|
-| Adding a constraint | `PATCH` | This should be fully backward compatible.|
-| Changing object metadata | - | This does not affect the database schema and should not require a version change.|
-
-Documentation for specific schemas may supercede or augment the above guidelines.
-
 Database Migration
 ------------------
 
