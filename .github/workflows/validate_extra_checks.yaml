@@ -1,0 +1,24 @@
+name: Validate Schemas with Extra Checks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate-extra-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python and install dependencies
+        uses: ./.github/actions/setup-test-environment
+
+      - name: Validate YAML files with extra checks
+        run: |
+          felis validate \
+            --check-description \
+            --check-redundant-datatypes \
+            --check-tap-table-indexes \
+            --check-tap-principal \
+            ./yml/*.yaml
