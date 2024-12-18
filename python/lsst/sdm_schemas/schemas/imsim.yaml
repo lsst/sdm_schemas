@@ -6345,46 +6345,6 @@ tables:
     datatype: double
     description: Moments-based measure of a source to be a galaxy.
     fits:tunit:
-  - name: localPhotoCalib
-    "@id": "#Source.localPhotoCalib"
-    datatype: double
-    description: Local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
-  - name: localPhotoCalib_flag
-    "@id": "#Source.localPhotoCalib_flag"
-    datatype: boolean
-    description: Set for any fatal failure
-    fits:tunit:
-  - name: localPhotoCalibErr
-    "@id": "#Source.localPhotoCalibErr"
-    datatype: double
-    description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
-  - name: localWcs_flag
-    "@id": "#Source.localWcs_flag"
-    datatype: boolean
-    description: Set for any fatal failure
-    fits:tunit:
-  - name: localWcs_CDMatrix_2_1
-    "@id": "#Source.localWcs_CDMatrix_2_1"
-    datatype: double
-    description: (2, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_1_1
-    "@id": "#Source.localWcs_CDMatrix_1_1"
-    datatype: double
-    description: (1, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_1_2
-    "@id": "#Source.localWcs_CDMatrix_1_2"
-    datatype: double
-    description: (1, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_2_2
-    "@id": "#Source.localWcs_CDMatrix_2_2"
-    datatype: double
-    description: (2, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
   - name: blendedness_abs
     "@id": "#Source.blendedness_abs"
     datatype: double
