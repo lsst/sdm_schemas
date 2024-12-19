@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "2.0.1"
+version: "3.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -2014,7 +2014,11 @@ tables:
   - name: isDipole
     "@id": "#DiaSource.isDipole"
     datatype: boolean
-    description: Object determined to be a dipole.
+    description: Source well fit by a dipole.
+  - name: dipoleFitAttempted
+    "@id": "#DiaSource.dipoleFitAttempted"
+    datatype: boolean
+    description: Attempted to fit a dipole model to this source.
   - name: time_processed
     "@id": "#DiaSource.time_processed"
     datatype: timestamp
