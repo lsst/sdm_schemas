@@ -1,3 +1,5 @@
+_build*
+.sconsign.dblite
 _site
 Gemfile
 Gemfile.lock
@@ -16,3 +18,4 @@ python/lsst/sdm_schemas/version.py
 
 # SCons build
 config.log
+python/*.dist-info/
