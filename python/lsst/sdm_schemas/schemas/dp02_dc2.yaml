@@ -7719,6 +7719,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: long
+    tap:column_index: 1
   - name: lsst_patch
     "@id": "#coaddpatches.lsst_patch"
     description: "ID number of the second level, 'patch', within the standard LSST skymap"
@@ -7728,6 +7729,7 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: long
+    tap:column_index: 2
   - name: s_ra
     "@id": "#coaddpatches.s_ra"
     description: "Central Spatial Position in ICRS; Right ascension"
@@ -7738,6 +7740,7 @@ tables:
     tap:principal: 1
     ivoa:unit: deg
     datatype: double
+    tap:column_index: 3
   - name: s_dec
     "@id": "#coaddpatches.s_dec"
     description: "Central Spatial Position in ICRS; Declination"
@@ -7748,6 +7751,7 @@ tables:
     tap:principal: 1
     ivoa:unit: deg
     datatype: double
+    tap:column_index: 4
   - name: s_region
     "@id": "#coaddpatches.s_region"
     description: "Sky region covered by the coadd (expressed in ICRS frame)"
@@ -7759,7 +7763,7 @@ tables:
     ivoa:unit:
     datatype: string
     length: 512
-    votable:arraysize: 512
+    tap:column_index: 5
 - name: MatchesTruth
   '@id': '#MatchesTruth'
   description: Match information for TruthSummary objects.
