@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "3.0.0"
+version: "4.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -2383,6 +2383,11 @@ tables:
     description: Covariance of pmDec and parallax.
     ivoa:ucd: stat.covariance
     fits:tunit: mas**2/yr
+  - name: nDiaSources
+    "@id": "#DiaObjectLast.nDiaSources"
+    datatype: int
+    nullable: false
+    description: Total number of DiaSources associated with this DiaObject.
   primaryKey: "#DiaObjectLast.diaObjectId"
 - name: MPCORB
   "@id": "#MPCORB"
