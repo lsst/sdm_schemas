@@ -850,7 +850,7 @@ tables:
     "@id": "#Object.g_kronRad"
     datatype: float
     description: Kron radius (sqrt(a*b)). Measured on g-band.
-    fits:tunit:
+    fits:tunit: pixel
   - name: g_pixelFlags_bad
     "@id": "#Object.g_pixelFlags_bad"
     datatype: boolean
@@ -1652,7 +1652,7 @@ tables:
     "@id": "#Object.i_kronRad"
     datatype: float
     description: Kron radius (sqrt(a*b)). Measured on i-band.
-    fits:tunit:
+    fits:tunit: pixel
   - name: i_pixelFlags_bad
     "@id": "#Object.i_pixelFlags_bad"
     datatype: boolean
@@ -2454,7 +2454,7 @@ tables:
     "@id": "#Object.r_kronRad"
     datatype: float
     description: Kron radius (sqrt(a*b)). Measured on r-band.
-    fits:tunit:
+    fits:tunit: pixel
   - name: r_pixelFlags_bad
     "@id": "#Object.r_pixelFlags_bad"
     datatype: boolean
@@ -3256,7 +3256,7 @@ tables:
     "@id": "#Object.u_kronRad"
     datatype: float
     description: Kron radius (sqrt(a*b)). Measured on u-band.
-    fits:tunit:
+    fits:tunit: pixel
   - name: u_pixelFlags_bad
     "@id": "#Object.u_pixelFlags_bad"
     datatype: boolean
@@ -4058,7 +4058,7 @@ tables:
     "@id": "#Object.y_kronRad"
     datatype: float
     description: Kron radius (sqrt(a*b)). Measured on y-band.
-    fits:tunit:
+    fits:tunit: pixel
   - name: y_pixelFlags_bad
     "@id": "#Object.y_pixelFlags_bad"
     datatype: boolean
@@ -4860,7 +4860,7 @@ tables:
     "@id": "#Object.z_kronRad"
     datatype: float
     description: Kron radius (sqrt(a*b)). Measured on z-band.
-    fits:tunit:
+    fits:tunit: pixel
   - name: z_pixelFlags_bad
     "@id": "#Object.z_pixelFlags_bad"
     datatype: boolean
