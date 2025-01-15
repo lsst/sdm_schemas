@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "4.0.0"
+version: "5.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -1479,6 +1479,11 @@ tables:
     "@id": "#DiaSource.apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image.
+    fits:tunit:
+  - name: is_negative
+    "@id": "#DiaSource.is_negative"
+    datatype: boolean
+    description: Source was detected as significantly negative.
     fits:tunit:
   - name: snr
     "@id": "#DiaSource.snr"
