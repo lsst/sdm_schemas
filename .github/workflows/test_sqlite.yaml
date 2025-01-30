@@ -22,15 +22,11 @@ jobs:
       - name: Create databases
         run: create-databases.sh
 
-      - name: Create SQL files
+      - name: Generate SQL files
         run: generate-sql-files.sh sqlite
 
       - name: Load SQL files
         run: load-sql.sh sqlite
 
-      - name: Initialize TAP_SCHEMA database
-        run: |
-          felis init-tap sqlite:///TAP_SCHEMA.db
-
-      - name: Upload to TAP_SCHEMA database
+      - name: Load TAP_SCHEMA
         run: load-tap-schema.sh
