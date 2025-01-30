@@ -63,10 +63,5 @@ jobs:
         run: |
           load-sql.sh mysql
 
-      - name: Initialize TAP_SCHEMA database
-        run: |
-          mysql -e "CREATE DATABASE TAP_SCHEMA;"
-          felis init-tap ${FELIS_ENGINE_URL}/TAP_SCHEMA
-
-      - name: Upload to TAP_SCHEMA database
+      - name: Load TAP_SCHEMA database
         run: load-tap-schema.sh

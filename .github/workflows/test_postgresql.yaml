@@ -44,15 +44,11 @@ jobs:
       - name: Create databases
         run: create-databases.sh
 
-      - name: Create SQL files
+      - name: Generate SQL files
         run: generate-sql-files.sh postgresql
 
       - name: Load SQL files
         run: load-sql.sh postgresql
 
-      - name: Initialize TAP_SCHEMA database
-        run: |
-          felis init-tap $FELIS_ENGINE_URL
-
-      - name: Upload to TAP_SCHEMA database
+      - name: Load TAP_SCHEMA
         run: load-tap-schema.sh
