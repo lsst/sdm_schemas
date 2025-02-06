@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -e
-# set -x
-
 # Check if FELIS_ENGINE_URL is set
 if [ -z "$FELIS_ENGINE_URL" ]; then
     echo "Error: FELIS_ENGINE_URL is not set. Please set the environment variable and try again."
@@ -18,7 +15,6 @@ elif [[ "$protocol" == *"postgresql"* ]]; then
     database="postgresql"
 elif [[ "$protocol" == *"sqlite"* ]]; then
     database="sqlite"
-    FELIS_ENGINE_URL="sqlite:///TAP_SCHEMA.db"
 else
     echo "Error: FELIS_ENGINE_URL protocol must be one of 'mysql', 'postgresql' or 'sqlite'"
     exit 1
@@ -26,29 +22,35 @@ fi
 
 echo "Detected database type: $database"
 
-# Initialize a variable to track if any command fails
 error_occurred=0
 
 for yaml_file in yml/*.yaml; do
     filename=$(basename "$yaml_file")
-    echo "Loading TAP_SCHEMA from $yaml_file..."
+    echo "Loading TAP_SCHEMA from $yaml_file"
+    set +e
     felis --log-level ERROR init-tap-schema --engine-url ${FELIS_ENGINE_URL}
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to initialize TAP schema from $yaml_file"
+        error_occurred=1
+    fi
     felis --log-level ERROR load-tap-schema --engine-url ${FELIS_ENGINE_URL} "$yaml_file"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to load TAP schema from $yaml_file"
+        error_occurred=1
+    fi
+    set -e
     # Drop the TAP_SCHEMA database or schema
     if [[ "$database" == "mysql" ]]; then
-        echo "Dropping TAP_SCHEMA mysql database..."
         mysql -e "DROP DATABASE TAP_SCHEMA;"
     elif [[ "$database" == "postgresql" ]]; then
-        echo "Dropping TAP_SCHEMA postgresql schema..."
         psql -c "DROP SCHEMA \"TAP_SCHEMA\" CASCADE;"
     elif [[ "$database" == "sqlite" ]]; then
-        echo "Dropping TAP_SCHEMA sqlite database..."
         rm TAP_SCHEMA.db
     fi
+    echo "Done loading TAP_SCHEMA from $yaml_file"
 done
 
-# Exit with non-zero status if any command failed
 if [ $error_occurred -ne 0 ]; then
-    echo "Error: Failed to load all schemas into TAP_SCHEMA for $database"
+    echo "Error: Failed to load all schemas into TAP_SCHEMA using $database"
     exit 1
 fi

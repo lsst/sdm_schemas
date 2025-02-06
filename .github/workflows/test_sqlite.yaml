@@ -28,5 +28,8 @@ jobs:
       - name: Load SQL files
         run: load-sql.sh sqlite
 
+      - name: Set engine URL
+        run: echo "FELIS_ENGINE_URL=sqlite:///TAP_SCHEMA.db" >> $GITHUB_ENV
+
       - name: Load TAP_SCHEMA
         run: load-tap-schema.sh
