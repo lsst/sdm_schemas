@@ -61,7 +61,7 @@ tables:
   - name: deblend_depth
     "@id": "#Object.deblend_depth"
     datatype: int
-    description: Depth of a source in the hieratchy of parents.
+    description: Depth of a source in the hierarchy of parents where 0=top level.
   - name: deblend_failed
     "@id": "#Object.deblend_failed"
     datatype: boolean
