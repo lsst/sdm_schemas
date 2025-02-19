@@ -21,6 +21,9 @@ create table tap_schema.schemas11
         read_only_group  varchar(128),
         read_write_group varchar(128),
 
+-- extension: flag to indicate if a schema was created using a Tap service API
+        api_created     integer,
+
 	primary key (schema_name)
 )
 ;
@@ -37,6 +40,9 @@ create table tap_schema.schemas
         read_anon       integer,
         read_only_group  varchar(128),
         read_write_group varchar(128),
+
+-- extension: flag to indicate if a schema was created using a Tap service API
+        api_created     integer,
 
 	primary key (schema_name)
 )
