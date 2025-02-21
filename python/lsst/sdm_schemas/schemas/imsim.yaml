@@ -6015,7 +6015,501 @@ tables:
     datatype: boolean
     description: True when there was no flux attributed to this object after flux redistribution in the deblender.
     fits:tunit:
-
+  - name: g_psfModel_TwoGaussian_gauss1_sigma_x
+    "@id": "#Object.g_psfModel_TwoGaussian_gauss1_sigma_x"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (g-band).
+    fits:tunit: pixel
+  - name: g_psfModel_TwoGaussian_gauss1_sigma_y
+    "@id": "#Object.g_psfModel_TwoGaussian_gauss1_sigma_y"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (g-band).
+    fits:tunit: pixel
+  - name: g_psfModel_TwoGaussian_gauss1_rho
+    "@id": "#Object.g_psfModel_TwoGaussian_gauss1_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (g-band).
+    fits:tunit:
+  - name: g_psfModel_TwoGaussian_gauss1_fluxfrac
+    "@id": "#Object.g_psfModel_TwoGaussian_gauss1_fluxfrac"
+    datatype: double
+    description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (g-band).
+    fits:tunit:
+  - name: g_psfModel_TwoGaussian_gauss2_sigma_x
+    "@id": "#Object.g_psfModel_TwoGaussian_gauss2_sigma_x"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (g-band).
+    fits:tunit: pixel
+  - name: g_psfModel_TwoGaussian_gauss2_sigma_y
+    "@id": "#Object.g_psfModel_TwoGaussian_gauss2_sigma_y"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (g-band).
+    fits:tunit: pixel
+  - name: g_psfModel_TwoGaussian_gauss2_rho
+    "@id": "#Object.g_psfModel_TwoGaussian_gauss2_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (g-band).
+    fits:tunit:
+  - name: g_psfModel_TwoGaussian_n_iter
+    "@id": "#Object.g_psfModel_TwoGaussian_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (g-band).
+    fits:tunit:
+  - name: g_psfModel_TwoGaussian_chisq_reduced
+    "@id": "#Object.g_psfModel_TwoGaussian_chisq_reduced"
+    datatype: double
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (g-band).
+    fits:tunit:
+  - name: g_psfModel_TwoGaussian_unknown_flag
+    "@id": "#Object.g_psfModel_TwoGaussian_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the two-Gaussian PSF model (g-band).
+    fits:tunit:
+  - name: g_psfModel_TwoGaussian_no_inputs_flag
+    "@id": "#Object.g_psfModel_TwoGaussian_no_inputs_flag"
+    datatype: boolean
+    description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (g-band).
+    fits:tunit:
+  - name: i_psfModel_TwoGaussian_gauss1_sigma_x
+    "@id": "#Object.i_psfModel_TwoGaussian_gauss1_sigma_x"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (i-band).
+    fits:tunit: pixel
+  - name: i_psfModel_TwoGaussian_gauss1_sigma_y
+    "@id": "#Object.i_psfModel_TwoGaussian_gauss1_sigma_y"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (i-band).
+    fits:tunit: pixel
+  - name: i_psfModel_TwoGaussian_gauss1_rho
+    "@id": "#Object.i_psfModel_TwoGaussian_gauss1_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (i-band).
+    fits:tunit:
+  - name: i_psfModel_TwoGaussian_gauss1_fluxfrac
+    "@id": "#Object.i_psfModel_TwoGaussian_gauss1_fluxfrac"
+    datatype: double
+    description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (i-band).
+    fits:tunit:
+  - name: i_psfModel_TwoGaussian_gauss2_sigma_x
+    "@id": "#Object.i_psfModel_TwoGaussian_gauss2_sigma_x"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (i-band).
+    fits:tunit: pixel
+  - name: i_psfModel_TwoGaussian_gauss2_sigma_y
+    "@id": "#Object.i_psfModel_TwoGaussian_gauss2_sigma_y"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (i-band).
+    fits:tunit: pixel
+  - name: i_psfModel_TwoGaussian_gauss2_rho
+    "@id": "#Object.i_psfModel_TwoGaussian_gauss2_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (i-band).
+    fits:tunit:
+  - name: i_psfModel_TwoGaussian_n_iter
+    "@id": "#Object.i_psfModel_TwoGaussian_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (i-band).
+    fits:tunit:
+  - name: i_psfModel_TwoGaussian_chisq_reduced
+    "@id": "#Object.i_psfModel_TwoGaussian_chisq_reduced"
+    datatype: double
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (i-band).
+    fits:tunit:
+  - name: i_psfModel_TwoGaussian_unknown_flag
+    "@id": "#Object.i_psfModel_TwoGaussian_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the two-Gaussian PSF model (i-band).
+    fits:tunit:
+  - name: i_psfModel_TwoGaussian_no_inputs_flag
+    "@id": "#Object.i_psfModel_TwoGaussian_no_inputs_flag"
+    datatype: boolean
+    description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (i-band).
+    fits:tunit:
+  - name: r_psfModel_TwoGaussian_gauss1_sigma_x
+    "@id": "#Object.r_psfModel_TwoGaussian_gauss1_sigma_x"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (r-band).
+    fits:tunit: pixel
+  - name: r_psfModel_TwoGaussian_gauss1_sigma_y
+    "@id": "#Object.r_psfModel_TwoGaussian_gauss1_sigma_y"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (r-band).
+    fits:tunit: pixel
+  - name: r_psfModel_TwoGaussian_gauss1_rho
+    "@id": "#Object.r_psfModel_TwoGaussian_gauss1_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (r-band).
+    fits:tunit:
+  - name: r_psfModel_TwoGaussian_gauss1_fluxfrac
+    "@id": "#Object.r_psfModel_TwoGaussian_gauss1_fluxfrac"
+    datatype: double
+    description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (r-band).
+    fits:tunit:
+  - name: r_psfModel_TwoGaussian_gauss2_sigma_x
+    "@id": "#Object.r_psfModel_TwoGaussian_gauss2_sigma_x"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (r-band).
+    fits:tunit: pixel
+  - name: r_psfModel_TwoGaussian_gauss2_sigma_y
+    "@id": "#Object.r_psfModel_TwoGaussian_gauss2_sigma_y"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (r-band).
+    fits:tunit: pixel
+  - name: r_psfModel_TwoGaussian_gauss2_rho
+    "@id": "#Object.r_psfModel_TwoGaussian_gauss2_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (r-band).
+    fits:tunit:
+  - name: r_psfModel_TwoGaussian_n_iter
+    "@id": "#Object.r_psfModel_TwoGaussian_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (r-band).
+    fits:tunit:
+  - name: r_psfModel_TwoGaussian_chisq_reduced
+    "@id": "#Object.r_psfModel_TwoGaussian_chisq_reduced"
+    datatype: double
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (r-band).
+    fits:tunit:
+  - name: r_psfModel_TwoGaussian_unknown_flag
+    "@id": "#Object.r_psfModel_TwoGaussian_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the two-Gaussian PSF model (r-band).
+    fits:tunit:
+  - name: r_psfModel_TwoGaussian_no_inputs_flag
+    "@id": "#Object.r_psfModel_TwoGaussian_no_inputs_flag"
+    datatype: boolean
+    description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (r-band).
+    fits:tunit:
+  - name: u_psfModel_TwoGaussian_gauss1_sigma_x
+    "@id": "#Object.u_psfModel_TwoGaussian_gauss1_sigma_x"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (u-band).
+    fits:tunit: pixel
+  - name: u_psfModel_TwoGaussian_gauss1_sigma_y
+    "@id": "#Object.u_psfModel_TwoGaussian_gauss1_sigma_y"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (u-band).
+    fits:tunit: pixel
+  - name: u_psfModel_TwoGaussian_gauss1_rho
+    "@id": "#Object.u_psfModel_TwoGaussian_gauss1_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (u-band).
+    fits:tunit:
+  - name: u_psfModel_TwoGaussian_gauss1_fluxfrac
+    "@id": "#Object.u_psfModel_TwoGaussian_gauss1_fluxfrac"
+    datatype: double
+    description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (u-band).
+    fits:tunit:
+  - name: u_psfModel_TwoGaussian_gauss2_sigma_x
+    "@id": "#Object.u_psfModel_TwoGaussian_gauss2_sigma_x"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (u-band).
+    fits:tunit: pixel
+  - name: u_psfModel_TwoGaussian_gauss2_sigma_y
+    "@id": "#Object.u_psfModel_TwoGaussian_gauss2_sigma_y"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (u-band).
+    fits:tunit: pixel
+  - name: u_psfModel_TwoGaussian_gauss2_rho
+    "@id": "#Object.u_psfModel_TwoGaussian_gauss2_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (u-band).
+    fits:tunit:
+  - name: u_psfModel_TwoGaussian_n_iter
+    "@id": "#Object.u_psfModel_TwoGaussian_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (u-band).
+    fits:tunit:
+  - name: u_psfModel_TwoGaussian_chisq_reduced
+    "@id": "#Object.u_psfModel_TwoGaussian_chisq_reduced"
+    datatype: double
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (u-band).
+    fits:tunit:
+  - name: u_psfModel_TwoGaussian_unknown_flag
+    "@id": "#Object.u_psfModel_TwoGaussian_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the two-Gaussian PSF model (u-band).
+    fits:tunit:
+  - name: u_psfModel_TwoGaussian_no_inputs_flag
+    "@id": "#Object.u_psfModel_TwoGaussian_no_inputs_flag"
+    datatype: boolean
+    description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (u-band).
+    fits:tunit:
+  - name: y_psfModel_TwoGaussian_gauss1_sigma_x
+    "@id": "#Object.y_psfModel_TwoGaussian_gauss1_sigma_x"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (y-band).
+    fits:tunit: pixel
+  - name: y_psfModel_TwoGaussian_gauss1_sigma_y
+    "@id": "#Object.y_psfModel_TwoGaussian_gauss1_sigma_y"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (y-band).
+    fits:tunit: pixel
+  - name: y_psfModel_TwoGaussian_gauss1_rho
+    "@id": "#Object.y_psfModel_TwoGaussian_gauss1_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (y-band).
+    fits:tunit:
+  - name: y_psfModel_TwoGaussian_gauss1_fluxfrac
+    "@id": "#Object.y_psfModel_TwoGaussian_gauss1_fluxfrac"
+    datatype: double
+    description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (y-band).
+    fits:tunit:
+  - name: y_psfModel_TwoGaussian_gauss2_sigma_x
+    "@id": "#Object.y_psfModel_TwoGaussian_gauss2_sigma_x"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (y-band).
+    fits:tunit: pixel
+  - name: y_psfModel_TwoGaussian_gauss2_sigma_y
+    "@id": "#Object.y_psfModel_TwoGaussian_gauss2_sigma_y"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (y-band).
+    fits:tunit: pixel
+  - name: y_psfModel_TwoGaussian_gauss2_rho
+    "@id": "#Object.y_psfModel_TwoGaussian_gauss2_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (y-band).
+    fits:tunit:
+  - name: y_psfModel_TwoGaussian_n_iter
+    "@id": "#Object.y_psfModel_TwoGaussian_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (y-band).
+    fits:tunit:
+  - name: y_psfModel_TwoGaussian_chisq_reduced
+    "@id": "#Object.y_psfModel_TwoGaussian_chisq_reduced"
+    datatype: double
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (y-band).
+    fits:tunit:
+  - name: y_psfModel_TwoGaussian_unknown_flag
+    "@id": "#Object.y_psfModel_TwoGaussian_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the two-Gaussian PSF model (y-band).
+    fits:tunit:
+  - name: y_psfModel_TwoGaussian_no_inputs_flag
+    "@id": "#Object.y_psfModel_TwoGaussian_no_inputs_flag"
+    datatype: boolean
+    description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (y-band).
+    fits:tunit:
+  - name: z_psfModel_TwoGaussian_gauss1_sigma_x
+    "@id": "#Object.z_psfModel_TwoGaussian_gauss1_sigma_x"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (z-band).
+    fits:tunit: pixel
+  - name: z_psfModel_TwoGaussian_gauss1_sigma_y
+    "@id": "#Object.z_psfModel_TwoGaussian_gauss1_sigma_y"
+    datatype: double
+    description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (z-band).
+    fits:tunit: pixel
+  - name: z_psfModel_TwoGaussian_gauss1_rho
+    "@id": "#Object.z_psfModel_TwoGaussian_gauss1_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (z-band).
+    fits:tunit:
+  - name: z_psfModel_TwoGaussian_gauss1_fluxfrac
+    "@id": "#Object.z_psfModel_TwoGaussian_gauss1_fluxfrac"
+    datatype: double
+    description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (z-band).
+    fits:tunit:
+  - name: z_psfModel_TwoGaussian_gauss2_sigma_x
+    "@id": "#Object.z_psfModel_TwoGaussian_gauss2_sigma_x"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (z-band).
+    fits:tunit: pixel
+  - name: z_psfModel_TwoGaussian_gauss2_sigma_y
+    "@id": "#Object.z_psfModel_TwoGaussian_gauss2_sigma_y"
+    datatype: double
+    description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (z-band).
+    fits:tunit: pixel
+  - name: z_psfModel_TwoGaussian_gauss2_rho
+    "@id": "#Object.z_psfModel_TwoGaussian_gauss2_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (z-band).
+    fits:tunit:
+  - name: z_psfModel_TwoGaussian_n_iter
+    "@id": "#Object.z_psfModel_TwoGaussian_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (z-band).
+    fits:tunit:
+  - name: z_psfModel_TwoGaussian_chisq_reduced
+    "@id": "#Object.z_psfModel_TwoGaussian_chisq_reduced"
+    datatype: double
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (z-band).
+    fits:tunit:
+  - name: z_psfModel_TwoGaussian_unknown_flag
+    "@id": "#Object.z_psfModel_TwoGaussian_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the two-Gaussian PSF model (z-band).
+    fits:tunit:
+  - name: z_psfModel_TwoGaussian_no_inputs_flag
+    "@id": "#Object.z_psfModel_TwoGaussian_no_inputs_flag"
+    datatype: boolean
+    description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (z-band).
+    fits:tunit:
+  - name: sersic_x
+    "@id": "#Object.sersic_x"
+    datatype: double
+    description: Centroid (tract, x-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
+  - name: sersic_y
+    "@id": "#Object.sersic_y"
+    datatype: double
+    description: Centroid (tract, y-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
+  - name: sersic_ra
+    "@id": "#Object.sersic_ra"
+    datatype: double
+    description: Centroid (right ascension) from the multiband Sersic model fit.
+    fits:tunit: deg
+  - name: sersic_dec
+    "@id": "#Object.sersic_dec"
+    datatype: double
+    description: Centroid (declination) from the multiband Sersic model fit.
+    fits:tunit: deg
+  - name: sersic_reff_x
+    "@id": "#Object.sersic_reff_x"
+    datatype: double
+    description: Effective radius (x-axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: pixel
+  - name: sersic_reff_y
+    "@id": "#Object.sersic_reff_y"
+    datatype: double
+    description: Effective radius (y-axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: pixel
+  - name: sersic_rho
+    "@id": "#Object.sersic_rho"
+    datatype: double
+    description: Ellipse rho (correlation coefficient) from the multiband Sersic model fit.
+    fits:tunit:
+  - name: g_sersicFlux
+    "@id": "#Object.g_sersicFlux"
+    datatype: double
+    description: g-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: i_sersicFlux
+    "@id": "#Object.i_sersicFlux"
+    datatype: double
+    description: i-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: r_sersicFlux
+    "@id": "#Object.r_sersicFlux"
+    datatype: double
+    description: r-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: u_sersicFlux
+    "@id": "#Object.u_sersicFlux"
+    datatype: double
+    description: u-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: y_sersicFlux
+    "@id": "#Object.y_sersicFlux"
+    datatype: double
+    description: y-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: z_sersicFlux
+    "@id": "#Object.z_sersicFlux"
+    datatype: double
+    description: z-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: sersic_index
+    "@id": "#Object.sersic_index"
+    datatype: double
+    description: Sersic profile index parameter from the multiband Sersic model fit.
+    fits:tunit:
+  - name: sersic_xErr
+    "@id": "#Object.sersic_xErr"
+    datatype: double
+    description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
+  - name: sersic_yErr
+    "@id": "#Object.sersic_yErr"
+    datatype: double
+    description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
+  - name: sersic_raErr
+    "@id": "#Object.sersic_raErr"
+    datatype: double
+    description: Error on the centroid (right ascension) from the multiband Sersic model fit.
+    fits:tunit: deg
+  - name: sersic_decErr
+    "@id": "#Object.sersic_decErr"
+    datatype: double
+    description: Error on the centroid (declination) from the multiband Sersic model fit.
+    fits:tunit: deg
+  - name: sersic_reff_xErr
+    "@id": "#Object.sersic_reff_xErr"
+    datatype: double
+    description: Error on the effective radius (x-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
+  - name: sersic_reff_yErr
+    "@id": "#Object.sersic_reff_yErr"
+    datatype: double
+    description: Error on the effective radius (y-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
+  - name: sersic_rhoErr
+    "@id": "#Object.sersic_rhoErr"
+    datatype: double
+    description: Error on ellipse rho (correlation coefficient) from the multiband Sersic model fit.
+    fits:tunit:
+  - name: g_sersicFluxErr
+    "@id": "#Object.g_sersicFluxErr"
+    datatype: double
+    description: Error on the g-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: i_sersicFluxErr
+    "@id": "#Object.i_sersicFluxErr"
+    datatype: double
+    description: Error on the i-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: r_sersicFluxErr
+    "@id": "#Object.r_sersicFluxErr"
+    datatype: double
+    description: Error on the r-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: u_sersicFluxErr
+    "@id": "#Object.u_sersicFluxErr"
+    datatype: double
+    description: Error on the u-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: y_sersicFluxErr
+    "@id": "#Object.y_sersicFluxErr"
+    datatype: double
+    description: Error on the y-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: z_sersicFluxErr
+    "@id": "#Object.z_sersicFluxErr"
+    datatype: double
+    description: Error on the z-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: sersic_indexErr
+    "@id": "#Object.sersic_indexErr"
+    datatype: double
+    description: Error on the Sersic profile index parameter from the multiband Sersic model fit.
+    fits:tunit:
+  - name: sersic_n_eval_jac
+    "@id": "#Object.sersic_n_eval_jac"
+    datatype: int
+    description: Number of Jacobian evaluations for the multiband Sersic model fit.
+    fits:tunit:
+  - name: sersic_n_iter
+    "@id": "#Object.sersic_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the multiband Sersic model.
+    fits:tunit:
+  - name: sersic_chisq_reduced
+    "@id": "#Object.sersic_chisq_reduced"
+    datatype: double
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband Sersic model.
+    fits:tunit:
+  - name: sersic_no_data_flag
+    "@id": "#Object.sersic_no_data_flag"
+    datatype: boolean
+    description: Flag set when there is insufficient data to fit for the multiband Sersic model.
+    fits:tunit:
+  - name: sersic_unknown_flag
+    "@id": "#Object.sersic_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the multiband Sersic model.
+    fits:tunit:
 
 - name: Source
   "@id": "#Source"
