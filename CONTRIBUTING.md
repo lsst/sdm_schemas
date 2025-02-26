@@ -30,7 +30,7 @@ Aside from special cases, a pull request will have to pass all of these checks b
 These checks will:
 
 - [Build TAP_SCHEMA and DataLink resources](.github/workflows/build.yaml)
-- [Compare Schemas for Changes](.github/workflows/compare.yaml) - Schemas that are in the [deployed list](./python/lsst/sdm_schemas/schemas/deployed-schemas.txt) will fail this check.
+- [Compare Schemas for Changes](.github/workflows/compare.yaml) - Schemas that are in the [deployed list](./python/lsst/sdm/schemas/deployed-schemas.txt) will fail this check.
 - [Build the Schema Browser website](.github/workflows/docs.yaml)
 - [Check that `main` is not merged into the branch](.github/workflows/rebase_checker.yaml)
 - [Test that the schemas can be used to create databases](.github/workflows/test_databases.yaml)
@@ -42,7 +42,7 @@ The checks will rerun anytime the PR branch is updated.
 Schema Versioning
 -----------------
 
-Individual schemas may have their own internal [version](https://felis.lsst.io/user-guide/model.html#schema-version) for tracking changes, which is defined at the top of the file, as in [apdb.yaml](./python/lsst/sdm_schemas/schemas/apdb.yaml).
+Individual schemas may have their own internal [version](https://felis.lsst.io/user-guide/model.html#schema-version) for tracking changes, which is defined at the top of the file, as in [apdb.yaml](./python/lsst/sdm/schemas/apdb.yaml).
 (This is distinct from tags or versions of sdm_schemas itself, and not all schemas may be using them.)
 This version may need to be updated when making changes.
 

@@ -19,25 +19,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import unittest
-import importlib.resources
-import yaml
+import pkgutil
 
-from felis.datamodel import Schema
-
-
-class SchemaResourceTestCase(unittest.TestCase):
-    """Test reading of schema data from a resource."""
-
-    def test_read_resource(self) -> None:
-        """Test that schema data can be read from a resource."""
-        resource = importlib.resources.files("lsst.sdm.schemas").joinpath(
-            "dp02_dc2.yaml"
-        )
-        raw_data = resource.read_text()
-        data = yaml.safe_load(raw_data)
-        Schema.model_validate(data)
-
-
-if __name__ == "__main__":
-    unittest.main()
+__path__ = pkgutil.extend_path(__path__, __name__)

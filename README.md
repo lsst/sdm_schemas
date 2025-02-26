@@ -5,7 +5,7 @@ This repository stores schema definitions for user-facing data
 products comprising the Science Data Model (SDM) of the
 [Rubin Observatory](https://rubinobservatory.org/).
 These schemas are defined in YAML files designed to be read with
-[Felis](https://github.com/lsst-dm/felis), a tool which can convert this data
+[Felis](https://github.com/lsst/felis), a tool which can convert this data
 to derived formats including SQL DDL and
 [TAP_SCHEMA](https://www.ivoa.net/documents/TAP/20180830/PR-TAP-1.1-20180830.html#tth_sEc4).
 These schema definitions serve as the "source of truth" for the observatory's core data models.
@@ -13,9 +13,9 @@ These schema definitions serve as the "source of truth" for the observatory's co
 Schemas
 -------
 
-The following schemas are maintained in this repository under the [schemas](./python/lsst/sdm_schemas/schemas) directory:
+The following schemas are maintained in this repository under the [schemas](./python/lsst/sdm/schemas) directory:
 
- * [imsim](./python/lsst/sdm_schemas/schemas/imsim.yaml) describes the outputs
+ * [imsim](./python/lsst/sdm/schemas/imsim.yaml) describes the outputs
    of the pipelines for LSSTCam-imSim, used to generate the data preview
    schemas, which are fixed at the time of their release, while `imsim` will
    continue to evolve. This schema is used by
@@ -23,23 +23,23 @@ The following schemas are maintained in this repository under the [schemas](./py
    of the pipeline output files is conformant with the schema definition.
 
  * The various Data Preview (DP) schemas such as
-   [dp02_dc2](./python/lsst/sdm_schemas/schemas/dp02_dc2.yaml) represent
+   [dp02_dc2](./python/lsst/sdm/schemas/dp02_dc2.yaml) represent
    content that is being actively served by the various data previews.
    These are created from `imsim` at a specific point in time.
 
- * [apdb](./python/lsst/sdm_schemas/schemas/apdb.yaml) describes the schema
+ * [apdb](./python/lsst/sdm/schemas/apdb.yaml) describes the schema
    of the Alert Production Database (APDB) used for Alert Production with
    `ap_pipe` and for nightly `ap_verify` runs within continuous integration.
    Previous processing runs may differ from the current schema. The
    user-queryable Prompt Products Database (PPDB) is expected to have a very similar schema to the APDB.
 
- * [hsc](./python/lsst/sdm_schemas/schemas/hsc.yaml) describes the outputs of
+ * [hsc](./python/lsst/sdm/schemas/hsc.yaml) describes the outputs of
    the latest data release production pipelines for HyperSuprimeCam. This
    schema is used by [ci_hsc](https://github.com/lsst/ci_hsc) for verification
    of its output files.
 
 * The various `cdb` schemas such as
-  [cdb_latiss](./python/lsst/sdm_schemas/schemas/cdb_latiss.yaml) describe the
+  [cdb_latiss](./python/lsst/sdm/schemas/cdb_latiss.yaml) describe the
   data model of the [Consolidated Database](https://github.com/lsst-dm/consdb)
   or ConsDB, an image metadata database containing summarizations of
   Engineering Facilities Database (EFD) telemetry by exposure and visit time windows.
