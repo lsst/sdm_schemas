@@ -55,4 +55,4 @@ license-files = ["COPYRIGHT", "LICENSE"]
 where = ["python"]
 
 [tool.setuptools.package-data]
-"lsst.sdm.schemas" = ["*.yaml"]
+"lsst.sdm.schemas" = ["**/*.yaml"]
