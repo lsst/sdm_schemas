@@ -21,7 +21,8 @@ classifiers = [
 ]
 keywords = ["lsst"]
 dependencies = [
-    "lsst-felis @ git+https://github.com/lsst/felis.git@main",
+    "lsst-felis",
+    "lsst-sdm-tools",
     "click",
     "pyyaml",
     "psycopg2-binary",

@@ -50,7 +50,7 @@ jobs:
 
       - name: Build datalink release
         id: build-datalink
-        run: ./build
+        run: sdm-tools build-datalink-metadata ../yml/*.yaml
         working-directory: ./datalink
 
       - name: Release Datalink
