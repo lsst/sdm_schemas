@@ -35,9 +35,6 @@ dynamic = ["version"]
 [tool.setuptools.dynamic]
 version = { attr = "lsst_versions.get_lsst_version" }
 
-[tool.lsst_versions]
-write_to = "python/lsst/sdm_schemas/version.py"
-
 [project.urls]
 Homepage = "https://sdm-schemas.lsst.io"
 Source = "https://github.com/lsst/sdm_schemas"
@@ -55,4 +52,4 @@ license-files = ["COPYRIGHT", "LICENSE"]
 where = ["python"]
 
 [tool.setuptools.package-data]
-"lsst.sdm_schemas" = ["schemas/*.yaml"]
+"lsst.sdm.schemas" = ["**/*.yaml"]

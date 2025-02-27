@@ -1,13 +1,13 @@
 Alert Production Database (APDB) Schema
 =======================================
 
-The [apdb](../python/lsst/sdm_schemas/schemas/apdb.yaml) schema describes the Alert Production Database (APDB), which contains the results of processing from the [Alert Production Pipeline](https://github.com/lsst/ap_pipe).
+The [apdb](../python/lsst/sdm/schemas/apdb.yaml) schema describes the Alert Production Database (APDB), which contains the results of processing from the [Alert Production Pipeline](https://github.com/lsst/ap_pipe).
 
 Schema Versioning
 -----------------
 
 The versioning system of the APDB is outlined in [DMTN-269](https://dmtn-269.lsst.io/).
-The deployed database schema is a product of the [schema in sdm_schemas](../python/lsst/sdm_schemas/schemas/apdb.yaml) with additional processing by the APDB client library from the [dax_apdb](https://github.com/lsst/dax_apdb) repository.
+The deployed database schema is a product of the [schema in sdm_schemas](../python/lsst/sdm/schemas/apdb.yaml) with additional processing by the APDB client library from the [dax_apdb](https://github.com/lsst/dax_apdb) repository.
 Compatibility of the client executable with the actual database schema is determined by the version number in the YAML file and the version stored in the database metadata.
 
 Backward compatibility in the context of the APDB implies that a client using a schema with a higher minor version will be able to read and write into a database with a lower minor version -- in other words, an existing database instance need not be migrated to match the newer client interface.

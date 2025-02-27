@@ -28,7 +28,7 @@ jobs:
 
       - name: Set relative path to schema directory
         run: |
-          echo "SCHEMA_DIR=python/lsst/sdm_schemas/schemas" >> $GITHUB_ENV
+          echo "SCHEMA_DIR=python/lsst/sdm/schemas" >> $GITHUB_ENV
 
       - name: Get list of changed YAML files
         working-directory: current-ref
