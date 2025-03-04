@@ -1,0 +1,19 @@
+name: Check band columns for consistency
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python and install dependencies
+        uses: ./.github/actions/setup-test-environment
+
+      - name: Check band columns
+        run: sdm-tools check-band-columns yml/{apdb,dp02_dc2,dp03_10yr,dp03_1yr,imsim,hsc}.yaml --reference-band i -e
