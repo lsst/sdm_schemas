@@ -1,0 +1,23 @@
+name: Check band columns
+
+on:
+  pull_request:
+
+jobs:
+
+  check_band_columns:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Setup python and install dependencies
+        uses: ./.github/actions/setup-python
+
+      - name: Set SDM Tools log Level
+        run: echo "export SDM_TOOLS_LOGLEVEL=WARNING" >> $GITHUB_ENV
+
+      - name: Check schema band columns (error on differences)
+        run: sdm-tools check-band-columns yml/{dp02*,dp03*,imsim,hsc,apdb}.yaml --reference-band i -e
