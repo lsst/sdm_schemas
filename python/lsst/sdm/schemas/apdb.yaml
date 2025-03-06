@@ -391,7 +391,7 @@ tables:
     datatype: float
     description: Standard deviation of the distribution of y_psfFlux.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.stdev
   - name: y_psfFluxChi2
     "@id": "#DiaObject.y_psfFluxChi2"
     datatype: float
