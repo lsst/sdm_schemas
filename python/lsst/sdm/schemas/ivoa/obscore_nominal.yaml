@@ -18,7 +18,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: calib_level
     "@id": "ObsCore.calib_level"
@@ -40,7 +39,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: obs_id
     "@id": "ObsCore.obs_id"
@@ -52,7 +50,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: obs_publisher_did
     "@id": "ObsCore.obs_publisher_did"
@@ -64,7 +61,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: access_url
     "@id": "ObsCore.access_url"
@@ -76,7 +72,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: access_format
     "@id": "ObsCore.access_format"
@@ -88,7 +83,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: access_estsize
     "@id": "ObsCore.access_estsize"
@@ -110,7 +104,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: s_ra
     "@id": "ObsCore.s_ra"
@@ -152,7 +145,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: s_resolution
     "@id": "ObsCore.s_resolution"
@@ -284,7 +276,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: pol_states
     "@id": "ObsCore.pol_states"
@@ -296,7 +287,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: pol_xel
     "@id": "ObsCore.pol_xel"
@@ -318,7 +308,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: instrument_name
     "@id": "ObsCore.instrument_name"
@@ -330,7 +319,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: dataproduct_subtype  # (optional)
     "@id": "ObsCore.dataproduct_subtype"
@@ -342,7 +330,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: target_class  # (optional)
     "@id": "ObsCore.target_class"
@@ -354,7 +341,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: obs_creation_date  # (optional)
     "@id": "ObsCore.obs_creation_date"
@@ -376,7 +362,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: obs_creator_did  # (optional)
     "@id": "ObsCore.obs_creator_did"
@@ -388,7 +373,6 @@ tables:
     tap:principal: 0
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: obs_title  # (optional)
     "@id": "ObsCore.obs_title"
@@ -400,7 +384,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: publisher_id  # (optional)
     "@id": "ObsCore.publisher_id"
@@ -412,7 +395,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: bib_reference  # (optional)
     "@id": "ObsCore.bib_reference"
@@ -424,7 +406,6 @@ tables:
     tap:principal: 0
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: data_rights  # (optional)
     "@id": "ObsCore.data_rights"
@@ -436,7 +417,6 @@ tables:
     tap:principal: 0
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: obs_release_date  # (optional)
     "@id": "ObsCore.obs_release_date"
@@ -448,7 +428,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 32
   - name: s_ucd  # (optional)
     "@id": "ObsCore.s_ucd"
@@ -460,7 +439,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: s_unit  # (optional)
     "@id": "ObsCore.s_unit"
@@ -472,7 +450,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: s_resolution_min  # (optional)
     "@id": "ObsCore.s_resolution_min"
@@ -514,7 +491,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: s_stat_error  # (optional)
     "@id": "ObsCore.s_stat_error"
@@ -536,7 +512,6 @@ tables:
     tap:principal: 0
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: t_stat_error  # (optional)
     "@id": "ObsCore.t_stat_error"
@@ -558,7 +533,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: em_unit  # (optional)
     "@id": "ObsCore.em_unit"
@@ -570,7 +544,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: em_calib_status  # (optional)
     "@id": "ObsCore.em_calib_status"
@@ -582,7 +555,6 @@ tables:
     tap:principal: 0
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: em_res_power_min  # (optional)
     "@id": "ObsCore.em_res_power_min"
@@ -634,7 +606,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: o_calib_status  # (optional)
     "@id": "ObsCore.o_calib_status"
@@ -646,7 +617,6 @@ tables:
     tap:principal: 1
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
   - name: o_stat_error  # (optional)
     "@id": "ObsCore.o_stat_error"
@@ -668,5 +638,4 @@ tables:
     tap:principal: 0
     ivoa:unit:
     datatype: string
-    votable:arraysize: "*"
     length: 255
