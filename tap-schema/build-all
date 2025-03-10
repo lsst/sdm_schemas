@@ -20,4 +20,4 @@
 ./build usdf-prod-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 ./build usdf-dev-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 
-./build usdf-dev-cdb ../yml/cdb_*.yaml
+FELIS_UNIQUE_KEYS=1 ./build usdf-dev-cdb ../yml/cdb_*.yaml
