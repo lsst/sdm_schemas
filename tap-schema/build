@@ -18,10 +18,18 @@ echo "GIT_TAG: $GIT_TAG"
 
 shift
 
+schema_files=$(for file in "$@"; do basename "$file"; done | tr '\n' ' ')
+echo "Building environment '$ENVIRONMENT' with schemas: $schema_files"
+
 # Generate SQL files from Felis yaml files
 # Place the SQL files in the sql directory, which gets
 # copied into the docker image.
 schema_index=0
+unique_flag=""
+if [ "$FELIS_UNIQUE_KEYS" == "1" ]; then
+    echo "Generating unique keys"
+    unique_flag="-u"
+fi
 for file in $@
 do
     felis load-tap-schema \
@@ -31,6 +39,7 @@ do
         --tap-schema-name=tap_schema \
         --tap-tables-postfix=11 \
         --output-file sql/`basename $file`.sql \
+        $unique_flag \
         $file
     schema_index=$((schema_index+1))
 done
