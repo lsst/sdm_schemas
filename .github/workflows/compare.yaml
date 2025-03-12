@@ -54,6 +54,29 @@ jobs:
           ref: ${{ github.event.pull_request.base.ref }}
           path: base-ref
 
+      - name: Filter list of changed files
+        if: env.SCHEMA_FILES_CHANGED == 'true'
+        run: |
+          if [ -n "$CHANGED_FILES" ]; then
+            for file in $CHANGED_FILES; do
+              if [ ! -f "base-ref/${{ env.SCHEMA_DIR }}/$file" ]; then
+                echo "File $file not found in base ref, removing from list of changed files."
+                CHANGED_FILES=$(echo "$CHANGED_FILES" | sed "s|$file||")
+              fi
+              if [ ! -f "current-ref/${{ env.SCHEMA_DIR }}/$file" ]; then
+                echo "File $file not found in current ref, removing from list of changed files."
+                CHANGED_FILES=$(echo "$CHANGED_FILES" | sed "s|$file||")
+              fi
+            done
+            CHANGED_FILES=$(echo "$CHANGED_FILES" | tr -s ' ' | sed 's/^ //')
+            echo "Changed YAML files: $CHANGED_FILES"
+            echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
+          fi
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No schema files changes were detected after filtering."
+            echo "SCHEMA_FILES_CHANGED=false" >> $GITHUB_ENV
+          fi
+
       - name: Run deepdiff comparison
         if: env.SCHEMA_FILES_CHANGED == 'true'
         run: |
