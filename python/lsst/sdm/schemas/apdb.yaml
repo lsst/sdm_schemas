@@ -391,7 +391,7 @@ tables:
     datatype: float
     description: Standard deviation of the distribution of y_psfFlux.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.stdev
   - name: y_psfFluxChi2
     "@id": "#DiaObject.y_psfFluxChi2"
     datatype: float
@@ -666,6 +666,7 @@ tables:
     "@id": "#DiaObject.u_psfFluxLinearIntercept"
     datatype: float
     description: Linear best fit Intercept of the u band fluxes.
+    fits:tunit: nJy
   - name: u_psfFluxMaxSlope
     "@id": "#DiaObject.u_psfFluxMaxSlope"
     datatype: float
@@ -1009,7 +1010,7 @@ tables:
   - name: y_psfFluxMaxSlope
     "@id": "#DiaObject.y_psfFluxMaxSlope"
     datatype: float
-    description: Maximum slope between y band flux obsevations max(delta_flux/delta_time)
+    description: Maximum slope between y band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/d
   - name: y_psfFluxErrMean
     "@id": "#DiaObject.y_psfFluxErrMean"
