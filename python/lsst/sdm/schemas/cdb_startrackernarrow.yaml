@@ -9,6 +9,8 @@ version:
 tables:
 - name: exposure
   "@id": "#exposure"
+  description: >
+    The exposure table records information from observatory systems about each raw image taken.
   primaryKey:
   - "#exposure.exposure_id"
   constraints:
@@ -217,6 +219,9 @@ tables:
     description: "Lowest amount of instrument vignetting detected during the exposure: UNKNOWN, NO, PARTIALLY, FULLY."
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
+  description: >
+    The exposure_flexdata table records flexible key/value metadata about each raw image taken.
+    It is used for development and engineering purposes.
   primaryKey:
   - "#exposure_flexdata.obs_id"
   - "#exposure_flexdata.key"
@@ -251,6 +256,8 @@ tables:
     description: Content of value as a string.
 - name: exposure_flexdata_schema
   "@id": "#exposure_flexdata_schema"
+  description: >
+    The exposure_flexdata_schema table records the key names and value types used in the exposure_flexdata table.
   primaryKey:
   - "#exposure_flexdata_schema.key"
   columns:
@@ -283,6 +290,8 @@ tables:
     description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
+  description: >
+    The exposure_quicklook table records information from Summit Rapid Analysis about each raw image taken.
   primaryKey:
   - "#exposure_quicklook.exposure_id"
   constraints:
