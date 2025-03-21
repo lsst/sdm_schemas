@@ -1,7 +1,10 @@
 ---
 name: cdb_lsstcam
 "@id": "#cdb_lsstcam"
-description: Consolidated Database for LSSTCam
+description: >
+  The Consolidated Database for LSSTCam schema contains information for each exposure and visit taken by the instrument, the primary instrument for the Legacy Survey of Space and Time.
+  This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
+  Per-detector information is also included.
 version:
   current: "1.0.0"
 tables:
