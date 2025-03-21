@@ -10,6 +10,8 @@ version:
 tables:
 - name: exposure
   "@id": "#exposure"
+  description: >
+    The exposure table records information from observatory systems about each raw image taken.
   primaryKey:
   - "#exposure.day_obs"
   - "#exposure.seq_num"
@@ -298,6 +300,9 @@ tables:
     ivoa:ucd: pos.outline;obs.field
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
+  description: >
+    The exposure_flexdata table records flexible key/value metadata about each raw image taken.
+    It is used for development and engineering purposes.
   primaryKey:
   - "#exposure_flexdata.day_obs"
   - "#exposure_flexdata.seq_num"
@@ -359,6 +364,8 @@ tables:
     description: Content of value as a string.
 - name: exposure_flexdata_schema
   "@id": "#exposure_flexdata_schema"
+  description: >
+    The exposure_flexdata_schema table records the key names and value types used in the exposure_flexdata table.
   primaryKey:
   - "#exposure_flexdata_schema.key"
   columns:
@@ -391,6 +398,8 @@ tables:
     description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
 - name: ccdexposure
   "@id": "#ccdexposure"
+  description: >
+    The ccdexposure table records information from observatory systems about each detector (CCD) within each raw image taken.
   primaryKey:
   - "#ccdexposure.ccdexposure_id"
   constraints:
@@ -465,6 +474,8 @@ tables:
     ivoa:ucd: pos.outline;obs.field
 - name: ccdexposure_camera
   "@id": "#ccdexposure_camera"
+  description: >
+    The ccdexposure_camera table records information from the Camera Control System about each detector (CCD) within each raw image taken.
   primaryKey:
   - "#ccdexposure_camera.ccdexposure_id"
   constraints:
@@ -491,6 +502,9 @@ tables:
     ivoa:ucd: phys.temperature
 - name: ccdexposure_flexdata
   "@id": "#ccdexposure_flexdata"
+  description: >
+    The ccdexposure_flexdata table records flexible key/value metadata about each detector (CCD) within each raw image taken.
+    It is used for development and engineering purposes.
   primaryKey:
   - "#ccdexposure_flexdata.obs_id"
   - "#ccdexposure_flexdata.key"
@@ -525,6 +539,8 @@ tables:
     description: Content of value as a string.
 - name: ccdexposure_flexdata_schema
   "@id": "#ccdexposure_flexdata_schema"
+  description: >
+    The ccdexposure_flexdata_schema table records the key names and value types used in the ccdexposure_flexdata table.
   primaryKey:
   - "#ccdexposure_flexdata_schema.key"
   columns:
@@ -557,6 +573,9 @@ tables:
     description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
 - name: visit1
   "@id": "#visit1"
+  description: >
+    The visit1 table records information from observatory systems about each visit taken in visit system 1, in which each visit corresponds to a single exposure.
+    This table describes processed visit images (or calibrated exposures).
   primaryKey:
   - "#visit1.day_obs"
   - "#visit1.seq_num"
@@ -831,6 +850,9 @@ tables:
     ivoa:ucd: pos.outline;obs.field
 - name: visit1_quicklook
   "@id": "#visit1_quicklook"
+  description: >
+    The visit1_quicklook table records information from Summit Rapid Analysis about each visit taken in visit system 1, in which each visit corresponds to a single exposure.
+    This table describes processed visit images (or calibrated exposures).
   primaryKey:
   - "#visit1_quicklook.day_obs"
   - "#visit1_quicklook.seq_num"
@@ -1343,6 +1365,8 @@ tables:
     ivoa:unit: count
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
+  description: >
+    The exposure_quicklook table records information from Summit Rapid Analysis about each raw image taken.
   primaryKey:
   - "#exposure_quicklook.day_obs"
   - "#exposure_quicklook.seq_num"
@@ -1432,6 +1456,9 @@ tables:
     description: Rotator RMS mount jitter.
 - name: ccdvisit1
   "@id": "#ccdvisit1"
+  description: >
+    The ccdvisit1 table records information from observatory systems about each detector (CCD) within each visit taken in visit system 1, in which each visit corresponds to a single exposure.
+    This table describes detectors within processed visit images (or calibrated exposures).
   primaryKey:
   - "#ccdvisit1.ccdvisit_id"
   columns:
@@ -1461,6 +1488,9 @@ tables:
     ivoa:ucd: pos.outline;obs.field
 - name: ccdvisit1_quicklook
   "@id": "#ccdvisit1_quicklook"
+  description: >
+    The ccdvisit1_quicklook table records information from Summit Rapid Analysis about each detector (CCD) within each visit taken in visit system 1, in which each visit corresponds to a single exposure.
+    This table describes detectors within processed visit images (or calibrated exposures).
   primaryKey:
   - "#ccdvisit1_quicklook.ccdvisit_id"
   constraints:
@@ -1633,6 +1663,8 @@ tables:
     ivoa:unit: pixel
 - name: ccdexposure_quicklook
   "@id": "#ccdexposure_quicklook"
+  description: >
+    The ccdexposure_quicklook table records information from Summit Rapid Analysis about each detector (CCD) within each raw image taken.
   primaryKey:
   - "#ccdexposure_quicklook.ccdexposure_id"
   constraints:
