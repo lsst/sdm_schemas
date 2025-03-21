@@ -1,7 +1,9 @@
 ---
 name: cdb_startrackernarrow
 "@id": "#cdb_startrackernarrow"
-description: Consolidated Database for StarTrackerNarrow
+description: >
+  The Consolidated Database for StarTrackerNarrow schema contains information for each exposure taken by the instrument, a narrow-field star tracker mounted on the Simonyi Survey Telescope.
+  This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
   current: "1.0.0"
 tables:

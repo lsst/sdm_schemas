@@ -1,7 +1,11 @@
 ---
 name: cdb_lsstcomcamsim
 "@id": "#cdb_lsstcomcamsim"
-description: Consolidated Database for LSSTComCamSim
+description: >
+  The Consolidated Database for LSSTComCamSim schema contains information for each exposure and visit taken by the simulated instrument.
+  This information was recorded during an Operations Rehearsal.
+  This includes simulated observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
+  Per-detector information is also included.
 version:
   current: "3.2.0"
 tables:

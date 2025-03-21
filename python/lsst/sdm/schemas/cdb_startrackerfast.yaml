@@ -1,7 +1,9 @@
 ---
 name: cdb_startrackerfast
 "@id": "#cdb_startrackerfast"
-description: Consolidated Database for StarTrackerFast
+description: >
+  The Consolidated Database for StarTrackerFast schema contains information for each exposure taken by the instrument, a fast star tracker mounted on the Simonyi Survey Telescope.
+  This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
   current: "1.0.0"
 tables:
