@@ -571,12 +571,6 @@ tables:
     description: Error in declination, measured on g-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: g_decl
-    "@id": "#Object.g_decl"
-    datatype: double
-    description: Deprecated duplicate of g_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: g_extendedness
     "@id": "#Object.g_extendedness"
     datatype: float
@@ -1537,12 +1531,6 @@ tables:
     description: Error in declination, measured on i-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: i_decl
-    "@id": "#Object.i_decl"
-    datatype: double
-    description: Deprecated duplicate of i_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: i_extendedness
     "@id": "#Object.i_extendedness"
     datatype: float
@@ -2503,12 +2491,6 @@ tables:
     description: Error in declination, measured on r-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: r_decl
-    "@id": "#Object.r_decl"
-    datatype: double
-    description: Deprecated duplicate of r_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: r_extendedness
     "@id": "#Object.r_extendedness"
     datatype: float
@@ -3469,12 +3451,6 @@ tables:
     description: Error in declination, measured on u-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: u_decl
-    "@id": "#Object.u_decl"
-    datatype: double
-    description: Deprecated duplicate of u_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: u_extendedness
     "@id": "#Object.u_extendedness"
     datatype: float
@@ -4435,12 +4411,6 @@ tables:
     description: Error in declination, measured on y-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: y_decl
-    "@id": "#Object.y_decl"
-    datatype: double
-    description: Deprecated duplicate of y_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: y_extendedness
     "@id": "#Object.y_extendedness"
     datatype: float
@@ -5401,12 +5371,6 @@ tables:
     description: Error in declination, measured on z-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: z_decl
-    "@id": "#Object.z_decl"
-    datatype: double
-    description: Deprecated duplicate of z_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: z_extendedness
     "@id": "#Object.z_extendedness"
     datatype: float
@@ -6633,12 +6597,6 @@ tables:
     description: Covariance between right ascension and declination.
     fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-  - name: decl
-    "@id": "#Source.decl"
-    datatype: double
-    description: Deprecated duplicate of dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: calibFlux
     "@id": "#Source.calibFlux"
     datatype: double
