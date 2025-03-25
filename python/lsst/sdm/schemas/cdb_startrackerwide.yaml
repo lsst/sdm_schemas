@@ -10,7 +10,7 @@ tables:
 - name: exposure
   "@id": "#exposure"
   description: >
-    The exposure table records information from observatory systems about each raw image taken.
+    Information from observatory systems about each raw image taken
   primaryKey:
   - "#exposure.exposure_id"
   constraints:
@@ -220,8 +220,8 @@ tables:
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
   description: >
-    The exposure_flexdata table records flexible key/value metadata about each raw image taken.
-    It is used for development and engineering purposes.
+    Flexible key/value metadata about each raw image taken;
+    used for development and engineering purposes
   primaryKey:
   - "#exposure_flexdata.obs_id"
   - "#exposure_flexdata.key"
@@ -257,7 +257,7 @@ tables:
 - name: exposure_flexdata_schema
   "@id": "#exposure_flexdata_schema"
   description: >
-    The exposure_flexdata_schema table records the key names and value types used in the exposure_flexdata table.
+    Key names and value types used in the exposure_flexdata table
   primaryKey:
   - "#exposure_flexdata_schema.key"
   columns:
@@ -291,7 +291,7 @@ tables:
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
   description: >
-    The exposure_quicklook table records information from Summit Rapid Analysis about each raw image taken.
+    Information from Summit Rapid Analysis about each raw image taken
   primaryKey:
   - "#exposure_quicklook.exposure_id"
   constraints:
