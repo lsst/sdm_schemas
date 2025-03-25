@@ -1060,7 +1060,7 @@ tables:
   - name: g_pixelFlags_edge
     "@id": "#Object.g_pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on g-band.
+    description: Source is on the edge of an exposure region (masked EDGE). Measured on g-band.
     fits:tunit:
   - name: g_pixelFlags_inexact_psf
     "@id": "#Object.g_pixelFlags_inexact_psf"
@@ -1081,6 +1081,11 @@ tables:
     "@id": "#Object.g_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on g-band.
+    fits:tunit:
+  - name: g_pixelFlags_nodata
+    "@id": "#Object.g_pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA). Measured on g-band.
     fits:tunit:
   - name: g_pixelFlags_offimage
     "@id": "#Object.g_pixelFlags_offimage"
@@ -2021,7 +2026,7 @@ tables:
   - name: i_pixelFlags_edge
     "@id": "#Object.i_pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on i-band.
+    description: Source is on the edge of an exposure region (masked EDGE). Measured on i-band.
     fits:tunit:
   - name: i_pixelFlags_inexact_psf
     "@id": "#Object.i_pixelFlags_inexact_psf"
@@ -2042,6 +2047,11 @@ tables:
     "@id": "#Object.i_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on i-band.
+    fits:tunit:
+  - name: i_pixelFlags_nodata
+    "@id": "#Object.i_pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA). Measured on i-band.
     fits:tunit:
   - name: i_pixelFlags_offimage
     "@id": "#Object.i_pixelFlags_offimage"
@@ -2982,7 +2992,7 @@ tables:
   - name: r_pixelFlags_edge
     "@id": "#Object.r_pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on r-band.
+    description: Source is on the edge of an exposure region (masked EDGE). Measured on r-band.
     fits:tunit:
   - name: r_pixelFlags_inexact_psf
     "@id": "#Object.r_pixelFlags_inexact_psf"
@@ -3003,6 +3013,11 @@ tables:
     "@id": "#Object.r_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on r-band.
+    fits:tunit:
+  - name: r_pixelFlags_nodata
+    "@id": "#Object.r_pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA). Measured on r-band.
     fits:tunit:
   - name: r_pixelFlags_offimage
     "@id": "#Object.r_pixelFlags_offimage"
@@ -3943,7 +3958,7 @@ tables:
   - name: u_pixelFlags_edge
     "@id": "#Object.u_pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on u-band.
+    description: Source is on the edge of an exposure region (masked EDGE). Measured on u-band.
     fits:tunit:
   - name: u_pixelFlags_inexact_psf
     "@id": "#Object.u_pixelFlags_inexact_psf"
@@ -3964,6 +3979,11 @@ tables:
     "@id": "#Object.u_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on u-band.
+    fits:tunit:
+  - name: u_pixelFlags_nodata
+    "@id": "#Object.u_pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA). Measured on u-band.
     fits:tunit:
   - name: u_pixelFlags_offimage
     "@id": "#Object.u_pixelFlags_offimage"
@@ -4904,7 +4924,7 @@ tables:
   - name: y_pixelFlags_edge
     "@id": "#Object.y_pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on y-band.
+    description: Source is on the edge of an exposure region (masked EDGE). Measured on y-band.
     fits:tunit:
   - name: y_pixelFlags_inexact_psf
     "@id": "#Object.y_pixelFlags_inexact_psf"
@@ -4925,6 +4945,11 @@ tables:
     "@id": "#Object.y_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on y-band.
+    fits:tunit:
+  - name: y_pixelFlags_nodata
+    "@id": "#Object.y_pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA). Measured on y-band.
     fits:tunit:
   - name: y_pixelFlags_offimage
     "@id": "#Object.y_pixelFlags_offimage"
@@ -5865,7 +5890,7 @@ tables:
   - name: z_pixelFlags_edge
     "@id": "#Object.z_pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA). Measured on z-band.
+    description: Source is on the edge of an exposure region (masked EDGE). Measured on z-band.
     fits:tunit:
   - name: z_pixelFlags_inexact_psf
     "@id": "#Object.z_pixelFlags_inexact_psf"
@@ -5886,6 +5911,11 @@ tables:
     "@id": "#Object.z_pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center. Measured on z-band.
+    fits:tunit:
+  - name: z_pixelFlags_nodata
+    "@id": "#Object.z_pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA). Measured on z-band.
     fits:tunit:
   - name: z_pixelFlags_offimage
     "@id": "#Object.z_pixelFlags_offimage"
@@ -7012,7 +7042,7 @@ tables:
   - name: pixelFlags_edge
     "@id": "#Source.pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA)
+    description: Source is on the edge of an exposure region (masked EDGE)
     fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#Source.pixelFlags_interpolated"
@@ -7023,6 +7053,11 @@ tables:
     "@id": "#Source.pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center
+    fits:tunit:
+  - name: pixelFlags_nodata
+    "@id": "#Source.pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA)
     fits:tunit:
   - name: pixelFlags_offimage
     "@id": "#Source.pixelFlags_offimage"
@@ -7471,7 +7506,7 @@ tables:
   - name: pixelFlags_edge
     "@id": "#ForcedSource.pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA)
+    description: Source is on the edge of an exposure region (masked EDGE)
     fits:tunit:
   - name: pixelFlags_interpolatedCenter
     "@id": "#ForcedSource.pixelFlags_interpolatedCenter"
@@ -7482,6 +7517,11 @@ tables:
     "@id": "#ForcedSource.pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the Source footprint
+    fits:tunit:
+  - name: pixelFlags_nodata
+    "@id": "#ForcedSource.pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA)
     fits:tunit:
   - name: pixelFlags_saturatedCenter
     "@id": "#ForcedSource.pixelFlags_saturatedCenter"
@@ -8329,15 +8369,6 @@ tables:
     datatype: boolean
     description: Some of the source footprint is outside usable exposure region (masked EDGE or centroid off image).
     fits:tunit:
-  - name: pixelFlags_nodata
-    "@id": "#DiaSource.pixelFlags_nodata"
-    datatype: boolean
-    description: NO_DATA pixel in the source footprint.
-    fits:tunit:
-  - name: pixelFlags_nodataCenter
-    "@id": "#DiaSource.pixelFlags_nodataCenter"
-    datatype: boolean
-    description: NO_DATA pixel in the 3x3 region around the centroid.
   - name: pixelFlags_interpolated
     "@id": "#DiaSource.pixelFlags_interpolated"
     datatype: boolean
@@ -8347,6 +8378,16 @@ tables:
     "@id": "#DiaSource.pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_nodata
+    "@id": "#DiaSource.pixelFlags_nodata"
+    datatype: boolean
+    description: NO_DATA pixel in the source footprint.
+    fits:tunit:
+  - name: pixelFlags_nodataCenter
+    "@id": "#DiaSource.pixelFlags_nodataCenter"
+    datatype: boolean
+    description: NO_DATA pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_offimage
     "@id": "#DiaSource.pixelFlags_offimage"
@@ -8685,7 +8726,7 @@ tables:
   - name: pixelFlags_edge
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_edge"
     datatype: boolean
-    description: Source is outside usable exposure region (masked EDGE or NO_DATA)
+    description: Source is on the edge of an exposure region (masked EDGE)
     fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolated"
@@ -8696,6 +8737,11 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the Source center
+    fits:tunit:
+  - name: pixelFlags_nodata
+    "@id": "#ForcedSourceOnDiaObject.pixelFlags_nodata"
+    datatype: boolean
+    description: Source is outside usable exposure region (masked NO_DATA)
     fits:tunit:
   - name: pixelFlags_saturated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturated"
