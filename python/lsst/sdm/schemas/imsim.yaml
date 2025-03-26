@@ -150,7 +150,7 @@ tables:
     fits:tunit:
   - name: ebv
     "@id": "#Object.ebv"
-    datatype: double
+    datatype: float
     description: E(B-V) at coord_ra/coord_dec per Schlegel, Finkbeiner & Davis (1998)
     fits:tunit: mag
   - name: footprintArea
@@ -181,17 +181,17 @@ tables:
     fits:tunit:
   - name: refExtendedness
     "@id": "#Object.refExtendedness"
-    datatype: double
+    datatype: float
     description: Set to 1 for extended sources, 0 for point sources. Reference band.
     fits:tunit:
   - name: refSizeExtendedness
     "@id": "#Object.refSizeExtendedness"
-    datatype: double
+    datatype: float
     description: Moments-based measure of an object to be a galaxy. Reference band.
     fits:tunit:
   - name: refFwhm
     "@id": "#Object.refFwhm"
-    datatype: double
+    datatype: float
     description: Estimated FWHM on the reference band at source center assuming a Gaussian profile
     fits:tunit:
   - name: shape_flag
@@ -201,17 +201,17 @@ tables:
     fits:tunit:
   - name: shape_xx
     "@id": "#Object.shape_xx"
-    datatype: double
+    datatype: float
     description: HSM moments. Reference band.
     fits:tunit: pixel**2
   - name: shape_xy
     "@id": "#Object.shape_xy"
-    datatype: double
+    datatype: float
     description: HSM moments. Reference band.
     fits:tunit: pixel**2
   - name: shape_yy
     "@id": "#Object.shape_yy"
-    datatype: double
+    datatype: float
     description: HSM moments. Reference band.
     fits:tunit: pixel**2
   - name: sky_object
@@ -251,12 +251,12 @@ tables:
     fits:tunit: pixel
   - name: g_ap03Flux
     "@id": "#Object.g_ap03Flux"
-    datatype: double
+    datatype: float
     description: Flux within 3.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap03FluxErr
     "@id": "#Object.g_ap03FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 3.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap03Flux_flag
@@ -266,12 +266,12 @@ tables:
     fits:tunit:
   - name: g_ap06Flux
     "@id": "#Object.g_ap06Flux"
-    datatype: double
+    datatype: float
     description: Flux within 6.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap06FluxErr
     "@id": "#Object.g_ap06FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 6.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap06Flux_flag
@@ -281,12 +281,12 @@ tables:
     fits:tunit:
   - name: g_ap09Flux
     "@id": "#Object.g_ap09Flux"
-    datatype: double
+    datatype: float
     description: Flux within 9.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap09FluxErr
     "@id": "#Object.g_ap09FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 9.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap09Flux_flag
@@ -296,12 +296,12 @@ tables:
     fits:tunit:
   - name: g_ap12Flux
     "@id": "#Object.g_ap12Flux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap12FluxErr
     "@id": "#Object.g_ap12FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap12Flux_flag
@@ -311,12 +311,12 @@ tables:
     fits:tunit:
   - name: g_ap17Flux
     "@id": "#Object.g_ap17Flux"
-    datatype: double
+    datatype: float
     description: Flux within 17.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap17FluxErr
     "@id": "#Object.g_ap17FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 17.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap17Flux_flag
@@ -326,12 +326,12 @@ tables:
     fits:tunit:
   - name: g_ap25Flux
     "@id": "#Object.g_ap25Flux"
-    datatype: double
+    datatype: float
     description: Flux within 25.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap25FluxErr
     "@id": "#Object.g_ap25FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 25.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap25Flux_flag
@@ -341,12 +341,12 @@ tables:
     fits:tunit:
   - name: g_ap35Flux
     "@id": "#Object.g_ap35Flux"
-    datatype: double
+    datatype: float
     description: Flux within 35.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap35FluxErr
     "@id": "#Object.g_ap35FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 35.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap35Flux_flag
@@ -356,12 +356,12 @@ tables:
     fits:tunit:
   - name: g_ap50Flux
     "@id": "#Object.g_ap50Flux"
-    datatype: double
+    datatype: float
     description: Flux within 50.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap50FluxErr
     "@id": "#Object.g_ap50FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 50.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap50Flux_flag
@@ -371,12 +371,12 @@ tables:
     fits:tunit:
   - name: g_ap70Flux
     "@id": "#Object.g_ap70Flux"
-    datatype: double
+    datatype: float
     description: Flux within 70.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap70FluxErr
     "@id": "#Object.g_ap70FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 70.0-pixel aperture. Forced on g-band.
     fits:tunit: nJy
   - name: g_ap70Flux_flag
@@ -401,52 +401,52 @@ tables:
     fits:tunit:
   - name: g_bdChi2
     "@id": "#Object.g_bdChi2"
-    datatype: double
+    datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on g-band.
     fits:tunit:
   - name: g_bdE1
     "@id": "#Object.g_bdE1"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_bdE2
     "@id": "#Object.g_bdE2"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_bdFluxB
     "@id": "#Object.g_bdFluxB"
-    datatype: double
+    datatype: float
     description: Flux from the de Vaucouleur fit. Measured on g-band.
     fits:tunit: nJy
   - name: g_bdFluxBErr
     "@id": "#Object.g_bdFluxBErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the de Vaucouleur fit. Measured on g-band.
     fits:tunit: nJy
   - name: g_bdFluxD
     "@id": "#Object.g_bdFluxD"
-    datatype: double
+    datatype: float
     description: Flux from the exponential fit. Measured on g-band.
     fits:tunit: nJy
   - name: g_bdFluxDErr
     "@id": "#Object.g_bdFluxDErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the exponential fit. Measured on g-band.
     fits:tunit: nJy
   - name: g_bdReB
     "@id": "#Object.g_bdReB"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the de Vaucouleur fit. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_bdReD
     "@id": "#Object.g_bdReD"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the exponential fit. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_blendedness
     "@id": "#Object.g_blendedness"
-    datatype: double
+    datatype: float
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates on the absolute value of the pixels to try to obtain a de-noised value.  See section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on g-band.
     fits:tunit:
   - name: g_blendedness_flag
@@ -456,17 +456,17 @@ tables:
     fits:tunit:
   - name: g_cModelFlux
     "@id": "#Object.g_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Forced on g-band.
     fits:tunit: nJy
   - name: g_cModelFluxErr
     "@id": "#Object.g_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Forced on g-band.
     fits:tunit: nJy
   - name: g_cModelFlux_inner
     "@id": "#Object.g_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on g-band.
     fits:tunit: nJy
   - name: g_cModel_flag
@@ -481,12 +481,12 @@ tables:
     fits:tunit:
   - name: g_calibFlux
     "@id": "#Object.g_calibFlux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Measured on g-band.
     fits:tunit: nJy
   - name: g_calibFluxErr
     "@id": "#Object.g_calibFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Measured on g-band.
     fits:tunit: nJy
   - name: g_calibFlux_flag
@@ -571,15 +571,9 @@ tables:
     description: Error in declination, measured on g-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: g_decl
-    "@id": "#Object.g_decl"
-    datatype: double
-    description: Deprecated duplicate of g_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: g_extendedness
     "@id": "#Object.g_extendedness"
-    datatype: double
+    datatype: float
     description: Set to 1 for extended sources, 0 for point sources. Measured on g-band.
     fits:tunit:
   - name: g_extendedness_flag
@@ -589,7 +583,7 @@ tables:
     fits:tunit:
   - name: g_sizeExtendedness
     "@id": "#Object.g_extendedLikehood"
-    datatype: double
+    datatype: float
     description: Moments-based measure of an object to be a galaxy. Measured on g-band.
     fits:tunit:
   - name: g_sizeExtendedness_flag
@@ -599,12 +593,12 @@ tables:
     fits:tunit:
   - name: g_free_cModelFlux
     "@id": "#Object.g_free_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Measured on g-band.
     fits:tunit: nJy
   - name: g_free_cModelFluxErr
     "@id": "#Object.g_free_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Measured on g-band.
     fits:tunit: nJy
   - name: g_free_cModelFlux_flag
@@ -614,17 +608,17 @@ tables:
     fits:tunit:
   - name: g_free_cModelFlux_inner
     "@id": "#Object.g_free_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on g-band.
     fits:tunit: nJy
   - name: g_free_psfFlux
     "@id": "#Object.g_free_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on g-band.
     fits:tunit: nJy
   - name: g_free_psfFluxErr
     "@id": "#Object.g_free_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on g-band.
     fits:tunit: nJy
   - name: g_free_psfFlux_flag
@@ -634,17 +628,17 @@ tables:
     fits:tunit:
   - name: g_fwhm
     "@id": "#Object.g_fwhm"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_gaap0p7Flux
     "@id": "#Object.g_gaap0p7Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap0p7FluxErr
     "@id": "#Object.g_gaap0p7FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap0p7Flux_flag_bigPsf
@@ -654,12 +648,12 @@ tables:
     fits:tunit:
   - name: g_gaap1p0Flux
     "@id": "#Object.g_gaap1p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap1p0FluxErr
     "@id": "#Object.g_gaap1p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap1p0Flux_flag_bigPsf
@@ -669,12 +663,12 @@ tables:
     fits:tunit:
   - name: g_gaap1p5Flux
     "@id": "#Object.g_gaap1p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap1p5FluxErr
     "@id": "#Object.g_gaap1p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap1p5Flux_flag_bigPsf
@@ -684,12 +678,12 @@ tables:
     fits:tunit:
   - name: g_gaap2p5Flux
     "@id": "#Object.g_gaap2p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap2p5FluxErr
     "@id": "#Object.g_gaap2p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap2p5Flux_flag_bigPsf
@@ -699,12 +693,12 @@ tables:
     fits:tunit:
   - name: g_gaap3p0Flux
     "@id": "#Object.g_gaap3p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap3p0FluxErr
     "@id": "#Object.g_gaap3p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaap3p0Flux_flag_bigPsf
@@ -729,12 +723,12 @@ tables:
     fits:tunit:
   - name: g_gaapOptimalFlux
     "@id": "#Object.g_gaapOptimalFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaapOptimalFluxErr
     "@id": "#Object.g_gaapOptimalFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaapOptimalFlux_flag_bigPsf
@@ -744,22 +738,22 @@ tables:
     fits:tunit:
   - name: g_gaapPsfFlux
     "@id": "#Object.g_gaapPsfFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_gaapPsfFluxErr
     "@id": "#Object.g_gaapPsfFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
   - name: g_hsmShapeRegauss_e1
     "@id": "#Object.g_hsmShapeRegauss_e1"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on g-band.
     fits:tunit:
   - name: g_hsmShapeRegauss_e2
     "@id": "#Object.g_hsmShapeRegauss_e2"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on g-band.
     fits:tunit:
   - name: g_hsmShapeRegauss_flag
@@ -769,7 +763,7 @@ tables:
     fits:tunit:
   - name: g_hsmShapeRegauss_sigma
     "@id": "#Object.g_hsmShapeRegauss_sigma"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on g-band.
     fits:tunit:
   - name: g_iDebiasedPSF_flag
@@ -784,9 +778,8 @@ tables:
     fits:tunit:
   - name: g_iRound_flag
     "@id": "#Object.g_iRound_flag"
-    datatype: double
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
+    datatype: boolean
+    description: General failure flag, set if anything went wrong. Measured on g-band.
   - name: g_i_flag
     "@id": "#Object.g_i_flag"
     datatype: boolean
@@ -809,152 +802,152 @@ tables:
     fits:tunit:
   - name: g_ixx
     "@id": "#Object.g_ixx"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixxDebiasedPSF
     "@id": "#Object.g_ixxDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixxPSF
     "@id": "#Object.g_ixxPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixxRound
     "@id": "#Object.g_ixxRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixy
     "@id": "#Object.g_ixy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixyDebiasedPSF
     "@id": "#Object.g_ixyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixyPSF
     "@id": "#Object.g_ixyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixyRound
     "@id": "#Object.g_ixyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_iyy
     "@id": "#Object.g_iyy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_iyyDebiasedPSF
     "@id": "#Object.g_iyyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_iyyPSF
     "@id": "#Object.g_iyyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_iyyRound
     "@id": "#Object.g_iyyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_hsm_moments_30
     "@id": "#Object.g_hsm_moments_30"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 30. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_30
     "@id": "#Object.g_hsm_momentsPsf_30"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 30. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_21
     "@id": "#Object.g_hsm_moments_21"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 21. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_21
     "@id": "#Object.g_hsm_momentsPsf_21"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 21. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_12
     "@id": "#Object.g_hsm_moments_12"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 12. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_12
     "@id": "#Object.g_hsm_momentsPsf_12"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 12. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_03
     "@id": "#Object.g_hsm_moments_03"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 03. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_03
     "@id": "#Object.g_hsm_momentsPsf_03"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 03. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_40
     "@id": "#Object.g_hsm_moments_40"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 40. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_40
     "@id": "#Object.g_hsm_momentsPsf_40"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 40. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_31
     "@id": "#Object.g_hsm_moments_31"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 31. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_31
     "@id": "#Object.g_hsm_momentsPsf_31"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 31. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_22
     "@id": "#Object.g_hsm_moments_22"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 22. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_22
     "@id": "#Object.g_hsm_momentsPsf_22"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 22. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_13
     "@id": "#Object.g_hsm_moments_13"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 13. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_13
     "@id": "#Object.g_hsm_momentsPsf_13"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 13. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_04
     "@id": "#Object.g_hsm_moments_04"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 04. Measured on g-band.
     fits:tunit:
   - name: g_hsm_momentsPsf_04
     "@id": "#Object.g_hsm_momentsPsf_04"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 04. Measured on g-band.
     fits:tunit:
   - name: g_hsm_moments_flag
@@ -969,12 +962,12 @@ tables:
     fits:tunit:
   - name: g_kronFlux
     "@id": "#Object.g_kronFlux"
-    datatype: double
+    datatype: float
     description: Flux from Kron Flux algorithm. Measured on g-band.
     fits:tunit: nJy
   - name: g_kronFluxErr
     "@id": "#Object.g_kronFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from Kron Flux algorithm. Measured on g-band.
     fits:tunit: nJy
   - name: g_kronFlux_flag
@@ -1139,12 +1132,12 @@ tables:
     fits:tunit:
   - name: g_psfFlux
     "@id": "#Object.g_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Forced on g-band.
     fits:tunit: nJy
   - name: g_psfFluxErr
     "@id": "#Object.g_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on g-band.
     fits:tunit: nJy
   - name: g_psfFlux_area
@@ -1217,12 +1210,12 @@ tables:
     fits:tunit:
   - name: i_ap03Flux
     "@id": "#Object.i_ap03Flux"
-    datatype: double
+    datatype: float
     description: Flux within 3.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap03FluxErr
     "@id": "#Object.i_ap03FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 3.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap03Flux_flag
@@ -1232,12 +1225,12 @@ tables:
     fits:tunit:
   - name: i_ap06Flux
     "@id": "#Object.i_ap06Flux"
-    datatype: double
+    datatype: float
     description: Flux within 6.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap06FluxErr
     "@id": "#Object.i_ap06FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 6.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap06Flux_flag
@@ -1247,12 +1240,12 @@ tables:
     fits:tunit:
   - name: i_ap09Flux
     "@id": "#Object.i_ap09Flux"
-    datatype: double
+    datatype: float
     description: Flux within 9.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap09FluxErr
     "@id": "#Object.i_ap09FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 9.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap09Flux_flag
@@ -1262,12 +1255,12 @@ tables:
     fits:tunit:
   - name: i_ap12Flux
     "@id": "#Object.i_ap12Flux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap12FluxErr
     "@id": "#Object.i_ap12FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap12Flux_flag
@@ -1277,12 +1270,12 @@ tables:
     fits:tunit:
   - name: i_ap17Flux
     "@id": "#Object.i_ap17Flux"
-    datatype: double
+    datatype: float
     description: Flux within 17.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap17FluxErr
     "@id": "#Object.i_ap17FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 17.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap17Flux_flag
@@ -1292,12 +1285,12 @@ tables:
     fits:tunit:
   - name: i_ap25Flux
     "@id": "#Object.i_ap25Flux"
-    datatype: double
+    datatype: float
     description: Flux within 25.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap25FluxErr
     "@id": "#Object.i_ap25FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 25.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap25Flux_flag
@@ -1307,12 +1300,12 @@ tables:
     fits:tunit:
   - name: i_ap35Flux
     "@id": "#Object.i_ap35Flux"
-    datatype: double
+    datatype: float
     description: Flux within 35.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap35FluxErr
     "@id": "#Object.i_ap35FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 35.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap35Flux_flag
@@ -1322,12 +1315,12 @@ tables:
     fits:tunit:
   - name: i_ap50Flux
     "@id": "#Object.i_ap50Flux"
-    datatype: double
+    datatype: float
     description: Flux within 50.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap50FluxErr
     "@id": "#Object.i_ap50FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 50.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap50Flux_flag
@@ -1337,12 +1330,12 @@ tables:
     fits:tunit:
   - name: i_ap70Flux
     "@id": "#Object.i_ap70Flux"
-    datatype: double
+    datatype: float
     description: Flux within 70.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap70FluxErr
     "@id": "#Object.i_ap70FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 70.0-pixel aperture. Forced on i-band.
     fits:tunit: nJy
   - name: i_ap70Flux_flag
@@ -1367,52 +1360,52 @@ tables:
     fits:tunit:
   - name: i_bdChi2
     "@id": "#Object.i_bdChi2"
-    datatype: double
+    datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on i-band.
     fits:tunit:
   - name: i_bdE1
     "@id": "#Object.i_bdE1"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_bdE2
     "@id": "#Object.i_bdE2"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_bdFluxB
     "@id": "#Object.i_bdFluxB"
-    datatype: double
+    datatype: float
     description: Flux from the de Vaucouleur fit. Measured on i-band.
     fits:tunit: nJy
   - name: i_bdFluxBErr
     "@id": "#Object.i_bdFluxBErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the de Vaucouleur fit. Measured on i-band.
     fits:tunit: nJy
   - name: i_bdFluxD
     "@id": "#Object.i_bdFluxD"
-    datatype: double
+    datatype: float
     description: Flux from the exponential fit. Measured on i-band.
     fits:tunit: nJy
   - name: i_bdFluxDErr
     "@id": "#Object.i_bdFluxDErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the exponential fit. Measured on i-band.
     fits:tunit: nJy
   - name: i_bdReB
     "@id": "#Object.i_bdReB"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the de Vaucouleur fit. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_bdReD
     "@id": "#Object.i_bdReD"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the exponential fit. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_blendedness
     "@id": "#Object.i_blendedness"
-    datatype: double
+    datatype: float
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates on the absolute value of the pixels to try to obtain a de-noised value.  See section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on i-band.
     fits:tunit:
   - name: i_blendedness_flag
@@ -1422,17 +1415,17 @@ tables:
     fits:tunit:
   - name: i_cModelFlux
     "@id": "#Object.i_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Forced on i-band.
     fits:tunit: nJy
   - name: i_cModelFluxErr
     "@id": "#Object.i_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Forced on i-band.
     fits:tunit: nJy
   - name: i_cModelFlux_inner
     "@id": "#Object.i_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on i-band.
     fits:tunit: nJy
   - name: i_cModel_flag
@@ -1447,12 +1440,12 @@ tables:
     fits:tunit:
   - name: i_calibFlux
     "@id": "#Object.i_calibFlux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Measured on i-band.
     fits:tunit: nJy
   - name: i_calibFluxErr
     "@id": "#Object.i_calibFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Measured on i-band.
     fits:tunit: nJy
   - name: i_calibFlux_flag
@@ -1537,15 +1530,9 @@ tables:
     description: Error in declination, measured on i-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: i_decl
-    "@id": "#Object.i_decl"
-    datatype: double
-    description: Deprecated duplicate of i_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: i_extendedness
     "@id": "#Object.i_extendedness"
-    datatype: double
+    datatype: float
     description: Set to 1 for extended sources, 0 for point sources. Measured on i-band.
     fits:tunit:
   - name: i_extendedness_flag
@@ -1555,7 +1542,7 @@ tables:
     fits:tunit:
   - name: i_sizeExtendedness
     "@id": "#Object.i_extendedLikehood"
-    datatype: double
+    datatype: float
     description: Moments-based measure of an object to be a galaxy. Measured on i-band.
     fits:tunit:
   - name: i_sizeExtendedness_flag
@@ -1565,12 +1552,12 @@ tables:
     fits:tunit:
   - name: i_free_cModelFlux
     "@id": "#Object.i_free_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Measured on i-band.
     fits:tunit: nJy
   - name: i_free_cModelFluxErr
     "@id": "#Object.i_free_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Measured on i-band.
     fits:tunit: nJy
   - name: i_free_cModelFlux_flag
@@ -1580,17 +1567,17 @@ tables:
     fits:tunit:
   - name: i_free_cModelFlux_inner
     "@id": "#Object.i_free_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on i-band.
     fits:tunit: nJy
   - name: i_free_psfFlux
     "@id": "#Object.i_free_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on i-band.
     fits:tunit: nJy
   - name: i_free_psfFluxErr
     "@id": "#Object.i_free_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on i-band.
     fits:tunit: nJy
   - name: i_free_psfFlux_flag
@@ -1600,17 +1587,17 @@ tables:
     fits:tunit:
   - name: i_fwhm
     "@id": "#Object.i_fwhm"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_gaap0p7Flux
     "@id": "#Object.i_gaap0p7Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap0p7FluxErr
     "@id": "#Object.i_gaap0p7FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap0p7Flux_flag_bigPsf
@@ -1620,12 +1607,12 @@ tables:
     fits:tunit:
   - name: i_gaap1p0Flux
     "@id": "#Object.i_gaap1p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap1p0FluxErr
     "@id": "#Object.i_gaap1p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap1p0Flux_flag_bigPsf
@@ -1635,12 +1622,12 @@ tables:
     fits:tunit:
   - name: i_gaap1p5Flux
     "@id": "#Object.i_gaap1p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap1p5FluxErr
     "@id": "#Object.i_gaap1p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap1p5Flux_flag_bigPsf
@@ -1650,12 +1637,12 @@ tables:
     fits:tunit:
   - name: i_gaap2p5Flux
     "@id": "#Object.i_gaap2p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap2p5FluxErr
     "@id": "#Object.i_gaap2p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap2p5Flux_flag_bigPsf
@@ -1665,12 +1652,12 @@ tables:
     fits:tunit:
   - name: i_gaap3p0Flux
     "@id": "#Object.i_gaap3p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap3p0FluxErr
     "@id": "#Object.i_gaap3p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaap3p0Flux_flag_bigPsf
@@ -1695,12 +1682,12 @@ tables:
     fits:tunit:
   - name: i_gaapOptimalFlux
     "@id": "#Object.i_gaapOptimalFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaapOptimalFluxErr
     "@id": "#Object.i_gaapOptimalFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaapOptimalFlux_flag_bigPsf
@@ -1710,22 +1697,22 @@ tables:
     fits:tunit:
   - name: i_gaapPsfFlux
     "@id": "#Object.i_gaapPsfFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_gaapPsfFluxErr
     "@id": "#Object.i_gaapPsfFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
   - name: i_hsmShapeRegauss_e1
     "@id": "#Object.i_hsmShapeRegauss_e1"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on i-band.
     fits:tunit:
   - name: i_hsmShapeRegauss_e2
     "@id": "#Object.i_hsmShapeRegauss_e2"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on i-band.
     fits:tunit:
   - name: i_hsmShapeRegauss_flag
@@ -1735,7 +1722,7 @@ tables:
     fits:tunit:
   - name: i_hsmShapeRegauss_sigma
     "@id": "#Object.i_hsmShapeRegauss_sigma"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on i-band.
     fits:tunit:
   - name: i_iDebiasedPSF_flag
@@ -1750,9 +1737,8 @@ tables:
     fits:tunit:
   - name: i_iRound_flag
     "@id": "#Object.i_iRound_flag"
-    datatype: double
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
+    datatype: boolean
+    description: General failure flag, set if anything went wrong. Measured on i-band.
   - name: i_i_flag
     "@id": "#Object.i_i_flag"
     datatype: boolean
@@ -1775,152 +1761,152 @@ tables:
     fits:tunit:
   - name: i_ixx
     "@id": "#Object.i_ixx"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixxDebiasedPSF
     "@id": "#Object.i_ixxDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixxPSF
     "@id": "#Object.i_ixxPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixxRound
     "@id": "#Object.i_ixxRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixy
     "@id": "#Object.i_ixy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixyDebiasedPSF
     "@id": "#Object.i_ixyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixyPSF
     "@id": "#Object.i_ixyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixyRound
     "@id": "#Object.i_ixyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_iyy
     "@id": "#Object.i_iyy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_iyyDebiasedPSF
     "@id": "#Object.i_iyyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_iyyPSF
     "@id": "#Object.i_iyyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_iyyRound
     "@id": "#Object.i_iyyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_hsm_moments_30
     "@id": "#Object.i_hsm_moments_30"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 30. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_30
     "@id": "#Object.i_hsm_momentsPsf_30"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 30. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_21
     "@id": "#Object.i_hsm_moments_21"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 21. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_21
     "@id": "#Object.i_hsm_momentsPsf_21"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 21. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_12
     "@id": "#Object.i_hsm_moments_12"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 12. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_12
     "@id": "#Object.i_hsm_momentsPsf_12"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 12. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_03
     "@id": "#Object.i_hsm_moments_03"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 03. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_03
     "@id": "#Object.i_hsm_momentsPsf_03"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 03. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_40
     "@id": "#Object.i_hsm_moments_40"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 40. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_40
     "@id": "#Object.i_hsm_momentsPsf_40"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 40. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_31
     "@id": "#Object.i_hsm_moments_31"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 31. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_31
     "@id": "#Object.i_hsm_momentsPsf_31"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 31. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_22
     "@id": "#Object.i_hsm_moments_22"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 22. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_22
     "@id": "#Object.i_hsm_momentsPsf_22"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 22. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_13
     "@id": "#Object.i_hsm_moments_13"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 13. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_13
     "@id": "#Object.i_hsm_momentsPsf_13"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 13. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_04
     "@id": "#Object.i_hsm_moments_04"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 04. Measured on i-band.
     fits:tunit:
   - name: i_hsm_momentsPsf_04
     "@id": "#Object.i_hsm_momentsPsf_04"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 04. Measured on i-band.
     fits:tunit:
   - name: i_hsm_moments_flag
@@ -1935,12 +1921,12 @@ tables:
     fits:tunit:
   - name: i_kronFlux
     "@id": "#Object.i_kronFlux"
-    datatype: double
+    datatype: float
     description: Flux from Kron Flux algorithm. Measured on i-band.
     fits:tunit: nJy
   - name: i_kronFluxErr
     "@id": "#Object.i_kronFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from Kron Flux algorithm. Measured on i-band.
     fits:tunit: nJy
   - name: i_kronFlux_flag
@@ -2105,12 +2091,12 @@ tables:
     fits:tunit:
   - name: i_psfFlux
     "@id": "#Object.i_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Forced on i-band.
     fits:tunit: nJy
   - name: i_psfFluxErr
     "@id": "#Object.i_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on i-band.
     fits:tunit: nJy
   - name: i_psfFlux_area
@@ -2183,12 +2169,12 @@ tables:
     fits:tunit:
   - name: r_ap03Flux
     "@id": "#Object.r_ap03Flux"
-    datatype: double
+    datatype: float
     description: Flux within 3.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap03FluxErr
     "@id": "#Object.r_ap03FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 3.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap03Flux_flag
@@ -2198,12 +2184,12 @@ tables:
     fits:tunit:
   - name: r_ap06Flux
     "@id": "#Object.r_ap06Flux"
-    datatype: double
+    datatype: float
     description: Flux within 6.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap06FluxErr
     "@id": "#Object.r_ap06FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 6.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap06Flux_flag
@@ -2213,12 +2199,12 @@ tables:
     fits:tunit:
   - name: r_ap09Flux
     "@id": "#Object.r_ap09Flux"
-    datatype: double
+    datatype: float
     description: Flux within 9.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap09FluxErr
     "@id": "#Object.r_ap09FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 9.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap09Flux_flag
@@ -2228,12 +2214,12 @@ tables:
     fits:tunit:
   - name: r_ap12Flux
     "@id": "#Object.r_ap12Flux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap12FluxErr
     "@id": "#Object.r_ap12FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap12Flux_flag
@@ -2243,12 +2229,12 @@ tables:
     fits:tunit:
   - name: r_ap17Flux
     "@id": "#Object.r_ap17Flux"
-    datatype: double
+    datatype: float
     description: Flux within 17.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap17FluxErr
     "@id": "#Object.r_ap17FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 17.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap17Flux_flag
@@ -2258,12 +2244,12 @@ tables:
     fits:tunit:
   - name: r_ap25Flux
     "@id": "#Object.r_ap25Flux"
-    datatype: double
+    datatype: float
     description: Flux within 25.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap25FluxErr
     "@id": "#Object.r_ap25FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 25.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap25Flux_flag
@@ -2273,12 +2259,12 @@ tables:
     fits:tunit:
   - name: r_ap35Flux
     "@id": "#Object.r_ap35Flux"
-    datatype: double
+    datatype: float
     description: Flux within 35.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap35FluxErr
     "@id": "#Object.r_ap35FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 35.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap35Flux_flag
@@ -2288,12 +2274,12 @@ tables:
     fits:tunit:
   - name: r_ap50Flux
     "@id": "#Object.r_ap50Flux"
-    datatype: double
+    datatype: float
     description: Flux within 50.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap50FluxErr
     "@id": "#Object.r_ap50FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 50.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap50Flux_flag
@@ -2303,12 +2289,12 @@ tables:
     fits:tunit:
   - name: r_ap70Flux
     "@id": "#Object.r_ap70Flux"
-    datatype: double
+    datatype: float
     description: Flux within 70.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap70FluxErr
     "@id": "#Object.r_ap70FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 70.0-pixel aperture. Forced on r-band.
     fits:tunit: nJy
   - name: r_ap70Flux_flag
@@ -2333,52 +2319,52 @@ tables:
     fits:tunit:
   - name: r_bdChi2
     "@id": "#Object.r_bdChi2"
-    datatype: double
+    datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on r-band.
     fits:tunit:
   - name: r_bdE1
     "@id": "#Object.r_bdE1"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_bdE2
     "@id": "#Object.r_bdE2"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_bdFluxB
     "@id": "#Object.r_bdFluxB"
-    datatype: double
+    datatype: float
     description: Flux from the de Vaucouleur fit. Measured on r-band.
     fits:tunit: nJy
   - name: r_bdFluxBErr
     "@id": "#Object.r_bdFluxBErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the de Vaucouleur fit. Measured on r-band.
     fits:tunit: nJy
   - name: r_bdFluxD
     "@id": "#Object.r_bdFluxD"
-    datatype: double
+    datatype: float
     description: Flux from the exponential fit. Measured on r-band.
     fits:tunit: nJy
   - name: r_bdFluxDErr
     "@id": "#Object.r_bdFluxDErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the exponential fit. Measured on r-band.
     fits:tunit: nJy
   - name: r_bdReB
     "@id": "#Object.r_bdReB"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the de Vaucouleur fit. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_bdReD
     "@id": "#Object.r_bdReD"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the exponential fit. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_blendedness
     "@id": "#Object.r_blendedness"
-    datatype: double
+    datatype: float
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates on the absolute value of the pixels to try to obtain a de-noised value.  See section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on r-band.
     fits:tunit:
   - name: r_blendedness_flag
@@ -2388,17 +2374,17 @@ tables:
     fits:tunit:
   - name: r_cModelFlux
     "@id": "#Object.r_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Forced on r-band.
     fits:tunit: nJy
   - name: r_cModelFluxErr
     "@id": "#Object.r_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Forced on r-band.
     fits:tunit: nJy
   - name: r_cModelFlux_inner
     "@id": "#Object.r_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on r-band.
     fits:tunit: nJy
   - name: r_cModel_flag
@@ -2413,12 +2399,12 @@ tables:
     fits:tunit:
   - name: r_calibFlux
     "@id": "#Object.r_calibFlux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Measured on r-band.
     fits:tunit: nJy
   - name: r_calibFluxErr
     "@id": "#Object.r_calibFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Measured on r-band.
     fits:tunit: nJy
   - name: r_calibFlux_flag
@@ -2503,15 +2489,9 @@ tables:
     description: Error in declination, measured on r-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: r_decl
-    "@id": "#Object.r_decl"
-    datatype: double
-    description: Deprecated duplicate of r_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: r_extendedness
     "@id": "#Object.r_extendedness"
-    datatype: double
+    datatype: float
     description: Set to 1 for extended sources, 0 for point sources. Measured on r-band.
     fits:tunit:
   - name: r_extendedness_flag
@@ -2521,7 +2501,7 @@ tables:
     fits:tunit:
   - name: r_sizeExtendedness
     "@id": "#Object.r_extendedLikehood"
-    datatype: double
+    datatype: float
     description: Moments-based measure of an object to be a galaxy. Measured on r-band.
     fits:tunit:
   - name: r_sizeExtendedness_flag
@@ -2531,12 +2511,12 @@ tables:
     fits:tunit:
   - name: r_free_cModelFlux
     "@id": "#Object.r_free_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Measured on r-band.
     fits:tunit: nJy
   - name: r_free_cModelFluxErr
     "@id": "#Object.r_free_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Measured on r-band.
     fits:tunit: nJy
   - name: r_free_cModelFlux_flag
@@ -2546,17 +2526,17 @@ tables:
     fits:tunit:
   - name: r_free_cModelFlux_inner
     "@id": "#Object.r_free_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on r-band.
     fits:tunit: nJy
   - name: r_free_psfFlux
     "@id": "#Object.r_free_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on r-band.
     fits:tunit: nJy
   - name: r_free_psfFluxErr
     "@id": "#Object.r_free_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on r-band.
     fits:tunit: nJy
   - name: r_free_psfFlux_flag
@@ -2566,17 +2546,17 @@ tables:
     fits:tunit:
   - name: r_fwhm
     "@id": "#Object.r_fwhm"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_gaap0p7Flux
     "@id": "#Object.r_gaap0p7Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap0p7FluxErr
     "@id": "#Object.r_gaap0p7FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap0p7Flux_flag_bigPsf
@@ -2586,12 +2566,12 @@ tables:
     fits:tunit:
   - name: r_gaap1p0Flux
     "@id": "#Object.r_gaap1p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap1p0FluxErr
     "@id": "#Object.r_gaap1p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap1p0Flux_flag_bigPsf
@@ -2601,12 +2581,12 @@ tables:
     fits:tunit:
   - name: r_gaap1p5Flux
     "@id": "#Object.r_gaap1p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap1p5FluxErr
     "@id": "#Object.r_gaap1p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap1p5Flux_flag_bigPsf
@@ -2616,12 +2596,12 @@ tables:
     fits:tunit:
   - name: r_gaap2p5Flux
     "@id": "#Object.r_gaap2p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap2p5FluxErr
     "@id": "#Object.r_gaap2p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap2p5Flux_flag_bigPsf
@@ -2631,12 +2611,12 @@ tables:
     fits:tunit:
   - name: r_gaap3p0Flux
     "@id": "#Object.r_gaap3p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap3p0FluxErr
     "@id": "#Object.r_gaap3p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaap3p0Flux_flag_bigPsf
@@ -2661,12 +2641,12 @@ tables:
     fits:tunit:
   - name: r_gaapOptimalFlux
     "@id": "#Object.r_gaapOptimalFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaapOptimalFluxErr
     "@id": "#Object.r_gaapOptimalFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaapOptimalFlux_flag_bigPsf
@@ -2676,22 +2656,22 @@ tables:
     fits:tunit:
   - name: r_gaapPsfFlux
     "@id": "#Object.r_gaapPsfFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_gaapPsfFluxErr
     "@id": "#Object.r_gaapPsfFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
   - name: r_hsmShapeRegauss_e1
     "@id": "#Object.r_hsmShapeRegauss_e1"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on r-band.
     fits:tunit:
   - name: r_hsmShapeRegauss_e2
     "@id": "#Object.r_hsmShapeRegauss_e2"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on r-band.
     fits:tunit:
   - name: r_hsmShapeRegauss_flag
@@ -2701,7 +2681,7 @@ tables:
     fits:tunit:
   - name: r_hsmShapeRegauss_sigma
     "@id": "#Object.r_hsmShapeRegauss_sigma"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on r-band.
     fits:tunit:
   - name: r_iDebiasedPSF_flag
@@ -2716,9 +2696,8 @@ tables:
     fits:tunit:
   - name: r_iRound_flag
     "@id": "#Object.r_iRound_flag"
-    datatype: double
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
+    datatype: boolean
+    description: General failure flag, set if anything went wrong. Measured on r-band.
   - name: r_i_flag
     "@id": "#Object.r_i_flag"
     datatype: boolean
@@ -2741,152 +2720,152 @@ tables:
     fits:tunit:
   - name: r_ixx
     "@id": "#Object.r_ixx"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixxDebiasedPSF
     "@id": "#Object.r_ixxDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixxPSF
     "@id": "#Object.r_ixxPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixxRound
     "@id": "#Object.r_ixxRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixy
     "@id": "#Object.r_ixy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixyDebiasedPSF
     "@id": "#Object.r_ixyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixyPSF
     "@id": "#Object.r_ixyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixyRound
     "@id": "#Object.r_ixyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_iyy
     "@id": "#Object.r_iyy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_iyyDebiasedPSF
     "@id": "#Object.r_iyyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_iyyPSF
     "@id": "#Object.r_iyyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_iyyRound
     "@id": "#Object.r_iyyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_hsm_moments_30
     "@id": "#Object.r_hsm_moments_30"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 30. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_30
     "@id": "#Object.r_hsm_momentsPsf_30"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 30. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_21
     "@id": "#Object.r_hsm_moments_21"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 21. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_21
     "@id": "#Object.r_hsm_momentsPsf_21"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 21. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_12
     "@id": "#Object.r_hsm_moments_12"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 12. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_12
     "@id": "#Object.r_hsm_momentsPsf_12"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 12. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_03
     "@id": "#Object.r_hsm_moments_03"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 03. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_03
     "@id": "#Object.r_hsm_momentsPsf_03"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 03. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_40
     "@id": "#Object.r_hsm_moments_40"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 40. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_40
     "@id": "#Object.r_hsm_momentsPsf_40"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 40. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_31
     "@id": "#Object.r_hsm_moments_31"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 31. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_31
     "@id": "#Object.r_hsm_momentsPsf_31"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 31. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_22
     "@id": "#Object.r_hsm_moments_22"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 22. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_22
     "@id": "#Object.r_hsm_momentsPsf_22"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 22. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_13
     "@id": "#Object.r_hsm_moments_13"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 13. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_13
     "@id": "#Object.r_hsm_momentsPsf_13"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 13. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_04
     "@id": "#Object.r_hsm_moments_04"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 04. Measured on r-band.
     fits:tunit:
   - name: r_hsm_momentsPsf_04
     "@id": "#Object.r_hsm_momentsPsf_04"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 04. Measured on r-band.
     fits:tunit:
   - name: r_hsm_moments_flag
@@ -2901,12 +2880,12 @@ tables:
     fits:tunit:
   - name: r_kronFlux
     "@id": "#Object.r_kronFlux"
-    datatype: double
+    datatype: float
     description: Flux from Kron Flux algorithm. Measured on r-band.
     fits:tunit: nJy
   - name: r_kronFluxErr
     "@id": "#Object.r_kronFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from Kron Flux algorithm. Measured on r-band.
     fits:tunit: nJy
   - name: r_kronFlux_flag
@@ -3071,12 +3050,12 @@ tables:
     fits:tunit:
   - name: r_psfFlux
     "@id": "#Object.r_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Forced on r-band.
     fits:tunit: nJy
   - name: r_psfFluxErr
     "@id": "#Object.r_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on r-band.
     fits:tunit: nJy
   - name: r_psfFlux_area
@@ -3149,12 +3128,12 @@ tables:
     fits:tunit:
   - name: u_ap03Flux
     "@id": "#Object.u_ap03Flux"
-    datatype: double
+    datatype: float
     description: Flux within 3.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap03FluxErr
     "@id": "#Object.u_ap03FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 3.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap03Flux_flag
@@ -3164,12 +3143,12 @@ tables:
     fits:tunit:
   - name: u_ap06Flux
     "@id": "#Object.u_ap06Flux"
-    datatype: double
+    datatype: float
     description: Flux within 6.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap06FluxErr
     "@id": "#Object.u_ap06FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 6.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap06Flux_flag
@@ -3179,12 +3158,12 @@ tables:
     fits:tunit:
   - name: u_ap09Flux
     "@id": "#Object.u_ap09Flux"
-    datatype: double
+    datatype: float
     description: Flux within 9.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap09FluxErr
     "@id": "#Object.u_ap09FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 9.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap09Flux_flag
@@ -3194,12 +3173,12 @@ tables:
     fits:tunit:
   - name: u_ap12Flux
     "@id": "#Object.u_ap12Flux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap12FluxErr
     "@id": "#Object.u_ap12FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap12Flux_flag
@@ -3209,12 +3188,12 @@ tables:
     fits:tunit:
   - name: u_ap17Flux
     "@id": "#Object.u_ap17Flux"
-    datatype: double
+    datatype: float
     description: Flux within 17.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap17FluxErr
     "@id": "#Object.u_ap17FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 17.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap17Flux_flag
@@ -3224,12 +3203,12 @@ tables:
     fits:tunit:
   - name: u_ap25Flux
     "@id": "#Object.u_ap25Flux"
-    datatype: double
+    datatype: float
     description: Flux within 25.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap25FluxErr
     "@id": "#Object.u_ap25FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 25.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap25Flux_flag
@@ -3239,12 +3218,12 @@ tables:
     fits:tunit:
   - name: u_ap35Flux
     "@id": "#Object.u_ap35Flux"
-    datatype: double
+    datatype: float
     description: Flux within 35.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap35FluxErr
     "@id": "#Object.u_ap35FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 35.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap35Flux_flag
@@ -3254,12 +3233,12 @@ tables:
     fits:tunit:
   - name: u_ap50Flux
     "@id": "#Object.u_ap50Flux"
-    datatype: double
+    datatype: float
     description: Flux within 50.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap50FluxErr
     "@id": "#Object.u_ap50FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 50.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap50Flux_flag
@@ -3269,12 +3248,12 @@ tables:
     fits:tunit:
   - name: u_ap70Flux
     "@id": "#Object.u_ap70Flux"
-    datatype: double
+    datatype: float
     description: Flux within 70.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap70FluxErr
     "@id": "#Object.u_ap70FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 70.0-pixel aperture. Forced on u-band.
     fits:tunit: nJy
   - name: u_ap70Flux_flag
@@ -3299,52 +3278,52 @@ tables:
     fits:tunit:
   - name: u_bdChi2
     "@id": "#Object.u_bdChi2"
-    datatype: double
+    datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on u-band.
     fits:tunit:
   - name: u_bdE1
     "@id": "#Object.u_bdE1"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_bdE2
     "@id": "#Object.u_bdE2"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_bdFluxB
     "@id": "#Object.u_bdFluxB"
-    datatype: double
+    datatype: float
     description: Flux from the de Vaucouleur fit. Measured on u-band.
     fits:tunit: nJy
   - name: u_bdFluxBErr
     "@id": "#Object.u_bdFluxBErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the de Vaucouleur fit. Measured on u-band.
     fits:tunit: nJy
   - name: u_bdFluxD
     "@id": "#Object.u_bdFluxD"
-    datatype: double
+    datatype: float
     description: Flux from the exponential fit. Measured on u-band.
     fits:tunit: nJy
   - name: u_bdFluxDErr
     "@id": "#Object.u_bdFluxDErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the exponential fit. Measured on u-band.
     fits:tunit: nJy
   - name: u_bdReB
     "@id": "#Object.u_bdReB"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the de Vaucouleur fit. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_bdReD
     "@id": "#Object.u_bdReD"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the exponential fit. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_blendedness
     "@id": "#Object.u_blendedness"
-    datatype: double
+    datatype: float
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates on the absolute value of the pixels to try to obtain a de-noised value.  See section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on u-band.
     fits:tunit:
   - name: u_blendedness_flag
@@ -3354,17 +3333,17 @@ tables:
     fits:tunit:
   - name: u_cModelFlux
     "@id": "#Object.u_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Forced on u-band.
     fits:tunit: nJy
   - name: u_cModelFluxErr
     "@id": "#Object.u_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Forced on u-band.
     fits:tunit: nJy
   - name: u_cModelFlux_inner
     "@id": "#Object.u_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on u-band.
     fits:tunit: nJy
   - name: u_cModel_flag
@@ -3379,12 +3358,12 @@ tables:
     fits:tunit:
   - name: u_calibFlux
     "@id": "#Object.u_calibFlux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Measured on u-band.
     fits:tunit: nJy
   - name: u_calibFluxErr
     "@id": "#Object.u_calibFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Measured on u-band.
     fits:tunit: nJy
   - name: u_calibFlux_flag
@@ -3469,15 +3448,9 @@ tables:
     description: Error in declination, measured on u-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: u_decl
-    "@id": "#Object.u_decl"
-    datatype: double
-    description: Deprecated duplicate of u_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: u_extendedness
     "@id": "#Object.u_extendedness"
-    datatype: double
+    datatype: float
     description: Set to 1 for extended sources, 0 for point sources. Measured on u-band.
     fits:tunit:
   - name: u_extendedness_flag
@@ -3487,7 +3460,7 @@ tables:
     fits:tunit:
   - name: u_sizeExtendedness
     "@id": "#Object.u_extendedLikehood"
-    datatype: double
+    datatype: float
     description: Moments-based measure of an object to be a galaxy. Measured on u-band.
     fits:tunit:
   - name: u_sizeExtendedness_flag
@@ -3497,12 +3470,12 @@ tables:
     fits:tunit:
   - name: u_free_cModelFlux
     "@id": "#Object.u_free_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Measured on u-band.
     fits:tunit: nJy
   - name: u_free_cModelFluxErr
     "@id": "#Object.u_free_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Measured on u-band.
     fits:tunit: nJy
   - name: u_free_cModelFlux_flag
@@ -3512,17 +3485,17 @@ tables:
     fits:tunit:
   - name: u_free_cModelFlux_inner
     "@id": "#Object.u_free_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on u-band.
     fits:tunit: nJy
   - name: u_free_psfFlux
     "@id": "#Object.u_free_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on u-band.
     fits:tunit: nJy
   - name: u_free_psfFluxErr
     "@id": "#Object.u_free_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on u-band.
     fits:tunit: nJy
   - name: u_free_psfFlux_flag
@@ -3532,17 +3505,17 @@ tables:
     fits:tunit:
   - name: u_fwhm
     "@id": "#Object.u_fwhm"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_gaap0p7Flux
     "@id": "#Object.u_gaap0p7Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap0p7FluxErr
     "@id": "#Object.u_gaap0p7FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap0p7Flux_flag_bigPsf
@@ -3552,12 +3525,12 @@ tables:
     fits:tunit:
   - name: u_gaap1p0Flux
     "@id": "#Object.u_gaap1p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap1p0FluxErr
     "@id": "#Object.u_gaap1p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap1p0Flux_flag_bigPsf
@@ -3567,12 +3540,12 @@ tables:
     fits:tunit:
   - name: u_gaap1p5Flux
     "@id": "#Object.u_gaap1p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap1p5FluxErr
     "@id": "#Object.u_gaap1p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap1p5Flux_flag_bigPsf
@@ -3582,12 +3555,12 @@ tables:
     fits:tunit:
   - name: u_gaap2p5Flux
     "@id": "#Object.u_gaap2p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap2p5FluxErr
     "@id": "#Object.u_gaap2p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap2p5Flux_flag_bigPsf
@@ -3597,12 +3570,12 @@ tables:
     fits:tunit:
   - name: u_gaap3p0Flux
     "@id": "#Object.u_gaap3p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap3p0FluxErr
     "@id": "#Object.u_gaap3p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaap3p0Flux_flag_bigPsf
@@ -3627,12 +3600,12 @@ tables:
     fits:tunit:
   - name: u_gaapOptimalFlux
     "@id": "#Object.u_gaapOptimalFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaapOptimalFluxErr
     "@id": "#Object.u_gaapOptimalFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaapOptimalFlux_flag_bigPsf
@@ -3642,22 +3615,22 @@ tables:
     fits:tunit:
   - name: u_gaapPsfFlux
     "@id": "#Object.u_gaapPsfFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_gaapPsfFluxErr
     "@id": "#Object.u_gaapPsfFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
   - name: u_hsmShapeRegauss_e1
     "@id": "#Object.u_hsmShapeRegauss_e1"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on u-band.
     fits:tunit:
   - name: u_hsmShapeRegauss_e2
     "@id": "#Object.u_hsmShapeRegauss_e2"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on u-band.
     fits:tunit:
   - name: u_hsmShapeRegauss_flag
@@ -3667,7 +3640,7 @@ tables:
     fits:tunit:
   - name: u_hsmShapeRegauss_sigma
     "@id": "#Object.u_hsmShapeRegauss_sigma"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on u-band.
     fits:tunit:
   - name: u_iDebiasedPSF_flag
@@ -3682,9 +3655,8 @@ tables:
     fits:tunit:
   - name: u_iRound_flag
     "@id": "#Object.u_iRound_flag"
-    datatype: double
-    description: HSM moments. Measured on u-band.
-    fits:tunit: pixel**2
+    datatype: boolean
+    description: General failure flag, set if anything went wrong. Measured on u-band.
   - name: u_i_flag
     "@id": "#Object.u_i_flag"
     datatype: boolean
@@ -3707,152 +3679,152 @@ tables:
     fits:tunit:
   - name: u_ixx
     "@id": "#Object.u_ixx"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixxDebiasedPSF
     "@id": "#Object.u_ixxDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixxPSF
     "@id": "#Object.u_ixxPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixxRound
     "@id": "#Object.u_ixxRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixy
     "@id": "#Object.u_ixy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixyDebiasedPSF
     "@id": "#Object.u_ixyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixyPSF
     "@id": "#Object.u_ixyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixyRound
     "@id": "#Object.u_ixyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_iyy
     "@id": "#Object.u_iyy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_iyyDebiasedPSF
     "@id": "#Object.u_iyyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_iyyPSF
     "@id": "#Object.u_iyyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_iyyRound
     "@id": "#Object.u_iyyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_hsm_moments_30
     "@id": "#Object.u_hsm_moments_30"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 30. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_30
     "@id": "#Object.u_hsm_momentsPsf_30"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 30. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_21
     "@id": "#Object.u_hsm_moments_21"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 21. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_21
     "@id": "#Object.u_hsm_momentsPsf_21"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 21. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_12
     "@id": "#Object.u_hsm_moments_12"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 12. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_12
     "@id": "#Object.u_hsm_momentsPsf_12"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 12. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_03
     "@id": "#Object.u_hsm_moments_03"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 03. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_03
     "@id": "#Object.u_hsm_momentsPsf_03"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 03. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_40
     "@id": "#Object.u_hsm_moments_40"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 40. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_40
     "@id": "#Object.u_hsm_momentsPsf_40"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 40. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_31
     "@id": "#Object.u_hsm_moments_31"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 31. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_31
     "@id": "#Object.u_hsm_momentsPsf_31"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 31. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_22
     "@id": "#Object.u_hsm_moments_22"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 22. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_22
     "@id": "#Object.u_hsm_momentsPsf_22"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 22. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_13
     "@id": "#Object.u_hsm_moments_13"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 13. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_13
     "@id": "#Object.u_hsm_momentsPsf_13"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 13. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_04
     "@id": "#Object.u_hsm_moments_04"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 04. Measured on u-band.
     fits:tunit:
   - name: u_hsm_momentsPsf_04
     "@id": "#Object.u_hsm_momentsPsf_04"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 04. Measured on u-band.
     fits:tunit:
   - name: u_hsm_moments_flag
@@ -3867,12 +3839,12 @@ tables:
     fits:tunit:
   - name: u_kronFlux
     "@id": "#Object.u_kronFlux"
-    datatype: double
+    datatype: float
     description: Flux from Kron Flux algorithm. Measured on u-band.
     fits:tunit: nJy
   - name: u_kronFluxErr
     "@id": "#Object.u_kronFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from Kron Flux algorithm. Measured on u-band.
     fits:tunit: nJy
   - name: u_kronFlux_flag
@@ -4037,12 +4009,12 @@ tables:
     fits:tunit:
   - name: u_psfFlux
     "@id": "#Object.u_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Forced on u-band.
     fits:tunit: nJy
   - name: u_psfFluxErr
     "@id": "#Object.u_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on u-band.
     fits:tunit: nJy
   - name: u_psfFlux_area
@@ -4115,12 +4087,12 @@ tables:
     fits:tunit:
   - name: y_ap03Flux
     "@id": "#Object.y_ap03Flux"
-    datatype: double
+    datatype: float
     description: Flux within 3.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap03FluxErr
     "@id": "#Object.y_ap03FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 3.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap03Flux_flag
@@ -4130,12 +4102,12 @@ tables:
     fits:tunit:
   - name: y_ap06Flux
     "@id": "#Object.y_ap06Flux"
-    datatype: double
+    datatype: float
     description: Flux within 6.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap06FluxErr
     "@id": "#Object.y_ap06FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 6.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap06Flux_flag
@@ -4145,12 +4117,12 @@ tables:
     fits:tunit:
   - name: y_ap09Flux
     "@id": "#Object.y_ap09Flux"
-    datatype: double
+    datatype: float
     description: Flux within 9.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap09FluxErr
     "@id": "#Object.y_ap09FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 9.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap09Flux_flag
@@ -4160,12 +4132,12 @@ tables:
     fits:tunit:
   - name: y_ap12Flux
     "@id": "#Object.y_ap12Flux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap12FluxErr
     "@id": "#Object.y_ap12FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap12Flux_flag
@@ -4175,12 +4147,12 @@ tables:
     fits:tunit:
   - name: y_ap17Flux
     "@id": "#Object.y_ap17Flux"
-    datatype: double
+    datatype: float
     description: Flux within 17.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap17FluxErr
     "@id": "#Object.y_ap17FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 17.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap17Flux_flag
@@ -4190,12 +4162,12 @@ tables:
     fits:tunit:
   - name: y_ap25Flux
     "@id": "#Object.y_ap25Flux"
-    datatype: double
+    datatype: float
     description: Flux within 25.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap25FluxErr
     "@id": "#Object.y_ap25FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 25.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap25Flux_flag
@@ -4205,12 +4177,12 @@ tables:
     fits:tunit:
   - name: y_ap35Flux
     "@id": "#Object.y_ap35Flux"
-    datatype: double
+    datatype: float
     description: Flux within 35.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap35FluxErr
     "@id": "#Object.y_ap35FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 35.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap35Flux_flag
@@ -4220,12 +4192,12 @@ tables:
     fits:tunit:
   - name: y_ap50Flux
     "@id": "#Object.y_ap50Flux"
-    datatype: double
+    datatype: float
     description: Flux within 50.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap50FluxErr
     "@id": "#Object.y_ap50FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 50.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap50Flux_flag
@@ -4235,12 +4207,12 @@ tables:
     fits:tunit:
   - name: y_ap70Flux
     "@id": "#Object.y_ap70Flux"
-    datatype: double
+    datatype: float
     description: Flux within 70.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap70FluxErr
     "@id": "#Object.y_ap70FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 70.0-pixel aperture. Forced on y-band.
     fits:tunit: nJy
   - name: y_ap70Flux_flag
@@ -4265,52 +4237,52 @@ tables:
     fits:tunit:
   - name: y_bdChi2
     "@id": "#Object.y_bdChi2"
-    datatype: double
+    datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on y-band.
     fits:tunit:
   - name: y_bdE1
     "@id": "#Object.y_bdE1"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_bdE2
     "@id": "#Object.y_bdE2"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_bdFluxB
     "@id": "#Object.y_bdFluxB"
-    datatype: double
+    datatype: float
     description: Flux from the de Vaucouleur fit. Measured on y-band.
     fits:tunit: nJy
   - name: y_bdFluxBErr
     "@id": "#Object.y_bdFluxBErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the de Vaucouleur fit. Measured on y-band.
     fits:tunit: nJy
   - name: y_bdFluxD
     "@id": "#Object.y_bdFluxD"
-    datatype: double
+    datatype: float
     description: Flux from the exponential fit. Measured on y-band.
     fits:tunit: nJy
   - name: y_bdFluxDErr
     "@id": "#Object.y_bdFluxDErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the exponential fit. Measured on y-band.
     fits:tunit: nJy
   - name: y_bdReB
     "@id": "#Object.y_bdReB"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the de Vaucouleur fit. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_bdReD
     "@id": "#Object.y_bdReD"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the exponential fit. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_blendedness
     "@id": "#Object.y_blendedness"
-    datatype: double
+    datatype: float
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates on the absolute value of the pixels to try to obtain a de-noised value.  See section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on y-band.
     fits:tunit:
   - name: y_blendedness_flag
@@ -4320,17 +4292,17 @@ tables:
     fits:tunit:
   - name: y_cModelFlux
     "@id": "#Object.y_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Forced on y-band.
     fits:tunit: nJy
   - name: y_cModelFluxErr
     "@id": "#Object.y_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Forced on y-band.
     fits:tunit: nJy
   - name: y_cModelFlux_inner
     "@id": "#Object.y_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on y-band.
     fits:tunit: nJy
   - name: y_cModel_flag
@@ -4345,12 +4317,12 @@ tables:
     fits:tunit:
   - name: y_calibFlux
     "@id": "#Object.y_calibFlux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Measured on y-band.
     fits:tunit: nJy
   - name: y_calibFluxErr
     "@id": "#Object.y_calibFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Measured on y-band.
     fits:tunit: nJy
   - name: y_calibFlux_flag
@@ -4435,15 +4407,9 @@ tables:
     description: Error in declination, measured on y-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: y_decl
-    "@id": "#Object.y_decl"
-    datatype: double
-    description: Deprecated duplicate of y_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: y_extendedness
     "@id": "#Object.y_extendedness"
-    datatype: double
+    datatype: float
     description: Set to 1 for extended sources, 0 for point sources. Measured on y-band.
     fits:tunit:
   - name: y_extendedness_flag
@@ -4453,7 +4419,7 @@ tables:
     fits:tunit:
   - name: y_sizeExtendedness
     "@id": "#Object.y_extendedLikehood"
-    datatype: double
+    datatype: float
     description: Moments-based measure of an object to be a galaxy. Measured on y-band.
     fits:tunit:
   - name: y_sizeExtendedness_flag
@@ -4463,12 +4429,12 @@ tables:
     fits:tunit:
   - name: y_free_cModelFlux
     "@id": "#Object.y_free_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Measured on y-band.
     fits:tunit: nJy
   - name: y_free_cModelFluxErr
     "@id": "#Object.y_free_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Measured on y-band.
     fits:tunit: nJy
   - name: y_free_cModelFlux_flag
@@ -4478,17 +4444,17 @@ tables:
     fits:tunit:
   - name: y_free_cModelFlux_inner
     "@id": "#Object.y_free_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on y-band.
     fits:tunit: nJy
   - name: y_free_psfFlux
     "@id": "#Object.y_free_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on y-band.
     fits:tunit: nJy
   - name: y_free_psfFluxErr
     "@id": "#Object.y_free_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on y-band.
     fits:tunit: nJy
   - name: y_free_psfFlux_flag
@@ -4498,17 +4464,17 @@ tables:
     fits:tunit:
   - name: y_fwhm
     "@id": "#Object.y_fwhm"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_gaap0p7Flux
     "@id": "#Object.y_gaap0p7Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap0p7FluxErr
     "@id": "#Object.y_gaap0p7FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap0p7Flux_flag_bigPsf
@@ -4518,12 +4484,12 @@ tables:
     fits:tunit:
   - name: y_gaap1p0Flux
     "@id": "#Object.y_gaap1p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap1p0FluxErr
     "@id": "#Object.y_gaap1p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap1p0Flux_flag_bigPsf
@@ -4533,12 +4499,12 @@ tables:
     fits:tunit:
   - name: y_gaap1p5Flux
     "@id": "#Object.y_gaap1p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap1p5FluxErr
     "@id": "#Object.y_gaap1p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap1p5Flux_flag_bigPsf
@@ -4548,12 +4514,12 @@ tables:
     fits:tunit:
   - name: y_gaap2p5Flux
     "@id": "#Object.y_gaap2p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap2p5FluxErr
     "@id": "#Object.y_gaap2p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap2p5Flux_flag_bigPsf
@@ -4563,12 +4529,12 @@ tables:
     fits:tunit:
   - name: y_gaap3p0Flux
     "@id": "#Object.y_gaap3p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap3p0FluxErr
     "@id": "#Object.y_gaap3p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaap3p0Flux_flag_bigPsf
@@ -4593,12 +4559,12 @@ tables:
     fits:tunit:
   - name: y_gaapOptimalFlux
     "@id": "#Object.y_gaapOptimalFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaapOptimalFluxErr
     "@id": "#Object.y_gaapOptimalFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaapOptimalFlux_flag_bigPsf
@@ -4608,22 +4574,22 @@ tables:
     fits:tunit:
   - name: y_gaapPsfFlux
     "@id": "#Object.y_gaapPsfFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_gaapPsfFluxErr
     "@id": "#Object.y_gaapPsfFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
   - name: y_hsmShapeRegauss_e1
     "@id": "#Object.y_hsmShapeRegauss_e1"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on y-band.
     fits:tunit:
   - name: y_hsmShapeRegauss_e2
     "@id": "#Object.y_hsmShapeRegauss_e2"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on y-band.
     fits:tunit:
   - name: y_hsmShapeRegauss_flag
@@ -4633,7 +4599,7 @@ tables:
     fits:tunit:
   - name: y_hsmShapeRegauss_sigma
     "@id": "#Object.y_hsmShapeRegauss_sigma"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on y-band.
     fits:tunit:
   - name: y_iDebiasedPSF_flag
@@ -4648,9 +4614,8 @@ tables:
     fits:tunit:
   - name: y_iRound_flag
     "@id": "#Object.y_iRound_flag"
-    datatype: double
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
+    datatype: boolean
+    description: General failure flag, set if anything went wrong. Measured on y-band.
   - name: y_i_flag
     "@id": "#Object.y_i_flag"
     datatype: boolean
@@ -4673,152 +4638,152 @@ tables:
     fits:tunit:
   - name: y_ixx
     "@id": "#Object.y_ixx"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_ixxDebiasedPSF
     "@id": "#Object.y_ixxDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_ixxPSF
     "@id": "#Object.y_ixxPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_ixxRound
     "@id": "#Object.y_ixxRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_ixy
     "@id": "#Object.y_ixy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_ixyDebiasedPSF
     "@id": "#Object.y_ixyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_ixyPSF
     "@id": "#Object.y_ixyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_ixyRound
     "@id": "#Object.y_ixyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_iyy
     "@id": "#Object.y_iyy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_iyyDebiasedPSF
     "@id": "#Object.y_iyyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_iyyPSF
     "@id": "#Object.y_iyyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_iyyRound
     "@id": "#Object.y_iyyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
   - name: y_hsm_moments_30
     "@id": "#Object.y_hsm_moments_30"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 30. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_30
     "@id": "#Object.y_hsm_momentsPsf_30"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 30. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_21
     "@id": "#Object.y_hsm_moments_21"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 21. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_21
     "@id": "#Object.y_hsm_momentsPsf_21"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 21. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_12
     "@id": "#Object.y_hsm_moments_12"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 12. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_12
     "@id": "#Object.y_hsm_momentsPsf_12"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 12. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_03
     "@id": "#Object.y_hsm_moments_03"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 03. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_03
     "@id": "#Object.y_hsm_momentsPsf_03"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 03. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_40
     "@id": "#Object.y_hsm_moments_40"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 40. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_40
     "@id": "#Object.y_hsm_momentsPsf_40"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 40. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_31
     "@id": "#Object.y_hsm_moments_31"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 31. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_31
     "@id": "#Object.y_hsm_momentsPsf_31"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 31. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_22
     "@id": "#Object.y_hsm_moments_22"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 22. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_22
     "@id": "#Object.y_hsm_momentsPsf_22"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 22. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_13
     "@id": "#Object.y_hsm_moments_13"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 13. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_13
     "@id": "#Object.y_hsm_momentsPsf_13"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 13. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_04
     "@id": "#Object.y_hsm_moments_04"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 04. Measured on y-band.
     fits:tunit:
   - name: y_hsm_momentsPsf_04
     "@id": "#Object.y_hsm_momentsPsf_04"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 04. Measured on y-band.
     fits:tunit:
   - name: y_hsm_moments_flag
@@ -4833,12 +4798,12 @@ tables:
     fits:tunit:
   - name: y_kronFlux
     "@id": "#Object.y_kronFlux"
-    datatype: double
+    datatype: float
     description: Flux from Kron Flux algorithm. Measured on y-band.
     fits:tunit: nJy
   - name: y_kronFluxErr
     "@id": "#Object.y_kronFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from Kron Flux algorithm. Measured on y-band.
     fits:tunit: nJy
   - name: y_kronFlux_flag
@@ -5003,12 +4968,12 @@ tables:
     fits:tunit:
   - name: y_psfFlux
     "@id": "#Object.y_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Forced on y-band.
     fits:tunit: nJy
   - name: y_psfFluxErr
     "@id": "#Object.y_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on y-band.
     fits:tunit: nJy
   - name: y_psfFlux_area
@@ -5081,12 +5046,12 @@ tables:
     fits:tunit:
   - name: z_ap03Flux
     "@id": "#Object.z_ap03Flux"
-    datatype: double
+    datatype: float
     description: Flux within 3.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap03FluxErr
     "@id": "#Object.z_ap03FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 3.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap03Flux_flag
@@ -5096,12 +5061,12 @@ tables:
     fits:tunit:
   - name: z_ap06Flux
     "@id": "#Object.z_ap06Flux"
-    datatype: double
+    datatype: float
     description: Flux within 6.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap06FluxErr
     "@id": "#Object.z_ap06FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 6.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap06Flux_flag
@@ -5111,12 +5076,12 @@ tables:
     fits:tunit:
   - name: z_ap09Flux
     "@id": "#Object.z_ap09Flux"
-    datatype: double
+    datatype: float
     description: Flux within 9.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap09FluxErr
     "@id": "#Object.z_ap09FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 9.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap09Flux_flag
@@ -5126,12 +5091,12 @@ tables:
     fits:tunit:
   - name: z_ap12Flux
     "@id": "#Object.z_ap12Flux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap12FluxErr
     "@id": "#Object.z_ap12FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap12Flux_flag
@@ -5141,12 +5106,12 @@ tables:
     fits:tunit:
   - name: z_ap17Flux
     "@id": "#Object.z_ap17Flux"
-    datatype: double
+    datatype: float
     description: Flux within 17.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap17FluxErr
     "@id": "#Object.z_ap17FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 17.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap17Flux_flag
@@ -5156,12 +5121,12 @@ tables:
     fits:tunit:
   - name: z_ap25Flux
     "@id": "#Object.z_ap25Flux"
-    datatype: double
+    datatype: float
     description: Flux within 25.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap25FluxErr
     "@id": "#Object.z_ap25FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 25.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap25Flux_flag
@@ -5171,12 +5136,12 @@ tables:
     fits:tunit:
   - name: z_ap35Flux
     "@id": "#Object.z_ap35Flux"
-    datatype: double
+    datatype: float
     description: Flux within 35.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap35FluxErr
     "@id": "#Object.z_ap35FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 35.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap35Flux_flag
@@ -5186,12 +5151,12 @@ tables:
     fits:tunit:
   - name: z_ap50Flux
     "@id": "#Object.z_ap50Flux"
-    datatype: double
+    datatype: float
     description: Flux within 50.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap50FluxErr
     "@id": "#Object.z_ap50FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 50.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap50Flux_flag
@@ -5201,12 +5166,12 @@ tables:
     fits:tunit:
   - name: z_ap70Flux
     "@id": "#Object.z_ap70Flux"
-    datatype: double
+    datatype: float
     description: Flux within 70.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap70FluxErr
     "@id": "#Object.z_ap70FluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 70.0-pixel aperture. Forced on z-band.
     fits:tunit: nJy
   - name: z_ap70Flux_flag
@@ -5231,52 +5196,52 @@ tables:
     fits:tunit:
   - name: z_bdChi2
     "@id": "#Object.z_bdChi2"
-    datatype: double
+    datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on z-band.
     fits:tunit:
   - name: z_bdE1
     "@id": "#Object.z_bdE1"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_bdE2
     "@id": "#Object.z_bdE2"
-    datatype: double
+    datatype: float
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_bdFluxB
     "@id": "#Object.z_bdFluxB"
-    datatype: double
+    datatype: float
     description: Flux from the de Vaucouleur fit. Measured on z-band.
     fits:tunit: nJy
   - name: z_bdFluxBErr
     "@id": "#Object.z_bdFluxBErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the de Vaucouleur fit. Measured on z-band.
     fits:tunit: nJy
   - name: z_bdFluxD
     "@id": "#Object.z_bdFluxD"
-    datatype: double
+    datatype: float
     description: Flux from the exponential fit. Measured on z-band.
     fits:tunit: nJy
   - name: z_bdFluxDErr
     "@id": "#Object.z_bdFluxDErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the exponential fit. Measured on z-band.
     fits:tunit: nJy
   - name: z_bdReB
     "@id": "#Object.z_bdReB"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the de Vaucouleur fit. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_bdReD
     "@id": "#Object.z_bdReD"
-    datatype: double
+    datatype: float
     description: Half-light ellipse of the exponential fit. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_blendedness
     "@id": "#Object.z_blendedness"
-    datatype: double
+    datatype: float
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates on the absolute value of the pixels to try to obtain a de-noised value.  See section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on z-band.
     fits:tunit:
   - name: z_blendedness_flag
@@ -5286,17 +5251,17 @@ tables:
     fits:tunit:
   - name: z_cModelFlux
     "@id": "#Object.z_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Forced on z-band.
     fits:tunit: nJy
   - name: z_cModelFluxErr
     "@id": "#Object.z_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Forced on z-band.
     fits:tunit: nJy
   - name: z_cModelFlux_inner
     "@id": "#Object.z_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on z-band.
     fits:tunit: nJy
   - name: z_cModel_flag
@@ -5311,12 +5276,12 @@ tables:
     fits:tunit:
   - name: z_calibFlux
     "@id": "#Object.z_calibFlux"
-    datatype: double
+    datatype: float
     description: Flux within 12.0-pixel aperture. Measured on z-band.
     fits:tunit: nJy
   - name: z_calibFluxErr
     "@id": "#Object.z_calibFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty within 12.0-pixel aperture. Measured on z-band.
     fits:tunit: nJy
   - name: z_calibFlux_flag
@@ -5401,15 +5366,9 @@ tables:
     description: Error in declination, measured on z-band.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
-  - name: z_decl
-    "@id": "#Object.z_decl"
-    datatype: double
-    description: Deprecated duplicate of z_dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: z_extendedness
     "@id": "#Object.z_extendedness"
-    datatype: double
+    datatype: float
     description: Set to 1 for extended sources, 0 for point sources. Measured on z-band.
     fits:tunit:
   - name: z_extendedness_flag
@@ -5419,7 +5378,7 @@ tables:
     fits:tunit:
   - name: z_sizeExtendedness
     "@id": "#Object.z_extendedLikehood"
-    datatype: double
+    datatype: float
     description: Moments-based measure of an object to be a galaxy. Measured on z-band.
     fits:tunit:
   - name: z_sizeExtendedness_flag
@@ -5429,12 +5388,12 @@ tables:
     fits:tunit:
   - name: z_free_cModelFlux
     "@id": "#Object.z_free_cModelFlux"
-    datatype: double
+    datatype: float
     description: Flux from the final cmodel fit. Measured on z-band.
     fits:tunit: nJy
   - name: z_free_cModelFluxErr
     "@id": "#Object.z_free_cModelFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from the final cmodel fit. Measured on z-band.
     fits:tunit: nJy
   - name: z_free_cModelFlux_flag
@@ -5444,17 +5403,17 @@ tables:
     fits:tunit:
   - name: z_free_cModelFlux_inner
     "@id": "#Object.z_free_cModelFlux_inner"
-    datatype: double
+    datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on z-band.
     fits:tunit: nJy
   - name: z_free_psfFlux
     "@id": "#Object.z_free_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on z-band.
     fits:tunit: nJy
   - name: z_free_psfFluxErr
     "@id": "#Object.z_free_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Measured on z-band.
     fits:tunit: nJy
   - name: z_free_psfFlux_flag
@@ -5464,17 +5423,17 @@ tables:
     fits:tunit:
   - name: z_fwhm
     "@id": "#Object.z_fwhm"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_gaap0p7Flux
     "@id": "#Object.z_gaap0p7Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap0p7FluxErr
     "@id": "#Object.z_gaap0p7FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap0p7Flux_flag_bigPsf
@@ -5484,12 +5443,12 @@ tables:
     fits:tunit:
   - name: z_gaap1p0Flux
     "@id": "#Object.z_gaap1p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap1p0FluxErr
     "@id": "#Object.z_gaap1p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap1p0Flux_flag_bigPsf
@@ -5499,12 +5458,12 @@ tables:
     fits:tunit:
   - name: z_gaap1p5Flux
     "@id": "#Object.z_gaap1p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap1p5FluxErr
     "@id": "#Object.z_gaap1p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap1p5Flux_flag_bigPsf
@@ -5514,12 +5473,12 @@ tables:
     fits:tunit:
   - name: z_gaap2p5Flux
     "@id": "#Object.z_gaap2p5Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap2p5FluxErr
     "@id": "#Object.z_gaap2p5FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap2p5Flux_flag_bigPsf
@@ -5529,12 +5488,12 @@ tables:
     fits:tunit:
   - name: z_gaap3p0Flux
     "@id": "#Object.z_gaap3p0Flux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap3p0FluxErr
     "@id": "#Object.z_gaap3p0FluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaap3p0Flux_flag_bigPsf
@@ -5559,12 +5518,12 @@ tables:
     fits:tunit:
   - name: z_gaapOptimalFlux
     "@id": "#Object.z_gaapOptimalFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaapOptimalFluxErr
     "@id": "#Object.z_gaapOptimalFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaapOptimalFlux_flag_bigPsf
@@ -5574,22 +5533,22 @@ tables:
     fits:tunit:
   - name: z_gaapPsfFlux
     "@id": "#Object.z_gaapPsfFlux"
-    datatype: double
+    datatype: float
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_gaapPsfFluxErr
     "@id": "#Object.z_gaapPsfFluxErr"
-    datatype: double
+    datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
   - name: z_hsmShapeRegauss_e1
     "@id": "#Object.z_hsmShapeRegauss_e1"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on z-band.
     fits:tunit:
   - name: z_hsmShapeRegauss_e2
     "@id": "#Object.z_hsmShapeRegauss_e2"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on z-band.
     fits:tunit:
   - name: z_hsmShapeRegauss_flag
@@ -5599,7 +5558,7 @@ tables:
     fits:tunit:
   - name: z_hsmShapeRegauss_sigma
     "@id": "#Object.z_hsmShapeRegauss_sigma"
-    datatype: double
+    datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on z-band.
     fits:tunit:
   - name: z_iDebiasedPSF_flag
@@ -5614,9 +5573,8 @@ tables:
     fits:tunit:
   - name: z_iRound_flag
     "@id": "#Object.z_iRound_flag"
-    datatype: double
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
+    datatype: boolean
+    description: General failure flag, set if anything went wrong. Measured on z-band.
   - name: z_i_flag
     "@id": "#Object.z_i_flag"
     datatype: boolean
@@ -5639,152 +5597,152 @@ tables:
     fits:tunit:
   - name: z_ixx
     "@id": "#Object.z_ixx"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixxDebiasedPSF
     "@id": "#Object.z_ixxDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixxPSF
     "@id": "#Object.z_ixxPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixxRound
     "@id": "#Object.z_ixxRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixy
     "@id": "#Object.z_ixy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixyDebiasedPSF
     "@id": "#Object.z_ixyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixyPSF
     "@id": "#Object.z_ixyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixyRound
     "@id": "#Object.z_ixyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_iyy
     "@id": "#Object.z_iyy"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_iyyDebiasedPSF
     "@id": "#Object.z_iyyDebiasedPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_iyyPSF
     "@id": "#Object.z_iyyPSF"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_iyyRound
     "@id": "#Object.z_iyyRound"
-    datatype: double
+    datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_hsm_moments_30
     "@id": "#Object.z_hsm_moments_30"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 30. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_30
     "@id": "#Object.z_hsm_momentsPsf_30"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 30. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_21
     "@id": "#Object.z_hsm_moments_21"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 21. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_21
     "@id": "#Object.z_hsm_momentsPsf_21"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 21. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_12
     "@id": "#Object.z_hsm_moments_12"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 12. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_12
     "@id": "#Object.z_hsm_momentsPsf_12"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 12. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_03
     "@id": "#Object.z_hsm_moments_03"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 03. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_03
     "@id": "#Object.z_hsm_momentsPsf_03"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 03. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_40
     "@id": "#Object.z_hsm_moments_40"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 40. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_40
     "@id": "#Object.z_hsm_momentsPsf_40"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 40. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_31
     "@id": "#Object.z_hsm_moments_31"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 31. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_31
     "@id": "#Object.z_hsm_momentsPsf_31"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 31. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_22
     "@id": "#Object.z_hsm_moments_22"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 22. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_22
     "@id": "#Object.z_hsm_momentsPsf_22"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 22. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_13
     "@id": "#Object.z_hsm_moments_13"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 13. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_13
     "@id": "#Object.z_hsm_momentsPsf_13"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 13. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_04
     "@id": "#Object.z_hsm_moments_04"
-    datatype: double
+    datatype: float
     description: HSM higher order moments 04. Measured on z-band.
     fits:tunit:
   - name: z_hsm_momentsPsf_04
     "@id": "#Object.z_hsm_momentsPsf_04"
-    datatype: double
+    datatype: float
     description: HSM higher order PSF moments 04. Measured on z-band.
     fits:tunit:
   - name: z_hsm_moments_flag
@@ -5799,12 +5757,12 @@ tables:
     fits:tunit:
   - name: z_kronFlux
     "@id": "#Object.z_kronFlux"
-    datatype: double
+    datatype: float
     description: Flux from Kron Flux algorithm. Measured on z-band.
     fits:tunit: nJy
   - name: z_kronFluxErr
     "@id": "#Object.z_kronFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty from Kron Flux algorithm. Measured on z-band.
     fits:tunit: nJy
   - name: z_kronFlux_flag
@@ -5969,12 +5927,12 @@ tables:
     fits:tunit:
   - name: z_psfFlux
     "@id": "#Object.z_psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Forced on z-band.
     fits:tunit: nJy
   - name: z_psfFluxErr
     "@id": "#Object.z_psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model. Forced on z-band.
     fits:tunit: nJy
   - name: z_psfFlux_area
@@ -6047,37 +6005,37 @@ tables:
     fits:tunit:
   - name: g_psfModel_TwoGaussian_gauss1_sigma_x
     "@id": "#Object.g_psfModel_TwoGaussian_gauss1_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (g-band).
     fits:tunit: pixel
   - name: g_psfModel_TwoGaussian_gauss1_sigma_y
     "@id": "#Object.g_psfModel_TwoGaussian_gauss1_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (g-band).
     fits:tunit: pixel
   - name: g_psfModel_TwoGaussian_gauss1_rho
     "@id": "#Object.g_psfModel_TwoGaussian_gauss1_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (g-band).
     fits:tunit:
   - name: g_psfModel_TwoGaussian_gauss1_fluxfrac
     "@id": "#Object.g_psfModel_TwoGaussian_gauss1_fluxfrac"
-    datatype: double
+    datatype: float
     description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (g-band).
     fits:tunit:
   - name: g_psfModel_TwoGaussian_gauss2_sigma_x
     "@id": "#Object.g_psfModel_TwoGaussian_gauss2_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (g-band).
     fits:tunit: pixel
   - name: g_psfModel_TwoGaussian_gauss2_sigma_y
     "@id": "#Object.g_psfModel_TwoGaussian_gauss2_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (g-band).
     fits:tunit: pixel
   - name: g_psfModel_TwoGaussian_gauss2_rho
     "@id": "#Object.g_psfModel_TwoGaussian_gauss2_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (g-band).
     fits:tunit:
   - name: g_psfModel_TwoGaussian_n_iter
@@ -6087,7 +6045,7 @@ tables:
     fits:tunit:
   - name: g_psfModel_TwoGaussian_chisq_reduced
     "@id": "#Object.g_psfModel_TwoGaussian_chisq_reduced"
-    datatype: double
+    datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (g-band).
     fits:tunit:
   - name: g_psfModel_TwoGaussian_unknown_flag
@@ -6102,37 +6060,37 @@ tables:
     fits:tunit:
   - name: i_psfModel_TwoGaussian_gauss1_sigma_x
     "@id": "#Object.i_psfModel_TwoGaussian_gauss1_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (i-band).
     fits:tunit: pixel
   - name: i_psfModel_TwoGaussian_gauss1_sigma_y
     "@id": "#Object.i_psfModel_TwoGaussian_gauss1_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (i-band).
     fits:tunit: pixel
   - name: i_psfModel_TwoGaussian_gauss1_rho
     "@id": "#Object.i_psfModel_TwoGaussian_gauss1_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (i-band).
     fits:tunit:
   - name: i_psfModel_TwoGaussian_gauss1_fluxfrac
     "@id": "#Object.i_psfModel_TwoGaussian_gauss1_fluxfrac"
-    datatype: double
+    datatype: float
     description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (i-band).
     fits:tunit:
   - name: i_psfModel_TwoGaussian_gauss2_sigma_x
     "@id": "#Object.i_psfModel_TwoGaussian_gauss2_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (i-band).
     fits:tunit: pixel
   - name: i_psfModel_TwoGaussian_gauss2_sigma_y
     "@id": "#Object.i_psfModel_TwoGaussian_gauss2_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (i-band).
     fits:tunit: pixel
   - name: i_psfModel_TwoGaussian_gauss2_rho
     "@id": "#Object.i_psfModel_TwoGaussian_gauss2_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (i-band).
     fits:tunit:
   - name: i_psfModel_TwoGaussian_n_iter
@@ -6142,7 +6100,7 @@ tables:
     fits:tunit:
   - name: i_psfModel_TwoGaussian_chisq_reduced
     "@id": "#Object.i_psfModel_TwoGaussian_chisq_reduced"
-    datatype: double
+    datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (i-band).
     fits:tunit:
   - name: i_psfModel_TwoGaussian_unknown_flag
@@ -6157,37 +6115,37 @@ tables:
     fits:tunit:
   - name: r_psfModel_TwoGaussian_gauss1_sigma_x
     "@id": "#Object.r_psfModel_TwoGaussian_gauss1_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (r-band).
     fits:tunit: pixel
   - name: r_psfModel_TwoGaussian_gauss1_sigma_y
     "@id": "#Object.r_psfModel_TwoGaussian_gauss1_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (r-band).
     fits:tunit: pixel
   - name: r_psfModel_TwoGaussian_gauss1_rho
     "@id": "#Object.r_psfModel_TwoGaussian_gauss1_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (r-band).
     fits:tunit:
   - name: r_psfModel_TwoGaussian_gauss1_fluxfrac
     "@id": "#Object.r_psfModel_TwoGaussian_gauss1_fluxfrac"
-    datatype: double
+    datatype: float
     description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (r-band).
     fits:tunit:
   - name: r_psfModel_TwoGaussian_gauss2_sigma_x
     "@id": "#Object.r_psfModel_TwoGaussian_gauss2_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (r-band).
     fits:tunit: pixel
   - name: r_psfModel_TwoGaussian_gauss2_sigma_y
     "@id": "#Object.r_psfModel_TwoGaussian_gauss2_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (r-band).
     fits:tunit: pixel
   - name: r_psfModel_TwoGaussian_gauss2_rho
     "@id": "#Object.r_psfModel_TwoGaussian_gauss2_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (r-band).
     fits:tunit:
   - name: r_psfModel_TwoGaussian_n_iter
@@ -6197,7 +6155,7 @@ tables:
     fits:tunit:
   - name: r_psfModel_TwoGaussian_chisq_reduced
     "@id": "#Object.r_psfModel_TwoGaussian_chisq_reduced"
-    datatype: double
+    datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (r-band).
     fits:tunit:
   - name: r_psfModel_TwoGaussian_unknown_flag
@@ -6212,37 +6170,37 @@ tables:
     fits:tunit:
   - name: u_psfModel_TwoGaussian_gauss1_sigma_x
     "@id": "#Object.u_psfModel_TwoGaussian_gauss1_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (u-band).
     fits:tunit: pixel
   - name: u_psfModel_TwoGaussian_gauss1_sigma_y
     "@id": "#Object.u_psfModel_TwoGaussian_gauss1_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (u-band).
     fits:tunit: pixel
   - name: u_psfModel_TwoGaussian_gauss1_rho
     "@id": "#Object.u_psfModel_TwoGaussian_gauss1_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (u-band).
     fits:tunit:
   - name: u_psfModel_TwoGaussian_gauss1_fluxfrac
     "@id": "#Object.u_psfModel_TwoGaussian_gauss1_fluxfrac"
-    datatype: double
+    datatype: float
     description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (u-band).
     fits:tunit:
   - name: u_psfModel_TwoGaussian_gauss2_sigma_x
     "@id": "#Object.u_psfModel_TwoGaussian_gauss2_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (u-band).
     fits:tunit: pixel
   - name: u_psfModel_TwoGaussian_gauss2_sigma_y
     "@id": "#Object.u_psfModel_TwoGaussian_gauss2_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (u-band).
     fits:tunit: pixel
   - name: u_psfModel_TwoGaussian_gauss2_rho
     "@id": "#Object.u_psfModel_TwoGaussian_gauss2_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (u-band).
     fits:tunit:
   - name: u_psfModel_TwoGaussian_n_iter
@@ -6252,7 +6210,7 @@ tables:
     fits:tunit:
   - name: u_psfModel_TwoGaussian_chisq_reduced
     "@id": "#Object.u_psfModel_TwoGaussian_chisq_reduced"
-    datatype: double
+    datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (u-band).
     fits:tunit:
   - name: u_psfModel_TwoGaussian_unknown_flag
@@ -6267,37 +6225,37 @@ tables:
     fits:tunit:
   - name: y_psfModel_TwoGaussian_gauss1_sigma_x
     "@id": "#Object.y_psfModel_TwoGaussian_gauss1_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (y-band).
     fits:tunit: pixel
   - name: y_psfModel_TwoGaussian_gauss1_sigma_y
     "@id": "#Object.y_psfModel_TwoGaussian_gauss1_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (y-band).
     fits:tunit: pixel
   - name: y_psfModel_TwoGaussian_gauss1_rho
     "@id": "#Object.y_psfModel_TwoGaussian_gauss1_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (y-band).
     fits:tunit:
   - name: y_psfModel_TwoGaussian_gauss1_fluxfrac
     "@id": "#Object.y_psfModel_TwoGaussian_gauss1_fluxfrac"
-    datatype: double
+    datatype: float
     description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (y-band).
     fits:tunit:
   - name: y_psfModel_TwoGaussian_gauss2_sigma_x
     "@id": "#Object.y_psfModel_TwoGaussian_gauss2_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (y-band).
     fits:tunit: pixel
   - name: y_psfModel_TwoGaussian_gauss2_sigma_y
     "@id": "#Object.y_psfModel_TwoGaussian_gauss2_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (y-band).
     fits:tunit: pixel
   - name: y_psfModel_TwoGaussian_gauss2_rho
     "@id": "#Object.y_psfModel_TwoGaussian_gauss2_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (y-band).
     fits:tunit:
   - name: y_psfModel_TwoGaussian_n_iter
@@ -6307,7 +6265,7 @@ tables:
     fits:tunit:
   - name: y_psfModel_TwoGaussian_chisq_reduced
     "@id": "#Object.y_psfModel_TwoGaussian_chisq_reduced"
-    datatype: double
+    datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (y-band).
     fits:tunit:
   - name: y_psfModel_TwoGaussian_unknown_flag
@@ -6322,37 +6280,37 @@ tables:
     fits:tunit:
   - name: z_psfModel_TwoGaussian_gauss1_sigma_x
     "@id": "#Object.z_psfModel_TwoGaussian_gauss1_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (x-axis) in the two-Gaussian PSF model (z-band).
     fits:tunit: pixel
   - name: z_psfModel_TwoGaussian_gauss1_sigma_y
     "@id": "#Object.z_psfModel_TwoGaussian_gauss1_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the first Gaussian component (y-axis) in the two-Gaussian PSF model (z-band).
     fits:tunit: pixel
   - name: z_psfModel_TwoGaussian_gauss1_rho
     "@id": "#Object.z_psfModel_TwoGaussian_gauss1_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the first Gaussian component in the two-Gaussian PSF model (z-band).
     fits:tunit:
   - name: z_psfModel_TwoGaussian_gauss1_fluxfrac
     "@id": "#Object.z_psfModel_TwoGaussian_gauss1_fluxfrac"
-    datatype: double
+    datatype: float
     description: Fraction of the total flux (normalized to unity) of the first Gaussian component in the two-Gaussian PSF model (z-band).
     fits:tunit:
   - name: z_psfModel_TwoGaussian_gauss2_sigma_x
     "@id": "#Object.z_psfModel_TwoGaussian_gauss2_sigma_x"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (x-axis) in the two-Gaussian PSF model (z-band).
     fits:tunit: pixel
   - name: z_psfModel_TwoGaussian_gauss2_sigma_y
     "@id": "#Object.z_psfModel_TwoGaussian_gauss2_sigma_y"
-    datatype: double
+    datatype: float
     description: Standard deviation of the second Gaussian component (y-axis) in the two-Gaussian PSF model (z-band).
     fits:tunit: pixel
   - name: z_psfModel_TwoGaussian_gauss2_rho
     "@id": "#Object.z_psfModel_TwoGaussian_gauss2_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) of the second Gaussian component in the two-Gaussian PSF model (z-band).
     fits:tunit:
   - name: z_psfModel_TwoGaussian_n_iter
@@ -6362,7 +6320,7 @@ tables:
     fits:tunit:
   - name: z_psfModel_TwoGaussian_chisq_reduced
     "@id": "#Object.z_psfModel_TwoGaussian_chisq_reduced"
-    datatype: double
+    datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (z-band).
     fits:tunit:
   - name: z_psfModel_TwoGaussian_unknown_flag
@@ -6397,122 +6355,122 @@ tables:
     fits:tunit: deg
   - name: sersic_reff_x
     "@id": "#Object.sersic_reff_x"
-    datatype: double
+    datatype: float
     description: Effective radius (x-axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
     fits:tunit: pixel
   - name: sersic_reff_y
     "@id": "#Object.sersic_reff_y"
-    datatype: double
+    datatype: float
     description: Effective radius (y-axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
     fits:tunit: pixel
   - name: sersic_rho
     "@id": "#Object.sersic_rho"
-    datatype: double
+    datatype: float
     description: Ellipse rho (correlation coefficient) from the multiband Sersic model fit.
     fits:tunit:
   - name: g_sersicFlux
     "@id": "#Object.g_sersicFlux"
-    datatype: double
+    datatype: float
     description: g-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: i_sersicFlux
     "@id": "#Object.i_sersicFlux"
-    datatype: double
+    datatype: float
     description: i-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: r_sersicFlux
     "@id": "#Object.r_sersicFlux"
-    datatype: double
+    datatype: float
     description: r-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: u_sersicFlux
     "@id": "#Object.u_sersicFlux"
-    datatype: double
+    datatype: float
     description: u-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: y_sersicFlux
     "@id": "#Object.y_sersicFlux"
-    datatype: double
+    datatype: float
     description: y-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: z_sersicFlux
     "@id": "#Object.z_sersicFlux"
-    datatype: double
+    datatype: float
     description: z-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: sersic_index
     "@id": "#Object.sersic_index"
-    datatype: double
+    datatype: float
     description: Sersic profile index parameter from the multiband Sersic model fit.
     fits:tunit:
   - name: sersic_xErr
     "@id": "#Object.sersic_xErr"
-    datatype: double
+    datatype: float
     description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
     fits:tunit: pixel
   - name: sersic_yErr
     "@id": "#Object.sersic_yErr"
-    datatype: double
+    datatype: float
     description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
     fits:tunit: pixel
   - name: sersic_raErr
     "@id": "#Object.sersic_raErr"
-    datatype: double
+    datatype: float
     description: Error on the centroid (right ascension) from the multiband Sersic model fit.
     fits:tunit: deg
   - name: sersic_decErr
     "@id": "#Object.sersic_decErr"
-    datatype: double
+    datatype: float
     description: Error on the centroid (declination) from the multiband Sersic model fit.
     fits:tunit: deg
   - name: sersic_reff_xErr
     "@id": "#Object.sersic_reff_xErr"
-    datatype: double
+    datatype: float
     description: Error on the effective radius (x-axis) from the multiband Sersic model fit.
     fits:tunit: pixel
   - name: sersic_reff_yErr
     "@id": "#Object.sersic_reff_yErr"
-    datatype: double
+    datatype: float
     description: Error on the effective radius (y-axis) from the multiband Sersic model fit.
     fits:tunit: pixel
   - name: sersic_rhoErr
     "@id": "#Object.sersic_rhoErr"
-    datatype: double
+    datatype: float
     description: Error on ellipse rho (correlation coefficient) from the multiband Sersic model fit.
     fits:tunit:
   - name: g_sersicFluxErr
     "@id": "#Object.g_sersicFluxErr"
-    datatype: double
+    datatype: float
     description: Error on the g-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: i_sersicFluxErr
     "@id": "#Object.i_sersicFluxErr"
-    datatype: double
+    datatype: float
     description: Error on the i-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: r_sersicFluxErr
     "@id": "#Object.r_sersicFluxErr"
-    datatype: double
+    datatype: float
     description: Error on the r-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: u_sersicFluxErr
     "@id": "#Object.u_sersicFluxErr"
-    datatype: double
+    datatype: float
     description: Error on the u-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: y_sersicFluxErr
     "@id": "#Object.y_sersicFluxErr"
-    datatype: double
+    datatype: float
     description: Error on the y-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: z_sersicFluxErr
     "@id": "#Object.z_sersicFluxErr"
-    datatype: double
+    datatype: float
     description: Error on the z-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: sersic_indexErr
     "@id": "#Object.sersic_indexErr"
-    datatype: double
+    datatype: float
     description: Error on the Sersic profile index parameter from the multiband Sersic model fit.
     fits:tunit:
   - name: sersic_n_eval_jac
@@ -6527,7 +6485,7 @@ tables:
     fits:tunit:
   - name: sersic_chisq_reduced
     "@id": "#Object.sersic_chisq_reduced"
-    datatype: double
+    datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband Sersic model.
     fits:tunit:
   - name: sersic_no_data_flag
@@ -6633,12 +6591,6 @@ tables:
     description: Covariance between right ascension and declination.
     fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-  - name: decl
-    "@id": "#Source.decl"
-    datatype: double
-    description: Deprecated duplicate of dec.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
   - name: calibFlux
     "@id": "#Source.calibFlux"
     datatype: double
@@ -7438,56 +7390,6 @@ tables:
     datatype: boolean
     description: True if Object seed is in the inner region of a coadd tract
     fits:tunit:
-  - name: localBackground_instFluxErr
-    "@id": "#ForcedSource.localBackground_instFluxErr"
-    datatype: double
-    description: 1-sigma flux uncertainty
-    fits:tunit: count
-  - name: localBackground_instFlux
-    "@id": "#ForcedSource.localBackground_instFlux"
-    datatype: double
-    description: Background in annulus around source
-    fits:tunit: count
-  - name: localPhotoCalibErr
-    "@id": "#ForcedSource.localPhotoCalibErr"
-    datatype: double
-    description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
-  - name: localPhotoCalib_flag
-    "@id": "#ForcedSource.localPhotoCalib_flag"
-    datatype: boolean
-    description: Set for any fatal failure
-    fits:tunit:
-  - name: localPhotoCalib
-    "@id": "#ForcedSource.localPhotoCalib"
-    datatype: double
-    description: Local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
-  - name: localWcs_CDMatrix_1_1
-    "@id": "#ForcedSource.localWcs_CDMatrix_1_1"
-    datatype: double
-    description: (1, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_1_2
-    "@id": "#ForcedSource.localWcs_CDMatrix_1_2"
-    datatype: double
-    description: (1, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_2_1
-    "@id": "#ForcedSource.localWcs_CDMatrix_2_1"
-    datatype: double
-    description: (2, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_2_2
-    "@id": "#ForcedSource.localWcs_CDMatrix_2_2"
-    datatype: double
-    description: (2, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_flag
-    "@id": "#ForcedSource.localWcs_flag"
-    datatype: boolean
-    description: Set for any fatal failure
-    fits:tunit:
   - name: pixelFlags_bad
     "@id": "#ForcedSource.pixelFlags_bad"
     datatype: boolean
@@ -7560,7 +7462,7 @@ tables:
     fits:tunit:
   - name: psfDiffFluxErr
     "@id": "#ForcedSource.psfDiffFluxErr"
-    datatype: double
+    datatype: float
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the image difference
     fits:tunit: nJy
   - name: psfDiffFlux_flag
@@ -7570,12 +7472,12 @@ tables:
     fits:tunit:
   - name: psfDiffFlux
     "@id": "#ForcedSource.psfDiffFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of psf model forced on the image difference
     fits:tunit: nJy
   - name: psfFluxErr
     "@id": "#ForcedSource.psfFluxErr"
-    datatype: double
+    datatype: float
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the calexp
     fits:tunit: nJy
   - name: psfFlux_flag
@@ -7585,7 +7487,7 @@ tables:
     fits:tunit:
   - name: psfFlux
     "@id": "#ForcedSource.psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of psf model forced on the calexp
     fits:tunit: nJy
 - name: DiaObject
@@ -7619,11 +7521,11 @@ tables:
     description: Number of diaSources associated with this diaObject.
   - name: g_psfFluxChi2
     "@id": "#DiaObject.g_psfFluxChi2"
-    datatype: double
+    datatype: float
     description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean
   - name: g_psfFluxErrMean
     "@id": "#DiaObject.g_psfFluxErrMean"
-    datatype: double
+    datatype: float
     description: Mean of the diaSource PSF flux errors
   - name: g_psfFluxLinearIntercept
     "@id": "#DiaObject.g_psfFluxLinearIntercept"
@@ -7635,7 +7537,7 @@ tables:
     description: Slope of a linear model fit to diaSource PSF flux vs time
   - name: g_psfFluxMAD
     "@id": "#DiaObject.g_psfFluxMAD"
-    datatype: double
+    datatype: float
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
   - name: g_psfFluxMax
     "@id": "#DiaObject.g_psfFluxMax"
@@ -7687,7 +7589,7 @@ tables:
     description: Standard deviation of the distribution of g_psfFlux
   - name: g_psfFluxSkew
     "@id": "#DiaObject.g_psfFluxSkew"
-    datatype: double
+    datatype: float
     description: Skew of diaSource PSF flux
   - name: g_psfFluxStetsonJ
     "@id": "#DiaObject.g_psfFluxStetsonJ"
@@ -7707,11 +7609,11 @@ tables:
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
   - name: i_psfFluxChi2
     "@id": "#DiaObject.i_psfFluxChi2"
-    datatype: double
+    datatype: float
     description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean
   - name: i_psfFluxErrMean
     "@id": "#DiaObject.i_psfFluxErrMean"
-    datatype: double
+    datatype: float
     description: Mean of the diaSource PSF flux errors
   - name: i_psfFluxLinearIntercept
     "@id": "#DiaObject.i_psfFluxLinearIntercept"
@@ -7723,7 +7625,7 @@ tables:
     description: Slope of a linear model fit to diaSource PSF flux vs time
   - name: i_psfFluxMAD
     "@id": "#DiaObject.i_psfFluxMAD"
-    datatype: double
+    datatype: float
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
   - name: i_psfFluxMax
     "@id": "#DiaObject.i_psfFluxMax"
@@ -7775,7 +7677,7 @@ tables:
     description: Standard deviation of the distribution of i_psfFlux
   - name: i_psfFluxSkew
     "@id": "#DiaObject.i_psfFluxSkew"
-    datatype: double
+    datatype: float
     description: Skew of diaSource PSF flux
   - name: i_psfFluxStetsonJ
     "@id": "#DiaObject.i_psfFluxStetsonJ"
@@ -7795,11 +7697,11 @@ tables:
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
   - name: r_psfFluxChi2
     "@id": "#DiaObject.r_psfFluxChi2"
-    datatype: double
+    datatype: float
     description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean
   - name: r_psfFluxErrMean
     "@id": "#DiaObject.r_psfFluxErrMean"
-    datatype: double
+    datatype: float
     description: Mean of the diaSource PSF flux errors
   - name: r_psfFluxLinearIntercept
     "@id": "#DiaObject.r_psfFluxLinearIntercept"
@@ -7811,7 +7713,7 @@ tables:
     description: Slope of a linear model fit to diaSource PSF flux vs time
   - name: r_psfFluxMAD
     "@id": "#DiaObject.r_psfFluxMAD"
-    datatype: double
+    datatype: float
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
   - name: r_psfFluxMax
     "@id": "#DiaObject.r_psfFluxMax"
@@ -7863,7 +7765,7 @@ tables:
     description: Standard deviation of the distribution of r_psfFlux
   - name: r_psfFluxSkew
     "@id": "#DiaObject.r_psfFluxSkew"
-    datatype: double
+    datatype: float
     description: Skew of diaSource PSF flux
   - name: r_psfFluxStetsonJ
     "@id": "#DiaObject.r_psfFluxStetsonJ"
@@ -7883,11 +7785,11 @@ tables:
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
   - name: u_psfFluxChi2
     "@id": "#DiaObject.u_psfFluxChi2"
-    datatype: double
+    datatype: float
     description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean
   - name: u_psfFluxErrMean
     "@id": "#DiaObject.u_psfFluxErrMean"
-    datatype: double
+    datatype: float
     description: Mean of the diaSource PSF flux errors
   - name: u_psfFluxLinearIntercept
     "@id": "#DiaObject.u_psfFluxLinearIntercept"
@@ -7899,7 +7801,7 @@ tables:
     description: Slope of a linear model fit to diaSource PSF flux vs time
   - name: u_psfFluxMAD
     "@id": "#DiaObject.u_psfFluxMAD"
-    datatype: double
+    datatype: float
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
   - name: u_psfFluxMax
     "@id": "#DiaObject.u_psfFluxMax"
@@ -7951,7 +7853,7 @@ tables:
     description: Standard deviation of the distribution of u_psfFlux
   - name: u_psfFluxSkew
     "@id": "#DiaObject.u_psfFluxSkew"
-    datatype: double
+    datatype: float
     description: Skew of diaSource PSF flux
   - name: u_psfFluxStetsonJ
     "@id": "#DiaObject.u_psfFluxStetsonJ"
@@ -7971,11 +7873,11 @@ tables:
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
   - name: y_psfFluxChi2
     "@id": "#DiaObject.y_psfFluxChi2"
-    datatype: double
+    datatype: float
     description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean
   - name: y_psfFluxErrMean
     "@id": "#DiaObject.y_psfFluxErrMean"
-    datatype: double
+    datatype: float
     description: Mean of the diaSource PSF flux errors
   - name: y_psfFluxLinearIntercept
     "@id": "#DiaObject.y_psfFluxLinearIntercept"
@@ -7987,7 +7889,7 @@ tables:
     description: Slope of a linear model fit to diaSource PSF flux vs time
   - name: y_psfFluxMAD
     "@id": "#DiaObject.y_psfFluxMAD"
-    datatype: double
+    datatype: float
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
   - name: y_psfFluxMax
     "@id": "#DiaObject.y_psfFluxMax"
@@ -8039,7 +7941,7 @@ tables:
     description: Standard deviation of the distribution of y_psfFlux
   - name: y_psfFluxSkew
     "@id": "#DiaObject.y_psfFluxSkew"
-    datatype: double
+    datatype: float
     description: Skew of diaSource PSF flux
   - name: y_psfFluxStetsonJ
     "@id": "#DiaObject.y_psfFluxStetsonJ"
@@ -8059,11 +7961,11 @@ tables:
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
   - name: z_psfFluxChi2
     "@id": "#DiaObject.z_psfFluxChi2"
-    datatype: double
+    datatype: float
     description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean
   - name: z_psfFluxErrMean
     "@id": "#DiaObject.z_psfFluxErrMean"
-    datatype: double
+    datatype: float
     description: Mean of the diaSource PSF flux errors
   - name: z_psfFluxLinearIntercept
     "@id": "#DiaObject.z_psfFluxLinearIntercept"
@@ -8075,7 +7977,7 @@ tables:
     description: Slope of a linear model fit to diaSource PSF flux vs time
   - name: z_psfFluxMAD
     "@id": "#DiaObject.z_psfFluxMAD"
-    datatype: double
+    datatype: float
     description: Median absolute deviation of diaSource PSF flux. Does not include scale factor for comparison to sigma
   - name: z_psfFluxMax
     "@id": "#DiaObject.z_psfFluxMax"
@@ -8127,7 +8029,7 @@ tables:
     description: Standard deviation of the distribution of z_psfFlux
   - name: z_psfFluxSkew
     "@id": "#DiaObject.z_psfFluxSkew"
-    datatype: double
+    datatype: float
     description: Skew of diaSource PSF flux
   - name: z_psfFluxStetsonJ
     "@id": "#DiaObject.z_psfFluxStetsonJ"
@@ -8151,12 +8053,12 @@ tables:
   columns:
   - name: apFlux
     "@id": "#DiaSource.apFlux"
-    datatype: double
+    datatype: float
     description: Flux in a 12 pixel radius aperture on the difference image.
     fits:tunit: nJy
   - name: apFluxErr
     "@id": "#DiaSource.apFluxErr"
-    datatype: double
+    datatype: float
     description: Estimated uncertainty of apFlux.
     fits:tunit: nJy
   - name: apFlux_flag
@@ -8446,12 +8348,12 @@ tables:
     fits:tunit:
   - name: psfFlux
     "@id": "#DiaSource.psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of PSF model.
     fits:tunit: nJy
   - name: psfFluxErr
     "@id": "#DiaSource.psfFluxErr"
-    datatype: double
+    datatype: float
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
     fits:tunit: nJy
   - name: psfFlux_flag
@@ -8519,12 +8421,12 @@ tables:
     fits:tunit:
   - name: scienceFlux
     "@id": "#DiaSource.scienceFlux"
-    datatype: double
+    datatype: float
     description: Forced PSF flux measured on the direct image.
     fits:tunit: nJy
   - name: scienceFluxErr
     "@id": "#DiaSource.scienceFluxErr"
-    datatype: double
+    datatype: float
     description: Forced PSF flux uncertainty measured on the direct image.
     fits:tunit: nJy
   - name: x
@@ -8570,7 +8472,7 @@ tables:
     ivoa:ucd: pos.eq.dec
   - name: trailFlux
     "@id": "#DiaSource.trailFlux"
-    datatype: double
+    datatype: float
     description: Trailed source flux.
     fits:tunit: nJy
   - name: trailLength
@@ -8647,56 +8549,6 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"
     datatype: long
     description: Unique ID of forced source. Primary Key.
-    fits:tunit:
-  - name: localBackground_instFlux
-    "@id": "#ForcedSourceOnDiaObject.localBackground_instFlux"
-    datatype: double
-    description: Background in annulus around source
-    fits:tunit: count
-  - name: localBackground_instFluxErr
-    "@id": "#ForcedSourceOnDiaObject.localBackground_instFluxErr"
-    datatype: double
-    description: 1-sigma flux uncertainty
-    fits:tunit: count
-  - name: localPhotoCalib
-    "@id": "#ForcedSourceOnDiaObject.localPhotoCalib"
-    datatype: double
-    description: Local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
-  - name: localPhotoCalibErr
-    "@id": "#ForcedSourceOnDiaObject.localPhotoCalibErr"
-    datatype: double
-    description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
-  - name: localPhotoCalib_flag
-    "@id": "#ForcedSourceOnDiaObject.localPhotoCalib_flag"
-    datatype: boolean
-    description: Set for any fatal failure
-    fits:tunit:
-  - name: localWcs_CDMatrix_1_1
-    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_1"
-    datatype: double
-    description: (1, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_1_2
-    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_1_2"
-    datatype: double
-    description: (1, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_2_1
-    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_1"
-    datatype: double
-    description: (2, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_CDMatrix_2_2
-    "@id": "#ForcedSourceOnDiaObject.localWcs_CDMatrix_2_2"
-    datatype: double
-    description: (2, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: localWcs_flag
-    "@id": "#ForcedSourceOnDiaObject.localWcs_flag"
-    datatype: boolean
-    description: Set for any fatal failure
     fits:tunit:
   - name: parentObjectId
     "@id": "#ForcedSourceOnDiaObject.parentObjectId"
@@ -8780,12 +8632,12 @@ tables:
     fits:tunit:
   - name: psfDiffFlux
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of psf model forced on the image difference
     fits:tunit: nJy
   - name: psfDiffFluxErr
     "@id": "#ForcedSourceOnDiaObject.psfDiffFluxErr"
-    datatype: double
+    datatype: float
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the image difference
     fits:tunit: nJy
   - name: psfDiffFlux_flag
@@ -8795,12 +8647,12 @@ tables:
     fits:tunit:
   - name: psfFlux
     "@id": "#ForcedSourceOnDiaObject.psfFlux"
-    datatype: double
+    datatype: float
     description: Flux derived from linear least-squares fit of psf model forced on the calexp
     fits:tunit: nJy
   - name: psfFluxErr
     "@id": "#ForcedSourceOnDiaObject.psfFluxErr"
-    datatype: double
+    datatype: float
     description: Uncertainty on the flux derived from linear least-squares fit of psf model forced on the calexp
     fits:tunit: nJy
   - name: psfFlux_flag
