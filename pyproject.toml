@@ -53,3 +53,37 @@ where = ["python"]
 
 [tool.setuptools.package-data]
 "lsst.sdm.schemas" = ["**/*.yaml"]
+
+[tool.towncrier]
+    package = "lsst.sdm.schemas"
+    package_dir = "python"
+    filename = "docs/CHANGES.rst"
+    directory = "docs/changes"
+    title_format = "{version} ({project_date})"
+    issue_format = "[{issue}](https://jira.lsstcorp.org/browse/{issue})"
+
+
+    [[tool.towncrier.type]]
+        directory = "dr"
+        name = "Data Release"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "sci"
+        name = "Science Pipelines"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "ap"
+        name = "Alert Production"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "cdb"
+        name = "Consolidated Database"
+        showcontent = true
+
+    [[tool.towncrier.type]]
+        directory = "misc"
+        name = "Miscellaneous"
+        showcontent = true
