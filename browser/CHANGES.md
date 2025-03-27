@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: changes
 title: Release Notes
 ---
 
