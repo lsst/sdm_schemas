@@ -6498,6 +6498,37 @@ tables:
     datatype: boolean
     description: Flag set for failures with an unexpected or unknown cause for the multiband Sersic model.
     fits:tunit:
+  - name: g_epoch
+    "@id": "#Object.g_epoch"
+    datatype: double
+    description: Mean epoch of the object in the g-band coadd
+    fits:tunit:
+  - name: i_epoch
+    "@id": "#Object.i_epoch"
+    datatype: double
+    description: Mean epoch of the object in the i-band coadd
+    fits:tunit:
+  - name: r_epoch
+    "@id": "#Object.r_epoch"
+    datatype: double
+    description: Mean epoch of the object in the r-band coadd
+    fits:tunit:
+  - name: u_epoch
+    "@id": "#Object.u_epoch"
+    datatype: double
+    description: Mean epoch of the object in the u-band coadd
+    fits:tunit:
+  - name: y_epoch
+    "@id": "#Object.y_epoch"
+    datatype: double
+    description: Mean epoch of the object in the y-band coadd
+    fits:tunit:
+  - name: z_epoch
+    "@id": "#Object.z_epoch"
+    datatype: double
+    description: Mean epoch of the object in the z-band coadd
+    fits:tunit:
+
 
 - name: Source
   "@id": "#Source"
