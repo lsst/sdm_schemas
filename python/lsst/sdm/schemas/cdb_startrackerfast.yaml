@@ -1,12 +1,16 @@
 ---
 name: cdb_startrackerfast
 "@id": "#cdb_startrackerfast"
-description: Consolidated Database for StarTrackerFast
+description: >
+  The Consolidated Database for StarTrackerFast schema contains information for each exposure taken by the instrument, a fast star tracker mounted on the Simonyi Survey Telescope.
+  This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "1.0.0"
+  current: "1.0.1"
 tables:
 - name: exposure
   "@id": "#exposure"
+  description: >
+    Information from observatory systems about each raw image taken
   primaryKey:
   - "#exposure.exposure_id"
   constraints:
@@ -215,6 +219,9 @@ tables:
     description: "Lowest amount of instrument vignetting detected during the exposure: UNKNOWN, NO, PARTIALLY, FULLY."
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
+  description: >
+    Flexible key/value metadata about each raw image taken;
+    used for development and engineering purposes
   primaryKey:
   - "#exposure_flexdata.obs_id"
   - "#exposure_flexdata.key"
@@ -249,6 +256,8 @@ tables:
     description: Content of value as a string.
 - name: exposure_flexdata_schema
   "@id": "#exposure_flexdata_schema"
+  description: >
+    Key names and value types used in the exposure_flexdata table
   primaryKey:
   - "#exposure_flexdata_schema.key"
   columns:
@@ -281,6 +290,8 @@ tables:
     description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
+  description: >
+    Information from Summit Rapid Analysis about each raw image taken
   primaryKey:
   - "#exposure_quicklook.exposure_id"
   constraints:
