@@ -7583,6 +7583,11 @@ tables:
     datatype: boolean
     description: Failure to derive linear least-squares fit of psf model forced on the calexp
     fits:tunit:
+  - name: diff_PixelFlags_nodataCenter
+    "@id": "#ForcedSource.diff_PixelFlags_nodataCenter"
+    datatype: boolean
+    description: Source center is outside usable region on image difference (masked NO_DATA)
+    fits:tunit:
   - name: psfFlux
     "@id": "#ForcedSource.psfFlux"
     datatype: double
@@ -8792,6 +8797,11 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux_flag"
     datatype: boolean
     description: Failure to derive linear least-squares fit of psf model forced on the image difference
+    fits:tunit:
+  - name: diff_PixelFlags_nodataCenter
+    "@id": "#ForcedSourceOnDiaObject.diff_PixelFlags_nodataCenter"
+    datatype: boolean
+    description: Source center is outside usable region on image difference (masked NO_DATA)
     fits:tunit:
   - name: psfFlux
     "@id": "#ForcedSourceOnDiaObject.psfFlux"
