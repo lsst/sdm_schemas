@@ -28,7 +28,7 @@ Here are some guidelines for incrementing the version number based on what chang
 Database Migrations
 -------------------
 
-Changes to the CDB schemas must be deployed by generating an Alembic migration in the [consdb](https://github.com/lsst-dm/consdb) repository, deploying that migration to all necessary databases, ensuring proper replication, and deploying a new version of the data source for additions.  See the [consdb Operator Guide](https://consdb.lsst.io/operator-guide/schema-migration-process.html) for more details.
+Changes to the CDB schemas must be deployed by generating an Alembic migration in the [consdb](https://github.com/lsst-dm/consdb) repository, deploying that migration to all necessary databases, ensuring proper replication, and deploying a new version of the data source for additions.  In addition, TAP Schema tables need to be generated and deployed for the interface to the RSP TAP query service.  See the [consdb Operator Guide](https://consdb.lsst.io/operator-guide/schema-migration-process.html) for more details.
 
 Reviewers
 ---------
