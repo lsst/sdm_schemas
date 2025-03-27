@@ -57,7 +57,7 @@ where = ["python"]
 [tool.towncrier]
     package = "lsst.sdm.schemas"
     package_dir = "python"
-    filename = "docs/CHANGES.rst"
+    filename = "browser/CHANGES.rst"
     directory = "docs/changes"
     title_format = "{version} ({project_date})"
     issue_format = "[{issue}](https://jira.lsstcorp.org/browse/{issue})"
