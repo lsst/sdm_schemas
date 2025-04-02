@@ -881,6 +881,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: g_moments_round_uu
+    "@id": "#Object.g_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: g_moments_round_vv
+    "@id": "#Object.g_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: g_moments_round_uv
+    "@id": "#Object.g_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: g_moments_round_flag
+    "@id": "#Object.g_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: g_moments_psf_debiased_uu
     "@id": "#Object.g_moments_psf_debiased_uu"
     datatype: float
@@ -1895,6 +1914,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: i_moments_round_uu
+    "@id": "#Object.i_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: i_moments_round_vv
+    "@id": "#Object.i_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: i_moments_round_uv
+    "@id": "#Object.i_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: i_moments_round_flag
+    "@id": "#Object.i_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: i_moments_psf_debiased_uu
     "@id": "#Object.i_moments_psf_debiased_uu"
     datatype: float
@@ -2909,6 +2947,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: r_moments_round_uu
+    "@id": "#Object.r_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: r_moments_round_vv
+    "@id": "#Object.r_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: r_moments_round_uv
+    "@id": "#Object.r_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: r_moments_round_flag
+    "@id": "#Object.r_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: r_moments_psf_debiased_uu
     "@id": "#Object.r_moments_psf_debiased_uu"
     datatype: float
@@ -3923,6 +3980,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: y_moments_round_uu
+    "@id": "#Object.y_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: y_moments_round_vv
+    "@id": "#Object.y_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: y_moments_round_uv
+    "@id": "#Object.y_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: y_moments_round_flag
+    "@id": "#Object.y_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: y_moments_psf_debiased_uu
     "@id": "#Object.y_moments_psf_debiased_uu"
     datatype: float
@@ -4937,6 +5013,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: z_moments_round_uu
+    "@id": "#Object.z_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: z_moments_round_vv
+    "@id": "#Object.z_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: z_moments_round_uv
+    "@id": "#Object.z_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: z_moments_round_flag
+    "@id": "#Object.z_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: z_moments_psf_debiased_uu
     "@id": "#Object.z_moments_psf_debiased_uu"
     datatype: float

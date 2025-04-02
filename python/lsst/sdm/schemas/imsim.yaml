@@ -890,6 +890,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: g_moments_round_uu
+    "@id": "#Object.g_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: g_moments_round_vv
+    "@id": "#Object.g_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: g_moments_round_uv
+    "@id": "#Object.g_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: g_moments_round_flag
+    "@id": "#Object.g_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: g_moments_psf_debiased_uu
     "@id": "#Object.g_moments_psf_debiased_uu"
     datatype: float
@@ -914,17 +933,17 @@ tables:
     "@id": "#Object.g_moments_a"
     datatype: float
     description: Semimajor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: g_moments_b
     "@id": "#Object.g_moments_b"
     datatype: float
     description: Semiminor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: g_moments_theta
     "@id": "#Object.g_moments_theta"
     datatype: float
     description: Position angle of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: deg
   - name: g_hsm_moments_30
     "@id": "#Object.g_hsm_moments_30"
     datatype: float
@@ -1919,6 +1938,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: i_moments_round_uu
+    "@id": "#Object.i_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: i_moments_round_vv
+    "@id": "#Object.i_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: i_moments_round_uv
+    "@id": "#Object.i_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: i_moments_round_flag
+    "@id": "#Object.i_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: i_moments_psf_debiased_uu
     "@id": "#Object.i_moments_psf_debiased_uu"
     datatype: float
@@ -1943,17 +1981,17 @@ tables:
     "@id": "#Object.i_moments_a"
     datatype: float
     description: Semimajor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: i_moments_b
     "@id": "#Object.i_moments_b"
     datatype: float
     description: Semiminor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: i_moments_theta
     "@id": "#Object.i_moments_theta"
     datatype: float
     description: Position angle of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: deg
   - name: i_hsm_moments_30
     "@id": "#Object.i_hsm_moments_30"
     datatype: float
@@ -2948,6 +2986,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: r_moments_round_uu
+    "@id": "#Object.r_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: r_moments_round_vv
+    "@id": "#Object.r_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: r_moments_round_uv
+    "@id": "#Object.r_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: r_moments_round_flag
+    "@id": "#Object.r_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: r_moments_psf_debiased_uu
     "@id": "#Object.r_moments_psf_debiased_uu"
     datatype: float
@@ -2972,17 +3029,17 @@ tables:
     "@id": "#Object.r_moments_a"
     datatype: float
     description: Semimajor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: r_moments_b
     "@id": "#Object.r_moments_b"
     datatype: float
     description: Semiminor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: r_moments_theta
     "@id": "#Object.r_moments_theta"
     datatype: float
     description: Position angle of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: deg
   - name: r_hsm_moments_30
     "@id": "#Object.r_hsm_moments_30"
     datatype: float
@@ -3977,6 +4034,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: u_moments_round_uu
+    "@id": "#Object.u_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: u_moments_round_vv
+    "@id": "#Object.u_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: u_moments_round_uv
+    "@id": "#Object.u_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: u_moments_round_flag
+    "@id": "#Object.u_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: u_moments_psf_debiased_uu
     "@id": "#Object.u_moments_psf_debiased_uu"
     datatype: float
@@ -4001,17 +4077,17 @@ tables:
     "@id": "#Object.u_moments_a"
     datatype: float
     description: Semimajor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: u_moments_b
     "@id": "#Object.u_moments_b"
     datatype: float
     description: Semiminor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: u_moments_theta
     "@id": "#Object.u_moments_theta"
     datatype: float
     description: Position angle of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: deg
   - name: u_hsm_moments_30
     "@id": "#Object.u_hsm_moments_30"
     datatype: float
@@ -5006,6 +5082,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: y_moments_round_uu
+    "@id": "#Object.y_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: y_moments_round_vv
+    "@id": "#Object.y_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: y_moments_round_uv
+    "@id": "#Object.y_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: y_moments_round_flag
+    "@id": "#Object.y_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: y_moments_psf_debiased_uu
     "@id": "#Object.y_moments_psf_debiased_uu"
     datatype: float
@@ -5030,17 +5125,17 @@ tables:
     "@id": "#Object.y_moments_a"
     datatype: float
     description: Semimajor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: y_moments_b
     "@id": "#Object.y_moments_b"
     datatype: float
     description: Semiminor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: y_moments_theta
     "@id": "#Object.y_moments_theta"
     datatype: float
     description: Position angle of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: deg
   - name: y_hsm_moments_30
     "@id": "#Object.y_hsm_moments_30"
     datatype: float
@@ -6035,6 +6130,25 @@ tables:
     datatype: boolean
     description: General failure flag for PSF moments measurement.
     fits:tunit:
+  - name: z_moments_round_uu
+    "@id": "#Object.z_moments_round_uu"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: z_moments_round_vv
+    "@id": "#Object.z_moments_round_vv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: z_moments_round_uv
+    "@id": "#Object.z_moments_round_uv"
+    datatype: float
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    fits:tunit: arcsec**2
+  - name: z_moments_round_flag
+    "@id": "#Object.z_moments_round_flag"
+    datatype: boolean
+    description: General failure flag for circular moments measurement.
   - name: z_moments_psf_debiased_uu
     "@id": "#Object.z_moments_psf_debiased_uu"
     datatype: float
@@ -6059,17 +6173,17 @@ tables:
     "@id": "#Object.z_moments_a"
     datatype: float
     description: Semimajor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: z_moments_b
     "@id": "#Object.z_moments_b"
     datatype: float
     description: Semiminor axis length of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: arcsec
   - name: z_moments_theta
     "@id": "#Object.z_moments_theta"
     datatype: float
     description: Position angle of HSM moments.
-    fits:tunit: arcsec**2
+    fits:tunit: deg
   - name: z_hsm_moments_30
     "@id": "#Object.z_hsm_moments_30"
     datatype: float
