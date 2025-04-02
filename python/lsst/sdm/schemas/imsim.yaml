@@ -853,17 +853,17 @@ tables:
   - name: g_moments_uu
     "@id": "#Object.g_moments_uu"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: g_moments_vv
     "@id": "#Object.g_moments_vv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: g_moments_uv
     "@id": "#Object.g_moments_uv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: g_moments_flag
     "@id": "#Object.g_moments_flag"
@@ -873,17 +873,17 @@ tables:
   - name: g_moments_psf_uu
     "@id": "#Object.g_moments_psf_uu"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: g_moments_psf_vv
     "@id": "#Object.g_moments_psf_vv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: g_moments_psf_uv
     "@id": "#Object.g_moments_psf_uv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: g_moments_psf_flag
     "@id": "#Object.g_moments_psf_flag"
@@ -912,17 +912,17 @@ tables:
   - name: g_moments_psf_debiased_uu
     "@id": "#Object.g_moments_psf_debiased_uu"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: g_moments_psf_debiased_vv
     "@id": "#Object.g_moments_psf_debiased_vv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: g_moments_psf_debiased_uv
     "@id": "#Object.g_moments_psf_debiased_uv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on g-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: g_moments_psf_debiased_flag
     "@id": "#Object.g_moments_psf_debiased_flag"
@@ -932,17 +932,17 @@ tables:
   - name: g_moments_a
     "@id": "#Object.g_moments_a"
     datatype: float
-    description: Semimajor axis length of HSM moments.
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: g_moments_b
     "@id": "#Object.g_moments_b"
     datatype: float
-    description: Semiminor axis length of HSM moments.
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: g_moments_theta
     "@id": "#Object.g_moments_theta"
     datatype: float
-    description: Position angle of HSM moments.
+    description: Position angle of the adaptive Gaussian-weighted second moments.
     fits:tunit: deg
   - name: g_hsm_moments_30
     "@id": "#Object.g_hsm_moments_30"
@@ -1901,17 +1901,17 @@ tables:
   - name: i_moments_uu
     "@id": "#Object.i_moments_uu"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: i_moments_vv
     "@id": "#Object.i_moments_vv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: i_moments_uv
     "@id": "#Object.i_moments_uv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: i_moments_flag
     "@id": "#Object.i_moments_flag"
@@ -1921,17 +1921,17 @@ tables:
   - name: i_moments_psf_uu
     "@id": "#Object.i_moments_psf_uu"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: i_moments_psf_vv
     "@id": "#Object.i_moments_psf_vv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: i_moments_psf_uv
     "@id": "#Object.i_moments_psf_uv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: i_moments_psf_flag
     "@id": "#Object.i_moments_psf_flag"
@@ -1960,17 +1960,17 @@ tables:
   - name: i_moments_psf_debiased_uu
     "@id": "#Object.i_moments_psf_debiased_uu"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: i_moments_psf_debiased_vv
     "@id": "#Object.i_moments_psf_debiased_vv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: i_moments_psf_debiased_uv
     "@id": "#Object.i_moments_psf_debiased_uv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on i-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: i_moments_psf_debiased_flag
     "@id": "#Object.i_moments_psf_debiased_flag"
@@ -1980,17 +1980,17 @@ tables:
   - name: i_moments_a
     "@id": "#Object.i_moments_a"
     datatype: float
-    description: Semimajor axis length of HSM moments.
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: i_moments_b
     "@id": "#Object.i_moments_b"
     datatype: float
-    description: Semiminor axis length of HSM moments.
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: i_moments_theta
     "@id": "#Object.i_moments_theta"
     datatype: float
-    description: Position angle of HSM moments.
+    description: Position angle of the adaptive Gaussian-weighted second moments.
     fits:tunit: deg
   - name: i_hsm_moments_30
     "@id": "#Object.i_hsm_moments_30"
@@ -2949,17 +2949,17 @@ tables:
   - name: r_moments_uu
     "@id": "#Object.r_moments_uu"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: r_moments_vv
     "@id": "#Object.r_moments_vv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: r_moments_uv
     "@id": "#Object.r_moments_uv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: r_moments_flag
     "@id": "#Object.r_moments_flag"
@@ -2969,17 +2969,17 @@ tables:
   - name: r_moments_psf_uu
     "@id": "#Object.r_moments_psf_uu"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: r_moments_psf_vv
     "@id": "#Object.r_moments_psf_vv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: r_moments_psf_uv
     "@id": "#Object.r_moments_psf_uv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: r_moments_psf_flag
     "@id": "#Object.r_moments_psf_flag"
@@ -3008,17 +3008,17 @@ tables:
   - name: r_moments_psf_debiased_uu
     "@id": "#Object.r_moments_psf_debiased_uu"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: r_moments_psf_debiased_vv
     "@id": "#Object.r_moments_psf_debiased_vv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: r_moments_psf_debiased_uv
     "@id": "#Object.r_moments_psf_debiased_uv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on r-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: r_moments_psf_debiased_flag
     "@id": "#Object.r_moments_psf_debiased_flag"
@@ -3028,17 +3028,17 @@ tables:
   - name: r_moments_a
     "@id": "#Object.r_moments_a"
     datatype: float
-    description: Semimajor axis length of HSM moments.
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: r_moments_b
     "@id": "#Object.r_moments_b"
     datatype: float
-    description: Semiminor axis length of HSM moments.
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: r_moments_theta
     "@id": "#Object.r_moments_theta"
     datatype: float
-    description: Position angle of HSM moments.
+    description: Position angle of the adaptive Gaussian-weighted second moments.
     fits:tunit: deg
   - name: r_hsm_moments_30
     "@id": "#Object.r_hsm_moments_30"
@@ -3997,17 +3997,17 @@ tables:
   - name: u_moments_uu
     "@id": "#Object.u_moments_uu"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: u_moments_vv
     "@id": "#Object.u_moments_vv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: u_moments_uv
     "@id": "#Object.u_moments_uv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: u_moments_flag
     "@id": "#Object.u_moments_flag"
@@ -4017,17 +4017,17 @@ tables:
   - name: u_moments_psf_uu
     "@id": "#Object.u_moments_psf_uu"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: u_moments_psf_vv
     "@id": "#Object.u_moments_psf_vv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: u_moments_psf_uv
     "@id": "#Object.u_moments_psf_uv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: u_moments_psf_flag
     "@id": "#Object.u_moments_psf_flag"
@@ -4056,17 +4056,17 @@ tables:
   - name: u_moments_psf_debiased_uu
     "@id": "#Object.u_moments_psf_debiased_uu"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: u_moments_psf_debiased_vv
     "@id": "#Object.u_moments_psf_debiased_vv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: u_moments_psf_debiased_uv
     "@id": "#Object.u_moments_psf_debiased_uv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on u-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: u_moments_psf_debiased_flag
     "@id": "#Object.u_moments_psf_debiased_flag"
@@ -4076,17 +4076,17 @@ tables:
   - name: u_moments_a
     "@id": "#Object.u_moments_a"
     datatype: float
-    description: Semimajor axis length of HSM moments.
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: u_moments_b
     "@id": "#Object.u_moments_b"
     datatype: float
-    description: Semiminor axis length of HSM moments.
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: u_moments_theta
     "@id": "#Object.u_moments_theta"
     datatype: float
-    description: Position angle of HSM moments.
+    description: Position angle of the adaptive Gaussian-weighted second moments.
     fits:tunit: deg
   - name: u_hsm_moments_30
     "@id": "#Object.u_hsm_moments_30"
@@ -5045,17 +5045,17 @@ tables:
   - name: y_moments_uu
     "@id": "#Object.y_moments_uu"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: y_moments_vv
     "@id": "#Object.y_moments_vv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: y_moments_uv
     "@id": "#Object.y_moments_uv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: y_moments_flag
     "@id": "#Object.y_moments_flag"
@@ -5065,17 +5065,17 @@ tables:
   - name: y_moments_psf_uu
     "@id": "#Object.y_moments_psf_uu"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: y_moments_psf_vv
     "@id": "#Object.y_moments_psf_vv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: y_moments_psf_uv
     "@id": "#Object.y_moments_psf_uv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: y_moments_psf_flag
     "@id": "#Object.y_moments_psf_flag"
@@ -5104,17 +5104,17 @@ tables:
   - name: y_moments_psf_debiased_uu
     "@id": "#Object.y_moments_psf_debiased_uu"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: y_moments_psf_debiased_vv
     "@id": "#Object.y_moments_psf_debiased_vv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: y_moments_psf_debiased_uv
     "@id": "#Object.y_moments_psf_debiased_uv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on y-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: y_moments_psf_debiased_flag
     "@id": "#Object.y_moments_psf_debiased_flag"
@@ -5124,17 +5124,17 @@ tables:
   - name: y_moments_a
     "@id": "#Object.y_moments_a"
     datatype: float
-    description: Semimajor axis length of HSM moments.
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: y_moments_b
     "@id": "#Object.y_moments_b"
     datatype: float
-    description: Semiminor axis length of HSM moments.
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: y_moments_theta
     "@id": "#Object.y_moments_theta"
     datatype: float
-    description: Position angle of HSM moments.
+    description: Position angle of the adaptive Gaussian-weighted second moments.
     fits:tunit: deg
   - name: y_hsm_moments_30
     "@id": "#Object.y_hsm_moments_30"
@@ -6093,17 +6093,17 @@ tables:
   - name: z_moments_uu
     "@id": "#Object.z_moments_uu"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: z_moments_vv
     "@id": "#Object.z_moments_vv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: z_moments_uv
     "@id": "#Object.z_moments_uv"
     datatype: float
-    description: HSM moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
     fits:tunit: arcsec**2
   - name: z_moments_flag
     "@id": "#Object.z_moments_flag"
@@ -6113,17 +6113,17 @@ tables:
   - name: z_moments_psf_uu
     "@id": "#Object.z_moments_psf_uu"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: z_moments_psf_vv
     "@id": "#Object.z_moments_psf_vv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: z_moments_psf_uv
     "@id": "#Object.z_moments_psf_uv"
     datatype: float
-    description: PSF moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
     fits:tunit: arcsec**2
   - name: z_moments_psf_flag
     "@id": "#Object.z_moments_psf_flag"
@@ -6152,17 +6152,17 @@ tables:
   - name: z_moments_psf_debiased_uu
     "@id": "#Object.z_moments_psf_debiased_uu"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: z_moments_psf_debiased_vv
     "@id": "#Object.z_moments_psf_debiased_vv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: z_moments_psf_debiased_uv
     "@id": "#Object.z_moments_psf_debiased_uv"
     datatype: float
-    description: Debiased PSF moments in ra,dec coordinates. Measured on z-band.
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
     fits:tunit: arcsec**2
   - name: z_moments_psf_debiased_flag
     "@id": "#Object.z_moments_psf_debiased_flag"
@@ -6172,17 +6172,17 @@ tables:
   - name: z_moments_a
     "@id": "#Object.z_moments_a"
     datatype: float
-    description: Semimajor axis length of HSM moments.
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: z_moments_b
     "@id": "#Object.z_moments_b"
     datatype: float
-    description: Semiminor axis length of HSM moments.
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
     fits:tunit: arcsec
   - name: z_moments_theta
     "@id": "#Object.z_moments_theta"
     datatype: float
-    description: Position angle of HSM moments.
+    description: Position angle of the adaptive Gaussian-weighted second moments.
     fits:tunit: deg
   - name: z_hsm_moments_30
     "@id": "#Object.z_hsm_moments_30"
