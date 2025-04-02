@@ -1,13 +1,11 @@
 <ul>
-  {%- assign schemas = site.pages | where: 'dir', '/' | sort: 'sort-index' %}
+  {%- assign schemas = site.pages | where: 'dir', '/' | where_exp: "page", "page.schema" | sort: 'sort-index' %}
   {%- for schema in schemas %}
-    {%- if schema.name != 'index.md' %}
     <li>
         <a href=".{{ schema.url }}">{{ schema.title }}</a>
         {%- if include.include_description %}
         {{ schema.content }}
         {%- endif %}
     </li>
-    {%- endif %}
   {%- endfor %}
 </ul>
