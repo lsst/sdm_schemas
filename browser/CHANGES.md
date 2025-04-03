@@ -3,6 +3,18 @@ layout: changes
 title: Release Notes
 ---
 
+Changes in [SDM Schemas](https://github.com/lsst/sdm_schemas) are generally organized by the type of schema which was affected:
+
+**Data Releases** - Data Release and Data Preview schemas, having names that typically start with  `dp` or `dr` (e.g., `dp02_dc2`)
+
+**Science Pipelines** - Schemas which are managed through continuous integration with the Science Pipelines (`imsime`, `hsc`)
+
+**Alert Production** - Alert Production Database and Prompt Products Database used in nightly data processing (`apdb`)
+
+**ConsDB** - Consolidated Database of Image Metadata schema, having names that start with `cdb` (e.g., `cdb_lsstcam`)
+
+**Miscellaneous** - Catch-all category for changes which are not related to particular schemas, typically involving changes to GitHub workflows, project scripts, etc.
+
 v29.0.0 (2025-03-31)
 ====================
 
