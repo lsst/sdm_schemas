@@ -11,8 +11,8 @@ Added changes by hand from:
 git log v28.0.0.rc1..v29.0.0.rc1 --merges --pretty=format:"%h %s"
 -->
 
-Data Release
-------------
+Data Releases
+-------------
 
 - Ensure (tract, patch) are always displayed, visually, in that order in DP catalogs. ([DM-43996](https://jira.lsstcorp.org/browse/DM-43996))
 
@@ -73,8 +73,8 @@ Added changes by hand from:
 git log 27.0.0..28.0.0 --merges --pretty=format:"%h %s"
 -->
 
-Data Release
-------------
+Data Releases
+-------------
 
 - Added missing primary keys to DP0.2. ([DM-43115](https://jira.lsstcorp.org/browse/DM-43115))
 - Removed DP0.1 from TAP_SCHEMA and DataLink builds. ([DM-44884](https://jira.lsstcorp.org/browse/DM-44884))
