@@ -15,6 +15,11 @@ runs:
         uv pip install --system -r requirements.txt
       shell: bash
 
+    - name: Install SDM Tools
+      run: |
+        uv pip install --system 'lsst-sdm-tools @ git+https://github.com/lsst/sdm_tools@main'
+      shell: bash
+
     - name: Install yq
       run: sudo snap install yq
       shell: bash
