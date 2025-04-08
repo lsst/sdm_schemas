@@ -19,17 +19,8 @@ jobs:
           # Need to clone everything for the git tags.
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: "pip"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip uv
-          uv pip install --system -r requirements.txt
-          uv pip install --system pytest
+      - name: Setup Python and install dependencies
+        uses: ./.github/actions/setup-test-environment
 
       - name: Install sdm_schemas
         run: uv pip install --system --no-deps .
