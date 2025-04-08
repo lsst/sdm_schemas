@@ -13,6 +13,7 @@ runs:
       run: |
         python -m pip install --upgrade pip uv
         uv pip install --system -r requirements.txt
+        uv pip install --system pytest
       shell: bash
 
     - name: Install SDM Tools
