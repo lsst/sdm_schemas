@@ -13,6 +13,12 @@ runs:
       run: |
         python -m pip install --upgrade pip uv
         uv pip install --system -r requirements.txt
+        uv pip install --system pytest
+      shell: bash
+
+    - name: Install SDM Tools
+      run: |
+        uv pip install --system 'lsst-sdm-tools @ git+https://github.com/lsst/sdm_tools@main'
       shell: bash
 
     - name: Install yq
