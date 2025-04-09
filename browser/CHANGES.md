@@ -7,7 +7,7 @@ Changes in [SDM Schemas](https://github.com/lsst/sdm_schemas) are generally orga
 
 **Data Releases** - Data Release and Data Preview schemas, having names that typically start with  `dp` or `dr` (e.g., `dp02_dc2`)
 
-**Science Pipelines** - Schemas which are managed through continuous integration with the Science Pipelines (`imsime`, `hsc`)
+**Science Pipelines** - Schemas which are managed through continuous integration with the Science Pipelines (`imsim`, `hsc`)
 
 **Alert Production** - Alert Production Database and Prompt Products Database used in nightly data processing (`apdb`)
 
@@ -26,7 +26,7 @@ git log v28.0.0.rc1..v29.0.0.rc1 --merges --pretty=format:"%h %s"
 Data Releases
 -------------
 
-- Ensure (tract, patch) are always displayed, visually, in that order in DP catalogs. ([DM-43996](https://jira.lsstcorp.org/browse/DM-43996))
+- Ensured (tract, patch) are always displayed, visually, in that order in DP catalogs. ([DM-43996](https://jira.lsstcorp.org/browse/DM-43996))
 
 Science Pipelines
 -----------------
@@ -155,6 +155,6 @@ Miscellaneous
   ([DM-42935](https://jira.lsstcorp.org/browse/DM-42935))
 - Added redundant datatype checks to validation workflow. ([DM-44058](https://jira.lsstcorp.org/browse/DM-44058))
 - Deleted UWS creation script from `tap-schema/sql` directory. ([DM-45099](https://jira.lsstcorp.org/browse/DM-45099))
-- Removed DP0.1 from TAP_SCHEMA on IDF `int` and `dev`. (ÄDM-44884Å(https://jira.lsstcorp.org/browse/DM-44884))
+- Removed DP0.1 from TAP_SCHEMA on IDF `int` and `dev`. ([DM-44884](https://jira.lsstcorp.org/browse/DM-44884))
 - Added database tests to GitHub workflows. ([DM-44158](https://jira.lsstcorp.org/browse/DM-44158))
 - Updated the schema browser to use LTD. ([DM-41310](https://jira.lsstcorp.org/browse/DM-41310))
