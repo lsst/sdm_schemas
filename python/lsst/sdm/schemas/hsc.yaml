@@ -759,8 +759,7 @@ tables:
   - name: g_iRound_flag
     "@id": "#Object.g_iRound_flag"
     datatype: boolean
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
+    description: General failure flag, set if anything went wrong. Measured on g-band.
   - name: g_i_flag
     "@id": "#Object.g_i_flag"
     datatype: boolean
