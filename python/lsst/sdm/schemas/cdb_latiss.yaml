@@ -891,6 +891,12 @@ tables:
     description: Quicklook day_obs must be an Exposure day_obs.
     columns: ["#visit1_quicklook.day_obs", "#visit1_quicklook.seq_num"]
     referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: un_visit1_quicklook_visit_id
+    "@id": "#visit1_quicklook.un_visit1_quicklook_visit_id"
+    "@type": Unique
+    description: Ensure visit_id is unique.
+    columns:
+    - "#visit1_quicklook.visit_id"
   columns:
   - name: visit_id
     "@id": "#visit1_quicklook.visit_id"
@@ -1174,6 +1180,12 @@ tables:
     description: Quicklook ccdvisit_id must be a CcdExposure ccdexposure_id.
     columns: ["#ccdvisit1_quicklook.ccdvisit_id"]
     referencedColumns: ["#ccdexposure.ccdexposure_id"]
+  - name: un_ccdvisit1_quicklook_ccdvisit_id
+    "@id": "#ccdvisit1_quicklook.un_ccdvisit1_quicklook_ccdvisit_id"
+    "@type": Unique
+    description: Ensure ccdvisit_id is unique.
+    columns:
+    - "#ccdvisit1_quicklook.ccdvisit_id"
   columns:
   - name: ccdvisit_id
     "@id": "#ccdvisit1_quicklook.ccdvisit_id"
