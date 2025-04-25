@@ -1,6 +1,6 @@
 ---
 layout: schema
-title: ConsDB - LSSTComCamSim
+title: ConsDB LSSTComCamSim
 schema: cdb_lsstcomcamsim
 sort-index: 52
 ---

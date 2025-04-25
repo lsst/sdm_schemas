@@ -1,7 +1,7 @@
 ---
 layout: schema
-title: ConsDB - StarTrackerFast
+title: ConsDB StarTrackerFast
 schema: cdb_startrackerfast
-sort-index: 53
+sort-index: 54
 ---
 {{ site.data[page.schema].description }}
