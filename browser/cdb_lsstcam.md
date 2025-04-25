@@ -1,7 +1,7 @@
 ---
 layout: schema
-title: ConsDB LSSTComCam
-schema: cdb_lsstcomcam
-sort-index: 51
+title: ConsDB LSSTCam
+schema: cdb_lsstcam
+sort-index: 50
 ---
 {{ site.data[page.schema].description }}
