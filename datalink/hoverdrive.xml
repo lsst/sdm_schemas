@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
 
-  <RESOURCE type="meta" utype="adhoc:service" name="ColumnDocumentationLinks">
+  <RESOURCE type="meta" utype="adhoc:service" name="ColumnDocumentationRedirect">
     <DESCRIPTION>
-      Get documentation links about table columns.
+      Redirect to the most relevant documentation link for a column.
     </DESCRIPTION>
     <PARAM name="accessURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/column-docs-links"/>
+          value="$baseUrl$/api/hoverdrive/column-docs-redirect"/>
     <GROUP name="inputParams">
       <PARAM name="table" datatype="char" use="required">
         <DESCRIPTION>The name of the table.</DESCRIPTION>
@@ -14,41 +14,27 @@
       <PARAM name="column" datatype="char" arraysize="*" use="required">
         <DESCRIPTION>The name of the column.</DESCRIPTION>
       </PARAM>
-      <PARAM name="redirect" datatype="boolean" value="False" use="optional">
-        <DESCRIPTION>Whether to redirect to the most relevant documentation link.</DESCRIPTION>
-      </PARAM>
     </GROUP>
     <PARAM name="exampleURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/column-docs-links?table=dp02_dc2_catalogs.Object&amp;column=detect_isPrimary&amp;redirect=true">
+          value="$baseUrl$/api/hoverdrive/column-docs-redirect?table=dp02_dc2_catalogs.Object&amp;column=detect_isPrimary">
       <DESCRIPTION>Example request to redirect to the documentation for the 'detect_isPrimary' column in the 'dp02_dc2_catalogs.Object' table.</DESCRIPTION>
-    </PARAM>
-    <PARAM name="exampleURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/column-docs-links?table=dp02_dc2_catalogs.Object&amp;column=ra&amp;column=dec">
-      <DESCRIPTION>Example request to get (but not redirect to) documentation links for the 'ra' and 'dec' columns in the 'dp02_dc2_catalogs.Object' table (redirect=false is the default).</DESCRIPTION>
     </PARAM>
   </RESOURCE>
 
-  <RESOURCE type="meta" utype="adhoc:service" name="TableDocumentationLinks">
+  <RESOURCE type="meta" utype="adhoc:service" name="TableDocumentationRedirect">
     <DESCRIPTION>
-      Get documentation links about tables.
+      Redirect to the most relevant documentation link for a table.
     </DESCRIPTION>
     <PARAM name="accessURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/table-docs-links"/>
+          value="$baseUrl$/api/hoverdrive/table-docs-redirect"/>
     <GROUP name="inputParams">
       <PARAM name="table" datatype="char" arraysize="*" use="required">
         <DESCRIPTION>The name of the table.</DESCRIPTION>
       </PARAM>
-      <PARAM name="redirect" datatype="boolean" value="False" use="optional">
-        <DESCRIPTION>Whether to redirect to the most relevant documentation link.</DESCRIPTION>
-      </PARAM>
     </GROUP>
     <PARAM name="exampleURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/table-docs-links?table=dp02_dc2_catalogs.Object&amp;redirect=true">
+          value="$baseUrl$/api/hoverdrive/table-docs-redirect?table=dp02_dc2_catalogs.Object">
       <DESCRIPTION>Example request to redirect to the documentation for the 'dp02_dc2_catalogs.Object' table.</DESCRIPTION>
-    </PARAM>
-    <PARAM name="exampleURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/table-docs-links?table=dp02_dc2_catalogs.Object">
-      <DESCRIPTION>Example request to get (but not redirect to) the documentation link for the 'dp02_dc2_catalogs.Object' table (redirect=false is the default).</DESCRIPTION>
     </PARAM>
   </RESOURCE>
 </VOTABLE>
