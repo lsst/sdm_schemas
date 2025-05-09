@@ -76,7 +76,7 @@
             <li><a href="">{{ page.title }}</a></li>
             <ul>
               {%- for table in schema_tables %}
-              <li><a href="{{ table['@id'] }}">{{ table.name }}</a></li>
+              <li><a href="#{{ table['name'] }}">{{ table.name }}</a></li>
               {%- endfor %}
             </ul>
           </ul>
@@ -94,8 +94,8 @@
           {{ content }}
           {%- for table in schema_tables %}
           <hr style="margin-top: 20px; margin-bottom: 10px" />
-          <section id="{{ table['@id'] | remove:'#' }}">
-            <h2>{{ table.name }}</h2>
+          <section id="{{ table['name'] }}">
+            <h2><a href="#{{ table.name }}">{{ table.name }}</a></h2>
             <p>{{ table.description }}</p>
             <table class="schema-table">
               <thead>
@@ -111,9 +111,9 @@
               </thead>
               <tbody>
                 {% for col in table.columns %}
-                <tr id="{{ col['@id'] | remove:'#' }}">
+                <tr id="{{ table.name }}.{{ col.name }}">
                   <td class="column-name">
-                    <a href="{{ col['@id'] }}">{{ col.name }}</a>
+                    <a href="#{{ table.name }}.{{ col.name }}">{{ col.name }}</a>
                   </td>
                   <td>{{ col.datatype }}</td>
                   <td>{{ col['ivoa:unit'] | default: col['fits:tunit'] }}</td>
