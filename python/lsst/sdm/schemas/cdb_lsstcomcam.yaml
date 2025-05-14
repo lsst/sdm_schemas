@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LSSTComCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, a 9-detector camera for commissioning the Vera C. Rubin Observatory.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.5.1"
+  current: "3.6.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -291,6 +291,11 @@ tables:
     datatype: string
     length: 10
     description: "Lowest amount of instrument vignetting detected during the exposure: UNKNOWN, NO, PARTIALLY, FULLY."
+  - name: scheduler_note
+    "@id": "#exposure.scheduler_note"
+    datatype: string
+    length: 1024
+    description: "A note indicating how or why the observation was chosen by the Feature Based Scheduler."
   - name: s_region
     "@id": "#exposure.s_region"
     datatype: string
@@ -841,6 +846,11 @@ tables:
     datatype: string
     length: 10
     description: "Lowest amount of instrument vignetting detected during the visit: UNKNOWN, NO, PARTIALLY, FULLY."
+  - name: scheduler_note
+    "@id": "#visit1.scheduler_note"
+    datatype: string
+    length: 1024
+    description: "A note indicating how or why the observation was chosen by the Feature Based Scheduler."
   - name: s_region
     "@id": "#visit1.s_region"
     datatype: string
