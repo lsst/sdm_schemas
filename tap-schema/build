@@ -38,6 +38,7 @@ do
         --engine-url=mysql:// \
         --tap-schema-name=tap_schema \
         --tap-tables-postfix=11 \
+        --force-unbounded-arraysize \
         --output-file sql/`basename $file`.sql \
         $unique_flag \
         $file
