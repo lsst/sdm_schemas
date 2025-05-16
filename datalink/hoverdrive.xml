@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
 
+  <INFO name="$tap_schema_columns_table_name$" ID="$tap_schema_columns_table_name$" value="this will be dropped..." />  
+  <INFO name="$tap_schema_columns_column_name$" ID="$tap_schema_columns_column_name$" value="this will be dropped..." /> 
+
   <RESOURCE type="meta" utype="adhoc:service" name="ColumnDocumentationRedirect">
     <DESCRIPTION>
       Redirect to the most relevant documentation link for a column.
@@ -8,10 +11,10 @@
     <PARAM name="accessURL" datatype="char" arraysize="*"
           value="$baseUrl$/api/hoverdrive/column-docs-redirect"/>
     <GROUP name="inputParams">
-      <PARAM name="table" datatype="char" use="required">
+      <PARAM name="table" datatype="char" arraysize="*" ref="$tap_schema_columns_table_name$" value="">
         <DESCRIPTION>The name of the table.</DESCRIPTION>
       </PARAM>
-      <PARAM name="column" datatype="char" arraysize="*" use="required">
+      <PARAM name="column" datatype="char" arraysize="*" ref="$tap_schema_columns_column_name$" value="">
         <DESCRIPTION>The name of the column.</DESCRIPTION>
       </PARAM>
     </GROUP>
@@ -28,7 +31,7 @@
     <PARAM name="accessURL" datatype="char" arraysize="*"
           value="$baseUrl$/api/hoverdrive/table-docs-redirect"/>
     <GROUP name="inputParams">
-      <PARAM name="table" datatype="char" arraysize="*" use="required">
+      <PARAM name="table" datatype="char" arraysize="*" ref="$tap_schema_columns_table_name$" value="">
         <DESCRIPTION>The name of the table.</DESCRIPTION>
       </PARAM>
     </GROUP>
