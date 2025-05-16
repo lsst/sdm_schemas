@@ -23,21 +23,4 @@
       <DESCRIPTION>Example request to redirect to the documentation for the 'detect_isPrimary' column in the 'dp02_dc2_catalogs.Object' table.</DESCRIPTION>
     </PARAM>
   </RESOURCE>
-
-  <RESOURCE type="meta" utype="adhoc:service" name="TableDocumentationRedirect">
-    <DESCRIPTION>
-      Redirect to the most relevant documentation link for a table.
-    </DESCRIPTION>
-    <PARAM name="accessURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/table-docs-redirect"/>
-    <GROUP name="inputParams">
-      <PARAM name="table" datatype="char" arraysize="*" ref="$tap_schema_columns_table_name$" value="">
-        <DESCRIPTION>The name of the table.</DESCRIPTION>
-      </PARAM>
-    </GROUP>
-    <PARAM name="exampleURL" datatype="char" arraysize="*"
-          value="$baseUrl$/api/hoverdrive/table-docs-redirect?table=dp02_dc2_catalogs.Object">
-      <DESCRIPTION>Example request to redirect to the documentation for the 'dp02_dc2_catalogs.Object' table.</DESCRIPTION>
-    </PARAM>
-  </RESOURCE>
 </VOTABLE>
