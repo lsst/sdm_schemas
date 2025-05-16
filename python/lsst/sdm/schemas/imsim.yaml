@@ -9056,6 +9056,11 @@ tables:
     datatype: float
     description: Trailed source flux.
     fits:tunit: nJy
+  - name: trailFluxErr
+    "@id": "#DiaSource.trailFluxErr"
+    datatype: float
+    description: Uncertainty of trailFlux.
+    fits:tunit: nJy
   - name: trailLength
     "@id": "#DiaSource.trailLength"
     datatype: double
