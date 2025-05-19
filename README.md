@@ -44,6 +44,12 @@ The following schemas are maintained in this repository under the [schemas](./py
   or ConsDB, an image metadata database containing summarizations of
   Engineering Facilities Database (EFD) telemetry by exposure and visit time windows.
 
+* The various `efd` schemas such as
+  [efd_latiss](./python/lsst/sdm/schemas/efd_latiss.yaml) describe the
+  data model of the Transformed EFD at the [Consolidated Database](https://github.com/lsst-dm/consdb)
+  or ConsDB, which consists of telemetry transformed over time spans defined by the 
+  duration of the exposures and visits.
+
 Release Assets
 --------------
 
