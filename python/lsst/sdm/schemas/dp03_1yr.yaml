@@ -314,7 +314,7 @@ tables:
     ivoa:ucd: meta.id;obs.image
   - name: ccdVisitId
     "@id": "#DiaSource.ccdVisitId"
-    datatype: long
+    datatype: int
     description: Id of the ccdVisit where this diaSource was measured. Note that we
       are allowing a diaSource to belong to multiple amplifiers, but it may not span
       multiple ccds.
@@ -340,10 +340,11 @@ tables:
     length: 20
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
-    datatype: timestamp
-    precision: 6
-    description: Time when this diaSource was reassociated from diaObject to ssObject
+    datatype: double
+    description: Time (MJD) when this diaSource was reassociated from diaObject to ssObject
       (if such reassociation happens, otherwise NULL).
+    fits:tunit: d
+    ivoa:ucd: time.processing
   - name: midPointMjdTai
     "@id": "#DiaSource.midPointMjdTai"
     datatype: double
