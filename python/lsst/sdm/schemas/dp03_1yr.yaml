@@ -314,7 +314,7 @@ tables:
     ivoa:ucd: meta.id;obs.image
   - name: ccdVisitId
     "@id": "#DiaSource.ccdVisitId"
-    datatype: long
+    datatype: int
     description: Id of the ccdVisit where this diaSource was measured. Note that we
       are allowing a diaSource to belong to multiple amplifiers, but it may not span
       multiple ccds.
