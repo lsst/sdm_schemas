@@ -340,10 +340,11 @@ tables:
     length: 20
   - name: ssObjectReassocTime
     "@id": "#DiaSource.ssObjectReassocTime"
-    datatype: timestamp
-    precision: 6
-    description: Time when this diaSource was reassociated from diaObject to ssObject
+    datatype: double
+    description: Time (MJD) when this diaSource was reassociated from diaObject to ssObject
       (if such reassociation happens, otherwise NULL).
+    fits:tunit: d
+    ivoa:ucd: time.processing
   - name: midPointMjdTai
     "@id": "#DiaSource.midPointMjdTai"
     datatype: double
