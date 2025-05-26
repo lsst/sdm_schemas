@@ -6,7 +6,7 @@
 ./build mock
 
 ./build idfprod-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
-./build idfint-tap ../yml/dp1.yaml ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
+./build idfint-tap ../yml/dp1_v29.yaml ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
 ./build idfdev-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
 ./build usdf-prod-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
 ./build usdf-dev-tap ../yml/dp02_dc2.yaml ../yml/dp02_obscore.yaml
