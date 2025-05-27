@@ -9239,3 +9239,145 @@ tables:
     name: lrcdec
   description: Defines a single detector of a visit
   name: CcdVisit
+- '@id': '#SSObject'
+  description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
+    Recomputed daily, upon MPCORB ingestion.
+  name: SSObject
+  columns:
+  - '@id': '#SSObject.ssObjectId'
+    datatype: long
+    description: Unique identifier.
+    ivoa:ucd: meta.id;src
+    name: ssObjectId
+    nullable: false
+  - '@id': '#SSObject.numObs'
+    datatype: int
+    description: Number of LSST observations of this object
+    name: numObs
+  - '@id': '#SSObject.discoverySubmissionDate'
+    datatype: double
+    description: The date the LSST first linked and submitted the discovery observations
+      to the MPC. May be NULL if not an LSST discovery. The date format will follow
+      general LSST conventions (MJD TAI, at the moment).
+    fits:tunit: d
+    name: discoverySubmissionDate
+- '@id': '#SSSource'
+  description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
+    Recomputed daily, upon MPCORB ingestion.
+  name: SSSource
+  columns:
+  - '@id': '#SSSource.phaseAngle'
+    datatype: float
+    description: Phase angle
+    fits:tunit: deg
+    name: phaseAngle
+  - '@id': '#SSSource.heliocentricDist'
+    datatype: float
+    description: Heliocentric distance
+    fits:tunit: AU
+    name: heliocentricDist
+  - '@id': '#SSSource.topocentricDist'
+    datatype: float
+    description: Topocentric distace
+    fits:tunit: AU
+    name: topocentricDist
+  - '@id': '#SSSource.heliocentricX'
+    datatype: float
+    description: Cartesian heliocentric X coordinate (at the emit time)
+    fits:tunit: AU
+    name: heliocentricX
+  - '@id': '#SSSource.heliocentricY'
+    datatype: float
+    description: Cartesian heliocentric Y coordinate (at the emit time)
+    fits:tunit: AU
+    name: heliocentricY
+  - '@id': '#SSSource.heliocentricZ'
+    datatype: float
+    description: Cartesian heliocentric Z coordinate (at the emit time)
+    fits:tunit: AU
+    name: heliocentricZ
+  - '@id': '#SSSource.heliocentricVX'
+    datatype: float
+    description: Cartesian heliocentric X velocity (at the emit time)
+    fits:tunit: AU
+    name: heliocentricVX
+  - '@id': '#SSSource.heliocentricVY'
+    datatype: float
+    description: Cartesian heliocentric Y velocity (at the emit time)
+    fits:tunit: AU
+    name: heliocentricVY
+  - '@id': '#SSSource.heliocentricVZ'
+    datatype: float
+    description: Cartesian heliocentric Z velocity (at the emit time)
+    fits:tunit: AU
+    name: heliocentricVZ
+  - '@id': '#SSSource.topocentricX'
+    datatype: float
+    description: Cartesian topocentric X coordinate (at the emit time)
+    fits:tunit: AU
+    name: topocentricX
+  - '@id': '#SSSource.topocentricY'
+    datatype: float
+    description: Cartesian topocentric Y coordinate (at the emit time)
+    fits:tunit: AU
+    name: topocentricY
+  - '@id': '#SSSource.topocentricZ'
+    datatype: float
+    description: Cartesian topocentric Z coordinate (at the emit time)
+    fits:tunit: AU
+    name: topocentricZ
+  - '@id': '#SSSource.topocentricVX'
+    datatype: float
+    description: Cartesian topocentric X velocity (at the emit time)
+    fits:tunit: AU
+    name: topocentricVX
+  - '@id': '#SSSource.topocentricVY'
+    datatype: float
+    description: Cartesian topocentric Y velocity (at the emit time)
+    fits:tunit: AU
+    name: topocentricVY
+  - '@id': '#SSSource.topocentricVZ'
+    datatype: float
+    description: Cartesian topocentric Z velocity (at the emit time)
+    fits:tunit: AU
+    name: topocentricVZ
+  - '@id': '#SSSource.ssObjectId'
+    datatype: long
+    description: Unique identifier of the object.
+    ivoa:ucd: meta.id;src
+    name: ssObjectId
+  - '@id': '#SSSource.residualRa'
+    datatype: double
+    description: Residual R.A. vs. ephemeris
+    fits:tunit: deg
+    name: residualRa
+  - '@id': '#SSSource.residualDec'
+    datatype: double
+    description: Residual Dec vs. ephemeris
+    fits:tunit: deg
+    name: residualDec
+  - '@id': '#SSSource.diaSourceId'
+    datatype: long
+    description: Unique identifier of the observation
+    ivoa:ucd: meta.id;src
+    name: diaSourceId
+  - '@id': '#SSSource.galacticL'
+    datatype: double
+    description: Galactic longitude
+    fits:tunit: deg
+    name: galacticL
+  - '@id': '#SSSource.galacticB'
+    datatype: double
+    description: Galactic latitute
+    fits:tunit: deg
+    name: galacticB
+  - '@id': '#SSSource.eclipticLambda'
+    datatype: double
+    description: Ecliptic longitude
+    fits:tunit: deg
+    name: eclipticLambda
+  - '@id': '#SSSource.eclipticBeta'
+    datatype: double
+    description: Ecliptic latitude
+    fits:tunit: deg
+    name: eclipticBeta
