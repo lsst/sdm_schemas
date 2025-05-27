@@ -7535,7 +7535,7 @@ tables:
     name: visit
     nullable: false
   - '@id': '#Source.detector'
-    datatype: short
+    datatype: long
     description: Id of the detector where this source was measured. Datatype short
       instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
@@ -7595,7 +7595,7 @@ tables:
     name: visit
     nullable: false
   - '@id': '#ForcedSource.detector'
-    datatype: short
+    datatype: long
     description: Id of the detector where this source was measured. Datatype short
       instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
@@ -7737,7 +7737,7 @@ tables:
     name: visit
     nullable: false
   - '@id': '#DiaSource.detector'
-    datatype: short
+    datatype: long
     description: Id of the detector where this diaSource was measured. Datatype short
       instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
@@ -8809,7 +8809,7 @@ tables:
     name: visit
     nullable: false
   - '@id': '#ForcedSourceOnDiaObject.detector'
-    datatype: short
+    datatype: long
     description: Id of the detector where this forced source was measured. Datatype
       short instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
@@ -9163,7 +9163,7 @@ tables:
     description: Primary key (unique identifier).
     name: ccdVisitId
   - '@id': '#CcdVisit.detector'
-    datatype: short
+    datatype: long
     description: Detector ID. A detector associated with a particular instrument (not
       an observation of that detector).
     name: detector
