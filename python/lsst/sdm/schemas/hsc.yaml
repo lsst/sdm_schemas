@@ -50,6 +50,10 @@ tables:
     datatype: int
     description: Number of peaks this parent footprint has (even if the deblender failed or skipped this blend)
     fits:tunit:
+  - name: deblend_depth
+    "@id": "#Object.deblend_depth"
+    datatype: int
+    description: Depth of a source in the hierarchy of parents where 0=top level.
   - name: deblend_failed
     "@id": "#Object.deblend_failed"
     datatype: boolean
