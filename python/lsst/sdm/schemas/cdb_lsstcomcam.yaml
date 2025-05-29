@@ -302,6 +302,10 @@ tables:
     length: 1024
     description: Sky region in STC-S format (https://www.ivoa.net/documents/STC-S/20130917/index.html).
     ivoa:ucd: pos.outline;obs.field
+  - name: can_see_sky
+    "@id": "#exposure.can_see_sky"
+    datatype: boolean
+    description: Whether the observation can see sky or not.
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
   description: >
@@ -857,6 +861,10 @@ tables:
     length: 1024
     description: Sky region in STC-S format (https://www.ivoa.net/documents/STC-S/20130917/index.html).
     ivoa:ucd: pos.outline;obs.field
+  - name: can_see_sky
+    "@id": "#visit1.can_see_sky"
+    datatype: boolean
+    description: Whether the observation can see sky or not.
 - name: visit1_quicklook
   "@id": "#visit1_quicklook"
   description: >
