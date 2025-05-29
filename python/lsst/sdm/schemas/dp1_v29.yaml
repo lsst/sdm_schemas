@@ -9007,12 +9007,38 @@ tables:
     description: Spatially-averaged duration of visit, accurate to 10ms.
     fits:tunit: s
     name: expTime
+  - name: expMidpt
+    '@id': '#Visit.expMidpt'
+    datatype: timestamp
+    precision: 6
+    description: Midpoint time for exposure at the fiducial center of the focal plane array.
+      TAI, accurate to 10ms.
+    fits:tunit:
+    tap:principal: 0
+    tap:column_index: 6
+  - name: expMidptMJD
+    '@id': '#Visit.expMidptMJD'
+    datatype: double
+    description: Midpoint time for exposure at the fiducial center of the focal plane array in MJD.
+      TAI, accurate to 10ms.
+    fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
+    tap:principal: 1
+    tap:column_index: 5
   - '@id': '#Visit.obsStart'
     datatype: timestamp
     description: Start time of the visit at the fiducial center of the focal plane
       array, TAI, accurate to 10ms.
     name: obsStart
     precision: 6
+  - name: obsStartMJD
+    '@id': '#Visit.obsStartMJD'
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    fits:tunit: d
+    ivoa:ucd: time.start;obs.exposure
+    tap:principal: 0
+    tap:column_index: 7
   description: Defines a single Visit.
   name: Visit
 - '@id': '#CcdVisit'
@@ -9177,11 +9203,37 @@ tables:
     description: Sky rotation angle.
     fits:tunit: deg
     name: skyRotation
+  - name: expMidpt
+    '@id': '#CcdVisit.expMidpt'
+    datatype: timestamp
+    precision: 6
+    description: Midpoint time for exposure at the fiducial center of the focal plane array.
+      TAI, accurate to 10ms.
+    fits:tunit:
+    tap:principal: 0
+    tap:column_index: 6
+  - name: expMidptMJD
+    '@id': '#CcdVisit.expMidptMJD'
+    datatype: double
+    description: Midpoint time for exposure at the fiducial center of the focal plane array in MJD.
+      TAI, accurate to 10ms.
+    fits:tunit: d
+    ivoa:ucd: time.epoch;obs.exposure
+    tap:principal: 1
+    tap:column_index: 5
   - '@id': '#CcdVisit.obsStart'
     datatype: timestamp
     description: Start of the visit, TAI, accurate to 10ms.
     name: obsStart
     precision: 6
+  - name: obsStartMJD
+    '@id': '#CcdVisit.obsStartMJD'
+    datatype: double
+    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    fits:tunit: d
+    ivoa:ucd: time.start;obs.exposure
+    tap:principal: 0
+    tap:column_index: 7
   - '@id': '#CcdVisit.darkTime'
     datatype: double
     description: Average dark current accumulation time, accurate to 10ms.
