@@ -9184,10 +9184,17 @@ tables:
     description: Deprecated duplicate of dec.
     fits:tunit: deg
     name: decl
-  - '@id': '#CcdVisit.ccdVisitId'
+  - name: ccdVisitId
+    '@id': '#CcdVisit.ccdVisitId'
     datatype: long
     description: Primary key (unique identifier).
-    name: ccdVisitId
+  - name: visitId
+    '@id': '#CcdVisit.visitId'
+    datatype: long
+    description: Reference to the corresponding entry in the Visit table.
+    ivoa:ucd: meta.id.parent;obs
+    tap:principal: 1
+    tap:column_index: 2
   - '@id': '#CcdVisit.detector'
     datatype: long
     description: Detector ID. A detector associated with a particular instrument (not
@@ -9289,6 +9296,28 @@ tables:
     description: Declination of lower right corner.
     fits:tunit: deg
     name: lrcdec
+  - name: effTime
+    '@id': '#CcdVisit.effTime'
+    datatype: double
+    description: Effective time metric
+    fits:tunit: s
+  - name: effTimePsfSigmaScale
+    '@id': '#CcdVisit.effTimePsfSigmaScale'
+    datatype: double
+    description: Effective time metric -- PSF size component
+  - name: effTimeSkyBgScale
+    '@id': '#CcdVisit.effTimeSkyBgScale'
+    datatype: double
+    description: Effective time metric -- Sky background component
+  - name: effTimeZeroPointScale
+    '@id': '#CcdVisit.effTimeZeroPointScale'
+    datatype: double
+    description: Effective time metric -- Throughput component
+  - name: magLim
+    '@id': '#CcdVisit.magLim'
+    datatype: double
+    description: 5-sigma limiting magnitude
+    fits:tunit: mag
   description: Defines a single detector of a visit
   name: CcdVisit
 - '@id': '#SSObject'
