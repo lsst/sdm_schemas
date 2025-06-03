@@ -9841,3 +9841,59 @@ tables:
     datatype: string
     length: 10
     votable:arraysize: 10
+- name: MPCORB
+  "@id": "#MPCORB"
+  description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
+    O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
+  primaryKey: "#MPCORB.mpcDesignation"
+  columns:
+  - name: mpcDesignation
+    "@id": "#MPCORB.mpcDesignation"
+    datatype: char
+    length: 8
+    description: 'MPCORB: Number or provisional designation (in packed form)'
+    ivoa:ucd: meta.id;src
+  - name: ssObjectId
+    "@id": "#MPCORB.ssObjectId"
+    datatype: long
+    description: LSST unique identifier (if observed by LSST)
+    ivoa:ucd: meta.id;src
+  - name: q
+    "@id": "#MPCORB.q"
+    datatype: double
+    description: 'MPCORB: Perihelion distance (AU)'
+    fits:tunit: AU
+  - name: e
+    "@id": "#MPCORB.e"
+    datatype: double
+    description: 'MPCORB: Orbital eccentricity'
+  - name: incl
+    "@id": "#MPCORB.incl"
+    datatype: double
+    description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
+    fits:tunit: deg
+  - name: node
+    "@id": "#MPCORB.node"
+    datatype: double
+    description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
+    fits:tunit: deg
+  - name: peri
+    "@id": "#MPCORB.peri"
+    datatype: double
+    description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
+    fits:tunit: deg
+  - name: t_p
+    "@id": "#MPCORB.t_p"
+    datatype: double
+    description: 'MPCORB: MJD of pericentric passage'
+    fits:tunit: d
+  - name: epoch
+    "@id": "#MPCORB.epoch"
+    datatype: double
+    description: 'MPCORB: Epoch (in MJD, .0 TT)'
+    fits:tunit: d
+  - name: mpcH
+    "@id": "#MPCORB.mpcH"
+    datatype: float
+    description: 'MPCORB: Absolute magnitude, H'
+    fits:tunit: mag
