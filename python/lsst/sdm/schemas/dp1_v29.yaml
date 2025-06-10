@@ -7719,11 +7719,6 @@ tables:
     description: Skymap patch ID
     fits:tunit: null
     name: patch
-  - '@id': '#ForcedSource.forcedSourceId'
-    datatype: long
-    description: Unique ID of forced source. Primary Key.
-    fits:tunit: null
-    name: forcedSourceId
   description: The forced source table contains forced-photometry source measurement
     on an individual Exposure based on a Multifit shape model derived from a deep
     detection.
@@ -8933,11 +8928,6 @@ tables:
     description: Skymap patch ID
     fits:tunit: null
     name: patch
-  - '@id': '#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId'
-    datatype: long
-    description: Unique ID of forced source. Primary Key.
-    fits:tunit: null
-    name: forcedSourceOnDiaObjectId
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
   name: ForcedSourceOnDiaObject
 - '@id': '#Visit'
