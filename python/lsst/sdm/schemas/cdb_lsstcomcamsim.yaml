@@ -6,7 +6,7 @@ description: >
   This information was recorded during an Operations Rehearsal.
   This includes simulated observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.3.0"
+  current: "3.4.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -303,6 +303,10 @@ tables:
     length: 1024
     description: Sky region in STC-S format (https://www.ivoa.net/documents/STC-S/20130917/index.html).
     ivoa:ucd: pos.outline;obs.field
+  - name: can_see_sky
+    "@id": "#exposure.can_see_sky"
+    datatype: boolean
+    description: Whether the observation can see sky or not.
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
   description: >
@@ -858,6 +862,10 @@ tables:
     length: 1024
     description: Sky region in STC-S format (https://www.ivoa.net/documents/STC-S/20130917/index.html).
     ivoa:ucd: pos.outline;obs.field
+  - name: can_see_sky
+    "@id": "#visit1.can_see_sky"
+    datatype: boolean
+    description: Whether the observation can see sky or not.
 - name: visit1_quicklook
   "@id": "#visit1_quicklook"
   description: >
