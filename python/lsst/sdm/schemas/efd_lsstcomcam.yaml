@@ -1,0 +1,4469 @@
+---
+name: efd_lsstcomcam
+"@id": "#efd_lsstcomcam"
+description: Transformed EFD Consolidated Database for lsstcomcam
+tables:
+
+- name: exposure_efd
+  "@id": "#exposure_efd"
+  description: Transformed EFD topics by exposure.
+  primaryKey:
+  - "#exposure_efd.exposure_id"
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_efd.exposure_id"
+    datatype: long
+    nullable: false
+    autoincrement: false
+    description: Exposure unique ID.
+  - name: created_at
+    "@id": "#exposure_efd.created_at"
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
+    description: Timestamp when the record was created, default is current timestamp
+  - name: mt_azimuth_encoder_absolute_position_0_rms_jitter
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_0_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_1_rms_jitter
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_1_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_2_rms_jitter
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_2_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_3_rms_jitter
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_3_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_0_rms_jitter
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_0_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_1_rms_jitter
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_1_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_2_rms_jitter
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_2_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_3_rms_jitter
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_3_rms_jitter"
+    datatype: float
+    nullable: true
+    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+  - name: mt_salindex110_sonic_temperature_mean
+    "@id": "#exposure_efd.mt_salindex110_sonic_temperature_mean"
+    datatype: float
+    nullable: true
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+  - name: mt_salindex110_sonic_temperature_stddev
+    "@id": "#exposure_efd.mt_salindex110_sonic_temperature_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+  - name: mt_salindex110_sonic_temperature_stddev_mean
+    "@id": "#exposure_efd.mt_salindex110_sonic_temperature_stddev_mean"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+  - name: mt_salindex110_sonic_temperature_stddev_stddev
+    "@id": "#exposure_efd.mt_salindex110_sonic_temperature_stddev_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+  - name: mt_salindex110_wind_speed_0_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_0_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_0_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_0_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_magnitude_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_magnitude_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the edian wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_magnitude_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_magnitude_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_maxmagnitude_mean"
+    datatype: float
+    nullable: true
+    description: Mean maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_maxmagnitude_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_maxmagnitude_min"
+    datatype: float
+    nullable: true
+    description: Minimum maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_maxmagnitude_max"
+    datatype: float
+    nullable: true
+    description: Maximum maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex301_airflow_speed_mean
+    "@id": "#exposure_efd.mt_salindex301_airflow_speed_mean"
+    datatype: float
+    nullable: true
+    description: Mean median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speed_stddev
+    "@id": "#exposure_efd.mt_salindex301_airflow_speed_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speed_min
+    "@id": "#exposure_efd.mt_salindex301_airflow_speed_min"
+    datatype: float
+    nullable: true
+    description: Minimum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speed_max
+    "@id": "#exposure_efd.mt_salindex301_airflow_speed_max"
+    datatype: float
+    nullable: true
+    description: Maximum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speedstddev_mean
+    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_speedstddev_stddev
+    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_speedstddev_min
+    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_speedstddev_max
+    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_direction_mean
+    "@id": "#exposure_efd.mt_salindex301_airflow_direction_mean"
+    datatype: float
+    nullable: true
+    description: Mean median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_direction_stddev
+    "@id": "#exposure_efd.mt_salindex301_airflow_direction_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_direction_min
+    "@id": "#exposure_efd.mt_salindex301_airflow_direction_min"
+    datatype: float
+    nullable: true
+    description: Minimum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_direction_max
+    "@id": "#exposure_efd.mt_salindex301_airflow_direction_max"
+    datatype: float
+    nullable: true
+    description: Maximum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex1_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex1_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex1_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex1_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex1_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex1_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex1_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex1_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex101_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex101_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex101_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex101_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex102_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex102_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 7.
+  - name: mt_salindex102_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex102_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 7.
+  - name: mt_salindex102_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex102_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 7.
+  - name: mt_salindex102_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex102_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex103_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex103_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex103_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex103_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 7.
+  - name: mt_salindex106_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex106_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 7.
+  - name: mt_salindex106_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex106_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 7.
+  - name: mt_salindex106_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex106_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 7.
+  - name: mt_salindex106_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex106_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 7.
+  - name: mt_salindex107_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex107_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex107_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex107_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex107_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex107_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex107_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex107_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex108_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex108_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 7.
+  - name: mt_salindex108_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex108_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 7.
+  - name: mt_salindex108_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex108_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 7.
+  - name: mt_salindex108_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex108_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 7.
+  - name: mt_salindex301_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex301_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 7.
+  - name: mt_salindex301_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex301_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 7.
+  - name: mt_salindex301_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex301_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 7.
+  - name: mt_salindex301_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex301_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 7.
+  - name: mt_dimm_fwhm_mean
+    "@id": "#exposure_efd.mt_dimm_fwhm_mean"
+    datatype: float
+    nullable: true
+    description: Mean combined full width half maximum.
+  - name: mt_azimuth_encoder_absolute_position_0_mean
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_1_mean
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_2_mean
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_3_mean
+    "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_0_mean
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_1_mean
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_2_mean
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_3_mean
+    "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_hexapod_uncompensated_position_u_mean
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_u_mean"
+    datatype: float
+    nullable: true
+    description: Mean U angle.
+  - name: mt_hexapod_uncompensated_position_u_max
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_u_max"
+    datatype: float
+    nullable: true
+    description: Maximum U angle.
+  - name: mt_hexapod_uncompensated_position_u_min
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_u_min"
+    datatype: float
+    nullable: true
+    description: Minimum U angle.
+  - name: mt_hexapod_uncompensated_position_v_mean
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_v_mean"
+    datatype: float
+    nullable: true
+    description: Mean V angle.
+  - name: mt_hexapod_uncompensated_position_v_max
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_v_max"
+    datatype: float
+    nullable: true
+    description: Maximum V angle.
+  - name: mt_hexapod_uncompensated_position_v_min
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_v_min"
+    datatype: float
+    nullable: true
+    description: Minimum V angle.
+  - name: mt_hexapod_uncompensated_position_w_mean
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_w_mean"
+    datatype: float
+    nullable: true
+    description: Mean W angle.
+  - name: mt_hexapod_uncompensated_position_w_max
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_w_max"
+    datatype: float
+    nullable: true
+    description: Maximum W angle.
+  - name: mt_hexapod_uncompensated_position_w_min
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_w_min"
+    datatype: float
+    nullable: true
+    description: Minimum W angle.
+  - name: mt_hexapod_uncompensated_position_x_mean
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean X position.
+  - name: mt_hexapod_uncompensated_position_x_max
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum X position.
+  - name: mt_hexapod_uncompensated_position_x_min
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum X position.
+  - name: mt_hexapod_uncompensated_position_y_mean
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean Y position.
+  - name: mt_hexapod_uncompensated_position_y_max
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum Y position.
+  - name: mt_hexapod_uncompensated_position_y_min
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum Y position.
+  - name: mt_hexapod_uncompensated_position_z_mean
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean Z position.
+  - name: mt_hexapod_uncompensated_position_z_max
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum Z position.
+  - name: mt_hexapod_uncompensated_position_z_min
+    "@id": "#exposure_efd.mt_hexapod_uncompensated_position_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum Z position.
+  - name: mt_salindex111_dewpoint_mean
+    "@id": "#exposure_efd.mt_salindex111_dewpoint_mean"
+    datatype: float
+    nullable: true
+    description: Mean dew point.
+  - name: mt_salindex112_dewpoint_mean
+    "@id": "#exposure_efd.mt_salindex112_dewpoint_mean"
+    datatype: float
+    nullable: true
+    description: Mean dew point.
+  - name: mt_salindex113_dewpoint_mean
+    "@id": "#exposure_efd.mt_salindex113_dewpoint_mean"
+    datatype: float
+    nullable: true
+    description: Mean dew point.
+  - name: mt_salindex111_relativehumidity_mean
+    "@id": "#exposure_efd.mt_salindex111_relativehumidity_mean"
+    datatype: float
+    nullable: true
+    description: Mean relative humidity.
+  - name: mt_salindex112_relativehumidity_mean
+    "@id": "#exposure_efd.mt_salindex112_relativehumidity_mean"
+    datatype: float
+    nullable: true
+    description: Mean relative humidity.
+  - name: mt_salindex113_relativehumidity_mean
+    "@id": "#exposure_efd.mt_salindex113_relativehumidity_mean"
+    datatype: float
+    nullable: true
+    description: Mean relative humidity.
+  - name: mt_salindex113_pressure_0_mean
+    "@id": "#exposure_efd.mt_salindex113_pressure_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_salindex113_pressure_1_mean
+    "@id": "#exposure_efd.mt_salindex113_pressure_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_salindex301_pressure_0_mean
+    "@id": "#exposure_efd.mt_salindex301_pressure_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_salindex301_pressure_1_mean
+    "@id": "#exposure_efd.mt_salindex301_pressure_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_pointing_mount_position_ra_mean
+    "@id": "#exposure_efd.mt_pointing_mount_position_ra_mean"
+    datatype: float
+    nullable: true
+    description: Mean RA calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_ra_stddev
+    "@id": "#exposure_efd.mt_pointing_mount_position_ra_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the RA calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_dec_mean
+    "@id": "#exposure_efd.mt_pointing_mount_position_dec_mean"
+    datatype: float
+    nullable: true
+    description: Mean Dec calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_dec_stddev
+    "@id": "#exposure_efd.mt_pointing_mount_position_dec_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Dec calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_sky_angle_mean
+    "@id": "#exposure_efd.mt_pointing_mount_position_sky_angle_mean"
+    datatype: float
+    nullable: true
+    description: Mean calculated sky angle.
+  - name: mt_pointing_mount_position_sky_angle_stddev
+    "@id": "#exposure_efd.mt_pointing_mount_position_sky_angle_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the calculated sky angle.
+  - name: mt_pointing_mount_position_rotator_mean
+    "@id": "#exposure_efd.mt_pointing_mount_position_rotator_mean"
+    datatype: float
+    nullable: true
+    description: Mean rotator axis position reported by rotator component.
+  - name: mt_pointing_mount_position_rotator_stddev
+    "@id": "#exposure_efd.mt_pointing_mount_position_rotator_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the rotator axis position reported by rotator component.
+  - name: camera_hexapod_aos_corrections_u
+    "@id": "#exposure_efd.camera_hexapod_aos_corrections_u"
+    datatype: float
+    nullable: true
+    description: U position offset.
+  - name: camera_hexapod_aos_corrections_v
+    "@id": "#exposure_efd.camera_hexapod_aos_corrections_v"
+    datatype: float
+    nullable: true
+    description: V position offset.
+  - name: camera_hexapod_aos_corrections_w
+    "@id": "#exposure_efd.camera_hexapod_aos_corrections_w"
+    datatype: float
+    nullable: true
+    description: W position offset.
+  - name: camera_hexapod_aos_corrections_x
+    "@id": "#exposure_efd.camera_hexapod_aos_corrections_x"
+    datatype: float
+    nullable: true
+    description: X position offset.
+  - name: camera_hexapod_aos_corrections_y
+    "@id": "#exposure_efd.camera_hexapod_aos_corrections_y"
+    datatype: float
+    nullable: true
+    description: Y position offset.
+  - name: camera_hexapod_aos_corrections_z
+    "@id": "#exposure_efd.camera_hexapod_aos_corrections_z"
+    datatype: float
+    nullable: true
+    description: Z position offset.
+  - name: m2_hexapod_aos_corrections_u
+    "@id": "#exposure_efd.m2_hexapod_aos_corrections_u"
+    datatype: float
+    nullable: true
+    description: U position offset.
+  - name: m2_hexapod_aos_corrections_v
+    "@id": "#exposure_efd.m2_hexapod_aos_corrections_v"
+    datatype: float
+    nullable: true
+    description: V position offset.
+  - name: m2_hexapod_aos_corrections_w
+    "@id": "#exposure_efd.m2_hexapod_aos_corrections_w"
+    datatype: float
+    nullable: true
+    description: W position offset.
+  - name: m2_hexapod_aos_corrections_x
+    "@id": "#exposure_efd.m2_hexapod_aos_corrections_x"
+    datatype: float
+    nullable: true
+    description: X position offset.
+  - name: m2_hexapod_aos_corrections_y
+    "@id": "#exposure_efd.m2_hexapod_aos_corrections_y"
+    datatype: float
+    nullable: true
+    description: Y position offset.
+  - name: m2_hexapod_aos_corrections_z
+    "@id": "#exposure_efd.m2_hexapod_aos_corrections_z"
+    datatype: float
+    nullable: true
+    description: Z position offset.
+  - name: m2_stress
+    "@id": "#exposure_efd.m2_stress"
+    datatype: float
+    nullable: true
+    description: Calculate M2 stress computed RSS the stress contribution of each bending mode.
+  - name: m1m3_stress
+    "@id": "#exposure_efd.m1m3_stress"
+    datatype: float
+    nullable: true
+    description: Calculate M1M3 stress computed RSS the stress contribution of each bending mode.
+  - name: mt_salindex104_acceleration_x_mean
+    "@id": "#exposure_efd.mt_salindex104_acceleration_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in x direction.
+  - name: mt_salindex104_acceleration_x_stddev
+    "@id": "#exposure_efd.mt_salindex104_acceleration_x_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in x direction.
+  - name: mt_salindex104_acceleration_x_min
+    "@id": "#exposure_efd.mt_salindex104_acceleration_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in x direction.
+  - name: mt_salindex104_acceleration_x_max
+    "@id": "#exposure_efd.mt_salindex104_acceleration_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in x direction.
+  - name: mt_salindex104_acceleration_y_mean
+    "@id": "#exposure_efd.mt_salindex104_acceleration_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in y direction.
+  - name: mt_salindex104_acceleration_y_stddev
+    "@id": "#exposure_efd.mt_salindex104_acceleration_y_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in y direction.
+  - name: mt_salindex104_acceleration_y_min
+    "@id": "#exposure_efd.mt_salindex104_acceleration_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in y direction.
+  - name: mt_salindex104_acceleration_y_max
+    "@id": "#exposure_efd.mt_salindex104_acceleration_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in y direction.
+  - name: mt_salindex104_acceleration_z_mean
+    "@id": "#exposure_efd.mt_salindex104_acceleration_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in z direction.
+  - name: mt_salindex104_acceleration_z_stddev
+    "@id": "#exposure_efd.mt_salindex104_acceleration_z_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in z direction.
+  - name: mt_salindex104_acceleration_z_min
+    "@id": "#exposure_efd.mt_salindex104_acceleration_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in z direction.
+  - name: mt_salindex104_acceleration_z_max
+    "@id": "#exposure_efd.mt_salindex104_acceleration_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_x_mean
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_x_stddev
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_x_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_x_min
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_x_max
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_y_mean
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_y_stddev
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_y_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_y_min
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_y_max
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_z_mean
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_z_stddev
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_z_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_z_min
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_z_max
+    "@id": "#exposure_efd.mt_salindex104_accelerationpsd_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in z direction.
+  - name: mt_salindex104_m1m3_accelerometer_0_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_0_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_0_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_0_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_accelerometer_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_x_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_y_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_mean
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data angular Acceleration Z.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_stddev
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data angular Acceleration Z.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_max
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data angular Acceleration Z.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_min
+    "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data angular Acceleration Z.
+
+- name: exposure_efd_unpivoted
+  "@id": "#exposure_efd_unpivoted"
+  description: Unpivoted EFD exposure data.
+  primaryKey:
+  - "#exposure_efd_unpivoted.exposure_id"
+  - "#exposure_efd_unpivoted.property"
+  - "#exposure_efd_unpivoted.field"
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_efd_unpivoted.exposure_id"
+    datatype: long
+    nullable: false
+    autoincrement: false
+    description: Unique identifier for the exposure
+  - name: property
+    "@id": "#exposure_efd_unpivoted.property"
+    datatype: string
+    length: 64
+    nullable: false
+    value: default_property
+    description: Property name for unpivoted data
+  - name: field
+    "@id": "#exposure_efd_unpivoted.field"
+    datatype: string
+    length: 32
+    nullable: false
+    value: default_field
+    description: Field name for unpivoted data
+  - name: value
+    "@id": "#exposure_efd_unpivoted.value"
+    datatype: float
+    nullable: true
+    description: Value corresponding to the parameter
+  - name: created_at
+    "@id": "#exposure_efd_unpivoted.created_at"
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
+    description: Timestamp when record was created, default current timestamp
+
+- name: visit1_efd
+  "@id": "#visit1_efd"
+  description: Transformed EFD topics by visit.
+  primaryKey:
+  - "#visit1_efd.visit_id"
+  columns:
+  - name: visit_id
+    "@id": "#visit1_efd.visit_id"
+    datatype: long
+    nullable: false
+    autoincrement: false
+    description: Visit unique ID.
+  - name: created_at
+    "@id": "#visit1_efd.created_at"
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
+    description: Timestamp when record was created, default current timestamp
+  - name: mt_salindex110_sonic_temperature_mean
+    "@id": "#visit1_efd.mt_salindex110_sonic_temperature_mean"
+    datatype: float
+    nullable: true
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+  - name: mt_salindex110_sonic_temperature_stddev
+    "@id": "#visit1_efd.mt_salindex110_sonic_temperature_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+  - name: mt_salindex110_sonic_temperature_stddev_mean
+    "@id": "#visit1_efd.mt_salindex110_sonic_temperature_stddev_mean"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+  - name: mt_salindex110_sonic_temperature_stddev_stddev
+    "@id": "#visit1_efd.mt_salindex110_sonic_temperature_stddev_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+  - name: mt_salindex110_wind_speed_0_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_0_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_0_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_0_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_1_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_2_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed (x, y, z) in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_0_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_1_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_speedstddev_2_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_magnitude_mean"
+    datatype: float
+    nullable: true
+    description: Mean median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_magnitude_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the edian wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_magnitude_min"
+    datatype: float
+    nullable: true
+    description: Minimum median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_magnitude_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_magnitude_max"
+    datatype: float
+    nullable: true
+    description: Maximum median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_maxmagnitude_mean"
+    datatype: float
+    nullable: true
+    description: Mean maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_maxmagnitude_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_maxmagnitude_min"
+    datatype: float
+    nullable: true
+    description: Minimum maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex110_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_maxmagnitude_max"
+    datatype: float
+    nullable: true
+    description: Maximum maximum wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+  - name: mt_salindex301_airflow_speed_mean
+    "@id": "#visit1_efd.mt_salindex301_airflow_speed_mean"
+    datatype: float
+    nullable: true
+    description: Mean median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speed_stddev
+    "@id": "#visit1_efd.mt_salindex301_airflow_speed_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speed_min
+    "@id": "#visit1_efd.mt_salindex301_airflow_speed_min"
+    datatype: float
+    nullable: true
+    description: Minimum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speed_max
+    "@id": "#visit1_efd.mt_salindex301_airflow_speed_max"
+    datatype: float
+    nullable: true
+    description: Maximum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_speedstddev_mean
+    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_mean"
+    datatype: float
+    nullable: true
+    description: Mean standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_speedstddev_stddev
+    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_speedstddev_min
+    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_min"
+    datatype: float
+    nullable: true
+    description: Minimum standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_speedstddev_max
+    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_max"
+    datatype: float
+    nullable: true
+    description: Maximum standard deviation of wind speed estimated from quartiles in UNKNOWN (salIndex 301). Not available for all sensor types.
+  - name: mt_salindex301_airflow_direction_mean
+    "@id": "#visit1_efd.mt_salindex301_airflow_direction_mean"
+    datatype: float
+    nullable: true
+    description: Mean median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_direction_stddev
+    "@id": "#visit1_efd.mt_salindex301_airflow_direction_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_direction_min
+    "@id": "#visit1_efd.mt_salindex301_airflow_direction_min"
+    datatype: float
+    nullable: true
+    description: Minimum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex301_airflow_direction_max
+    "@id": "#visit1_efd.mt_salindex301_airflow_direction_max"
+    datatype: float
+    nullable: true
+    description: Maximum median (mean for some sensors) wind speed in UNKNOWN (salIndex 301).
+  - name: mt_salindex1_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex1_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex1_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex1_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex1_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex1_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex1_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex1_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex1_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex1_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex1_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex1_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex1_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex1_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex1_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 0.
+  - name: mt_salindex101_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 1.
+  - name: mt_salindex101_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 2.
+  - name: mt_salindex101_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 3.
+  - name: mt_salindex101_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 4.
+  - name: mt_salindex101_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 5.
+  - name: mt_salindex101_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 6.
+  - name: mt_salindex101_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex101_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex101_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex101_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex101_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex101_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum MTCameraAssembly-ESS01 temperature item 7.
+  - name: mt_salindex102_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 0.
+  - name: mt_salindex102_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 1.
+  - name: mt_salindex102_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 2.
+  - name: mt_salindex102_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 3.
+  - name: mt_salindex102_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 4.
+  - name: mt_salindex102_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 5.
+  - name: mt_salindex102_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 6.
+  - name: mt_salindex102_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex102_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 7.
+  - name: mt_salindex102_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex102_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 7.
+  - name: mt_salindex102_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex102_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 7.
+  - name: mt_salindex102_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex102_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 0.
+  - name: mt_salindex103_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 1.
+  - name: mt_salindex103_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 2.
+  - name: mt_salindex103_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 3.
+  - name: mt_salindex103_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 4.
+  - name: mt_salindex103_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 5.
+  - name: mt_salindex103_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 6.
+  - name: mt_salindex103_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex103_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex103_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex103_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum UNKNOWN temperature item 7.
+  - name: mt_salindex103_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex103_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum UNKNOWN temperature item 7.
+  - name: mt_salindex106_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 0.
+  - name: mt_salindex106_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 1.
+  - name: mt_salindex106_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 2.
+  - name: mt_salindex106_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 3.
+  - name: mt_salindex106_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 4.
+  - name: mt_salindex106_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 5.
+  - name: mt_salindex106_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 6.
+  - name: mt_salindex106_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex106_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean M2-ESS01 temperature item 7.
+  - name: mt_salindex106_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex106_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the M2-ESS01 temperature item 7.
+  - name: mt_salindex106_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex106_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum M2-ESS01 temperature item 7.
+  - name: mt_salindex106_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex106_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum M2-ESS01 temperature item 7.
+  - name: mt_salindex107_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 0.
+  - name: mt_salindex107_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 1.
+  - name: mt_salindex107_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 2.
+  - name: mt_salindex107_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 3.
+  - name: mt_salindex107_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 4.
+  - name: mt_salindex107_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 5.
+  - name: mt_salindex107_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 6.
+  - name: mt_salindex107_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex107_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex107_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex107_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex107_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex107_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex107_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex107_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum Laser-ESS01, Laser-ESS02 temperature item 7.
+  - name: mt_salindex108_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 0.
+  - name: mt_salindex108_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 1.
+  - name: mt_salindex108_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 2.
+  - name: mt_salindex108_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 3.
+  - name: mt_salindex108_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 4.
+  - name: mt_salindex108_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 5.
+  - name: mt_salindex108_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 6.
+  - name: mt_salindex108_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex108_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean CBP-ESS01 temperature item 7.
+  - name: mt_salindex108_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex108_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the CBP-ESS01 temperature item 7.
+  - name: mt_salindex108_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex108_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum CBP-ESS01 temperature item 7.
+  - name: mt_salindex108_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex108_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum CBP-ESS01 temperature item 7.
+  - name: mt_salindex301_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 0.
+  - name: mt_salindex301_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 1.
+  - name: mt_salindex301_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 2.
+  - name: mt_salindex301_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 3.
+  - name: mt_salindex301_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 4.
+  - name: mt_salindex301_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 5.
+  - name: mt_salindex301_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 6.
+  - name: mt_salindex301_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex301_temperature_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean weather tower air temperature item 7.
+  - name: mt_salindex301_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex301_temperature_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the weather tower air temperature item 7.
+  - name: mt_salindex301_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex301_temperature_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum weather tower air temperature item 7.
+  - name: mt_salindex301_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex301_temperature_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum weather tower air temperature item 7.
+  - name: mt_dimm_fwhm_mean
+    "@id": "#visit1_efd.mt_dimm_fwhm_mean"
+    datatype: float
+    nullable: true
+    description: Mean combined full width half maximum.
+  - name: mt_azimuth_encoder_absolute_position_0_mean
+    "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_1_mean
+    "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_2_mean
+    "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_azimuth_encoder_absolute_position_3_mean
+    "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean Azimuth absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_0_mean
+    "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_1_mean
+    "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_2_mean
+    "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_elevation_encoder_absolute_position_3_mean
+    "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean Elevation absolute position read by each encoder head.
+  - name: mt_hexapod_uncompensated_position_u_mean
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_u_mean"
+    datatype: float
+    nullable: true
+    description: Mean U angle.
+  - name: mt_hexapod_uncompensated_position_u_max
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_u_max"
+    datatype: float
+    nullable: true
+    description: Maximum U angle.
+  - name: mt_hexapod_uncompensated_position_u_min
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_u_min"
+    datatype: float
+    nullable: true
+    description: Minimum U angle.
+  - name: mt_hexapod_uncompensated_position_v_mean
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_v_mean"
+    datatype: float
+    nullable: true
+    description: Mean V angle.
+  - name: mt_hexapod_uncompensated_position_v_max
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_v_max"
+    datatype: float
+    nullable: true
+    description: Maximum V angle.
+  - name: mt_hexapod_uncompensated_position_v_min
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_v_min"
+    datatype: float
+    nullable: true
+    description: Minimum V angle.
+  - name: mt_hexapod_uncompensated_position_w_mean
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_w_mean"
+    datatype: float
+    nullable: true
+    description: Mean W angle.
+  - name: mt_hexapod_uncompensated_position_w_max
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_w_max"
+    datatype: float
+    nullable: true
+    description: Maximum W angle.
+  - name: mt_hexapod_uncompensated_position_w_min
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_w_min"
+    datatype: float
+    nullable: true
+    description: Minimum W angle.
+  - name: mt_hexapod_uncompensated_position_x_mean
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean X position.
+  - name: mt_hexapod_uncompensated_position_x_max
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum X position.
+  - name: mt_hexapod_uncompensated_position_x_min
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum X position.
+  - name: mt_hexapod_uncompensated_position_y_mean
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean Y position.
+  - name: mt_hexapod_uncompensated_position_y_max
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum Y position.
+  - name: mt_hexapod_uncompensated_position_y_min
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum Y position.
+  - name: mt_hexapod_uncompensated_position_z_mean
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean Z position.
+  - name: mt_hexapod_uncompensated_position_z_max
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum Z position.
+  - name: mt_hexapod_uncompensated_position_z_min
+    "@id": "#visit1_efd.mt_hexapod_uncompensated_position_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum Z position.
+  - name: mt_salindex111_dewpoint_mean
+    "@id": "#visit1_efd.mt_salindex111_dewpoint_mean"
+    datatype: float
+    nullable: true
+    description: Mean dew point.
+  - name: mt_salindex112_dewpoint_mean
+    "@id": "#visit1_efd.mt_salindex112_dewpoint_mean"
+    datatype: float
+    nullable: true
+    description: Mean dew point.
+  - name: mt_salindex113_dewpoint_mean
+    "@id": "#visit1_efd.mt_salindex113_dewpoint_mean"
+    datatype: float
+    nullable: true
+    description: Mean dew point.
+  - name: mt_salindex111_relativehumidity_mean
+    "@id": "#visit1_efd.mt_salindex111_relativehumidity_mean"
+    datatype: float
+    nullable: true
+    description: Mean relative humidity.
+  - name: mt_salindex112_relativehumidity_mean
+    "@id": "#visit1_efd.mt_salindex112_relativehumidity_mean"
+    datatype: float
+    nullable: true
+    description: Mean relative humidity.
+  - name: mt_salindex113_relativehumidity_mean
+    "@id": "#visit1_efd.mt_salindex113_relativehumidity_mean"
+    datatype: float
+    nullable: true
+    description: Mean relative humidity.
+  - name: mt_salindex113_pressure_0_mean
+    "@id": "#visit1_efd.mt_salindex113_pressure_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_salindex113_pressure_1_mean
+    "@id": "#visit1_efd.mt_salindex113_pressure_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_salindex301_pressure_0_mean
+    "@id": "#visit1_efd.mt_salindex301_pressure_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_salindex301_pressure_1_mean
+    "@id": "#visit1_efd.mt_salindex301_pressure_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean pressure.
+  - name: mt_pointing_mount_position_ra_mean
+    "@id": "#visit1_efd.mt_pointing_mount_position_ra_mean"
+    datatype: float
+    nullable: true
+    description: Mean RA calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_ra_stddev
+    "@id": "#visit1_efd.mt_pointing_mount_position_ra_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the RA calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_dec_mean
+    "@id": "#visit1_efd.mt_pointing_mount_position_dec_mean"
+    datatype: float
+    nullable: true
+    description: Mean Dec calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_dec_stddev
+    "@id": "#visit1_efd.mt_pointing_mount_position_dec_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the Dec calculated from the azimuthActualPosition and elevationActualPosition.
+  - name: mt_pointing_mount_position_sky_angle_mean
+    "@id": "#visit1_efd.mt_pointing_mount_position_sky_angle_mean"
+    datatype: float
+    nullable: true
+    description: Mean calculated sky angle.
+  - name: mt_pointing_mount_position_sky_angle_stddev
+    "@id": "#visit1_efd.mt_pointing_mount_position_sky_angle_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the calculated sky angle.
+  - name: mt_pointing_mount_position_rotator_mean
+    "@id": "#visit1_efd.mt_pointing_mount_position_rotator_mean"
+    datatype: float
+    nullable: true
+    description: Mean rotator axis position reported by rotator component.
+  - name: mt_pointing_mount_position_rotator_stddev
+    "@id": "#visit1_efd.mt_pointing_mount_position_rotator_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the rotator axis position reported by rotator component.
+  - name: camera_hexapod_aos_corrections_u
+    "@id": "#visit1_efd.camera_hexapod_aos_corrections_u"
+    datatype: float
+    nullable: true
+    description: U position offset.
+  - name: camera_hexapod_aos_corrections_v
+    "@id": "#visit1_efd.camera_hexapod_aos_corrections_v"
+    datatype: float
+    nullable: true
+    description: V position offset.
+  - name: camera_hexapod_aos_corrections_w
+    "@id": "#visit1_efd.camera_hexapod_aos_corrections_w"
+    datatype: float
+    nullable: true
+    description: W position offset.
+  - name: camera_hexapod_aos_corrections_x
+    "@id": "#visit1_efd.camera_hexapod_aos_corrections_x"
+    datatype: float
+    nullable: true
+    description: X position offset.
+  - name: camera_hexapod_aos_corrections_y
+    "@id": "#visit1_efd.camera_hexapod_aos_corrections_y"
+    datatype: float
+    nullable: true
+    description: Y position offset.
+  - name: camera_hexapod_aos_corrections_z
+    "@id": "#visit1_efd.camera_hexapod_aos_corrections_z"
+    datatype: float
+    nullable: true
+    description: Z position offset.
+  - name: m2_hexapod_aos_corrections_u
+    "@id": "#visit1_efd.m2_hexapod_aos_corrections_u"
+    datatype: float
+    nullable: true
+    description: U position offset.
+  - name: m2_hexapod_aos_corrections_v
+    "@id": "#visit1_efd.m2_hexapod_aos_corrections_v"
+    datatype: float
+    nullable: true
+    description: V position offset.
+  - name: m2_hexapod_aos_corrections_w
+    "@id": "#visit1_efd.m2_hexapod_aos_corrections_w"
+    datatype: float
+    nullable: true
+    description: W position offset.
+  - name: m2_hexapod_aos_corrections_x
+    "@id": "#visit1_efd.m2_hexapod_aos_corrections_x"
+    datatype: float
+    nullable: true
+    description: X position offset.
+  - name: m2_hexapod_aos_corrections_y
+    "@id": "#visit1_efd.m2_hexapod_aos_corrections_y"
+    datatype: float
+    nullable: true
+    description: Y position offset.
+  - name: m2_hexapod_aos_corrections_z
+    "@id": "#visit1_efd.m2_hexapod_aos_corrections_z"
+    datatype: float
+    nullable: true
+    description: Z position offset.
+  - name: m2_stress
+    "@id": "#visit1_efd.m2_stress"
+    datatype: float
+    nullable: true
+    description: Calculate M2 stress computed RSS the stress contribution of each bending mode.
+  - name: m1m3_stress
+    "@id": "#visit1_efd.m1m3_stress"
+    datatype: float
+    nullable: true
+    description: Calculate M1M3 stress computed RSS the stress contribution of each bending mode.
+  - name: mt_salindex104_acceleration_x_mean
+    "@id": "#visit1_efd.mt_salindex104_acceleration_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in x direction.
+  - name: mt_salindex104_acceleration_x_stddev
+    "@id": "#visit1_efd.mt_salindex104_acceleration_x_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in x direction.
+  - name: mt_salindex104_acceleration_x_min
+    "@id": "#visit1_efd.mt_salindex104_acceleration_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in x direction.
+  - name: mt_salindex104_acceleration_x_max
+    "@id": "#visit1_efd.mt_salindex104_acceleration_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in x direction.
+  - name: mt_salindex104_acceleration_y_mean
+    "@id": "#visit1_efd.mt_salindex104_acceleration_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in y direction.
+  - name: mt_salindex104_acceleration_y_stddev
+    "@id": "#visit1_efd.mt_salindex104_acceleration_y_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in y direction.
+  - name: mt_salindex104_acceleration_y_min
+    "@id": "#visit1_efd.mt_salindex104_acceleration_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in y direction.
+  - name: mt_salindex104_acceleration_y_max
+    "@id": "#visit1_efd.mt_salindex104_acceleration_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in y direction.
+  - name: mt_salindex104_acceleration_z_mean
+    "@id": "#visit1_efd.mt_salindex104_acceleration_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in z direction.
+  - name: mt_salindex104_acceleration_z_stddev
+    "@id": "#visit1_efd.mt_salindex104_acceleration_z_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in z direction.
+  - name: mt_salindex104_acceleration_z_min
+    "@id": "#visit1_efd.mt_salindex104_acceleration_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in z direction.
+  - name: mt_salindex104_acceleration_z_max
+    "@id": "#visit1_efd.mt_salindex104_acceleration_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_x_mean
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_x_stddev
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_x_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_x_min
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_x_max
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in x direction.
+  - name: mt_salindex104_accelerationpsd_y_mean
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_y_stddev
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_y_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_y_min
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_y_max
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in y direction.
+  - name: mt_salindex104_accelerationpsd_z_mean
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_z_stddev
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_z_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_z_min
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum acceleration in z direction.
+  - name: mt_salindex104_accelerationpsd_z_max
+    "@id": "#visit1_efd.mt_salindex104_accelerationpsd_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum acceleration in z direction.
+  - name: mt_salindex104_m1m3_accelerometer_0_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_0_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_0_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_0_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_0_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_0_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_0_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_0_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_1_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_1_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_1_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_1_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_1_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_2_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_2_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_2_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_2_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_2_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_3_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_3_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_3_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_3_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_3_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_4_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_4_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_4_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_4_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_4_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_5_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_5_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_5_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_5_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_5_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_6_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_6_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_6_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_6_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_6_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_7_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_7_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_7_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data.
+  - name: mt_salindex104_m1m3_accelerometer_7_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_accelerometer_7_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_x_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_x_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_x_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_x_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_x_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data angular Acceleration X.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_y_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_y_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_y_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_y_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_y_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data angular Acceleration Y.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_mean
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_mean"
+    datatype: float
+    nullable: true
+    description: Mean accelerometer data angular Acceleration Z.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_stddev
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_stddev"
+    datatype: float
+    nullable: true
+    description: Standard deviation of the accelerometer data angular Acceleration Z.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_max
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_max"
+    datatype: float
+    nullable: true
+    description: Maximum accelerometer data angular Acceleration Z.
+  - name: mt_salindex104_m1m3_angular_acceleration_z_min
+    "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_min"
+    datatype: float
+    nullable: true
+    description: Minimum accelerometer data angular Acceleration Z.
+
+- name: visit1_efd_unpivoted
+  "@id": "#visit1_efd_unpivoted"
+  description: Unpivoted EFD visit data.
+  primaryKey:
+  - "#visit1_efd_unpivoted.visit_id"
+  - "#visit1_efd_unpivoted.property"
+  - "#visit1_efd_unpivoted.field"
+  columns:
+  - name: visit_id
+    "@id": "#visit1_efd_unpivoted.visit_id"
+    datatype: long
+    nullable: false
+    autoincrement: false
+    description: Unique identifier for the visit
+  - name: property
+    "@id": "#visit1_efd_unpivoted.property"
+    datatype: string
+    length: 64
+    nullable: false
+    value: default_property
+    description: Property name for unpivoted data
+  - name: field
+    "@id": "#visit1_efd_unpivoted.field"
+    datatype: string
+    length: 32
+    nullable: false
+    value: default_field
+    description: Field name for unpivoted data
+  - name: value
+    "@id": "#visit1_efd_unpivoted.value"
+    datatype: float
+    nullable: true
+    description: Value corresponding to the parameter
+  - name: created_at
+    "@id": "#visit1_efd_unpivoted.created_at"
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
+    description: Timestamp when record was created, default current timestamp
