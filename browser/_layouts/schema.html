@@ -60,6 +60,11 @@
   <body>
     <p>
     {%- assign schema_tables = site.data[page.schema].tables %}
+    {%- assign tables_with_index = schema_tables | where_exp: "t", "t['tap:table_index'] != nil" -%}
+    {%- assign tables_without_index = schema_tables | where_exp: "t", "t['tap:table_index'] == nil" -%}
+    {%- assign tables_with_index = tables_with_index | sort: "tap:table_index" -%}
+    {%- assign tables_without_index = tables_without_index | sort: "name" -%}
+    {%- assign sorted_schema_tables = tables_with_index | concat: tables_without_index -%}
     </p>
     <div id="container">
       <nav id="sidebar">
@@ -75,7 +80,7 @@
           <ul>
             <li><a href="">{{ page.title }}</a></li>
             <ul>
-              {%- for table in schema_tables %}
+              {%- for table in sorted_schema_tables %}
               <li><a href="#{{ table['name'] }}">{{ table.name }}</a></li>
               {%- endfor %}
             </ul>
@@ -92,7 +97,7 @@
         <main class="main-content">
           <h1>{{ page.title }}</h1>
           {{ content }}
-          {%- for table in schema_tables %}
+          {%- for table in sorted_schema_tables %}
           <hr style="margin-top: 20px; margin-bottom: 10px" />
           <section id="{{ table['name'] }}">
             <h2><a href="#{{ table.name }}">{{ table.name }}</a></h2>
