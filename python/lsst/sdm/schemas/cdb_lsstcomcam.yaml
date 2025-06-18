@@ -5,10 +5,11 @@ description: >
   The Consolidated Database for LSSTComCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, a 9-detector camera for commissioning the Vera C. Rubin Observatory.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.7.0"
+  current: "3.7.1"
 tables:
 - name: exposure
   "@id": "#exposure"
+  tap:table_index: 100
   description: >
     Information from observatory systems about each raw image taken
   primaryKey:
@@ -308,6 +309,7 @@ tables:
     description: Whether the observation can see sky or not.
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
+  tap:table_index: 800
   description: >
     Flexible key/value metadata about each raw image taken;
     used for development and engineering purposes
@@ -372,6 +374,7 @@ tables:
     description: Content of value as a string.
 - name: exposure_flexdata_schema
   "@id": "#exposure_flexdata_schema"
+  tap:table_index: 850
   description: >
     Key names and value types used in the exposure_flexdata table
   primaryKey:
@@ -406,6 +409,7 @@ tables:
     description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
 - name: ccdexposure
   "@id": "#ccdexposure"
+  tap:table_index: 300
   description: >
     Information from observatory systems about each detector (CCD) within each raw image taken
   primaryKey:
@@ -482,6 +486,7 @@ tables:
     ivoa:ucd: pos.outline;obs.field
 - name: ccdexposure_camera
   "@id": "#ccdexposure_camera"
+  tap:table_index: 380
   description: >
     Information from the Camera Control System about each detector (CCD) within each raw image taken
   primaryKey:
@@ -510,6 +515,7 @@ tables:
     ivoa:ucd: phys.temperature
 - name: ccdexposure_flexdata
   "@id": "#ccdexposure_flexdata"
+  tap:table_index: 900
   description: >
     Flexible key/value metadata about each detector (CCD) within each raw image taken;
     used for development and engineering purposes
@@ -547,6 +553,7 @@ tables:
     description: Content of value as a string.
 - name: ccdexposure_flexdata_schema
   "@id": "#ccdexposure_flexdata_schema"
+  tap:table_index: 950
   description: >
     Key names and value types used in the ccdexposure_flexdata table
   primaryKey:
@@ -581,6 +588,7 @@ tables:
     description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
 - name: visit1
   "@id": "#visit1"
+  tap:table_index: 200
   description: >
     Information from observatory systems about each visit in visit system 1 (visit per exposure);
     describes processed visit images (or calibrated exposures)
@@ -867,6 +875,7 @@ tables:
     description: Whether the observation can see sky or not.
 - name: visit1_quicklook
   "@id": "#visit1_quicklook"
+  tap:table_index: 250
   description: >
     Information from Summit Rapid Analysis about each visit in visit system 1 (visit per exposure);
     describes processed visit images (or calibrated exposures)
@@ -1382,6 +1391,7 @@ tables:
     ivoa:unit: count
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
+  tap:table_index: 150
   description: >
     Information from Summit Rapid Analysis about each raw image taken
   primaryKey:
@@ -1473,6 +1483,7 @@ tables:
     description: Rotator RMS mount jitter.
 - name: ccdvisit1
   "@id": "#ccdvisit1"
+  tap:table_index: 400
   description: >
     Information from observatory systems about each detector (CCD) within each visit in visit system 1 (visit per exposure);
     describes detectors in processed visit images (or calibrated exposures)
@@ -1505,6 +1516,7 @@ tables:
     ivoa:ucd: pos.outline;obs.field
 - name: ccdvisit1_quicklook
   "@id": "#ccdvisit1_quicklook"
+  tap:table_index: 450
   description: >
     Information from Summit Rapid Analysis about each detector (CCD) within each visit in visit system 1 (visit per exposure);
     describes detectors in processed visit images (or calibrated exposures)
@@ -1680,6 +1692,7 @@ tables:
     ivoa:unit: pixel
 - name: ccdexposure_quicklook
   "@id": "#ccdexposure_quicklook"
+  tap:table_index: 350
   description: >
     Information from Summit Rapid Analysis about each detector (CCD) within each raw image taken
   primaryKey:

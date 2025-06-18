@@ -5,10 +5,11 @@ description: >
   The Consolidated Database for StarTrackerNarrow schema contains information for each exposure taken by the instrument, a narrow-field star tracker mounted on the Simonyi Survey Telescope.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "1.0.1"
+  current: "1.0.2"
 tables:
 - name: exposure
   "@id": "#exposure"
+  tap:table_index: 100
   description: >
     Information from observatory systems about each raw image taken
   primaryKey:
@@ -219,6 +220,7 @@ tables:
     description: "Lowest amount of instrument vignetting detected during the exposure: UNKNOWN, NO, PARTIALLY, FULLY."
 - name: exposure_flexdata
   "@id": "#exposure_flexdata"
+  tap:table_index: 800
   description: >
     Flexible key/value metadata about each raw image taken;
     used for development and engineering purposes
@@ -256,6 +258,7 @@ tables:
     description: Content of value as a string.
 - name: exposure_flexdata_schema
   "@id": "#exposure_flexdata_schema"
+  tap:table_index: 850
   description: >
     Key names and value types used in the exposure_flexdata table
   primaryKey:
@@ -290,6 +293,7 @@ tables:
     description: IVOA Unified Content Descriptor (https://www.ivoa.net/documents/UCD1+/).
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
+  tap:table_index: 150
   description: >
     Information from Summit Rapid Analysis about each raw image taken
   primaryKey:
