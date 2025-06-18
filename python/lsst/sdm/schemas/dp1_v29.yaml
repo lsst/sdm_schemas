@@ -56,6 +56,16 @@ tables:
       Forced on z-band.
     fits:tunit: nJy
     name: z_psfFluxErr
+  - name: z_psfMag
+    '@id': '#Object.z_psfMag'
+    datatype: float
+    description: AB magnitude of the z-band psfFlux.
+    fits:tunit: mag
+  - name: z_psfMagErr
+    '@id': '#Object.z_psfMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes of the z-band psfFlux.
+    fits:tunit: mag
   - '@id': '#Object.z_free_psfFlux'
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured
@@ -470,6 +480,16 @@ tables:
     description: Flux uncertainty from the final cmodel fit. Forced on z-band.
     fits:tunit: nJy
     name: z_cModelFluxErr
+  - name: z_cModelMag
+    '@id': '#Object.z_cModelMag'
+    datatype: float
+    description: AB magnitude of cModelFlux. Forced on z-band.
+    fits:tunit: mag
+  - name: z_cModelMagErr
+    '@id': '#Object.z_cModelMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes on cModelFlux. Forced on z-band.
+    fits:tunit: mag
   - '@id': '#Object.z_cModelFlux_inner'
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on z-band.
@@ -1110,6 +1130,16 @@ tables:
       Forced on u-band.
     fits:tunit: nJy
     name: u_psfFluxErr
+  - name: u_psfMag
+    '@id': '#Object.u_psfMag'
+    datatype: float
+    description: AB magnitude of the u-band psfFlux.
+    fits:tunit: mag
+  - name: u_psfMagErr
+    '@id': '#Object.u_psfMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes of the u-band psfFlux.
+    fits:tunit: mag
   - '@id': '#Object.u_free_psfFlux'
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured
@@ -1524,6 +1554,16 @@ tables:
     description: Flux uncertainty from the final cmodel fit. Forced on u-band.
     fits:tunit: nJy
     name: u_cModelFluxErr
+  - name: u_cModelMag
+    '@id': '#Object.u_cModelMag'
+    datatype: float
+    description: AB magnitude of cModelFlux. Forced on u-band.
+    fits:tunit: mag
+  - name: u_cModelMagErr
+    '@id': '#Object.u_cModelMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes on cModelFlux. Forced on u-band.
+    fits:tunit: mag
   - '@id': '#Object.u_cModelFlux_inner'
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on u-band.
@@ -2164,6 +2204,16 @@ tables:
       Forced on g-band.
     fits:tunit: nJy
     name: g_psfFluxErr
+  - name: g_psfMag
+    '@id': '#Object.g_psfMag'
+    datatype: float
+    description: AB magnitude of the g-band psfFlux.
+    fits:tunit: mag
+  - name: g_psfMagErr
+    '@id': '#Object.g_psfMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes of the g-band psfFlux.
+    fits:tunit: mag
   - '@id': '#Object.g_free_psfFlux'
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured
@@ -2578,6 +2628,16 @@ tables:
     description: Flux uncertainty from the final cmodel fit. Forced on g-band.
     fits:tunit: nJy
     name: g_cModelFluxErr
+  - name: g_cModelMag
+    '@id': '#Object.g_cModelMag'
+    datatype: float
+    description: AB magnitude of cModelFlux. Forced on g-band.
+    fits:tunit: mag
+  - name: g_cModelMagErr
+    '@id': '#Object.g_cModelMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes on cModelFlux. Forced on g-band.
+    fits:tunit: mag
   - '@id': '#Object.g_cModelFlux_inner'
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on g-band.
@@ -3218,6 +3278,16 @@ tables:
       Forced on r-band.
     fits:tunit: nJy
     name: r_psfFluxErr
+  - name: r_psfMag
+    '@id': '#Object.r_psfMag'
+    datatype: float
+    description: AB magnitude of the r-band psfFlux.
+    fits:tunit: mag
+  - name: r_psfMagErr
+    '@id': '#Object.r_psfMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes of the r-band psfFlux.
+    fits:tunit: mag
   - '@id': '#Object.r_free_psfFlux'
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured
@@ -3632,6 +3702,16 @@ tables:
     description: Flux uncertainty from the final cmodel fit. Forced on r-band.
     fits:tunit: nJy
     name: r_cModelFluxErr
+  - name: r_cModelMag
+    '@id': '#Object.r_cModelMag'
+    datatype: float
+    description: AB magnitude of cModelFlux. Forced on r-band.
+    fits:tunit: mag
+  - name: r_cModelMagErr
+    '@id': '#Object.r_cModelMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes on cModelFlux. Forced on r-band.
+    fits:tunit: mag
   - '@id': '#Object.r_cModelFlux_inner'
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on r-band.
@@ -4272,6 +4352,16 @@ tables:
       Forced on i-band.
     fits:tunit: nJy
     name: i_psfFluxErr
+  - name: i_psfMag
+    '@id': '#Object.i_psfMag'
+    datatype: float
+    description: AB magnitude of the i-band psfFlux.
+    fits:tunit: mag
+  - name: i_psfMagErr
+    '@id': '#Object.i_psfMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes of the i-band psfFlux.
+    fits:tunit: mag
   - '@id': '#Object.i_free_psfFlux'
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured
@@ -4686,6 +4776,16 @@ tables:
     description: Flux uncertainty from the final cmodel fit. Forced on i-band.
     fits:tunit: nJy
     name: i_cModelFluxErr
+  - name: i_cModelMag
+    '@id': '#Object.i_cModelMag'
+    datatype: float
+    description: AB magnitude of cModelFlux. Forced on i-band.
+    fits:tunit: mag
+  - name: i_cModelMagErr
+    '@id': '#Object.i_cModelMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes on cModelFlux. Forced on i-band.
+    fits:tunit: mag
   - '@id': '#Object.i_cModelFlux_inner'
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on i-band.
@@ -5326,6 +5426,16 @@ tables:
       Forced on y-band.
     fits:tunit: nJy
     name: y_psfFluxErr
+  - name: y_psfMag
+    '@id': '#Object.y_psfMag'
+    datatype: float
+    description: AB magnitude of the y-band psfFlux.
+    fits:tunit: mag
+  - name: y_psfMagErr
+    '@id': '#Object.y_psfMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes of the y-band psfFlux.
+    fits:tunit: mag
   - '@id': '#Object.y_free_psfFlux'
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured
@@ -5740,6 +5850,16 @@ tables:
     description: Flux uncertainty from the final cmodel fit. Forced on y-band.
     fits:tunit: nJy
     name: y_cModelFluxErr
+  - name: y_cModelMag
+    '@id': '#Object.y_cModelMag'
+    datatype: float
+    description: AB magnitude of cModelFlux. Forced on y-band.
+    fits:tunit: mag
+  - name: y_cModelMagErr
+    '@id': '#Object.y_cModelMagErr'
+    datatype: float
+    description: Uncertainty in magnitudes on cModelFlux. Forced on y-band.
+    fits:tunit: mag
   - '@id': '#Object.y_cModelFlux_inner'
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on y-band.
