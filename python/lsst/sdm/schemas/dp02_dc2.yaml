@@ -8057,3 +8057,431 @@ tables:
     tap:column_index: 999
     tap:principal: 1
     description: 1 for galaxies, 2 for stars, and 3 for SNe
+- name: ObsCore
+  "@id": "#ObsCore"
+  description: Observation metadata in the ObsTAP relational realization of
+    the IVOA ObsCore data model
+  tap:table_index: 75
+  columns:
+  - name: dataproduct_type
+    "@id": "ObsCore.dataproduct_type"
+    description: Data product (file content) primary type
+    nullable: true
+    ivoa:ucd: meta.code.class
+    votable:utype: ObsDataset.dataProductType
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 10
+    ivoa:unit:
+    datatype: string
+    length: 128
+  - name: dataproduct_subtype
+    "@id": "ObsCore.dataproduct_subtype"
+    description: Data product specific type
+    nullable: true
+    ivoa:ucd: meta.code.class
+    votable:utype: ObsDataset.dataProductSubtype
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 20
+    ivoa:unit:
+    datatype: string
+    length: 64
+  - name: obs_title
+    "@id": "ObsCore.obs_title"
+    description: Brief description of dataset in free format
+    nullable: true
+    ivoa:ucd: meta.title;obs
+    votable:utype: DataID.title
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 225
+    ivoa:unit:
+    datatype: string
+    length: 256
+  - name: facility_name
+    "@id": "ObsCore.facility_name"
+    description: The name of the facility, telescope, or space craft used for the observation
+    nullable: true
+    ivoa:ucd: meta.id;instr.tel
+    votable:utype: Provenance.ObsConfig.Facility.name
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 210
+    ivoa:unit:
+    datatype: string
+    length: 128
+  - name: calib_level
+    "@id": "ObsCore.calib_level"
+    description: "Calibration level of the observation: in {0, 1, 2, 3, 4}"
+    nullable: false
+    ivoa:ucd: meta.code;obs.calib
+    votable:utype: ObsDataset.calibLevel
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 30
+    ivoa:unit:
+    datatype: int
+  - name: target_name
+    "@id": "ObsCore.target_name"
+    description: Object of interest
+    nullable: true
+    ivoa:ucd: meta.id;src
+    votable:utype: Target.name
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 270
+    ivoa:unit:
+    datatype: string
+    length: 32
+  - name: obs_id
+    "@id": "ObsCore.obs_id"
+    description: Internal ID given by the ObsTAP service
+    nullable: false
+    ivoa:ucd: meta.id
+    votable:utype: DataID.observationID
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 180
+    ivoa:unit:
+    datatype: string
+    length: 128
+  - name: obs_collection
+    "@id": "ObsCore.obs_collection"
+    description: Name of the data collection
+    nullable: false
+    ivoa:ucd: meta.id
+    votable:utype: DataID.collection
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 190
+    ivoa:unit:
+    datatype: string
+    length: 128
+  - name: obs_publisher_did
+    "@id": "ObsCore.obs_publisher_did"
+    description: ID for the Dataset given by the publisher
+    nullable: false
+    ivoa:ucd: meta.ref.ivoid
+    votable:utype: Curation.publisherDID
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 260
+    ivoa:unit:
+    datatype: string
+    length: 256
+  - name: access_url
+    "@id": "ObsCore.access_url"
+    description: URL used to access dataset
+    nullable: true
+    ivoa:ucd: meta.ref.url
+    votable:utype: Access.reference
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 240
+    ivoa:unit:
+    datatype: text
+    votable:xtype: clob
+  - name: access_format
+    "@id": "ObsCore.access_format"
+    description: Content format of the dataset
+    nullable: true
+    ivoa:ucd: meta.code.mime
+    votable:utype: Access.format
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 250
+    ivoa:unit:
+    datatype: string
+    length: 128
+  - name: s_ra
+    "@id": "ObsCore.s_ra"
+    description: Central Spatial Position in ICRS; Right ascension
+    nullable: true
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 150
+    ivoa:unit: deg
+    datatype: double
+  - name: s_dec
+    "@id": "ObsCore.s_dec"
+    description: Central Spatial Position in ICRS; Declination
+    nullable: true
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 160
+    ivoa:unit: deg
+    datatype: double
+  - name: s_fov
+    "@id": "ObsCore.s_fov"
+    description: Estimated size of the covered region as the diameter of a containing circle
+    nullable: true
+    ivoa:ucd: phys.angSize;instr.fov
+    votable:utype: Char.SpatialAxis.Coverage.Bounds.Extent.diameter
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 170
+    ivoa:unit: deg
+    datatype: double
+  - name: s_region
+    "@id": "ObsCore.s_region"
+    description: Sky region covered by the data product (expressed in ICRS frame)
+    nullable: true
+    ivoa:ucd: pos.outline;obs.field
+    votable:utype: Char.SpatialAxis.Coverage.Support.Area
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 230
+    ivoa:unit:
+    datatype: string
+    length: 512
+  - name: s_resolution
+    "@id": "ObsCore.s_resolution"
+    description: Spatial resolution of data as FWHM of PSF
+    nullable: true
+    ivoa:ucd: pos.angResolution
+    votable:utype: Char.SpatialAxis.Resolution.Refval.value
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 280
+    ivoa:unit: arcsec
+    datatype: double
+  - name: s_xel1
+    "@id": "ObsCore.s_xel1"
+    description: Number of elements along the first coordinate of the spatial axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.SpatialAxis.numBins1
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 290
+    ivoa:unit:
+    datatype: long
+  - name: s_xel2
+    "@id": "ObsCore.s_xel2"
+    description: Number of elements along the second coordinate of the spatial axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.SpatialAxis.numBins2
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 300
+    ivoa:unit:
+    datatype: long
+  - name: t_xel
+    "@id": "ObsCore.t_xel"
+    description: Number of elements along the time axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.TimeAxis.numBins
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 320
+    ivoa:unit:
+    datatype: long
+  - name: t_min
+    "@id": "ObsCore.t_min"
+    description: Start time in MJD
+    nullable: true
+    ivoa:ucd: time.start;obs.exposure
+    votable:utype: Char.TimeAxis.Coverage.Bounds.Limits.StartTime
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 130
+    ivoa:unit: d
+    datatype: double
+  - name: t_max
+    "@id": "ObsCore.t_max"
+    description: Stop time in MJD
+    nullable: true
+    ivoa:ucd: time.end;obs.exposure
+    votable:utype: Char.TimeAxis.Coverage.Bounds.Limits.StopTime
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 140
+    ivoa:unit: d
+    datatype: double
+  - name: t_exptime
+    "@id": "ObsCore.t_exptime"
+    description: Total exposure time
+    nullable: true
+    ivoa:ucd: time.duration;obs.exposure
+    votable:utype: Char.TimeAxis.Coverage.Support.Extent
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 120
+    ivoa:unit: s
+    datatype: double
+  - name: t_resolution
+    "@id": "ObsCore.t_resolution"
+    description: Temporal resolution FWHM
+    nullable: true
+    ivoa:ucd: time.resolution
+    votable:utype: Char.TimeAxis.Resolution.Refval.value
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 310
+    ivoa:unit: s
+    datatype: double
+  - name: em_xel
+    "@id": "ObsCore.em_xel"
+    description: Number of elements along the spectral axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.SpectralAxis.numBins
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 340
+    ivoa:unit:
+    datatype: long
+  - name: em_min
+    "@id": "ObsCore.em_min"
+    description: start in spectral coordinates
+    nullable: true
+    ivoa:ucd: em.wl;stat.min
+    votable:utype: Char.SpectralAxis.Coverage.Bounds.Limits.LoLimit
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 50
+    ivoa:unit: m
+    datatype: double
+  - name: em_max
+    "@id": "ObsCore.em_max"
+    description: stop in spectral coordinates
+    nullable: true
+    ivoa:ucd: em.wl;stat.max
+    votable:utype: Char.SpectralAxis.Coverage.Bounds.Limits.HiLimit
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 60
+    ivoa:unit: m
+    datatype: double
+  - name: em_res_power
+    "@id": "ObsCore.em_res_power"
+    description: Value of the resolving power along the spectral axis (R)
+    nullable: true
+    ivoa:ucd: spect.resolution
+    votable:utype: Char.SpectralAxis.Resolution.ResolPower.refVal
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 350
+    ivoa:unit:
+    datatype: double
+  - name: o_ucd
+    "@id": "ObsCore.o_ucd"
+    description: Nature of the observable axis
+    nullable: true
+    ivoa:ucd: meta.ucd
+    votable:utype: Char.ObservableAxis.ucd
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 200
+    ivoa:unit:
+    datatype: string
+    length: 32
+  - name: pol_xel
+    "@id": "ObsCore.pol_xel"
+    description: Number of elements along the polarization axis
+    nullable: true
+    ivoa:ucd: meta.number
+    votable:utype: Char.PolarizationAxis.numBins
+    tap:std: 1
+    tap:principal: 0
+    tap:column_index: 330
+    ivoa:unit:
+    datatype: long
+  - name: instrument_name
+    "@id": "ObsCore.instrument_name"
+    description: The name of the instrument used for the observation
+    nullable: true
+    ivoa:ucd: meta.id;instr
+    votable:utype: Provenance.ObsConfig.Instrument.name
+    tap:std: 1
+    tap:principal: 1
+    tap:column_index: 220
+    ivoa:unit:
+    datatype: string
+    length: 128
+  - name: lsst_visit
+    "@id": "ObsCore.lsst_visit"
+    description: Identifier for a specific LSSTCam pointing
+    nullable: true
+    ivoa:ucd: meta.id;obs
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    tap:column_index: 100
+    ivoa:unit:
+    datatype: long
+  - name: lsst_detector
+    "@id": "ObsCore.lsst_detector"
+    description: Identifier for CCD within the LSSTCam focal plane
+    nullable: true
+    ivoa:ucd: meta.id.part;instr.det
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    tap:column_index: 110
+    ivoa:unit:
+    datatype: long
+  - name: lsst_ccdvisitid
+    "@id": "ObsCore.lsst_ccdvisitid"
+    description: Identifier for visit+CCD; useful in JOINs
+    nullable: true
+    ivoa:ucd: meta.id.part;obs
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    tap:column_index: 115
+    ivoa:unit:
+    datatype: long
+  - name: lsst_tract
+    "@id": "ObsCore.lsst_tract"
+    description: Upper level of LSST coadd skymap hierarchy
+    nullable: true
+    ivoa:ucd: meta.id
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    tap:column_index: 70
+    ivoa:unit:
+    datatype: long
+  - name: lsst_patch
+    "@id": "ObsCore.lsst_patch"
+    description: Lower level of LSST coadd skymap hierarchy
+    nullable: true
+    ivoa:ucd: meta.id.part
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    tap:column_index: 80
+    ivoa:unit:
+    datatype: long
+  - name: lsst_band
+    "@id": "ObsCore.lsst_band"
+    description: Abstract filter band designation
+    nullable: true
+    ivoa:ucd: meta.id;instr.filter
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    tap:column_index: 40
+    ivoa:unit:
+    datatype: string
+    length: 10
+  - name: lsst_filter
+    "@id": "ObsCore.lsst_filter"
+    description: Physical filter designation from the LSSTCam filter set
+    nullable: true
+    ivoa:ucd: meta.id;instr.filter
+    votable:utype:
+    tap:std: 0
+    tap:principal: 1
+    tap:column_index: 90
+    ivoa:unit:
+    datatype: string
+    length: 10
