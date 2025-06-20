@@ -10,6 +10,7 @@ The `<TYPE>` corresponds to a particular schema category and should be one of:
 - `sci`: Science Pipelines schemas under continuous development (ImSim and HSC)
 - `ap`: Alert Production Database (APDB)
 - `cdb`: Consolidated Database of Image Metadata (ConsDB)
+- `efd`: ConsDB Transformed EFD
 
 **If the changes affect more than one type of schema, such as both `sci` and `ap`, then a separate fragment should be added for each using the same Jira ticket.**
 
