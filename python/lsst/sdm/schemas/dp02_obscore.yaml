@@ -45,7 +45,6 @@ tables:
     ivoa:unit:
     datatype: string
     length: 256
-    votable:arraysize: "*"
   - name: facility_name
     "@id": "ObsCore.facility_name"
     description: The name of the facility, telescope, or space craft used for the observation
@@ -128,7 +127,6 @@ tables:
     tap:column_index: 240
     ivoa:unit:
     datatype: text
-    votable:arraysize: "*"
     votable:xtype: clob
   - name: access_format
     "@id": "ObsCore.access_format"
@@ -421,7 +419,6 @@ tables:
     ivoa:unit:
     datatype: string
     length: 10
-    votable:arraysize: 10
   - name: lsst_filter
     "@id": "ObsCore.lsst_filter"
     description: Physical filter designation from the LSSTCam filter set
@@ -434,4 +431,3 @@ tables:
     ivoa:unit:
     datatype: string
     length: 10
-    votable:arraysize: 10
