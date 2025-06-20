@@ -18,55 +18,55 @@ tables:
     description: Position in right ascension, measured on z-band.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: z_dec
     description: Position in declination, measured on z-band.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: z_raErr
     description: Error in right ascension, measured on z-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: z_decErr
     description: Error in declination, measured on z-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: z_ra_dec_Cov
     description: Covariance between right ascension and declination, measured on z-band.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: z_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Forced on
       z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_psfMag
     description: AB magnitude of the z-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: z_psfMagErr
     description: Uncertainty in magnitudes of the z-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: z_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_free_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_free_psfFlux_flag
     description: General Failure Flag. Measured on z-band.
     datatype: boolean
@@ -74,166 +74,166 @@ tables:
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_bdE2
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_bdReB
     description: Half-light ellipse of the de Vaucouleur fit. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_bdReD
     description: Half-light ellipse of the exponential fit. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_bdChi2
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on z-band.
     datatype: float
   - name: z_bdFluxB
     description: Flux from the de Vaucouleur fit. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_bdFluxBErr
     description: Flux uncertainty from the de Vaucouleur fit. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_bdFluxD
     description: Flux from the exponential fit. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_bdFluxDErr
     description: Flux uncertainty from the exponential fit. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaapPsfFlux
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaapPsfFluxErr
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap0p7Flux
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap0p7FluxErr
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap1p0Flux
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap1p0FluxErr
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap1p5Flux
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap1p5FluxErr
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap2p5Flux
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap2p5FluxErr
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap3p0Flux
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaap3p0FluxErr
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaapOptimalFlux
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
       Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_gaapOptimalFluxErr
     description: GAaP Flux uncertainty with optimal aperture after multiplying the
       seeing by 1.15. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ixx
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_iyy
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_ixy
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_i_flag
     description: General failure flag, set if anything went wrong. Measured on z-band.
     datatype: boolean
   - name: z_ixxPSF
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_iyyPSF
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_ixyPSF
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on z-band.
     datatype: boolean
   - name: z_ixxRound
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_iyyRound
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_ixyRound
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_iRound_flag
     description: General failure flag, set if anything went wrong. Measured on z-band.
     datatype: boolean
   - name: z_ixxDebiasedPSF
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_iyyDebiasedPSF
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_ixyDebiasedPSF
     description: HSM moments. Measured on z-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: z_iDebiasedPSF_flag
     description: General failure flag, set if anything went wrong. Measured on z-band.
     datatype: boolean
@@ -243,115 +243,115 @@ tables:
   - name: z_kronFlux
     description: Flux from Kron Flux algorithm. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_calibFlux
     description: Flux within 12.0-pixel aperture. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_calibFluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap03Flux
     description: Flux within 3.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap03FluxErr
     description: Flux uncertainty within 3.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap03Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap06FluxErr
     description: Flux uncertainty within 6.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap06Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap09FluxErr
     description: Flux uncertainty within 9.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap09Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap12FluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap12Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap17FluxErr
     description: Flux uncertainty within 17.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap17Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap25FluxErr
     description: Flux uncertainty within 25.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap25Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap35FluxErr
     description: Flux uncertainty within 35.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap35Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap50FluxErr
     description: Flux uncertainty within 50.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap50Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap70FluxErr
     description: Flux uncertainty within 70.0-pixel aperture. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_ap70Flux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
@@ -369,35 +369,35 @@ tables:
   - name: z_cModelFlux
     description: Flux from the final cmodel fit. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_cModelMag
     description: AB magnitude of cModelFlux. Forced on z-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: z_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on z-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: z_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_free_cModelFlux
     description: Flux from the final cmodel fit. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_free_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_free_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Measured on z-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_free_cModelFlux_flag
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
       on z-band.
@@ -506,12 +506,12 @@ tables:
     description: Standard deviation of the first Gaussian component (x-axis) in the
       two-Gaussian PSF model (z-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_psfModel_TwoGaussian_gauss1_sigma_y
     description: Standard deviation of the first Gaussian component (y-axis) in the
       two-Gaussian PSF model (z-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_psfModel_TwoGaussian_gauss1_rho
     description: Ellipse rho (correlation coefficient) of the first Gaussian component
       in the two-Gaussian PSF model (z-band).
@@ -524,12 +524,12 @@ tables:
     description: Standard deviation of the second Gaussian component (x-axis) in the
       two-Gaussian PSF model (z-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_psfModel_TwoGaussian_gauss2_sigma_y
     description: Standard deviation of the second Gaussian component (y-axis) in the
       two-Gaussian PSF model (z-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_psfModel_TwoGaussian_gauss2_rho
     description: Ellipse rho (correlation coefficient) of the second Gaussian component
       in the two-Gaussian PSF model (z-band).
@@ -559,7 +559,7 @@ tables:
   - name: z_psfFlux_area
     description: Effective area of PSF. Forced on z-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_psfFlux_flag
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
@@ -721,19 +721,19 @@ tables:
   - name: z_centroid_x
     description: Centroid from Sdss Centroid algorithm. Measured on z-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_centroid_xErr
     description: 1-sigma uncertainty on x position. Measured on z-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_centroid_y
     description: Centroid from Sdss Centroid algorithm. Measured on z-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_centroid_yErr
     description: 1-sigma uncertainty on y position. Measured on z-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: z_kronFlux_flag
     description: General failure flag, set if anything went wrong. Measured on z-band.
     datatype: boolean
@@ -771,55 +771,55 @@ tables:
     description: Position in right ascension, measured on u-band.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: u_dec
     description: Position in declination, measured on u-band.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: u_raErr
     description: Error in right ascension, measured on u-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: u_decErr
     description: Error in declination, measured on u-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: u_ra_dec_Cov
     description: Covariance between right ascension and declination, measured on u-band.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: u_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Forced on
       u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_psfMag
     description: AB magnitude of the u-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: u_psfMagErr
     description: Uncertainty in magnitudes of the u-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: u_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_free_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_free_psfFlux_flag
     description: General Failure Flag. Measured on u-band.
     datatype: boolean
@@ -827,166 +827,166 @@ tables:
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_bdE2
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_bdReB
     description: Half-light ellipse of the de Vaucouleur fit. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_bdReD
     description: Half-light ellipse of the exponential fit. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_bdChi2
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on u-band.
     datatype: float
   - name: u_bdFluxB
     description: Flux from the de Vaucouleur fit. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_bdFluxBErr
     description: Flux uncertainty from the de Vaucouleur fit. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_bdFluxD
     description: Flux from the exponential fit. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_bdFluxDErr
     description: Flux uncertainty from the exponential fit. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaapPsfFlux
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaapPsfFluxErr
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap0p7Flux
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap0p7FluxErr
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap1p0Flux
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap1p0FluxErr
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap1p5Flux
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap1p5FluxErr
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap2p5Flux
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap2p5FluxErr
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap3p0Flux
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaap3p0FluxErr
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaapOptimalFlux
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
       Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_gaapOptimalFluxErr
     description: GAaP Flux uncertainty with optimal aperture after multiplying the
       seeing by 1.15. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ixx
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_iyy
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_ixy
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_i_flag
     description: General failure flag, set if anything went wrong. Measured on u-band.
     datatype: boolean
   - name: u_ixxPSF
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_iyyPSF
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_ixyPSF
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on u-band.
     datatype: boolean
   - name: u_ixxRound
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_iyyRound
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_ixyRound
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_iRound_flag
     description: General failure flag, set if anything went wrong. Measured on u-band.
     datatype: boolean
   - name: u_ixxDebiasedPSF
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_iyyDebiasedPSF
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_ixyDebiasedPSF
     description: HSM moments. Measured on u-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: u_iDebiasedPSF_flag
     description: General failure flag, set if anything went wrong. Measured on u-band.
     datatype: boolean
@@ -996,115 +996,115 @@ tables:
   - name: u_kronFlux
     description: Flux from Kron Flux algorithm. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_calibFlux
     description: Flux within 12.0-pixel aperture. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_calibFluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap03Flux
     description: Flux within 3.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap03FluxErr
     description: Flux uncertainty within 3.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap03Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap06FluxErr
     description: Flux uncertainty within 6.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap06Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap09FluxErr
     description: Flux uncertainty within 9.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap09Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap12FluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap12Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap17FluxErr
     description: Flux uncertainty within 17.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap17Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap25FluxErr
     description: Flux uncertainty within 25.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap25Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap35FluxErr
     description: Flux uncertainty within 35.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap35Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap50FluxErr
     description: Flux uncertainty within 50.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap50Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap70FluxErr
     description: Flux uncertainty within 70.0-pixel aperture. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_ap70Flux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
@@ -1122,35 +1122,35 @@ tables:
   - name: u_cModelFlux
     description: Flux from the final cmodel fit. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_cModelMag
     description: AB magnitude of cModelFlux. Forced on u-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: u_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on u-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: u_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_free_cModelFlux
     description: Flux from the final cmodel fit. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_free_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_free_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Measured on u-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_free_cModelFlux_flag
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
       on u-band.
@@ -1259,12 +1259,12 @@ tables:
     description: Standard deviation of the first Gaussian component (x-axis) in the
       two-Gaussian PSF model (u-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_psfModel_TwoGaussian_gauss1_sigma_y
     description: Standard deviation of the first Gaussian component (y-axis) in the
       two-Gaussian PSF model (u-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_psfModel_TwoGaussian_gauss1_rho
     description: Ellipse rho (correlation coefficient) of the first Gaussian component
       in the two-Gaussian PSF model (u-band).
@@ -1277,12 +1277,12 @@ tables:
     description: Standard deviation of the second Gaussian component (x-axis) in the
       two-Gaussian PSF model (u-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_psfModel_TwoGaussian_gauss2_sigma_y
     description: Standard deviation of the second Gaussian component (y-axis) in the
       two-Gaussian PSF model (u-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_psfModel_TwoGaussian_gauss2_rho
     description: Ellipse rho (correlation coefficient) of the second Gaussian component
       in the two-Gaussian PSF model (u-band).
@@ -1312,7 +1312,7 @@ tables:
   - name: u_psfFlux_area
     description: Effective area of PSF. Forced on u-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_psfFlux_flag
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
@@ -1474,19 +1474,19 @@ tables:
   - name: u_centroid_x
     description: Centroid from Sdss Centroid algorithm. Measured on u-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_centroid_xErr
     description: 1-sigma uncertainty on x position. Measured on u-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_centroid_y
     description: Centroid from Sdss Centroid algorithm. Measured on u-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_centroid_yErr
     description: 1-sigma uncertainty on y position. Measured on u-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: u_kronFlux_flag
     description: General failure flag, set if anything went wrong. Measured on u-band.
     datatype: boolean
@@ -1524,55 +1524,55 @@ tables:
     description: Position in right ascension, measured on g-band.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: g_dec
     description: Position in declination, measured on g-band.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: g_raErr
     description: Error in right ascension, measured on g-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: g_decErr
     description: Error in declination, measured on g-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: g_ra_dec_Cov
     description: Covariance between right ascension and declination, measured on g-band.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: g_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Forced on
       g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_psfMag
     description: AB magnitude of the g-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: g_psfMagErr
     description: Uncertainty in magnitudes of the g-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: g_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_free_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_free_psfFlux_flag
     description: General Failure Flag. Measured on g-band.
     datatype: boolean
@@ -1580,166 +1580,166 @@ tables:
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_bdE2
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_bdReB
     description: Half-light ellipse of the de Vaucouleur fit. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_bdReD
     description: Half-light ellipse of the exponential fit. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_bdChi2
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on g-band.
     datatype: float
   - name: g_bdFluxB
     description: Flux from the de Vaucouleur fit. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_bdFluxBErr
     description: Flux uncertainty from the de Vaucouleur fit. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_bdFluxD
     description: Flux from the exponential fit. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_bdFluxDErr
     description: Flux uncertainty from the exponential fit. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaapPsfFlux
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaapPsfFluxErr
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap0p7Flux
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap0p7FluxErr
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap1p0Flux
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap1p0FluxErr
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap1p5Flux
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap1p5FluxErr
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap2p5Flux
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap2p5FluxErr
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap3p0Flux
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaap3p0FluxErr
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaapOptimalFlux
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
       Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_gaapOptimalFluxErr
     description: GAaP Flux uncertainty with optimal aperture after multiplying the
       seeing by 1.15. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ixx
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_iyy
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_ixy
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_i_flag
     description: General failure flag, set if anything went wrong. Measured on g-band.
     datatype: boolean
   - name: g_ixxPSF
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_iyyPSF
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_ixyPSF
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on g-band.
     datatype: boolean
   - name: g_ixxRound
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_iyyRound
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_ixyRound
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_iRound_flag
     description: General failure flag, set if anything went wrong. Measured on g-band.
     datatype: boolean
   - name: g_ixxDebiasedPSF
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_iyyDebiasedPSF
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_ixyDebiasedPSF
     description: HSM moments. Measured on g-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: g_iDebiasedPSF_flag
     description: General failure flag, set if anything went wrong. Measured on g-band.
     datatype: boolean
@@ -1749,115 +1749,115 @@ tables:
   - name: g_kronFlux
     description: Flux from Kron Flux algorithm. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_calibFlux
     description: Flux within 12.0-pixel aperture. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_calibFluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap03Flux
     description: Flux within 3.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap03FluxErr
     description: Flux uncertainty within 3.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap03Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap06FluxErr
     description: Flux uncertainty within 6.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap06Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap09FluxErr
     description: Flux uncertainty within 9.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap09Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap12FluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap12Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap17FluxErr
     description: Flux uncertainty within 17.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap17Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap25FluxErr
     description: Flux uncertainty within 25.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap25Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap35FluxErr
     description: Flux uncertainty within 35.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap35Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap50FluxErr
     description: Flux uncertainty within 50.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap50Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap70FluxErr
     description: Flux uncertainty within 70.0-pixel aperture. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_ap70Flux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
@@ -1875,35 +1875,35 @@ tables:
   - name: g_cModelFlux
     description: Flux from the final cmodel fit. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_cModelMag
     description: AB magnitude of cModelFlux. Forced on g-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: g_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on g-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: g_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_free_cModelFlux
     description: Flux from the final cmodel fit. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_free_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_free_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Measured on g-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: g_free_cModelFlux_flag
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
       on g-band.
@@ -2012,12 +2012,12 @@ tables:
     description: Standard deviation of the first Gaussian component (x-axis) in the
       two-Gaussian PSF model (g-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_psfModel_TwoGaussian_gauss1_sigma_y
     description: Standard deviation of the first Gaussian component (y-axis) in the
       two-Gaussian PSF model (g-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_psfModel_TwoGaussian_gauss1_rho
     description: Ellipse rho (correlation coefficient) of the first Gaussian component
       in the two-Gaussian PSF model (g-band).
@@ -2030,12 +2030,12 @@ tables:
     description: Standard deviation of the second Gaussian component (x-axis) in the
       two-Gaussian PSF model (g-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_psfModel_TwoGaussian_gauss2_sigma_y
     description: Standard deviation of the second Gaussian component (y-axis) in the
       two-Gaussian PSF model (g-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_psfModel_TwoGaussian_gauss2_rho
     description: Ellipse rho (correlation coefficient) of the second Gaussian component
       in the two-Gaussian PSF model (g-band).
@@ -2065,7 +2065,7 @@ tables:
   - name: g_psfFlux_area
     description: Effective area of PSF. Forced on g-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_psfFlux_flag
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
@@ -2227,19 +2227,19 @@ tables:
   - name: g_centroid_x
     description: Centroid from Sdss Centroid algorithm. Measured on g-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_centroid_xErr
     description: 1-sigma uncertainty on x position. Measured on g-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_centroid_y
     description: Centroid from Sdss Centroid algorithm. Measured on g-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_centroid_yErr
     description: 1-sigma uncertainty on y position. Measured on g-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: g_kronFlux_flag
     description: General failure flag, set if anything went wrong. Measured on g-band.
     datatype: boolean
@@ -2277,55 +2277,55 @@ tables:
     description: Position in right ascension, measured on r-band.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: r_dec
     description: Position in declination, measured on r-band.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: r_raErr
     description: Error in right ascension, measured on r-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: r_decErr
     description: Error in declination, measured on r-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: r_ra_dec_Cov
     description: Covariance between right ascension and declination, measured on r-band.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: r_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Forced on
       r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_psfMag
     description: AB magnitude of the r-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: r_psfMagErr
     description: Uncertainty in magnitudes of the r-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: r_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_free_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_free_psfFlux_flag
     description: General Failure Flag. Measured on r-band.
     datatype: boolean
@@ -2333,166 +2333,166 @@ tables:
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_bdE2
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_bdReB
     description: Half-light ellipse of the de Vaucouleur fit. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_bdReD
     description: Half-light ellipse of the exponential fit. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_bdChi2
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on r-band.
     datatype: float
   - name: r_bdFluxB
     description: Flux from the de Vaucouleur fit. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_bdFluxBErr
     description: Flux uncertainty from the de Vaucouleur fit. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_bdFluxD
     description: Flux from the exponential fit. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_bdFluxDErr
     description: Flux uncertainty from the exponential fit. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaapPsfFlux
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaapPsfFluxErr
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap0p7Flux
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap0p7FluxErr
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap1p0Flux
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap1p0FluxErr
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap1p5Flux
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap1p5FluxErr
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap2p5Flux
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap2p5FluxErr
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap3p0Flux
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaap3p0FluxErr
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaapOptimalFlux
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
       Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_gaapOptimalFluxErr
     description: GAaP Flux uncertainty with optimal aperture after multiplying the
       seeing by 1.15. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ixx
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_iyy
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_ixy
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_i_flag
     description: General failure flag, set if anything went wrong. Measured on r-band.
     datatype: boolean
   - name: r_ixxPSF
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_iyyPSF
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_ixyPSF
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on r-band.
     datatype: boolean
   - name: r_ixxRound
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_iyyRound
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_ixyRound
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_iRound_flag
     description: General failure flag, set if anything went wrong. Measured on r-band.
     datatype: boolean
   - name: r_ixxDebiasedPSF
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_iyyDebiasedPSF
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_ixyDebiasedPSF
     description: HSM moments. Measured on r-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: r_iDebiasedPSF_flag
     description: General failure flag, set if anything went wrong. Measured on r-band.
     datatype: boolean
@@ -2502,115 +2502,115 @@ tables:
   - name: r_kronFlux
     description: Flux from Kron Flux algorithm. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_calibFlux
     description: Flux within 12.0-pixel aperture. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_calibFluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap03Flux
     description: Flux within 3.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap03FluxErr
     description: Flux uncertainty within 3.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap03Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap06FluxErr
     description: Flux uncertainty within 6.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap06Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap09FluxErr
     description: Flux uncertainty within 9.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap09Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap12FluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap12Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap17FluxErr
     description: Flux uncertainty within 17.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap17Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap25FluxErr
     description: Flux uncertainty within 25.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap25Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap35FluxErr
     description: Flux uncertainty within 35.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap35Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap50FluxErr
     description: Flux uncertainty within 50.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap50Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap70FluxErr
     description: Flux uncertainty within 70.0-pixel aperture. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_ap70Flux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
@@ -2628,35 +2628,35 @@ tables:
   - name: r_cModelFlux
     description: Flux from the final cmodel fit. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_cModelMag
     description: AB magnitude of cModelFlux. Forced on r-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: r_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on r-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: r_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_free_cModelFlux
     description: Flux from the final cmodel fit. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_free_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_free_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Measured on r-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_free_cModelFlux_flag
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
       on r-band.
@@ -2765,12 +2765,12 @@ tables:
     description: Standard deviation of the first Gaussian component (x-axis) in the
       two-Gaussian PSF model (r-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_psfModel_TwoGaussian_gauss1_sigma_y
     description: Standard deviation of the first Gaussian component (y-axis) in the
       two-Gaussian PSF model (r-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_psfModel_TwoGaussian_gauss1_rho
     description: Ellipse rho (correlation coefficient) of the first Gaussian component
       in the two-Gaussian PSF model (r-band).
@@ -2783,12 +2783,12 @@ tables:
     description: Standard deviation of the second Gaussian component (x-axis) in the
       two-Gaussian PSF model (r-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_psfModel_TwoGaussian_gauss2_sigma_y
     description: Standard deviation of the second Gaussian component (y-axis) in the
       two-Gaussian PSF model (r-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_psfModel_TwoGaussian_gauss2_rho
     description: Ellipse rho (correlation coefficient) of the second Gaussian component
       in the two-Gaussian PSF model (r-band).
@@ -2818,7 +2818,7 @@ tables:
   - name: r_psfFlux_area
     description: Effective area of PSF. Forced on r-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_psfFlux_flag
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
@@ -2980,19 +2980,19 @@ tables:
   - name: r_centroid_x
     description: Centroid from Sdss Centroid algorithm. Measured on r-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_centroid_xErr
     description: 1-sigma uncertainty on x position. Measured on r-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_centroid_y
     description: Centroid from Sdss Centroid algorithm. Measured on r-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_centroid_yErr
     description: 1-sigma uncertainty on y position. Measured on r-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: r_kronFlux_flag
     description: General failure flag, set if anything went wrong. Measured on r-band.
     datatype: boolean
@@ -3030,55 +3030,55 @@ tables:
     description: Position in right ascension, measured on i-band.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: i_dec
     description: Position in declination, measured on i-band.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: i_raErr
     description: Error in right ascension, measured on i-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: i_decErr
     description: Error in declination, measured on i-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: i_ra_dec_Cov
     description: Covariance between right ascension and declination, measured on i-band.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: i_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Forced on
       i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_psfMag
     description: AB magnitude of the i-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: i_psfMagErr
     description: Uncertainty in magnitudes of the i-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: i_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_free_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_free_psfFlux_flag
     description: General Failure Flag. Measured on i-band.
     datatype: boolean
@@ -3086,166 +3086,166 @@ tables:
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_bdE2
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_bdReB
     description: Half-light ellipse of the de Vaucouleur fit. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_bdReD
     description: Half-light ellipse of the exponential fit. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_bdChi2
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on i-band.
     datatype: float
   - name: i_bdFluxB
     description: Flux from the de Vaucouleur fit. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_bdFluxBErr
     description: Flux uncertainty from the de Vaucouleur fit. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_bdFluxD
     description: Flux from the exponential fit. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_bdFluxDErr
     description: Flux uncertainty from the exponential fit. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaapPsfFlux
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaapPsfFluxErr
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap0p7Flux
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap0p7FluxErr
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap1p0Flux
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap1p0FluxErr
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap1p5Flux
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap1p5FluxErr
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap2p5Flux
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap2p5FluxErr
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap3p0Flux
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaap3p0FluxErr
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaapOptimalFlux
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
       Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_gaapOptimalFluxErr
     description: GAaP Flux uncertainty with optimal aperture after multiplying the
       seeing by 1.15. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ixx
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_iyy
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_ixy
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_i_flag
     description: General failure flag, set if anything went wrong. Measured on i-band.
     datatype: boolean
   - name: i_ixxPSF
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_iyyPSF
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_ixyPSF
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on i-band.
     datatype: boolean
   - name: i_ixxRound
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_iyyRound
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_ixyRound
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_iRound_flag
     description: General failure flag, set if anything went wrong. Measured on i-band.
     datatype: boolean
   - name: i_ixxDebiasedPSF
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_iyyDebiasedPSF
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_ixyDebiasedPSF
     description: HSM moments. Measured on i-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: i_iDebiasedPSF_flag
     description: General failure flag, set if anything went wrong. Measured on i-band.
     datatype: boolean
@@ -3255,115 +3255,115 @@ tables:
   - name: i_kronFlux
     description: Flux from Kron Flux algorithm. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_calibFlux
     description: Flux within 12.0-pixel aperture. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_calibFluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap03Flux
     description: Flux within 3.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap03FluxErr
     description: Flux uncertainty within 3.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap03Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap06FluxErr
     description: Flux uncertainty within 6.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap06Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap09FluxErr
     description: Flux uncertainty within 9.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap09Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap12FluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap12Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap17FluxErr
     description: Flux uncertainty within 17.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap17Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap25FluxErr
     description: Flux uncertainty within 25.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap25Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap35FluxErr
     description: Flux uncertainty within 35.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap35Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap50FluxErr
     description: Flux uncertainty within 50.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap50Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap70FluxErr
     description: Flux uncertainty within 70.0-pixel aperture. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_ap70Flux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
@@ -3381,35 +3381,35 @@ tables:
   - name: i_cModelFlux
     description: Flux from the final cmodel fit. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_cModelMag
     description: AB magnitude of cModelFlux. Forced on i-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: i_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on i-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: i_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_free_cModelFlux
     description: Flux from the final cmodel fit. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_free_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_free_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Measured on i-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_free_cModelFlux_flag
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
       on i-band.
@@ -3518,12 +3518,12 @@ tables:
     description: Standard deviation of the first Gaussian component (x-axis) in the
       two-Gaussian PSF model (i-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_psfModel_TwoGaussian_gauss1_sigma_y
     description: Standard deviation of the first Gaussian component (y-axis) in the
       two-Gaussian PSF model (i-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_psfModel_TwoGaussian_gauss1_rho
     description: Ellipse rho (correlation coefficient) of the first Gaussian component
       in the two-Gaussian PSF model (i-band).
@@ -3536,12 +3536,12 @@ tables:
     description: Standard deviation of the second Gaussian component (x-axis) in the
       two-Gaussian PSF model (i-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_psfModel_TwoGaussian_gauss2_sigma_y
     description: Standard deviation of the second Gaussian component (y-axis) in the
       two-Gaussian PSF model (i-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_psfModel_TwoGaussian_gauss2_rho
     description: Ellipse rho (correlation coefficient) of the second Gaussian component
       in the two-Gaussian PSF model (i-band).
@@ -3571,7 +3571,7 @@ tables:
   - name: i_psfFlux_area
     description: Effective area of PSF. Forced on i-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_psfFlux_flag
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
@@ -3733,19 +3733,19 @@ tables:
   - name: i_centroid_x
     description: Centroid from Sdss Centroid algorithm. Measured on i-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_centroid_xErr
     description: 1-sigma uncertainty on x position. Measured on i-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_centroid_y
     description: Centroid from Sdss Centroid algorithm. Measured on i-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_centroid_yErr
     description: 1-sigma uncertainty on y position. Measured on i-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: i_kronFlux_flag
     description: General failure flag, set if anything went wrong. Measured on i-band.
     datatype: boolean
@@ -3783,55 +3783,55 @@ tables:
     description: Position in right ascension, measured on y-band.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: y_dec
     description: Position in declination, measured on y-band.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: y_raErr
     description: Error in right ascension, measured on y-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: y_decErr
     description: Error in declination, measured on y-band.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: y_ra_dec_Cov
     description: Covariance between right ascension and declination, measured on y-band.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: y_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Forced on
       y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_psfMag
     description: AB magnitude of the y-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: y_psfMagErr
     description: Uncertainty in magnitudes of the y-band psfFlux.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: y_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_free_psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
       Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_free_psfFlux_flag
     description: General Failure Flag. Measured on y-band.
     datatype: boolean
@@ -3839,166 +3839,166 @@ tables:
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_bdE2
     description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
       on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_bdReB
     description: Half-light ellipse of the de Vaucouleur fit. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_bdReD
     description: Half-light ellipse of the exponential fit. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_bdChi2
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on y-band.
     datatype: float
   - name: y_bdFluxB
     description: Flux from the de Vaucouleur fit. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_bdFluxBErr
     description: Flux uncertainty from the de Vaucouleur fit. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_bdFluxD
     description: Flux from the exponential fit. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_bdFluxDErr
     description: Flux uncertainty from the exponential fit. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaapPsfFlux
     description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaapPsfFluxErr
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap0p7Flux
     description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap0p7FluxErr
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap1p0Flux
     description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap1p0FluxErr
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap1p5Flux
     description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap1p5FluxErr
     description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap2p5Flux
     description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap2p5FluxErr
     description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap3p0Flux
     description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaap3p0FluxErr
     description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaapOptimalFlux
     description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
       Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_gaapOptimalFluxErr
     description: GAaP Flux uncertainty with optimal aperture after multiplying the
       seeing by 1.15. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ixx
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_iyy
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_ixy
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_i_flag
     description: General failure flag, set if anything went wrong. Measured on y-band.
     datatype: boolean
   - name: y_ixxPSF
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_iyyPSF
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_ixyPSF
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on y-band.
     datatype: boolean
   - name: y_ixxRound
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_iyyRound
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_ixyRound
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_iRound_flag
     description: General failure flag, set if anything went wrong. Measured on y-band.
     datatype: boolean
   - name: y_ixxDebiasedPSF
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_iyyDebiasedPSF
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_ixyDebiasedPSF
     description: HSM moments. Measured on y-band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: y_iDebiasedPSF_flag
     description: General failure flag, set if anything went wrong. Measured on y-band.
     datatype: boolean
@@ -4008,115 +4008,115 @@ tables:
   - name: y_kronFlux
     description: Flux from Kron Flux algorithm. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_calibFlux
     description: Flux within 12.0-pixel aperture. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_calibFluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap03Flux
     description: Flux within 3.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap03FluxErr
     description: Flux uncertainty within 3.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap03Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap06FluxErr
     description: Flux uncertainty within 6.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap06Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap09FluxErr
     description: Flux uncertainty within 9.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap09Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap12FluxErr
     description: Flux uncertainty within 12.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap12Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap17FluxErr
     description: Flux uncertainty within 17.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap17Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap25FluxErr
     description: Flux uncertainty within 25.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap25Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap35FluxErr
     description: Flux uncertainty within 35.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap35Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap50FluxErr
     description: Flux uncertainty within 50.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap50Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap70FluxErr
     description: Flux uncertainty within 70.0-pixel aperture. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_ap70Flux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
@@ -4134,35 +4134,35 @@ tables:
   - name: y_cModelFlux
     description: Flux from the final cmodel fit. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_cModelMag
     description: AB magnitude of cModelFlux. Forced on y-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: y_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on y-band.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: y_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_free_cModelFlux
     description: Flux from the final cmodel fit. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_free_cModelFluxErr
     description: Flux uncertainty from the final cmodel fit. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_free_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Measured on y-band.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_free_cModelFlux_flag
     description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
       on y-band.
@@ -4271,12 +4271,12 @@ tables:
     description: Standard deviation of the first Gaussian component (x-axis) in the
       two-Gaussian PSF model (y-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_psfModel_TwoGaussian_gauss1_sigma_y
     description: Standard deviation of the first Gaussian component (y-axis) in the
       two-Gaussian PSF model (y-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_psfModel_TwoGaussian_gauss1_rho
     description: Ellipse rho (correlation coefficient) of the first Gaussian component
       in the two-Gaussian PSF model (y-band).
@@ -4289,12 +4289,12 @@ tables:
     description: Standard deviation of the second Gaussian component (x-axis) in the
       two-Gaussian PSF model (y-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_psfModel_TwoGaussian_gauss2_sigma_y
     description: Standard deviation of the second Gaussian component (y-axis) in the
       two-Gaussian PSF model (y-band).
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_psfModel_TwoGaussian_gauss2_rho
     description: Ellipse rho (correlation coefficient) of the second Gaussian component
       in the two-Gaussian PSF model (y-band).
@@ -4324,7 +4324,7 @@ tables:
   - name: y_psfFlux_area
     description: Effective area of PSF. Forced on y-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_psfFlux_flag
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
@@ -4486,19 +4486,19 @@ tables:
   - name: y_centroid_x
     description: Centroid from Sdss Centroid algorithm. Measured on y-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_centroid_xErr
     description: 1-sigma uncertainty on x position. Measured on y-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_centroid_y
     description: Centroid from Sdss Centroid algorithm. Measured on y-band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_centroid_yErr
     description: 1-sigma uncertainty on y position. Measured on y-band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y_kronFlux_flag
     description: General failure flag, set if anything went wrong. Measured on y-band.
     datatype: boolean
@@ -4535,27 +4535,27 @@ tables:
   - name: g_epoch
     description: Mean epoch of the object in the g-band coadd in MJD TAI
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: i_epoch
     description: Mean epoch of the object in the i-band coadd in MJD TAI
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: r_epoch
     description: Mean epoch of the object in the r-band coadd in MJD TAI
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: u_epoch
     description: Mean epoch of the object in the u-band coadd in MJD TAI
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: y_epoch
     description: Mean epoch of the object in the y-band coadd in MJD TAI
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: z_epoch
     description: Mean epoch of the object in the z-band coadd in MJD TAI
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: parentObjectId
     description: Unique ID of parent source. Reference band.
     datatype: long
@@ -4563,28 +4563,28 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_raErr
     description: Error in fiducial ICRS Right Ascension of centroid
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_decErr
     description: Error in fiducial ICRS Declination of centroid
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_ra_dec_Cov
     description: Covariance between fiducial ICRS Right Ascension and Declination
       of centroid
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec;meta.main
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: refBand
     description: Reference band - parameters measured on coadds of this band were
       used for multi-band forced photometry
@@ -4599,42 +4599,42 @@ tables:
   - name: x
     description: Centroid from Sdss Centroid algorithm. Reference band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y
     description: Centroid from Sdss Centroid algorithm. Reference band.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: xErr
     description: 1-sigma uncertainty on x position. Reference band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: yErr
     description: 1-sigma uncertainty on y position. Reference band.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: xy_flag
     description: General Failure Flag. Reference band.
     datatype: boolean
   - name: footprintArea
     description: Number of pixels in the sources detection footprint. Reference band.
     datatype: int
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: ebv
     description: E(B-V) at coord_ra/coord_dec per Schlegel, Finkbeiner & Davis (1998)
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: shape_xx
     description: HSM moments. Reference band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: shape_yy
     description: HSM moments. Reference band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: shape_xy
     description: HSM moments. Reference band.
     datatype: float
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: detect_isIsolated
     description: This source is not a part of a blend.
     datatype: boolean
@@ -4685,11 +4685,11 @@ tables:
   - name: deblend_peak_center_x
     description: x-coordinate of the peak after source detection
     datatype: int
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: deblend_peak_center_y
     description: y-coordinate of the peak after source detection
     datatype: int
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: deblend_logL
     description: Log likelihood of the entire blend in scarlet_lite.
     datatype: float
@@ -4699,29 +4699,29 @@ tables:
   - name: sersic_x
     description: Centroid (tract, x-axis) from the multiband Sersic model fit.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_y
     description: Centroid (tract, y-axis) from the multiband Sersic model fit.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_ra
     description: Centroid (right ascension) from the multiband Sersic model fit.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: sersic_dec
     description: Centroid (declination) from the multiband Sersic model fit.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: sersic_reff_x
     description: Effective radius (x-axis) from the multiband Sersic model fit, prior
       to convolution with the adjusted (see config) PSF value.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_reff_y
     description: Effective radius (y-axis) from the multiband Sersic model fit, prior
       to convolution with the adjusted (see config) PSF value.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_rho
     description: Ellipse rho (correlation coefficient) from the multiband Sersic model
       fit.
@@ -4729,27 +4729,27 @@ tables:
   - name: g_sersicFlux
     description: g-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_sersicFlux
     description: i-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_sersicFlux
     description: r-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_sersicFlux
     description: u-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_sersicFlux
     description: y-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_sersicFlux
     description: z-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: sersic_index
     description: Sersic profile index parameter from the multiband Sersic model fit.
     datatype: float
@@ -4757,32 +4757,32 @@ tables:
     description: Error on the centroid (tract, x-axis) from the multiband Sersic model
       fit.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_yErr
     description: Error on the centroid (tract, y-axis) from the multiband Sersic model
       fit.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_raErr
     description: Error on the centroid (right ascension) from the multiband Sersic
       model fit.
     datatype: float
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: sersic_decErr
     description: Error on the centroid (declination) from the multiband Sersic model
       fit.
     datatype: float
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: sersic_reff_xErr
     description: Error on the effective radius (x-axis) from the multiband Sersic
       model fit.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_reff_yErr
     description: Error on the effective radius (y-axis) from the multiband Sersic
       model fit.
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: sersic_rhoErr
     description: Error on ellipse rho (correlation coefficient) from the multiband
       Sersic model fit.
@@ -4790,27 +4790,27 @@ tables:
   - name: g_sersicFluxErr
     description: Error on the g-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: i_sersicFluxErr
     description: Error on the i-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: r_sersicFluxErr
     description: Error on the r-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: u_sersicFluxErr
     description: Error on the u-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: y_sersicFluxErr
     description: Error on the y-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: z_sersicFluxErr
     description: Error on the z-band flux from the multiband Sersic model fit.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: sersic_indexErr
     description: Error on the Sersic profile index parameter from the multiband Sersic
       model fit.
@@ -4847,225 +4847,225 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: parentSourceId
     description: Unique ID of parent source
     datatype: long
   - name: x
     description: Centroid from Sdss Centroid algorithm
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y
     description: Centroid from Sdss Centroid algorithm
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: xErr
     description: 1-sigma uncertainty on x position
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: yErr
     description: 1-sigma uncertainty on y position
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: ra
     description: Position in right ascension.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: dec
     description: Position in declination.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: raErr
     description: Error in right ascension.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: decErr
     description: Error in declination.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: ra_dec_Cov
     description: Covariance between right ascension and declination.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: calibFlux
     description: Flux within 12.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: calibFluxErr
     description: Flux uncertainty within 12.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap03Flux
     description: Flux within 3.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap03FluxErr
     description: Flux uncertainty within 3.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap03Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap06Flux
     description: Flux within 6.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap06FluxErr
     description: Flux uncertainty within 6.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap06Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap09Flux
     description: Flux within 9.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap09FluxErr
     description: Flux uncertainty within 9.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap09Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap12Flux
     description: Flux within 12.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap12FluxErr
     description: Flux uncertainty within 12.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap12Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap17Flux
     description: Flux within 17.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap17FluxErr
     description: Flux uncertainty within 17.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap17Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap25Flux
     description: Flux within 25.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap25FluxErr
     description: Flux uncertainty within 25.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap25Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap35Flux
     description: Flux within 35.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap35FluxErr
     description: Flux uncertainty within 35.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap35Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap50Flux
     description: Flux within 50.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap50FluxErr
     description: Flux uncertainty within 50.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap50Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: ap70Flux
     description: Flux within 70.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap70FluxErr
     description: Flux uncertainty within 70.0-pixel aperture
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ap70Flux_flag
     description: General Failure Flag
     datatype: boolean
   - name: sky
     description: Background in annulus around source
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: skyErr
     description: Background in annulus around source
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfFlux
     description: Flux derived from linear least-squares fit of psf model forced on
       the calexp
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the calexp
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ixx
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: iyy
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: ixy
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: ixxPSF
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: iyyPSF
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: ixyPSF
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: ixxDebiasedPSF
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: iyyDebiasedPSF
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: ixyDebiasedPSF
     description: HSM moments
     datatype: double
-    fits:tunit: pixel**2
+    ivoa:unit: pixel**2
   - name: gaussianFlux
     description: Flux from Gaussian Flux algorithm
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: gaussianFluxErr
     description: Flux uncertainty from Gaussian Flux algorithm
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: extendedness
     description: Set to 1 for extended sources, 0 for point sources.
     datatype: double
@@ -5098,55 +5098,55 @@ tables:
   - name: apFlux_12_0_instFlux
     description: Flux within 12.0-pixel aperture
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: apFlux_12_0_instFluxErr
     description: 1-sigma flux uncertainty
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: apFlux_17_0_flag
     description: General Failure Flag
     datatype: boolean
   - name: apFlux_17_0_instFlux
     description: Flux within 17.0-pixel aperture
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: apFlux_17_0_instFluxErr
     description: 1-sigma flux uncertainty
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: apFlux_35_0_flag
     description: General Failure Flag
     datatype: boolean
   - name: apFlux_35_0_instFlux
     description: Flux within 35.0-pixel aperture
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: apFlux_35_0_instFluxErr
     description: 1-sigma flux uncertainty
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: apFlux_50_0_flag
     description: General Failure Flag
     datatype: boolean
   - name: apFlux_50_0_instFlux
     description: Flux within 50.0-pixel aperture
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: apFlux_50_0_instFluxErr
     description: 1-sigma flux uncertainty
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: normCompTophatFlux_flag
     description: General failure flag for normCompTophatFlux.
     datatype: boolean
   - name: normCompTophatFlux_instFlux
     description: Normalized compensated tophat flux for calibration
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: normCompTophatFlux_instFluxErr
     description: 1-sigma flux uncertainty on normCompTophatFlux_instFlux
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: extendedness_flag
     description: Set to 1 for any fatal failure.
     datatype: boolean
@@ -5156,7 +5156,7 @@ tables:
   - name: footprintArea_value
     description: Number of pixels in the sources detection footprint.
     datatype: int
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: invalidPsfFlag
     description: Source has an invalid psf.
     datatype: boolean
@@ -5169,11 +5169,11 @@ tables:
   - name: localBackground_instFlux
     description: Background in annulus around source
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: localBackground_instFluxErr
     description: 1-sigma flux uncertainty
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: localBackground_flag
     description: General Failure Flag
     datatype: boolean
@@ -5228,7 +5228,7 @@ tables:
   - name: psfFlux_area
     description: Effective area of PSF
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
       the calexp
@@ -5413,12 +5413,12 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: visit
     description: Id of the visit where this source was measured.
     datatype: long
@@ -5438,12 +5438,12 @@ tables:
     description: Flux derived from linear least-squares fit of psf model forced on
       the calexp
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the calexp
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
       the calexp
@@ -5452,12 +5452,12 @@ tables:
     description: Flux derived from linear least-squares fit of psf model forced on
       the image difference
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfDiffFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the image difference
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfDiffFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
       the image difference
@@ -5554,114 +5554,114 @@ tables:
     description: Position in right ascension.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: dec
     description: Position in declination.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: raErr
     description: Error in right ascension.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: decErr
     description: Error in declination.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: ra_dec_Cov
     description: Covariance between right ascension and declination.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
-    fits:tunit: deg**2
+    ivoa:unit: deg**2
   - name: x
     description: Unweighted first moment centroid, overall centroid
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: y
     description: Unweighted first moment centroid, overall centroid
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: xErr
     description: 1-sigma uncertainty on x position
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: yErr
     description: 1-sigma uncertainty on y position
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: apFlux
     description: Flux in a 12 pixel radius aperture on the difference image.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: apFluxErr
     description: Estimated uncertainty of apFlux.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: snr
     description: Ratio of apFlux/apFluxErr
     datatype: double
   - name: psfFlux
     description: Flux derived from linear least-squares fit of PSF model.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfFluxErr
     description: Flux uncertainty derived from linear least-squares fit of PSF model.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfChi2
     description: Chi^2 statistic of the point source model fit.
     datatype: float
   - name: psfNdata
     description: Number of pixels that were included in the PSF fit.
     datatype: int
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: trailFlux
     description: Trailed source flux.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: trailRa
     description: Trail centroid right ascension.
     datatype: double
     ivoa:ucd: pos.eq.ra
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: trailDec
     description: Trail centroid declination.
     datatype: double
     ivoa:ucd: pos.eq.dec
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: trailLength
     description: Trail length.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: trailAngle
     description: Angle measured from +x-axis.
     datatype: double
   - name: dipoleMeanFlux
     description: Raw flux counts, positive lobe.
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: dipoleMeanFluxErr
     description: Raw flux uncertainty counts, positive lobe.
     datatype: double
-    fits:tunit: count
+    ivoa:unit: count
   - name: dipoleFluxDiff
     description: Raw flux counts, positive lobe.
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: dipoleFluxDiffErr
     description: Raw flux uncertainty counts, positive lobe.
     datatype: double
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: dipoleLength
     description: Pixel separation between positive and negative lobes of dipole.
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: dipoleAngle
     description: Dipole orientation
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: dipoleChi2
     description: Chi2 per degree of freedom of dipole fit.
     datatype: double
@@ -5677,35 +5677,35 @@ tables:
   - name: scienceFlux
     description: Forced PSF flux measured on the direct image.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: scienceFluxErr
     description: Forced PSF flux uncertainty measured on the direct image.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: ixx
     description: Elliptical Gaussian adaptive moments.
     datatype: double
-    fits:tunit: arcsec**2
+    ivoa:unit: arcsec**2
   - name: iyy
     description: Elliptical Gaussian adaptive moments.
     datatype: double
-    fits:tunit: arcsec**2
+    ivoa:unit: arcsec**2
   - name: ixy
     description: Elliptical Gaussian adaptive moments.
     datatype: double
-    fits:tunit: arcsec**2
+    ivoa:unit: arcsec**2
   - name: ixxPSF
     description: Adaptive moments of the PSF model at the object position.
     datatype: double
-    fits:tunit: arcsec**2
+    ivoa:unit: arcsec**2
   - name: iyyPSF
     description: Adaptive moments of the PSF model at the object position.
     datatype: double
-    fits:tunit: arcsec**2
+    ivoa:unit: arcsec**2
   - name: ixyPSF
     description: Adaptive moments of the PSF model at the object position.
     datatype: double
-    fits:tunit: arcsec**2
+    ivoa:unit: arcsec**2
   - name: extendedness
     description: A measure of extendedness, computed by comparing an object's moment-based
       traced radius to the PSF moments. extendedness = 1 implies a high degree of
@@ -5838,12 +5838,12 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing.
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing.
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: diaSourceId
     description: Unique identifier of this DiaSource.
     datatype: long
@@ -5855,12 +5855,12 @@ tables:
       radecMjdTai.
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: dec
     description: Declination coordinate of the position of the diaObject at time radecMjdTai.
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: nDiaSources
     description: Number of diaSources associated with this diaObject.
     datatype: long
@@ -6298,12 +6298,12 @@ tables:
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: visit
     description: Id of the visit where this forced source was measured.
     datatype: long
@@ -6323,12 +6323,12 @@ tables:
     description: Flux derived from linear least-squares fit of psf model forced on
       the calexp
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the calexp
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
       the calexp
@@ -6337,12 +6337,12 @@ tables:
     description: Flux derived from linear least-squares fit of psf model forced on
       the image difference
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfDiffFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the image difference
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: psfDiffFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
       the image difference
@@ -6414,38 +6414,38 @@ tables:
   - name: ra
     description: Right Ascension of focal plane center.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: dec
     description: Declination of focal plane center
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: decl
     description: Deprecated duplicate of dec.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: skyRotation
     description: Sky rotation angle.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: azimuth
     description: Azimuth of focal plane center at the middle of the visit.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: altitude
     description: Altitude of focal plane center at the middle of the visit.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: zenithDistance
     description: Zenith distance at the middle of the visit.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: airmass
     description: Airmass of the observed line of sight.
     datatype: double
   - name: expTime
     description: Spatially-averaged duration of visit, accurate to 10ms.
     datatype: double
-    fits:tunit: s
+    ivoa:unit: s
   - name: expMidpt
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array. TAI, accurate to 10ms.
@@ -6459,7 +6459,7 @@ tables:
       array in MJD. TAI, accurate to 10ms.
     datatype: double
     ivoa:ucd: time.epoch;obs.exposure
-    fits:tunit: d
+    ivoa:unit: d
     tap:column_index: 5
     tap:principal: 1
   - name: obsStart
@@ -6473,7 +6473,7 @@ tables:
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     datatype: double
     ivoa:ucd: time.start;obs.exposure
-    fits:tunit: d
+    ivoa:unit: d
     tap:column_index: 7
 - name: CcdVisit
   description: Defines a single detector of a visit
@@ -6492,48 +6492,48 @@ tables:
   - name: ra
     description: Right Ascension of Ccd center.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: dec
     description: Declination of Ccd center.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: pixelScale
     description: Measured detector pixel scale.
     datatype: float
-    fits:tunit: arcsec/pixel
+    ivoa:unit: arcsec/pixel
   - name: zenithDistance
     description: Zenith distance at observation mid-point.
     datatype: float
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: expTime
     description: Spatially-averaged duration of visit, accurate to 10ms.
     datatype: double
-    fits:tunit: s
+    ivoa:unit: s
   - name: zeroPoint
     description: Zero-point for the Ccd, estimated at Ccd center.
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
   - name: psfSigma
     description: PSF model second-moments determinant radius (center of chip)
     datatype: float
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: skyBg
     description: Average sky background.
     datatype: float
-    fits:tunit: adu
+    ivoa:unit: adu
   - name: skyNoise
     description: RMS noise of the sky background.
     datatype: float
-    fits:tunit: adu
+    ivoa:unit: adu
   - name: astromOffsetMean
     description: Mean offset of astrometric calibration matches (arcsec)
     datatype: double
-    fits:tunit: arcsec
+    ivoa:unit: arcsec
   - name: astromOffsetStd
     description: Standard deviation of offsets of astrometric calibration matches
       (arcsec)
     datatype: double
-    fits:tunit: arcsec
+    ivoa:unit: arcsec
   - name: nPsfStar
     description: Number of stars used for PSF model
     datatype: int
@@ -6552,12 +6552,12 @@ tables:
   - name: psfStarDeltaSizeMedian
     description: Median size residual (starSize - psfSize) for psf stars (pixel)
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: psfStarDeltaSizeScatter
     description: Scatter (via MAD) of size residual (starSize - psfSize) for stars
       (pixel)
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: psfStarScaledDeltaSizeScatter
     description: Scatter (via MAD) of size residual scaled by median size squared
     datatype: double
@@ -6565,7 +6565,7 @@ tables:
     description: Delta (max - min) of model psf trace radius values evaluated on a
       grid of unmasked pixels (pixel)
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: psfApFluxDelta
     description: Delta (max - min) of model psf aperture flux (with aperture radius
       of max(2, 3*psfSigma)) values evaluated on a grid of unmasked pixels
@@ -6578,11 +6578,11 @@ tables:
     description: Maximum distance of an unmasked pixel to its nearest model psf star
       (pixel)
     datatype: double
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: decl
     description: Deprecated duplicate of dec.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: ccdVisitId
     description: Primary key (unique identifier).
     datatype: long
@@ -6599,11 +6599,11 @@ tables:
   - name: seeing
     description: Mean measured FWHM of the PSF.
     datatype: double
-    fits:tunit: arcsec
+    ivoa:unit: arcsec
   - name: skyRotation
     description: Sky rotation angle.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: expMidpt
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array. TAI, accurate to 10ms.
@@ -6617,7 +6617,7 @@ tables:
       array in MJD. TAI, accurate to 10ms.
     datatype: double
     ivoa:ucd: time.epoch;obs.exposure
-    fits:tunit: d
+    ivoa:unit: d
     tap:column_index: 5
     tap:principal: 1
   - name: obsStart
@@ -6630,56 +6630,56 @@ tables:
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     datatype: double
     ivoa:ucd: time.start;obs.exposure
-    fits:tunit: d
+    ivoa:unit: d
     tap:column_index: 7
   - name: darkTime
     description: Average dark current accumulation time, accurate to 10ms.
     datatype: double
-    fits:tunit: s
+    ivoa:unit: s
   - name: xSize
     description: Number of columns in the image.
     datatype: long
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: ySize
     description: Number of rows in the image.
     datatype: long
-    fits:tunit: pixel
+    ivoa:unit: pixel
   - name: llcra
     description: Right Ascension of lower left corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: llcdec
     description: Declination of lower left corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: ulcra
     description: Right Ascension of upper left corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: ulcdec
     description: Declination of upper left corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: urcra
     description: Right Ascension of upper right corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: urcdec
     description: Declination of upper right corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: lrcra
     description: Right Ascension of lower right corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: lrcdec
     description: Declination of lower right corner.
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: effTime
     description: Effective time metric
     datatype: double
-    fits:tunit: s
+    ivoa:unit: s
   - name: effTimePsfSigmaScale
     description: Effective time metric -- PSF size component
     datatype: double
@@ -6692,7 +6692,7 @@ tables:
   - name: magLim
     description: 5-sigma limiting magnitude
     datatype: double
-    fits:tunit: mag
+    ivoa:unit: mag
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
     Recomputed daily, upon MPCORB ingestion.
@@ -6710,7 +6710,7 @@ tables:
       to the MPC. May be NULL if not an LSST discovery. The date format will follow
       general LSST conventions (MJD TAI, at the moment).
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
 - name: SSSource
   description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
     Recomputed daily, upon MPCORB ingestion.
@@ -6718,63 +6718,63 @@ tables:
   - name: phaseAngle
     description: Phase angle
     datatype: float
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: heliocentricDist
     description: Heliocentric distance
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: topocentricDist
     description: Topocentric distace
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: heliocentricX
     description: Cartesian heliocentric X coordinate (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: heliocentricY
     description: Cartesian heliocentric Y coordinate (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: heliocentricZ
     description: Cartesian heliocentric Z coordinate (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: heliocentricVX
     description: Cartesian heliocentric X velocity (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: heliocentricVY
     description: Cartesian heliocentric Y velocity (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: heliocentricVZ
     description: Cartesian heliocentric Z velocity (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: topocentricX
     description: Cartesian topocentric X coordinate (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: topocentricY
     description: Cartesian topocentric Y coordinate (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: topocentricZ
     description: Cartesian topocentric Z coordinate (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: topocentricVX
     description: Cartesian topocentric X velocity (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: topocentricVY
     description: Cartesian topocentric Y velocity (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: topocentricVZ
     description: Cartesian topocentric Z velocity (at the emit time)
     datatype: float
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: ssObjectId
     description: Unique identifier of the object.
     datatype: long
@@ -6782,11 +6782,11 @@ tables:
   - name: residualRa
     description: Residual R.A. vs. ephemeris
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: residualDec
     description: Residual Dec vs. ephemeris
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: diaSourceId
     description: Unique identifier of the observation
     datatype: long
@@ -6794,19 +6794,19 @@ tables:
   - name: galacticL
     description: Galactic longitude
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: galacticB
     description: Galactic latitute
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: eclipticLambda
     description: Ecliptic longitude
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: eclipticBeta
     description: Ecliptic latitude
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
 - name: ObsCore
   description: Observation metadata in the ObsTAP relational realization of the IVOA
     ObsCore data model
@@ -7132,31 +7132,31 @@ tables:
   - name: q
     description: 'MPCORB: Perihelion distance (AU)'
     datatype: double
-    fits:tunit: AU
+    ivoa:unit: AU
   - name: e
     description: 'MPCORB: Orbital eccentricity'
     datatype: double
   - name: incl
     description: 'MPCORB: Inclination to the ecliptic, J2000.0 (degrees)'
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: node
     description: 'MPCORB: Longitude of the ascending node, J2000.0 (degrees)'
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: peri
     description: 'MPCORB: Argument of perihelion, J2000.0 (degrees)'
     datatype: double
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: t_p
     description: 'MPCORB: MJD of pericentric passage'
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: epoch
     description: 'MPCORB: Epoch (in MJD, .0 TT)'
     datatype: double
-    fits:tunit: d
+    ivoa:unit: d
   - name: mpcH
     description: 'MPCORB: Absolute magnitude, H'
     datatype: float
-    fits:tunit: mag
+    ivoa:unit: mag
