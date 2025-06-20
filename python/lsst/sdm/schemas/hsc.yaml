@@ -1,6 +1,10 @@
 ---
 name: HscSchema
 "@id": "#hscSchema"
+description: |
+  The HyperSuprimeCam (HSC) Schema describes the outputs of the latest data release production pipelines for
+  HyperSuprimeCam.
+  It is used in the CI testing of the pipelines.
 tables:
 - name: Object
   "@id": "#Object"
