@@ -6820,7 +6820,6 @@ tables:
     ivoa:ucd: meta.code.class
     tap:column_index: 10
     tap:principal: 1
-    votable:arraysize: 128*
     tap:std: 1
   - name: dataproduct_subtype
     description: Data product specific type
@@ -6830,7 +6829,6 @@ tables:
     ivoa:ucd: meta.code.class
     tap:column_index: 20
     tap:principal: 1
-    votable:arraysize: 64*
     tap:std: 1
   - name: facility_name
     description: The name of the facility, telescope, or space craft used for the
@@ -6841,7 +6839,6 @@ tables:
     ivoa:ucd: meta.id;instr.tel
     tap:column_index: 210
     tap:principal: 1
-    votable:arraysize: 128*
     tap:std: 1
   - name: calib_level
     description: 'Calibration level of the observation: in {0, 1, 2, 3, 4}'
@@ -6859,7 +6856,6 @@ tables:
     length: 32
     ivoa:ucd: meta.id;src
     tap:column_index: 270
-    votable:arraysize: 32*
     tap:std: 1
   - name: obs_id
     description: Internal ID given by the ObsTAP service
@@ -6870,7 +6866,6 @@ tables:
     ivoa:ucd: meta.id
     tap:column_index: 180
     tap:principal: 1
-    votable:arraysize: 128*
     tap:std: 1
   - name: obs_collection
     description: Name of the data collection
@@ -6881,7 +6876,6 @@ tables:
     ivoa:ucd: meta.id
     tap:column_index: 190
     tap:principal: 1
-    votable:arraysize: 128*
     tap:std: 1
   - name: obs_publisher_did
     description: ID for the Dataset given by the publisher
@@ -6891,7 +6885,6 @@ tables:
     nullable: false
     ivoa:ucd: meta.ref.ivoid
     tap:column_index: 260
-    votable:arraysize: 256*
     tap:std: 1
   - name: access_url
     description: URL used to access dataset
@@ -6900,7 +6893,6 @@ tables:
     ivoa:ucd: meta.ref.url
     tap:column_index: 240
     tap:principal: 1
-    votable:arraysize: '*'
     tap:std: 1
     votable:xtype: clob
   - name: access_format
@@ -6911,7 +6903,6 @@ tables:
     ivoa:ucd: meta.code.mime
     tap:column_index: 250
     tap:principal: 1
-    votable:arraysize: 128*
     tap:std: 1
   - name: s_ra
     description: Central Spatial Position in ICRS; Right ascension
@@ -6949,7 +6940,6 @@ tables:
     ivoa:ucd: pos.outline;obs.field
     tap:column_index: 230
     tap:principal: 1
-    votable:arraysize: 512*
     tap:std: 1
   - name: s_resolution
     description: Spatial resolution of data as FWHM of PSF
@@ -7055,7 +7045,6 @@ tables:
     ivoa:ucd: meta.ucd
     tap:column_index: 200
     tap:principal: 1
-    votable:arraysize: 32*
     tap:std: 1
   - name: pol_xel
     description: Number of elements along the polarization axis
@@ -7072,7 +7061,6 @@ tables:
     ivoa:ucd: meta.id;instr
     tap:column_index: 220
     tap:principal: 1
-    votable:arraysize: 128*
     tap:std: 1
   - name: lsst_visit
     description: Identifier for a specific LSSTCam pointing
@@ -7105,7 +7093,6 @@ tables:
     ivoa:ucd: meta.id;instr.filter
     tap:column_index: 40
     tap:principal: 1
-    votable:arraysize: '10'
   - name: lsst_filter
     description: Physical filter designation from the LSSTCam filter set
     datatype: string
@@ -7113,7 +7100,6 @@ tables:
     ivoa:ucd: meta.id;instr.filter
     tap:column_index: 90
     tap:principal: 1
-    votable:arraysize: '10'
 - name: MPCORB
   description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
     O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
