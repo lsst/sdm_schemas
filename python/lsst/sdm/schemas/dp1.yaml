@@ -7,6 +7,7 @@ tables:
     of the Sources that are associated with them. Note that fast moving objects are
     kept in the MovingObject tables. Note that less-frequently used columns are stored
     in a separate table called Object_Extra.
+  primaryKey: '#Object.objectId'
   columns:
   - name: tract
     description: Skymap tract ID
@@ -4842,6 +4843,7 @@ tables:
   description: Table to store high signal-to-noise sources;. A source is a measurement
     of Object's properties from a single image that contains its footprint on the
     sky.
+  primaryKey: '#Source.sourceId'
   columns:
   - name: coord_ra
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
@@ -5540,6 +5542,7 @@ tables:
     - '#Visit.visit'
 - name: DiaSource
   description: this is diaSourceTable_tract in the butler repo
+  primaryKey: '#DiaSource.diaSourceId'
   columns:
   - name: visit
     description: Id of the visit where this diaSource was measured.
@@ -5915,6 +5918,7 @@ tables:
     - '#DiaSource.diaSourceId'
 - name: DiaObject
   description: this is diaObjectTable_tract in the butler repo
+  primaryKey: '#DiaObject.diaObjectId'
   columns:
   - name: ra
     description: Right Ascension coordinate of the position of the diaObject at time
@@ -6483,6 +6487,7 @@ tables:
     - '#Visit.visit'
 - name: Visit
   description: Defines a single Visit.
+  primaryKey: '#Visit.visit'
   columns:
   - name: visit
     description: Unique identifier.
@@ -6565,6 +6570,7 @@ tables:
     tap:column_index: 7
 - name: CcdVisit
   description: Defines a single detector of a visit
+  primaryKey: '#CcdVisit.ccdVisitId'
   columns:
   - name: physical_filter
     description: ID of physical filter, the filter associated with a particular instrument.
@@ -6792,6 +6798,7 @@ tables:
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
     Recomputed daily, upon MPCORB ingestion.
+  primaryKey: '#SSObject.ssObjectId'
   columns:
   - name: ssObjectId
     description: Unique identifier.
@@ -6810,6 +6817,7 @@ tables:
 - name: SSSource
   description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
     Recomputed daily, upon MPCORB ingestion.
+  primaryKey: '#SSSource.diaSourceId'
   columns:
   - name: phaseAngle
     description: Phase angle
