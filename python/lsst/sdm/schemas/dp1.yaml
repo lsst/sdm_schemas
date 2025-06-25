@@ -58,10 +58,12 @@ tables:
     description: AB magnitude of the z-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: z_psfMagErr
     description: Uncertainty in magnitudes of the z-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: z_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on z-band.
@@ -811,10 +813,12 @@ tables:
     description: AB magnitude of the u-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: u_psfMagErr
     description: Uncertainty in magnitudes of the u-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: u_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on u-band.
@@ -1564,10 +1568,12 @@ tables:
     description: AB magnitude of the g-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: g_psfMagErr
     description: Uncertainty in magnitudes of the g-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: g_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on g-band.
@@ -2317,10 +2323,12 @@ tables:
     description: AB magnitude of the r-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: r_psfMagErr
     description: Uncertainty in magnitudes of the r-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: r_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on r-band.
@@ -3070,10 +3078,12 @@ tables:
     description: AB magnitude of the i-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: i_psfMagErr
     description: Uncertainty in magnitudes of the i-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: i_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on i-band.
@@ -3823,10 +3833,12 @@ tables:
     description: AB magnitude of the y-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: y_psfMagErr
     description: Uncertainty in magnitudes of the y-band psfFlux.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: y_free_psfFlux
     description: Flux derived from linear least-squares fit of PSF model. Measured
       on y-band.
