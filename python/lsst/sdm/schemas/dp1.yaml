@@ -385,10 +385,12 @@ tables:
     description: AB magnitude of cModelFlux. Forced on z-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: z_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on z-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: z_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on z-band.
     datatype: float
@@ -1140,10 +1142,12 @@ tables:
     description: AB magnitude of cModelFlux. Forced on u-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: u_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on u-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: u_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on u-band.
     datatype: float
@@ -1895,10 +1899,12 @@ tables:
     description: AB magnitude of cModelFlux. Forced on g-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: g_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on g-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: g_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on g-band.
     datatype: float
@@ -2650,10 +2656,12 @@ tables:
     description: AB magnitude of cModelFlux. Forced on r-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: r_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on r-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: r_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on r-band.
     datatype: float
@@ -3405,10 +3413,12 @@ tables:
     description: AB magnitude of cModelFlux. Forced on i-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: i_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on i-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: i_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on i-band.
     datatype: float
@@ -4160,10 +4170,12 @@ tables:
     description: AB magnitude of cModelFlux. Forced on y-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: y_cModelMagErr
     description: Uncertainty in magnitudes on cModelFlux. Forced on y-band.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 1
   - name: y_cModelFlux_inner
     description: Flux within the fit region, with no extrapolation. Forced on y-band.
     datatype: float
