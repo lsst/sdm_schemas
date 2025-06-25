@@ -4626,9 +4626,11 @@ tables:
   - name: refExtendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Reference band.
     datatype: float
+    tap:principal: 1
   - name: refSizeExtendedness
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Reference band.
     datatype: float
+    tap:principal: 1
   - name: x
     description: Centroid from Sdss Centroid algorithm. Reference band.
     datatype: double
