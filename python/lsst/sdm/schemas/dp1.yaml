@@ -363,10 +363,10 @@ tables:
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_extendedness
-    description: Set to 1 for extended sources, 0 for point sources. Measured on z-band.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on z-band.
     datatype: float
   - name: z_sizeExtendedness
-    description: Moments-based measure of an object to be a galaxy. Measured on z-band.
+    description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on z-band.
     datatype: float
   - name: z_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -1120,10 +1120,10 @@ tables:
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_extendedness
-    description: Set to 1 for extended sources, 0 for point sources. Measured on u-band.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on u-band.
     datatype: float
   - name: u_sizeExtendedness
-    description: Moments-based measure of an object to be a galaxy. Measured on u-band.
+    description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on u-band.
     datatype: float
   - name: u_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -1877,10 +1877,10 @@ tables:
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_extendedness
-    description: Set to 1 for extended sources, 0 for point sources. Measured on g-band.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on g-band.
     datatype: float
   - name: g_sizeExtendedness
-    description: Moments-based measure of an object to be a galaxy. Measured on g-band.
+    description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on g-band.
     datatype: float
   - name: g_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -2634,10 +2634,10 @@ tables:
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_extendedness
-    description: Set to 1 for extended sources, 0 for point sources. Measured on r-band.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on r-band.
     datatype: float
   - name: r_sizeExtendedness
-    description: Moments-based measure of an object to be a galaxy. Measured on r-band.
+    description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on r-band.
     datatype: float
   - name: r_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -3391,10 +3391,10 @@ tables:
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_extendedness
-    description: Set to 1 for extended sources, 0 for point sources. Measured on i-band.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on i-band.
     datatype: float
   - name: i_sizeExtendedness
-    description: Moments-based measure of an object to be a galaxy. Measured on i-band.
+    description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on i-band.
     datatype: float
   - name: i_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -4148,10 +4148,10 @@ tables:
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_extendedness
-    description: Set to 1 for extended sources, 0 for point sources. Measured on y-band.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on y-band.
     datatype: float
   - name: y_sizeExtendedness
-    description: Moments-based measure of an object to be a galaxy. Measured on y-band.
+    description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on y-band.
     datatype: float
   - name: y_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -4624,10 +4624,10 @@ tables:
     length: 1
     tap:principal: 1
   - name: refExtendedness
-    description: Set to 1 for extended sources, 0 for point sources. Reference band.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Reference band.
     datatype: float
   - name: refSizeExtendedness
-    description: Moments-based measure of an object to be a galaxy. Reference band.
+    description: Moments-based measure of whether an object is point-like (0) or extended (1). Reference band.
     datatype: float
   - name: x
     description: Centroid from Sdss Centroid algorithm. Reference band.
@@ -5105,7 +5105,7 @@ tables:
     datatype: double
     ivoa:unit: nJy
   - name: extendedness
-    description: Set to 1 for extended sources, 0 for point sources.
+    description: Flux-ratio measure of whether an object is point-like (0) or extended (1).
     datatype: double
   - name: sizeExtendedness
     description: Moments-based measure of a source to be a galaxy.
