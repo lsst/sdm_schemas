@@ -14,9 +14,11 @@ tables:
   - name: tract
     description: Skymap tract ID
     datatype: long
+    tap:principal: 1
   - name: patch
     description: Skymap patch ID
     datatype: long
+    tap:principal: 1
   - name: z_ra
     description: Position in right ascension, measured on z-band.
     datatype: double
@@ -4562,16 +4564,19 @@ tables:
   - name: parentObjectId
     description: Unique ID of parent source. Reference band.
     datatype: long
+    tap:principal: 1
   - name: coord_ra
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
+    tap:principal: 1
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
+    tap:principal: 1
   - name: coord_raErr
     description: Error in fiducial ICRS Right Ascension of centroid
     datatype: float
@@ -4593,6 +4598,7 @@ tables:
       used for multi-band forced photometry
     datatype: char
     length: 1
+    tap:principal: 1
   - name: refExtendedness
     description: Set to 1 for extended sources, 0 for point sources. Reference band.
     datatype: float
@@ -4641,9 +4647,11 @@ tables:
   - name: detect_isIsolated
     description: This source is not a part of a blend.
     datatype: boolean
+    tap:principal: 1
   - name: detect_fromBlend
     description: This source is deblended from a parent with more than one child.
     datatype: boolean
+    tap:principal: 1
   - name: detect_isDeblendedModelSource
     description: True if source has no children and is in the inner region of a coadd
       patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter
@@ -4652,6 +4660,7 @@ tables:
   - name: deblend_nChild
     description: Number of children this object has (defaults to 0)
     datatype: int
+    tap:principal: 1
   - name: deblend_nPeaks
     description: Number of peaks this parent footprint has (even if the deblender
       failed or skipped this blend)
@@ -4841,6 +4850,7 @@ tables:
     description: Unique id. Unique ObjectID
     datatype: long
     ivoa:ucd: meta.id;src
+    tap:principal: 1
 - name: Source
   description: "Properties of detections on the single-epoch visit images, performed
     independently of the Object detections on coadded images."
