@@ -5911,7 +5911,7 @@ tables:
     referencedColumns:
     - '#DiaObject.diaObjectId'
   - name: FK_DiaSource_ParentDiaSource
-    description: Link a DiaSource to its parent Object.
+    description: Link a DiaSource to its parent.
     '@type': ForeignKey
     columns:
     - '#DiaSource.parentDiaSourceId'
