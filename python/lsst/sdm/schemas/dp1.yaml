@@ -6638,6 +6638,60 @@ tables:
     referencedColumns:
     - '#CcdVisit.visitId'
     - '#CcdVisit.detector'
+- name: CoaddPatches
+  description: "Static information about the subset of tracts and patches from the standard
+    LSST skymap that apply to coadds in these catalogs"
+  tap:table_index: 70
+  columns:
+  - name: lsst_tract
+    description: "ID number of the top level, 'tract', within the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id;obs.field
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+    tap:column_index: 1
+  - name: lsst_patch
+    description: "ID number of the second level, 'patch', within the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id.part;obs.field
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+    tap:column_index: 2
+  - name: s_ra
+    description: "Central Spatial Position in ICRS; Right ascension"
+    nullable: false
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+    tap:column_index: 3
+  - name: s_dec
+    description: "Central Spatial Position in ICRS; Declination"
+    nullable: false
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+    tap:column_index: 4
+  - name: s_region
+    description: "Sky region covered by the coadd (expressed in ICRS frame)"
+    nullable: false
+    ivoa:ucd: pos.outline;obs.field
+    votable:utype: Char.SpatialAxis.Coverage.Support.Area
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+    datatype: string
+    length: 512
+    tap:column_index: 5
 - name: Visit
   description: "Metadata about the pointings of the telescope,
     largely associated with the boresight of the LSSTComCam focal plane as a whole."
@@ -6943,6 +6997,12 @@ tables:
     - '#CcdVisit.visitId'
     referencedColumns:
     - '#Visit.visit'
+  - name: UNIQ_VisitDetector
+    description: Unique constraint on Visit and Detector.
+    '@type': Unique
+    columns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
   tap:table_index: 110
