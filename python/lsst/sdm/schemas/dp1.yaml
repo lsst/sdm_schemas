@@ -4662,14 +4662,17 @@ tables:
     description: Gaussian-weighted adaptive moments. Reference band.
     datatype: float
     ivoa:unit: pixel**2
+    tap:principal: 1
   - name: shape_yy
     description: Gaussian-weighted adaptive moments. Reference band.
     datatype: float
     ivoa:unit: pixel**2
+    tap:principal: 1
   - name: shape_xy
     description: Gaussian-weighted adaptive moments. Reference band.
     datatype: float
     ivoa:unit: pixel**2
+    tap:principal: 1
   - name: detect_isIsolated
     description: This source is not a part of a blend.
     datatype: boolean
