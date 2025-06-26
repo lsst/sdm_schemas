@@ -625,50 +625,50 @@ tables:
     description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_pixelFlags_clipped
-    description: Source footprint includes CLIPPED pixels. Measured on z-band.
+    description: Artifacts were rejected by warp comparison in this object's footprint. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_clippedCenter
-    description: Source center is close to CLIPPED pixels. Measured on z-band.
+    description: Artifacts were rejected by warp comparison in this object's center. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_cr
-    description: Cosmic ray in the Source footprint. Measured on z-band.
+    description: A cosmic ray was detected and interpolated in this object's footprint. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_crCenter
-    description: Cosmic ray in the Source center. Measured on z-band.
+    description: A cosmic ray was detected and interpolated in this object's center. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_edge
     description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_pixelFlags_inexact_psf
-    description: Source footprint includes INEXACT_PSF pixels. Measured on z-band.
+    description: The PSF model is discontinuous in this object's footprint. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_inexact_psfCenter
-    description: Source center is close to INEXACT_PSF pixels. Measured on z-band.
+    description: The PSF model is discontinuosu near this object's center. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_interpolated
-    description: Interpolated pixel in the Source footprint. Measured on z-band.
+    description: An interpolated pixel contributed to the coadd in this object's footprint. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_interpolatedCenter
-    description: Interpolated pixel in the Source center. Measured on z-band.
+    description: An interpolated pixel contributed to the coadd near this object's center. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_nodata
-    description: Source is outside usable exposure region (masked NO_DATA). Measured
+    description: No pixel data was available in this band for this object. Measured
       on z-band.
     datatype: boolean
   - name: z_pixelFlags_offimage
     description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_pixelFlags_saturated
-    description: Saturated pixel in the Source footprint. Measured on z-band.
+    description: Saturated pixels were rejected from this object's footprint, but would otherwise have contributed more than 10% of at least one pixel. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_saturatedCenter
-    description: Saturated pixel in the Source center. Measured on z-band.
+    description: Saturated pixels were rjected from near this object's center, but would otherwise have contributed more than 10% of at least one pixel. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_sensor_edge
-    description: Source footprint includes SENSOR_EDGE pixels. Measured on z-band.
+    description: A detector boundary passed through this object's footprint. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_sensor_edgeCenter
-    description: Source center is close to SENSOR_EDGE pixels. Measured on z-band.
+    description: A detector boundary passed close to this object's center. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_suspect
     description: Deprecated; only set when there is no z-band data.
@@ -1381,50 +1381,50 @@ tables:
     description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_pixelFlags_clipped
-    description: Source footprint includes CLIPPED pixels. Measured on u-band.
+    description: Artifacts were rejected by warp comparison in this object's footprint. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_clippedCenter
-    description: Source center is close to CLIPPED pixels. Measured on u-band.
+    description: Artifacts were rejected by warp comparison in this object's center. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_cr
-    description: Cosmic ray in the Source footprint. Measured on u-band.
+    description: A cosmic ray was detected and interpolated in this object's footprint. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_crCenter
-    description: Cosmic ray in the Source center. Measured on u-band.
+    description: A cosmic ray was detected and interpolated in this object's center. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_edge
     description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_pixelFlags_inexact_psf
-    description: Source footprint includes INEXACT_PSF pixels. Measured on u-band.
+    description: The PSF model is discontinuous in this object's footprint. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_inexact_psfCenter
-    description: Source center is close to INEXACT_PSF pixels. Measured on u-band.
+    description: The PSF model is discontinuosu near this object's center. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_interpolated
-    description: Interpolated pixel in the Source footprint. Measured on u-band.
+    description: An interpolated pixel contributed to the coadd in this object's footprint. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_interpolatedCenter
-    description: Interpolated pixel in the Source center. Measured on u-band.
+    description: An interpolated pixel contributed to the coadd near this object's center. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_nodata
-    description: Source is outside usable exposure region (masked NO_DATA). Measured
+    description: No pixel data was available in this band for this object. Measured
       on u-band.
     datatype: boolean
   - name: u_pixelFlags_offimage
     description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_pixelFlags_saturated
-    description: Saturated pixel in the Source footprint. Measured on u-band.
+    description: Saturated pixels were rejected from this object's footprint, but would otherwise have contributed more than 10% of at least one pixel. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_saturatedCenter
-    description: Saturated pixel in the Source center. Measured on u-band.
+    description: Saturated pixels were rjected from near this object's center, but would otherwise have contributed more than 10% of at least one pixel. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_sensor_edge
-    description: Source footprint includes SENSOR_EDGE pixels. Measured on u-band.
+    description: A detector boundary passed through this object's footprint. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_sensor_edgeCenter
-    description: Source center is close to SENSOR_EDGE pixels. Measured on u-band.
+    description: A detector boundary passed close to this object's center. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_suspect
     description: Deprecated; only set when there is no u-band data.
@@ -2137,50 +2137,50 @@ tables:
     description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_pixelFlags_clipped
-    description: Source footprint includes CLIPPED pixels. Measured on g-band.
+    description: Artifacts were rejected by warp comparison in this object's footprint. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_clippedCenter
-    description: Source center is close to CLIPPED pixels. Measured on g-band.
+    description: Artifacts were rejected by warp comparison in this object's center. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_cr
-    description: Cosmic ray in the Source footprint. Measured on g-band.
+    description: A cosmic ray was detected and interpolated in this object's footprint. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_crCenter
-    description: Cosmic ray in the Source center. Measured on g-band.
+    description: A cosmic ray was detected and interpolated in this object's center. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_edge
     description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_pixelFlags_inexact_psf
-    description: Source footprint includes INEXACT_PSF pixels. Measured on g-band.
+    description: The PSF model is discontinuous in this object's footprint. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_inexact_psfCenter
-    description: Source center is close to INEXACT_PSF pixels. Measured on g-band.
+    description: The PSF model is discontinuosu near this object's center. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_interpolated
-    description: Interpolated pixel in the Source footprint. Measured on g-band.
+    description: An interpolated pixel contributed to the coadd in this object's footprint. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_interpolatedCenter
-    description: Interpolated pixel in the Source center. Measured on g-band.
+    description: An interpolated pixel contributed to the coadd near this object's center. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_nodata
-    description: Source is outside usable exposure region (masked NO_DATA). Measured
+    description: No pixel data was available in this band for this object. Measured
       on g-band.
     datatype: boolean
   - name: g_pixelFlags_offimage
     description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_pixelFlags_saturated
-    description: Saturated pixel in the Source footprint. Measured on g-band.
+    description: Saturated pixels were rejected from this object's footprint, but would otherwise have contributed more than 10% of at least one pixel. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_saturatedCenter
-    description: Saturated pixel in the Source center. Measured on g-band.
+    description: Saturated pixels were rjected from near this object's center, but would otherwise have contributed more than 10% of at least one pixel. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_sensor_edge
-    description: Source footprint includes SENSOR_EDGE pixels. Measured on g-band.
+    description: A detector boundary passed through this object's footprint. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_sensor_edgeCenter
-    description: Source center is close to SENSOR_EDGE pixels. Measured on g-band.
+    description: A detector boundary passed close to this object's center. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_suspect
     description: Deprecated; only set when there is no g-band data.
@@ -2893,50 +2893,50 @@ tables:
     description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_pixelFlags_clipped
-    description: Source footprint includes CLIPPED pixels. Measured on r-band.
+    description: Artifacts were rejected by warp comparison in this object's footprint. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_clippedCenter
-    description: Source center is close to CLIPPED pixels. Measured on r-band.
+    description: Artifacts were rejected by warp comparison in this object's center. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_cr
-    description: Cosmic ray in the Source footprint. Measured on r-band.
+    description: A cosmic ray was detected and interpolated in this object's footprint. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_crCenter
-    description: Cosmic ray in the Source center. Measured on r-band.
+    description: A cosmic ray was detected and interpolated in this object's center. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_edge
     description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_pixelFlags_inexact_psf
-    description: Source footprint includes INEXACT_PSF pixels. Measured on r-band.
+    description: The PSF model is discontinuous in this object's footprint. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_inexact_psfCenter
-    description: Source center is close to INEXACT_PSF pixels. Measured on r-band.
+    description: The PSF model is discontinuosu near this object's center. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_interpolated
-    description: Interpolated pixel in the Source footprint. Measured on r-band.
+    description: An interpolated pixel contributed to the coadd in this object's footprint. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_interpolatedCenter
-    description: Interpolated pixel in the Source center. Measured on r-band.
+    description: An interpolated pixel contributed to the coadd near this object's center. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_nodata
-    description: Source is outside usable exposure region (masked NO_DATA). Measured
+    description: No pixel data was available in this band for this object. Measured
       on r-band.
     datatype: boolean
   - name: r_pixelFlags_offimage
     description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_pixelFlags_saturated
-    description: Saturated pixel in the Source footprint. Measured on r-band.
+    description: Saturated pixels were rejected from this object's footprint, but would otherwise have contributed more than 10% of at least one pixel. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_saturatedCenter
-    description: Saturated pixel in the Source center. Measured on r-band.
+    description: Saturated pixels were rjected from near this object's center, but would otherwise have contributed more than 10% of at least one pixel. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_sensor_edge
-    description: Source footprint includes SENSOR_EDGE pixels. Measured on r-band.
+    description: A detector boundary passed through this object's footprint. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_sensor_edgeCenter
-    description: Source center is close to SENSOR_EDGE pixels. Measured on r-band.
+    description: A detector boundary passed close to this object's center. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_suspect
     description: Deprecated; only set when there is no r-band data.
@@ -3649,50 +3649,50 @@ tables:
     description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_pixelFlags_clipped
-    description: Source footprint includes CLIPPED pixels. Measured on i-band.
+    description: Artifacts were rejected by warp comparison in this object's footprint. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_clippedCenter
-    description: Source center is close to CLIPPED pixels. Measured on i-band.
+    description: Artifacts were rejected by warp comparison in this object's center. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_cr
-    description: Cosmic ray in the Source footprint. Measured on i-band.
+    description: A cosmic ray was detected and interpolated in this object's footprint. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_crCenter
-    description: Cosmic ray in the Source center. Measured on i-band.
+    description: A cosmic ray was detected and interpolated in this object's center. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_edge
     description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_pixelFlags_inexact_psf
-    description: Source footprint includes INEXACT_PSF pixels. Measured on i-band.
+    description: The PSF model is discontinuous in this object's footprint. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_inexact_psfCenter
-    description: Source center is close to INEXACT_PSF pixels. Measured on i-band.
+    description: The PSF model is discontinuosu near this object's center. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_interpolated
-    description: Interpolated pixel in the Source footprint. Measured on i-band.
+    description: An interpolated pixel contributed to the coadd in this object's footprint. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_interpolatedCenter
-    description: Interpolated pixel in the Source center. Measured on i-band.
+    description: An interpolated pixel contributed to the coadd near this object's center. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_nodata
-    description: Source is outside usable exposure region (masked NO_DATA). Measured
+    description: No pixel data was available in this band for this object. Measured
       on i-band.
     datatype: boolean
   - name: i_pixelFlags_offimage
     description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_pixelFlags_saturated
-    description: Saturated pixel in the Source footprint. Measured on i-band.
+    description: Saturated pixels were rejected from this object's footprint, but would otherwise have contributed more than 10% of at least one pixel. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_saturatedCenter
-    description: Saturated pixel in the Source center. Measured on i-band.
+    description: Saturated pixels were rjected from near this object's center, but would otherwise have contributed more than 10% of at least one pixel. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_sensor_edge
-    description: Source footprint includes SENSOR_EDGE pixels. Measured on i-band.
+    description: A detector boundary passed through this object's footprint. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_sensor_edgeCenter
-    description: Source center is close to SENSOR_EDGE pixels. Measured on i-band.
+    description: A detector boundary passed close to this object's center. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_suspect
     description: Deprecated; only set when there is no i-band data.
@@ -4405,50 +4405,50 @@ tables:
     description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_pixelFlags_clipped
-    description: Source footprint includes CLIPPED pixels. Measured on y-band.
+    description: Artifacts were rejected by warp comparison in this object's footprint. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_clippedCenter
-    description: Source center is close to CLIPPED pixels. Measured on y-band.
+    description: Artifacts were rejected by warp comparison in this object's center. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_cr
-    description: Cosmic ray in the Source footprint. Measured on y-band.
+    description: A cosmic ray was detected and interpolated in this object's footprint. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_crCenter
-    description: Cosmic ray in the Source center. Measured on y-band.
+    description: A cosmic ray was detected and interpolated in this object's center. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_edge
     description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_pixelFlags_inexact_psf
-    description: Source footprint includes INEXACT_PSF pixels. Measured on y-band.
+    description: The PSF model is discontinuous in this object's footprint. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_inexact_psfCenter
-    description: Source center is close to INEXACT_PSF pixels. Measured on y-band.
+    description: The PSF model is discontinuosu near this object's center. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_interpolated
-    description: Interpolated pixel in the Source footprint. Measured on y-band.
+    description: An interpolated pixel contributed to the coadd in this object's footprint. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_interpolatedCenter
-    description: Interpolated pixel in the Source center. Measured on y-band.
+    description: An interpolated pixel contributed to the coadd near this object's center. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_nodata
-    description: Source is outside usable exposure region (masked NO_DATA). Measured
+    description: No pixel data was available in this band for this object. Measured
       on y-band.
     datatype: boolean
   - name: y_pixelFlags_offimage
     description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_pixelFlags_saturated
-    description: Saturated pixel in the Source footprint. Measured on y-band.
+    description: Saturated pixels were rejected from this object's footprint, but would otherwise have contributed more than 10% of at least one pixel. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_saturatedCenter
-    description: Saturated pixel in the Source center. Measured on y-band.
+    description: Saturated pixels were rjected from near this object's center, but would otherwise have contributed more than 10% of at least one pixel. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_sensor_edge
-    description: Source footprint includes SENSOR_EDGE pixels. Measured on y-band.
+    description: A detector boundary passed through this object's footprint. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_sensor_edgeCenter
-    description: Source center is close to SENSOR_EDGE pixels. Measured on y-band.
+    description: A detector boundary passed close to this object's center. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_suspect
     description: Deprecated; only set when there is no y-band data.
