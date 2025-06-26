@@ -622,7 +622,7 @@ tables:
     description: Flag set for any failure in the blendedness algorithm. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_bad
-    description: Bad pixel in the Source footprint. Measured on z-band.
+    description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_pixelFlags_clipped
     description: Source footprint includes CLIPPED pixels. Measured on z-band.
@@ -637,8 +637,7 @@ tables:
     description: Cosmic ray in the Source center. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_edge
-    description: Source is on the edge of an exposure region (masked EDGE). Measured
-      on z-band.
+    description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_pixelFlags_inexact_psf
     description: Source footprint includes INEXACT_PSF pixels. Measured on z-band.
@@ -657,7 +656,7 @@ tables:
       on z-band.
     datatype: boolean
   - name: z_pixelFlags_offimage
-    description: Source center is off image. Measured on z-band.
+    description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_pixelFlags_saturated
     description: Saturated pixel in the Source footprint. Measured on z-band.
@@ -672,10 +671,10 @@ tables:
     description: Source center is close to SENSOR_EDGE pixels. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_suspect
-    description: Sources footprint includes suspect pixels. Measured on z-band.
+    description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_pixelFlags_suspectCenter
-    description: Sources center is close to suspect pixels. Measured on z-band.
+    description: Deprecated; only set when there is no z-band data.
     datatype: boolean
   - name: z_extendedness_flag
     description: Flag set for any failure in the flux-ratio extendedness. Measured on z-band.
@@ -1379,7 +1378,7 @@ tables:
     description: Flag set for any failure in the blendedness algorithm. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_bad
-    description: Bad pixel in the Source footprint. Measured on u-band.
+    description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_pixelFlags_clipped
     description: Source footprint includes CLIPPED pixels. Measured on u-band.
@@ -1394,8 +1393,7 @@ tables:
     description: Cosmic ray in the Source center. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_edge
-    description: Source is on the edge of an exposure region (masked EDGE). Measured
-      on u-band.
+    description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_pixelFlags_inexact_psf
     description: Source footprint includes INEXACT_PSF pixels. Measured on u-band.
@@ -1414,7 +1412,7 @@ tables:
       on u-band.
     datatype: boolean
   - name: u_pixelFlags_offimage
-    description: Source center is off image. Measured on u-band.
+    description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_pixelFlags_saturated
     description: Saturated pixel in the Source footprint. Measured on u-band.
@@ -1429,10 +1427,10 @@ tables:
     description: Source center is close to SENSOR_EDGE pixels. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_suspect
-    description: Sources footprint includes suspect pixels. Measured on u-band.
+    description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_pixelFlags_suspectCenter
-    description: Sources center is close to suspect pixels. Measured on u-band.
+    description: Deprecated; only set when there is no u-band data.
     datatype: boolean
   - name: u_extendedness_flag
     description: Flag set for any failure in the flux-ratio extendedness. Measured on u-band.
@@ -2136,7 +2134,7 @@ tables:
     description: Flag set for any failure in the blendedness algorithm. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_bad
-    description: Bad pixel in the Source footprint. Measured on g-band.
+    description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_pixelFlags_clipped
     description: Source footprint includes CLIPPED pixels. Measured on g-band.
@@ -2151,8 +2149,7 @@ tables:
     description: Cosmic ray in the Source center. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_edge
-    description: Source is on the edge of an exposure region (masked EDGE). Measured
-      on g-band.
+    description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_pixelFlags_inexact_psf
     description: Source footprint includes INEXACT_PSF pixels. Measured on g-band.
@@ -2171,7 +2168,7 @@ tables:
       on g-band.
     datatype: boolean
   - name: g_pixelFlags_offimage
-    description: Source center is off image. Measured on g-band.
+    description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_pixelFlags_saturated
     description: Saturated pixel in the Source footprint. Measured on g-band.
@@ -2186,10 +2183,10 @@ tables:
     description: Source center is close to SENSOR_EDGE pixels. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_suspect
-    description: Sources footprint includes suspect pixels. Measured on g-band.
+    description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_pixelFlags_suspectCenter
-    description: Sources center is close to suspect pixels. Measured on g-band.
+    description: Deprecated; only set when there is no g-band data.
     datatype: boolean
   - name: g_extendedness_flag
     description: Flag set for any failure in the flux-ratio extendedness. Measured on g-band.
@@ -2893,7 +2890,7 @@ tables:
     description: Flag set for any failure in the blendedness algorithm. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_bad
-    description: Bad pixel in the Source footprint. Measured on r-band.
+    description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_pixelFlags_clipped
     description: Source footprint includes CLIPPED pixels. Measured on r-band.
@@ -2908,8 +2905,7 @@ tables:
     description: Cosmic ray in the Source center. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_edge
-    description: Source is on the edge of an exposure region (masked EDGE). Measured
-      on r-band.
+    description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_pixelFlags_inexact_psf
     description: Source footprint includes INEXACT_PSF pixels. Measured on r-band.
@@ -2928,7 +2924,7 @@ tables:
       on r-band.
     datatype: boolean
   - name: r_pixelFlags_offimage
-    description: Source center is off image. Measured on r-band.
+    description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_pixelFlags_saturated
     description: Saturated pixel in the Source footprint. Measured on r-band.
@@ -2943,10 +2939,10 @@ tables:
     description: Source center is close to SENSOR_EDGE pixels. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_suspect
-    description: Sources footprint includes suspect pixels. Measured on r-band.
+    description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_pixelFlags_suspectCenter
-    description: Sources center is close to suspect pixels. Measured on r-band.
+    description: Deprecated; only set when there is no r-band data.
     datatype: boolean
   - name: r_extendedness_flag
     description: Flag set for any failure in the flux-ratio extendedness. Measured on r-band.
@@ -3650,7 +3646,7 @@ tables:
     description: Flag set for any failure in the blendedness algorithm. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_bad
-    description: Bad pixel in the Source footprint. Measured on i-band.
+    description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_pixelFlags_clipped
     description: Source footprint includes CLIPPED pixels. Measured on i-band.
@@ -3665,8 +3661,7 @@ tables:
     description: Cosmic ray in the Source center. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_edge
-    description: Source is on the edge of an exposure region (masked EDGE). Measured
-      on i-band.
+    description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_pixelFlags_inexact_psf
     description: Source footprint includes INEXACT_PSF pixels. Measured on i-band.
@@ -3685,7 +3680,7 @@ tables:
       on i-band.
     datatype: boolean
   - name: i_pixelFlags_offimage
-    description: Source center is off image. Measured on i-band.
+    description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_pixelFlags_saturated
     description: Saturated pixel in the Source footprint. Measured on i-band.
@@ -3700,10 +3695,10 @@ tables:
     description: Source center is close to SENSOR_EDGE pixels. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_suspect
-    description: Sources footprint includes suspect pixels. Measured on i-band.
+    description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_pixelFlags_suspectCenter
-    description: Sources center is close to suspect pixels. Measured on i-band.
+    description: Deprecated; only set when there is no i-band data.
     datatype: boolean
   - name: i_extendedness_flag
     description: Flag set for any failure in the flux-ratio extendedness. Measured on i-band.
@@ -4407,7 +4402,7 @@ tables:
     description: Flag set for any failure in the blendedness algorithm. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_bad
-    description: Bad pixel in the Source footprint. Measured on y-band.
+    description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_pixelFlags_clipped
     description: Source footprint includes CLIPPED pixels. Measured on y-band.
@@ -4422,8 +4417,7 @@ tables:
     description: Cosmic ray in the Source center. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_edge
-    description: Source is on the edge of an exposure region (masked EDGE). Measured
-      on y-band.
+    description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_pixelFlags_inexact_psf
     description: Source footprint includes INEXACT_PSF pixels. Measured on y-band.
@@ -4442,7 +4436,7 @@ tables:
       on y-band.
     datatype: boolean
   - name: y_pixelFlags_offimage
-    description: Source center is off image. Measured on y-band.
+    description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_pixelFlags_saturated
     description: Saturated pixel in the Source footprint. Measured on y-band.
@@ -4457,10 +4451,10 @@ tables:
     description: Source center is close to SENSOR_EDGE pixels. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_suspect
-    description: Sources footprint includes suspect pixels. Measured on y-band.
+    description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_pixelFlags_suspectCenter
-    description: Sources center is close to suspect pixels. Measured on y-band.
+    description: Deprecated; only set when there is no y-band data.
     datatype: boolean
   - name: y_extendedness_flag
     description: Flag set for any failure in the flux-ratio extendedness. Measured on y-band.
