@@ -5402,7 +5402,7 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;src
   constraints:
-  - name: Source_Visit
+  - name: FK_Source_Visit
     '@type': ForeignKey
     description: Link Source to its associated Visit.
     columns:
@@ -5520,21 +5520,21 @@ tables:
     description: Skymap patch ID
     datatype: long
   constraints:
-  - name: ForcedSource_Object
+  - name: FK_ForcedSource_Object
     description: Link ForcedSource to its associated Object.
     '@type': ForeignKey
     columns:
     - '#ForcedSource.objectId'
     referencedColumns:
     - '#Object.objectId'
-  - name: ForcedSource_ParentObject
+  - name: FK_ForcedSource_ParentObject
     description: Link ForcedSource to its parent Object.
     '@type': ForeignKey
     columns:
     - '#ForcedSource.parentObjectId'
     referencedColumns:
     - '#Object.objectId'
-  - name: ForcedSource_Visit
+  - name: FK_ForcedSource_Visit
     description: Link ForcedSource to its associated visit.
     '@type': ForeignKey
     columns:
@@ -5882,35 +5882,35 @@ tables:
     description: Unique identifier of this DiaSource.
     datatype: long
   constraints:
-  - name: DiaSource_Visit
+  - name: FK_DiaSource_Visit
     description: Link a DiaSource to its associated Visit.
     '@type': ForeignKey
     columns:
     - '#DiaSource.visit'
     referencedColumns:
     - '#Visit.visit'
-  - name: DiaSource_DiaObject
+  - name: FK_DiaSource_DiaObject
     description: Link a DiaSource to its associated DiaObject.
     '@type': ForeignKey
     columns:
     - '#DiaSource.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
-  - name: DiaSource_SSObject
+  - name: FK_DiaSource_SSObject
     description: Link a DiaSource to its associated SSObject, if any.
     '@type': ForeignKey
     columns:
     - '#DiaSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
-  - name: DiaSource_Object
+  - name: FK_DiaSource_Object
     description: Link a DiaSource to its associated Object.
     '@type': ForeignKey
     columns:
     - '#DiaSource.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
-  - name: DiaSource_ParentDiaSource
+  - name: FK_DiaSource_ParentDiaSource
     description: Link a DiaSource to its parent Object.
     '@type': ForeignKey
     columns:
@@ -6465,14 +6465,14 @@ tables:
     description: Skymap patch ID
     datatype: long
   constraints:
-  - name: ForcedSourceOnDiaobject_DiaObject
+  - name: FK_ForcedSourceOnDiaobject_DiaObject
     description: Link a ForcedSourceOnDiaObject to its associated DiaObject.
     '@type': ForeignKey
     columns:
     - '#ForcedSourceOnDiaObject.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
-  - name: ForcedSourceOnDiaObject_Visit
+  - name: FK_ForcedSourceOnDiaObject_Visit
     description: Link a ForcedSourceOnDiaObject to its associated Visit.
     '@type': ForeignKey
     columns:
@@ -6782,7 +6782,7 @@ tables:
     datatype: double
     ivoa:unit: mag
   constraints:
-  - name: CcdVisit_Visit
+  - name: FK_CcdVisit_Visit
     description: Link CCD-level images to associated Visits.
     '@type': ForeignKey
     columns:
@@ -6906,14 +6906,14 @@ tables:
     datatype: double
     ivoa:unit: deg
   constraints:
-  - name: SSSource_DiaSource
+  - name: FK_SSSource_DiaSource
     description: Link an SSSource to its associated DIASource.
     '@type': ForeignKey
     columns:
     - '#SSSource.diaSourceId'
     referencedColumns:
     - '#DiaSource.diaSourceId'
-  - name: SSSource_SSObject
+  - name: FK_SSSource_SSObject
     description: Link an SSSource to its associated SSObject.
     '@type': ForeignKey
     columns:
@@ -6967,7 +6967,7 @@ tables:
     datatype: float
     ivoa:unit: mag
   constraints:
-  - name: MPCORB_SSObject
+  - name: FK_MPCORB_SSObject
     description: Link an MPCORB record to its associated SSObject.
     '@type': ForeignKey
     columns:
