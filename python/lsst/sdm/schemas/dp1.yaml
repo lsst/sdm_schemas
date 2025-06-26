@@ -6472,13 +6472,6 @@ tables:
     - '#ForcedSourceOnDiaObject.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
-  - name: ForcedSourceOnDiaObject_Object
-    description: Link a ForcedSourceOnDiaObject to its associated parent Object.
-    '@type': ForeignKey
-    columns:
-    - '#ForcedSourceOnDiaObject.parentObjectId'
-    referencedColumns:
-    - '#Object.objectId'
   - name: ForcedSourceOnDiaObject_Visit
     description: Link a ForcedSourceOnDiaObject to its associated Visit.
     '@type': ForeignKey
