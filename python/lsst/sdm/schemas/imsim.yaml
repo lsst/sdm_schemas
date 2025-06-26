@@ -108,6 +108,11 @@ tables:
     datatype: int
     description: y-coordinate of the peak after source detection
     fits:tunit: pixel
+  - name: deblend_logL
+    "@id": "#Object.deblend_logL"
+    datatype: float
+    description: Log likelihood of the source after deblending.
+    fits:tunit:
   - name: deblend_chi2
     "@id": "#Object.deblend_chi2"
     description: Chi^2 of the source after deblending.
