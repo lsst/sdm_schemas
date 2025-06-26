@@ -272,7 +272,22 @@ tables:
   - name: dimm_seeing
     "@id": "#exposure.dimm_seeing"
     datatype: float
-    description: Seeing as measured by external DIMM (FWHM).
+    description: Atmospheric seeing as measured by external DIMM (FWHM).
+    ivoa:unit: arcsec
+  - name: ringss_seeing
+    "@id": "#exposure.ringss_seeing"
+    datatype: float
+    description: Atmospheric seeing as measured by external RINGSS (FWHM).
+    ivoa:unit: arcsec
+  - name: aos_fwhm
+    "@id": "#exposure.aos_fwhm"
+    datatype: float
+    description: Estimated contribution of the optical system to the overall seeing (FWHM) using the measured zernike coefficients.
+    ivoa:unit: arcsec
+  - name: donut_blur_fwhm
+    "@id": "#exposure.donut_blur_fwhm"
+    datatype: float
+    description: Estimated contribution of the atmosphere to the overall seeing (FWHM) derived from danish donut forward modeling.
     ivoa:unit: arcsec
   - name: focus_z
     "@id": "#exposure.focus_z"
