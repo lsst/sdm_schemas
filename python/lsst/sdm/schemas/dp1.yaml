@@ -6543,7 +6543,6 @@ tables:
     tap:column_index: 7
 - name: CcdVisit
   description: Defines a single detector of a visit
-  primaryKey: '#CcdVisit.ccdVisitId'
   columns:
   - name: physical_filter
     description: ID of physical filter, the filter associated with a particular instrument.
