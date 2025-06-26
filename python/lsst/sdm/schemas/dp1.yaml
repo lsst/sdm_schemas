@@ -5527,13 +5527,6 @@ tables:
     - '#ForcedSource.objectId'
     referencedColumns:
     - '#Object.objectId'
-  - name: FK_ForcedSource_ParentObject
-    description: Link ForcedSource to its parent Object.
-    '@type': ForeignKey
-    columns:
-    - '#ForcedSource.parentObjectId'
-    referencedColumns:
-    - '#Object.objectId'
   - name: FK_ForcedSource_Visit
     description: Link ForcedSource to its associated visit.
     '@type': ForeignKey
@@ -5903,20 +5896,6 @@ tables:
     - '#DiaSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
-  - name: FK_DiaSource_Object
-    description: Link a DiaSource to its associated Object.
-    '@type': ForeignKey
-    columns:
-    - '#DiaSource.diaObjectId'
-    referencedColumns:
-    - '#DiaObject.diaObjectId'
-  - name: FK_DiaSource_ParentDiaSource
-    description: Link a DiaSource to its parent.
-    '@type': ForeignKey
-    columns:
-    - '#DiaSource.parentDiaSourceId'
-    referencedColumns:
-    - '#DiaSource.diaSourceId'
 - name: DiaObject
   description: this is diaObjectTable_tract in the butler repo
   primaryKey: '#DiaObject.diaObjectId'
