@@ -6824,6 +6824,12 @@ tables:
     - '#CcdVisit.visitId'
     referencedColumns:
     - '#Visit.visit'
+  - name: UNIQ_VisitDetector
+    description: Unique constraint on Visit and Detector.
+    '@type': Unique
+    columns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
     Recomputed daily, upon MPCORB ingestion.
