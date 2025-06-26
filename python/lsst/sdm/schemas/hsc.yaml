@@ -104,10 +104,21 @@ tables:
     datatype: int
     description: y-coordinate of the peak after source detection
     fits:tunit: pixel
-  - name: deblend_logL
-    "@id": "#Object.deblend_logL"
+  - name: deblend_chi2
+    "@id": "#Object.deblend_chi2"
+    description: Chi^2 of the source after deblending.
     datatype: float
-    description: Log likelihood of the entire blend in scarlet_lite.
+    fits:tunit:
+  - name: deblend_blendId
+    "@id": "#Object.deblend_blendId"
+    description: Unique ID of the deconvolved parent source that this source was deblended from.
+    datatype: int
+    fits:tunit:
+  - name: deblend_blendNChild
+    "@id": "#Object.deblend_blendNChild"
+    description: Number of children in the deconvolved parent source that this source
+      was deblended from.
+    datatype: int
     fits:tunit:
   - name: detect_fromBlend
     "@id": "#Object.detect_fromBlend"
