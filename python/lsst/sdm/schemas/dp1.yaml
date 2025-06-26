@@ -255,11 +255,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_calibFlux
-    description: Flux within 12.0-pixel aperture. Measured on z-band.
+    description: Duplicate of z_ap12Flux.
     datatype: float
     ivoa:unit: nJy
   - name: z_calibFluxErr
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on z-band.
+    description: Duplicate of z_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: z_ap03Flux
@@ -704,23 +704,23 @@ tables:
     description: Propagated from sources. Measured on z-band.
     datatype: boolean
   - name: z_apFlux_flag
-    description: General Failure Flag. Measured on z-band.
+    description: Duplicate of z_ap12Flux_flag.
     datatype: boolean
   - name: z_apFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on z-band.
+    description: Duplicate of z_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: z_apFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of z_ap12Flux_flag_sincCoeffsTruncated.
       Measured on z-band.
     datatype: boolean
   - name: z_calibFlux_flag
-    description: General Failure Flag. Measured on z-band.
+    description: Duplicate of z_ap12Flux_flag.
     datatype: boolean
   - name: z_calibFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on z-band.
+    description: Duplicate of z_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: z_calibFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of z_ap12Flux_flag_sincCoeffsTruncated.
       Measured on z-band.
     datatype: boolean
   - name: z_centroid_flag
@@ -1012,11 +1012,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_calibFlux
-    description: Flux within 12.0-pixel aperture. Measured on u-band.
+    description: Duplicate of u_ap12Flux.
     datatype: float
     ivoa:unit: nJy
   - name: u_calibFluxErr
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on u-band.
+    description: Duplicate of u_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: u_ap03Flux
@@ -1461,23 +1461,23 @@ tables:
     description: Propagated from sources. Measured on u-band.
     datatype: boolean
   - name: u_apFlux_flag
-    description: General Failure Flag. Measured on u-band.
+    description: Duplicate of u_ap12Flux_flag.
     datatype: boolean
   - name: u_apFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on u-band.
+    description: Duplicate of u_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: u_apFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of u_ap12Flux_flag_sincCoeffsTruncated.
       Measured on u-band.
     datatype: boolean
   - name: u_calibFlux_flag
-    description: General Failure Flag. Measured on u-band.
+    description: Duplicate of u_ap12Flux_flag.
     datatype: boolean
   - name: u_calibFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on u-band.
+    description: Duplicate of u_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: u_calibFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of u_ap12Flux_flag_sincCoeffsTruncated.
       Measured on u-band.
     datatype: boolean
   - name: u_centroid_flag
@@ -1769,11 +1769,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_calibFlux
-    description: Flux within 12.0-pixel aperture. Measured on g-band.
+    description: Duplicate of g_ap12Flux.
     datatype: float
     ivoa:unit: nJy
   - name: g_calibFluxErr
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on g-band.
+    description: Duplicate of g_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: g_ap03Flux
@@ -2218,23 +2218,23 @@ tables:
     description: Propagated from sources. Measured on g-band.
     datatype: boolean
   - name: g_apFlux_flag
-    description: General Failure Flag. Measured on g-band.
+    description: Duplicate of g_ap12Flux_flag.
     datatype: boolean
   - name: g_apFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on g-band.
+    description: Duplicate of g_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: g_apFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of g_ap12Flux_flag_sincCoeffsTruncated.
       Measured on g-band.
     datatype: boolean
   - name: g_calibFlux_flag
-    description: General Failure Flag. Measured on g-band.
+    description: Duplicate of g_ap12Flux_flag.
     datatype: boolean
   - name: g_calibFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on g-band.
+    description: Duplicate of g_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: g_calibFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of g_ap12Flux_flag_sincCoeffsTruncated.
       Measured on g-band.
     datatype: boolean
   - name: g_centroid_flag
@@ -2526,11 +2526,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_calibFlux
-    description: Flux within 12.0-pixel aperture. Measured on r-band.
+    description: Duplicate of r_ap12Flux.
     datatype: float
     ivoa:unit: nJy
   - name: r_calibFluxErr
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on r-band.
+    description: Duplicate of r_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: r_ap03Flux
@@ -2975,23 +2975,23 @@ tables:
     description: Propagated from sources. Measured on r-band.
     datatype: boolean
   - name: r_apFlux_flag
-    description: General Failure Flag. Measured on r-band.
+    description: Duplicate of r_ap12Flux_flag.
     datatype: boolean
   - name: r_apFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on r-band.
+    description: Duplicate of r_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: r_apFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of r_ap12Flux_flag_sincCoeffsTruncated.
       Measured on r-band.
     datatype: boolean
   - name: r_calibFlux_flag
-    description: General Failure Flag. Measured on r-band.
+    description: Duplicate of r_ap12Flux_flag.
     datatype: boolean
   - name: r_calibFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on r-band.
+    description: Duplicate of r_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: r_calibFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of r_ap12Flux_flag_sincCoeffsTruncated.
       Measured on r-band.
     datatype: boolean
   - name: r_centroid_flag
@@ -3283,11 +3283,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_calibFlux
-    description: Flux within 12.0-pixel aperture. Measured on i-band.
+    description: Duplicate of i_ap12Flux.
     datatype: float
     ivoa:unit: nJy
   - name: i_calibFluxErr
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on i-band.
+    description: Duplicate of i_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: i_ap03Flux
@@ -3732,23 +3732,23 @@ tables:
     description: Propagated from sources. Measured on i-band.
     datatype: boolean
   - name: i_apFlux_flag
-    description: General Failure Flag. Measured on i-band.
+    description: Duplicate of i_ap12Flux_flag.
     datatype: boolean
   - name: i_apFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on i-band.
+    description: Duplicate of i_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: i_apFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of i_ap12Flux_flag_sincCoeffsTruncated.
       Measured on i-band.
     datatype: boolean
   - name: i_calibFlux_flag
-    description: General Failure Flag. Measured on i-band.
+    description: Duplicate of i_ap12Flux_flag.
     datatype: boolean
   - name: i_calibFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on i-band.
+    description: Duplicate of i_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: i_calibFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of i_ap12Flux_flag_sincCoeffsTruncated.
       Measured on i-band.
     datatype: boolean
   - name: i_centroid_flag
@@ -4040,11 +4040,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_calibFlux
-    description: Flux within 12.0-pixel aperture. Measured on y-band.
+    description: Duplicate of y_ap12Flux.
     datatype: float
     ivoa:unit: nJy
   - name: y_calibFluxErr
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on y-band.
+    description: Duplicate of y_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: y_ap03Flux
@@ -4489,23 +4489,23 @@ tables:
     description: Propagated from sources. Measured on y-band.
     datatype: boolean
   - name: y_apFlux_flag
-    description: General Failure Flag. Measured on y-band.
+    description: Duplicate of y_ap12Flux_flag.
     datatype: boolean
   - name: y_apFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on y-band.
+    description: Duplicate of y_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: y_apFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of y_ap12Flux_flag_sincCoeffsTruncated.
       Measured on y-band.
     datatype: boolean
   - name: y_calibFlux_flag
-    description: General Failure Flag. Measured on y-band.
+    description: Duplicate of y_ap12Flux_flag.
     datatype: boolean
   - name: y_calibFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image. Measured on y-band.
+    description: Duplicate of y_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: y_calibFlux_flag_sincCoeffsTruncated
-    description: Full sinc coefficient image did not fit within measurement image.
+    description: Duplicate of y_ap12Flux_flag_sincCoeffsTruncated.
       Measured on y-band.
     datatype: boolean
   - name: y_centroid_flag
