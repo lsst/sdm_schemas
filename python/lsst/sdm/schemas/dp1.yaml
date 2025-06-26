@@ -45,12 +45,12 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: z_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Forced on
+    description: Flux derived from using the PSF model as a weight function. Forced on
       z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
@@ -65,30 +65,30 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   - name: z_free_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Measured
+    description: Flux derived from using the PSF model as a weight function. Measured
       on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_free_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Measured on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_free_psfFlux_flag
-    description: General Failure Flag. Measured on z-band.
+    description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on z-band.
     datatype: boolean
   - name: z_bdE1
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_bdE2
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_bdReB
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on z-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_bdReD
@@ -96,14 +96,14 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: z_bdChi2
-    description: -ln(likelihood) (chi^2) in cmodel fit. Measured on z-band.
+    description: -ln(likelihood) (chi^2) in CModel fit. Measured on z-band.
     datatype: float
   - name: z_bdFluxB
-    description: Flux from the de Vaucouleur fit. Measured on z-band.
+    description: Flux from the de Vaucouleurs fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_bdFluxBErr
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on z-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_bdFluxD
@@ -115,7 +115,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_gaapPsfFlux
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with PSF aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
@@ -125,57 +125,57 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap0p7Flux
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 0.7 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap0p7FluxErr
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 0.7 arcsec aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap1p0Flux
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap1p0FluxErr
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap1p5Flux
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap2p5Flux
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap3p0Flux
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
     datatype: float
     ivoa:unit: nJy
@@ -185,70 +185,70 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ixx
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_iyy
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_ixy
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_i_flag
     description: General failure flag, set if anything went wrong. Measured on z-band.
     datatype: boolean
   - name: z_ixxPSF
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_iyyPSF
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_ixyPSF
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_iPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on z-band.
+    description: Flag set for any failure in the PSF model moments. Measured on z-band.
     datatype: boolean
   - name: z_ixxRound
-    description: HSM moments. Measured on z-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_iyyRound
-    description: HSM moments. Measured on z-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_ixyRound
-    description: HSM moments. Measured on z-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_iRound_flag
-    description: General failure flag, set if anything went wrong. Measured on z-band.
+    description: Flag set for any failure in the round moments. Measured on z-band.
     datatype: boolean
   - name: z_ixxDebiasedPSF
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_iyyDebiasedPSF
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_ixyDebiasedPSF
-    description: HSM moments. Measured on z-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on z-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: z_iDebiasedPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on z-band.
+    description: Flag set for any failure in the debiased PSF model moments. Measured on z-band.
     datatype: boolean
   - name: z_kronRad
-    description: Kron radius (sqrt(a*b)). Measured on z-band.
+    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on z-band.
     datatype: float
   - name: z_kronFlux
-    description: Flux from Kron Flux algorithm. Measured on z-band.
+    description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_kronFluxErr
@@ -272,7 +272,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap03Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 3.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on z-band.
@@ -283,7 +283,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap06Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 6.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on z-band.
@@ -294,7 +294,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap09Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 9.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on z-band.
@@ -305,7 +305,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap12Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 12.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on z-band.
@@ -316,7 +316,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap17Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 17.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on z-band.
@@ -327,7 +327,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap25Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 25.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on z-band.
@@ -338,7 +338,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap35Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 35.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on z-band.
@@ -349,7 +349,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap50Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 50.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on z-band.
@@ -360,7 +360,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_ap70Flux_flag
-    description: General Failure Flag. Forced on z-band.
+    description: Flag set for any failure with the 70.0-pixel aperture flux. Forced on z-band.
     datatype: boolean
   - name: z_extendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on z-band.
@@ -374,11 +374,11 @@ tables:
       section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on z-band.
     datatype: float
   - name: z_cModelFlux
-    description: Flux from the final cmodel fit. Forced on z-band.
+    description: Flux from the final CModel fit. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Forced on z-band.
+    description: Flux uncertainty from the final CModel fit. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_cModelMag
@@ -396,11 +396,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_free_cModelFlux
-    description: Flux from the final cmodel fit. Measured on z-band.
+    description: Flux from the final CModel fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_free_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Measured on z-band.
+    description: Flux uncertainty from the final CModel fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
   - name: z_free_cModelFlux_inner
@@ -408,88 +408,88 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_free_cModelFlux_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
+    description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on z-band.
     datatype: boolean
   - name: z_hsmShapeRegauss_e1
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on z-band.
     datatype: float
   - name: z_hsmShapeRegauss_e2
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on z-band.
     datatype: float
   - name: z_hsmShapeRegauss_sigma
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on z-band.
     datatype: float
   - name: z_hsmShapeRegauss_flag
-    description: General failure flag, set if anything went wrong. Measured on z-band.
+    description: Flag set for any failure with the Regaussianziation shapes. Measured on z-band.
     datatype: boolean
   - name: z_hsm_moments_30
-    description: HSM higher order moments 30. Measured on z-band.
+    description: HSM higher-order moment 30. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_30
-    description: HSM higher order PSF moments 30. Measured on z-band.
+    description: HSM higher-order moment 30 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_21
-    description: HSM higher order moments 21. Measured on z-band.
+    description: HSM higher-order moment 21. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_21
-    description: HSM higher order PSF moments 21. Measured on z-band.
+    description: HSM higher-order moment 21 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_12
-    description: HSM higher order moments 12. Measured on z-band.
+    description: HSM higher-order moment 12. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_12
-    description: HSM higher order PSF moments 12. Measured on z-band.
+    description: HSM higher-order moment 12 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_03
-    description: HSM higher order moments 03. Measured on z-band.
+    description: HSM higher-order moment 03. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_03
-    description: HSM higher order PSF moments 03. Measured on z-band.
+    description: HSM higher-order moment 03 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_40
-    description: HSM higher order moments 40. Measured on z-band.
+    description: HSM higher-order moment 40. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_40
-    description: HSM higher order PSF moments 40. Measured on z-band.
+    description: HSM higher-order moment 40 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_31
-    description: HSM higher order moments 31. Measured on z-band.
+    description: HSM higher-order moment 31. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_31
-    description: HSM higher order PSF moments 31. Measured on z-band.
+    description: HSM higher-order moment 31 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_22
-    description: HSM higher order moments 22. Measured on z-band.
+    description: HSM higher-order moment 22. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_22
-    description: HSM higher order PSF moments 22. Measured on z-band.
+    description: HSM higher-order moment 22 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_13
-    description: HSM higher order moments 13. Measured on z-band.
+    description: HSM higher-order moment 13. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_13
-    description: HSM higher order PSF moments 13. Measured on z-band.
+    description: HSM higher-order moment 13 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_04
-    description: HSM higher order moments 04. Measured on z-band.
+    description: HSM higher-order moment 04. Measured on z-band.
     datatype: float
   - name: z_hsm_momentsPsf_04
-    description: HSM higher order PSF moments 04. Measured on z-band.
+    description: HSM higher-order moment 04 measured on the PSF model at the position of the object. Measured on z-band.
     datatype: float
   - name: z_hsm_moments_flag
-    description: General failure flag, to be used in conjunction with z_i_flag. Measured
+    description: Flag set for any failure in the HSM higher-order moments. Measured
       on z-band.
     datatype: boolean
   - name: z_hsm_momentsPsf_flag
-    description: General failure flag, to be used in conjunction with z_iPSF_flag.
+    description: Flag set for any failure in the HSM higher-order moment on the PSF model.
       Measured on z-band.
     datatype: boolean
   - name: z_inputCount
-    description: Number of images contributing at center, not including anyclipping.
+    description: Number of images contributing at center, not including any clipping.
       Forced on z-band.
     datatype: int
   - name: z_deblend_dataCoverage
@@ -497,7 +497,7 @@ tables:
       pixels/total number of pixels in the z-band.
     datatype: float
   - name: z_deblend_blendedness
-    description: Blendedness in the deconvolved scarlet space
+    description: Blendedness in the deconvolved scarlet space.
     datatype: float
   - name: z_deblend_fluxOverlap
     description: The total flux from neighboring objects that overlaps with this sources
@@ -560,10 +560,10 @@ tables:
       for the two-Gaussian PSF model (z-band).
     datatype: boolean
   - name: z_inputCount_flag
-    description: Set for any fatal failure. Forced on z-band.
+    description: Flag set for any failure in computing the number of inputs. Forced on z-band.
     datatype: boolean
   - name: z_inputCount_flag_noInputs
-    description: No coadd inputs available. Forced on z-band.
+    description: No coadd inputs were recorded. Forced on z-band.
     datatype: boolean
   - name: z_psfFlux_area
     description: Effective area of PSF. Forced on z-band.
@@ -573,7 +573,7 @@ tables:
     description: General Failure Flag. Forced on z-band.
     datatype: boolean
   - name: z_psfFlux_flag_apCorr
-    description: Set if unable to aperture correct base_PsfFlux. Forced on z-band.
+    description: Flag set if unable to aperture-correct the PSF flux. Forced on z-band.
     datatype: boolean
   - name: z_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -584,14 +584,14 @@ tables:
       on z-band.
     datatype: boolean
   - name: z_cModel_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Forced
+    description: Flag set if the final CModel fit (or any previous fit) failed. Forced
       on z-band.
     datatype: boolean
   - name: z_cModel_flag_apCorr
-    description: Set if unable to aperture correct modelfit_CModel. Forced on z-band.
+    description: Flag set if unable to aperture-correct the CModel flux. Forced on z-band.
     datatype: boolean
   - name: z_gaapFlux_flag
-    description: Set for any fatal failure. Forced on z-band.
+    description: Flag set for any failure in the GAaP photometry. Forced on z-band.
     datatype: boolean
   - name: z_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on z-band.
@@ -619,7 +619,7 @@ tables:
     description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
     datatype: boolean
   - name: z_blendedness_flag
-    description: General Failure Flag. Measured on z-band.
+    description: Flag set for any failure in the blendedness algorithm. Measured on z-band.
     datatype: boolean
   - name: z_pixelFlags_bad
     description: Bad pixel in the Source footprint. Measured on z-band.
@@ -678,10 +678,10 @@ tables:
     description: Sources center is close to suspect pixels. Measured on z-band.
     datatype: boolean
   - name: z_extendedness_flag
-    description: Set to 1 for any fatal failure. Measured on z-band.
+    description: Flag set for any failure in the flux-ratio extendedness. Measured on z-band.
     datatype: boolean
   - name: z_sizeExtendedness_flag
-    description: Set to 1 for any fatal failure. Measured on z-band.
+    description: Flag set for any failure in the moments-based extendedness. Measured on z-band.
     datatype: boolean
   - name: z_invalidPsfFlag
     description: This object has an invalid PSF (usually no inputs). Measured on z-band.
@@ -725,10 +725,10 @@ tables:
       Measured on z-band.
     datatype: boolean
   - name: z_centroid_flag
-    description: General Failure Flag. Measured on z-band.
+    description: Flag set for any failure in the centroid algorithm. Measured on z-band.
     datatype: boolean
   - name: z_centroid_x
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on z-band.
     datatype: double
     ivoa:unit: pixel
   - name: z_centroid_xErr
@@ -736,7 +736,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: z_centroid_y
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on z-band.
     datatype: double
     ivoa:unit: pixel
   - name: z_centroid_yErr
@@ -744,7 +744,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: z_kronFlux_flag
-    description: General failure flag, set if anything went wrong. Measured on z-band.
+    description: Flag set for any failure in the Kron photometry. Measured on z-band.
     datatype: boolean
   - name: z_kronFlux_flag_bad_radius
     description: Bad Kron radius. Measured on z-band.
@@ -771,10 +771,10 @@ tables:
       z-band.
     datatype: boolean
   - name: z_kronFlux_flag_used_minimum_radius
-    description: Used the minimum radius for the Kron aperture. Measured on z-band.
+    description: Used the minimum radius for the Kron radius. Measured on z-band.
     datatype: boolean
   - name: z_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron aperture. Measured on z-band.
+    description: Used the PSF Kron radius for the Kron radius. Measured on z-band.
     datatype: boolean
   - name: u_ra
     description: Position in right ascension, measured on u-band.
@@ -802,12 +802,12 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: u_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Forced on
+    description: Flux derived from using the PSF model as a weight function. Forced on
       u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
@@ -822,30 +822,30 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   - name: u_free_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Measured
+    description: Flux derived from using the PSF model as a weight function. Measured
       on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_free_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Measured on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_free_psfFlux_flag
-    description: General Failure Flag. Measured on u-band.
+    description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on u-band.
     datatype: boolean
   - name: u_bdE1
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_bdE2
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_bdReB
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on u-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_bdReD
@@ -853,14 +853,14 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: u_bdChi2
-    description: -ln(likelihood) (chi^2) in cmodel fit. Measured on u-band.
+    description: -ln(likelihood) (chi^2) in CModel fit. Measured on u-band.
     datatype: float
   - name: u_bdFluxB
-    description: Flux from the de Vaucouleur fit. Measured on u-band.
+    description: Flux from the de Vaucouleurs fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_bdFluxBErr
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on u-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_bdFluxD
@@ -872,7 +872,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_gaapPsfFlux
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with PSF aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
@@ -882,57 +882,57 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap0p7Flux
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 0.7 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap0p7FluxErr
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 0.7 arcsec aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap1p0Flux
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap1p0FluxErr
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap1p5Flux
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap2p5Flux
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap3p0Flux
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on u-band.
     datatype: float
     ivoa:unit: nJy
@@ -942,70 +942,70 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ixx
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iyy
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_ixy
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_i_flag
     description: General failure flag, set if anything went wrong. Measured on u-band.
     datatype: boolean
   - name: u_ixxPSF
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iyyPSF
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_ixyPSF
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on u-band.
     datatype: boolean
   - name: u_ixxRound
-    description: HSM moments. Measured on u-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iyyRound
-    description: HSM moments. Measured on u-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_ixyRound
-    description: HSM moments. Measured on u-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iRound_flag
-    description: General failure flag, set if anything went wrong. Measured on u-band.
+    description: Flag set for any failure in the round moments. Measured on u-band.
     datatype: boolean
   - name: u_ixxDebiasedPSF
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iyyDebiasedPSF
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_ixyDebiasedPSF
-    description: HSM moments. Measured on u-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on u-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iDebiasedPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on u-band.
+    description: Flag set for any failure in the debiased PSF model moments. Measured on u-band.
     datatype: boolean
   - name: u_kronRad
-    description: Kron radius (sqrt(a*b)). Measured on u-band.
+    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on u-band.
     datatype: float
   - name: u_kronFlux
-    description: Flux from Kron Flux algorithm. Measured on u-band.
+    description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_kronFluxErr
@@ -1029,7 +1029,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap03Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 3.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on u-band.
@@ -1040,7 +1040,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap06Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 6.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on u-band.
@@ -1051,7 +1051,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap09Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 9.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on u-band.
@@ -1062,7 +1062,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap12Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 12.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on u-band.
@@ -1073,7 +1073,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap17Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 17.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on u-band.
@@ -1084,7 +1084,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap25Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 25.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on u-band.
@@ -1095,7 +1095,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap35Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 35.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on u-band.
@@ -1106,7 +1106,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap50Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 50.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on u-band.
@@ -1117,7 +1117,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_ap70Flux_flag
-    description: General Failure Flag. Forced on u-band.
+    description: Flag set for any failure with the 70.0-pixel aperture flux. Forced on u-band.
     datatype: boolean
   - name: u_extendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on u-band.
@@ -1131,11 +1131,11 @@ tables:
       section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on u-band.
     datatype: float
   - name: u_cModelFlux
-    description: Flux from the final cmodel fit. Forced on u-band.
+    description: Flux from the final CModel fit. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Forced on u-band.
+    description: Flux uncertainty from the final CModel fit. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_cModelMag
@@ -1153,11 +1153,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_free_cModelFlux
-    description: Flux from the final cmodel fit. Measured on u-band.
+    description: Flux from the final CModel fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_free_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Measured on u-band.
+    description: Flux uncertainty from the final CModel fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
   - name: u_free_cModelFlux_inner
@@ -1165,88 +1165,88 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_free_cModelFlux_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
+    description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on u-band.
     datatype: boolean
   - name: u_hsmShapeRegauss_e1
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on u-band.
     datatype: float
   - name: u_hsmShapeRegauss_e2
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on u-band.
     datatype: float
   - name: u_hsmShapeRegauss_sigma
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on u-band.
     datatype: float
   - name: u_hsmShapeRegauss_flag
-    description: General failure flag, set if anything went wrong. Measured on u-band.
+    description: Flag set for any failure with the Regaussianziation shapes. Measured on u-band.
     datatype: boolean
   - name: u_hsm_moments_30
-    description: HSM higher order moments 30. Measured on u-band.
+    description: HSM higher-order moment 30. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_30
-    description: HSM higher order PSF moments 30. Measured on u-band.
+    description: HSM higher-order moment 30 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_21
-    description: HSM higher order moments 21. Measured on u-band.
+    description: HSM higher-order moment 21. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_21
-    description: HSM higher order PSF moments 21. Measured on u-band.
+    description: HSM higher-order moment 21 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_12
-    description: HSM higher order moments 12. Measured on u-band.
+    description: HSM higher-order moment 12. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_12
-    description: HSM higher order PSF moments 12. Measured on u-band.
+    description: HSM higher-order moment 12 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_03
-    description: HSM higher order moments 03. Measured on u-band.
+    description: HSM higher-order moment 03. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_03
-    description: HSM higher order PSF moments 03. Measured on u-band.
+    description: HSM higher-order moment 03 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_40
-    description: HSM higher order moments 40. Measured on u-band.
+    description: HSM higher-order moment 40. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_40
-    description: HSM higher order PSF moments 40. Measured on u-band.
+    description: HSM higher-order moment 40 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_31
-    description: HSM higher order moments 31. Measured on u-band.
+    description: HSM higher-order moment 31. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_31
-    description: HSM higher order PSF moments 31. Measured on u-band.
+    description: HSM higher-order moment 31 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_22
-    description: HSM higher order moments 22. Measured on u-band.
+    description: HSM higher-order moment 22. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_22
-    description: HSM higher order PSF moments 22. Measured on u-band.
+    description: HSM higher-order moment 22 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_13
-    description: HSM higher order moments 13. Measured on u-band.
+    description: HSM higher-order moment 13. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_13
-    description: HSM higher order PSF moments 13. Measured on u-band.
+    description: HSM higher-order moment 13 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_04
-    description: HSM higher order moments 04. Measured on u-band.
+    description: HSM higher-order moment 04. Measured on u-band.
     datatype: float
   - name: u_hsm_momentsPsf_04
-    description: HSM higher order PSF moments 04. Measured on u-band.
+    description: HSM higher-order moment 04 measured on the PSF model at the position of the object. Measured on u-band.
     datatype: float
   - name: u_hsm_moments_flag
-    description: General failure flag, to be used in conjunction with u_i_flag. Measured
+    description: Flag set for any failure in the HSM higher-order moments. Measured
       on u-band.
     datatype: boolean
   - name: u_hsm_momentsPsf_flag
-    description: General failure flag, to be used in conjunction with u_iPSF_flag.
+    description: Flag set for any failure in the HSM higher-order moment on the PSF model.
       Measured on u-band.
     datatype: boolean
   - name: u_inputCount
-    description: Number of images contributing at center, not including anyclipping.
+    description: Number of images contributing at center, not including any clipping.
       Forced on u-band.
     datatype: int
   - name: u_deblend_dataCoverage
@@ -1317,10 +1317,10 @@ tables:
       for the two-Gaussian PSF model (u-band).
     datatype: boolean
   - name: u_inputCount_flag
-    description: Set for any fatal failure. Forced on u-band.
+    description: Flag set for any fatal failure. Forced on u-band.
     datatype: boolean
   - name: u_inputCount_flag_noInputs
-    description: No coadd inputs available. Forced on u-band.
+    description: No coadd inputs were recorded. Forced on u-band.
     datatype: boolean
   - name: u_psfFlux_area
     description: Effective area of PSF. Forced on u-band.
@@ -1330,7 +1330,7 @@ tables:
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_psfFlux_flag_apCorr
-    description: Set if unable to aperture correct base_PsfFlux. Forced on u-band.
+    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on u-band.
     datatype: boolean
   - name: u_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -1341,14 +1341,14 @@ tables:
       on u-band.
     datatype: boolean
   - name: u_cModel_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Forced
+    description: Flag set if the final CModel fit (or any previous fit) failed. Forced
       on u-band.
     datatype: boolean
   - name: u_cModel_flag_apCorr
-    description: Set if unable to aperture correct modelfit_CModel. Forced on u-band.
+    description: Flag set if unable to aperture-correct the CModel flux. Forced on u-band.
     datatype: boolean
   - name: u_gaapFlux_flag
-    description: Set for any fatal failure. Forced on u-band.
+    description: Flag set for any failure in the GAaP photometry. Forced on u-band.
     datatype: boolean
   - name: u_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on u-band.
@@ -1376,7 +1376,7 @@ tables:
     description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
     datatype: boolean
   - name: u_blendedness_flag
-    description: General Failure Flag. Measured on u-band.
+    description: Flag set for any failure in the blendedness algorithm. Measured on u-band.
     datatype: boolean
   - name: u_pixelFlags_bad
     description: Bad pixel in the Source footprint. Measured on u-band.
@@ -1435,10 +1435,10 @@ tables:
     description: Sources center is close to suspect pixels. Measured on u-band.
     datatype: boolean
   - name: u_extendedness_flag
-    description: Set to 1 for any fatal failure. Measured on u-band.
+    description: Flag set for any failure in the flux-ratio extendedness. Measured on u-band.
     datatype: boolean
   - name: u_sizeExtendedness_flag
-    description: Set to 1 for any fatal failure. Measured on u-band.
+    description: Flag set for any failure in the moments-based extendedness. Measured on u-band.
     datatype: boolean
   - name: u_invalidPsfFlag
     description: This object has an invalid PSF (usually no inputs). Measured on u-band.
@@ -1482,10 +1482,10 @@ tables:
       Measured on u-band.
     datatype: boolean
   - name: u_centroid_flag
-    description: General Failure Flag. Measured on u-band.
+    description: Flag set for any failure in the centroid algorithm. Measured on u-band.
     datatype: boolean
   - name: u_centroid_x
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on u-band.
     datatype: double
     ivoa:unit: pixel
   - name: u_centroid_xErr
@@ -1493,7 +1493,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: u_centroid_y
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on u-band.
     datatype: double
     ivoa:unit: pixel
   - name: u_centroid_yErr
@@ -1501,7 +1501,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: u_kronFlux_flag
-    description: General failure flag, set if anything went wrong. Measured on u-band.
+    description: Flag set for any failure in the Kron photometry. Measured on u-band.
     datatype: boolean
   - name: u_kronFlux_flag_bad_radius
     description: Bad Kron radius. Measured on u-band.
@@ -1528,10 +1528,10 @@ tables:
       u-band.
     datatype: boolean
   - name: u_kronFlux_flag_used_minimum_radius
-    description: Used the minimum radius for the Kron aperture. Measured on u-band.
+    description: Used the minimum radius for the Kron radius. Measured on u-band.
     datatype: boolean
   - name: u_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron aperture. Measured on u-band.
+    description: Used the PSF Kron radius for the Kron radius. Measured on u-band.
     datatype: boolean
   - name: g_ra
     description: Position in right ascension, measured on g-band.
@@ -1559,12 +1559,12 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: g_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Forced on
+    description: Flux derived from using the PSF model as a weight function. Forced on
       g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
@@ -1579,30 +1579,30 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   - name: g_free_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Measured
+    description: Flux derived from using the PSF model as a weight function. Measured
       on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_free_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Measured on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_free_psfFlux_flag
-    description: General Failure Flag. Measured on g-band.
+    description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on g-band.
     datatype: boolean
   - name: g_bdE1
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_bdE2
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_bdReB
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on g-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_bdReD
@@ -1610,14 +1610,14 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: g_bdChi2
-    description: -ln(likelihood) (chi^2) in cmodel fit. Measured on g-band.
+    description: -ln(likelihood) (chi^2) in CModel fit. Measured on g-band.
     datatype: float
   - name: g_bdFluxB
-    description: Flux from the de Vaucouleur fit. Measured on g-band.
+    description: Flux from the de Vaucouleurs fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_bdFluxBErr
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on g-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_bdFluxD
@@ -1629,7 +1629,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_gaapPsfFlux
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with PSF aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
@@ -1639,57 +1639,57 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap0p7Flux
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 0.7 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap0p7FluxErr
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 0.7 arcsec aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap1p0Flux
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap1p0FluxErr
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap1p5Flux
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap2p5Flux
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap3p0Flux
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on g-band.
     datatype: float
     ivoa:unit: nJy
@@ -1699,70 +1699,70 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ixx
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iyy
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_ixy
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_i_flag
     description: General failure flag, set if anything went wrong. Measured on g-band.
     datatype: boolean
   - name: g_ixxPSF
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iyyPSF
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_ixyPSF
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on g-band.
     datatype: boolean
   - name: g_ixxRound
-    description: HSM moments. Measured on g-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iyyRound
-    description: HSM moments. Measured on g-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_ixyRound
-    description: HSM moments. Measured on g-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iRound_flag
-    description: General failure flag, set if anything went wrong. Measured on g-band.
+    description: Flag set for any failure in the round moments. Measured on g-band.
     datatype: boolean
   - name: g_ixxDebiasedPSF
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iyyDebiasedPSF
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_ixyDebiasedPSF
-    description: HSM moments. Measured on g-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on g-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iDebiasedPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on g-band.
+    description: Flag set for any failure in the debiased PSF model moments. Measured on g-band.
     datatype: boolean
   - name: g_kronRad
-    description: Kron radius (sqrt(a*b)). Measured on g-band.
+    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on g-band.
     datatype: float
   - name: g_kronFlux
-    description: Flux from Kron Flux algorithm. Measured on g-band.
+    description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_kronFluxErr
@@ -1786,7 +1786,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap03Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 3.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on g-band.
@@ -1797,7 +1797,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap06Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 6.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on g-band.
@@ -1808,7 +1808,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap09Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 9.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on g-band.
@@ -1819,7 +1819,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap12Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 12.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on g-band.
@@ -1830,7 +1830,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap17Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 17.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on g-band.
@@ -1841,7 +1841,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap25Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 25.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on g-band.
@@ -1852,7 +1852,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap35Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 35.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on g-band.
@@ -1863,7 +1863,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap50Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 50.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on g-band.
@@ -1874,7 +1874,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_ap70Flux_flag
-    description: General Failure Flag. Forced on g-band.
+    description: Flag set for any failure with the 70.0-pixel aperture flux. Forced on g-band.
     datatype: boolean
   - name: g_extendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on g-band.
@@ -1888,11 +1888,11 @@ tables:
       section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on g-band.
     datatype: float
   - name: g_cModelFlux
-    description: Flux from the final cmodel fit. Forced on g-band.
+    description: Flux from the final CModel fit. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Forced on g-band.
+    description: Flux uncertainty from the final CModel fit. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_cModelMag
@@ -1910,11 +1910,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_free_cModelFlux
-    description: Flux from the final cmodel fit. Measured on g-band.
+    description: Flux from the final CModel fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_free_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Measured on g-band.
+    description: Flux uncertainty from the final CModel fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
   - name: g_free_cModelFlux_inner
@@ -1922,88 +1922,88 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_free_cModelFlux_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
+    description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on g-band.
     datatype: boolean
   - name: g_hsmShapeRegauss_e1
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on g-band.
     datatype: float
   - name: g_hsmShapeRegauss_e2
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on g-band.
     datatype: float
   - name: g_hsmShapeRegauss_sigma
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on g-band.
     datatype: float
   - name: g_hsmShapeRegauss_flag
-    description: General failure flag, set if anything went wrong. Measured on g-band.
+    description: Flag set for any failure with the Regaussianziation shapes. Measured on g-band.
     datatype: boolean
   - name: g_hsm_moments_30
-    description: HSM higher order moments 30. Measured on g-band.
+    description: HSM higher-order moment 30. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_30
-    description: HSM higher order PSF moments 30. Measured on g-band.
+    description: HSM higher-order moment 30 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_21
-    description: HSM higher order moments 21. Measured on g-band.
+    description: HSM higher-order moment 21. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_21
-    description: HSM higher order PSF moments 21. Measured on g-band.
+    description: HSM higher-order moment 21 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_12
-    description: HSM higher order moments 12. Measured on g-band.
+    description: HSM higher-order moment 12. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_12
-    description: HSM higher order PSF moments 12. Measured on g-band.
+    description: HSM higher-order moment 12 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_03
-    description: HSM higher order moments 03. Measured on g-band.
+    description: HSM higher-order moment 03. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_03
-    description: HSM higher order PSF moments 03. Measured on g-band.
+    description: HSM higher-order moment 03 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_40
-    description: HSM higher order moments 40. Measured on g-band.
+    description: HSM higher-order moment 40. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_40
-    description: HSM higher order PSF moments 40. Measured on g-band.
+    description: HSM higher-order moment 40 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_31
-    description: HSM higher order moments 31. Measured on g-band.
+    description: HSM higher-order moment 31. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_31
-    description: HSM higher order PSF moments 31. Measured on g-band.
+    description: HSM higher-order moment 31 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_22
-    description: HSM higher order moments 22. Measured on g-band.
+    description: HSM higher-order moment 22. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_22
-    description: HSM higher order PSF moments 22. Measured on g-band.
+    description: HSM higher-order moment 22 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_13
-    description: HSM higher order moments 13. Measured on g-band.
+    description: HSM higher-order moment 13. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_13
-    description: HSM higher order PSF moments 13. Measured on g-band.
+    description: HSM higher-order moment 13 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_04
-    description: HSM higher order moments 04. Measured on g-band.
+    description: HSM higher-order moment 04. Measured on g-band.
     datatype: float
   - name: g_hsm_momentsPsf_04
-    description: HSM higher order PSF moments 04. Measured on g-band.
+    description: HSM higher-order moment 04 measured on the PSF model at the position of the object. Measured on g-band.
     datatype: float
   - name: g_hsm_moments_flag
-    description: General failure flag, to be used in conjunction with g_i_flag. Measured
+    description: Flag set for any failure in the HSM higher-order moments. Measured
       on g-band.
     datatype: boolean
   - name: g_hsm_momentsPsf_flag
-    description: General failure flag, to be used in conjunction with g_iPSF_flag.
+    description: Flag set for any failure in the HSM higher-order moment on the PSF model.
       Measured on g-band.
     datatype: boolean
   - name: g_inputCount
-    description: Number of images contributing at center, not including anyclipping.
+    description: Number of images contributing at center, not including any clipping.
       Forced on g-band.
     datatype: int
   - name: g_deblend_dataCoverage
@@ -2074,10 +2074,10 @@ tables:
       for the two-Gaussian PSF model (g-band).
     datatype: boolean
   - name: g_inputCount_flag
-    description: Set for any fatal failure. Forced on g-band.
+    description: Flag set for any fatal failure. Forced on g-band.
     datatype: boolean
   - name: g_inputCount_flag_noInputs
-    description: No coadd inputs available. Forced on g-band.
+    description: No coadd inputs were recorded. Forced on g-band.
     datatype: boolean
   - name: g_psfFlux_area
     description: Effective area of PSF. Forced on g-band.
@@ -2087,7 +2087,7 @@ tables:
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_psfFlux_flag_apCorr
-    description: Set if unable to aperture correct base_PsfFlux. Forced on g-band.
+    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on g-band.
     datatype: boolean
   - name: g_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -2098,14 +2098,14 @@ tables:
       on g-band.
     datatype: boolean
   - name: g_cModel_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Forced
+    description: Flag set if the final CModel fit (or any previous fit) failed. Forced
       on g-band.
     datatype: boolean
   - name: g_cModel_flag_apCorr
-    description: Set if unable to aperture correct modelfit_CModel. Forced on g-band.
+    description: Flag set if unable to aperture-correct the CModel flux. Forced on g-band.
     datatype: boolean
   - name: g_gaapFlux_flag
-    description: Set for any fatal failure. Forced on g-band.
+    description: Flag set for any failure in the GAaP photometry. Forced on g-band.
     datatype: boolean
   - name: g_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on g-band.
@@ -2133,7 +2133,7 @@ tables:
     description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
     datatype: boolean
   - name: g_blendedness_flag
-    description: General Failure Flag. Measured on g-band.
+    description: Flag set for any failure in the blendedness algorithm. Measured on g-band.
     datatype: boolean
   - name: g_pixelFlags_bad
     description: Bad pixel in the Source footprint. Measured on g-band.
@@ -2192,10 +2192,10 @@ tables:
     description: Sources center is close to suspect pixels. Measured on g-band.
     datatype: boolean
   - name: g_extendedness_flag
-    description: Set to 1 for any fatal failure. Measured on g-band.
+    description: Flag set for any failure in the flux-ratio extendedness. Measured on g-band.
     datatype: boolean
   - name: g_sizeExtendedness_flag
-    description: Set to 1 for any fatal failure. Measured on g-band.
+    description: Flag set for any failure in the moments-based extendedness. Measured on g-band.
     datatype: boolean
   - name: g_invalidPsfFlag
     description: This object has an invalid PSF (usually no inputs). Measured on g-band.
@@ -2239,10 +2239,10 @@ tables:
       Measured on g-band.
     datatype: boolean
   - name: g_centroid_flag
-    description: General Failure Flag. Measured on g-band.
+    description: Flag set for any failure in the centroid algorithm. Measured on g-band.
     datatype: boolean
   - name: g_centroid_x
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on g-band.
     datatype: double
     ivoa:unit: pixel
   - name: g_centroid_xErr
@@ -2250,7 +2250,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: g_centroid_y
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on g-band.
     datatype: double
     ivoa:unit: pixel
   - name: g_centroid_yErr
@@ -2258,7 +2258,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: g_kronFlux_flag
-    description: General failure flag, set if anything went wrong. Measured on g-band.
+    description: Flag set for any failure in the Kron photometry. Measured on g-band.
     datatype: boolean
   - name: g_kronFlux_flag_bad_radius
     description: Bad Kron radius. Measured on g-band.
@@ -2285,10 +2285,10 @@ tables:
       g-band.
     datatype: boolean
   - name: g_kronFlux_flag_used_minimum_radius
-    description: Used the minimum radius for the Kron aperture. Measured on g-band.
+    description: Used the minimum radius for the Kron radius. Measured on g-band.
     datatype: boolean
   - name: g_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron aperture. Measured on g-band.
+    description: Used the PSF Kron radius for the Kron radius. Measured on g-band.
     datatype: boolean
   - name: r_ra
     description: Position in right ascension, measured on r-band.
@@ -2316,12 +2316,12 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: r_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Forced on
+    description: Flux derived from using the PSF model as a weight function. Forced on
       r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
@@ -2336,30 +2336,30 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   - name: r_free_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Measured
+    description: Flux derived from using the PSF model as a weight function. Measured
       on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_free_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Measured on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_free_psfFlux_flag
-    description: General Failure Flag. Measured on r-band.
+    description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on r-band.
     datatype: boolean
   - name: r_bdE1
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_bdE2
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_bdReB
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on r-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_bdReD
@@ -2367,14 +2367,14 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: r_bdChi2
-    description: -ln(likelihood) (chi^2) in cmodel fit. Measured on r-band.
+    description: -ln(likelihood) (chi^2) in CModel fit. Measured on r-band.
     datatype: float
   - name: r_bdFluxB
-    description: Flux from the de Vaucouleur fit. Measured on r-band.
+    description: Flux from the de Vaucouleurs fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_bdFluxBErr
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on r-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_bdFluxD
@@ -2386,7 +2386,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_gaapPsfFlux
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with PSF aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
@@ -2396,57 +2396,57 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap0p7Flux
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 0.7 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap0p7FluxErr
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 0.7 arcsec aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap1p0Flux
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap1p0FluxErr
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap1p5Flux
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap2p5Flux
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap3p0Flux
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on r-band.
     datatype: float
     ivoa:unit: nJy
@@ -2456,70 +2456,70 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ixx
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iyy
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_ixy
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_i_flag
     description: General failure flag, set if anything went wrong. Measured on r-band.
     datatype: boolean
   - name: r_ixxPSF
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iyyPSF
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_ixyPSF
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on r-band.
     datatype: boolean
   - name: r_ixxRound
-    description: HSM moments. Measured on r-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iyyRound
-    description: HSM moments. Measured on r-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_ixyRound
-    description: HSM moments. Measured on r-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iRound_flag
-    description: General failure flag, set if anything went wrong. Measured on r-band.
+    description: Flag set for any failure in the round moments. Measured on r-band.
     datatype: boolean
   - name: r_ixxDebiasedPSF
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iyyDebiasedPSF
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_ixyDebiasedPSF
-    description: HSM moments. Measured on r-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on r-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iDebiasedPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on r-band.
+    description: Flag set for any failure in the debiased PSF model moments. Measured on r-band.
     datatype: boolean
   - name: r_kronRad
-    description: Kron radius (sqrt(a*b)). Measured on r-band.
+    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on r-band.
     datatype: float
   - name: r_kronFlux
-    description: Flux from Kron Flux algorithm. Measured on r-band.
+    description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_kronFluxErr
@@ -2543,7 +2543,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap03Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 3.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on r-band.
@@ -2554,7 +2554,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap06Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 6.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on r-band.
@@ -2565,7 +2565,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap09Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 9.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on r-band.
@@ -2576,7 +2576,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap12Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 12.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on r-band.
@@ -2587,7 +2587,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap17Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 17.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on r-band.
@@ -2598,7 +2598,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap25Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 25.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on r-band.
@@ -2609,7 +2609,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap35Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 35.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on r-band.
@@ -2620,7 +2620,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap50Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 50.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on r-band.
@@ -2631,7 +2631,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_ap70Flux_flag
-    description: General Failure Flag. Forced on r-band.
+    description: Flag set for any failure with the 70.0-pixel aperture flux. Forced on r-band.
     datatype: boolean
   - name: r_extendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on r-band.
@@ -2645,11 +2645,11 @@ tables:
       section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on r-band.
     datatype: float
   - name: r_cModelFlux
-    description: Flux from the final cmodel fit. Forced on r-band.
+    description: Flux from the final CModel fit. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Forced on r-band.
+    description: Flux uncertainty from the final CModel fit. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_cModelMag
@@ -2667,11 +2667,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_free_cModelFlux
-    description: Flux from the final cmodel fit. Measured on r-band.
+    description: Flux from the final CModel fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_free_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Measured on r-band.
+    description: Flux uncertainty from the final CModel fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
   - name: r_free_cModelFlux_inner
@@ -2679,88 +2679,88 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_free_cModelFlux_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
+    description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on r-band.
     datatype: boolean
   - name: r_hsmShapeRegauss_e1
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on r-band.
     datatype: float
   - name: r_hsmShapeRegauss_e2
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on r-band.
     datatype: float
   - name: r_hsmShapeRegauss_sigma
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on r-band.
     datatype: float
   - name: r_hsmShapeRegauss_flag
-    description: General failure flag, set if anything went wrong. Measured on r-band.
+    description: Flag set for any failure with the Regaussianziation shapes. Measured on r-band.
     datatype: boolean
   - name: r_hsm_moments_30
-    description: HSM higher order moments 30. Measured on r-band.
+    description: HSM higher-order moment 30. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_30
-    description: HSM higher order PSF moments 30. Measured on r-band.
+    description: HSM higher-order moment 30 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_21
-    description: HSM higher order moments 21. Measured on r-band.
+    description: HSM higher-order moment 21. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_21
-    description: HSM higher order PSF moments 21. Measured on r-band.
+    description: HSM higher-order moment 21 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_12
-    description: HSM higher order moments 12. Measured on r-band.
+    description: HSM higher-order moment 12. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_12
-    description: HSM higher order PSF moments 12. Measured on r-band.
+    description: HSM higher-order moment 12 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_03
-    description: HSM higher order moments 03. Measured on r-band.
+    description: HSM higher-order moment 03. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_03
-    description: HSM higher order PSF moments 03. Measured on r-band.
+    description: HSM higher-order moment 03 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_40
-    description: HSM higher order moments 40. Measured on r-band.
+    description: HSM higher-order moment 40. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_40
-    description: HSM higher order PSF moments 40. Measured on r-band.
+    description: HSM higher-order moment 40 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_31
-    description: HSM higher order moments 31. Measured on r-band.
+    description: HSM higher-order moment 31. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_31
-    description: HSM higher order PSF moments 31. Measured on r-band.
+    description: HSM higher-order moment 31 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_22
-    description: HSM higher order moments 22. Measured on r-band.
+    description: HSM higher-order moment 22. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_22
-    description: HSM higher order PSF moments 22. Measured on r-band.
+    description: HSM higher-order moment 22 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_13
-    description: HSM higher order moments 13. Measured on r-band.
+    description: HSM higher-order moment 13. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_13
-    description: HSM higher order PSF moments 13. Measured on r-band.
+    description: HSM higher-order moment 13 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_04
-    description: HSM higher order moments 04. Measured on r-band.
+    description: HSM higher-order moment 04. Measured on r-band.
     datatype: float
   - name: r_hsm_momentsPsf_04
-    description: HSM higher order PSF moments 04. Measured on r-band.
+    description: HSM higher-order moment 04 measured on the PSF model at the position of the object. Measured on r-band.
     datatype: float
   - name: r_hsm_moments_flag
-    description: General failure flag, to be used in conjunction with r_i_flag. Measured
+    description: Flag set for any failure in the HSM higher-order moments. Measured
       on r-band.
     datatype: boolean
   - name: r_hsm_momentsPsf_flag
-    description: General failure flag, to be used in conjunction with r_iPSF_flag.
+    description: Flag set for any failure in the HSM higher-order moment on the PSF model.
       Measured on r-band.
     datatype: boolean
   - name: r_inputCount
-    description: Number of images contributing at center, not including anyclipping.
+    description: Number of images contributing at center, not including any clipping.
       Forced on r-band.
     datatype: int
   - name: r_deblend_dataCoverage
@@ -2831,10 +2831,10 @@ tables:
       for the two-Gaussian PSF model (r-band).
     datatype: boolean
   - name: r_inputCount_flag
-    description: Set for any fatal failure. Forced on r-band.
+    description: Flag set for any fatal failure. Forced on r-band.
     datatype: boolean
   - name: r_inputCount_flag_noInputs
-    description: No coadd inputs available. Forced on r-band.
+    description: No coadd inputs were recorded. Forced on r-band.
     datatype: boolean
   - name: r_psfFlux_area
     description: Effective area of PSF. Forced on r-band.
@@ -2844,7 +2844,7 @@ tables:
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_psfFlux_flag_apCorr
-    description: Set if unable to aperture correct base_PsfFlux. Forced on r-band.
+    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on r-band.
     datatype: boolean
   - name: r_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -2855,14 +2855,14 @@ tables:
       on r-band.
     datatype: boolean
   - name: r_cModel_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Forced
+    description: Flag set if the final CModel fit (or any previous fit) failed. Forced
       on r-band.
     datatype: boolean
   - name: r_cModel_flag_apCorr
-    description: Set if unable to aperture correct modelfit_CModel. Forced on r-band.
+    description: Flag set if unable to aperture-correct the CModel flux. Forced on r-band.
     datatype: boolean
   - name: r_gaapFlux_flag
-    description: Set for any fatal failure. Forced on r-band.
+    description: Flag set for any failure in the GAaP photometry. Forced on r-band.
     datatype: boolean
   - name: r_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on r-band.
@@ -2890,7 +2890,7 @@ tables:
     description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
     datatype: boolean
   - name: r_blendedness_flag
-    description: General Failure Flag. Measured on r-band.
+    description: Flag set for any failure in the blendedness algorithm. Measured on r-band.
     datatype: boolean
   - name: r_pixelFlags_bad
     description: Bad pixel in the Source footprint. Measured on r-band.
@@ -2949,10 +2949,10 @@ tables:
     description: Sources center is close to suspect pixels. Measured on r-band.
     datatype: boolean
   - name: r_extendedness_flag
-    description: Set to 1 for any fatal failure. Measured on r-band.
+    description: Flag set for any failure in the flux-ratio extendedness. Measured on r-band.
     datatype: boolean
   - name: r_sizeExtendedness_flag
-    description: Set to 1 for any fatal failure. Measured on r-band.
+    description: Flag set for any failure in the moments-based extendedness. Measured on r-band.
     datatype: boolean
   - name: r_invalidPsfFlag
     description: This object has an invalid PSF (usually no inputs). Measured on r-band.
@@ -2996,10 +2996,10 @@ tables:
       Measured on r-band.
     datatype: boolean
   - name: r_centroid_flag
-    description: General Failure Flag. Measured on r-band.
+    description: Flag set for any failure in the centroid algorithm. Measured on r-band.
     datatype: boolean
   - name: r_centroid_x
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on r-band.
     datatype: double
     ivoa:unit: pixel
   - name: r_centroid_xErr
@@ -3007,7 +3007,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: r_centroid_y
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on r-band.
     datatype: double
     ivoa:unit: pixel
   - name: r_centroid_yErr
@@ -3015,7 +3015,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: r_kronFlux_flag
-    description: General failure flag, set if anything went wrong. Measured on r-band.
+    description: Flag set for any failure in the Kron photometry. Measured on r-band.
     datatype: boolean
   - name: r_kronFlux_flag_bad_radius
     description: Bad Kron radius. Measured on r-band.
@@ -3042,10 +3042,10 @@ tables:
       r-band.
     datatype: boolean
   - name: r_kronFlux_flag_used_minimum_radius
-    description: Used the minimum radius for the Kron aperture. Measured on r-band.
+    description: Used the minimum radius for the Kron radius. Measured on r-band.
     datatype: boolean
   - name: r_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron aperture. Measured on r-band.
+    description: Used the PSF Kron radius for the Kron radius. Measured on r-band.
     datatype: boolean
   - name: i_ra
     description: Position in right ascension, measured on i-band.
@@ -3073,12 +3073,12 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: i_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Forced on
+    description: Flux derived from using the PSF model as a weight function. Forced on
       i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
@@ -3093,30 +3093,30 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   - name: i_free_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Measured
+    description: Flux derived from using the PSF model as a weight function. Measured
       on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_free_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Measured on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_free_psfFlux_flag
-    description: General Failure Flag. Measured on i-band.
+    description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on i-band.
     datatype: boolean
   - name: i_bdE1
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_bdE2
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_bdReB
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on i-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_bdReD
@@ -3124,14 +3124,14 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: i_bdChi2
-    description: -ln(likelihood) (chi^2) in cmodel fit. Measured on i-band.
+    description: -ln(likelihood) (chi^2) in CModel fit. Measured on i-band.
     datatype: float
   - name: i_bdFluxB
-    description: Flux from the de Vaucouleur fit. Measured on i-band.
+    description: Flux from the de Vaucouleurs fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_bdFluxBErr
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on i-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_bdFluxD
@@ -3143,7 +3143,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_gaapPsfFlux
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with PSF aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
@@ -3153,57 +3153,57 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap0p7Flux
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 0.7 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap0p7FluxErr
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 0.7 arcsec aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap1p0Flux
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap1p0FluxErr
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap1p5Flux
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap2p5Flux
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap3p0Flux
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on i-band.
     datatype: float
     ivoa:unit: nJy
@@ -3213,70 +3213,70 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ixx
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iyy
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_ixy
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_i_flag
     description: General failure flag, set if anything went wrong. Measured on i-band.
     datatype: boolean
   - name: i_ixxPSF
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iyyPSF
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_ixyPSF
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on i-band.
     datatype: boolean
   - name: i_ixxRound
-    description: HSM moments. Measured on i-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iyyRound
-    description: HSM moments. Measured on i-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_ixyRound
-    description: HSM moments. Measured on i-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iRound_flag
-    description: General failure flag, set if anything went wrong. Measured on i-band.
+    description: Flag set for any failure in the round moments. Measured on i-band.
     datatype: boolean
   - name: i_ixxDebiasedPSF
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iyyDebiasedPSF
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_ixyDebiasedPSF
-    description: HSM moments. Measured on i-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on i-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iDebiasedPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on i-band.
+    description: Flag set for any failure in the debiased PSF model moments. Measured on i-band.
     datatype: boolean
   - name: i_kronRad
-    description: Kron radius (sqrt(a*b)). Measured on i-band.
+    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on i-band.
     datatype: float
   - name: i_kronFlux
-    description: Flux from Kron Flux algorithm. Measured on i-band.
+    description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_kronFluxErr
@@ -3300,7 +3300,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap03Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 3.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on i-band.
@@ -3311,7 +3311,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap06Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 6.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on i-band.
@@ -3322,7 +3322,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap09Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 9.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on i-band.
@@ -3333,7 +3333,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap12Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 12.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on i-band.
@@ -3344,7 +3344,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap17Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 17.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on i-band.
@@ -3355,7 +3355,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap25Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 25.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on i-band.
@@ -3366,7 +3366,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap35Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 35.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on i-band.
@@ -3377,7 +3377,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap50Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 50.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on i-band.
@@ -3388,7 +3388,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_ap70Flux_flag
-    description: General Failure Flag. Forced on i-band.
+    description: Flag set for any failure with the 70.0-pixel aperture flux. Forced on i-band.
     datatype: boolean
   - name: i_extendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on i-band.
@@ -3402,11 +3402,11 @@ tables:
       section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on i-band.
     datatype: float
   - name: i_cModelFlux
-    description: Flux from the final cmodel fit. Forced on i-band.
+    description: Flux from the final CModel fit. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Forced on i-band.
+    description: Flux uncertainty from the final CModel fit. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_cModelMag
@@ -3424,11 +3424,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_free_cModelFlux
-    description: Flux from the final cmodel fit. Measured on i-band.
+    description: Flux from the final CModel fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_free_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Measured on i-band.
+    description: Flux uncertainty from the final CModel fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
   - name: i_free_cModelFlux_inner
@@ -3436,88 +3436,88 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_free_cModelFlux_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
+    description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on i-band.
     datatype: boolean
   - name: i_hsmShapeRegauss_e1
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on i-band.
     datatype: float
   - name: i_hsmShapeRegauss_e2
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on i-band.
     datatype: float
   - name: i_hsmShapeRegauss_sigma
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on i-band.
     datatype: float
   - name: i_hsmShapeRegauss_flag
-    description: General failure flag, set if anything went wrong. Measured on i-band.
+    description: Flag set for any failure with the Regaussianziation shapes. Measured on i-band.
     datatype: boolean
   - name: i_hsm_moments_30
-    description: HSM higher order moments 30. Measured on i-band.
+    description: HSM higher-order moment 30. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_30
-    description: HSM higher order PSF moments 30. Measured on i-band.
+    description: HSM higher-order moment 30 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_21
-    description: HSM higher order moments 21. Measured on i-band.
+    description: HSM higher-order moment 21. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_21
-    description: HSM higher order PSF moments 21. Measured on i-band.
+    description: HSM higher-order moment 21 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_12
-    description: HSM higher order moments 12. Measured on i-band.
+    description: HSM higher-order moment 12. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_12
-    description: HSM higher order PSF moments 12. Measured on i-band.
+    description: HSM higher-order moment 12 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_03
-    description: HSM higher order moments 03. Measured on i-band.
+    description: HSM higher-order moment 03. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_03
-    description: HSM higher order PSF moments 03. Measured on i-band.
+    description: HSM higher-order moment 03 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_40
-    description: HSM higher order moments 40. Measured on i-band.
+    description: HSM higher-order moment 40. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_40
-    description: HSM higher order PSF moments 40. Measured on i-band.
+    description: HSM higher-order moment 40 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_31
-    description: HSM higher order moments 31. Measured on i-band.
+    description: HSM higher-order moment 31. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_31
-    description: HSM higher order PSF moments 31. Measured on i-band.
+    description: HSM higher-order moment 31 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_22
-    description: HSM higher order moments 22. Measured on i-band.
+    description: HSM higher-order moment 22. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_22
-    description: HSM higher order PSF moments 22. Measured on i-band.
+    description: HSM higher-order moment 22 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_13
-    description: HSM higher order moments 13. Measured on i-band.
+    description: HSM higher-order moment 13. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_13
-    description: HSM higher order PSF moments 13. Measured on i-band.
+    description: HSM higher-order moment 13 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_04
-    description: HSM higher order moments 04. Measured on i-band.
+    description: HSM higher-order moment 04. Measured on i-band.
     datatype: float
   - name: i_hsm_momentsPsf_04
-    description: HSM higher order PSF moments 04. Measured on i-band.
+    description: HSM higher-order moment 04 measured on the PSF model at the position of the object. Measured on i-band.
     datatype: float
   - name: i_hsm_moments_flag
-    description: General failure flag, to be used in conjunction with i_i_flag. Measured
+    description: Flag set for any failure in the HSM higher-order moments. Measured
       on i-band.
     datatype: boolean
   - name: i_hsm_momentsPsf_flag
-    description: General failure flag, to be used in conjunction with i_iPSF_flag.
+    description: Flag set for any failure in the HSM higher-order moment on the PSF model.
       Measured on i-band.
     datatype: boolean
   - name: i_inputCount
-    description: Number of images contributing at center, not including anyclipping.
+    description: Number of images contributing at center, not including any clipping.
       Forced on i-band.
     datatype: int
   - name: i_deblend_dataCoverage
@@ -3588,10 +3588,10 @@ tables:
       for the two-Gaussian PSF model (i-band).
     datatype: boolean
   - name: i_inputCount_flag
-    description: Set for any fatal failure. Forced on i-band.
+    description: Flag set for any fatal failure. Forced on i-band.
     datatype: boolean
   - name: i_inputCount_flag_noInputs
-    description: No coadd inputs available. Forced on i-band.
+    description: No coadd inputs were recorded. Forced on i-band.
     datatype: boolean
   - name: i_psfFlux_area
     description: Effective area of PSF. Forced on i-band.
@@ -3601,7 +3601,7 @@ tables:
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_psfFlux_flag_apCorr
-    description: Set if unable to aperture correct base_PsfFlux. Forced on i-band.
+    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on i-band.
     datatype: boolean
   - name: i_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -3612,14 +3612,14 @@ tables:
       on i-band.
     datatype: boolean
   - name: i_cModel_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Forced
+    description: Flag set if the final CModel fit (or any previous fit) failed. Forced
       on i-band.
     datatype: boolean
   - name: i_cModel_flag_apCorr
-    description: Set if unable to aperture correct modelfit_CModel. Forced on i-band.
+    description: Flag set if unable to aperture-correct the CModel flux. Forced on i-band.
     datatype: boolean
   - name: i_gaapFlux_flag
-    description: Set for any fatal failure. Forced on i-band.
+    description: Flag set for any failure in the GAaP photometry. Forced on i-band.
     datatype: boolean
   - name: i_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on i-band.
@@ -3647,7 +3647,7 @@ tables:
     description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
     datatype: boolean
   - name: i_blendedness_flag
-    description: General Failure Flag. Measured on i-band.
+    description: Flag set for any failure in the blendedness algorithm. Measured on i-band.
     datatype: boolean
   - name: i_pixelFlags_bad
     description: Bad pixel in the Source footprint. Measured on i-band.
@@ -3706,10 +3706,10 @@ tables:
     description: Sources center is close to suspect pixels. Measured on i-band.
     datatype: boolean
   - name: i_extendedness_flag
-    description: Set to 1 for any fatal failure. Measured on i-band.
+    description: Flag set for any failure in the flux-ratio extendedness. Measured on i-band.
     datatype: boolean
   - name: i_sizeExtendedness_flag
-    description: Set to 1 for any fatal failure. Measured on i-band.
+    description: Flag set for any failure in the moments-based extendedness. Measured on i-band.
     datatype: boolean
   - name: i_invalidPsfFlag
     description: This object has an invalid PSF (usually no inputs). Measured on i-band.
@@ -3753,10 +3753,10 @@ tables:
       Measured on i-band.
     datatype: boolean
   - name: i_centroid_flag
-    description: General Failure Flag. Measured on i-band.
+    description: Flag set for any failure in the centroid algorithm. Measured on i-band.
     datatype: boolean
   - name: i_centroid_x
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on i-band.
     datatype: double
     ivoa:unit: pixel
   - name: i_centroid_xErr
@@ -3764,7 +3764,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: i_centroid_y
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on i-band.
     datatype: double
     ivoa:unit: pixel
   - name: i_centroid_yErr
@@ -3772,7 +3772,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: i_kronFlux_flag
-    description: General failure flag, set if anything went wrong. Measured on i-band.
+    description: Flag set for any failure in the Kron photometry. Measured on i-band.
     datatype: boolean
   - name: i_kronFlux_flag_bad_radius
     description: Bad Kron radius. Measured on i-band.
@@ -3799,10 +3799,10 @@ tables:
       i-band.
     datatype: boolean
   - name: i_kronFlux_flag_used_minimum_radius
-    description: Used the minimum radius for the Kron aperture. Measured on i-band.
+    description: Used the minimum radius for the Kron radius. Measured on i-band.
     datatype: boolean
   - name: i_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron aperture. Measured on i-band.
+    description: Used the PSF Kron radius for the Kron radius. Measured on i-band.
     datatype: boolean
   - name: y_ra
     description: Position in right ascension, measured on y-band.
@@ -3830,12 +3830,12 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: y_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Forced on
+    description: Flux derived from using the PSF model as a weight function. Forced on
       y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
@@ -3850,30 +3850,30 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   - name: y_free_psfFlux
-    description: Flux derived from linear least-squares fit of PSF model. Measured
+    description: Flux derived from using the PSF model as a weight function. Measured
       on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_free_psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Flux uncertainty derived from using the PSF model as a weight function.
       Measured on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_free_psfFlux_flag
-    description: General Failure Flag. Measured on y-band.
+    description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on y-band.
     datatype: boolean
   - name: y_bdE1
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_bdE2
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured
+    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
       on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_bdReB
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on y-band.
+    description: Half-light ellipse of the de Vaucouleurs fit. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_bdReD
@@ -3881,14 +3881,14 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: y_bdChi2
-    description: -ln(likelihood) (chi^2) in cmodel fit. Measured on y-band.
+    description: -ln(likelihood) (chi^2) in CModel fit. Measured on y-band.
     datatype: float
   - name: y_bdFluxB
-    description: Flux from the de Vaucouleur fit. Measured on y-band.
+    description: Flux from the de Vaucouleurs fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_bdFluxBErr
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on y-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_bdFluxD
@@ -3900,7 +3900,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_gaapPsfFlux
-    description: GAaP Flux with PSF aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with PSF aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
@@ -3910,57 +3910,57 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap0p7Flux
-    description: GAaP Flux with 0.7 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 0.7 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap0p7FluxErr
-    description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 0.7 arcsec aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap1p0Flux
-    description: GAaP Flux with 1.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap1p0FluxErr
-    description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap1p5Flux
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap2p5Flux
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap3p0Flux
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing
+    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
       by 1.15. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15.
+    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on y-band.
     datatype: float
     ivoa:unit: nJy
@@ -3970,70 +3970,70 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ixx
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iyy
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_ixy
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_i_flag
     description: General failure flag, set if anything went wrong. Measured on y-band.
     datatype: boolean
   - name: y_ixxPSF
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iyyPSF
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_ixyPSF
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iPSF_flag
     description: General failure flag, set if anything went wrong. Measured on y-band.
     datatype: boolean
   - name: y_ixxRound
-    description: HSM moments. Measured on y-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iyyRound
-    description: HSM moments. Measured on y-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_ixyRound
-    description: HSM moments. Measured on y-band.
+    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iRound_flag
-    description: General failure flag, set if anything went wrong. Measured on y-band.
+    description: Flag set for any failure in the round moments. Measured on y-band.
     datatype: boolean
   - name: y_ixxDebiasedPSF
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iyyDebiasedPSF
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_ixyDebiasedPSF
-    description: HSM moments. Measured on y-band.
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on y-band.
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iDebiasedPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on y-band.
+    description: Flag set for any failure in the debiased PSF model moments. Measured on y-band.
     datatype: boolean
   - name: y_kronRad
-    description: Kron radius (sqrt(a*b)). Measured on y-band.
+    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on y-band.
     datatype: float
   - name: y_kronFlux
-    description: Flux from Kron Flux algorithm. Measured on y-band.
+    description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_kronFluxErr
@@ -4057,7 +4057,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap03Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 3.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap06Flux
     description: Flux within 6.0-pixel aperture. Forced on y-band.
@@ -4068,7 +4068,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap06Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 6.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap09Flux
     description: Flux within 9.0-pixel aperture. Forced on y-band.
@@ -4079,7 +4079,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap09Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 9.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap12Flux
     description: Flux within 12.0-pixel aperture. Forced on y-band.
@@ -4090,7 +4090,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap12Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 12.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap17Flux
     description: Flux within 17.0-pixel aperture. Forced on y-band.
@@ -4101,7 +4101,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap17Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 17.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap25Flux
     description: Flux within 25.0-pixel aperture. Forced on y-band.
@@ -4112,7 +4112,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap25Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 25.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap35Flux
     description: Flux within 35.0-pixel aperture. Forced on y-band.
@@ -4123,7 +4123,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap35Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 35.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap50Flux
     description: Flux within 50.0-pixel aperture. Forced on y-band.
@@ -4134,7 +4134,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap50Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 50.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_ap70Flux
     description: Flux within 70.0-pixel aperture. Forced on y-band.
@@ -4145,7 +4145,7 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_ap70Flux_flag
-    description: General Failure Flag. Forced on y-band.
+    description: Flag set for any failure with the 70.0-pixel aperture flux. Forced on y-band.
     datatype: boolean
   - name: y_extendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended (1). Measured on y-band.
@@ -4159,11 +4159,11 @@ tables:
       section 4.9.11 of Bosch et al. 2018, PASJ, 70, S5 for details. Measured on y-band.
     datatype: float
   - name: y_cModelFlux
-    description: Flux from the final cmodel fit. Forced on y-band.
+    description: Flux from the final CModel fit. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Forced on y-band.
+    description: Flux uncertainty from the final CModel fit. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_cModelMag
@@ -4181,11 +4181,11 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_free_cModelFlux
-    description: Flux from the final cmodel fit. Measured on y-band.
+    description: Flux from the final CModel fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_free_cModelFluxErr
-    description: Flux uncertainty from the final cmodel fit. Measured on y-band.
+    description: Flux uncertainty from the final CModel fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
   - name: y_free_cModelFlux_inner
@@ -4193,88 +4193,88 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_free_cModelFlux_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Measured
+    description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on y-band.
     datatype: boolean
   - name: y_hsmShapeRegauss_e1
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on y-band.
     datatype: float
   - name: y_hsmShapeRegauss_e2
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on y-band.
     datatype: float
   - name: y_hsmShapeRegauss_sigma
-    description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization.
+    description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on y-band.
     datatype: float
   - name: y_hsmShapeRegauss_flag
-    description: General failure flag, set if anything went wrong. Measured on y-band.
+    description: Flag set for any failure with the Regaussianziation shapes. Measured on y-band.
     datatype: boolean
   - name: y_hsm_moments_30
-    description: HSM higher order moments 30. Measured on y-band.
+    description: HSM higher-order moment 30. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_30
-    description: HSM higher order PSF moments 30. Measured on y-band.
+    description: HSM higher-order moment 30 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_21
-    description: HSM higher order moments 21. Measured on y-band.
+    description: HSM higher-order moment 21. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_21
-    description: HSM higher order PSF moments 21. Measured on y-band.
+    description: HSM higher-order moment 21 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_12
-    description: HSM higher order moments 12. Measured on y-band.
+    description: HSM higher-order moment 12. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_12
-    description: HSM higher order PSF moments 12. Measured on y-band.
+    description: HSM higher-order moment 12 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_03
-    description: HSM higher order moments 03. Measured on y-band.
+    description: HSM higher-order moment 03. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_03
-    description: HSM higher order PSF moments 03. Measured on y-band.
+    description: HSM higher-order moment 03 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_40
-    description: HSM higher order moments 40. Measured on y-band.
+    description: HSM higher-order moment 40. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_40
-    description: HSM higher order PSF moments 40. Measured on y-band.
+    description: HSM higher-order moment 40 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_31
-    description: HSM higher order moments 31. Measured on y-band.
+    description: HSM higher-order moment 31. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_31
-    description: HSM higher order PSF moments 31. Measured on y-band.
+    description: HSM higher-order moment 31 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_22
-    description: HSM higher order moments 22. Measured on y-band.
+    description: HSM higher-order moment 22. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_22
-    description: HSM higher order PSF moments 22. Measured on y-band.
+    description: HSM higher-order moment 22 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_13
-    description: HSM higher order moments 13. Measured on y-band.
+    description: HSM higher-order moment 13. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_13
-    description: HSM higher order PSF moments 13. Measured on y-band.
+    description: HSM higher-order moment 13 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_04
-    description: HSM higher order moments 04. Measured on y-band.
+    description: HSM higher-order moment 04. Measured on y-band.
     datatype: float
   - name: y_hsm_momentsPsf_04
-    description: HSM higher order PSF moments 04. Measured on y-band.
+    description: HSM higher-order moment 04 measured on the PSF model at the position of the object. Measured on y-band.
     datatype: float
   - name: y_hsm_moments_flag
-    description: General failure flag, to be used in conjunction with y_i_flag. Measured
+    description: Flag set for any failure in the HSM higher-order moments. Measured
       on y-band.
     datatype: boolean
   - name: y_hsm_momentsPsf_flag
-    description: General failure flag, to be used in conjunction with y_iPSF_flag.
+    description: Flag set for any failure in the HSM higher-order moment on the PSF model.
       Measured on y-band.
     datatype: boolean
   - name: y_inputCount
-    description: Number of images contributing at center, not including anyclipping.
+    description: Number of images contributing at center, not including any clipping.
       Forced on y-band.
     datatype: int
   - name: y_deblend_dataCoverage
@@ -4345,10 +4345,10 @@ tables:
       for the two-Gaussian PSF model (y-band).
     datatype: boolean
   - name: y_inputCount_flag
-    description: Set for any fatal failure. Forced on y-band.
+    description: Flag set for any fatal failure. Forced on y-band.
     datatype: boolean
   - name: y_inputCount_flag_noInputs
-    description: No coadd inputs available. Forced on y-band.
+    description: No coadd inputs were recorded. Forced on y-band.
     datatype: boolean
   - name: y_psfFlux_area
     description: Effective area of PSF. Forced on y-band.
@@ -4358,7 +4358,7 @@ tables:
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_psfFlux_flag_apCorr
-    description: Set if unable to aperture correct base_PsfFlux. Forced on y-band.
+    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on y-band.
     datatype: boolean
   - name: y_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -4369,14 +4369,14 @@ tables:
       on y-band.
     datatype: boolean
   - name: y_cModel_flag
-    description: Flag set if the final cmodel fit (or any previous fit) failed. Forced
+    description: Flag set if the final CModel fit (or any previous fit) failed. Forced
       on y-band.
     datatype: boolean
   - name: y_cModel_flag_apCorr
-    description: Set if unable to aperture correct modelfit_CModel. Forced on y-band.
+    description: Flag set if unable to aperture-correct the CModel flux. Forced on y-band.
     datatype: boolean
   - name: y_gaapFlux_flag
-    description: Set for any fatal failure. Forced on y-band.
+    description: Flag set for any failure in the GAaP photometry. Forced on y-band.
     datatype: boolean
   - name: y_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on y-band.
@@ -4404,7 +4404,7 @@ tables:
     description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
     datatype: boolean
   - name: y_blendedness_flag
-    description: General Failure Flag. Measured on y-band.
+    description: Flag set for any failure in the blendedness algorithm. Measured on y-band.
     datatype: boolean
   - name: y_pixelFlags_bad
     description: Bad pixel in the Source footprint. Measured on y-band.
@@ -4463,10 +4463,10 @@ tables:
     description: Sources center is close to suspect pixels. Measured on y-band.
     datatype: boolean
   - name: y_extendedness_flag
-    description: Set to 1 for any fatal failure. Measured on y-band.
+    description: Flag set for any failure in the flux-ratio extendedness. Measured on y-band.
     datatype: boolean
   - name: y_sizeExtendedness_flag
-    description: Set to 1 for any fatal failure. Measured on y-band.
+    description: Flag set for any failure in the moments-based extendedness. Measured on y-band.
     datatype: boolean
   - name: y_invalidPsfFlag
     description: This object has an invalid PSF (usually no inputs). Measured on y-band.
@@ -4510,10 +4510,10 @@ tables:
       Measured on y-band.
     datatype: boolean
   - name: y_centroid_flag
-    description: General Failure Flag. Measured on y-band.
+    description: Flag set for any failure in the centroid algorithm. Measured on y-band.
     datatype: boolean
   - name: y_centroid_x
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on y-band.
     datatype: double
     ivoa:unit: pixel
   - name: y_centroid_xErr
@@ -4521,7 +4521,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: y_centroid_y
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
+    description: Centroid from the SDSS centroid algorithm. Measured on y-band.
     datatype: double
     ivoa:unit: pixel
   - name: y_centroid_yErr
@@ -4529,7 +4529,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: y_kronFlux_flag
-    description: General failure flag, set if anything went wrong. Measured on y-band.
+    description: Flag set for any failure in the Kron photometry. Measured on y-band.
     datatype: boolean
   - name: y_kronFlux_flag_bad_radius
     description: Bad Kron radius. Measured on y-band.
@@ -4556,10 +4556,10 @@ tables:
       y-band.
     datatype: boolean
   - name: y_kronFlux_flag_used_minimum_radius
-    description: Used the minimum radius for the Kron aperture. Measured on y-band.
+    description: Used the minimum radius for the Kron radius. Measured on y-band.
     datatype: boolean
   - name: y_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron aperture. Measured on y-band.
+    description: Used the PSF Kron radius for the Kron radius. Measured on y-band.
     datatype: boolean
   - name: g_epoch
     description: Mean epoch of the object in the g-band coadd in MJD TAI
@@ -4632,11 +4632,11 @@ tables:
     datatype: float
     tap:principal: 1
   - name: x
-    description: Centroid from Sdss Centroid algorithm. Reference band.
+    description: Centroid from the SDSS centroid algorithm. Reference band.
     datatype: double
     ivoa:unit: pixel
   - name: y
-    description: Centroid from Sdss Centroid algorithm. Reference band.
+    description: Centroid from the SDSS centroid algorithm. Reference band.
     datatype: double
     ivoa:unit: pixel
   - name: xErr
@@ -4659,15 +4659,15 @@ tables:
     datatype: float
     ivoa:unit: mag
   - name: shape_xx
-    description: HSM moments. Reference band.
+    description: Gaussian-weighted adaptive moments. Reference band.
     datatype: float
     ivoa:unit: pixel**2
   - name: shape_yy
-    description: HSM moments. Reference band.
+    description: Gaussian-weighted adaptive moments. Reference band.
     datatype: float
     ivoa:unit: pixel**2
   - name: shape_xy
-    description: HSM moments. Reference band.
+    description: Gaussian-weighted adaptive moments. Reference band.
     datatype: float
     ivoa:unit: pixel**2
   - name: detect_isIsolated
