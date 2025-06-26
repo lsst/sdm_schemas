@@ -5408,6 +5408,15 @@ tables:
     - '#Source.visit'
     referencedColumns:
     - '#Visit.visit'
+  - name: FK_Source_CcdVisit
+    '@type': ForeignKey
+    description: Link Source to its associated CcdVisit.
+    columns:
+    - '#Source.visit'
+    - '#Source.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: ForcedSource
   description: The forced source table contains forced-photometry source measurement
     on an individual Exposure based on a Multifit shape model derived from a deep
@@ -5540,6 +5549,15 @@ tables:
     - '#ForcedSource.visit'
     referencedColumns:
     - '#Visit.visit'
+  - name: FK_ForcedSource_CcdVisit
+    description: Link a ForcedSource to its associated CcdVisit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSource.visit'
+    - '#ForcedSource.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: DiaSource
   description: this is diaSourceTable_tract in the butler repo
   primaryKey: '#DiaSource.diaSourceId'
@@ -5916,6 +5934,15 @@ tables:
     - '#DiaSource.parentDiaSourceId'
     referencedColumns:
     - '#DiaSource.diaSourceId'
+  - name: FK_DiaSource_CcdVisit
+    description: Link a Diasource to its associated CcdVisit.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.visit'
+    - '#DiaSource.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: DiaObject
   description: this is diaObjectTable_tract in the butler repo
   primaryKey: '#DiaObject.diaObjectId'
@@ -6478,6 +6505,15 @@ tables:
     - '#ForcedSourceOnDiaObject.visit'
     referencedColumns:
     - '#Visit.visit'
+  - name: FK_ForcedSourceOnDiaObject_CcdVisit
+    description: Link a ForcedSourceOnDiaObject to its associated CcdVisit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSourceOnDiaObject.visit'
+    - '#ForcedSourceOnDiaObject.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: Visit
   description: Defines a single Visit.
   primaryKey: '#Visit.visit'
