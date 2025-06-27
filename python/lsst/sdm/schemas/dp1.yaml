@@ -968,7 +968,7 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: u_iPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on u-band.
+    description: Flag set for any failure in the PSF model moments. Measured on u-band.
     datatype: boolean
   - name: u_ixxRound
     description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
@@ -1253,7 +1253,7 @@ tables:
       pixels/total number of pixels in the u-band.
     datatype: float
   - name: u_deblend_blendedness
-    description: Blendedness in the deconvolved scarlet space
+    description: Blendedness in the deconvolved scarlet space.
     datatype: float
   - name: u_deblend_fluxOverlap
     description: The total flux from neighboring objects that overlaps with this sources
@@ -1316,7 +1316,7 @@ tables:
       for the two-Gaussian PSF model (u-band).
     datatype: boolean
   - name: u_inputCount_flag
-    description: Flag set for any fatal failure. Forced on u-band.
+    description: Flag set for any failure in computing the number of inputs. Forced on u-band.
     datatype: boolean
   - name: u_inputCount_flag_noInputs
     description: No coadd inputs were recorded. Forced on u-band.
@@ -1329,7 +1329,7 @@ tables:
     description: General Failure Flag. Forced on u-band.
     datatype: boolean
   - name: u_psfFlux_flag_apCorr
-    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on u-band.
+    description: Flag set if unable to aperture-correct the PSF flux. Forced on u-band.
     datatype: boolean
   - name: u_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -1724,7 +1724,7 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: g_iPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on g-band.
+    description: Flag set for any failure in the PSF model moments. Measured on g-band.
     datatype: boolean
   - name: g_ixxRound
     description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
@@ -2009,7 +2009,7 @@ tables:
       pixels/total number of pixels in the g-band.
     datatype: float
   - name: g_deblend_blendedness
-    description: Blendedness in the deconvolved scarlet space
+    description: Blendedness in the deconvolved scarlet space.
     datatype: float
   - name: g_deblend_fluxOverlap
     description: The total flux from neighboring objects that overlaps with this sources
@@ -2072,7 +2072,7 @@ tables:
       for the two-Gaussian PSF model (g-band).
     datatype: boolean
   - name: g_inputCount_flag
-    description: Flag set for any fatal failure. Forced on g-band.
+    description: Flag set for any failure in computing the number of inputs. Forced on g-band.
     datatype: boolean
   - name: g_inputCount_flag_noInputs
     description: No coadd inputs were recorded. Forced on g-band.
@@ -2085,7 +2085,7 @@ tables:
     description: General Failure Flag. Forced on g-band.
     datatype: boolean
   - name: g_psfFlux_flag_apCorr
-    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on g-band.
+    description: Flag set if unable to aperture-correct the PSF flux. Forced on g-band.
     datatype: boolean
   - name: g_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -2480,7 +2480,7 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: r_iPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on r-band.
+    description: Flag set for any failure in the PSF model moments. Measured on r-band.
     datatype: boolean
   - name: r_ixxRound
     description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
@@ -2765,7 +2765,7 @@ tables:
       pixels/total number of pixels in the r-band.
     datatype: float
   - name: r_deblend_blendedness
-    description: Blendedness in the deconvolved scarlet space
+    description: Blendedness in the deconvolved scarlet space.
     datatype: float
   - name: r_deblend_fluxOverlap
     description: The total flux from neighboring objects that overlaps with this sources
@@ -2828,7 +2828,7 @@ tables:
       for the two-Gaussian PSF model (r-band).
     datatype: boolean
   - name: r_inputCount_flag
-    description: Flag set for any fatal failure. Forced on r-band.
+    description: Flag set for any failure in computing the number of inputs. Forced on r-band.
     datatype: boolean
   - name: r_inputCount_flag_noInputs
     description: No coadd inputs were recorded. Forced on r-band.
@@ -2841,7 +2841,7 @@ tables:
     description: General Failure Flag. Forced on r-band.
     datatype: boolean
   - name: r_psfFlux_flag_apCorr
-    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on r-band.
+    description: Flag set if unable to aperture-correct the PSF flux. Forced on r-band.
     datatype: boolean
   - name: r_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -3236,7 +3236,7 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: i_iPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on i-band.
+    description: Flag set for any failure in the PSF model moments. Measured on i-band.
     datatype: boolean
   - name: i_ixxRound
     description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
@@ -3521,7 +3521,7 @@ tables:
       pixels/total number of pixels in the i-band.
     datatype: float
   - name: i_deblend_blendedness
-    description: Blendedness in the deconvolved scarlet space
+    description: Blendedness in the deconvolved scarlet space.
     datatype: float
   - name: i_deblend_fluxOverlap
     description: The total flux from neighboring objects that overlaps with this sources
@@ -3584,7 +3584,7 @@ tables:
       for the two-Gaussian PSF model (i-band).
     datatype: boolean
   - name: i_inputCount_flag
-    description: Flag set for any fatal failure. Forced on i-band.
+    description: Flag set for any failure in computing the number of inputs. Forced on i-band.
     datatype: boolean
   - name: i_inputCount_flag_noInputs
     description: No coadd inputs were recorded. Forced on i-band.
@@ -3597,7 +3597,7 @@ tables:
     description: General Failure Flag. Forced on i-band.
     datatype: boolean
   - name: i_psfFlux_flag_apCorr
-    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on i-band.
+    description: Flag set if unable to aperture-correct the PSF flux. Forced on i-band.
     datatype: boolean
   - name: i_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
@@ -3992,7 +3992,7 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
   - name: y_iPSF_flag
-    description: General failure flag, set if anything went wrong. Measured on y-band.
+    description: Flag set for any failure in the PSF model moments. Measured on y-band.
     datatype: boolean
   - name: y_ixxRound
     description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
@@ -4277,7 +4277,7 @@ tables:
       pixels/total number of pixels in the y-band.
     datatype: float
   - name: y_deblend_blendedness
-    description: Blendedness in the deconvolved scarlet space
+    description: Blendedness in the deconvolved scarlet space.
     datatype: float
   - name: y_deblend_fluxOverlap
     description: The total flux from neighboring objects that overlaps with this sources
@@ -4340,7 +4340,7 @@ tables:
       for the two-Gaussian PSF model (y-band).
     datatype: boolean
   - name: y_inputCount_flag
-    description: Flag set for any fatal failure. Forced on y-band.
+    description: Flag set for any failure in computing the number of inputs. Forced on y-band.
     datatype: boolean
   - name: y_inputCount_flag_noInputs
     description: No coadd inputs were recorded. Forced on y-band.
@@ -4353,7 +4353,7 @@ tables:
     description: General Failure Flag. Forced on y-band.
     datatype: boolean
   - name: y_psfFlux_flag_apCorr
-    description: Flag set if unable to aperture-correct base_PsfFlux. Forced on y-band.
+    description: Flag set if unable to aperture-correct the PSF flux. Forced on y-band.
     datatype: boolean
   - name: y_psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF
