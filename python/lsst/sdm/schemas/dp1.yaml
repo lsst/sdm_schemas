@@ -8,6 +8,7 @@ tables:
     of the Sources that are associated with them. Note that fast moving objects are
     kept in the MovingObject tables. Note that less-frequently used columns are stored
     in a separate table called Object_Extra.
+  primaryKey: '#Object.objectId'
   columns:
   - name: tract
     description: Skymap tract ID
@@ -4843,6 +4844,7 @@ tables:
   description: Table to store high signal-to-noise sources;. A source is a measurement
     of Object's properties from a single image that contains its footprint on the
     sky.
+  primaryKey: '#Source.sourceId'
   columns:
   - name: coord_ra
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
@@ -5399,6 +5401,14 @@ tables:
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;src
+  constraints:
+  - name: FK_Source_Visit
+    '@type': ForeignKey
+    description: Link Source to its associated Visit.
+    columns:
+    - '#Source.visit'
+    referencedColumns:
+    - '#Visit.visit'
 - name: ForcedSource
   description: The forced source table contains forced-photometry source measurement
     on an individual Exposure based on a Multifit shape model derived from a deep
@@ -5509,8 +5519,24 @@ tables:
   - name: patch
     description: Skymap patch ID
     datatype: long
+  constraints:
+  - name: FK_ForcedSource_Object
+    description: Link ForcedSource to its associated Object.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSource.objectId'
+    referencedColumns:
+    - '#Object.objectId'
+  - name: FK_ForcedSource_Visit
+    description: Link ForcedSource to its associated visit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSource.visit'
+    referencedColumns:
+    - '#Visit.visit'
 - name: DiaSource
   description: this is diaSourceTable_tract in the butler repo
+  primaryKey: '#DiaSource.diaSourceId'
   columns:
   - name: visit
     description: Id of the visit where this diaSource was measured.
@@ -5848,8 +5874,31 @@ tables:
   - name: diaSourceId
     description: Unique identifier of this DiaSource.
     datatype: long
+  constraints:
+  - name: FK_DiaSource_Visit
+    description: Link a DiaSource to its associated Visit.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.visit'
+    referencedColumns:
+    - '#Visit.visit'
+  - name: FK_DiaSource_DiaObject
+    description: Link a DiaSource to its associated DiaObject.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.diaObjectId'
+    referencedColumns:
+    - '#DiaObject.diaObjectId'
+  - name: FK_DiaSource_SSObject
+    description: Link a DiaSource to its associated SSObject, if any.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.ssObjectId'
+    referencedColumns:
+    - '#SSObject.ssObjectId'
 - name: DiaObject
   description: this is diaObjectTable_tract in the butler repo
+  primaryKey: '#DiaObject.diaObjectId'
   columns:
   - name: ra
     description: Right Ascension coordinate of the position of the diaObject at time
@@ -6394,8 +6443,24 @@ tables:
   - name: patch
     description: Skymap patch ID
     datatype: long
+  constraints:
+  - name: FK_ForcedSourceOnDiaobject_DiaObject
+    description: Link a ForcedSourceOnDiaObject to its associated DiaObject.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSourceOnDiaObject.diaObjectId'
+    referencedColumns:
+    - '#DiaObject.diaObjectId'
+  - name: FK_ForcedSourceOnDiaObject_Visit
+    description: Link a ForcedSourceOnDiaObject to its associated Visit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSourceOnDiaObject.visit'
+    referencedColumns:
+    - '#Visit.visit'
 - name: Visit
   description: Defines a single Visit.
+  primaryKey: '#Visit.visit'
   columns:
   - name: visit
     description: Unique identifier.
@@ -6694,9 +6759,18 @@ tables:
     description: 5-sigma limiting magnitude
     datatype: double
     ivoa:unit: mag
+  constraints:
+  - name: FK_CcdVisit_Visit
+    description: Link CCD-level images to associated Visits.
+    '@type': ForeignKey
+    columns:
+    - '#CcdVisit.visitId'
+    referencedColumns:
+    - '#Visit.visit'
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
     Recomputed daily, upon MPCORB ingestion.
+  primaryKey: '#SSObject.ssObjectId'
   columns:
   - name: ssObjectId
     description: Unique identifier.
@@ -6715,6 +6789,7 @@ tables:
 - name: SSSource
   description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
     Recomputed daily, upon MPCORB ingestion.
+  primaryKey: '#SSSource.diaSourceId'
   columns:
   - name: phaseAngle
     description: Phase angle
@@ -6808,6 +6883,21 @@ tables:
     description: Ecliptic latitude
     datatype: double
     ivoa:unit: deg
+  constraints:
+  - name: FK_SSSource_DiaSource
+    description: Link an SSSource to its associated DIASource.
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.diaSourceId'
+    referencedColumns:
+    - '#DiaSource.diaSourceId'
+  - name: FK_SSSource_SSObject
+    description: Link an SSSource to its associated SSObject.
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.ssObjectId'
+    referencedColumns:
+    - '#SSObject.ssObjectId'
 - name: MPCORB
   description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
     O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
@@ -6854,3 +6944,11 @@ tables:
     description: 'MPCORB: Absolute magnitude, H'
     datatype: float
     ivoa:unit: mag
+  constraints:
+  - name: FK_MPCORB_SSObject
+    description: Link an MPCORB record to its associated SSObject.
+    '@type': ForeignKey
+    columns:
+    - '#MPCORB.ssObjectId'
+    referencedColumns:
+    - '#SSObject.ssObjectId'
