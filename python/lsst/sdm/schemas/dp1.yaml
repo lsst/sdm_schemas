@@ -6485,10 +6485,6 @@ tables:
     description: Declination of focal plane center
     datatype: double
     ivoa:unit: deg
-  - name: decl
-    description: Deprecated duplicate of dec.
-    datatype: double
-    ivoa:unit: deg
   - name: skyRotation
     description: Sky rotation angle.
     datatype: double
@@ -6645,10 +6641,6 @@ tables:
       (pixel)
     datatype: double
     ivoa:unit: pixel
-  - name: decl
-    description: Deprecated duplicate of dec.
-    datatype: double
-    ivoa:unit: deg
   - name: ccdVisitId
     description: Primary key (unique identifier).
     datatype: long
