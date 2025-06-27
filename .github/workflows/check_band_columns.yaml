@@ -20,4 +20,4 @@ jobs:
         run: echo "export SDM_TOOLS_LOGLEVEL=WARNING" >> $GITHUB_ENV
 
       - name: Check schema band columns (error on differences)
-        run: sdm-tools check-band-columns yml/{dp02*,dp03*,imsim,hsc,apdb}.yaml --reference-band i -e
+        run: sdm-tools check-band-columns yml/{dp1,dp02*,dp03*,imsim,hsc,apdb}.yaml --reference-band i -e
