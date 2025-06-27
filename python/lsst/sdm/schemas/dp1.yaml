@@ -773,7 +773,7 @@ tables:
     description: Used the minimum radius for the Kron radius. Measured on z-band.
     datatype: boolean
   - name: z_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron radius. Measured on z-band.
+    description: Kron radius fell back to being derived from the PSF radius. Measured on z-band.
     datatype: boolean
   - name: u_ra
     description: Position in right ascension, measured on u-band.
@@ -1529,7 +1529,7 @@ tables:
     description: Used the minimum radius for the Kron radius. Measured on u-band.
     datatype: boolean
   - name: u_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron radius. Measured on u-band.
+    description: Kron radius fell back to being derived from the PSF radius. Measured on u-band.
     datatype: boolean
   - name: g_ra
     description: Position in right ascension, measured on g-band.
@@ -2285,7 +2285,7 @@ tables:
     description: Used the minimum radius for the Kron radius. Measured on g-band.
     datatype: boolean
   - name: g_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron radius. Measured on g-band.
+    description: Kron radius fell back to being derived from the PSF radius. Measured on g-band.
     datatype: boolean
   - name: r_ra
     description: Position in right ascension, measured on r-band.
@@ -3041,7 +3041,7 @@ tables:
     description: Used the minimum radius for the Kron radius. Measured on r-band.
     datatype: boolean
   - name: r_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron radius. Measured on r-band.
+    description: Kron radius fell back to being derived from the PSF radius. Measured on r-band.
     datatype: boolean
   - name: i_ra
     description: Position in right ascension, measured on i-band.
@@ -3797,7 +3797,7 @@ tables:
     description: Used the minimum radius for the Kron radius. Measured on i-band.
     datatype: boolean
   - name: i_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron radius. Measured on i-band.
+    description: Kron radius fell back to being derived from the PSF radius. Measured on i-band.
     datatype: boolean
   - name: y_ra
     description: Position in right ascension, measured on y-band.
@@ -4553,7 +4553,7 @@ tables:
     description: Used the minimum radius for the Kron radius. Measured on y-band.
     datatype: boolean
   - name: y_kronFlux_flag_used_psf_radius
-    description: Used the PSF Kron radius for the Kron radius. Measured on y-band.
+    description: Kron radius fell back to being derived from the PSF radius. Measured on y-band.
     datatype: boolean
   - name: g_epoch
     description: Mean epoch of the object in the g-band coadd in MJD TAI
