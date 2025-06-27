@@ -121,7 +121,7 @@ tables:
   - name: deblend_blendId
     "@id": "#Object.deblend_blendId"
     description: Unique ID of the deconvolved parent source that this source was deblended from.
-    datatype: int
+    datatype: long
     fits:tunit:
   - name: deblend_blendNChild
     "@id": "#Object.deblend_blendNChild"
