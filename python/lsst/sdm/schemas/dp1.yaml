@@ -6775,7 +6775,6 @@ tables:
     - '#Visit.visit'
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
-    Recomputed daily, upon MPCORB ingestion.
   tap:table_index: 110
   primaryKey: '#SSObject.ssObjectId'
   columns:
@@ -6794,8 +6793,7 @@ tables:
     datatype: double
     ivoa:unit: d
 - name: SSSource
-  description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
-    Recomputed daily, upon MPCORB ingestion.
+  description: LSST-computed per-source quantities. 1:1 relationship with DiaSource.
   tap:table_index: 120
   primaryKey: '#SSSource.diaSourceId'
   columns:
@@ -6907,8 +6905,8 @@ tables:
     referencedColumns:
     - '#SSObject.ssObjectId'
 - name: MPCORB
-  description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
-    O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
+  description: Orbit catalog produced by the Minor Planet Center based on submissions from DP1 processing.
+    The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html .
   tap:table_index: 100
   primaryKey: '#MPCORB.mpcDesignation'
   columns:
