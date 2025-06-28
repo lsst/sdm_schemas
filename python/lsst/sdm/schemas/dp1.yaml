@@ -5404,8 +5404,8 @@ tables:
     ivoa:ucd: meta.id;src
   constraints:
   - name: FK_Source_Visit
+    description: Link a Source to its associated Visit
     '@type': ForeignKey
-    description: Link Source to its associated Visit.
     columns:
     - '#Source.visit'
     referencedColumns:
@@ -5524,14 +5524,14 @@ tables:
     datatype: long
   constraints:
   - name: FK_ForcedSource_Object
-    description: Link ForcedSource to its associated Object.
+    description: Link an Object to its associated ForcedSources
     '@type': ForeignKey
     columns:
     - '#ForcedSource.objectId'
     referencedColumns:
     - '#Object.objectId'
   - name: FK_ForcedSource_Visit
-    description: Link ForcedSource to its associated visit.
+    description: Link a ForcedSource to its associated visit
     '@type': ForeignKey
     columns:
     - '#ForcedSource.visit'
@@ -5880,21 +5880,21 @@ tables:
     datatype: long
   constraints:
   - name: FK_DiaSource_Visit
-    description: Link a DiaSource to its associated Visit.
+    description: Link a DiaSource to its associated Visit
     '@type': ForeignKey
     columns:
     - '#DiaSource.visit'
     referencedColumns:
     - '#Visit.visit'
   - name: FK_DiaSource_DiaObject
-    description: Link a DiaSource to its associated DiaObject.
+    description: Link a DiaObject to its associated DiaSources
     '@type': ForeignKey
     columns:
     - '#DiaSource.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
   - name: FK_DiaSource_SSObject
-    description: Link a DiaSource to its associated SSObject, if any.
+    description: Link a DiaSource to its associated SSObject, if any
     '@type': ForeignKey
     columns:
     - '#DiaSource.ssObjectId'
@@ -6455,14 +6455,14 @@ tables:
     datatype: long
   constraints:
   - name: FK_ForcedSourceOnDiaobject_DiaObject
-    description: Link a ForcedSourceOnDiaObject to its associated DiaObject.
+    description: Link a DiaObject to its associated ForcedSourceOnDiaObjects
     '@type': ForeignKey
     columns:
     - '#ForcedSourceOnDiaObject.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
   - name: FK_ForcedSourceOnDiaObject_Visit
-    description: Link a ForcedSourceOnDiaObject to its associated Visit.
+    description: Link a ForcedSourceOnDiaObject to its associated Visit
     '@type': ForeignKey
     columns:
     - '#ForcedSourceOnDiaObject.visit'
@@ -6767,7 +6767,7 @@ tables:
     ivoa:unit: mag
   constraints:
   - name: FK_CcdVisit_Visit
-    description: Link CCD-level images to associated Visits.
+    description: Link a Visit to the CCD-level images it contains
     '@type': ForeignKey
     columns:
     - '#CcdVisit.visitId'
@@ -6893,14 +6893,14 @@ tables:
     ivoa:unit: deg
   constraints:
   - name: FK_SSSource_DiaSource
-    description: Link an SSSource to its associated DIASource.
+    description: Link an SSSource to its associated DiaSource
     '@type': ForeignKey
     columns:
     - '#SSSource.diaSourceId'
     referencedColumns:
     - '#DiaSource.diaSourceId'
   - name: FK_SSSource_SSObject
-    description: Link an SSSource to its associated SSObject.
+    description: Link an SSObject to its associated SSSources
     '@type': ForeignKey
     columns:
     - '#SSSource.ssObjectId'
@@ -6955,7 +6955,7 @@ tables:
     ivoa:unit: mag
   constraints:
   - name: FK_MPCORB_SSObject
-    description: Link an MPCORB record to its associated SSObject.
+    description: Link an MPCORB record to its associated SSObject
     '@type': ForeignKey
     columns:
     - '#MPCORB.ssObjectId'
