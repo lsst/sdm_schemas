@@ -5921,424 +5921,558 @@ tables:
   - name: nDiaSources
     description: Number of diaSources associated with this diaObject.
     datatype: long
+    ivoa:unit: '1'
   - name: radecMjdTai
     description: Time at which the object was at a position ra/dec, expressed as Modified
       Julian Date, International Atomic Time.
     datatype: double
+    ivoa:unit: d
   - name: g_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy/d
   - name: g_psfFluxLinearIntercept
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxMAD
     description: Median absolute deviation of diaSource PSF flux. Does not include
       scale factor for comparison to sigma
     datatype: float
+    ivoa:unit: nJy
   - name: g_psfFluxMaxSlope
     description: Maximum ratio of time ordered deltaFlux / deltaTime
     datatype: double
+    ivoa:unit: nJy/d
   - name: g_psfFluxErrMean
     description: Mean of the diaSource PSF flux errors
     datatype: float
+    ivoa:unit: nJy
   - name: g_psfFluxMean
     description: Weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxMeanErr
     description: Standard error on the weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxNdata
     description: The number of data points used to compute g_psfFluxChi2
     datatype: double
+    ivoa:unit: '1'
   - name: g_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: g_scienceFluxMeanErr
     description: Standard error on g_scienceFluxMean
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxMin
     description: Minimum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxMax
     description: Maximum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxPercentile05
     description: 5th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxPercentile25
     description: 10th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxPercentile50
     description: Median diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxPercentile75
     description: 75th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxPercentile95
     description: 95th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxSigma
     description: Standard deviation of the distribution of g_psfFlux
     datatype: double
+    ivoa:unit: nJy
   - name: g_scienceFluxSigma
     description: Standard deviation of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: g_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
+    ivoa:unit: '1'
   - name: g_psfFluxChi2
     description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean
     datatype: float
+    ivoa:unit: '1'
   - name: g_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
+    ivoa:unit: '1'
   - name: r_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy/d
   - name: r_psfFluxLinearIntercept
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxMAD
     description: Median absolute deviation of diaSource PSF flux. Does not include
       scale factor for comparison to sigma
     datatype: float
+    ivoa:unit: nJy
   - name: r_psfFluxMaxSlope
     description: Maximum ratio of time ordered deltaFlux / deltaTime
     datatype: double
+    ivoa:unit: nJy/d
   - name: r_psfFluxErrMean
     description: Mean of the diaSource PSF flux errors
     datatype: float
+    ivoa:unit: nJy
   - name: r_psfFluxMean
     description: Weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxMeanErr
     description: Standard error on the weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxNdata
     description: The number of data points used to compute r_psfFluxChi2
     datatype: double
+    ivoa:unit: '1'
   - name: r_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: r_scienceFluxMeanErr
     description: Standard error on r_scienceFluxMean
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxMin
     description: Minimum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxMax
     description: Maximum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxPercentile05
     description: 5th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxPercentile25
     description: 10th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxPercentile50
     description: Median diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxPercentile75
     description: 75th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxPercentile95
     description: 95th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxSigma
     description: Standard deviation of the distribution of r_psfFlux
     datatype: double
+    ivoa:unit: nJy
   - name: r_scienceFluxSigma
     description: Standard deviation of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: r_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
+    ivoa:unit: '1'
   - name: r_psfFluxChi2
     description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean
     datatype: float
+    ivoa:unit: '1'
   - name: r_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
+    ivoa:unit: '1'
   - name: u_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy/d
   - name: u_psfFluxLinearIntercept
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxMAD
     description: Median absolute deviation of diaSource PSF flux. Does not include
       scale factor for comparison to sigma
     datatype: float
+    ivoa:unit: nJy
   - name: u_psfFluxMaxSlope
     description: Maximum ratio of time ordered deltaFlux / deltaTime
     datatype: double
+    ivoa:unit: nJy/d
   - name: u_psfFluxErrMean
     description: Mean of the diaSource PSF flux errors
     datatype: float
+    ivoa:unit: nJy
   - name: u_psfFluxMean
     description: Weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxMeanErr
     description: Standard error on the weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxNdata
     description: The number of data points used to compute u_psfFluxChi2
     datatype: double
+    ivoa:unit: '1'
   - name: u_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: u_scienceFluxMeanErr
     description: Standard error on u_scienceFluxMean
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxMin
     description: Minimum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxMax
     description: Maximum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxPercentile05
     description: 5th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxPercentile25
     description: 10th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxPercentile50
     description: Median diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxPercentile75
     description: 75th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxPercentile95
     description: 95th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxSigma
     description: Standard deviation of the distribution of u_psfFlux
     datatype: double
+    ivoa:unit: nJy
   - name: u_scienceFluxSigma
     description: Standard deviation of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: u_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
+    ivoa:unit: '1'
   - name: u_psfFluxChi2
     description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean
     datatype: float
+    ivoa:unit: '1'
   - name: u_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
+    ivoa:unit: '1'
   - name: i_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy/d
   - name: i_psfFluxLinearIntercept
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxMAD
     description: Median absolute deviation of diaSource PSF flux. Does not include
       scale factor for comparison to sigma
     datatype: float
+    ivoa:unit: nJy
   - name: i_psfFluxMaxSlope
     description: Maximum ratio of time ordered deltaFlux / deltaTime
     datatype: double
+    ivoa:unit: nJy/d
   - name: i_psfFluxErrMean
     description: Mean of the diaSource PSF flux errors
     datatype: float
+    ivoa:unit: nJy
   - name: i_psfFluxMean
     description: Weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxMeanErr
     description: Standard error on the weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxNdata
     description: The number of data points used to compute i_psfFluxChi2
     datatype: double
+    ivoa:unit: '1'
   - name: i_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: i_scienceFluxMeanErr
     description: Standard error on i_scienceFluxMean
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxMin
     description: Minimum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxMax
     description: Maximum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxPercentile05
     description: 5th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxPercentile25
     description: 10th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxPercentile50
     description: Median diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxPercentile75
     description: 75th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxPercentile95
     description: 95th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxSigma
     description: Standard deviation of the distribution of i_psfFlux
     datatype: double
+    ivoa:unit: nJy
   - name: i_scienceFluxSigma
     description: Standard deviation of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: i_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
+    ivoa:unit: '1'
   - name: i_psfFluxChi2
     description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean
     datatype: float
+    ivoa:unit: '1'
   - name: i_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
+    ivoa:unit: '1'
   - name: z_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy/d
   - name: z_psfFluxLinearIntercept
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxMAD
     description: Median absolute deviation of diaSource PSF flux. Does not include
       scale factor for comparison to sigma
     datatype: float
+    ivoa:unit: nJy
   - name: z_psfFluxMaxSlope
     description: Maximum ratio of time ordered deltaFlux / deltaTime
     datatype: double
+    ivoa:unit: nJy/d
   - name: z_psfFluxErrMean
     description: Mean of the diaSource PSF flux errors
     datatype: float
+    ivoa:unit: nJy
   - name: z_psfFluxMean
     description: Weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxMeanErr
     description: Standard error on the weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxNdata
     description: The number of data points used to compute z_psfFluxChi2
     datatype: double
+    ivoa:unit: '1'
   - name: z_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: z_scienceFluxMeanErr
     description: Standard error on z_scienceFluxMean
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxMin
     description: Minimum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxMax
     description: Maximum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxPercentile05
     description: 5th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxPercentile25
     description: 10th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxPercentile50
     description: Median diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxPercentile75
     description: 75th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxPercentile95
     description: 95th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxSigma
     description: Standard deviation of the distribution of z_psfFlux
     datatype: double
+    ivoa:unit: nJy
   - name: z_scienceFluxSigma
     description: Standard deviation of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: z_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
+    ivoa:unit: '1'
   - name: z_psfFluxChi2
     description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean
     datatype: float
+    ivoa:unit: '1'
   - name: z_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
+    ivoa:unit: '1'
   - name: y_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy/d
   - name: y_psfFluxLinearIntercept
     description: y-intercept of a linear model fit to diaSource PSF flux vs time
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxMAD
     description: Median absolute deviation of diaSource PSF flux. Does not include
       scale factor for comparison to sigma
     datatype: float
+    ivoa:unit: nJy
   - name: y_psfFluxMaxSlope
     description: Maximum ratio of time ordered deltaFlux / deltaTime
     datatype: double
+    ivoa:unit: nJy/d
   - name: y_psfFluxErrMean
     description: Mean of the diaSource PSF flux errors
     datatype: float
+    ivoa:unit: nJy
   - name: y_psfFluxMean
     description: Weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxMeanErr
     description: Standard error on the weighted mean of diaSource PSF flux
     datatype: double
+    ivoa:unit: "nJy"
   - name: y_psfFluxNdata
     description: The number of data points used to compute y_psfFluxChi2
     datatype: double
+    ivoa:unit: '1'
   - name: y_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: y_scienceFluxMeanErr
     description: Standard error on y_scienceFluxMean
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxMin
     description: Minimum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxMax
     description: Maximum diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxPercentile05
     description: 5th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxPercentile25
     description: 10th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxPercentile50
     description: Median diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxPercentile75
     description: 75th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxPercentile95
     description: 95th percentile diaSource PSF flux
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxSigma
     description: Standard deviation of the distribution of y_psfFlux
     datatype: double
+    ivoa:unit: nJy
   - name: y_scienceFluxSigma
     description: Standard deviation of the PSF flux forced photometered at the diaSource
       position on the calibrated image
     datatype: double
+    ivoa:unit: nJy
   - name: y_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
+    ivoa:unit: '1'
   - name: y_psfFluxChi2
     description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean
     datatype: float
+    ivoa:unit: '1'
   - name: y_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
+    ivoa:unit: '1'
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
