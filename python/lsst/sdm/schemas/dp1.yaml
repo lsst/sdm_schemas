@@ -5921,7 +5921,7 @@ tables:
   - name: nDiaSources
     description: Number of diaSources associated with this diaObject.
     datatype: long
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: radecMjdTai
     description: Time at which the object was at a position ra/dec, expressed as Modified
       Julian Date, International Atomic Time.
@@ -5959,7 +5959,7 @@ tables:
   - name: g_psfFluxNdata
     description: The number of data points used to compute g_psfFluxChi2
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: g_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
@@ -6009,15 +6009,15 @@ tables:
   - name: g_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: g_psfFluxChi2
     description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: g_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: r_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
@@ -6050,7 +6050,7 @@ tables:
   - name: r_psfFluxNdata
     description: The number of data points used to compute r_psfFluxChi2
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: r_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
@@ -6100,15 +6100,15 @@ tables:
   - name: r_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: r_psfFluxChi2
     description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: r_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: u_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
@@ -6141,7 +6141,7 @@ tables:
   - name: u_psfFluxNdata
     description: The number of data points used to compute u_psfFluxChi2
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: u_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
@@ -6191,15 +6191,15 @@ tables:
   - name: u_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: u_psfFluxChi2
     description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: u_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: i_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
@@ -6232,7 +6232,7 @@ tables:
   - name: i_psfFluxNdata
     description: The number of data points used to compute i_psfFluxChi2
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: i_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
@@ -6282,15 +6282,15 @@ tables:
   - name: i_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: i_psfFluxChi2
     description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: i_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: z_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
@@ -6323,7 +6323,7 @@ tables:
   - name: z_psfFluxNdata
     description: The number of data points used to compute z_psfFluxChi2
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: z_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
@@ -6373,15 +6373,15 @@ tables:
   - name: z_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: z_psfFluxChi2
     description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: z_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: y_psfFluxLinearSlope
     description: Slope of a linear model fit to diaSource PSF flux vs time
     datatype: double
@@ -6414,7 +6414,7 @@ tables:
   - name: y_psfFluxNdata
     description: The number of data points used to compute y_psfFluxChi2
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: y_scienceFluxMean
     description: Weighted mean of the PSF flux forced photometered at the diaSource
       position on the calibrated image
@@ -6464,15 +6464,15 @@ tables:
   - name: y_psfFluxSkew
     description: Skew of diaSource PSF flux
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: y_psfFluxChi2
     description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean
     datatype: float
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: y_psfFluxStetsonJ
     description: StetsonJ statistic of diaSource PSF flux
     datatype: double
-    ivoa:unit: '1'
+    # ivoa:unit: '1'
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
