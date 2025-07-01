@@ -245,7 +245,7 @@ tables:
     description: Flag set for any failure in the debiased PSF model moments. Measured on z-band.
     datatype: boolean
   - name: z_kronRad
-    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on z-band.
+    description: Kron radius (sqrt(a*b)).  Measured on z-band.
     datatype: float
   - name: z_kronFlux
     description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on z-band.
@@ -1001,7 +1001,7 @@ tables:
     description: Flag set for any failure in the debiased PSF model moments. Measured on u-band.
     datatype: boolean
   - name: u_kronRad
-    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on u-band.
+    description: Kron radius (sqrt(a*b)).  Measured on u-band.
     datatype: float
   - name: u_kronFlux
     description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on u-band.
@@ -1757,7 +1757,7 @@ tables:
     description: Flag set for any failure in the debiased PSF model moments. Measured on g-band.
     datatype: boolean
   - name: g_kronRad
-    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on g-band.
+    description: Kron radius (sqrt(a*b)).  Measured on g-band.
     datatype: float
   - name: g_kronFlux
     description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on g-band.
@@ -2513,7 +2513,7 @@ tables:
     description: Flag set for any failure in the debiased PSF model moments. Measured on r-band.
     datatype: boolean
   - name: r_kronRad
-    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on r-band.
+    description: Kron radius (sqrt(a*b)).  Measured on r-band.
     datatype: float
   - name: r_kronFlux
     description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on r-band.
@@ -3269,7 +3269,7 @@ tables:
     description: Flag set for any failure in the debiased PSF model moments. Measured on i-band.
     datatype: boolean
   - name: i_kronRad
-    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on i-band.
+    description: Kron radius (sqrt(a*b)).  Measured on i-band.
     datatype: float
   - name: i_kronFlux
     description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on i-band.
@@ -4025,7 +4025,7 @@ tables:
     description: Flag set for any failure in the debiased PSF model moments. Measured on y-band.
     datatype: boolean
   - name: y_kronRad
-    description: Radius (sqrt(a*b)) of the Kron radius.  Measured on y-band.
+    description: Kron radius (sqrt(a*b)).  Measured on y-band.
     datatype: float
   - name: y_kronFlux
     description: Flux measured within an elliptical aperture 2.5 times the Kron radius.  Measured on y-band.
