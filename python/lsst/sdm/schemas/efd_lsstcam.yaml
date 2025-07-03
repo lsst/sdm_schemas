@@ -1,23 +1,23 @@
 ---
 name: efd_lsstcam
 "@id": "#efd_lsstcam"
-description: Transformed EFD Consolidated Database for LSSTCam
+description: Transformed EFD Consolidated Database for LSSTCam.
 tables:
 - name: exposure_efd
   "@id": "#exposure_efd"
-  description: Transformed EFD topics by exposure
+  description: Transformed EFD topics by exposure.
   primaryKey:
   - "#exposure_efd.exposure_id"
   columns:
   - name: exposure_id
     "@id": "#exposure_efd.exposure_id"
-    description: Exposure unique ID
+    description: Exposure unique ID.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id
   - name: created_at
     "@id": "#exposure_efd.created_at"
-    description: Timestamp when the record was created, default is current timestamp
+    description: Timestamp when the record was created, default is current timestamp.
     datatype: timestamp
     value: 'CURRENT_TIMESTAMP'
   - name: mt_azimuth_encoder_absolute_position_0_rms_jitter
@@ -2643,7 +2643,7 @@ tables:
 
 - name: exposure_efd_unpivoted
   "@id": "#exposure_efd_unpivoted"
-  description: Unpivoted EFD exposure data
+  description: Unpivoted EFD exposure data.
   primaryKey:
   - "#exposure_efd_unpivoted.exposure_id"
   - "#exposure_efd_unpivoted.property"
@@ -2651,7 +2651,7 @@ tables:
   columns:
   - name: exposure_id
     "@id": "#exposure_efd_unpivoted.exposure_id"
-    description: Unique identifier for the exposure
+    description: Unique identifier for the exposure.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id
@@ -2664,7 +2664,7 @@ tables:
     value: default_property
   - name: field
     "@id": "#exposure_efd_unpivoted.field"
-    description: Field name for unpivoted data
+    description: Field name for unpivoted data.
     datatype: string
     length: 32
     nullable: false
@@ -2675,25 +2675,25 @@ tables:
     datatype: float
   - name: created_at
     "@id": "#exposure_efd_unpivoted.created_at"
-    description: Timestamp when record was created, default current timestamp
+    description: Timestamp when record was created, default current timestamp.
     datatype: timestamp
     value: 'CURRENT_TIMESTAMP'
 
 - name: visit1_efd
   "@id": "#visit1_efd"
-  description: Transformed EFD topics by visit
+  description: Transformed EFD topics by visit.
   primaryKey:
   - "#visit1_efd.visit_id"
   columns:
   - name: visit_id
     "@id": "#visit1_efd.visit_id"
-    description: Visit unique ID
+    description: Visit unique ID.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id
   - name: created_at
     "@id": "#visit1_efd.created_at"
-    description: Timestamp when record was created, default current timestamp
+    description: Timestamp when record was created, default current timestamp.
     datatype: timestamp
     value: 'CURRENT_TIMESTAMP'
   - name: mt_salindex110_sonic_temperature_mean
@@ -5271,7 +5271,7 @@ tables:
 
 - name: visit1_efd_unpivoted
   "@id": "#visit1_efd_unpivoted"
-  description: Unpivoted EFD visit data
+  description: Unpivoted EFD visit data.
   primaryKey:
   - "#visit1_efd_unpivoted.visit_id"
   - "#visit1_efd_unpivoted.property"
@@ -5279,30 +5279,30 @@ tables:
   columns:
   - name: visit_id
     "@id": "#visit1_efd_unpivoted.visit_id"
-    description: Unique identifier for the visit
+    description: Unique identifier for the visit.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id
   - name: property
     "@id": "#visit1_efd_unpivoted.property"
-    description: Property name for unpivoted data
+    description: Property name for unpivoted data.
     datatype: string
     length: 64
     nullable: false
     value: default_property
   - name: field
     "@id": "#visit1_efd_unpivoted.field"
-    description: Field name for unpivoted data
+    description: Field name for unpivoted data.
     datatype: string
     length: 32
     nullable: false
     value: default_field
   - name: value
     "@id": "#visit1_efd_unpivoted.value"
-    description: Value corresponding to the parameter
+    description: Value corresponding to the parameter.
     datatype: float
   - name: created_at
     "@id": "#visit1_efd_unpivoted.created_at"
-    description: Timestamp when record was created, default current timestamp
+    description: Timestamp when record was created, default current timestamp.
     datatype: timestamp
     value: 'CURRENT_TIMESTAMP'
