@@ -3,7 +3,7 @@ description: "Data Preview 1 contains image and catalog products from the
   Rubin Science Pipelines v29 processing of observations obtained with the
   LSST Commissioning Camera of seven ~1 square degree fields,
   over seven weeks in late 2024."
-version: 1.1.1
+version: 1.1.2
 tables:
 - name: Object
   description: "Descriptions of static astronomical objects (or the static aspects
@@ -5410,6 +5410,15 @@ tables:
     - '#Source.visit'
     referencedColumns:
     - '#Visit.visit'
+  - name: FK_Source_CcdVisit
+    '@type': ForeignKey
+    description: Link Source to its associated CcdVisit.
+    columns:
+    - '#Source.visit'
+    - '#Source.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: ForcedSource
   description: "Forced-photometry measurements on individual single-epoch visit images and
     difference images, based on and linked to the entries in the Object table. Point-source
@@ -5531,12 +5540,21 @@ tables:
     referencedColumns:
     - '#Object.objectId'
   - name: FK_ForcedSource_Visit
-    description: Link a ForcedSource to its associated visit
+    description: Link a ForcedSource to its associated visit.
     '@type': ForeignKey
     columns:
     - '#ForcedSource.visit'
     referencedColumns:
     - '#Visit.visit'
+  - name: FK_ForcedSource_CcdVisit
+    description: Link a ForcedSource to its associated CcdVisit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSource.visit'
+    - '#ForcedSource.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: DiaSource
   description: "Properties of transient-object detections on the single-epoch difference images."
   tap:table_index: 50
@@ -5900,6 +5918,15 @@ tables:
     - '#DiaSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
+  - name: FK_DiaSource_CcdVisit
+    description: Link a Diasource to its associated CcdVisit.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.visit'
+    - '#DiaSource.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: DiaObject
   description: "Properties of time-varying astronomical objects based on association
     of data from one or more spatially-related DiaSource detections on individual
@@ -6602,6 +6629,15 @@ tables:
     - '#ForcedSourceOnDiaObject.visit'
     referencedColumns:
     - '#Visit.visit'
+  - name: FK_ForcedSourceOnDiaObject_CcdVisit
+    description: Link a ForcedSourceOnDiaObject to its associated CcdVisit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSourceOnDiaObject.visit'
+    - '#ForcedSourceOnDiaObject.detector'
+    referencedColumns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: CoaddPatches
   description: "Static information about the subset of tracts and patches from the standard
     LSST skymap that apply to coadds in these catalogs"
@@ -6961,6 +6997,12 @@ tables:
     - '#CcdVisit.visitId'
     referencedColumns:
     - '#Visit.visit'
+  - name: UNIQ_VisitDetector
+    description: Unique constraint on Visit and Detector.
+    '@type': Unique
+    columns:
+    - '#CcdVisit.visitId'
+    - '#CcdVisit.detector'
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
   tap:table_index: 110
