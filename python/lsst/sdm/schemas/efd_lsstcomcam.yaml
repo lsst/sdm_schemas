@@ -22,49 +22,49 @@ tables:
     value: 'CURRENT_TIMESTAMP'
   - name: mt_azimuth_encoder_absolute_position_0_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_0_rms_jitter"
-    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
   - name: mt_azimuth_encoder_absolute_position_1_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_1_rms_jitter"
-    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
   - name: mt_azimuth_encoder_absolute_position_2_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_2_rms_jitter"
-    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
   - name: mt_azimuth_encoder_absolute_position_3_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_3_rms_jitter"
-    description: RMS after 4th order polynomial fit of Azimuth absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_0_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_0_rms_jitter"
-    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_1_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_1_rms_jitter"
-    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_2_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_2_rms_jitter"
-    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_3_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_3_rms_jitter"
-    description: RMS after 4th order polynomial fit of Elevation absolute position read by each encoder head.
+    description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
     ivoa:unit: "1"
@@ -1900,49 +1900,49 @@ tables:
     ivoa:unit: arcsec
   - name: mt_azimuth_encoder_absolute_position_0_mean
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_0_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_azimuth_encoder_absolute_position_1_mean
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_1_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_azimuth_encoder_absolute_position_2_mean
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_2_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_azimuth_encoder_absolute_position_3_mean
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_3_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_0_mean
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_0_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_1_mean
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_1_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_2_mean
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_2_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_3_mean
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_3_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
@@ -4528,49 +4528,49 @@ tables:
     ivoa:unit: arcsec
   - name: mt_azimuth_encoder_absolute_position_0_mean
     "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_0_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_azimuth_encoder_absolute_position_1_mean
     "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_1_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_azimuth_encoder_absolute_position_2_mean
     "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_2_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_azimuth_encoder_absolute_position_3_mean
     "@id": "#visit1_efd.mt_azimuth_encoder_absolute_position_3_mean"
-    description: Mean Azimuth absolute position read by each encoder head.
+    description: Mean azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_0_mean
     "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_0_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_1_mean
     "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_1_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_2_mean
     "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_2_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
   - name: mt_elevation_encoder_absolute_position_3_mean
     "@id": "#visit1_efd.mt_elevation_encoder_absolute_position_3_mean"
-    description: Mean Elevation absolute position read by each encoder head.
+    description: Mean elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg
