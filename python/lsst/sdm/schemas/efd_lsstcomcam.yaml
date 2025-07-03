@@ -7,7 +7,7 @@ version:
 tables:
 - name: exposure_efd
   "@id": "#exposure_efd"
-  description: Transformed EFD topics by exposure.
+  description: Transformed EFD topics by exposure
   primaryKey:
   - "#exposure_efd.exposure_id"
   columns:
@@ -2645,7 +2645,7 @@ tables:
 
 - name: exposure_efd_unpivoted
   "@id": "#exposure_efd_unpivoted"
-  description: Unpivoted EFD exposure data.
+  description: Unpivoted EFD exposure data
   primaryKey:
   - "#exposure_efd_unpivoted.exposure_id"
   - "#exposure_efd_unpivoted.property"
@@ -2683,7 +2683,7 @@ tables:
 
 - name: visit1_efd
   "@id": "#visit1_efd"
-  description: Transformed EFD topics by visit.
+  description: Transformed EFD topics by visit
   primaryKey:
   - "#visit1_efd.visit_id"
   columns:
@@ -5273,7 +5273,7 @@ tables:
 
 - name: visit1_efd_unpivoted
   "@id": "#visit1_efd_unpivoted"
-  description: Unpivoted EFD visit data.
+  description: Unpivoted EFD visit data
   primaryKey:
   - "#visit1_efd_unpivoted.visit_id"
   - "#visit1_efd_unpivoted.property"
