@@ -5453,108 +5453,136 @@ tables:
   - name: objectId
     description: Unique Object ID. Primary Key of the Object Table
     datatype: long
+    tap:principal: 1
   - name: parentObjectId
     description: Unique ObjectId of the parent of the ObjectId in context of the deblender.
     datatype: long
+    tap:principal: 0
   - name: coord_ra
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
+    tap:principal: 0
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
     datatype: double
     ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
+    tap:principal: 0
   - name: visit
     description: Id of the visit where this source was measured.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;obs.image
+    tap:principal: 1
   - name: detector
     description: Id of the detector where this source was measured. Datatype short
       instead of byte because of DB concerns about unsigned bytes.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;obs.image
+    tap:principal: 1
   - name: band
     description: Abstract filter that is not associated with a particular instrument
     datatype: char
     length: 1
+    tap:principal: 1
   - name: psfFlux
     description: Flux derived from linear least-squares fit of psf model forced on
       the calexp
     datatype: float
     ivoa:unit: nJy
+    tap:principal: 1
   - name: psfFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the calexp
     datatype: float
     ivoa:unit: nJy
+    tap:principal: 1
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
       the calexp
     datatype: boolean
+    tap:principal: 0
   - name: psfDiffFlux
     description: Flux derived from linear least-squares fit of psf model forced on
       the image difference
     datatype: float
     ivoa:unit: nJy
+    tap:principal: 1
   - name: psfDiffFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the image difference
     datatype: float
     ivoa:unit: nJy
+    tap:principal: 1
   - name: psfDiffFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
       the image difference
     datatype: boolean
+    tap:principal: 0
   - name: diff_PixelFlags_nodataCenter
     description: Source center is outside usable region on image difference (masked
       NO_DATA)
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_bad
     description: Bad pixel in the Source footprint
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_cr
     description: Cosmic ray in the Source footprint
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_crCenter
     description: Cosmic ray in the Source center
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_edge
     description: Source is on the edge of an exposure region (masked EDGE)
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_interpolated
     description: Interpolated pixel in the Source footprint
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_interpolatedCenter
     description: Interpolated pixel in the Source center
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_nodata
     description: Source is outside usable exposure region (masked NO_DATA)
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_saturated
     description: Saturated pixel in the Source footprint
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_saturatedCenter
     description: Saturated pixel in the Source center
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_suspect
     description: Sources footprint includes suspect pixels
     datatype: boolean
+    tap:principal: 0
   - name: pixelFlags_suspectCenter
     description: Sources center is close to suspect pixels
     datatype: boolean
+    tap:principal: 0
   - name: invalidPsfFlag
     description: Source has an invalid PSF.
     datatype: boolean
+    tap:principal: 0
   - name: tract
     description: Skymap tract ID
     datatype: long
+    tap:principal: 0
   - name: patch
     description: Skymap patch ID
     datatype: long
+    tap:principal: 0
   constraints:
   - name: FK_ForcedSource_Object
     description: Link an Object to its associated ForcedSources
