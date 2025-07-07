@@ -6756,54 +6756,66 @@ tables:
     description: Unique identifier.
     datatype: long
     ivoa:ucd: meta.id;obs.image
+    tap:principal: 1
   - name: physical_filter
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
     length: 32
     votable:arraysize: '*'
+    tap:principal: 0
   - name: band
     description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     datatype: char
     length: 1
     votable:arraysize: '*'
+    tap:principal: 1
   - name: ra
     description: Right Ascension of focal plane center.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 1
   - name: dec
     description: Declination of focal plane center
     datatype: double
     ivoa:unit: deg
+    tap:principal: 1
   - name: skyRotation
     description: Sky rotation angle.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 1
   - name: azimuth
     description: Azimuth of focal plane center at the middle of the visit.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: altitude
     description: Altitude of focal plane center at the middle of the visit.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: zenithDistance
     description: Zenith distance at the middle of the visit.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: airmass
     description: Airmass of the observed line of sight.
     datatype: double
+    tap:principal: 1
   - name: expTime
     description: Spatially-averaged duration of visit, accurate to 10ms.
     datatype: double
     ivoa:unit: s
+    tap:principal: 1
   - name: expMidpt
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array. TAI, accurate to 10ms.
     datatype: timestamp
     precision: 6
     tap:column_index: 6
+    tap:principal: 0
     votable:arraysize: '*'
     votable:xtype: timestamp
   - name: expMidptMJD
@@ -6821,12 +6833,14 @@ tables:
     precision: 6
     votable:arraysize: '*'
     votable:xtype: timestamp
+    tap:principal: 0
   - name: obsStartMJD
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     datatype: double
     ivoa:ucd: time.start;obs.exposure
     ivoa:unit: d
     tap:column_index: 7
+    tap:principal: 0
 - name: CcdVisit
   description: "Metadata about the nine individual CCD images for each Visit in the
     DP1 LSSTComCam dataset."
