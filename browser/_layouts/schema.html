@@ -60,7 +60,7 @@
   <body>
     <p>
     {%- assign schema_tables = site.data[page.schema].tables %}
-    {%- assign tables_with_index = schema_tables | where_exp: "t", "t['tap:table_index'] != nil" -%}
+    {%- assign tables_with_index = schema_tables | where_exp: "t", "t['tap:table_index'] or false" -%}
     {%- assign tables_without_index = schema_tables | where_exp: "t", "t['tap:table_index'] == nil" -%}
     {%- assign tables_with_index = tables_with_index | sort: "tap:table_index" -%}
     {%- assign tables_without_index = tables_without_index | sort: "name" -%}
