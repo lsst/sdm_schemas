@@ -6851,105 +6851,131 @@ tables:
     datatype: char
     length: 32
     votable:arraysize: '*'
+    tap:principal: 0
   - name: band
     description: Name of the band used to take the visit where this source was measured.
       Abstract filter that is not associated with a particular instrument.
     datatype: char
     length: 1
     votable:arraysize: '*'
+    tap:principal: 1
   - name: ra
     description: Right Ascension of Ccd center.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 1
   - name: dec
     description: Declination of Ccd center.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 1
   - name: pixelScale
     description: Measured detector pixel scale.
     datatype: float
     ivoa:unit: arcsec/pixel
+    tap:principal: 0
   - name: zenithDistance
     description: Zenith distance at observation mid-point.
     datatype: float
     ivoa:unit: deg
+    tap:principal: 1
   - name: expTime
     description: Spatially-averaged duration of visit, accurate to 10ms.
     datatype: double
     ivoa:unit: s
+    tap:principal: 1
   - name: zeroPoint
     description: Zero-point for the Ccd, estimated at Ccd center.
     datatype: float
     ivoa:unit: mag
+    tap:principal: 0
   - name: psfSigma
     description: PSF model second-moments determinant radius (center of chip)
     datatype: float
     ivoa:unit: pixel
+    tap:principal: 1
   - name: skyBg
     description: Average sky background.
     datatype: float
     ivoa:unit: adu
+    tap:principal: 0
   - name: skyNoise
     description: RMS noise of the sky background.
     datatype: float
     ivoa:unit: adu
+    tap:principal: 0
   - name: astromOffsetMean
     description: Mean offset of astrometric calibration matches (arcsec)
     datatype: double
     ivoa:unit: arcsec
+    tap:principal: 0
   - name: astromOffsetStd
     description: Standard deviation of offsets of astrometric calibration matches
       (arcsec)
     datatype: double
     ivoa:unit: arcsec
+    tap:principal: 0
   - name: nPsfStar
     description: Number of stars used for PSF model
     datatype: int
+    tap:principal: 0
   - name: psfStarDeltaE1Median
     description: Median E1 residual (starE1 - psfE1) for psf stars
     datatype: double
+    tap:principal: 0
   - name: psfStarDeltaE2Median
     description: Median E2 residual (starE2 - psfE2) for psf stars
     datatype: double
+    tap:principal: 0
   - name: psfStarDeltaE1Scatter
     description: Scatter (via MAD) of E1 residual (starE1 - psfE1) for psf stars
     datatype: double
+    tap:principal: 0
   - name: psfStarDeltaE2Scatter
     description: Scatter (via MAD) of E2 residual (starE2 - psfE2) for psf stars
     datatype: double
+    tap:principal: 0
   - name: psfStarDeltaSizeMedian
     description: Median size residual (starSize - psfSize) for psf stars (pixel)
     datatype: double
     ivoa:unit: pixel
+    tap:principal: 0
   - name: psfStarDeltaSizeScatter
     description: Scatter (via MAD) of size residual (starSize - psfSize) for stars
       (pixel)
     datatype: double
     ivoa:unit: pixel
+    tap:principal: 0
   - name: psfStarScaledDeltaSizeScatter
     description: Scatter (via MAD) of size residual scaled by median size squared
     datatype: double
+    tap:principal: 0
   - name: psfTraceRadiusDelta
     description: Delta (max - min) of model psf trace radius values evaluated on a
       grid of unmasked pixels (pixel)
     datatype: double
     ivoa:unit: pixel
+    tap:principal: 0
   - name: psfApFluxDelta
     description: Delta (max - min) of model psf aperture flux (with aperture radius
       of max(2, 3*psfSigma)) values evaluated on a grid of unmasked pixels
     datatype: double
+    tap:principal: 0
   - name: psfApCorrSigmaScaledDelta
     description: Delta (max - min) of psf flux aperture correction factors scaled
       (divided) by the psfSigma evaluated on a grid of unmasked pixels
     datatype: double
+    tap:principal: 0
   - name: maxDistToNearestPsf
     description: Maximum distance of an unmasked pixel to its nearest model psf star
       (pixel)
     datatype: double
     ivoa:unit: pixel
+    tap:principal: 0
   - name: ccdVisitId
     description: Primary key (unique identifier).
     datatype: long
+    tap:principal: 0
   - name: visitId
     description: Reference to the corresponding entry in the Visit table.
     datatype: long
@@ -6960,14 +6986,17 @@ tables:
     description: Detector ID. A detector associated with a particular instrument (not
       an observation of that detector).
     datatype: long
+    tap:principal: 1
   - name: seeing
     description: Mean measured FWHM of the PSF.
     datatype: double
     ivoa:unit: arcsec
+    tap:principal: 1
   - name: skyRotation
     description: Sky rotation angle.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: expMidpt
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array. TAI, accurate to 10ms.
@@ -6976,6 +7005,7 @@ tables:
     tap:column_index: 6
     votable:arraysize: '*'
     votable:xtype: timestamp
+    tap:principal: 0
   - name: expMidptMJD
     description: Midpoint time for exposure at the fiducial center of the focal plane
       array in MJD. TAI, accurate to 10ms.
@@ -6990,73 +7020,91 @@ tables:
     precision: 6
     votable:arraysize: '*'
     votable:xtype: timestamp
+    tap:principal: 0
   - name: obsStartMJD
     description: Start of the exposure in MJD, TAI, accurate to 10ms.
     datatype: double
     ivoa:ucd: time.start;obs.exposure
     ivoa:unit: d
     tap:column_index: 7
+    tap:principal: 0
   - name: darkTime
     description: Average dark current accumulation time, accurate to 10ms.
     datatype: double
     ivoa:unit: s
+    tap:principal: 0
   - name: xSize
     description: Number of columns in the image.
     datatype: long
     ivoa:unit: pixel
+    tap:principal: 0
   - name: ySize
     description: Number of rows in the image.
     datatype: long
     ivoa:unit: pixel
+    tap:principal: 0
   - name: llcra
     description: Right Ascension of lower left corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: llcdec
     description: Declination of lower left corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: ulcra
     description: Right Ascension of upper left corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: ulcdec
     description: Declination of upper left corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: urcra
     description: Right Ascension of upper right corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: urcdec
     description: Declination of upper right corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: lrcra
     description: Right Ascension of lower right corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: lrcdec
     description: Declination of lower right corner.
     datatype: double
     ivoa:unit: deg
+    tap:principal: 0
   - name: effTime
     description: Effective time metric
     datatype: double
     ivoa:unit: s
+    tap:principal: 0
   - name: effTimePsfSigmaScale
     description: Effective time metric -- PSF size component
     datatype: double
+    tap:principal: 0
   - name: effTimeSkyBgScale
     description: Effective time metric -- Sky background component
     datatype: double
+    tap:principal: 0
   - name: effTimeZeroPointScale
     description: Effective time metric -- Throughput component
     datatype: double
+    tap:principal: 0
   - name: magLim
     description: 5-sigma limiting magnitude
     datatype: double
     ivoa:unit: mag
+    tap:principal: 1
   constraints:
   - name: FK_CcdVisit_Visit
     description: Link a Visit to the CCD-level images it contains
