@@ -8,6 +8,7 @@ help:
 	@echo "  build - Build the schema browser site"
 	@echo "  run   - Serve the schema browser site"
 	@echo "  clean - Clean the schema browser site"
+	@echo "  check - Validate the schema files using Felis"
 
 # Install required Ruby gems (Ruby must be installed externally.)
 init:
@@ -21,8 +22,16 @@ init:
 run:
 	jekyll serve --watch
 
+# Validate the schema files using Felis
+check:
+	@command -v felis >/dev/null 2>&1 || { \
+		echo >&2 "felis command not found. Please install 'pip install lsst-felis'."; \
+		exit 1; \
+	}
+	@command felis validate yml/*.yaml
+
 # Build the site
-build:
+build: check
 	jekyll build
 
 # Cleanup local config and remove the generated site
