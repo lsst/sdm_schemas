@@ -274,11 +274,6 @@ tables:
     datatype: float
     description: Atmospheric seeing as measured by external DIMM (FWHM).
     ivoa:unit: arcsec
-  - name: ringss_seeing
-    "@id": "#exposure.ringss_seeing"
-    datatype: float
-    description: Atmospheric seeing as measured by external RINGSS (FWHM).
-    ivoa:unit: arcsec
   - name: focus_z
     "@id": "#exposure.focus_z"
     datatype: float
