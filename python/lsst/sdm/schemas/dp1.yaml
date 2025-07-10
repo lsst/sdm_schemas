@@ -5443,15 +5443,6 @@ tables:
     - '#Source.visit'
     referencedColumns:
     - '#Visit.visit'
-  - name: FK_Source_CcdVisit
-    '@type': ForeignKey
-    description: Link Source to its associated CcdVisit.
-    columns:
-    - '#Source.visit'
-    - '#Source.detector'
-    referencedColumns:
-    - '#CcdVisit.visitId'
-    - '#CcdVisit.detector'
 - name: ForcedSource
   description: "Forced-photometry measurements on individual single-epoch visit images and
     difference images, based on and linked to the entries in the Object table. Point-source
@@ -5573,21 +5564,12 @@ tables:
     referencedColumns:
     - '#Object.objectId'
   - name: FK_ForcedSource_Visit
-    description: Link a ForcedSource to its associated visit.
+    description: Link a ForcedSource to its associated visit
     '@type': ForeignKey
     columns:
     - '#ForcedSource.visit'
     referencedColumns:
     - '#Visit.visit'
-  - name: FK_ForcedSource_CcdVisit
-    description: Link a ForcedSource to its associated CcdVisit.
-    '@type': ForeignKey
-    columns:
-    - '#ForcedSource.visit'
-    - '#ForcedSource.detector'
-    referencedColumns:
-    - '#CcdVisit.visitId'
-    - '#CcdVisit.detector'
 - name: DiaSource
   description: "Properties of transient-object detections on the single-epoch difference images."
   tap:table_index: 50
@@ -5951,15 +5933,6 @@ tables:
     - '#DiaSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
-  - name: FK_DiaSource_CcdVisit
-    description: Link a Diasource to its associated CcdVisit.
-    '@type': ForeignKey
-    columns:
-    - '#DiaSource.visit'
-    - '#DiaSource.detector'
-    referencedColumns:
-    - '#CcdVisit.visitId'
-    - '#CcdVisit.detector'
 - name: DiaObject
   description: "Properties of time-varying astronomical objects based on association
     of data from one or more spatially-related DiaSource detections on individual
@@ -6662,15 +6635,60 @@ tables:
     - '#ForcedSourceOnDiaObject.visit'
     referencedColumns:
     - '#Visit.visit'
-  - name: FK_ForcedSourceOnDiaObject_CcdVisit
-    description: Link a ForcedSourceOnDiaObject to its associated CcdVisit.
-    '@type': ForeignKey
-    columns:
-    - '#ForcedSourceOnDiaObject.visit'
-    - '#ForcedSourceOnDiaObject.detector'
-    referencedColumns:
-    - '#CcdVisit.visitId'
-    - '#CcdVisit.detector'
+- name: CoaddPatches
+  description: "Static information about the subset of tracts and patches from the standard
+    LSST skymap that apply to coadds in these catalogs"
+  tap:table_index: 70
+  columns:
+  - name: lsst_tract
+    description: "ID number of the top level, 'tract', within the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id;obs.field
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+    tap:column_index: 1
+  - name: lsst_patch
+    description: "ID number of the second level, 'patch', within the standard LSST skymap"
+    nullable: false
+    ivoa:ucd: meta.id.part;obs.field
+    tap:std: 0
+    tap:principal: 1
+    ivoa:unit:
+    datatype: long
+    tap:column_index: 2
+  - name: s_ra
+    description: "Central Spatial Position in ICRS; Right ascension"
+    nullable: false
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+    tap:column_index: 3
+  - name: s_dec
+    description: "Central Spatial Position in ICRS; Declination"
+    nullable: false
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit: deg
+    datatype: double
+    tap:column_index: 4
+  - name: s_region
+    description: "Sky region covered by the coadd (expressed in ICRS frame)"
+    nullable: false
+    ivoa:ucd: pos.outline;obs.field
+    votable:utype: Char.SpatialAxis.Coverage.Support.Area
+    tap:std: 1
+    tap:principal: 1
+    ivoa:unit:
+    datatype: string
+    length: 512
+    tap:column_index: 5
 - name: Visit
   description: "Metadata about the pointings of the telescope,
     largely associated with the boresight of the LSSTComCam focal plane as a whole."
