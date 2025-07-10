@@ -1612,6 +1612,16 @@ tables:
     datatype: float
     ivoa:unit: arcsec
     description: Image degradation due to rotator jitter.
+  - name: mount_jitter_rms_cam_hexapod
+    "@id": "#exposure_quicklook.mount_jitter_rms_cam_hexapod"
+    datatype: float
+    ivoa:unit: arcsec
+    description: The RMS image motion due to movement of the camera hexapod.
+  - name: mount_jitter_rms_m2_hexapod
+    "@id": "#exposure_quicklook.mount_jitter_rms_m2_hexapod"
+    datatype: float
+    ivoa:unit: arcsec
+    description: The RMS image motion due to movement of the M2 hexapod.
   - name: mount_jitter_rms
     "@id": "#exposure_quicklook.mount_jitter_rms"
     datatype: float
