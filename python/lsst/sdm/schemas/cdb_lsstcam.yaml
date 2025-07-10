@@ -1602,6 +1602,11 @@ tables:
     datatype: float
     ivoa:unit: arcsec
     description: Image degradation due to mount motion in azimuth.
+  - name: mount_motion_image_degradation_el
+    "@id": "#exposure_quicklook.mount_motion_image_degradation_el"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion in elevation.
   - name: mount_motion_image_degradation_rot
     "@id": "#exposure_quicklook.mount_motion_image_degradation_rotator"
     datatype: float
