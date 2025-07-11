@@ -272,7 +272,7 @@ tables:
   - name: dimm_seeing
     "@id": "#exposure.dimm_seeing"
     datatype: float
-    description: Seeing as measured by external DIMM (FWHM).
+    description: Atmospheric seeing as measured by external DIMM (FWHM).
     ivoa:unit: arcsec
   - name: focus_z
     "@id": "#exposure.focus_z"
@@ -1514,6 +1514,22 @@ tables:
     datatype: float
     description: Estimated hexafoil (Z28), mean estimated across four corners in microns.
     ivoa:unit: um
+  - name: aos_fwhm
+    "@id": "#visit1_quicklook.aos_fwhm"
+    datatype: float
+    description: Estimated contribution of the optical system to the overall seeing (FWHM) using the measured zernike coefficients.
+    ivoa:unit: arcsec
+  - name: donut_blur_fwhm
+    "@id": "#visit1_quicklook.donut_blur_fwhm"
+    datatype: float
+    description: Estimated contribution of the atmosphere to the overall seeing (FWHM) derived from danish donut forward modeling.
+    ivoa:unit: arcsec
+  - name: physical_rotator_angle
+    "@id": "#visit1_quicklook.physical_rotator_angle"
+    datatype: double
+    description: Physical rotator angle in degrees.
+    ivoa:ucd: pos.posAng
+    ivoa:unit: deg
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
   tap:table_index: 150
