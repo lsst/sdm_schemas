@@ -2138,6 +2138,11 @@ tables:
     datatype: boolean
     description: Template injection in the 3x3 region around the centroid.
     fits:tunit:
+  - name: trailed_glint
+    "@id": "#DiaSource.trailed_glint"
+    datatype: boolean
+    description: This flag is set of the source is part of a glint trail.
+    fits:tunit:
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
   - name: IDX_DiaSource_visitDetector
