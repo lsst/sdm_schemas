@@ -2141,7 +2141,7 @@ tables:
   - name: trailed_glint
     "@id": "#DiaSource.trailed_glint"
     datatype: boolean
-    description: This flag is set of the source is part of a glint trail.
+    description: This flag is set if the source is part of a glint trail.
     fits:tunit:
   primaryKey: "#DiaSource.diaSourceId"
   indexes:

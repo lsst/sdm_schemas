@@ -8073,7 +8073,7 @@ tables:
     fits:tunit: nJy
 - name: DiaObject
   "@id": "#DiaObject"
-  description: this is diaObjectTable_tract in the butler repo
+  description: this is dia_object in the butler repo
   columns:
   - name: diaObjectId
     "@id": "#DiaObject.diaObjectId"
@@ -8630,7 +8630,7 @@ tables:
     description: Standard deviation of the PSF flux forced photometered at the diaSource position on the calibrated image
 - name: DiaSource
   "@id": "#DiaSource"
-  description: this is diaSourceTable_tract in the butler repo
+  description: this is dia_source in the butler repo
   columns:
   - name: apFlux
     "@id": "#DiaSource.apFlux"
@@ -9089,11 +9089,11 @@ tables:
   - name: trailed_glint
     "@id": "#DiaSource.trailed_glint"
     datatype: boolean
-    description: This flag is set of the source is part of a glint trail.
+    description: This flag is set if the source is part of a glint trail.
     fits:tunit:
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
-  description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
+  description: this is dia_object_forced_source in the butler repo
   columns:
   - name: band
     "@id": "#ForcedSourceOnDiaObject.band"
