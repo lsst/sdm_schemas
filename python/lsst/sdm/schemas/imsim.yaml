@@ -9086,6 +9086,11 @@ tables:
       the PSF moments. extendedness = 1 implies a high degree of confidence
       that the source is extended. extendedness = 0 implies a high degree of confidence
       that the source is point-like.
+  - name: trailed_glint
+    "@id": "#DiaSource.trailed_glint"
+    datatype: boolean
+    description: This flag is set of the source is part of a glint trail.
+    fits:tunit:
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: this is forcedSourceOnDiaObjectTable_tract in the butler repo
