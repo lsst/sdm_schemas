@@ -1514,6 +1514,11 @@ tables:
     datatype: float
     description: Estimated hexafoil (Z28), mean estimated across four corners in microns.
     ivoa:unit: um
+  - name: ringss_seeing
+    "@id": "#visit1_quicklook.ringss_seeing"
+    datatype: float
+    description: Atmospheric seeing as measured by external SOAR/Gemini RINGSS (FWHM)
+    ivoa:unit: arcsec
   - name: aos_fwhm
     "@id": "#visit1_quicklook.aos_fwhm"
     datatype: float
