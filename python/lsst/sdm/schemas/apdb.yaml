@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "6.0.0"
+version: "7.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -2137,6 +2137,11 @@ tables:
     "@id": "#DiaSource.pixelFlags_injected_templateCenter"
     datatype: boolean
     description: Template injection in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: glint_trail
+    "@id": "#DiaSource.glint_trail"
+    datatype: boolean
+    description: This flag is set if the source is part of a glint trail.
     fits:tunit:
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
