@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LSSTCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, the primary instrument for the Legacy Survey of Space and Time.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "1.3.0"
+  current: "1.4.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -1602,11 +1602,26 @@ tables:
     datatype: float
     ivoa:unit: arcsec
     description: Image degradation due to mount motion in azimuth.
+  - name: mount_motion_image_degradation_el
+    "@id": "#exposure_quicklook.mount_motion_image_degradation_el"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion in elevation.
   - name: mount_motion_image_degradation_rot
     "@id": "#exposure_quicklook.mount_motion_image_degradation_rotator"
     datatype: float
     ivoa:unit: arcsec
     description: Image degradation due to rotator jitter.
+  - name: mount_jitter_rms_cam_hexapod
+    "@id": "#exposure_quicklook.mount_jitter_rms_cam_hexapod"
+    datatype: float
+    ivoa:unit: arcsec
+    description: The RMS image motion due to movement of the camera hexapod.
+  - name: mount_jitter_rms_m2_hexapod
+    "@id": "#exposure_quicklook.mount_jitter_rms_m2_hexapod"
+    datatype: float
+    ivoa:unit: arcsec
+    description: The RMS image motion due to movement of the M2 hexapod.
   - name: mount_jitter_rms
     "@id": "#exposure_quicklook.mount_jitter_rms"
     datatype: float
