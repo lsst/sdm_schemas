@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "7.0.0"
+version: "7.0.1"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -2422,11 +2422,6 @@ tables:
     length: 8
     description: Number or provisional designation (in packed form).
     ivoa:ucd: meta.id;src
-  - name: mpcNumber
-    "@id": "#MPCORB.mpcNumber"
-    datatype: int
-    description: MPC number (if the asteroid has been numbered; NULL otherwise). Provided
-      for convenience.
   - name: ssObjectId
     "@id": "#MPCORB.ssObjectId"
     datatype: long
@@ -2437,10 +2432,6 @@ tables:
     datatype: float
     description: Absolute magnitude, H.
     fits:tunit: mag
-  - name: mpcG
-    "@id": "#MPCORB.mpcG"
-    datatype: float
-    description: Slope parameter, G.
   - name: epoch
     "@id": "#MPCORB.epoch"
     datatype: double
@@ -2470,83 +2461,20 @@ tables:
     "@id": "#MPCORB.e"
     datatype: double
     description: Orbital eccentricity.
-  - name: n
-    "@id": "#MPCORB.n"
-    datatype: double
-    description: Mean daily motion (degrees per day).
-    fits:tunit: deg/d
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
     description: Semimajor axis (AU).
     fits:tunit: AU
-  - name: uncertaintyParameter
-    "@id": "#MPCORB.uncertaintyParameter"
-    datatype: char
-    length: 1
-    description: Uncertainty parameter, U.
-  - name: reference
-    "@id": "#MPCORB.reference"
-    datatype: char
-    length: 9
-    description: Reference.
-  - name: nobs
-    "@id": "#MPCORB.nobs"
-    datatype: int
-    description: Number of observations.
-  - name: nopp
-    "@id": "#MPCORB.nopp"
-    datatype: int
-    description: Number of oppositions.
-  - name: arc
-    "@id": "#MPCORB.arc"
-    datatype: float
-    description: Arc (days), for single-opposition objects.
-    fits:tunit: d
-  - name: arcStart
-    "@id": "#MPCORB.arcStart"
-    datatype: timestamp
-    description: Year of first observation (for multi-opposition objects).
-  - name: arcEnd
-    "@id": "#MPCORB.arcEnd"
-    datatype: timestamp
-    description: Year of last observation (for multi-opposition objects).
-  - name: rms
-    "@id": "#MPCORB.rms"
-    datatype: float
-    description: r.m.s residual (arcsec).
-    fits:tunit: arcsec
-  - name: pertsShort
-    "@id": "#MPCORB.pertsShort"
-    datatype: char
-    length: 3
-    description: Coarse indicator of perturbers (blank if unperturbed one-opposition.
-      object)'
-  - name: pertsLong
-    "@id": "#MPCORB.pertsLong"
-    datatype: char
-    length: 3
-    description: Precise indicator of perturbers (blank if unperturbed one-opposition.
-      object)'
-  - name: computer
-    "@id": "#MPCORB.computer"
-    datatype: char
-    length: 10
-    description: Computer name.
-  - name: flags
-    "@id": "#MPCORB.flags"
-    datatype: int
-    description: 4-hexdigit flags. See https://minorplanetcenter.net//iau/info/MPOrbitFormat.html.
-      for details'
-  - name: fullDesignation
-    "@id": "#MPCORB.fullDesignation"
-    datatype: char
-    length: 26
-    description: Readable designation.
-  - name: lastIncludedObservation
-    "@id": "#MPCORB.lastIncludedObservation"
-    datatype: float
-    description: Date of last observation included in orbit solution.
+  - name: q
+    "@id": "#MPCORB.q"
+    datatype: double
+    description: Perihelion distance (AU).
+    fits:tunit: AU
+  - name: t_p
+    "@id": "#MPCORB.t_p"
+    datatype: double
+    description: MJD of pericentric passage.
     fits:tunit: d
 - name: MPCORBDESIGMAP
   "@id": "#MPCORBDESIGMAP"
