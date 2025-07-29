@@ -27,49 +27,41 @@ tables:
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_azimuth_encoder_absolute_position_1_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_1_rms_jitter"
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_azimuth_encoder_absolute_position_2_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_2_rms_jitter"
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_azimuth_encoder_absolute_position_3_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_3_rms_jitter"
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_0_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_0_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_1_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_1_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_2_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_2_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_elevation_encoder_absolute_position_3_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_3_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: mt_salindex110_sonic_temperature_mean
     "@id": "#exposure_efd.mt_salindex110_sonic_temperature_mean"
     description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.

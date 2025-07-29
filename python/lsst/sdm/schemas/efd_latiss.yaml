@@ -27,19 +27,16 @@ tables:
     description: RMS after 4th order polynomial fit of azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3), approximately -280 to 280.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: at_mount_jitter_elevation
     "@id": "#exposure_efd.at_mount_jitter_elevation"
     description: RMS after 4th order polynomial fit of elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: at_mount_jitter_nasmyth
     "@id": "#exposure_efd.at_mount_jitter_nasmyth"
     description: RMS after 4th order polynomial fit of Nasmyth 1 axis position computed from the axis encoders, or nan if this axis is not in use. The range is the software limits (L1), approximately -175 to 175.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: at_salindex201_sonic_temperature_mean
     "@id": "#exposure_efd.at_salindex201_sonic_temperature_mean"
     description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
@@ -1269,13 +1266,11 @@ tables:
     description: Azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3),  approximately -280 to 280.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: at_elevation_calculated_angle
     "@id": "#exposure_efd.at_elevation_calculated_angle"
     description: Elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: at_dimm_fwhm_mean
     "@id": "#exposure_efd.at_dimm_fwhm_mean"
     description: Mean combined full width half maximum.
@@ -2903,13 +2898,11 @@ tables:
     description: Azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3),  approximately -280 to 280.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: at_elevation_calculated_angle
     "@id": "#visit1_efd.at_elevation_calculated_angle"
     description: Elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
     datatype: float
     ivoa:ucd: stat.rms
-    ivoa:unit: "1"
   - name: at_dimm_fwhm_mean
     "@id": "#visit1_efd.at_dimm_fwhm_mean"
     description: Mean combined full width half maximum.
