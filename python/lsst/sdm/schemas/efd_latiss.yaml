@@ -1,0 +1,3285 @@
+---
+name: efd_latiss
+"@id": "#efd_latiss"
+description: Transformed EFD Consolidated Database for LATISS.
+version:
+  current: "1.0.0"
+tables:
+- name: exposure_efd
+  "@id": "#exposure_efd"
+  description: Transformed EFD topics by exposure
+  primaryKey:
+  - "#exposure_efd.exposure_id"
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_efd.exposure_id"
+    description: Exposure unique ID.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id
+  - name: created_at
+    "@id": "#exposure_efd.created_at"
+    description: Timestamp when the record was created, default is current timestamp.
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
+  - name: at_mount_jitter_azimuth
+    "@id": "#exposure_efd.at_mount_jitter_azimuth"
+    description: RMS after 4th order polynomial fit of azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3), approximately -280 to 280.
+    datatype: float
+    ivoa:ucd: stat.rms
+  - name: at_mount_jitter_elevation
+    "@id": "#exposure_efd.at_mount_jitter_elevation"
+    description: RMS after 4th order polynomial fit of elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
+    datatype: float
+    ivoa:ucd: stat.rms
+  - name: at_mount_jitter_nasmyth
+    "@id": "#exposure_efd.at_mount_jitter_nasmyth"
+    description: RMS after 4th order polynomial fit of Nasmyth 1 axis position computed from the axis encoders, or nan if this axis is not in use. The range is the software limits (L1), approximately -175 to 175.
+    datatype: float
+    ivoa:ucd: stat.rms
+  - name: at_salindex201_sonic_temperature_mean
+    "@id": "#exposure_efd.at_salindex201_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_sonic_temperature_stddev
+    "@id": "#exposure_efd.at_salindex201_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_sonic_temperature_stddev_mean
+    "@id": "#exposure_efd.at_salindex201_sonic_temperature_stddev_mean"
+    description: Mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_sonic_temperature_stddev_stddev
+    "@id": "#exposure_efd.at_salindex201_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_mean
+    "@id": "#exposure_efd.at_salindex205_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_stddev
+    "@id": "#exposure_efd.at_salindex205_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_stddev_mean
+    "@id": "#exposure_efd.at_salindex205_sonic_temperature_stddev_mean"
+    description: Mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_stddev_stddev
+    "@id": "#exposure_efd.at_salindex205_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_wind_speed_0_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_0_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_0_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_0_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_speedstddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.at_salindex201_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.at_salindex201_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.at_salindex201_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.at_salindex201_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_speedstddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude (salIndex 204)s
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.at_salindex204_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.at_salindex204_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.at_salindex204_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.at_salindex204_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_speedstddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.at_salindex205_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.at_salindex205_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.at_salindex205_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.at_salindex205_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_mean
+    "@id": "#exposure_efd.at_salindex201_airflow_speed_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_stddev
+    "@id": "#exposure_efd.at_salindex201_airflow_speed_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_min
+    "@id": "#exposure_efd.at_salindex201_airflow_speed_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_max
+    "@id": "#exposure_efd.at_salindex201_airflow_speed_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_mean
+    "@id": "#exposure_efd.at_salindex201_airflow_speedstddev_mean"
+    description: Mean standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_stddev
+    "@id": "#exposure_efd.at_salindex201_airflow_speedstddev_stddev"
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_min
+    "@id": "#exposure_efd.at_salindex201_airflow_speedstddev_min"
+    description: Minimum standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_max
+    "@id": "#exposure_efd.at_salindex201_airflow_speedstddev_max"
+    description: Maximum standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_mean
+    "@id": "#exposure_efd.at_salindex201_airflow_direction_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_stddev
+    "@id": "#exposure_efd.at_salindex201_airflow_direction_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_min
+    "@id": "#exposure_efd.at_salindex201_airflow_direction_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_max
+    "@id": "#exposure_efd.at_salindex201_airflow_direction_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_mean
+    "@id": "#exposure_efd.at_salindex204_airflow_speed_mean"
+    description: Mean median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_stddev
+    "@id": "#exposure_efd.at_salindex204_airflow_speed_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_min
+    "@id": "#exposure_efd.at_salindex204_airflow_speed_min"
+    description: Minimum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_max
+    "@id": "#exposure_efd.at_salindex204_airflow_speed_max"
+    description: Maximum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_mean
+    "@id": "#exposure_efd.at_salindex204_airflow_speedstddev_mean"
+    description: Mean standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_stddev
+    "@id": "#exposure_efd.at_salindex204_airflow_speedstddev_stddev"
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_min
+    "@id": "#exposure_efd.at_salindex204_airflow_speedstddev_min"
+    description: Minimum standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_max
+    "@id": "#exposure_efd.at_salindex204_airflow_speedstddev_max"
+    description: Maximum standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_mean
+    "@id": "#exposure_efd.at_salindex204_airflow_direction_mean"
+    description: Mean median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_stddev
+    "@id": "#exposure_efd.at_salindex204_airflow_direction_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_min
+    "@id": "#exposure_efd.at_salindex204_airflow_direction_min"
+    description: Minimum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_max
+    "@id": "#exposure_efd.at_salindex204_airflow_direction_max"
+    description: Maximum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_mean
+    "@id": "#exposure_efd.at_salindex205_airflow_speed_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_stddev
+    "@id": "#exposure_efd.at_salindex205_airflow_speed_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_min
+    "@id": "#exposure_efd.at_salindex205_airflow_speed_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_max
+    "@id": "#exposure_efd.at_salindex205_airflow_speed_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_mean
+    "@id": "#exposure_efd.at_salindex205_airflow_speedstddev_mean"
+    description: Mean standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_stddev
+    "@id": "#exposure_efd.at_salindex205_airflow_speedstddev_stddev"
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_min
+    "@id": "#exposure_efd.at_salindex205_airflow_speedstddev_min"
+    description: Minimum standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_max
+    "@id": "#exposure_efd.at_salindex205_airflow_speedstddev_max"
+    description: Maximum standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_mean
+    "@id": "#exposure_efd.at_salindex205_airflow_direction_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_stddev
+    "@id": "#exposure_efd.at_salindex205_airflow_direction_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_min
+    "@id": "#exposure_efd.at_salindex205_airflow_direction_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_max
+    "@id": "#exposure_efd.at_salindex205_airflow_direction_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_temperature_0_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_0_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_0_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_0_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_0_min
+    "@id": "#exposure_efd.at_salindex201_temperature_0_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_0_max
+    "@id": "#exposure_efd.at_salindex201_temperature_0_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_1_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_1_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_min
+    "@id": "#exposure_efd.at_salindex201_temperature_1_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_max
+    "@id": "#exposure_efd.at_salindex201_temperature_1_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_2_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_2_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_min
+    "@id": "#exposure_efd.at_salindex201_temperature_2_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_max
+    "@id": "#exposure_efd.at_salindex201_temperature_2_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_3_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_3_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_min
+    "@id": "#exposure_efd.at_salindex201_temperature_3_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_max
+    "@id": "#exposure_efd.at_salindex201_temperature_3_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_4_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_4_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_min
+    "@id": "#exposure_efd.at_salindex201_temperature_4_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_max
+    "@id": "#exposure_efd.at_salindex201_temperature_4_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_5_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_5_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_min
+    "@id": "#exposure_efd.at_salindex201_temperature_5_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_max
+    "@id": "#exposure_efd.at_salindex201_temperature_5_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_6_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_6_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_min
+    "@id": "#exposure_efd.at_salindex201_temperature_6_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_max
+    "@id": "#exposure_efd.at_salindex201_temperature_6_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_mean
+    "@id": "#exposure_efd.at_salindex201_temperature_7_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_stddev
+    "@id": "#exposure_efd.at_salindex201_temperature_7_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_min
+    "@id": "#exposure_efd.at_salindex201_temperature_7_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_max
+    "@id": "#exposure_efd.at_salindex201_temperature_7_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_0_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_0_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_min
+    "@id": "#exposure_efd.at_salindex301_temperature_0_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_max
+    "@id": "#exposure_efd.at_salindex301_temperature_0_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_1_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_1_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_min
+    "@id": "#exposure_efd.at_salindex301_temperature_1_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_max
+    "@id": "#exposure_efd.at_salindex301_temperature_1_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_2_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_2_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_min
+    "@id": "#exposure_efd.at_salindex301_temperature_2_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_max
+    "@id": "#exposure_efd.at_salindex301_temperature_2_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_3_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_3_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_min
+    "@id": "#exposure_efd.at_salindex301_temperature_3_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_max
+    "@id": "#exposure_efd.at_salindex301_temperature_3_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_4_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_4_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_min
+    "@id": "#exposure_efd.at_salindex301_temperature_4_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_max
+    "@id": "#exposure_efd.at_salindex301_temperature_4_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_5_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_5_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_min
+    "@id": "#exposure_efd.at_salindex301_temperature_5_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_max
+    "@id": "#exposure_efd.at_salindex301_temperature_5_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_6_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_6_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_min
+    "@id": "#exposure_efd.at_salindex301_temperature_6_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_max
+    "@id": "#exposure_efd.at_salindex301_temperature_6_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_mean
+    "@id": "#exposure_efd.at_salindex301_temperature_7_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_stddev
+    "@id": "#exposure_efd.at_salindex301_temperature_7_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_min
+    "@id": "#exposure_efd.at_salindex301_temperature_7_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_max
+    "@id": "#exposure_efd.at_salindex301_temperature_7_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_azimuth_calculated_angle
+    "@id": "#exposure_efd.at_azimuth_calculated_angle"
+    description: Azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3),  approximately -280 to 280.
+    datatype: float
+    ivoa:ucd: stat.rms
+  - name: at_elevation_calculated_angle
+    "@id": "#exposure_efd.at_elevation_calculated_angle"
+    description: Elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
+    datatype: float
+    ivoa:ucd: stat.rms
+  - name: at_dimm_fwhm_mean
+    "@id": "#exposure_efd.at_dimm_fwhm_mean"
+    description: Mean combined full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: at_azimuth_mean
+    "@id": "#exposure_efd.at_azimuth_mean"
+    description: Mean elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: degree
+  - name: at_elevation_mean
+    "@id": "#exposure_efd.at_elevation_mean"
+    description: Mean Azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3), approximately -280 to 280.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: degree
+  - name: at_hexapod_reported_position_x_mean
+    "@id": "#exposure_efd.at_hexapod_reported_position_x_mean"
+    description: Mean Auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_x_max
+    "@id": "#exposure_efd.at_hexapod_reported_position_x_max"
+    description: Maximum auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_x_min
+    "@id": "#exposure_efd.at_hexapod_reported_position_x_min"
+    description: Minimum auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_y_mean
+    "@id": "#exposure_efd.at_hexapod_reported_position_y_mean"
+    description: Mean Auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_y_max
+    "@id": "#exposure_efd.at_hexapod_reported_position_y_max"
+    description: Maximum auxiliary telescope hexapod reported in y position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_y_min
+    "@id": "#exposure_efd.at_hexapod_reported_position_y_min"
+    description: Minimum auxiliary telescope hexapod reported in y position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_z_mean
+    "@id": "#exposure_efd.at_hexapod_reported_position_z_mean"
+    description: Mean auxiliary telescope hexapod reported in z position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_z_max
+    "@id": "#exposure_efd.at_hexapod_reported_position_z_max"
+    description: Maximum auxiliary telescope hexapod reported in z position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_z_min
+    "@id": "#exposure_efd.at_hexapod_reported_position_z_min"
+    description: Minimum auxiliary telescope hexapod reported in z position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_u_mean
+    "@id": "#exposure_efd.at_hexapod_reported_position_u_mean"
+    description: Mean auxiliary telescope hexapod reported in u position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_u_max
+    "@id": "#exposure_efd.at_hexapod_reported_position_u_max"
+    description: Maximum auxiliary telescope hexapod reported in u position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_u_min
+    "@id": "#exposure_efd.at_hexapod_reported_position_u_min"
+    description: Minimum auxiliary telescope hexapod reported in u position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_v_mean
+    "@id": "#exposure_efd.at_hexapod_reported_position_v_mean"
+    description: Mean auxiliary telescope hexapod reported in v position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_v_max
+    "@id": "#exposure_efd.at_hexapod_reported_position_v_max"
+    description: Maximum uxiliary telescope hexapod reported in v position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_v_min
+    "@id": "#exposure_efd.at_hexapod_reported_position_v_min"
+    description: Minimum auxiliary telescope hexapod reported in v position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_w_mean
+    "@id": "#exposure_efd.at_hexapod_reported_position_w_mean"
+    description: Mean auxiliary telescope hexapod reported in w position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_w_max
+    "@id": "#exposure_efd.at_hexapod_reported_position_w_max"
+    description: Maximum auxiliary telescope hexapod reported in w position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_w_min
+    "@id": "#exposure_efd.at_hexapod_reported_position_w_min"
+    description: Minimum auxiliary telescope hexapod reported in w position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_salindex202_acceleration_x_mean
+    "@id": "#exposure_efd.at_salindex202_acceleration_x_mean"
+    description: Mean acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_x_stddev
+    "@id": "#exposure_efd.at_salindex202_acceleration_x_stddev"
+    description: Standard deviation of the acceleration in x direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_x_min
+    "@id": "#exposure_efd.at_salindex202_acceleration_x_min"
+    description: Minimum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_x_max
+    "@id": "#exposure_efd.at_salindex202_acceleration_x_max"
+    description: Maximum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_mean
+    "@id": "#exposure_efd.at_salindex202_acceleration_y_mean"
+    description: Mean acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_stddev
+    "@id": "#exposure_efd.at_salindex202_acceleration_y_stddev"
+    description: Standard deviation of the acceleration in y direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_min
+    "@id": "#exposure_efd.at_salindex202_acceleration_y_min"
+    description: Minimum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_max
+    "@id": "#exposure_efd.at_salindex202_acceleration_y_max"
+    description: Maximum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_mean
+    "@id": "#exposure_efd.at_salindex202_acceleration_z_mean"
+    description: Mean acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_stddev
+    "@id": "#exposure_efd.at_salindex202_acceleration_z_stddev"
+    description: Standard deviation of the acceleration in z direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_min
+    "@id": "#exposure_efd.at_salindex202_acceleration_z_min"
+    description: Minimum acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_max
+    "@id": "#exposure_efd.at_salindex202_acceleration_z_max"
+    description: Maximum acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_mean
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_x_mean"
+    description: Mean acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_stddev
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_x_stddev"
+    description: Standard deviation of the acceleration in x direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_min
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_x_min"
+    description: Minimum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_max
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_x_max"
+    description: Maximum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_mean
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_y_mean"
+    description: Mean acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_stddev
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_y_stddev"
+    description: Standard deviation of the acceleration in y direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_min
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_y_min"
+    description: Minimum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_max
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_y_max"
+    description: Maximum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2S
+  - name: at_salindex202_accelerationpsd_z_mean
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_z_mean"
+    description: Mean acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_z_stddev
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_z_stddev"
+    description: Standard deviation of the acceleration in z direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_z_min
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_z_min"
+    description: Minimum acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_z_max
+    "@id": "#exposure_efd.at_salindex202_accelerationpsd_z_max"
+    description: Maximum cceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex201_dewpoint_mean
+    "@id": "#exposure_efd.at_salindex201_dewpoint_mean"
+    description: Mean dew point in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_relative_humidity_mean
+    "@id": "#exposure_efd.at_salindex201_relative_humidity_mean"
+    description: Mean relative humidity in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: "%"
+  - name: at_salindex201_pressure_0_mean
+    "@id": "#exposure_efd.at_salindex201_pressure_0_mean"
+    description: Mean atmospheric pressure item 0 in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_salindex201_pressure_1_mean
+    "@id": "#exposure_efd.at_salindex201_pressure_1_mean"
+    description: Mean atmospheric pressure item 1 in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_salindex301_pressure_0_mean
+    "@id": "#exposure_efd.at_salindex301_pressure_0_mean"
+    description: Mean atmospheric pressure item 0 in weather tower atmospheric pressure.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_salindex301_pressure_1_mean
+    "@id": "#exposure_efd.at_salindex301_pressure_1_mean"
+    description: Mean atmospheric pressure item 1 in weather tower atmospheric pressure.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_pointing_mount_position_ra_mean
+    "@id": "#exposure_efd.at_pointing_mount_position_ra_mean"
+    description: Mean RA calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_ra_stddev
+    "@id": "#exposure_efd.at_pointing_mount_position_ra_stddev"
+    description: Standard deviation of the RA calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_dec_mean
+    "@id": "#exposure_efd.at_pointing_mount_position_dec_mean"
+    description: Mean Dec calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_dec_stddev
+    "@id": "#exposure_efd.at_pointing_mount_position_dec_stddev"
+    description: Standard deviation of the Dec calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_sky_angle_mean
+    "@id": "#exposure_efd.at_pointing_mount_position_sky_angle_mean"
+    description: Mean c sky angle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_sky_angle_stddev
+    "@id": "#exposure_efd.at_pointing_mount_position_sky_angle_stddev"
+    description: Standard deviation of the calculated sky angle.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg
+
+- name: exposure_efd_unpivoted
+  "@id": "#exposure_efd_unpivoted"
+  description: Unpivoted EFD exposure data
+  primaryKey:
+  - "#exposure_efd_unpivoted.exposure_id"
+  - "#exposure_efd_unpivoted.property"
+  - "#exposure_efd_unpivoted.field"
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_efd_unpivoted.exposure_id"
+    description: Unique identifier for the exposure.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id
+  - name: property
+    "@id": "#exposure_efd_unpivoted.property"
+    description: Property name for unpivoted data
+    datatype: string
+    length: 64
+    nullable: false
+    value: default_property
+  - name: field
+    "@id": "#exposure_efd_unpivoted.field"
+    description: Field name for unpivoted data.
+    datatype: string
+    length: 32
+    nullable: false
+    value: default_field
+  - name: value
+    "@id": "#exposure_efd_unpivoted.value"
+    description: Value corresponding to the parameter
+    datatype: float
+  - name: created_at
+    "@id": "#exposure_efd_unpivoted.created_at"
+    description: Timestamp when record was created, default current timestamp.
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
+
+- name: visit1_efd
+  "@id": "#visit1_efd"
+  description: Transformed EFD topics by visit
+  primaryKey:
+  - "#visit1_efd.visit_id"
+  columns:
+  - name: visit_id
+    "@id": "#visit1_efd.visit_id"
+    description: Visit unique ID.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id
+  - name: created_at
+    "@id": "#visit1_efd.created_at"
+    description: Timestamp when record was created, default current timestamp.
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
+  - name: at_salindex201_sonic_temperature_mean
+    "@id": "#visit1_efd.at_salindex201_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_sonic_temperature_stddev
+    "@id": "#visit1_efd.at_salindex201_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_sonic_temperature_stddev_mean
+    "@id": "#visit1_efd.at_salindex201_sonic_temperature_stddev_mean"
+    description: Mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_sonic_temperature_stddev_stddev
+    "@id": "#visit1_efd.at_salindex201_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_mean
+    "@id": "#visit1_efd.at_salindex205_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_stddev
+    "@id": "#visit1_efd.at_salindex205_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_stddev_mean
+    "@id": "#visit1_efd.at_salindex205_sonic_temperature_stddev_mean"
+    description: Mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex205_sonic_temperature_stddev_stddev
+    "@id": "#visit1_efd.at_salindex205_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_wind_speed_0_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_0_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_0_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_0_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_1_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_2_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_0_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 0 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_1_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 1 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_speedstddev_2_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_speedstddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-ESS04 along axis 2 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_magnitude_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.at_salindex201_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.at_salindex201_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.at_salindex201_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.at_salindex201_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in AuxTel-ESS04 (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_0_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_1_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_2_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_0_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 0 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_1_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 1 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_speedstddev_2_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_speedstddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles along axis 2 (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude (salIndex 204)s
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_magnitude_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.at_salindex204_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.at_salindex204_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.at_salindex204_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.at_salindex204_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_0_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_1_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_2_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_0_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 0 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_1_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 1 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_speedstddev_2_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_speedstddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in AuxTel-GillLabJack01 along axis 2 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_magnitude_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.at_salindex205_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.at_salindex205_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.at_salindex205_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.at_salindex205_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in AuxTel-GillLabJack01 (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_mean
+    "@id": "#visit1_efd.at_salindex201_airflow_speed_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_stddev
+    "@id": "#visit1_efd.at_salindex201_airflow_speed_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_min
+    "@id": "#visit1_efd.at_salindex201_airflow_speed_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speed_max
+    "@id": "#visit1_efd.at_salindex201_airflow_speed_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_mean
+    "@id": "#visit1_efd.at_salindex201_airflow_speedstddev_mean"
+    description: Mean standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_stddev
+    "@id": "#visit1_efd.at_salindex201_airflow_speedstddev_stddev"
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_min
+    "@id": "#visit1_efd.at_salindex201_airflow_speedstddev_min"
+    description: Minimum standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_speedstddev_max
+    "@id": "#visit1_efd.at_salindex201_airflow_speedstddev_max"
+    description: Maximum standard deviation of wind speed estimated from quartiles (salIndex 201). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_mean
+    "@id": "#visit1_efd.at_salindex201_airflow_direction_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_stddev
+    "@id": "#visit1_efd.at_salindex201_airflow_direction_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_min
+    "@id": "#visit1_efd.at_salindex201_airflow_direction_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex201_airflow_direction_max
+    "@id": "#visit1_efd.at_salindex201_airflow_direction_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 201).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_mean
+    "@id": "#visit1_efd.at_salindex204_airflow_speed_mean"
+    description: Mean median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_stddev
+    "@id": "#visit1_efd.at_salindex204_airflow_speed_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_min
+    "@id": "#visit1_efd.at_salindex204_airflow_speed_min"
+    description: Minimum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speed_max
+    "@id": "#visit1_efd.at_salindex204_airflow_speed_max"
+    description: Maximum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_mean
+    "@id": "#visit1_efd.at_salindex204_airflow_speedstddev_mean"
+    description: Mean standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_stddev
+    "@id": "#visit1_efd.at_salindex204_airflow_speedstddev_stddev"
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_min
+    "@id": "#visit1_efd.at_salindex204_airflow_speedstddev_min"
+    description: Minimum standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_speedstddev_max
+    "@id": "#visit1_efd.at_salindex204_airflow_speedstddev_max"
+    description: Maximum standard deviation of wind speed estimated from quartiles in AuxTel-Windsonic (salIndex 204). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_mean
+    "@id": "#visit1_efd.at_salindex204_airflow_direction_mean"
+    description: Mean median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_stddev
+    "@id": "#visit1_efd.at_salindex204_airflow_direction_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_min
+    "@id": "#visit1_efd.at_salindex204_airflow_direction_min"
+    description: Minimum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex204_airflow_direction_max
+    "@id": "#visit1_efd.at_salindex204_airflow_direction_max"
+    description: Maximum median (mean for some sensors) wind speed in AuxTel-Windsonic (salIndex 204).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_mean
+    "@id": "#visit1_efd.at_salindex205_airflow_speed_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_stddev
+    "@id": "#visit1_efd.at_salindex205_airflow_speed_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_min
+    "@id": "#visit1_efd.at_salindex205_airflow_speed_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speed_max
+    "@id": "#visit1_efd.at_salindex205_airflow_speed_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_mean
+    "@id": "#visit1_efd.at_salindex205_airflow_speedstddev_mean"
+    description: Mean standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_stddev
+    "@id": "#visit1_efd.at_salindex205_airflow_speedstddev_stddev"
+    description: Standard deviation of the standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_min
+    "@id": "#visit1_efd.at_salindex205_airflow_speedstddev_min"
+    description: Minimum standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_speedstddev_max
+    "@id": "#visit1_efd.at_salindex205_airflow_speedstddev_max"
+    description: Maximum standard deviation of wind speed estimated from quartiles (salIndex 205). Not available for all sensor types.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_mean
+    "@id": "#visit1_efd.at_salindex205_airflow_direction_mean"
+    description: Mean median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_stddev
+    "@id": "#visit1_efd.at_salindex205_airflow_direction_stddev"
+    description: Standard deviation of the median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_min
+    "@id": "#visit1_efd.at_salindex205_airflow_direction_min"
+    description: Minimum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: at_salindex205_airflow_direction_max
+    "@id": "#visit1_efd.at_salindex205_airflow_direction_max"
+    description: Maximum median (mean for some sensors) wind speed (salIndex 205).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: at_salindex201_temperature_0_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_0_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_0_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_0_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_0_min
+    "@id": "#visit1_efd.at_salindex201_temperature_0_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_0_max
+    "@id": "#visit1_efd.at_salindex201_temperature_0_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_1_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_1_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_min
+    "@id": "#visit1_efd.at_salindex201_temperature_1_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_1_max
+    "@id": "#visit1_efd.at_salindex201_temperature_1_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_2_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_2_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_min
+    "@id": "#visit1_efd.at_salindex201_temperature_2_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_2_max
+    "@id": "#visit1_efd.at_salindex201_temperature_2_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_3_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_3_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_min
+    "@id": "#visit1_efd.at_salindex201_temperature_3_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_3_max
+    "@id": "#visit1_efd.at_salindex201_temperature_3_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_4_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_4_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_min
+    "@id": "#visit1_efd.at_salindex201_temperature_4_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_4_max
+    "@id": "#visit1_efd.at_salindex201_temperature_4_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_5_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_5_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_min
+    "@id": "#visit1_efd.at_salindex201_temperature_5_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_5_max
+    "@id": "#visit1_efd.at_salindex201_temperature_5_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_6_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_6_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_min
+    "@id": "#visit1_efd.at_salindex201_temperature_6_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_6_max
+    "@id": "#visit1_efd.at_salindex201_temperature_6_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_mean
+    "@id": "#visit1_efd.at_salindex201_temperature_7_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_stddev
+    "@id": "#visit1_efd.at_salindex201_temperature_7_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_min
+    "@id": "#visit1_efd.at_salindex201_temperature_7_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex201_temperature_7_max
+    "@id": "#visit1_efd.at_salindex201_temperature_7_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_0_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_0_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_min
+    "@id": "#visit1_efd.at_salindex301_temperature_0_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_0_max
+    "@id": "#visit1_efd.at_salindex301_temperature_0_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_1_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_1_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_min
+    "@id": "#visit1_efd.at_salindex301_temperature_1_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_1_max
+    "@id": "#visit1_efd.at_salindex301_temperature_1_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 1.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_2_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_2_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_min
+    "@id": "#visit1_efd.at_salindex301_temperature_2_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_2_max
+    "@id": "#visit1_efd.at_salindex301_temperature_2_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 2.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_3_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_3_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_min
+    "@id": "#visit1_efd.at_salindex301_temperature_3_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_3_max
+    "@id": "#visit1_efd.at_salindex301_temperature_3_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 3.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_4_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_4_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_min
+    "@id": "#visit1_efd.at_salindex301_temperature_4_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_4_max
+    "@id": "#visit1_efd.at_salindex301_temperature_4_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 4.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_5_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_5_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_min
+    "@id": "#visit1_efd.at_salindex301_temperature_5_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_5_max
+    "@id": "#visit1_efd.at_salindex301_temperature_5_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 5.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_6_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_6_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_min
+    "@id": "#visit1_efd.at_salindex301_temperature_6_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_6_max
+    "@id": "#visit1_efd.at_salindex301_temperature_6_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 6.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_mean
+    "@id": "#visit1_efd.at_salindex301_temperature_7_mean"
+    description: Mean AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_stddev
+    "@id": "#visit1_efd.at_salindex301_temperature_7_stddev"
+    description: Standard deviation of the AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_min
+    "@id": "#visit1_efd.at_salindex301_temperature_7_min"
+    description: Minimum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: deg_C
+  - name: at_salindex301_temperature_7_max
+    "@id": "#visit1_efd.at_salindex301_temperature_7_max"
+    description: Maximum AuxTel-ESS01, AuxTel-ESS02, AuxTel-ESS03 temperature item 7.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: deg_C
+  - name: at_azimuth_calculated_angle
+    "@id": "#visit1_efd.at_azimuth_calculated_angle"
+    description: Azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3),  approximately -280 to 280.
+    datatype: float
+    ivoa:ucd: stat.rms
+  - name: at_elevation_calculated_angle
+    "@id": "#visit1_efd.at_elevation_calculated_angle"
+    description: Elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
+    datatype: float
+    ivoa:ucd: stat.rms
+  - name: at_dimm_fwhm_mean
+    "@id": "#visit1_efd.at_dimm_fwhm_mean"
+    description: Mean combined full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: at_azimuth_mean
+    "@id": "#visit1_efd.at_azimuth_mean"
+    description: Mean elevation axis position computed from the axis encoders at 100 Hz beginning at the specified time.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: degree
+  - name: at_elevation_mean
+    "@id": "#visit1_efd.at_elevation_mean"
+    description: Mean Azimuth axis position computed from the axis encoders at 100 Hz beginning at the specified time. The range is the hard stop limits (L3), approximately -280 to 280.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: degree
+  - name: at_hexapod_reported_position_x_mean
+    "@id": "#visit1_efd.at_hexapod_reported_position_x_mean"
+    description: Mean Auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_x_max
+    "@id": "#visit1_efd.at_hexapod_reported_position_x_max"
+    description: Maximum auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_x_min
+    "@id": "#visit1_efd.at_hexapod_reported_position_x_min"
+    description: Minimum auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_y_mean
+    "@id": "#visit1_efd.at_hexapod_reported_position_y_mean"
+    description: Mean Auxiliary telescope hexapod reported in x position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_y_max
+    "@id": "#visit1_efd.at_hexapod_reported_position_y_max"
+    description: Maximum auxiliary telescope hexapod reported in y position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_y_min
+    "@id": "#visit1_efd.at_hexapod_reported_position_y_min"
+    description: Minimum auxiliary telescope hexapod reported in y position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_z_mean
+    "@id": "#visit1_efd.at_hexapod_reported_position_z_mean"
+    description: Mean auxiliary telescope hexapod reported in z position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_z_max
+    "@id": "#visit1_efd.at_hexapod_reported_position_z_max"
+    description: Maximum auxiliary telescope hexapod reported in z position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_z_min
+    "@id": "#visit1_efd.at_hexapod_reported_position_z_min"
+    description: Minimum auxiliary telescope hexapod reported in z position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_u_mean
+    "@id": "#visit1_efd.at_hexapod_reported_position_u_mean"
+    description: Mean auxiliary telescope hexapod reported in u position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_u_max
+    "@id": "#visit1_efd.at_hexapod_reported_position_u_max"
+    description: Maximum auxiliary telescope hexapod reported in u position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_u_min
+    "@id": "#visit1_efd.at_hexapod_reported_position_u_min"
+    description: Minimum auxiliary telescope hexapod reported in u position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_v_mean
+    "@id": "#visit1_efd.at_hexapod_reported_position_v_mean"
+    description: Mean auxiliary telescope hexapod reported in v position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_v_max
+    "@id": "#visit1_efd.at_hexapod_reported_position_v_max"
+    description: Maximum uxiliary telescope hexapod reported in v position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_v_min
+    "@id": "#visit1_efd.at_hexapod_reported_position_v_min"
+    description: Minimum auxiliary telescope hexapod reported in v position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_w_mean
+    "@id": "#visit1_efd.at_hexapod_reported_position_w_mean"
+    description: Mean auxiliary telescope hexapod reported in w position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_w_max
+    "@id": "#visit1_efd.at_hexapod_reported_position_w_max"
+    description: Maximum auxiliary telescope hexapod reported in w position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: mm
+  - name: at_hexapod_reported_position_w_min
+    "@id": "#visit1_efd.at_hexapod_reported_position_w_min"
+    description: Minimum auxiliary telescope hexapod reported in w position.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: mm
+  - name: at_salindex202_acceleration_x_mean
+    "@id": "#visit1_efd.at_salindex202_acceleration_x_mean"
+    description: Mean acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_x_stddev
+    "@id": "#visit1_efd.at_salindex202_acceleration_x_stddev"
+    description: Standard deviation of the acceleration in x direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_x_min
+    "@id": "#visit1_efd.at_salindex202_acceleration_x_min"
+    description: Minimum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_x_max
+    "@id": "#visit1_efd.at_salindex202_acceleration_x_max"
+    description: Maximum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_mean
+    "@id": "#visit1_efd.at_salindex202_acceleration_y_mean"
+    description: Mean acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_stddev
+    "@id": "#visit1_efd.at_salindex202_acceleration_y_stddev"
+    description: Standard deviation of the acceleration in y direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_min
+    "@id": "#visit1_efd.at_salindex202_acceleration_y_min"
+    description: Minimum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_y_max
+    "@id": "#visit1_efd.at_salindex202_acceleration_y_max"
+    description: Maximum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_mean
+    "@id": "#visit1_efd.at_salindex202_acceleration_z_mean"
+    description: Mean acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_stddev
+    "@id": "#visit1_efd.at_salindex202_acceleration_z_stddev"
+    description: Standard deviation of the acceleration in z direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_min
+    "@id": "#visit1_efd.at_salindex202_acceleration_z_min"
+    description: Minimum acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_acceleration_z_max
+    "@id": "#visit1_efd.at_salindex202_acceleration_z_max"
+    description: Maximum acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_mean
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_x_mean"
+    description: Mean acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_stddev
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_x_stddev"
+    description: Standard deviation of the acceleration in x direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_min
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_x_min"
+    description: Minimum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_x_max
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_x_max"
+    description: Maximum acceleration in x direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_mean
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_y_mean"
+    description: Mean acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_stddev
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_y_stddev"
+    description: Standard deviation of the acceleration in y direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_min
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_y_min"
+    description: Minimum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_y_max
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_y_max"
+    description: Maximum acceleration in y direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2S
+  - name: at_salindex202_accelerationpsd_z_mean
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_z_mean"
+    description: Mean acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_z_stddev
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_z_stddev"
+    description: Standard deviation of the acceleration in z direction.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_z_min
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_z_min"
+    description: Minimum acceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s**2
+  - name: at_salindex202_accelerationpsd_z_max
+    "@id": "#visit1_efd.at_salindex202_accelerationpsd_z_max"
+    description: Maximum cceleration in z direction.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s**2
+  - name: at_salindex201_dewpoint_mean
+    "@id": "#visit1_efd.at_salindex201_dewpoint_mean"
+    description: Mean dew point in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: at_salindex201_relative_humidity_mean
+    "@id": "#visit1_efd.at_salindex201_relative_humidity_mean"
+    description: Mean relative humidity in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: "%"
+  - name: at_salindex201_pressure_0_mean
+    "@id": "#visit1_efd.at_salindex201_pressure_0_mean"
+    description: Mean atmospheric pressure item 0 in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_salindex201_pressure_1_mean
+    "@id": "#visit1_efd.at_salindex201_pressure_1_mean"
+    description: Mean atmospheric pressure item 1 in AuxTel-ESS02.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_salindex301_pressure_0_mean
+    "@id": "#visit1_efd.at_salindex301_pressure_0_mean"
+    description: Mean atmospheric pressure item 0 in weather tower atmospheric pressure.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_salindex301_pressure_1_mean
+    "@id": "#visit1_efd.at_salindex301_pressure_1_mean"
+    description: Mean atmospheric pressure item 1 in weather tower atmospheric pressure.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: Pa
+  - name: at_pointing_mount_position_ra_mean
+    "@id": "#visit1_efd.at_pointing_mount_position_ra_mean"
+    description: Mean RA calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_ra_stddev
+    "@id": "#visit1_efd.at_pointing_mount_position_ra_stddev"
+    description: Standard deviation of the RA calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_dec_mean
+    "@id": "#visit1_efd.at_pointing_mount_position_dec_mean"
+    description: Mean Dec calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_dec_stddev
+    "@id": "#visit1_efd.at_pointing_mount_position_dec_stddev"
+    description: Standard deviation of the Dec calculated from the azimuthCalculatedAngle and elevationCalculatedAngle.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_sky_angle_mean
+    "@id": "#visit1_efd.at_pointing_mount_position_sky_angle_mean"
+    description: Mean c sky angle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg
+  - name: at_pointing_mount_position_sky_angle_stddev
+    "@id": "#visit1_efd.at_pointing_mount_position_sky_angle_stddev"
+    description: Standard deviation of the calculated sky angle.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg
+
+- name: visit1_efd_unpivoted
+  "@id": "#visit1_efd_unpivoted"
+  description: Unpivoted EFD visit data
+  primaryKey:
+  - "#visit1_efd_unpivoted.visit_id"
+  - "#visit1_efd_unpivoted.property"
+  - "#visit1_efd_unpivoted.field"
+  columns:
+  - name: visit_id
+    "@id": "#visit1_efd_unpivoted.visit_id"
+    description: Unique identifier for the visit.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id
+  - name: property
+    "@id": "#visit1_efd_unpivoted.property"
+    description: Property name for unpivoted data.
+    datatype: string
+    length: 64
+    nullable: false
+    value: default_property
+  - name: field
+    "@id": "#visit1_efd_unpivoted.field"
+    description: Field name for unpivoted data.
+    datatype: string
+    length: 32
+    nullable: false
+    value: default_field
+  - name: value
+    "@id": "#visit1_efd_unpivoted.value"
+    description: Value corresponding to the parameter.
+    datatype: float
+  - name: created_at
+    "@id": "#visit1_efd_unpivoted.created_at"
+    description: Timestamp when record was created, default current timestamp.
+    datatype: timestamp
+    value: 'CURRENT_TIMESTAMP'
