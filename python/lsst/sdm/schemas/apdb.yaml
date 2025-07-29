@@ -2690,17 +2690,17 @@ tables:
     "@id": "#SSSource.heliocentricVX"
     datatype: float
     description: Cartesian heliocentric X velocity (at the emit time).
-    fits:tunit: AU
+    fits:tunit: AU/d
   - name: heliocentricVY
     "@id": "#SSSource.heliocentricVY"
     datatype: float
     description: Cartesian heliocentric Y velocity (at the emit time).
-    fits:tunit: AU
+    fits:tunit: AU/d
   - name: heliocentricVZ
     "@id": "#SSSource.heliocentricVZ"
     datatype: float
     description: Cartesian heliocentric Z velocity (at the emit time).
-    fits:tunit: AU
+    fits:tunit: AU/d
   - name: topocentricX
     "@id": "#SSSource.topocentricX"
     datatype: float
@@ -2720,17 +2720,17 @@ tables:
     "@id": "#SSSource.topocentricVX"
     datatype: float
     description: Cartesian topocentric X velocity (at the emit time).
-    fits:tunit: AU
+    fits:tunit: AU/d
   - name: topocentricVY
     "@id": "#SSSource.topocentricVY"
     datatype: float
     description: Cartesian topocentric Y velocity (at the emit time).
-    fits:tunit: AU
+    fits:tunit: AU/d
   - name: topocentricVZ
     "@id": "#SSSource.topocentricVZ"
     datatype: float
     description: Cartesian topocentric Z velocity (at the emit time).
-    fits:tunit: AU
+    fits:tunit: AU/d
 - name: DetectorVisitProcessingSummary
   '@id': '#DetectorVisitProcessingSummary'
   description: Properties of an image from one processing of a single detector in a visit.
