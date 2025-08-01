@@ -568,6 +568,7 @@ tables:
   - name: firstDiaSourceMjdTai
     "@id": "#DiaObject.firstDiaSourceMjdTai"
     datatype: double
+    nullable: false
     description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: nDiaSources
@@ -1631,6 +1632,7 @@ tables:
   - name: firstDiaSourceMjdTai
     "@id": "#DiaObjectLast.firstDiaSourceMjdTai"
     datatype: double
+    nullable: false
     description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: nDiaSources
