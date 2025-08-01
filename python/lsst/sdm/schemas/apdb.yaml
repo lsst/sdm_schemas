@@ -47,7 +47,7 @@ tables:
     "@id": "#DiaObject.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecMjdTai.
+    description: Right ascension coordinate of the position of the object.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: raErr
@@ -60,7 +60,7 @@ tables:
     "@id": "#DiaObject.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecMjdTai.
+    description: Declination coordinate of the position of the object.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: decErr
@@ -565,6 +565,11 @@ tables:
     datatype: timestamp
     nullable: false
     description: Last time when non-forced DIASource was seen for this object.
+  - name: firstDiaSourceMjdTai
+    "@id": "#DiaObject.firstDiaSourceMjdTai"
+    datatype: double
+    description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: nDiaSources
     "@id": "#DiaObject.nDiaSources"
     datatype: int
@@ -1623,6 +1628,11 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg**2
+  - name: firstDiaSourceMjdTai
+    "@id": "#DiaObjectLast.firstDiaSourceMjdTai"
+    datatype: double
+    description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: nDiaSources
     "@id": "#DiaObjectLast.nDiaSources"
     datatype: int
