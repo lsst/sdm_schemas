@@ -1674,22 +1674,22 @@ tables:
   - name: M
     "@id": "#MPCORB.M"
     datatype: double
-    description: Mean anomaly at the epoch, in degrees.
+    description: Mean anomaly at the epoch.
     fits:tunit: deg
   - name: peri
     "@id": "#MPCORB.peri"
     datatype: double
-    description: Argument of perihelion, J2000.0 (degrees).
+    description: Argument of perihelion, J2000.0.
     fits:tunit: deg
   - name: node
     "@id": "#MPCORB.node"
     datatype: double
-    description: Longitude of the ascending node, J2000.0 (degrees).
+    description: Longitude of the ascending node, J2000.0.
     fits:tunit: deg
   - name: incl
     "@id": "#MPCORB.incl"
     datatype: double
-    description: Inclination to the ecliptic, J2000.0 (degrees).
+    description: Inclination to the ecliptic, J2000.0.
     fits:tunit: deg
   - name: e
     "@id": "#MPCORB.e"
@@ -1698,12 +1698,12 @@ tables:
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
-    description: Semimajor axis (AU).
+    description: Semimajor axis.
     fits:tunit: AU
   - name: q
     "@id": "#MPCORB.q"
     datatype: double
-    description: Perihelion distance (AU).
+    description: Perihelion distance.
     fits:tunit: AU
   - name: t_p
     "@id": "#MPCORB.t_p"
