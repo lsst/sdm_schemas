@@ -1324,6 +1324,8 @@ tables:
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: long
+    description: Size of the square bounding box that fully contains the detection footprint.
+    fits:tunit: pixel
   - name: pixelFlags
     "@id": "#DiaSource.pixelFlags"
     datatype: boolean
