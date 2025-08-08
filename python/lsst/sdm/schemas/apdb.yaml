@@ -563,7 +563,6 @@ tables:
   - name: firstDiaSourceMjdTai
     "@id": "#DiaObject.firstDiaSourceMjdTai"
     datatype: double
-    nullable: false
     description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: lastDiaSourceMjdTai
@@ -1296,9 +1295,8 @@ tables:
   - name: reliability
     "@id": "#DiaSource.reliability"
     datatype: float
-    description: A measure of reliability, computed using information from the source
-      and image characterization, as well as the information on the Telescope and
-      Camera system (e.g., ghost maps, defect maps, etc.).
+    description: Probability (0-1) that the diaSource is astrophysical, 
+       derived from a machine learning model.
   - name: band
     "@id": "#DiaSource.band"
     datatype: char
@@ -1636,7 +1634,6 @@ tables:
   - name: firstDiaSourceMjdTai
     "@id": "#DiaObjectLast.firstDiaSourceMjdTai"
     datatype: double
-    nullable: false
     description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: nDiaSources
@@ -1754,88 +1751,6 @@ tables:
     datatype: long
     description: Unique identifier of the observation.
     ivoa:ucd: meta.id;src
-  - name: mpcUniqueId
-    "@id": "#SSSource.mpcUniqueId"
-    datatype: long
-    description: MPC unique identifier of the observation.
-  - name: nearbyObj1
-    "@id": "#SSSource.nearbyObj1"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj2
-    "@id": "#SSSource.nearbyObj2"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj3
-    "@id": "#SSSource.nearbyObj3"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj4
-    "@id": "#SSSource.nearbyObj4"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj5
-    "@id": "#SSSource.nearbyObj5"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj6
-    "@id": "#SSSource.nearbyObj6"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObjDist1
-    "@id": "#SSSource.nearbyObjDist1"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist2
-    "@id": "#SSSource.nearbyObjDist2"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist3
-    "@id": "#SSSource.nearbyObjDist3"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist4
-    "@id": "#SSSource.nearbyObjDist4"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist5
-    "@id": "#SSSource.nearbyObjDist5"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist6
-    "@id": "#SSSource.nearbyObjDist6"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjLnP1
-    "@id": "#SSSource.nearbyObjLnP1"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP2
-    "@id": "#SSSource.nearbyObjLnP2"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP3
-    "@id": "#SSSource.nearbyObjLnP3"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP4
-    "@id": "#SSSource.nearbyObjLnP4"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP5
-    "@id": "#SSSource.nearbyObjLnP5"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP6
-    "@id": "#SSSource.nearbyObjLnP6"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
   - name: eclipticLambda
     "@id": "#SSSource.eclipticLambda"
     datatype: double
@@ -1871,15 +1786,10 @@ tables:
     datatype: float
     description: Topocentric distace.
     fits:tunit: AU
-  - name: predictedMagnitude
-    "@id": "#SSSource.predictedMagnitude"
+  - name: predictedVMagnitude
+    "@id": "#SSSource.predictedVMagnitude"
     datatype: float
-    description: Predicted magnitude.
-    fits:tunit: mag
-  - name: predictedMagnitudeSigma
-    "@id": "#SSSource.predictedMagnitudeSigma"
-    datatype: float
-    description: Prediction uncertainty (1-sigma).
+    description: Predicted V-band magnitude.
     fits:tunit: mag
   - name: residualRa
     "@id": "#SSSource.residualRa"
@@ -1891,21 +1801,6 @@ tables:
     datatype: double
     description: Residual Dec vs. ephemeris.
     fits:tunit: deg
-  - name: predictedRaSigma
-    "@id": "#SSSource.predictedRaSigma"
-    datatype: float
-    description: Predicted R.A. uncertainty.
-    fits:tunit: deg
-  - name: predictedDecSigma
-    "@id": "#SSSource.predictedDecSigma"
-    datatype: float
-    description: Predicted Dec uncertainty.
-    fits:tunit: deg
-  - name: predictedRaDecCov
-    "@id": "#SSSource.predictedRaDecCov"
-    datatype: float
-    description: Predicted R.A./Dec covariance.
-    fits:tunit: deg**2
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float
