@@ -560,15 +560,17 @@ tables:
     datatype: float
     description: Mean of the y band flux errors.
     fits:tunit: nJy
-  - name: lastNonForcedSource
-    "@id": "#DiaObject.lastNonForcedSource"
-    datatype: timestamp
-    nullable: false
-    description: Last time when non-forced DIASource was seen for this object.
   - name: firstDiaSourceMjdTai
     "@id": "#DiaObject.firstDiaSourceMjdTai"
     datatype: double
     description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
+  - name: lastDiaSourceMjdTai
+    "@id": "#DiaObject.lastDiaSourceMjdTai"
+    datatype: double
+    nullable: false
+    description: Time of the most recent non-forced DIASource for this object, expressed as 
+        Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: nDiaSources
     "@id": "#DiaObject.nDiaSources"
@@ -1591,11 +1593,13 @@ tables:
     autoincrement: false
     description: Unique id.
     ivoa:ucd: meta.id;src
-  - name: lastNonForcedSource
-    "@id": "#DiaObjectLast.lastNonForcedSource"
-    datatype: timestamp
+  - name: lastDiaSourceMjdTai
+    "@id": "#DiaObjectLast.lastDiaSourceMjdTai"
+    datatype: double
     nullable: false
-    description: Last time when non-forced DIASource was seen for this object.
+    description: Time of the most recent non-forced DIASource for this object, expressed as 
+        Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: ra
     "@id": "#DiaObjectLast.ra"
     datatype: double
@@ -1782,6 +1786,11 @@ tables:
     datatype: float
     description: Topocentric distace.
     fits:tunit: AU
+  - name: predictedVMagnitude
+    "@id": "#SSSource.predictedVMagnitude"
+    datatype: float
+    description: Predicted V-band magnitude.
+    fits:tunit: mag
   - name: residualRa
     "@id": "#SSSource.residualRa"
     datatype: double
