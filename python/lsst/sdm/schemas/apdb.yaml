@@ -1024,8 +1024,8 @@ tables:
     datatype: boolean
     description: Aperture did not fit within measurement image.
     fits:tunit:
-  - name: is_negative
-    "@id": "#DiaSource.is_negative"
+  - name: isNegative
+    "@id": "#DiaSource.isNegative"
     datatype: boolean
     description: Source was detected as significantly negative.
     fits:tunit:
@@ -1295,15 +1295,15 @@ tables:
   - name: reliability
     "@id": "#DiaSource.reliability"
     datatype: float
-    description: Probability (0-1) that the diaSource is astrophysical, 
+    description: Probability (0-1) that the diaSource is astrophysical,
        derived from a machine learning model.
   - name: band
     "@id": "#DiaSource.band"
     datatype: char
     length: 1
     description: Filter band this source was observed with.
-  - name: is_dipole
-    "@id": "#DiaSource.is_dipole"
+  - name: isDipole
+    "@id": "#DiaSource.isDipole"
     datatype: boolean
     description: Source well fit by a dipole.
   - name: dipoleFitAttempted
