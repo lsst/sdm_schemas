@@ -8320,7 +8320,7 @@ tables:
     fits:tunit: nJy
   - name: i_scienceFluxMeanErr
     "@id": "#DiaObject.i_scienceFluxMeanErr"
-    datatype: float
+    datatype: double
     description: Standard error of i_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
