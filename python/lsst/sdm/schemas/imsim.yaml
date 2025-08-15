@@ -8114,15 +8114,10 @@ tables:
     description: Standard deviation of the distribution of u_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: u_psfFluxChi2
-    "@id": "#DiaObject.u_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: u_psfFluxNdata
     "@id": "#DiaObject.u_psfFluxNdata"
     datatype: double
-    description: The number of data points used to compute u_psfFluxChi2.
+    description: The number of u-band data points.
   - name: g_psfFluxMean
     "@id": "#DiaObject.g_psfFluxMean"
     datatype: double
@@ -8141,15 +8136,10 @@ tables:
     description: Standard deviation of the distribution of g_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: g_psfFluxChi2
-    "@id": "#DiaObject.g_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: g_psfFluxNdata
     "@id": "#DiaObject.g_psfFluxNdata"
     datatype: double
-    description: The number of data points used to compute g_psfFluxChi2.
+    description: The number of g-band data points.
   - name: r_psfFluxMean
     "@id": "#DiaObject.r_psfFluxMean"
     datatype: double
@@ -8168,15 +8158,10 @@ tables:
     description: Standard deviation of the distribution of r_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: r_psfFluxChi2
-    "@id": "#DiaObject.r_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: r_psfFluxNdata
     "@id": "#DiaObject.r_psfFluxNdata"
     datatype: double
-    description: The number of data points used to compute r_psfFluxChi2.
+    description: The number of r-band data points.
   - name: i_psfFluxMean
     "@id": "#DiaObject.i_psfFluxMean"
     datatype: double
@@ -8195,15 +8180,10 @@ tables:
     description: Standard deviation of the distribution of i_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: i_psfFluxChi2
-    "@id": "#DiaObject.i_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: i_psfFluxNdata
     "@id": "#DiaObject.i_psfFluxNdata"
     datatype: double
-    description: The number of data points used to compute i_psfFluxChi2.
+    description: The number of i-band data points.
   - name: z_psfFluxMean
     "@id": "#DiaObject.z_psfFluxMean"
     datatype: double
@@ -8222,15 +8202,10 @@ tables:
     description: Standard deviation of the distribution of z_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: z_psfFluxChi2
-    "@id": "#DiaObject.z_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: z_psfFluxNdata
     "@id": "#DiaObject.z_psfFluxNdata"
     datatype: double
-    description: The number of data points used to compute z_psfFluxChi2.
+    description: The number of z-band data points.
   - name: y_psfFluxMean
     "@id": "#DiaObject.y_psfFluxMean"
     datatype: double
@@ -8249,15 +8224,10 @@ tables:
     description: Standard deviation of the distribution of y_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: y_psfFluxChi2
-    "@id": "#DiaObject.y_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: y_psfFluxNdata
     "@id": "#DiaObject.y_psfFluxNdata"
     datatype: double
-    description: The number of data points used to compute y_psfFluxChi2.
+    description: The number of y-band data points.
   - name: u_scienceFluxMean
     "@id": "#DiaObject.u_scienceFluxMean"
     datatype: double
@@ -8269,12 +8239,6 @@ tables:
     datatype: double
     description: Standard error of u_scienceFluxMean.
     ivoa:ucd: stat.error
-    fits:tunit: nJy
-  - name: u_scienceFluxSigma
-    "@id": "#DiaObject.u_scienceFluxSigma"
-    datatype: double
-    description: Standard deviation of the distribution of u_scienceFlux.
-    ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: g_scienceFluxMean
     "@id": "#DiaObject.g_scienceFluxMean"
@@ -8288,12 +8252,6 @@ tables:
     description: Standard error of g_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: g_scienceFluxSigma
-    "@id": "#DiaObject.g_scienceFluxSigma"
-    datatype: double
-    description: Standard deviation of the distribution of g_scienceFlux.
-    ivoa:ucd: stat.stdev
-    fits:tunit: nJy
   - name: r_scienceFluxMean
     "@id": "#DiaObject.r_scienceFluxMean"
     datatype: double
@@ -8305,12 +8263,6 @@ tables:
     datatype: double
     description: Standard error of r_scienceFluxMean.
     ivoa:ucd: stat.error
-    fits:tunit: nJy
-  - name: r_scienceFluxSigma
-    "@id": "#DiaObject.r_scienceFluxSigma"
-    datatype: double
-    description: Standard deviation of the distribution of r_scienceFlux.
-    ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: i_scienceFluxMean
     "@id": "#DiaObject.i_scienceFluxMean"
@@ -8324,12 +8276,6 @@ tables:
     description: Standard error of i_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: i_scienceFluxSigma
-    "@id": "#DiaObject.i_scienceFluxSigma"
-    datatype: double
-    description: Standard deviation of the distribution of i_scienceFlux.
-    ivoa:ucd: stat.stdev
-    fits:tunit: nJy
   - name: z_scienceFluxMean
     "@id": "#DiaObject.z_scienceFluxMean"
     datatype: double
@@ -8341,12 +8287,6 @@ tables:
     datatype: double
     description: Standard error of z_scienceFluxMean.
     ivoa:ucd: stat.error
-    fits:tunit: nJy
-  - name: z_scienceFluxSigma
-    "@id": "#DiaObject.z_scienceFluxSigma"
-    datatype: double
-    description: Standard deviation of the distribution of z_scienceFlux.
-    ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: y_scienceFluxMean
     "@id": "#DiaObject.y_scienceFluxMean"
@@ -8360,16 +8300,6 @@ tables:
     description: Standard error of y_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: y_scienceFluxSigma
-    "@id": "#DiaObject.y_scienceFluxSigma"
-    datatype: double
-    description: Standard deviation of the distribution of y_scienceFlux.
-    ivoa:ucd: stat.stdev
-    fits:tunit: nJy
-  - name: u_psfFluxSkew
-    "@id": "#DiaObject.u_psfFluxSkew"
-    datatype: float
-    description: Skewness of the u band fluxes.
   - name: u_psfFluxMin
     "@id": "#DiaObject.u_psfFluxMin"
     datatype: double
@@ -8390,10 +8320,6 @@ tables:
     datatype: float
     description: Mean of the u band flux errors.
     fits:tunit: nJy
-  - name: g_psfFluxSkew
-    "@id": "#DiaObject.g_psfFluxSkew"
-    datatype: float
-    description: Skewness of the g band fluxes.
   - name: g_psfFluxMin
     "@id": "#DiaObject.g_psfFluxMin"
     datatype: double
@@ -8414,10 +8340,6 @@ tables:
     datatype: float
     description: Mean of the g band flux errors.
     fits:tunit: nJy
-  - name: r_psfFluxSkew
-    "@id": "#DiaObject.r_psfFluxSkew"
-    datatype: float
-    description: Skewness of the r band fluxes.
   - name: r_psfFluxMin
     "@id": "#DiaObject.r_psfFluxMin"
     datatype: double
@@ -8438,10 +8360,6 @@ tables:
     datatype: float
     description: Mean of the r band flux errors.
     fits:tunit: nJy
-  - name: i_psfFluxSkew
-    "@id": "#DiaObject.i_psfFluxSkew"
-    datatype: float
-    description: Skewness of the i band fluxes.
   - name: i_psfFluxMin
     "@id": "#DiaObject.i_psfFluxMin"
     datatype: double
@@ -8462,10 +8380,6 @@ tables:
     datatype: float
     description: Mean of the i band flux errors.
     fits:tunit: nJy
-  - name: z_psfFluxSkew
-    "@id": "#DiaObject.z_psfFluxSkew"
-    datatype: float
-    description: Skewness of the z band fluxes.
   - name: z_psfFluxMin
     "@id": "#DiaObject.z_psfFluxMin"
     datatype: double
@@ -8486,10 +8400,6 @@ tables:
     datatype: float
     description: Mean of the z band flux errors.
     fits:tunit: nJy
-  - name: y_psfFluxSkew
-    "@id": "#DiaObject.y_psfFluxSkew"
-    datatype: float
-    description: Skewness of the y band fluxes.
   - name: y_psfFluxMin
     "@id": "#DiaObject.y_psfFluxMin"
     datatype: double
