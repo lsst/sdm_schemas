@@ -1322,7 +1322,7 @@ tables:
     description: Time when this record was marked invalid.
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
-    datatype: long
+    datatype: int
     description: Size of the square bounding box that fully contains the detection footprint.
     fits:tunit: pixel
   - name: pixelFlags
