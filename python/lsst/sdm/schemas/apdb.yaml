@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "7.0.1"
+version: "8.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -47,7 +47,7 @@ tables:
     "@id": "#DiaObject.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecMjdTai.
+    description: Right ascension coordinate of the position of the object.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: raErr
@@ -60,7 +60,7 @@ tables:
     "@id": "#DiaObject.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecMjdTai.
+    description: Declination coordinate of the position of the object.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: decErr
@@ -74,81 +74,6 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg**2
-  - name: radecMjdTai
-    "@id": "#DiaObject.radecMjdTai"
-    datatype: double
-    description: Time at which the object was at a position ra/dec, expressed
-      as Modified Julian Date, International Atomic Time.
-    ivoa:ucd: time.epoch
-  - name: pmRa
-    "@id": "#DiaObject.pmRa"
-    datatype: float
-    description: Proper motion in right ascension.
-    fits:tunit: mas/yr
-    ivoa:ucd: pos.pm
-  - name: pmRaErr
-    "@id": "#DiaObject.pmRaErr"
-    datatype: float
-    description: Uncertainty of pmRa.
-    fits:tunit: mas/yr
-    ivoa:ucd: stat.error;pos.pm
-  - name: pmDec
-    "@id": "#DiaObject.pmDec"
-    datatype: float
-    description: Proper motion of declination.
-    fits:tunit: mas/yr
-    ivoa:ucd: pos.pm
-  - name: pmDecErr
-    "@id": "#DiaObject.pmDecErr"
-    datatype: float
-    description: Uncertainty of pmDec.
-    fits:tunit: mas/yr
-    ivoa:ucd: stat.error;pos.pm
-  - name: parallax
-    "@id": "#DiaObject.parallax"
-    datatype: float
-    description: Parallax.
-    fits:tunit: mas
-    ivoa:ucd: pos.parallax
-  - name: parallaxErr
-    "@id": "#DiaObject.parallaxErr"
-    datatype: float
-    description: Uncertainty of parallax.
-    fits:tunit: mas
-    ivoa:ucd: stat.error;pos.parallax
-  - name: pmRa_pmDec_Cov
-    "@id": "#DiaObject.pmRa_pmDec_Cov"
-    datatype: float
-    description: Covariance of pmRa and pmDec.
-    fits:tunit: "mas**2/yr**2"
-    ivoa:ucd: stat.covariance;pos.eq
-  - name: pmRa_parallax_Cov
-    "@id": "#DiaObject.pmRa_parallax_Cov"
-    datatype: float
-    description: Covariance of pmRa and parallax.
-    fits:tunit: mas**2/yr
-    ivoa:ucd: stat.covariance
-  - name: pmDec_parallax_Cov
-    "@id": "#DiaObject.pmDec_parallax_Cov"
-    datatype: float
-    description: Covariance of pmDec and parallax.
-    fits:tunit: mas**2/yr
-    ivoa:ucd: stat.covariance
-  - name: pmParallaxLnL
-    "@id": "#DiaObject.pmParallaxLnL"
-    datatype: float
-    description: Natural log of the likelihood of the linear proper motion parallax
-      fit.
-    ivoa:ucd: stat.likelihood
-  - name: pmParallaxChi2
-    "@id": "#DiaObject.pmParallaxChi2"
-    datatype: float
-    description: Chi^2 static of the model fit.
-    ivoa:ucd: stat.fit.chi2
-  - name: pmParallaxNdata
-    "@id": "#DiaObject.pmParallaxNdata"
-    datatype: int
-    description: The number of data points used to fit the model.
   - name: u_psfFluxMean
     "@id": "#DiaObject.u_psfFluxMean"
     datatype: float
@@ -167,15 +92,10 @@ tables:
     description: Standard deviation of the distribution of u_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: u_psfFluxChi2
-    "@id": "#DiaObject.u_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: u_psfFluxNdata
     "@id": "#DiaObject.u_psfFluxNdata"
     datatype: int
-    description: The number of data points used to compute u_psfFluxChi2.
+    description: The number of u-band data points.
   - name: u_fpFluxMean
     "@id": "#DiaObject.u_fpFluxMean"
     datatype: float
@@ -188,12 +108,6 @@ tables:
     description: Standard error of u_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: u_fpFluxSigma
-    "@id": "#DiaObject.u_fpFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of u_fpFlux.
-    fits:tunit: nJy
-    ivoa:ucd: stat.stdev
   - name: g_psfFluxMean
     "@id": "#DiaObject.g_psfFluxMean"
     datatype: float
@@ -212,15 +126,10 @@ tables:
     description: Standard deviation of the distribution of g_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: g_psfFluxChi2
-    "@id": "#DiaObject.g_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: g_psfFluxNdata
     "@id": "#DiaObject.g_psfFluxNdata"
     datatype: int
-    description: The number of data points used to compute g_psfFluxChi2.
+    description: The number of g-band data points.
   - name: g_fpFluxMean
     "@id": "#DiaObject.g_fpFluxMean"
     datatype: float
@@ -233,12 +142,6 @@ tables:
     description: Standard error of g_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: g_fpFluxSigma
-    "@id": "#DiaObject.g_fpFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of g_fpFlux.
-    fits:tunit: nJy
-    ivoa:ucd: stat.stdev
   - name: r_psfFluxMean
     "@id": "#DiaObject.r_psfFluxMean"
     datatype: float
@@ -257,15 +160,10 @@ tables:
     description: Standard deviation of the distribution of r_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: r_psfFluxChi2
-    "@id": "#DiaObject.r_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: r_psfFluxNdata
     "@id": "#DiaObject.r_psfFluxNdata"
     datatype: int
-    description: The number of data points used to compute r_psfFluxChi2.
+    description: The number of r-band data points.
   - name: r_fpFluxMean
     "@id": "#DiaObject.r_fpFluxMean"
     datatype: float
@@ -278,12 +176,6 @@ tables:
     description: Standard error of r_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: r_fpFluxSigma
-    "@id": "#DiaObject.r_fpFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of r_fpFlux.
-    fits:tunit: nJy
-    ivoa:ucd: stat.stdev
   - name: i_psfFluxMean
     "@id": "#DiaObject.i_psfFluxMean"
     datatype: float
@@ -302,15 +194,10 @@ tables:
     description: Standard deviation of the distribution of i_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: i_psfFluxChi2
-    "@id": "#DiaObject.i_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: i_psfFluxNdata
     "@id": "#DiaObject.i_psfFluxNdata"
     datatype: int
-    description: The number of data points used to compute i_psfFluxChi2.
+    description: The number of i-band data points.
   - name: i_fpFluxMean
     "@id": "#DiaObject.i_fpFluxMean"
     datatype: float
@@ -323,12 +210,6 @@ tables:
     description: Standard error of i_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: i_fpFluxSigma
-    "@id": "#DiaObject.i_fpFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of i_fpFlux.
-    fits:tunit: nJy
-    ivoa:ucd: stat.stdev
   - name: z_psfFluxMean
     "@id": "#DiaObject.z_psfFluxMean"
     datatype: float
@@ -347,15 +228,10 @@ tables:
     description: Standard deviation of the distribution of z_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: z_psfFluxChi2
-    "@id": "#DiaObject.z_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: z_psfFluxNdata
     "@id": "#DiaObject.z_psfFluxNdata"
     datatype: int
-    description: The number of data points used to compute z_psfFluxChi2.
+    description: The number of z-band data points.
   - name: z_fpFluxMean
     "@id": "#DiaObject.z_fpFluxMean"
     datatype: float
@@ -368,12 +244,6 @@ tables:
     description: Standard error of z_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: z_fpFluxSigma
-    "@id": "#DiaObject.z_fpFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of z_fpFlux.
-    fits:tunit: nJy
-    ivoa:ucd: stat.stdev
   - name: y_psfFluxMean
     "@id": "#DiaObject.y_psfFluxMean"
     datatype: float
@@ -392,15 +262,10 @@ tables:
     description: Standard deviation of the distribution of y_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
-  - name: y_psfFluxChi2
-    "@id": "#DiaObject.y_psfFluxChi2"
-    datatype: float
-    description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean.
-    ivoa:ucd: stat.fit.chi2
   - name: y_psfFluxNdata
     "@id": "#DiaObject.y_psfFluxNdata"
     datatype: int
-    description: The number of data points used to compute y_psfFluxChi2.
+    description: The number of y-band data points.
   - name: y_fpFluxMean
     "@id": "#DiaObject.y_fpFluxMean"
     datatype: float
@@ -413,94 +278,6 @@ tables:
     description: Standard error of y_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: y_fpFluxSigma
-    "@id": "#DiaObject.y_fpFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of y_fpFlux.
-    fits:tunit: nJy
-    ivoa:ucd: stat.stdev
-  - name: nearbyObj1
-    "@id": "#DiaObject.nearbyObj1"
-    datatype: long
-    description: Id of the closest nearby object.
-    ivoa:ucd: meta.id;src
-  - name: nearbyObj1Dist
-    "@id": "#DiaObject.nearbyObj1Dist"
-    datatype: float
-    description: Distance to nearbyObj1.
-    fits:tunit: arcsec
-  - name: nearbyObj1LnP
-    "@id": "#DiaObject.nearbyObj1LnP"
-    datatype: float
-    description: Natural log of the probability that the observed diaObject is the
-      same as the nearbyObj1.
-  - name: nearbyObj2
-    "@id": "#DiaObject.nearbyObj2"
-    datatype: long
-    description: Id of the second-closest nearby object.
-    ivoa:ucd: meta.id;src
-  - name: nearbyObj2Dist
-    "@id": "#DiaObject.nearbyObj2Dist"
-    datatype: float
-    description: Distance to nearbyObj2.
-    fits:tunit: arcsec
-  - name: nearbyObj2LnP
-    "@id": "#DiaObject.nearbyObj2LnP"
-    datatype: float
-    description: Natural log of the probability that the observed diaObject is the
-      same as the nearbyObj2.
-  - name: nearbyObj3
-    "@id": "#DiaObject.nearbyObj3"
-    datatype: long
-    description: Id of the third-closest nearby object.
-    ivoa:ucd: meta.id;src
-  - name: nearbyObj3Dist
-    "@id": "#DiaObject.nearbyObj3Dist"
-    datatype: float
-    description: Distance to nearbyObj3.
-    fits:tunit: arcsec
-  - name: nearbyObj3LnP
-    "@id": "#DiaObject.nearbyObj3LnP"
-    datatype: float
-    description: Natural log of the probability that the observed diaObject is the
-      same as the nearbyObj3.
-  - name: nearbyExtObj1
-    "@id": "#DiaObject.nearbyExtObj1"
-    datatype: long
-    description: Id of the closest extended DR Object by second moment-based separation.
-    ivoa:ucd: meta.id;src
-  - name: nearbyExtObj1Sep
-    "@id": "#DiaObject.nearbyExtObj1Sep"
-    datatype: float
-    description: Second moment-based separation of nearbyExtObj1 (unitless).
-  - name: nearbyExtObj2
-    "@id": "#DiaObject.nearbyExtObj2"
-    datatype: long
-    description: Id of the second closest extended DR Object by second moment-based separation.
-    ivoa:ucd: meta.id;src
-  - name: nearbyExtObj2Sep
-    "@id": "#DiaObject.nearbyExtObj2Sep"
-    datatype: float
-    description: Second moment-based separation of nearbyExtObj2 (unitless).
-  - name: nearbyExtObj3
-    "@id": "#DiaObject.nearbyExtObj3"
-    datatype: long
-    description: Id of the third closest extended DR Object by second moment-based separation.
-    ivoa:ucd: meta.id;src
-  - name: nearbyExtObj3Sep
-    "@id": "#DiaObject.nearbyExtObj3Sep"
-    datatype: float
-    description: Second moment-based separation of nearbyExtObj3 (unitless).
-  - name: nearbyLowzGal
-    "@id": "#DiaObject.nearbyLowzGal"
-    datatype: string
-    length: 64
-    description: External catalog name of the nearest low-z potential host.
-  - name: nearbyLowzGalSep
-    "@id": "#DiaObject.nearbyLowzGalSep"
-    datatype: float
-    fits:tunit: arcsec
-    description: Separation distance of nearbyLowzGal.
   - name: u_scienceFluxMean
     "@id": "#DiaObject.u_scienceFluxMean"
     datatype: float
@@ -512,12 +289,6 @@ tables:
     datatype: float
     description: Standard error of u_scienceFluxMean.
     ivoa:ucd: stat.error
-    fits:tunit: nJy
-  - name: u_scienceFluxSigma
-    "@id": "#DiaObject.u_scienceFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of u_scienceFlux.
-    ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: g_scienceFluxMean
     "@id": "#DiaObject.g_scienceFluxMean"
@@ -531,12 +302,6 @@ tables:
     description: Standard error of g_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: g_scienceFluxSigma
-    "@id": "#DiaObject.g_scienceFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of g_scienceFlux.
-    ivoa:ucd: stat.stdev
-    fits:tunit: nJy
   - name: r_scienceFluxMean
     "@id": "#DiaObject.r_scienceFluxMean"
     datatype: float
@@ -548,12 +313,6 @@ tables:
     datatype: float
     description: Standard error of r_scienceFluxMean.
     ivoa:ucd: stat.error
-    fits:tunit: nJy
-  - name: r_scienceFluxSigma
-    "@id": "#DiaObject.r_scienceFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of r_scienceFlux.
-    ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: i_scienceFluxMean
     "@id": "#DiaObject.i_scienceFluxMean"
@@ -567,12 +326,6 @@ tables:
     description: Standard error of i_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: i_scienceFluxSigma
-    "@id": "#DiaObject.i_scienceFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of i_scienceFlux.
-    ivoa:ucd: stat.stdev
-    fits:tunit: nJy
   - name: z_scienceFluxMean
     "@id": "#DiaObject.z_scienceFluxMean"
     datatype: float
@@ -584,12 +337,6 @@ tables:
     datatype: float
     description: Standard error of z_scienceFluxMean.
     ivoa:ucd: stat.error
-    fits:tunit: nJy
-  - name: z_scienceFluxSigma
-    "@id": "#DiaObject.z_scienceFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of z_scienceFlux.
-    ivoa:ucd: stat.stdev
     fits:tunit: nJy
   - name: y_scienceFluxMean
     "@id": "#DiaObject.y_scienceFluxMean"
@@ -603,46 +350,6 @@ tables:
     description: Standard error of y_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
-  - name: y_scienceFluxSigma
-    "@id": "#DiaObject.y_scienceFluxSigma"
-    datatype: float
-    description: Standard deviation of the distribution of y_scienceFlux.
-    ivoa:ucd: stat.stdev
-    fits:tunit: nJy
-  - name: u_psfFluxMAD
-    "@id": "#DiaObject.u_psfFluxMAD"
-    datatype: float
-    description: Median absolute deviation u band fluxes.
-    fits:tunit: nJy
-  - name: u_psfFluxSkew
-    "@id": "#DiaObject.u_psfFluxSkew"
-    datatype: float
-    description: Skewness of the u band fluxes.
-  - name: u_psfFluxPercentile05
-    "@id": "#DiaObject.u_psfFluxPercentile05"
-    datatype: float
-    description: Value at the 5% percentile of the u band fluxes.
-    fits:tunit: nJy
-  - name: u_psfFluxPercentile25
-    "@id": "#DiaObject.u_psfFluxPercentile25"
-    datatype: float
-    description: Value at the 25% percentile of the u band fluxes.
-    fits:tunit: nJy
-  - name: u_psfFluxPercentile50
-    "@id": "#DiaObject.u_psfFluxPercentile50"
-    datatype: float
-    description: Value at the 50% percentile (median) of the u band fluxes.
-    fits:tunit: nJy
-  - name: u_psfFluxPercentile75
-    "@id": "#DiaObject.u_psfFluxPercentile75"
-    datatype: float
-    description: Value at the 75% percentile of the u band fluxes.
-    fits:tunit: nJy
-  - name: u_psfFluxPercentile95
-    "@id": "#DiaObject.u_psfFluxPercentile95"
-    datatype: float
-    description: Value at the 95% percentile of the u band fluxes.
-    fits:tunit: nJy
   - name: u_psfFluxMin
     "@id": "#DiaObject.u_psfFluxMin"
     datatype: float
@@ -652,20 +359,6 @@ tables:
     "@id": "#DiaObject.u_psfFluxMax"
     datatype: float
     description: Maximum observed u band fluxes.
-    fits:tunit: nJy
-  - name: u_psfFluxStetsonJ
-    "@id": "#DiaObject.u_psfFluxStetsonJ"
-    datatype: float
-    description: StetsonJ statistic for the u band fluxes.
-  - name: u_psfFluxLinearSlope
-    "@id": "#DiaObject.u_psfFluxLinearSlope"
-    datatype: float
-    description: Linear best fit slope of the u band fluxes.
-    fits:tunit: nJy/d
-  - name: u_psfFluxLinearIntercept
-    "@id": "#DiaObject.u_psfFluxLinearIntercept"
-    datatype: float
-    description: Linear best fit Intercept of the u band fluxes.
     fits:tunit: nJy
   - name: u_psfFluxMaxSlope
     "@id": "#DiaObject.u_psfFluxMaxSlope"
@@ -677,40 +370,6 @@ tables:
     datatype: float
     description: Mean of the u band flux errors.
     fits:tunit: nJy
-  - name: g_psfFluxMAD
-    "@id": "#DiaObject.g_psfFluxMAD"
-    datatype: float
-    description: Median absolute deviation g band fluxes.
-    fits:tunit: nJy
-  - name: g_psfFluxSkew
-    "@id": "#DiaObject.g_psfFluxSkew"
-    datatype: float
-    description: Skewness of the g band fluxes.
-  - name: g_psfFluxPercentile05
-    "@id": "#DiaObject.g_psfFluxPercentile05"
-    datatype: float
-    description: Value at the 5% percentile of the g band fluxes.
-    fits:tunit: nJy
-  - name: g_psfFluxPercentile25
-    "@id": "#DiaObject.g_psfFluxPercentile25"
-    datatype: float
-    description: Value at the 25% percentile of the g band fluxes.
-    fits:tunit: nJy
-  - name: g_psfFluxPercentile50
-    "@id": "#DiaObject.g_psfFluxPercentile50"
-    datatype: float
-    description: Value at the 50% percentile (median) of the g band fluxes.
-    fits:tunit: nJy
-  - name: g_psfFluxPercentile75
-    "@id": "#DiaObject.g_psfFluxPercentile75"
-    datatype: float
-    description: Value at the 75% percentile of the g band fluxes.
-    fits:tunit: nJy
-  - name: g_psfFluxPercentile95
-    "@id": "#DiaObject.g_psfFluxPercentile95"
-    datatype: float
-    description: Value at the 95% percentile of the g band fluxes.
-    fits:tunit: nJy
   - name: g_psfFluxMin
     "@id": "#DiaObject.g_psfFluxMin"
     datatype: float
@@ -720,20 +379,6 @@ tables:
     "@id": "#DiaObject.g_psfFluxMax"
     datatype: float
     description: Maximum observed g band fluxes.
-    fits:tunit: nJy
-  - name: g_psfFluxStetsonJ
-    "@id": "#DiaObject.g_psfFluxStetsonJ"
-    datatype: float
-    description: StetsonJ statistic for the g band fluxes.
-  - name: g_psfFluxLinearSlope
-    "@id": "#DiaObject.g_psfFluxLinearSlope"
-    datatype: float
-    description: Linear best fit slope of the g band fluxes.
-    fits:tunit: nJy/d
-  - name: g_psfFluxLinearIntercept
-    "@id": "#DiaObject.g_psfFluxLinearIntercept"
-    datatype: float
-    description: Linear best fit Intercept of the g band fluxes.
     fits:tunit: nJy
   - name: g_psfFluxMaxSlope
     "@id": "#DiaObject.g_psfFluxMaxSlope"
@@ -745,40 +390,6 @@ tables:
     datatype: float
     description: Mean of the g band flux errors.
     fits:tunit: nJy
-  - name: r_psfFluxMAD
-    "@id": "#DiaObject.r_psfFluxMAD"
-    datatype: float
-    description: Median absolute deviation r band fluxes.
-    fits:tunit: nJy
-  - name: r_psfFluxSkew
-    "@id": "#DiaObject.r_psfFluxSkew"
-    datatype: float
-    description: Skewness of the r band fluxes.
-  - name: r_psfFluxPercentile05
-    "@id": "#DiaObject.r_psfFluxPercentile05"
-    datatype: float
-    description: Value at the 5% percentile of the r band fluxes.
-    fits:tunit: nJy
-  - name: r_psfFluxPercentile25
-    "@id": "#DiaObject.r_psfFluxPercentile25"
-    datatype: float
-    description: Value at the 25% percentile of the r band fluxes.
-    fits:tunit: nJy
-  - name: r_psfFluxPercentile50
-    "@id": "#DiaObject.r_psfFluxPercentile50"
-    datatype: float
-    description: Value at the 50% percentile (median) of the r band fluxes.
-    fits:tunit: nJy
-  - name: r_psfFluxPercentile75
-    "@id": "#DiaObject.r_psfFluxPercentile75"
-    datatype: float
-    description: Value at the 75% percentile of the r band fluxes.
-    fits:tunit: nJy
-  - name: r_psfFluxPercentile95
-    "@id": "#DiaObject.r_psfFluxPercentile95"
-    datatype: float
-    description: Value at the 95% percentile of the r band fluxes.
-    fits:tunit: nJy
   - name: r_psfFluxMin
     "@id": "#DiaObject.r_psfFluxMin"
     datatype: float
@@ -788,20 +399,6 @@ tables:
     "@id": "#DiaObject.r_psfFluxMax"
     datatype: float
     description: Maximum observed r band fluxes.
-    fits:tunit: nJy
-  - name: r_psfFluxStetsonJ
-    "@id": "#DiaObject.r_psfFluxStetsonJ"
-    datatype: float
-    description: StetsonJ statistic for the r band fluxes.
-  - name: r_psfFluxLinearSlope
-    "@id": "#DiaObject.r_psfFluxLinearSlope"
-    datatype: float
-    description: Linear best fit slope of the r band fluxes.
-    fits:tunit: nJy/d
-  - name: r_psfFluxLinearIntercept
-    "@id": "#DiaObject.r_psfFluxLinearIntercept"
-    datatype: float
-    description: Linear best fit Intercept of the r band fluxes.
     fits:tunit: nJy
   - name: r_psfFluxMaxSlope
     "@id": "#DiaObject.r_psfFluxMaxSlope"
@@ -813,40 +410,6 @@ tables:
     datatype: float
     description: Mean of the r band flux errors.
     fits:tunit: nJy
-  - name: i_psfFluxMAD
-    "@id": "#DiaObject.i_psfFluxMAD"
-    datatype: float
-    description: Median absolute deviation i band fluxes.
-    fits:tunit: nJy
-  - name: i_psfFluxSkew
-    "@id": "#DiaObject.i_psfFluxSkew"
-    datatype: float
-    description: Skewness of the i band fluxes.
-  - name: i_psfFluxPercentile05
-    "@id": "#DiaObject.i_psfFluxPercentile05"
-    datatype: float
-    description: Value at the 5% percentile of the i band fluxes.
-    fits:tunit: nJy
-  - name: i_psfFluxPercentile25
-    "@id": "#DiaObject.i_psfFluxPercentile25"
-    datatype: float
-    description: Value at the 25% percentile of the i band fluxes.
-    fits:tunit: nJy
-  - name: i_psfFluxPercentile50
-    "@id": "#DiaObject.i_psfFluxPercentile50"
-    datatype: float
-    description: Value at the 50% percentile (median) of the i band fluxes.
-    fits:tunit: nJy
-  - name: i_psfFluxPercentile75
-    "@id": "#DiaObject.i_psfFluxPercentile75"
-    datatype: float
-    description: Value at the 75% percentile of the i band fluxes.
-    fits:tunit: nJy
-  - name: i_psfFluxPercentile95
-    "@id": "#DiaObject.i_psfFluxPercentile95"
-    datatype: float
-    description: Value at the 95% percentile of the i band fluxes.
-    fits:tunit: nJy
   - name: i_psfFluxMin
     "@id": "#DiaObject.i_psfFluxMin"
     datatype: float
@@ -856,20 +419,6 @@ tables:
     "@id": "#DiaObject.i_psfFluxMax"
     datatype: float
     description: Maximum observed i band fluxes.
-    fits:tunit: nJy
-  - name: i_psfFluxStetsonJ
-    "@id": "#DiaObject.i_psfFluxStetsonJ"
-    datatype: float
-    description: StetsonJ statistic for the i band fluxes.
-  - name: i_psfFluxLinearSlope
-    "@id": "#DiaObject.i_psfFluxLinearSlope"
-    datatype: float
-    description: Linear best fit slope of the i band fluxes.
-    fits:tunit: nJy/d
-  - name: i_psfFluxLinearIntercept
-    "@id": "#DiaObject.i_psfFluxLinearIntercept"
-    datatype: float
-    description: Linear best fit Intercept of the i band fluxes.
     fits:tunit: nJy
   - name: i_psfFluxMaxSlope
     "@id": "#DiaObject.i_psfFluxMaxSlope"
@@ -881,40 +430,6 @@ tables:
     datatype: float
     description: Mean of the i band flux errors.
     fits:tunit: nJy
-  - name: z_psfFluxMAD
-    "@id": "#DiaObject.z_psfFluxMAD"
-    datatype: float
-    description: Median absolute deviation z band fluxes.
-    fits:tunit: nJy
-  - name: z_psfFluxSkew
-    "@id": "#DiaObject.z_psfFluxSkew"
-    datatype: float
-    description: Skewness of the z band fluxes.
-  - name: z_psfFluxPercentile05
-    "@id": "#DiaObject.z_psfFluxPercentile05"
-    datatype: float
-    description: Value at the 5% percentile of the z band fluxes.
-    fits:tunit: nJy
-  - name: z_psfFluxPercentile25
-    "@id": "#DiaObject.z_psfFluxPercentile25"
-    datatype: float
-    description: Value at the 25% percentile of the z band fluxes.
-    fits:tunit: nJy
-  - name: z_psfFluxPercentile50
-    "@id": "#DiaObject.z_psfFluxPercentile50"
-    datatype: float
-    description: Value at the 50% percentile (median) of the z band fluxes.
-    fits:tunit: nJy
-  - name: z_psfFluxPercentile75
-    "@id": "#DiaObject.z_psfFluxPercentile75"
-    datatype: float
-    description: Value at the 75% percentile of the z band fluxes.
-    fits:tunit: nJy
-  - name: z_psfFluxPercentile95
-    "@id": "#DiaObject.z_psfFluxPercentile95"
-    datatype: float
-    description: Value at the 95% percentile of the z band fluxes.
-    fits:tunit: nJy
   - name: z_psfFluxMin
     "@id": "#DiaObject.z_psfFluxMin"
     datatype: float
@@ -924,20 +439,6 @@ tables:
     "@id": "#DiaObject.z_psfFluxMax"
     datatype: float
     description: Maximum observed z band fluxes.
-    fits:tunit: nJy
-  - name: z_psfFluxStetsonJ
-    "@id": "#DiaObject.z_psfFluxStetsonJ"
-    datatype: float
-    description: StetsonJ statistic for the z band fluxes.
-  - name: z_psfFluxLinearSlope
-    "@id": "#DiaObject.z_psfFluxLinearSlope"
-    datatype: float
-    description: Linear best fit slope of the z band fluxes.
-    fits:tunit: nJy/d
-  - name: z_psfFluxLinearIntercept
-    "@id": "#DiaObject.z_psfFluxLinearIntercept"
-    datatype: float
-    description: Linear best fit Intercept of the z band fluxes.
     fits:tunit: nJy
   - name: z_psfFluxMaxSlope
     "@id": "#DiaObject.z_psfFluxMaxSlope"
@@ -949,40 +450,6 @@ tables:
     datatype: float
     description: Mean of the z band flux errors.
     fits:tunit: nJy
-  - name: y_psfFluxMAD
-    "@id": "#DiaObject.y_psfFluxMAD"
-    datatype: float
-    description: Median absolute deviation y band fluxes.
-    fits:tunit: nJy
-  - name: y_psfFluxSkew
-    "@id": "#DiaObject.y_psfFluxSkew"
-    datatype: float
-    description: Skewness of the y band fluxes.
-  - name: y_psfFluxPercentile05
-    "@id": "#DiaObject.y_psfFluxPercentile05"
-    datatype: float
-    description: Value at the 5% percentile of the y band fluxes.
-    fits:tunit: nJy
-  - name: y_psfFluxPercentile25
-    "@id": "#DiaObject.y_psfFluxPercentile25"
-    datatype: float
-    description: Value at the 25% percentile of the y band fluxes.
-    fits:tunit: nJy
-  - name: y_psfFluxPercentile50
-    "@id": "#DiaObject.y_psfFluxPercentile50"
-    datatype: float
-    description: Value at the 50% percentile (median) of the y band fluxes.
-    fits:tunit: nJy
-  - name: y_psfFluxPercentile75
-    "@id": "#DiaObject.y_psfFluxPercentile75"
-    datatype: float
-    description: Value at the 75% percentile of the y band fluxes.
-    fits:tunit: nJy
-  - name: y_psfFluxPercentile95
-    "@id": "#DiaObject.y_psfFluxPercentile95"
-    datatype: float
-    description: Value at the 95% percentile of the y band fluxes.
-    fits:tunit: nJy
   - name: y_psfFluxMin
     "@id": "#DiaObject.y_psfFluxMin"
     datatype: float
@@ -992,20 +459,6 @@ tables:
     "@id": "#DiaObject.y_psfFluxMax"
     datatype: float
     description: Maximum observed y band fluxes.
-    fits:tunit: nJy
-  - name: y_psfFluxStetsonJ
-    "@id": "#DiaObject.y_psfFluxStetsonJ"
-    datatype: float
-    description: StetsonJ statistic for the y band fluxes.
-  - name: y_psfFluxLinearSlope
-    "@id": "#DiaObject.y_psfFluxLinearSlope"
-    datatype: float
-    description: Linear best fit slope of the y band fluxes.
-    fits:tunit: nJy/d
-  - name: y_psfFluxLinearIntercept
-    "@id": "#DiaObject.y_psfFluxLinearIntercept"
-    datatype: float
-    description: Linear best fit Intercept of the y band fluxes.
     fits:tunit: nJy
   - name: y_psfFluxMaxSlope
     "@id": "#DiaObject.y_psfFluxMaxSlope"
@@ -1017,11 +470,17 @@ tables:
     datatype: float
     description: Mean of the y band flux errors.
     fits:tunit: nJy
-  - name: lastNonForcedSource
-    "@id": "#DiaObject.lastNonForcedSource"
-    datatype: timestamp
-    nullable: false
-    description: Last time when non-forced DIASource was seen for this object.
+  - name: firstDiaSourceMjdTai
+    "@id": "#DiaObject.firstDiaSourceMjdTai"
+    datatype: double
+    description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
+  - name: lastDiaSourceMjdTai
+    "@id": "#DiaObject.lastDiaSourceMjdTai"
+    datatype: double
+    description: Time of the most recent non-forced DIASource for this object, expressed as
+        Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: nDiaSources
     "@id": "#DiaObject.nDiaSources"
     datatype: int
@@ -1448,12 +907,6 @@ tables:
     description: Uncertainty of y.
     fits:tunit: pixel
     ivoa:ucd: stat.error;pos.cartesian.y
-  - name: x_y_Cov
-    "@id": "#DiaSource.x_y_Cov"
-    datatype: float
-    description: Covariance between x and y.
-    fits:tunit: pixel**2
-    ivoa:ucd: stat.covariance
   - name: centroid_flag
     "@id": "#DiaSource.centroid_flag"
     datatype: boolean
@@ -1481,8 +934,8 @@ tables:
     datatype: boolean
     description: Aperture did not fit within measurement image.
     fits:tunit:
-  - name: is_negative
-    "@id": "#DiaSource.is_negative"
+  - name: isNegative
+    "@id": "#DiaSource.isNegative"
     datatype: boolean
     description: Source was detected as significantly negative.
     fits:tunit:
@@ -1504,48 +957,6 @@ tables:
     datatype: float
     description: Uncertainty of psfFlux.
     fits:tunit: nJy
-  - name: psfRa
-    "@id": "#DiaSource.psfRa"
-    datatype: double
-    description: Right ascension coordinate of centroid for point source model.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.ra
-  - name: psfRaErr
-    "@id": "#DiaSource.psfRaErr"
-    datatype: float
-    description: Uncertainty of psfRa.
-    fits:tunit: deg
-    ivoa:ucd: stat.error;pos.eq.ra
-  - name: psfDec
-    "@id": "#DiaSource.psfDec"
-    datatype: double
-    description: Declination coordinate of centroid for point source model.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
-  - name: psfDecErr
-    "@id": "#DiaSource.psfDecErr"
-    datatype: float
-    description: Uncertainty of psfDec.
-    fits:tunit: deg
-    ivoa:ucd: stat.error;pos.eq.dec
-  - name: psfFlux_psfRa_Cov
-    "@id": "#DiaSource.psfFlux_psfRa_Cov"
-    datatype: float
-    description: Covariance between psfFlux and psfRa.
-    fits:tunit: nJy.deg
-    ivoa:ucd: stat.covariance
-  - name: psfFlux_psfDec_Cov
-    "@id": "#DiaSource.psfFlux_psfDec_Cov"
-    datatype: float
-    description: Covariance between psfFlux and psfDec.
-    fits:tunit: nJy.deg
-    ivoa:ucd: stat.covariance
-  - name: psfRa_psfDec_Cov
-    "@id": "#DiaSource.psfRa_psfDec_Cov"
-    datatype: float
-    description: Covariance between psfRa and psfDec.
-    fits:tunit: deg**2
-    ivoa:ucd: stat.covariance
   - name: psfLnL
     "@id": "#DiaSource.psfLnL"
     datatype: float
@@ -1632,62 +1043,6 @@ tables:
     datatype: float
     description: Uncertainty of trailAngle.
     fits:tunit: nJy
-  - name: trailFlux_trailRa_Cov
-    "@id": "#DiaSource.trailFlux_trailRa_Cov"
-    datatype: float
-    description: Covariance of trailFlux and trailRa.
-    ivoa:ucd: stat.covariance
-  - name: trailFlux_trailDec_Cov
-    "@id": "#DiaSource.trailFlux_trailDec_Cov"
-    datatype: float
-    description: Covariance of trailFlux and trailDec.
-    ivoa:ucd: stat.covariance
-  - name: trailFlux_trailLength_Cov
-    "@id": "#DiaSource.trailFlux_trailLength_Cov"
-    datatype: float
-    description: Covariance of trailFlux and trailLength
-    ivoa:ucd: stat.covariance
-  - name: trailFlux_trailAngle_Cov
-    "@id": "#DiaSource.trailFlux_trailAngle_Cov"
-    datatype: float
-    description: Covariance of trailFlux and trailAngle
-    ivoa:ucd: stat.covariance
-  - name: trailRa_trailDec_Cov
-    "@id": "#DiaSource.trailRa_trailDec_Cov"
-    datatype: float
-    description: Covariance of trailRa and trailDec.
-    ivoa:ucd: stat.covariance
-  - name: trailRa_trailLength_Cov
-    "@id": "#DiaSource.trailRa_trailLength_Cov"
-    datatype: float
-    description: Covariance of trailRa and trailLength.
-    ivoa:ucd: stat.covariance
-  - name: trailRa_trailAngle_Cov
-    "@id": "#DiaSource.trailRa_trailAngle_Cov"
-    datatype: float
-    description: Covariance of trailRa and trailAngle.
-    ivoa:ucd: stat.covariance
-  - name: trailDec_trailLength_Cov
-    "@id": "#DiaSource.trailDec_trailLength_Cov"
-    datatype: float
-    description: Covariance of trailDec and trailLength.
-    ivoa:ucd: stat.covariance
-  - name: trailDec_trailAngle_Cov
-    "@id": "#DiaSource.trailDec_trailAngle_Cov"
-    datatype: float
-    description: Covariance of trailDec and trailAngle.
-    ivoa:ucd: stat.covariance
-  - name: trailLength_trailAngle_Cov
-    "@id": "#DiaSource.trailLength_trailAngle_Cov"
-    datatype: float
-    description: Covariance of trailLength and trailAngle
-    ivoa:ucd: stat.covariance
-  - name: trailLnL
-    "@id": "#DiaSource.trailLnL"
-    datatype: float
-    description: Natural log likelihood of the observed data given the trailed source
-      model.
-    ivoa:ucd: stat.likelihood
   - name: trailChi2
     "@id": "#DiaSource.trailChi2"
     datatype: float
@@ -1727,42 +1082,12 @@ tables:
     description: Uncertainty of dipoleFluxDiff.
     fits:tunit: nJy
     ivoa:ucd: stat.error
-  - name: dipoleRa
-    "@id": "#DiaSource.dipoleRa"
-    datatype: double
-    description: Right ascension coordinate of centroid for dipole model.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.ra
-  - name: dipoleRaErr
-    "@id": "#DiaSource.dipoleRaErr"
-    datatype: float
-    description: Uncertainty of dipoleRa.
-    fits:tunit: deg
-    ivoa:ucd: stat.error;pos.eq.ra
-  - name: dipoleDec
-    "@id": "#DiaSource.dipoleDec"
-    datatype: double
-    description: Declination coordinate of centroid for dipole model.
-    fits:tunit: deg
-    ivoa:ucd: pos.eq.dec
-  - name: dipoleDecErr
-    "@id": "#DiaSource.dipoleDecErr"
-    datatype: float
-    description: Uncertainty of dipoleDec.
-    fits:tunit: deg
-    ivoa:ucd: stat.error;pos.eq.dec
   - name: dipoleLength
     "@id": "#DiaSource.dipoleLength"
     datatype: float
     description: Maximum likelihood value for the lobe separation in dipole model.
     fits:tunit: arcsec
     ivoa:ucd: pos.angDistance
-  - name: dipoleLengthErr
-    "@id": "#DiaSource.dipoleLengthErr"
-    datatype: float
-    description: Uncertainty of dipoleLength.
-    fits:tunit: arcsec
-    ivoa:ucd: stat.error;pos.angDistance
   - name: dipoleAngle
     "@id": "#DiaSource.dipoleAngle"
     datatype: float
@@ -1770,93 +1095,6 @@ tables:
       the centroid and the dipole direction (bearing, from negative to positive lobe).
     fits:tunit: deg
     ivoa:ucd: pos.posAng
-  - name: dipoleAngleErr
-    "@id": "#DiaSource.dipoleAngleErr"
-    datatype: float
-    description: Uncertainty of dipoleAngle.
-    fits:tunit: deg
-    ivoa:ucd: stat.error;pos.posAng
-  - name: dipoleMeanFlux_dipoleFluxDiff_Cov
-    "@id": "#DiaSource.dipoleMeanFlux_dipoleFluxDiff_Cov"
-    datatype: float
-    description: Covariance of dipoleMeanFlux and dipoleFluxDiff.
-    ivoa:ucd: stat.covariance
-  - name: dipoleMeanFlux_dipoleRa_Cov
-    "@id": "#DiaSource.dipoleMeanFlux_dipoleRa_Cov"
-    datatype: float
-    description: Covariance of dipoleMeanFlux and dipoleRa.
-    ivoa:ucd: stat.covariance
-  - name: dipoleMeanFlux_dipoleDec_Cov
-    "@id": "#DiaSource.dipoleMeanFlux_dipoleDec_Cov"
-    datatype: float
-    description: Covariance of dipoleMeanFlux and dipoleDec.
-    ivoa:ucd: stat.covariance
-  - name: dipoleMeanFlux_dipoleLength_Cov
-    "@id": "#DiaSource.dipoleMeanFlux_dipoleLength_Cov"
-    datatype: float
-    description: Covariance of dipoleMeanFlux and dipoleLength.
-    ivoa:ucd: stat.covariance
-  - name: dipoleMeanFlux_dipoleAngle_Cov
-    "@id": "#DiaSource.dipoleMeanFlux_dipoleAngle_Cov"
-    datatype: float
-    description: Covariance of dipoleMeanFlux and dipoleAngle.
-    ivoa:ucd: stat.covariance
-  - name: dipoleFluxDiff_dipoleRa_Cov
-    "@id": "#DiaSource.dipoleFluxDiff_dipoleRa_Cov"
-    datatype: float
-    description: Covariance of dipoleFluxDiff and dipoleRa.
-    ivoa:ucd: stat.covariance
-  - name: dipoleFluxDiff_dipoleDec_Cov
-    "@id": "#DiaSource.dipoleFluxDiff_dipoleDec_Cov"
-    datatype: float
-    description: Covariance of dipoleFluxDiff and dipoleDec.
-    ivoa:ucd: stat.covariance
-  - name: dipoleFluxDiff_dipoleLength_Cov
-    "@id": "#DiaSource.dipoleFluxDiff_dipoleLength_Cov"
-    datatype: float
-    description: Covariance of dipoleFluxDiff and dipoleLength.
-    ivoa:ucd: stat.covariance
-  - name: dipoleFluxDiff_dipoleAngle_Cov
-    "@id": "#DiaSource.dipoleFluxDiff_dipoleAngle_Cov"
-    datatype: float
-    description: Covariance of dipoleFluxDiff and dipoleAngle.
-    ivoa:ucd: stat.covariance
-  - name: dipoleRa_dipoleDec_Cov
-    "@id": "#DiaSource.dipoleRa_dipoleDec_Cov"
-    datatype: float
-    description: Covariance of dipoleRa and dipoleDec.
-    ivoa:ucd: stat.covariance
-  - name: dipoleRa_dipoleLength_Cov
-    "@id": "#DiaSource.dipoleRa_dipoleLength_Cov"
-    datatype: float
-    description: Covariance of dipoleRa and dipoleLength.
-    ivoa:ucd: stat.covariance
-  - name: dipoleRa_dipoleAngle_Cov
-    "@id": "#DiaSource.dipoleRa_dipoleAngle_Cov"
-    datatype: float
-    description: Covariance of dipoleRa and dipoleAngle.
-    ivoa:ucd: stat.covariance
-  - name: dipoleDec_dipoleLength_Cov
-    "@id": "#DiaSource.dipoleDec_dipoleLength_Cov"
-    datatype: float
-    description: Covariance of dipoleDec and dipoleLength.
-    ivoa:ucd: stat.covariance
-  - name: dipoleDec_dipoleAngle_Cov
-    "@id": "#DiaSource.dipoleDec_dipoleAngle_Cov"
-    datatype: float
-    description: Covariance of dipoleDec and dipoleAngle.
-    ivoa:ucd: stat.covariance
-  - name: dipoleLength_dipoleAngle_Cov
-    "@id": "#DiaSource.dipoleLength_dipoleAngle_Cov"
-    datatype: float
-    description: Covariance of dipoleLength and dipoleAngle.
-    ivoa:ucd: stat.covariance
-  - name: dipoleLnL
-    "@id": "#DiaSource.dipoleLnL"
-    datatype: float
-    description: Natural log likelihood of the observed data given the dipole source
-      model.
-    ivoa:ucd: stat.likelihood
   - name: dipoleChi2
     "@id": "#DiaSource.dipoleChi2"
     datatype: float
@@ -1894,76 +1132,34 @@ tables:
     datatype: boolean
     description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
     fits:tunit:
-  - name: snapDiffFlux
-    "@id": "#DiaSource.snapDiffFlux"
+  - name: templateFlux
+    "@id": "#DiaSource.templateFlux"
     datatype: float
-    description: Calibrated flux for Point Source model centered on radec but measured
-      on the difference of snaps comprising this visit.
+    description: Forced photometry flux for a point source model measured on the template image
+      centered at the DiaObject position.
+    ivoa:ucd: phot.count
     fits:tunit: nJy
-  - name: snapDiffFluxErr
-    "@id": "#DiaSource.snapDiffFluxErr"
+  - name: templateFluxErr
+    "@id": "#DiaSource.templateFluxErr"
     datatype: float
-    description: Estimated uncertainty of snapDiffFlux.
-    fits:tunit: nJy
+    description: Uncertainty of templateFlux.
     ivoa:ucd: stat.error;phot.count
-  - name: fpBkgd
-    "@id": "#DiaSource.fpBkgd"
-    datatype: float
-    description: Estimated sky background at the position (centroid) of the object.
-    fits:tunit: nJy/arcsec**2
-  - name: fpBkgdErr
-    "@id": "#DiaSource.fpBkgdErr"
-    datatype: float
-    description: Estimated uncertainty of fpBkgd.
-    fits:tunit: nJy/arcsec**2
+    fits:tunit: nJy
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: float
     description: Adaptive second moment of the source intensity.
     fits:tunit: nJy.arcsec**2
-  - name: ixxErr
-    "@id": "#DiaSource.ixxErr"
-    datatype: float
-    description: Uncertainty of ixx.
-    fits:tunit: nJy.arcsec**2
-    ivoa:ucd: stat.error
   - name: iyy
     "@id": "#DiaSource.iyy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     fits:tunit: nJy.arcsec**2
-  - name: iyyErr
-    "@id": "#DiaSource.iyyErr"
-    datatype: float
-    description: Uncertainty of iyy.
-    fits:tunit: nJy.arcsec**2
-    ivoa:ucd: stat.error
   - name: ixy
     "@id": "#DiaSource.ixy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     fits:tunit: nJy.arcsec**2
-  - name: ixyErr
-    "@id": "#DiaSource.ixyErr"
-    datatype: float
-    description: Uncertainty of ixy.
-    fits:tunit: nJy.arcsec**2
-    ivoa:ucd: stat.error
-  - name: ixx_iyy_Cov
-    "@id": "#DiaSource.ixx_iyy_Cov"
-    datatype: float
-    description: Covariance of ixx and iyy.
-    fits:tunit: nJy**2.arcsec**4
-  - name: ixx_ixy_Cov
-    "@id": "#DiaSource.ixx_ixy_Cov"
-    datatype: float
-    description: Covariance of ixx and ixy.
-    fits:tunit: nJy**2.arcsec**4
-  - name: iyy_ixy_Cov
-    "@id": "#DiaSource.iyy_ixy_Cov"
-    datatype: float
-    description: Covariance of iyy and ixy.
-    fits:tunit: nJy**2.arcsec**4
   - name: ixxPSF
     "@id": "#DiaSource.ixxPSF"
     datatype: float
@@ -2009,9 +1205,8 @@ tables:
   - name: reliability
     "@id": "#DiaSource.reliability"
     datatype: float
-    description: A measure of reliability, computed using information from the source
-      and image characterization, as well as the information on the Telescope and
-      Camera system (e.g., ghost maps, defect maps, etc.).
+    description: Probability (0-1) that the diaSource is astrophysical,
+       derived from a machine learning model.
   - name: band
     "@id": "#DiaSource.band"
     datatype: char
@@ -2037,7 +1232,9 @@ tables:
     description: Time when this record was marked invalid.
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
-    datatype: long
+    datatype: int
+    description: Size of the square bounding box that fully contains the detection footprint.
+    fits:tunit: pixel
   - name: pixelFlags
     "@id": "#DiaSource.pixelFlags"
     datatype: boolean
@@ -2178,14 +1375,14 @@ tables:
     "@id": "#DiaForcedSource.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the DiaObject at time radecMjdTai.
+    description: Right ascension coordinate of the position of the DiaObject.
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
   - name: dec
     "@id": "#DiaForcedSource.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the DiaObject at time radecMjdTai.
+    description: Declination coordinate of the position of the DiaObject.
     ivoa:ucd: pos.eq.dec
     fits:tunit: deg
   - name: visit
@@ -2307,16 +1504,17 @@ tables:
     autoincrement: false
     description: Unique id.
     ivoa:ucd: meta.id;src
-  - name: lastNonForcedSource
-    "@id": "#DiaObjectLast.lastNonForcedSource"
-    datatype: timestamp
-    nullable: false
-    description: Last time when non-forced DIASource was seen for this object.
+  - name: lastDiaSourceMjdTai
+    "@id": "#DiaObjectLast.lastDiaSourceMjdTai"
+    datatype: double
+    description: Time of the most recent non-forced DIASource for this object, expressed as
+        Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: ra
     "@id": "#DiaObjectLast.ra"
     datatype: double
     nullable: false
-    description: Right ascension coordinate of the position of the object at time radecMjdTai.
+    description: Right ascension coordinate of the position of the object.
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
   - name: raErr
@@ -2329,7 +1527,7 @@ tables:
     "@id": "#DiaObjectLast.dec"
     datatype: double
     nullable: false
-    description: Declination coordinate of the position of the object at time radecMjdTai.
+    description: Declination coordinate of the position of the object.
     ivoa:ucd: pos.eq.dec
     fits:tunit: deg
   - name: decErr
@@ -2343,67 +1541,11 @@ tables:
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg**2
-  - name: radecMjdTai
-    "@id": "#DiaObjectLast.radecMjdTai"
+  - name: firstDiaSourceMjdTai
+    "@id": "#DiaObjectLast.firstDiaSourceMjdTai"
     datatype: double
-    nullable: false
-    description: Time at which the object was at a position ra/dec, expressed
-      as Modified Julian Date, International Atomic Time.
+    description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
-  - name: pmRa
-    "@id": "#DiaObjectLast.pmRa"
-    datatype: float
-    description: Proper motion (RA).
-    ivoa:ucd: pos.pm
-    fits:tunit: mas/yr
-  - name: pmRaErr
-    "@id": "#DiaObjectLast.pmRaErr"
-    datatype: float
-    description: Uncertainty of pmRa.
-    ivoa:ucd: stat.error;pos.pm
-    fits:tunit: mas/yr
-  - name: pmDec
-    "@id": "#DiaObjectLast.pmDec"
-    datatype: float
-    description: Proper motion (Dec).
-    ivoa:ucd: pos.pm
-    fits:tunit: mas/yr
-  - name: pmDecErr
-    "@id": "#DiaObjectLast.pmDecErr"
-    datatype: float
-    description: Uncertainty of pmDec.
-    ivoa:ucd: stat.error;pos.pm
-    fits:tunit: mas/yr
-  - name: parallax
-    "@id": "#DiaObjectLast.parallax"
-    datatype: float
-    description: Parallax.
-    ivoa:ucd: pos.parallax
-    fits:tunit: mas
-  - name: parallaxErr
-    "@id": "#DiaObjectLast.parallaxErr"
-    datatype: float
-    description: Uncertainty of parallax.
-    ivoa:ucd: stat.error;pos.parallax
-    fits:tunit: mas
-  - name: pmRa_pmDec_Cov
-    "@id": "#DiaObjectLast.pmRa_pmDec_Cov"
-    datatype: float
-    description: Covariance of pmRa and pmDec.
-    ivoa:ucd: stat.covariance;pos.eq
-    fits:tunit: mas**2/yr**2
-  - name: pmRa_parallax_Cov
-    "@id": "#DiaObjectLast.pmRa_parallax_Cov"
-    datatype: float
-    description: Covariance of pmRa and parallax.
-    ivoa:ucd: stat.covariance
-    fits:tunit: mas**2/yr
-  - name: pmDec_parallax_Cov
-    "@id": "#DiaObjectLast.pmDec_parallax_Cov"
-    datatype: float
-    description: Covariance of pmDec and parallax.
-    ivoa:ucd: stat.covariance
-    fits:tunit: mas**2/yr
   - name: nDiaSources
     "@id": "#DiaObjectLast.nDiaSources"
     datatype: int
@@ -2440,22 +1582,22 @@ tables:
   - name: M
     "@id": "#MPCORB.M"
     datatype: double
-    description: Mean anomaly at the epoch, in degrees.
+    description: Mean anomaly at the epoch.
     fits:tunit: deg
   - name: peri
     "@id": "#MPCORB.peri"
     datatype: double
-    description: Argument of perihelion, J2000.0 (degrees).
+    description: Argument of perihelion, J2000.0.
     fits:tunit: deg
   - name: node
     "@id": "#MPCORB.node"
     datatype: double
-    description: Longitude of the ascending node, J2000.0 (degrees).
+    description: Longitude of the ascending node, J2000.0.
     fits:tunit: deg
   - name: incl
     "@id": "#MPCORB.incl"
     datatype: double
-    description: Inclination to the ecliptic, J2000.0 (degrees).
+    description: Inclination to the ecliptic, J2000.0.
     fits:tunit: deg
   - name: e
     "@id": "#MPCORB.e"
@@ -2464,12 +1606,12 @@ tables:
   - name: a
     "@id": "#MPCORB.a"
     datatype: double
-    description: Semimajor axis (AU).
+    description: Semimajor axis.
     fits:tunit: AU
   - name: q
     "@id": "#MPCORB.q"
     datatype: double
-    description: Perihelion distance (AU).
+    description: Perihelion distance.
     fits:tunit: AU
   - name: t_p
     "@id": "#MPCORB.t_p"
@@ -2519,88 +1661,6 @@ tables:
     datatype: long
     description: Unique identifier of the observation.
     ivoa:ucd: meta.id;src
-  - name: mpcUniqueId
-    "@id": "#SSSource.mpcUniqueId"
-    datatype: long
-    description: MPC unique identifier of the observation.
-  - name: nearbyObj1
-    "@id": "#SSSource.nearbyObj1"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj2
-    "@id": "#SSSource.nearbyObj2"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj3
-    "@id": "#SSSource.nearbyObj3"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj4
-    "@id": "#SSSource.nearbyObj4"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj5
-    "@id": "#SSSource.nearbyObj5"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObj6
-    "@id": "#SSSource.nearbyObj6"
-    datatype: long
-    description: Closest Objects (3 stars and 3 galaxies) in Level 2 database.
-  - name: nearbyObjDist1
-    "@id": "#SSSource.nearbyObjDist1"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist2
-    "@id": "#SSSource.nearbyObjDist2"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist3
-    "@id": "#SSSource.nearbyObjDist3"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist4
-    "@id": "#SSSource.nearbyObjDist4"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist5
-    "@id": "#SSSource.nearbyObjDist5"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjDist6
-    "@id": "#SSSource.nearbyObjDist6"
-    datatype: float
-    description: Distances to nearbyObj.
-  - name: nearbyObjLnP1
-    "@id": "#SSSource.nearbyObjLnP1"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP2
-    "@id": "#SSSource.nearbyObjLnP2"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP3
-    "@id": "#SSSource.nearbyObjLnP3"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP4
-    "@id": "#SSSource.nearbyObjLnP4"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP5
-    "@id": "#SSSource.nearbyObjLnP5"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
-  - name: nearbyObjLnP6
-    "@id": "#SSSource.nearbyObjLnP6"
-    datatype: float
-    description: Natural log of the probability that the observed DIAObject is the
-      same as the nearby Object.
   - name: eclipticLambda
     "@id": "#SSSource.eclipticLambda"
     datatype: double
@@ -2636,15 +1696,10 @@ tables:
     datatype: float
     description: Topocentric distace.
     fits:tunit: AU
-  - name: predictedMagnitude
-    "@id": "#SSSource.predictedMagnitude"
+  - name: predictedVMagnitude
+    "@id": "#SSSource.predictedVMagnitude"
     datatype: float
-    description: Predicted magnitude.
-    fits:tunit: mag
-  - name: predictedMagnitudeSigma
-    "@id": "#SSSource.predictedMagnitudeSigma"
-    datatype: float
-    description: Prediction uncertainty (1-sigma).
+    description: Predicted V-band magnitude.
     fits:tunit: mag
   - name: residualRa
     "@id": "#SSSource.residualRa"
@@ -2656,21 +1711,6 @@ tables:
     datatype: double
     description: Residual Dec vs. ephemeris.
     fits:tunit: deg
-  - name: predictedRaSigma
-    "@id": "#SSSource.predictedRaSigma"
-    datatype: float
-    description: Predicted R.A. uncertainty.
-    fits:tunit: deg
-  - name: predictedDecSigma
-    "@id": "#SSSource.predictedDecSigma"
-    datatype: float
-    description: Predicted Dec uncertainty.
-    fits:tunit: deg
-  - name: predictedRaDecCov
-    "@id": "#SSSource.predictedRaDecCov"
-    datatype: float
-    description: Predicted R.A./Dec covariance.
-    fits:tunit: deg**2
   - name: heliocentricX
     "@id": "#SSSource.heliocentricX"
     datatype: float
