@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "8.0.0"
+version: "9.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -33,16 +33,20 @@ tables:
     nullable: false
     description: Unique identifier of this DiaObject.
     ivoa:ucd: meta.id;src
-  - name: validityStart
-    "@id": "#DiaObject.validityStart"
-    datatype: timestamp
+  - name: validityStartMjdTai
+    "@id": "#DiaObject.validityStartMjdTai"
+    datatype: double
     nullable: false
-    description: Processing time when validity of this diaObject starts.
-  - name: validityEnd
-    "@id": "#DiaObject.validityEnd"
-    datatype: timestamp
+    description: Processing time when validity of this diaObject starts,
+      expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
+  - name: validityEndMjdTai
+    "@id": "#DiaObject.validityEndMjdTai"
+    datatype: double
     nullable: true
-    description: Processing time when validity of this diaObject ends.
+    description: Processing time when validity of this diaObject ends,
+      expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: ra
     "@id": "#DiaObject.ra"
     datatype: double
@@ -488,12 +492,12 @@ tables:
     description: Total number of DiaSources associated with this DiaObject.
   primaryKey:
   - "#DiaObject.diaObjectId"
-  - "#DiaObject.validityStart"
+  - "#DiaObject.validityStartMjdTai"
   indexes:
   - name: IDX_DiaObject_validityStart
-    "@id": "#IDX_DiaObject_validityStart"
+    "@id": "#IDX_DiaObject_validityStartMjdTai"
     columns:
-    - "#DiaObject.validityStart"
+    - "#DiaObject.validityStartMjdTai"
 - name: SSObject
   "@id": "#SSObject"
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
@@ -836,10 +840,11 @@ tables:
     description: Id of the parent diaSource this diaSource has been deblended from,
       if any.
     ivoa:ucd: meta.id;src
-  - name: ssObjectReassocTime
-    "@id": "#DiaSource.ssObjectReassocTime"
-    datatype: timestamp
-    description: Time when this diaSource was reassociated from diaObject to ssObject
+  - name: ssObjectReassocTimeMjdTai
+    "@id": "#DiaSource.ssObjectReassocTimeMjdTai"
+    datatype: double
+    description: Time when this diaSource was reassociated from diaObject to ssObject,
+      expressed as Modified Julian Date, International Atomic Time
       (if such reassociation happens, otherwise NULL).
   - name: midpointMjdTai
     "@id": "#DiaSource.midpointMjdTai"
@@ -1220,16 +1225,20 @@ tables:
     "@id": "#DiaSource.dipoleFitAttempted"
     datatype: boolean
     description: Attempted to fit a dipole model to this source.
-  - name: time_processed
-    "@id": "#DiaSource.time_processed"
-    datatype: timestamp
+  - name: timeProcessedMjdTai
+    "@id": "#DiaSource.timeProcessedMjdTai"
+    datatype: double
     nullable: false
-    description: Time when the image was processed and this DiaSource record was generated.
-  - name: time_withdrawn
-    "@id": "#DiaSource.time_withdrawn"
-    datatype: timestamp
+    description: Time when the image was processed and this DiaSource record was generated,
+      expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
+  - name: timeWithdrawnMjdTai
+    "@id": "#DiaSource.timeWithdrawnMjdTai"
+    datatype: double
     nullable: true
-    description: Time when this record was marked invalid.
+    description: Time when this record was marked invalid,
+      expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: int
@@ -1437,16 +1446,18 @@ tables:
     length: 1
     description: Filter band this source was observed with.
     ivoa:ucd: meta.id;instr.filter
-  - name: time_processed
-    "@id": "#DiaForcedSource.time_processed"
-    datatype: timestamp
+  - name: timeProcessedMjdTai
+    "@id": "#DiaForcedSource.timeProcessedMjdTai"
+    datatype: double
     nullable: false
-    description: Time when this record was generated.
-  - name: time_withdrawn
-    "@id": "#DiaForcedSource.time_withdrawn"
-    datatype: timestamp
+    description: Time when this record was generated,
+      expressed as Modified Julian Date, International Atomic Time.
+  - name: timeWithdrawnMjdTai
+    "@id": "#DiaForcedSource.timeWithdrawnMjdTai"
+    datatype: double
     nullable: true
-    description: Time when this record was marked invalid.
+    description: Time when this record was marked invalid,
+      expressed as Modified Julian Date, International Atomic Time.
   primaryKey:
   - "#DiaForcedSource.diaObjectId"
   - "#DiaForcedSource.visit"

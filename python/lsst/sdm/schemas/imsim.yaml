@@ -8812,11 +8812,13 @@ tables:
     "@id": "#DiaSource.dipoleFitAttempted"
     datatype: boolean
     description: Attempted to fit a dipole model to this source.
-  - name: time_processed
-    "@id": "#DiaSource.time_processed"
-    datatype: timestamp
+  - name: timeProcessedMjdTai
+    "@id": "#DiaSource.timeProcessedMjdTai"
+    datatype: double
     nullable: false
-    description: Time when the image was processed and this DiaSource record was generated.
+    description: Time when the image was processed and this DiaSource record was generated,
+      expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: long
