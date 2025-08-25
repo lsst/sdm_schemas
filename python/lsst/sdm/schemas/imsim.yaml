@@ -8737,6 +8737,19 @@ tables:
     datatype: boolean
     description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
     fits:tunit:
+  - name: templateFlux
+    "@id": "#DiaSource.templateFlux"
+    datatype: float
+    description: Forced photometry flux for a point source model measured on the template image
+      centered at the DiaObject position.
+    ivoa:ucd: phot.count
+    fits:tunit: nJy
+  - name: templateFluxErr
+    "@id": "#DiaSource.templateFluxErr"
+    datatype: float
+    description: Uncertainty of templateFlux.
+    ivoa:ucd: stat.error;phot.count
+    fits:tunit: nJy
   - name: ixx
     "@id": "#DiaSource.ixx"
     datatype: double
