@@ -7,10 +7,10 @@
 
 # TAP services based on production Qserv at USDF:
 ./build idfprod-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
-./build usdf-prod-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
+./build usdf-prod-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml ../yml/gaia_dr2_02.yaml
 
 # TAP services based on development Qserv at USDF:
-./build idfint-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
+./build idfint-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml ../yml/gaia_dr2_02.yaml
 ./build idfdev-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
 ./build usdf-dev-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
 
