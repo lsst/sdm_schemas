@@ -1,0 +1,197 @@
+name: gaia_dr2_02
+description: Gaia DR2 source table, used for qserv testing
+tables:
+- name: gaia_source
+  columns:
+  - name: qserv_trans_id
+    datatype: int
+  - name: solution_id
+    datatype: long
+  - name: designation
+    datatype: char
+    length: 28
+  - name: source_id
+    datatype: long
+  - name: random_index
+    datatype: long
+  - name: ref_epoch
+    datatype: double
+  - name: ra
+    datatype: double
+  - name: ra_error
+    datatype: double
+  - name: dec
+    datatype: double
+  - name: dec_error
+    datatype: double
+  - name: parallax
+    datatype: double
+  - name: parallax_error
+    datatype: double
+  - name: parallax_over_error
+    datatype: float
+  - name: pmra
+    datatype: double
+  - name: pmra_error
+    datatype: double
+  - name: pmdec
+    datatype: double
+  - name: pmdec_error
+    datatype: double
+  - name: ra_dec_corr
+    datatype: float
+  - name: ra_parallax_corr
+    datatype: float
+  - name: ra_pmra_corr
+    datatype: float
+  - name: ra_pmdec_corr
+    datatype: float
+  - name: dec_parallax_corr
+    datatype: float
+  - name: dec_pmra_corr
+    datatype: float
+  - name: dec_pmdec_corr
+    datatype: float
+  - name: parallax_pmra_corr
+    datatype: float
+  - name: parallax_pmdec_corr
+    datatype: float
+  - name: pmra_pmdec_corr
+    datatype: float
+  - name: astrometric_n_obs_al
+    datatype: int
+  - name: astrometric_n_obs_ac
+    datatype: int
+  - name: astrometric_n_good_obs_al
+    datatype: int
+  - name: astrometric_n_bad_obs_al
+    datatype: int
+  - name: astrometric_gof_al
+    datatype: float
+  - name: astrometric_chi2_al
+    datatype: float
+  - name: astrometric_excess_noise
+    datatype: double
+  - name: astrometric_excess_noise_sig
+    datatype: double
+  - name: astrometric_params_solved
+    datatype: int
+  - name: astrometric_weight_al
+    datatype: float
+  - name: astrometric_pseudo_colour
+    datatype: double
+  - name: astrometric_pseudo_colour_error
+    datatype: double
+  - name: mean_varpi_factor_al
+    datatype: float
+  - name: astrometric_matched_observations
+    datatype: int
+  - name: visibility_periods_used
+    datatype: int
+  - name: astrometric_sigma5d_max
+    datatype: float
+  - name: frame_rotator_object_type
+    datatype: int
+  - name: matched_observations
+    datatype: int
+  - name: phot_g_n_obs
+    datatype: int
+  - name: phot_g_mean_flux
+    datatype: double
+  - name: phot_g_mean_flux_error
+    datatype: double
+  - name: phot_g_mean_flux_over_error
+    datatype: float
+  - name: phot_g_mean_mag
+    datatype: float
+  - name: phot_bp_n_obs
+    datatype: int
+  - name: phot_bp_mean_flux
+    datatype: double
+  - name: phot_bp_mean_flux_error
+    datatype: double
+  - name: phot_bp_mean_flux_over_error
+    datatype: float
+  - name: phot_bp_mean_mag
+    datatype: float
+  - name: phot_rp_n_obs
+    datatype: int
+  - name: phot_rp_mean_flux
+    datatype: double
+  - name: phot_rp_mean_flux_error
+    datatype: double
+  - name: phot_rp_mean_flux_over_error
+    datatype: float
+  - name: phot_rp_mean_mag
+    datatype: float
+  - name: phot_bp_rp_excess_factor
+    datatype: float
+  - name: phot_proc_mode
+    datatype: int
+  - name: bp_rp
+    datatype: float
+  - name: bp_g
+    datatype: float
+  - name: g_rp
+    datatype: float
+  - name: radial_velocity
+    datatype: double
+  - name: radial_velocity_error
+    datatype: double
+  - name: rv_nb_transits
+    datatype: int
+  - name: rv_template_teff
+    datatype: float
+  - name: rv_template_logg
+    datatype: float
+  - name: rv_template_fe_h
+    datatype: float
+  - name: phot_variable_flag
+    datatype: char
+    length: 13
+  - name: l
+    datatype: double
+  - name: b
+    datatype: double
+  - name: ecl_lon
+    datatype: double
+  - name: ecl_lat
+    datatype: double
+  - name: priam_flags
+    datatype: long
+  - name: teff_val
+    datatype: float
+  - name: teff_percentile_lower
+    datatype: float
+  - name: teff_percentile_upper
+    datatype: float
+  - name: a_g_val
+    datatype: float
+  - name: a_g_percentile_lower
+    datatype: float
+  - name: a_g_percentile_upper
+    datatype: float
+  - name: e_bp_min_rp_val
+    datatype: float
+  - name: e_bp_min_rp_percentile_lower
+    datatype: float
+  - name: e_bp_min_rp_percentile_upper
+    datatype: float
+  - name: flame_flags
+    datatype: long
+  - name: radius_val
+    datatype: float
+  - name: radius_percentile_lower
+    datatype: float
+  - name: radius_percentile_upper
+    datatype: float
+  - name: lum_val
+    datatype: float
+  - name: lum_percentile_lower
+    datatype: float
+  - name: lum_percentile_upper
+    datatype: float
+  - name: chunkId
+    datatype: int
+  - name: subChunkId
+    datatype: int
