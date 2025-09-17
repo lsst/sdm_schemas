@@ -1228,7 +1228,7 @@ tables:
     "@id": "#Object.g_psfFlux_area"
     datatype: float
     description: Effective area of PSF. Forced on g-band.
-    fits:tunit: pixel
+    fits:tunit: pixel**2
   - name: g_psfFlux_flag
     "@id": "#Object.g_psfFlux_flag"
     datatype: boolean
@@ -2261,7 +2261,7 @@ tables:
     "@id": "#Object.i_psfFlux_area"
     datatype: float
     description: Effective area of PSF. Forced on i-band.
-    fits:tunit: pixel
+    fits:tunit: pixel**2
   - name: i_psfFlux_flag
     "@id": "#Object.i_psfFlux_flag"
     datatype: boolean
@@ -3294,7 +3294,7 @@ tables:
     "@id": "#Object.r_psfFlux_area"
     datatype: float
     description: Effective area of PSF. Forced on r-band.
-    fits:tunit: pixel
+    fits:tunit: pixel**2
   - name: r_psfFlux_flag
     "@id": "#Object.r_psfFlux_flag"
     datatype: boolean
@@ -4327,7 +4327,7 @@ tables:
     "@id": "#Object.y_psfFlux_area"
     datatype: float
     description: Effective area of PSF. Forced on y-band.
-    fits:tunit: pixel
+    fits:tunit: pixel**2
   - name: y_psfFlux_flag
     "@id": "#Object.y_psfFlux_flag"
     datatype: boolean
@@ -5360,7 +5360,7 @@ tables:
     "@id": "#Object.z_psfFlux_area"
     datatype: float
     description: Effective area of PSF. Forced on z-band.
-    fits:tunit: pixel
+    fits:tunit: pixel**2
   - name: z_psfFlux_flag
     "@id": "#Object.z_psfFlux_flag"
     datatype: boolean
@@ -6477,7 +6477,7 @@ tables:
     "@id": "#Source.psfFlux_area"
     datatype: float
     description: Effective area of PSF
-    fits:tunit: pixel
+    fits:tunit: pixel**2
   - name: psfFlux_flag
     "@id": "#Source.psfFlux_flag"
     datatype: boolean
