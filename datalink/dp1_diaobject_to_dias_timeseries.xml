@@ -4,10 +4,10 @@
     <INFO name="$dp1_DiaObject_diaObjectId$" ID="$dp1_DiaObject_diaObjectId$" value="this will be dropped..." />
 
     <RESOURCE type="meta" utype="adhoc:service">
-      <DESCRIPTION>Retrieve DiaSource time series</DESCRIPTION>
+      <DESCRIPTION>DiaSource time series</DESCRIPTION>
       <GROUP name="inputParams">
         <PARAM name="id" datatype="long" ref="$dp1_DiaObject_diaObjectId$" value="" ucd="meta.id">
-          <DESCRIPTION>Object ID for time series</DESCRIPTION>
+          <DESCRIPTION>DiaObject ID for time series</DESCRIPTION>
         </PARAM>
         <PARAM name="table" datatype="char" arraysize="*" value="dp1.DiaSource">
           <DESCRIPTION>Table containing time series data</DESCRIPTION>
