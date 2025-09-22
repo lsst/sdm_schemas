@@ -18,6 +18,9 @@
         <PARAM name="join_time_column" datatype="char" arraysize="*" value="dp1.CcdVisit.expMidptMJD">
           <DESCRIPTION>Foreign column spec for time retrieval</DESCRIPTION>
         </PARAM>
+        <PARAM name="join_style" datatype="char" arraysize="*" value="visit_detector">
+          <DESCRIPTION>Single-column (ccdVisit) or composite-key (visit_detector) JOIN</DESCRIPTION>
+        </PARAM>
         <PARAM name="band" datatype="char" arraysize="*" value="all">
           <DESCRIPTION>Filter band to retrieve (default: all)</DESCRIPTION>
           <VALUES>
