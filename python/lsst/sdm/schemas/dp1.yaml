@@ -5626,9 +5626,10 @@ tables:
     description: Unique ID of parent source.
     datatype: long
   - name: midpointMjdTai
-    description: Effective mid-exposure time for this diaSource, expressed as Modified
+    description: Mid-exposure time for the Visit for this DiaSource, expressed as Modified
       Julian Date, International Atomic Time.
     datatype: double
+    ivoa:unit: d
   - name: bboxSize
     description: Bounding box of diaSource footprint.
     datatype: long
@@ -6534,7 +6535,6 @@ tables:
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
-    tap:principal: 1
 - name: ForcedSourceOnDiaObject
   description: "Point-source forced-photometry measurements on individual single-epoch
     visit images and difference images, based on and linked to the entries in the
