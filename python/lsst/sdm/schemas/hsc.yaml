@@ -5696,131 +5696,276 @@ tables:
     datatype: boolean
     description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (z-band).
     fits:tunit:
+  - name: exponential_x
+    "@id": "#Object.exponential_x"
+    datatype: double
+    description: Centroid (tract, x-axis) from the multiband exponential model fit.
+    fits:tunit: pixel
+  - name: exponential_xErr
+    "@id": "#Object.exponential_xErr"
+    datatype: float
+    description: Error on the centroid (tract, x-axis) from the multiband exponential model fit.
+    fits:tunit: pixel
+  - name: exponential_y
+    "@id": "#Object.exponential_y"
+    datatype: double
+    description: Centroid (tract, y-axis) from the multiband exponential model fit.
+    fits:tunit: pixel
+  - name: exponential_yErr
+    "@id": "#Object.exponential_yErr"
+    datatype: float
+    description: Error on the centroid (tract, y-axis) from the multiband exponential model fit.
+    fits:tunit: pixel
+  - name: exponential_ra
+    "@id": "#Object.exponential_ra"
+    datatype: double
+    description: Centroid (right ascension) from the multiband exponential model fit.
+    fits:tunit: deg
+  - name: exponential_raErr
+    "@id": "#Object.exponential_raErr"
+    datatype: float
+    description: Error on the centroid (right ascension) from the multiband exponential model fit.
+    fits:tunit: deg
+  - name: exponential_dec
+    "@id": "#Object.exponential_dec"
+    datatype: double
+    description: Centroid (declination) from the multiband exponential model fit.
+    fits:tunit: deg
+  - name: exponential_decErr
+    "@id": "#Object.exponential_decErr"
+    datatype: float
+    description: Error on the centroid (declination) from the multiband exponential model fit.
+    fits:tunit: deg
+  - name: exponential_reff_x
+    "@id": "#Object.exponential_reff_x"
+    datatype: float
+    description: Effective radius (x-axis) from the multiband exponential model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: pixel
+  - name: exponential_reff_xErr
+    "@id": "#Object.exponential_reff_xErr"
+    datatype: float
+    description: Error on the effective radius (x-axis) from the multiband exponential model fit.
+    fits:tunit: pixel
+  - name: exponential_reff_y
+    "@id": "#Object.exponential_reff_y"
+    datatype: float
+    description: Effective radius (y-axis) from the multiband exponential model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: pixel
+  - name: exponential_reff_yErr
+    "@id": "#Object.exponential_reff_yErr"
+    datatype: float
+    description: Error on the effective radius (y-axis) from the multiband exponential model fit.
+    fits:tunit: pixel
+  - name: exponential_rho
+    "@id": "#Object.exponential_rho"
+    datatype: float
+    description: Ellipse rho (correlation coefficient) from the multiband exponential model fit.
+    fits:tunit:
+  - name: exponential_rhoErr
+    "@id": "#Object.exponential_rhoErr"
+    datatype: float
+    description: Error on ellipse rho (correlation coefficient) from the multiband exponential model fit.
+    fits:tunit:
+  - name: g_exponentialFlux
+    "@id": "#Object.g_exponentialFlux"
+    datatype: float
+    description: g-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: g_exponentialFluxErr
+    "@id": "#Object.g_exponentialFluxErr"
+    datatype: float
+    description: Error on the g-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: i_exponentialFlux
+    "@id": "#Object.i_exponentialFlux"
+    datatype: float
+    description: i-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: i_exponentialFluxErr
+    "@id": "#Object.i_exponentialFluxErr"
+    datatype: float
+    description: Error on the i-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: r_exponentialFlux
+    "@id": "#Object.r_exponentialFlux"
+    datatype: float
+    description: r-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: r_exponentialFluxErr
+    "@id": "#Object.r_exponentialFluxErr"
+    datatype: float
+    description: Error on the r-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: y_exponentialFlux
+    "@id": "#Object.y_exponentialFlux"
+    datatype: float
+    description: y-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: y_exponentialFluxErr
+    "@id": "#Object.y_exponentialFluxErr"
+    datatype: float
+    description: Error on the y-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: z_exponentialFlux
+    "@id": "#Object.z_exponentialFlux"
+    datatype: float
+    description: z-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: z_exponentialFluxErr
+    "@id": "#Object.z_exponentialFluxErr"
+    datatype: float
+    description: Error on the z-band flux from the multiband exponential model fit.
+    fits:tunit: nJy
+  - name: exponential_n_eval_jac
+    "@id": "#Object.exponential_n_eval_jac"
+    datatype: int
+    description: Number of Jacobian evaluations for the multiband exponential model fit.
+    fits:tunit:
+  - name: exponential_n_iter
+    "@id": "#Object.exponential_n_iter"
+    datatype: int
+    description: Number of iterations in the non-linear fit for the multiband exponential model.
+    fits:tunit:
+  - name: exponential_chisq_reduced
+    "@id": "#Object.exponential_chisq_reduced"
+    datatype: float
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband exponential model.
+    fits:tunit:
+  - name: exponential_no_data_flag
+    "@id": "#Object.exponential_no_data_flag"
+    datatype: boolean
+    description: Flag set when there is insufficient data to fit for the multiband exponential model.
+    fits:tunit:
+  - name: exponential_unknown_flag
+    "@id": "#Object.exponential_unknown_flag"
+    datatype: boolean
+    description: Flag set for failures with an unexpected or unknown cause for the multiband exponential model.
+    fits:tunit:
   - name: sersic_x
     "@id": "#Object.sersic_x"
     datatype: double
     description: Centroid (tract, x-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
+  - name: sersic_xErr
+    "@id": "#Object.sersic_xErr"
+    datatype: float
+    description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
     fits:tunit: pixel
   - name: sersic_y
     "@id": "#Object.sersic_y"
     datatype: double
     description: Centroid (tract, y-axis) from the multiband Sersic model fit.
     fits:tunit: pixel
+  - name: sersic_yErr
+    "@id": "#Object.sersic_yErr"
+    datatype: float
+    description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
   - name: sersic_ra
     "@id": "#Object.sersic_ra"
     datatype: double
     description: Centroid (right ascension) from the multiband Sersic model fit.
+    fits:tunit: deg
+  - name: sersic_raErr
+    "@id": "#Object.sersic_raErr"
+    datatype: float
+    description: Error on the centroid (right ascension) from the multiband Sersic model fit.
     fits:tunit: deg
   - name: sersic_dec
     "@id": "#Object.sersic_dec"
     datatype: double
     description: Centroid (declination) from the multiband Sersic model fit.
     fits:tunit: deg
+  - name: sersic_decErr
+    "@id": "#Object.sersic_decErr"
+    datatype: float
+    description: Error on the centroid (declination) from the multiband Sersic model fit.
+    fits:tunit: deg
   - name: sersic_reff_x
     "@id": "#Object.sersic_reff_x"
     datatype: float
     description: Effective radius (x-axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: pixel
+  - name: sersic_reff_xErr
+    "@id": "#Object.sersic_reff_xErr"
+    datatype: float
+    description: Error on the effective radius (x-axis) from the multiband Sersic model fit.
     fits:tunit: pixel
   - name: sersic_reff_y
     "@id": "#Object.sersic_reff_y"
     datatype: float
     description: Effective radius (y-axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
     fits:tunit: pixel
+  - name: sersic_reff_yErr
+    "@id": "#Object.sersic_reff_yErr"
+    datatype: float
+    description: Error on the effective radius (y-axis) from the multiband Sersic model fit.
+    fits:tunit: pixel
   - name: sersic_rho
     "@id": "#Object.sersic_rho"
     datatype: float
     description: Ellipse rho (correlation coefficient) from the multiband Sersic model fit.
+    fits:tunit:
+  - name: sersic_rhoErr
+    "@id": "#Object.sersic_rhoErr"
+    datatype: float
+    description: Error on ellipse rho (correlation coefficient) from the multiband Sersic model fit.
     fits:tunit:
   - name: g_sersicFlux
     "@id": "#Object.g_sersicFlux"
     datatype: float
     description: g-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
-  - name: i_sersicFlux
-    "@id": "#Object.i_sersicFlux"
-    datatype: float
-    description: i-band flux from the multiband Sersic model fit.
-    fits:tunit: nJy
-  - name: r_sersicFlux
-    "@id": "#Object.r_sersicFlux"
-    datatype: float
-    description: r-band flux from the multiband Sersic model fit.
-    fits:tunit: nJy
-  - name: y_sersicFlux
-    "@id": "#Object.y_sersicFlux"
-    datatype: float
-    description: y-band flux from the multiband Sersic model fit.
-    fits:tunit: nJy
-  - name: z_sersicFlux
-    "@id": "#Object.z_sersicFlux"
-    datatype: float
-    description: z-band flux from the multiband Sersic model fit.
-    fits:tunit: nJy
-  - name: sersic_index
-    "@id": "#Object.sersic_index"
-    datatype: float
-    description: Sersic profile index parameter from the multiband Sersic model fit.
-    fits:tunit:
-  - name: sersic_xErr
-    "@id": "#Object.sersic_xErr"
-    datatype: float
-    description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
-  - name: sersic_yErr
-    "@id": "#Object.sersic_yErr"
-    datatype: float
-    description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
-  - name: sersic_raErr
-    "@id": "#Object.sersic_raErr"
-    datatype: float
-    description: Error on the centroid (right ascension) from the multiband Sersic model fit.
-    fits:tunit: deg
-  - name: sersic_decErr
-    "@id": "#Object.sersic_decErr"
-    datatype: float
-    description: Error on the centroid (declination) from the multiband Sersic model fit.
-    fits:tunit: deg
-  - name: sersic_reff_xErr
-    "@id": "#Object.sersic_reff_xErr"
-    datatype: float
-    description: Error on the effective radius (x-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
-  - name: sersic_reff_yErr
-    "@id": "#Object.sersic_reff_yErr"
-    datatype: float
-    description: Error on the effective radius (y-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
-  - name: sersic_rhoErr
-    "@id": "#Object.sersic_rhoErr"
-    datatype: float
-    description: Error on ellipse rho (correlation coefficient) from the multiband Sersic model fit.
-    fits:tunit:
   - name: g_sersicFluxErr
     "@id": "#Object.g_sersicFluxErr"
     datatype: float
     description: Error on the g-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: i_sersicFlux
+    "@id": "#Object.i_sersicFlux"
+    datatype: float
+    description: i-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: i_sersicFluxErr
     "@id": "#Object.i_sersicFluxErr"
     datatype: float
     description: Error on the i-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
+  - name: r_sersicFlux
+    "@id": "#Object.r_sersicFlux"
+    datatype: float
+    description: r-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
   - name: r_sersicFluxErr
     "@id": "#Object.r_sersicFluxErr"
     datatype: float
     description: Error on the r-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
+  - name: y_sersicFlux
+    "@id": "#Object.y_sersicFlux"
+    datatype: float
+    description: y-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
   - name: y_sersicFluxErr
     "@id": "#Object.y_sersicFluxErr"
     datatype: float
     description: Error on the y-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
+  - name: z_sersicFlux
+    "@id": "#Object.z_sersicFlux"
+    datatype: float
+    description: z-band flux from the multiband Sersic model fit.
+    fits:tunit: nJy
   - name: z_sersicFluxErr
     "@id": "#Object.z_sersicFluxErr"
     datatype: float
     description: Error on the z-band flux from the multiband Sersic model fit.
     fits:tunit: nJy
+  - name: sersic_index
+    "@id": "#Object.sersic_index"
+    datatype: float
+    description: Sersic profile index parameter from the multiband Sersic model fit.
+    fits:tunit:
   - name: sersic_indexErr
     "@id": "#Object.sersic_indexErr"
     datatype: float
