@@ -5,6 +5,30 @@
 # build_datalink_metadata.py, run during the build.
 
 tables:
+  dp1.CcdVisit:
+    lsst:minimal: []
+  dp1.CoaddPatches:
+    lsst:minimal: []
+  dp1.DiaObject:
+    lsst:minimal: []
+  dp1.DiaSource:
+    lsst:minimal: []
+  dp1.ForcedSource:
+    lsst:minimal: []
+  dp1.ForcedSourceOnDiaObject:
+    lsst:minimal: []
+  dp1.MPCORB:
+    lsst:minimal: []
+  dp1.Object:
+    lsst:minimal: []
+  dp1.SSObject:
+    lsst:minimal: []
+  dp1.SSSource:
+    lsst:minimal: []
+  dp1.Source:
+    lsst:minimal: []
+  dp1.Visit:
+    lsst:minimal: []
   dp02_dc2_catalogs.CcdVisit:
     lsst:minimal: []
   dp02_dc2_catalogs.CoaddPatches:

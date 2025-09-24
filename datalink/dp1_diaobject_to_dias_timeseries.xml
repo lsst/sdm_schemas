@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
 
-    <INFO name="$dp02_dc2_catalogs_DiaObject_diaObjectId$" ID="$dp02_dc2_catalogs_DiaObject_diaObjectId$" value="this will be dropped..." />
+    <INFO name="$dp1_DiaObject_diaObjectId$" ID="$dp1_DiaObject_diaObjectId$" value="this will be dropped..." />
 
     <RESOURCE type="meta" utype="adhoc:service">
       <DESCRIPTION>DiaSource time series</DESCRIPTION>
       <GROUP name="inputParams">
-        <PARAM name="id" datatype="long" ref="$dp02_dc2_catalogs_DiaObject_diaObjectId$" value="" ucd="meta.id">
+        <PARAM name="id" datatype="long" ref="$dp1_DiaObject_diaObjectId$" value="" ucd="meta.id">
           <DESCRIPTION>DiaObject ID for time series</DESCRIPTION>
         </PARAM>
-        <PARAM name="table" datatype="char" arraysize="*" value="dp02_dc2_catalogs.DiaSource">
+        <PARAM name="table" datatype="char" arraysize="*" value="dp1.DiaSource">
           <DESCRIPTION>Table containing time series data</DESCRIPTION>
-        </PARAM>
-        <PARAM name="band_column" datatype="char" arraysize="*" value="filterName">
-            <DESCRIPTION>Name of the filter band in time series table</DESCRIPTION>
         </PARAM>
         <PARAM name="id_column" datatype="char" arraysize="*" value="diaObjectId">
           <DESCRIPTION>Foreign key in time series table</DESCRIPTION>
-        </PARAM>
-        <PARAM name="join_time_column" datatype="char" arraysize="*" value="dp02_dc2_catalogs.CcdVisit.expMidptMJD">
-          <DESCRIPTION>Foreign column spec for time retrieval</DESCRIPTION>
         </PARAM>
         <PARAM name="band" datatype="char" arraysize="*" value="all">
           <DESCRIPTION>Filter band to retrieve (default: all)</DESCRIPTION>

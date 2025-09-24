@@ -3,7 +3,7 @@ description: "Data Preview 1 contains image and catalog products from the
   Rubin Science Pipelines v29 processing of observations obtained with the
   LSST Commissioning Camera of seven ~1 square degree fields,
   over seven weeks in late 2024."
-version: 1.1.5
+version: 1.2.0
 tables:
 - name: Object
   description: "Descriptions of static astronomical objects (or the static aspects
@@ -5415,9 +5415,8 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;obs.image
   - name: detector
-    description: Id of the detector where this source was measured. Datatype short
-      instead of byte because of DB concerns about unsigned bytes.
-    datatype: long
+    description: Id of the detector where this source was measured.
+    datatype: int
     nullable: false
     ivoa:ucd: meta.id;obs.image
   - name: band
@@ -5477,8 +5476,7 @@ tables:
     ivoa:ucd: meta.id;obs.image
     tap:principal: 1
   - name: detector
-    description: Id of the detector where this source was measured. Datatype short
-      instead of byte because of DB concerns about unsigned bytes.
+    description: Id of the detector where this source was measured.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;obs.image
@@ -5609,8 +5607,7 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;obs.image
   - name: detector
-    description: Id of the detector where this diaSource was measured. Datatype short
-      instead of byte because of DB concerns about unsigned bytes.
+    description: Id of the detector where this diaSource was measured.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;obs.image
@@ -5629,9 +5626,10 @@ tables:
     description: Unique ID of parent source.
     datatype: long
   - name: midpointMjdTai
-    description: Effective mid-exposure time for this diaSource, expressed as Modified
+    description: Mid-exposure time for the Visit for this DiaSource, expressed as Modified
       Julian Date, International Atomic Time.
     datatype: double
+    ivoa:unit: d
   - name: bboxSize
     description: Bounding box of diaSource footprint.
     datatype: long
@@ -6537,7 +6535,6 @@ tables:
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
-    tap:principal: 1
 - name: ForcedSourceOnDiaObject
   description: "Point-source forced-photometry measurements on individual single-epoch
     visit images and difference images, based on and linked to the entries in the
@@ -6571,9 +6568,8 @@ tables:
     ivoa:ucd: meta.id;obs.image
     tap:principal: 1
   - name: detector
-    description: Id of the detector where this forced source was measured. Datatype
-      short instead of byte because of DB concerns about unsigned bytes.
-    datatype: long
+    description: Id of the detector where this forced source was measured.
+    datatype: int
     nullable: false
     ivoa:ucd: meta.id;obs.image
     tap:principal: 1
