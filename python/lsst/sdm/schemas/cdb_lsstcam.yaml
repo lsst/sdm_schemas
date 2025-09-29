@@ -1586,20 +1586,20 @@ tables:
     datatype: float
     description: RMS of azimuth after trendline is subtracted.
     ivoa:unit: arcsec
-  - name: guider_rotator_drift
-    "@id": "#visit1_quicklook.guider_rotator_drift"
+  - name: guider_focalplane_theta_drift
+    "@id": "#visit1_quicklook.guider_focalplane_theta_drift"
     datatype: float
-    description: Rotator drift over exposure in arcsec.
+    description: Focal plane theta drift over exposure in arcsec.
     ivoa:unit: arcsec
-  - name: guider_rotator_standard_deviation
-    "@id": "#visit1_quicklook.guider_rotator_standard_deviation"
+  - name: guider_focalplane_theta_standard_deviation
+    "@id": "#visit1_quicklook.guider_focalplane_theta_standard_deviation"
     datatype: float
-    description: Standard deviation of rotator over exposure.
+    description: Standard deviation of focal plane theta over exposure.
     ivoa:unit: arcsec
-  - name: guider_rotator_rms_detrended
-    "@id": "#visit1_quicklook.guider_rotator_rms_detrended"
+  - name: guider_focalplane_theta_rms_detrended
+    "@id": "#visit1_quicklook.guider_focalplane_theta_rms_detrended"
     datatype: float
-    description: RMS of rotator after trendline is subtracted.
+    description: RMS of focal plane theta after trendline is subtracted.
     ivoa:unit: arcsec
   - name: guider_magnitude_drift
     "@id": "#visit1_quicklook.guider_magnitude_drift"
@@ -1609,7 +1609,7 @@ tables:
   - name: guider_magnitude_standard_deviation
     "@id": "#visit1_quicklook.guider_magnitude_standard_deviation"
     datatype: float
-    description: Standard deviation of rotator over exposure.
+    description: Standard deviation of magnitude over exposure.
     ivoa:unit: mag
   - name: guider_magnitude_rms_detrended
     "@id": "#visit1_quicklook.guider_magnitude_rms_detrended"
