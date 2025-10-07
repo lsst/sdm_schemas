@@ -5599,7 +5599,6 @@ tables:
 - name: DiaSource
   description: "Properties of transient-object detections on the single-epoch difference images."
   tap:table_index: 50
-  primaryKey: '#DiaSource.diaSourceId'
   columns:
   - name: visit
     description: Id of the visit where this diaSource was measured.
@@ -5938,6 +5937,11 @@ tables:
     description: Unique identifier of this DiaSource.
     datatype: long
   constraints:
+  - name: uniq_diaSourceId
+    description: Unique constraint on diaSourceId in DiaSource table
+    '@type': Unique
+    columns:
+    - '#DiaSource.diaSourceId'
   - name: fk_DiaSource_Visit
     description: Link a DiaSource to its associated Visit
     '@type': ForeignKey
@@ -6681,7 +6685,7 @@ tables:
     - '#ForcedSourceOnDiaObject.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
-  - name: FK_ForcedSourceOnDiaObject_Visit
+  - name: fk_ForcedSourceOnDiaObject_Visit
     description: Link a ForcedSourceOnDiaObject to its associated Visit
     '@type': ForeignKey
     columns:
@@ -7105,7 +7109,7 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   constraints:
-  - name: FK_CcdVisit_Visit
+  - name: fk_CcdVisit_Visit
     description: Link a Visit to the CCD-level images it contains
     '@type': ForeignKey
     columns:
@@ -7229,14 +7233,14 @@ tables:
     datatype: double
     ivoa:unit: deg
   constraints:
-  - name: FK_SSSource_DiaSource
+  - name: fk_SSSource_DiaSource
     description: Link an SSSource to its associated DiaSource
     '@type': ForeignKey
     columns:
     - '#SSSource.diaSourceId'
     referencedColumns:
     - '#DiaSource.diaSourceId'
-  - name: FK_SSSource_SSObject
+  - name: fk_SSSource_SSObject
     description: Link an SSObject to its associated SSSources
     '@type': ForeignKey
     columns:
@@ -7291,7 +7295,7 @@ tables:
     datatype: float
     ivoa:unit: mag
   constraints:
-  - name: FK_MPCORB_SSObject
+  - name: fk_MPCORB_SSObject
     description: Link an MPCORB record to its associated SSObject
     '@type': ForeignKey
     columns:
