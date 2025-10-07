@@ -6838,6 +6838,9 @@ tables:
     tap:column_index: 7
     tap:principal: 0
 - name: CcdVisit
+  primaryKey:
+  - "#CcdVisit.visitId"
+  - "#CcdVisit.detector"
   description: "Metadata about the nine individual CCD images for each Visit in the
     DP1 LSSTComCam dataset."
   tap:table_index: 90
