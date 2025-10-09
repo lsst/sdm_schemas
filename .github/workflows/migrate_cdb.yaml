@@ -1,0 +1,103 @@
+name: Trigger ConsDB Database Migrations
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  migrate-cdb:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true  # Only trigger on merged PRs
+
+    steps:
+
+      - name: Check for required SHA values
+        run: |
+          if [ -z "${{ github.event.pull_request.base.sha }}" ] || [ -z "${{ github.event.pull_request.merge_commit_sha }}" ]; then
+            echo "Error: Missing required SHA values in event payload."
+            exit 1
+          fi
+
+      - name: Checkout PR repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          path: pr
+          fetch-depth: 0
+
+      - name: Checkout main repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: main
+          fetch-depth: 0
+
+      - name: Check for cdb schema changes using git diff
+        working-directory: ${{ github.workspace }}/pr
+        run: |
+          DIFF_FILES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.merge_commit_sha }} -- python/lsst/sdm_schemas/schemas/cdb_*.yaml)
+          if [ -z "$DIFF_FILES" ]; then
+            echo "No cdb schema files changed"
+            exit 0
+          else
+            echo "Changed cdb schema files: $DIFF_FILES"
+            echo "$DIFF_FILES" > diff_files.txt
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        working-directory: ${{ github.workspace }}/pr
+        run: |
+          set -e
+          python -m pip install --upgrade pip uv
+          uv pip install --system -r requirements.txt
+        shell: bash
+
+      - name: Check for cdb changes that require a migration
+        working-directory: ${{ github.workspace }}/pr
+        run: |
+          CHANGED_FILES=()
+          while IFS= read -r SCHEMA_FILE; do
+            echo "Checking $SCHEMA_FILE"
+            MAIN_FILE=../main/$SCHEMA_FILE
+            if [ -f "$MAIN_FILE" ]; then
+              echo "Comparing $MAIN_FILE to $SCHEMA_FILE"
+              DIFF_RESULTS=$(felis diff --comparator alembic $MAIN_FILE $SCHEMA_FILE)
+              if [ $? -ne 0 ]; then
+                echo "Error running felis diff on $SCHEMA_FILE"
+                exit 1
+              fi
+              echo "$DIFF_RESULTS"
+              if [ -n "$DIFF_RESULTS" ]; then
+                echo "Schema file $SCHEMA_FILE has changed"
+                CHANGED_FILES+=($SCHEMA_FILE)
+              fi
+            else
+              echo "Schema file $SCHEMA_FILE is new"
+              CHANGED_FILES+=($SCHEMA_FILE)
+            fi
+          done < diff_files.txt
+          if [ ${#CHANGED_FILES[@]} -eq 0 ]; then
+            echo "No cdb schema files changed"
+            exit 0
+          else
+            echo "Changed cdb schema files: ${CHANGED_FILES[@]}"
+          fi
+
+      - name: Trigger migration workflow in consdb repository
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.REPO_DISPATCH_TOKEN }}
+          repository: lsst-dm/consdb
+          event-type: migration
+          # Pass the branch name and commit SHA of the merged PR to the consdb migration workflow
+          client-payload: |
+            {
+              "branch_name": "${{ github.event.pull_request.head.ref }}",
+              "commit_sha": "${{ github.event.pull_request.merge_commit_sha }}"
+            }
