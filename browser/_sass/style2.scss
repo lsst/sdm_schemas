@@ -81,3 +81,22 @@ a {
     margin-top: 10px;
     margin-left: 75px;
 }
+
+details.index-details {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+details.index-details summary {
+  color: #058B8C;
+  display: list-item;
+  cursor: pointer;
+}
+
+details.index-details summary::marker {
+  color: #058B8C;
+}
+
+details.index-details summary::-webkit-details-marker {
+  display: initial;
+}
