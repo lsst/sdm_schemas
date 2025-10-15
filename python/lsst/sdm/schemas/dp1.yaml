@@ -3,7 +3,7 @@ description: "Data Preview 1 contains image and catalog products from the
   Rubin Science Pipelines v29 processing of observations obtained with the
   LSST Commissioning Camera of seven ~1 square degree fields,
   over seven weeks in late 2024."
-version: 1.2.0
+version: 1.3.0
 tables:
 - name: Object
   description: "Descriptions of static astronomical objects (or the static aspects
@@ -4874,6 +4874,11 @@ tables:
     datatype: long
     ivoa:ucd: meta.id;src
     tap:principal: 1
+  indexes:
+  - name: idx_Object_objectId
+    description: Unique index on objectId column
+    columns:
+    - "#Object.objectId"
 - name: Source
   description: "Properties of detections on the single-epoch visit images, performed
     independently of the Object detections on coadded images."
@@ -5435,13 +5440,18 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;src
   constraints:
-  - name: FK_Source_Visit
+  - name: fk_Source_Visit
     description: Link a Source to its associated Visit
     '@type': ForeignKey
     columns:
     - '#Source.visit'
     referencedColumns:
     - '#Visit.visit'
+  indexes:
+  - name: idx_Source_sourceId
+    description: Unique index on sourceId column
+    columns:
+    - "#Source.sourceId"
 - name: ForcedSource
   description: "Forced-photometry measurements on individual single-epoch visit images and
     difference images, based on and linked to the entries in the Object table. Point-source
@@ -5582,24 +5592,28 @@ tables:
     datatype: long
     tap:principal: 0
   constraints:
-  - name: FK_ForcedSource_Object
+  - name: fk_ForcedSource_Object
     description: Link an Object to its associated ForcedSources
     '@type': ForeignKey
     columns:
     - '#ForcedSource.objectId'
     referencedColumns:
     - '#Object.objectId'
-  - name: FK_ForcedSource_Visit
+  - name: fk_ForcedSource_Visit
     description: Link a ForcedSource to its associated visit
     '@type': ForeignKey
     columns:
     - '#ForcedSource.visit'
     referencedColumns:
     - '#Visit.visit'
+  indexes:
+  - name: idx_ForcedSource_objectId
+    description: Non-unique index on the objectId column; accelerates retrieval of light curves for Objects
+    columns:
+    - '#ForcedSource.objectId'
 - name: DiaSource
   description: "Properties of transient-object detections on the single-epoch difference images."
   tap:table_index: 50
-  primaryKey: '#DiaSource.diaSourceId'
   columns:
   - name: visit
     description: Id of the visit where this diaSource was measured.
@@ -5938,27 +5952,37 @@ tables:
     description: Unique identifier of this DiaSource.
     datatype: long
   constraints:
-  - name: FK_DiaSource_Visit
+  - name: uniq_diaSourceId
+    description: Unique constraint on diaSourceId
+    '@type': Unique
+    columns:
+    - '#DiaSource.diaSourceId'
+  - name: fk_DiaSource_Visit
     description: Link a DiaSource to its associated Visit
     '@type': ForeignKey
     columns:
     - '#DiaSource.visit'
     referencedColumns:
     - '#Visit.visit'
-  - name: FK_DiaSource_DiaObject
+  - name: fk_DiaSource_DiaObject
     description: Link a DiaObject to its associated DiaSources
     '@type': ForeignKey
     columns:
     - '#DiaSource.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
-  - name: FK_DiaSource_SSObject
+  - name: fk_DiaSource_SSObject
     description: Link a DiaSource to its associated SSObject, if any
     '@type': ForeignKey
     columns:
     - '#DiaSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
+  indexes:
+  - name: idx_DiaSource_diaObjectId
+    description: Non-unique index on the diaObjectId column; accelerates retrieval of light curves for DiaObjects
+    columns:
+    - "#DiaSource.diaObjectId"
 - name: DiaObject
   description: "Properties of time-varying astronomical objects based on association
     of data from one or more spatially-related DiaSource detections on individual
@@ -6535,6 +6559,11 @@ tables:
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
+  indexes:
+  - name: idx_DiaObject_diaObjectId
+    description: Unique index on the diaObjectId column
+    columns:
+    - "#DiaObject.diaObjectId"
 - name: ForcedSourceOnDiaObject
   description: "Point-source forced-photometry measurements on individual single-epoch
     visit images and difference images, based on and linked to the entries in the
@@ -6674,20 +6703,25 @@ tables:
     datatype: long
     tap:principal: 0
   constraints:
-  - name: FK_ForcedSourceOnDiaobject_DiaObject
+  - name: fk_ForcedSourceOnDiaobject_DiaObject
     description: Link a DiaObject to its associated ForcedSourceOnDiaObjects
     '@type': ForeignKey
     columns:
     - '#ForcedSourceOnDiaObject.diaObjectId'
     referencedColumns:
     - '#DiaObject.diaObjectId'
-  - name: FK_ForcedSourceOnDiaObject_Visit
+  - name: fk_ForcedSourceOnDiaObject_Visit
     description: Link a ForcedSourceOnDiaObject to its associated Visit
     '@type': ForeignKey
     columns:
     - '#ForcedSourceOnDiaObject.visit'
     referencedColumns:
     - '#Visit.visit'
+  indexes:
+  - name: idx_ForcedSourceOnDiaObject_diaObjectId
+    description: Non-unique index on the diaObjectId column; accelerates retrieval of light curves for DiaObjects
+    columns:
+    - "#ForcedSourceOnDiaObject.diaObjectId"
 - name: CoaddPatches
   description: "Static information about the subset of tracts and patches from the standard
     LSST skymap that apply to coadds in these catalogs"
@@ -6742,6 +6776,15 @@ tables:
     datatype: string
     length: 512
     tap:column_index: 5
+  indexes:
+  - name: idx_CoaddPatches_lsst_patch
+    description: Non-unique index on the lsst_patch column
+    columns:
+    - "#CoaddPatches.lsst_patch"
+  - name: idx_CoaddPatches_lsst_tract
+    description: Non-unique index on the lsst_tract column
+    columns:
+    - "#CoaddPatches.lsst_tract"
 - name: Visit
   description: "Metadata about the pointings of the telescope,
     largely associated with the boresight of the LSSTComCam focal plane as a whole."
@@ -6837,7 +6880,15 @@ tables:
     ivoa:unit: d
     tap:column_index: 7
     tap:principal: 0
+  indexes:
+  - name: idx_Visit_visit
+    description: Unique index on the visit column
+    columns:
+    - "#Visit.visit"
 - name: CcdVisit
+  primaryKey:
+  - "#CcdVisit.visitId"
+  - "#CcdVisit.detector"
   description: "Metadata about the nine individual CCD images for each Visit in the
     DP1 LSSTComCam dataset."
   tap:table_index: 90
@@ -7102,13 +7153,23 @@ tables:
     ivoa:unit: mag
     tap:principal: 1
   constraints:
-  - name: FK_CcdVisit_Visit
+  - name: fk_CcdVisit_Visit
     description: Link a Visit to the CCD-level images it contains
     '@type': ForeignKey
     columns:
     - '#CcdVisit.visitId'
     referencedColumns:
     - '#Visit.visit'
+  indexes:
+  - name: idx_CcdVisit_visitId
+    description: Non-unique index on visitId column; accelerates retrieval of data for all detectors for a visit
+    columns:
+    - "#CcdVisit.visitId"
+  - name: idx_CcdVisit_visitId_detector
+    description: Unique index on visit and detector columns in CcdVisit table
+    columns:
+    - "#CcdVisit.visitId"
+    - "#CcdVisit.detector"
 - name: SSObject
   description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
   tap:table_index: 110
@@ -7128,6 +7189,11 @@ tables:
       general LSST conventions (MJD TAI, at the moment).
     datatype: double
     ivoa:unit: d
+  indexes:
+  - name: idx_SSObject_ssObjectId
+    description: Unique index on the ssObjectId column
+    columns:
+    - "#SSObject.ssObjectId"
 - name: SSSource
   description: LSST-computed per-source quantities. 1:1 relationship with DiaSource.
   tap:table_index: 120
@@ -7226,20 +7292,29 @@ tables:
     datatype: double
     ivoa:unit: deg
   constraints:
-  - name: FK_SSSource_DiaSource
+  - name: fk_SSSource_DiaSource
     description: Link an SSSource to its associated DiaSource
     '@type': ForeignKey
     columns:
     - '#SSSource.diaSourceId'
     referencedColumns:
     - '#DiaSource.diaSourceId'
-  - name: FK_SSSource_SSObject
+  - name: fk_SSSource_SSObject
     description: Link an SSObject to its associated SSSources
     '@type': ForeignKey
     columns:
     - '#SSSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
+  indexes:
+  - name: idx_SSSource_diaSourceId
+    description: Unique index on the diaSourceId column; accelerates joins between DiaSource and SSSource
+    columns:
+    - "#SSSource.diaSourceId"
+  - name: idx_SSSource_ssObjectId
+    description: Non-unique index on the ssObjectId column; accelerates retrieval of single-epoch data for SSObjects
+    columns:
+    - "#SSSource.ssObjectId"
 - name: MPCORB
   description: Orbit catalog produced by the Minor Planet Center based on submissions from DP1 processing.
     The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html .
@@ -7288,10 +7363,19 @@ tables:
     datatype: float
     ivoa:unit: mag
   constraints:
-  - name: FK_MPCORB_SSObject
+  - name: fk_MPCORB_SSObject
     description: Link an MPCORB record to its associated SSObject
     '@type': ForeignKey
     columns:
     - '#MPCORB.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
+  indexes:
+  - name: idx_MPCORB_mpcDesignation
+    description: Non-unique index on the mpcDesignation column
+    columns:
+    - "#MPCORB.mpcDesignation"
+  - name: idx_MPCORB_ssObjectId
+    description: Unique index on the ssObjectId column
+    columns:
+    - "#MPCORB.ssObjectId"
