@@ -235,31 +235,10 @@ tables:
     datatype: long
     description: Skymap tract ID
     fits:tunit:
-  - name: x
-    "@id": "#Object.x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Reference band.
-    fits:tunit: pixel
-  - name: xErr
-    "@id": "#Object.xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Reference band.
-    fits:tunit: pixel
-  - name: xy_flag
-    "@id": "#Object.xy_flag"
-    datatype: boolean
+  - name: centroid_flag
+    "@id": "#Object.centroid_flag"
     description: General Failure Flag. Reference band.
-    fits:tunit:
-  - name: y
-    "@id": "#Object.y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Reference band.
-    fits:tunit: pixel
-  - name: yErr
-    "@id": "#Object.yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Reference band.
-    fits:tunit: pixel
+    datatype: boolean
   - name: g_ap03Flux
     "@id": "#Object.g_ap03Flux"
     datatype: float

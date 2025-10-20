@@ -4625,23 +4625,7 @@ tables:
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Reference band.
     datatype: float
     tap:principal: 1
-  - name: x
-    description: Centroid from the SDSS centroid algorithm. Reference band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: y
-    description: Centroid from the SDSS centroid algorithm. Reference band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: xErr
-    description: 1-sigma uncertainty on x position. Reference band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: yErr
-    description: 1-sigma uncertainty on y position. Reference band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: xy_flag
+  - name: centroid_flag
     description: General Failure Flag. Reference band.
     datatype: boolean
   - name: footprintArea
