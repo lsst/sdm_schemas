@@ -70,7 +70,7 @@
       <nav id="sidebar">
         {% include _logo.html %}
         <ul>
-            <li><b>Updated:</b> {{ site.time | date: "%B %-d, %Y" }}</li>
+          <li><b>Updated:</b> {{ site.time | date: "%B %-d, %Y" }}</li>
         </ul>
         <label title="Enables table pagination of schema data when checked" style="margin: 20px;">
           <input type="checkbox" id="toggle-pagination"> Paginate Tables
@@ -87,7 +87,7 @@
           </ul>
         </ul>
         <ul>
-            <li><a href="./CHANGES.html">Release Notes</a></li>
+          <li><a href="./CHANGES.html">Release Notes</a></li>
         </ul>
         <ul>
           <li><a href="/v">Change version</a></li>
@@ -102,16 +102,47 @@
           <section id="{{ table['name'] }}">
             <h2><a href="#{{ table.name }}">{{ table.name }}</a></h2>
             <p>{{ table.description }}</p>
+            {% if table.indexes and table.indexes.size > 0 %}
+            <details class="index-details">
+              <summary>Indexes</summary>
+              {% assign col_ref = '<code>{{ table.name }}.' %}
+              <table style="margin-top: 10px;">
+                <thead>
+                  <tr>
+                    <th title="Columns included in the index">Columns</th>
+                    <th title="Description of the index">Description</th>
+                    <th title="Unique name of the index in the YAML schema file">Reference Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for idx in table.indexes %}
+                  <tr>
+                    <td>
+                    {% assign links = "" | split: "" %}
+                      {% for col_id in idx.columns %}
+                        {% assign col_parts = col_id | replace: '#', '' | split: '.' %}
+                        {% assign link = '<a href="' | append: col_id | append: '">' | append: col_parts[1] | append: '</a>' %}
+                        {% assign links = links | push: link %}
+                      {% endfor %}
+                    {{ links | join: ", " | raw }}
+                    <td>{{ idx.description | default: '' }}</td>
+                    <td>{{ idx.name }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </details>
+            {% endif %}
             <table class="schema-table">
               <thead>
                 <tr>
-                  <th title="Name of the column in the database">Column Name</th>
+                  <th title="Name of the column in the schema">Column Name</th>
                   <th title="Data type of the column">Data Type</th>
                   <th title="Measurement unit of the column in IVOA units">Unit</th>
                   <th title="Description of the column">Description</th>
                   <th title="IVOA Unified Content Descriptor (UCD) of the column">UCD</th>
-                  <th title="Index used to recommend column ordering for clients">Index</th>
-                  <th title="When set to 1, indicates that the column is considered a core part of the content">Principal</th>
+                  <th title="Column ordering in TAP_SCHEMA">Order</th>
+                  <th title="Set to 1 for columns which are considered core content">Principal</th>
                 </tr>
               </thead>
               <tbody>
@@ -144,5 +175,5 @@
         </main>
       </div>
     </div>
-</body>
+  </body>
 </html>

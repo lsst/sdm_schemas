@@ -5,8 +5,8 @@
 help:
 	@echo "Available targets for sdm_schemas:"
 	@echo "  init  - Install the required Ruby gems"
-	@echo "  build - Build the schema browser site"
-	@echo "  run   - Serve the schema browser site"
+	@echo "  site  - Build the schema browser site"
+	@echo "  serve  - Serve the schema browser site"
 	@echo "  clean - Clean the schema browser site"
 	@echo "  check - Validate the schema files using Felis"
 
@@ -19,7 +19,7 @@ init:
 	}
 	gem install -q --silent --no-verbose jekyll bundler jekyll-theme-cayman
 # Run the web server and watch for changes
-run:
+serve:
 	jekyll serve --watch
 
 # Validate the schema files using Felis
@@ -31,7 +31,7 @@ check:
 	@command felis validate yml/*.yaml
 
 # Build the site
-build: check
+site: check
 	jekyll build
 
 # Cleanup local config and remove the generated site
