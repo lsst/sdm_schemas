@@ -214,21 +214,6 @@ tables:
   - name: z_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on z-band.
     datatype: boolean
-  - name: z_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on z-band.
-    datatype: boolean
   - name: z_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on z-band.
     datatype: float
@@ -935,21 +920,6 @@ tables:
     ivoa:unit: pixel**2
   - name: u_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on u-band.
-    datatype: boolean
-  - name: u_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: u_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: u_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: u_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on u-band.
     datatype: boolean
   - name: u_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on u-band.
@@ -1658,21 +1628,6 @@ tables:
   - name: g_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on g-band.
     datatype: boolean
-  - name: g_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: g_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: g_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: g_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on g-band.
-    datatype: boolean
   - name: g_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on g-band.
     datatype: float
@@ -2379,21 +2334,6 @@ tables:
     ivoa:unit: pixel**2
   - name: r_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on r-band.
-    datatype: boolean
-  - name: r_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: r_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: r_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: r_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on r-band.
     datatype: boolean
   - name: r_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on r-band.
@@ -3102,21 +3042,6 @@ tables:
   - name: i_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on i-band.
     datatype: boolean
-  - name: i_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: i_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: i_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: i_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on i-band.
-    datatype: boolean
   - name: i_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on i-band.
     datatype: float
@@ -3823,21 +3748,6 @@ tables:
     ivoa:unit: pixel**2
   - name: y_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on y-band.
-    datatype: boolean
-  - name: y_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: y_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: y_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: y_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on y-band.
     datatype: boolean
   - name: y_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on y-band.

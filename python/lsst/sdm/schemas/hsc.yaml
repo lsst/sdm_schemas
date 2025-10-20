@@ -710,10 +710,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on g-band.
     fits:tunit:
-  - name: g_iRound_flag
-    "@id": "#Object.g_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on g-band.
   - name: g_i_flag
     "@id": "#Object.g_i_flag"
     datatype: boolean
@@ -749,11 +745,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
-  - name: g_ixxRound
-    "@id": "#Object.g_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
   - name: g_ixy
     "@id": "#Object.g_ixy"
     datatype: float
@@ -769,11 +760,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
-  - name: g_ixyRound
-    "@id": "#Object.g_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
   - name: g_iyy
     "@id": "#Object.g_iyy"
     datatype: float
@@ -786,11 +772,6 @@ tables:
     fits:tunit: pixel**2
   - name: g_iyyPSF
     "@id": "#Object.g_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
-  - name: g_iyyRound
-    "@id": "#Object.g_iyyRound"
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
@@ -1698,10 +1679,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on i-band.
     fits:tunit:
-  - name: i_iRound_flag
-    "@id": "#Object.i_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on i-band.
   - name: i_i_flag
     "@id": "#Object.i_i_flag"
     datatype: boolean
@@ -1737,11 +1714,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
-  - name: i_ixxRound
-    "@id": "#Object.i_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
   - name: i_ixy
     "@id": "#Object.i_ixy"
     datatype: float
@@ -1757,11 +1729,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
-  - name: i_ixyRound
-    "@id": "#Object.i_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
   - name: i_iyy
     "@id": "#Object.i_iyy"
     datatype: float
@@ -1774,11 +1741,6 @@ tables:
     fits:tunit: pixel**2
   - name: i_iyyPSF
     "@id": "#Object.i_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
-  - name: i_iyyRound
-    "@id": "#Object.i_iyyRound"
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
@@ -2686,10 +2648,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on r-band.
     fits:tunit:
-  - name: r_iRound_flag
-    "@id": "#Object.r_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on r-band.
   - name: r_i_flag
     "@id": "#Object.r_i_flag"
     datatype: boolean
@@ -2725,11 +2683,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
-  - name: r_ixxRound
-    "@id": "#Object.r_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
   - name: r_ixy
     "@id": "#Object.r_ixy"
     datatype: float
@@ -2745,11 +2698,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
-  - name: r_ixyRound
-    "@id": "#Object.r_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
   - name: r_iyy
     "@id": "#Object.r_iyy"
     datatype: float
@@ -2762,11 +2710,6 @@ tables:
     fits:tunit: pixel**2
   - name: r_iyyPSF
     "@id": "#Object.r_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
-  - name: r_iyyRound
-    "@id": "#Object.r_iyyRound"
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
@@ -3674,10 +3617,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on y-band.
     fits:tunit:
-  - name: y_iRound_flag
-    "@id": "#Object.y_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on y-band.
   - name: y_i_flag
     "@id": "#Object.y_i_flag"
     datatype: boolean
@@ -3713,11 +3652,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
-  - name: y_ixxRound
-    "@id": "#Object.y_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
   - name: y_ixy
     "@id": "#Object.y_ixy"
     datatype: float
@@ -3733,11 +3667,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
-  - name: y_ixyRound
-    "@id": "#Object.y_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
   - name: y_iyy
     "@id": "#Object.y_iyy"
     datatype: float
@@ -3750,11 +3679,6 @@ tables:
     fits:tunit: pixel**2
   - name: y_iyyPSF
     "@id": "#Object.y_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
-  - name: y_iyyRound
-    "@id": "#Object.y_iyyRound"
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
@@ -4662,10 +4586,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on z-band.
     fits:tunit:
-  - name: z_iRound_flag
-    "@id": "#Object.z_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on z-band.
   - name: z_i_flag
     "@id": "#Object.z_i_flag"
     datatype: boolean
@@ -4701,11 +4621,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
-  - name: z_ixxRound
-    "@id": "#Object.z_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
   - name: z_ixy
     "@id": "#Object.z_ixy"
     datatype: float
@@ -4721,11 +4636,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
-  - name: z_ixyRound
-    "@id": "#Object.z_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
   - name: z_iyy
     "@id": "#Object.z_iyy"
     datatype: float
@@ -4738,11 +4648,6 @@ tables:
     fits:tunit: pixel**2
   - name: z_iyyPSF
     "@id": "#Object.z_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
-  - name: z_iyyRound
-    "@id": "#Object.z_iyyRound"
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
