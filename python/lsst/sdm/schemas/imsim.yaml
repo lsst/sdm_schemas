@@ -529,26 +529,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on g-band.
     fits:tunit:
-  - name: g_centroid_x
-    "@id": "#Object.g_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
-    fits:tunit: pixel
-  - name: g_centroid_xErr
-    "@id": "#Object.g_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on g-band.
-    fits:tunit: pixel
-  - name: g_centroid_y
-    "@id": "#Object.g_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
-    fits:tunit: pixel
-  - name: g_centroid_yErr
-    "@id": "#Object.g_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on g-band.
-    fits:tunit: pixel
   - name: g_dec
     "@id": "#Object.g_dec"
     datatype: double
@@ -1577,26 +1557,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on i-band.
     fits:tunit:
-  - name: i_centroid_x
-    "@id": "#Object.i_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
-    fits:tunit: pixel
-  - name: i_centroid_xErr
-    "@id": "#Object.i_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on i-band.
-    fits:tunit: pixel
-  - name: i_centroid_y
-    "@id": "#Object.i_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
-    fits:tunit: pixel
-  - name: i_centroid_yErr
-    "@id": "#Object.i_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on i-band.
-    fits:tunit: pixel
   - name: i_dec
     "@id": "#Object.i_dec"
     datatype: double
@@ -2625,26 +2585,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on r-band.
     fits:tunit:
-  - name: r_centroid_x
-    "@id": "#Object.r_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
-    fits:tunit: pixel
-  - name: r_centroid_xErr
-    "@id": "#Object.r_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on r-band.
-    fits:tunit: pixel
-  - name: r_centroid_y
-    "@id": "#Object.r_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
-    fits:tunit: pixel
-  - name: r_centroid_yErr
-    "@id": "#Object.r_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on r-band.
-    fits:tunit: pixel
   - name: r_dec
     "@id": "#Object.r_dec"
     datatype: double
@@ -3673,26 +3613,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on u-band.
     fits:tunit:
-  - name: u_centroid_x
-    "@id": "#Object.u_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
-    fits:tunit: pixel
-  - name: u_centroid_xErr
-    "@id": "#Object.u_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on u-band.
-    fits:tunit: pixel
-  - name: u_centroid_y
-    "@id": "#Object.u_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
-    fits:tunit: pixel
-  - name: u_centroid_yErr
-    "@id": "#Object.u_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on u-band.
-    fits:tunit: pixel
   - name: u_dec
     "@id": "#Object.u_dec"
     datatype: double
@@ -4721,26 +4641,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on y-band.
     fits:tunit:
-  - name: y_centroid_x
-    "@id": "#Object.y_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
-    fits:tunit: pixel
-  - name: y_centroid_xErr
-    "@id": "#Object.y_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on y-band.
-    fits:tunit: pixel
-  - name: y_centroid_y
-    "@id": "#Object.y_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
-    fits:tunit: pixel
-  - name: y_centroid_yErr
-    "@id": "#Object.y_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on y-band.
-    fits:tunit: pixel
   - name: y_dec
     "@id": "#Object.y_dec"
     datatype: double
@@ -5769,26 +5669,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on z-band.
     fits:tunit:
-  - name: z_centroid_x
-    "@id": "#Object.z_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
-    fits:tunit: pixel
-  - name: z_centroid_xErr
-    "@id": "#Object.z_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on z-band.
-    fits:tunit: pixel
-  - name: z_centroid_y
-    "@id": "#Object.z_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
-    fits:tunit: pixel
-  - name: z_centroid_yErr
-    "@id": "#Object.z_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on z-band.
-    fits:tunit: pixel
   - name: z_dec
     "@id": "#Object.z_dec"
     datatype: double

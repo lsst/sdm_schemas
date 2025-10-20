@@ -726,22 +726,6 @@ tables:
   - name: z_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on z-band.
     datatype: boolean
-  - name: z_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on z-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: z_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: z_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on z-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: z_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: z_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on z-band.
     datatype: boolean
@@ -1482,22 +1466,6 @@ tables:
   - name: u_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on u-band.
     datatype: boolean
-  - name: u_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on u-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: u_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: u_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on u-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: u_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: u_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on u-band.
     datatype: boolean
@@ -2238,22 +2206,6 @@ tables:
   - name: g_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on g-band.
     datatype: boolean
-  - name: g_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on g-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: g_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: g_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on g-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: g_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: g_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on g-band.
     datatype: boolean
@@ -2994,22 +2946,6 @@ tables:
   - name: r_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on r-band.
     datatype: boolean
-  - name: r_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on r-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: r_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: r_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on r-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: r_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: r_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on r-band.
     datatype: boolean
@@ -3750,22 +3686,6 @@ tables:
   - name: i_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on i-band.
     datatype: boolean
-  - name: i_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on i-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: i_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: i_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on i-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: i_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: i_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on i-band.
     datatype: boolean
@@ -4506,22 +4426,6 @@ tables:
   - name: y_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on y-band.
     datatype: boolean
-  - name: y_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on y-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: y_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: y_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on y-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: y_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: y_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on y-band.
     datatype: boolean
