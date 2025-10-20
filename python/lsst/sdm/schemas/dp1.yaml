@@ -255,14 +255,6 @@ tables:
     description: Flux uncertainty from Kron Flux algorithm. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
-  - name: z_calibFlux
-    description: Duplicate of z_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_calibFluxErr
-    description: Duplicate of z_ap12FluxErr.
-    datatype: float
-    ivoa:unit: nJy
   - name: z_ap03Flux
     description: Flux within 3.0-pixel aperture. Forced on z-band.
     datatype: float
@@ -713,16 +705,6 @@ tables:
     description: Duplicate of z_ap12Flux_flag_sincCoeffsTruncated.
       Measured on z-band.
     datatype: boolean
-  - name: z_calibFlux_flag
-    description: Duplicate of z_ap12Flux_flag.
-    datatype: boolean
-  - name: z_calibFlux_flag_apertureTruncated
-    description: Duplicate of z_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: z_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of z_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on z-band.
-    datatype: boolean
   - name: z_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on z-band.
     datatype: boolean
@@ -993,14 +975,6 @@ tables:
     ivoa:unit: nJy
   - name: u_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_calibFlux
-    description: Duplicate of u_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_calibFluxErr
-    description: Duplicate of u_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: u_ap03Flux
@@ -1453,16 +1427,6 @@ tables:
     description: Duplicate of u_ap12Flux_flag_sincCoeffsTruncated.
       Measured on u-band.
     datatype: boolean
-  - name: u_calibFlux_flag
-    description: Duplicate of u_ap12Flux_flag.
-    datatype: boolean
-  - name: u_calibFlux_flag_apertureTruncated
-    description: Duplicate of u_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: u_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of u_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on u-band.
-    datatype: boolean
   - name: u_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on u-band.
     datatype: boolean
@@ -1733,14 +1697,6 @@ tables:
     ivoa:unit: nJy
   - name: g_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_calibFlux
-    description: Duplicate of g_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_calibFluxErr
-    description: Duplicate of g_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: g_ap03Flux
@@ -2193,16 +2149,6 @@ tables:
     description: Duplicate of g_ap12Flux_flag_sincCoeffsTruncated.
       Measured on g-band.
     datatype: boolean
-  - name: g_calibFlux_flag
-    description: Duplicate of g_ap12Flux_flag.
-    datatype: boolean
-  - name: g_calibFlux_flag_apertureTruncated
-    description: Duplicate of g_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: g_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of g_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on g-band.
-    datatype: boolean
   - name: g_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on g-band.
     datatype: boolean
@@ -2473,14 +2419,6 @@ tables:
     ivoa:unit: nJy
   - name: r_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_calibFlux
-    description: Duplicate of r_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_calibFluxErr
-    description: Duplicate of r_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: r_ap03Flux
@@ -2933,16 +2871,6 @@ tables:
     description: Duplicate of r_ap12Flux_flag_sincCoeffsTruncated.
       Measured on r-band.
     datatype: boolean
-  - name: r_calibFlux_flag
-    description: Duplicate of r_ap12Flux_flag.
-    datatype: boolean
-  - name: r_calibFlux_flag_apertureTruncated
-    description: Duplicate of r_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: r_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of r_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on r-band.
-    datatype: boolean
   - name: r_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on r-band.
     datatype: boolean
@@ -3213,14 +3141,6 @@ tables:
     ivoa:unit: nJy
   - name: i_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_calibFlux
-    description: Duplicate of i_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_calibFluxErr
-    description: Duplicate of i_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: i_ap03Flux
@@ -3673,16 +3593,6 @@ tables:
     description: Duplicate of i_ap12Flux_flag_sincCoeffsTruncated.
       Measured on i-band.
     datatype: boolean
-  - name: i_calibFlux_flag
-    description: Duplicate of i_ap12Flux_flag.
-    datatype: boolean
-  - name: i_calibFlux_flag_apertureTruncated
-    description: Duplicate of i_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: i_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of i_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on i-band.
-    datatype: boolean
   - name: i_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on i-band.
     datatype: boolean
@@ -3953,14 +3863,6 @@ tables:
     ivoa:unit: nJy
   - name: y_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_calibFlux
-    description: Duplicate of y_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_calibFluxErr
-    description: Duplicate of y_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: y_ap03Flux
@@ -4410,16 +4312,6 @@ tables:
     description: Duplicate of y_ap12Flux_flag_apertureTruncated.
     datatype: boolean
   - name: y_apFlux_flag_sincCoeffsTruncated
-    description: Duplicate of y_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on y-band.
-    datatype: boolean
-  - name: y_calibFlux_flag
-    description: Duplicate of y_ap12Flux_flag.
-    datatype: boolean
-  - name: y_calibFlux_flag_apertureTruncated
-    description: Duplicate of y_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: y_calibFlux_flag_sincCoeffsTruncated
     description: Duplicate of y_ap12Flux_flag_sincCoeffsTruncated.
       Measured on y-band.
     datatype: boolean
