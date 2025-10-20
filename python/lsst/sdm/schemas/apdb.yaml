@@ -1,7 +1,7 @@
 ---
 name: "ApdbSchema"
 "@id": "#apdbSchema"
-version: "9.0.0"
+version: "9.1.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -1515,6 +1515,13 @@ tables:
     autoincrement: false
     description: Unique id.
     ivoa:ucd: meta.id;src
+  - name: validityStartMjdTai
+    "@id": "#DiaObjectLast.validityStartMjdTai"
+    datatype: double
+    nullable: false
+    description: Processing time when validity of this diaObject starts,
+      expressed as Modified Julian Date, International Atomic Time.
+    ivoa:ucd: time.epoch
   - name: lastDiaSourceMjdTai
     "@id": "#DiaObjectLast.lastDiaSourceMjdTai"
     datatype: double
