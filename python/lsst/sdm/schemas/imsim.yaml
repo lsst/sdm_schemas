@@ -469,31 +469,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on g-band.
     fits:tunit:
-  - name: g_calibFlux
-    "@id": "#Object.g_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on g-band.
-    fits:tunit: nJy
-  - name: g_calibFluxErr
-    "@id": "#Object.g_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on g-band.
-    fits:tunit: nJy
-  - name: g_calibFlux_flag
-    "@id": "#Object.g_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on g-band.
-    fits:tunit:
-  - name: g_calibFlux_flag_apertureTruncated
-    "@id": "#Object.g_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on g-band.
-    fits:tunit:
-  - name: g_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.g_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on g-band.
-    fits:tunit:
   - name: g_calib_astrometry_used
     "@id": "#Object.g_calib_astrometry_used"
     datatype: boolean
@@ -1496,31 +1471,6 @@ tables:
     "@id": "#Object.i_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on i-band.
-    fits:tunit:
-  - name: i_calibFlux
-    "@id": "#Object.i_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on i-band.
-    fits:tunit: nJy
-  - name: i_calibFluxErr
-    "@id": "#Object.i_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on i-band.
-    fits:tunit: nJy
-  - name: i_calibFlux_flag
-    "@id": "#Object.i_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on i-band.
-    fits:tunit:
-  - name: i_calibFlux_flag_apertureTruncated
-    "@id": "#Object.i_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on i-band.
-    fits:tunit:
-  - name: i_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.i_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on i-band.
     fits:tunit:
   - name: i_calib_astrometry_used
     "@id": "#Object.i_calib_astrometry_used"
@@ -2525,31 +2475,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on r-band.
     fits:tunit:
-  - name: r_calibFlux
-    "@id": "#Object.r_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on r-band.
-    fits:tunit: nJy
-  - name: r_calibFluxErr
-    "@id": "#Object.r_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on r-band.
-    fits:tunit: nJy
-  - name: r_calibFlux_flag
-    "@id": "#Object.r_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on r-band.
-    fits:tunit:
-  - name: r_calibFlux_flag_apertureTruncated
-    "@id": "#Object.r_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on r-band.
-    fits:tunit:
-  - name: r_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.r_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on r-band.
-    fits:tunit:
   - name: r_calib_astrometry_used
     "@id": "#Object.r_calib_astrometry_used"
     datatype: boolean
@@ -3552,31 +3477,6 @@ tables:
     "@id": "#Object.u_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on u-band.
-    fits:tunit:
-  - name: u_calibFlux
-    "@id": "#Object.u_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on u-band.
-    fits:tunit: nJy
-  - name: u_calibFluxErr
-    "@id": "#Object.u_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on u-band.
-    fits:tunit: nJy
-  - name: u_calibFlux_flag
-    "@id": "#Object.u_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on u-band.
-    fits:tunit:
-  - name: u_calibFlux_flag_apertureTruncated
-    "@id": "#Object.u_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on u-band.
-    fits:tunit:
-  - name: u_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.u_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on u-band.
     fits:tunit:
   - name: u_calib_astrometry_used
     "@id": "#Object.u_calib_astrometry_used"
@@ -4581,31 +4481,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on y-band.
     fits:tunit:
-  - name: y_calibFlux
-    "@id": "#Object.y_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on y-band.
-    fits:tunit: nJy
-  - name: y_calibFluxErr
-    "@id": "#Object.y_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on y-band.
-    fits:tunit: nJy
-  - name: y_calibFlux_flag
-    "@id": "#Object.y_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on y-band.
-    fits:tunit:
-  - name: y_calibFlux_flag_apertureTruncated
-    "@id": "#Object.y_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on y-band.
-    fits:tunit:
-  - name: y_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.y_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on y-band.
-    fits:tunit:
   - name: y_calib_astrometry_used
     "@id": "#Object.y_calib_astrometry_used"
     datatype: boolean
@@ -5608,31 +5483,6 @@ tables:
     "@id": "#Object.z_cModel_flag_apCorr"
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on z-band.
-    fits:tunit:
-  - name: z_calibFlux
-    "@id": "#Object.z_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on z-band.
-    fits:tunit: nJy
-  - name: z_calibFluxErr
-    "@id": "#Object.z_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on z-band.
-    fits:tunit: nJy
-  - name: z_calibFlux_flag
-    "@id": "#Object.z_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on z-band.
-    fits:tunit:
-  - name: z_calibFlux_flag_apertureTruncated
-    "@id": "#Object.z_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on z-band.
-    fits:tunit:
-  - name: z_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.z_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on z-band.
     fits:tunit:
   - name: z_calib_astrometry_used
     "@id": "#Object.z_calib_astrometry_used"
