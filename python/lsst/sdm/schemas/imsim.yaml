@@ -7023,6 +7023,16 @@ tables:
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband exponential model.
     fits:tunit:
+  - name: exponential_delta_lnL_fit_linear
+    "@id": "#Object.exponential_delta_lnL_fit_linear"
+    datatype: float
+    description: The ln-likelihood of the best model non-linear fit parameters minus the ln-likelihood of a subsequent linear least squares fit.
+    fits:tunit:
+  - name: exponential_delta_lnL_fit_ps
+    "@id": "#Object.exponential_delta_lnL_fit_ps"
+    datatype: float
+    description: The ln-likelihood of the best-fit exponential model minus the ln-likelihood of a point source with the same centroid and PSF model.
+    fits:tunit:
   - name: exponential_no_data_flag
     "@id": "#Object.exponential_no_data_flag"
     datatype: boolean
