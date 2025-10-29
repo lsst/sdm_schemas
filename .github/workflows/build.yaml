@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # Need to clone everything for the git tags.
           fetch-depth: 0

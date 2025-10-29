@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: current-ref
           fetch-depth: 0
@@ -49,7 +49,7 @@ jobs:
 
       - name: Check out PR base ref
         if: env.SCHEMA_FILES_CHANGED == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.base.ref }}
           path: base-ref
