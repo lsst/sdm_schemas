@@ -5,14 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "lsst-sdm-schemas"
 description = "Science Data Model (SDM) Schemas for Rubin Observatory"
-license = {text = "GNU General Public License v3 or later (GPLv3+)"}
+license = "GPL-3.0-or-later"
+license-files = ["COPYRIGHT", "LICENSE"]
 readme = "README.md"
 authors = [
     {name="Rubin Observatory Data Management", email="dm-admin@lists.lsst.org"},
 ]
 classifiers = [
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
@@ -45,7 +45,6 @@ test = [
 
 [tool.setuptools]
 zip-safe = true
-license-files = ["COPYRIGHT", "LICENSE"]
 
 [tool.setuptools.packages.find]
 where = ["python"]
