@@ -46,8 +46,12 @@ do
 done
 
 # Build and push docker images
-docker build . -t lsstsqre/tap-schema-$ENVIRONMENT:$GIT_TAG
-docker push lsstsqre/tap-schema-$ENVIRONMENT:$GIT_TAG
+docker buildx create  --name tap-schema --driver docker-container \
+       --platform linux/amd64 --platform linux/arm64
+docker buildx build --push --builder tap-schema --progress plain \
+       --platform linux/amd64 --platform linux/arm64 \
+       --tag lsstsqre/tap-schema-$ENVIRONMENT:$GIT_TAG .
+docker buildx rm tap-schema
 
 echo "Pushed Docker image: lsstsqre/tap-schema-$ENVIRONMENT:$GIT_TAG"
 

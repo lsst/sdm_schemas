@@ -12,6 +12,7 @@
 # TAP services based on development Qserv at USDF:
 ./build idfint-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
 ./build idfdev-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
+./build idfdemo-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
 ./build usdf-dev-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml ../yml/dp02_dc2.yaml
 
 # TAP services based on "live ObsCore" from the Butler Postgres server
@@ -22,6 +23,7 @@
 ./build idfprod-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 ./build idfint-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 ./build idfdev-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
+./build idfdemo-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 ./build usdf-prod-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 ./build usdf-dev-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 
