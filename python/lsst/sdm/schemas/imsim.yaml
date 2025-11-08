@@ -48,6 +48,10 @@ tables:
     description: Covariance between fiducial ICRS Right Ascension and Declination of centroid
     fits:tunit: deg**2
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec;meta.main
+  - name: coord_flag
+    "@id": "#Object.coord_flag"
+    description: Centroid failure flag on reference band centroid used for database indexing
+    datatype: boolean
   - name: deblend_nChild
     "@id": "#Object.deblend_nChild"
     datatype: int
@@ -235,31 +239,6 @@ tables:
     datatype: long
     description: Skymap tract ID
     fits:tunit:
-  - name: x
-    "@id": "#Object.x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Reference band.
-    fits:tunit: pixel
-  - name: xErr
-    "@id": "#Object.xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Reference band.
-    fits:tunit: pixel
-  - name: xy_flag
-    "@id": "#Object.xy_flag"
-    datatype: boolean
-    description: General Failure Flag. Reference band.
-    fits:tunit:
-  - name: y
-    "@id": "#Object.y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Reference band.
-    fits:tunit: pixel
-  - name: yErr
-    "@id": "#Object.yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Reference band.
-    fits:tunit: pixel
   - name: g_ap03Flux
     "@id": "#Object.g_ap03Flux"
     datatype: float
@@ -490,31 +469,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on g-band.
     fits:tunit:
-  - name: g_calibFlux
-    "@id": "#Object.g_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on g-band.
-    fits:tunit: nJy
-  - name: g_calibFluxErr
-    "@id": "#Object.g_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on g-band.
-    fits:tunit: nJy
-  - name: g_calibFlux_flag
-    "@id": "#Object.g_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on g-band.
-    fits:tunit:
-  - name: g_calibFlux_flag_apertureTruncated
-    "@id": "#Object.g_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on g-band.
-    fits:tunit:
-  - name: g_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.g_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on g-band.
-    fits:tunit:
   - name: g_calib_astrometry_used
     "@id": "#Object.g_calib_astrometry_used"
     datatype: boolean
@@ -550,26 +504,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on g-band.
     fits:tunit:
-  - name: g_centroid_x
-    "@id": "#Object.g_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
-    fits:tunit: pixel
-  - name: g_centroid_xErr
-    "@id": "#Object.g_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on g-band.
-    fits:tunit: pixel
-  - name: g_centroid_y
-    "@id": "#Object.g_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on g-band.
-    fits:tunit: pixel
-  - name: g_centroid_yErr
-    "@id": "#Object.g_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on g-band.
-    fits:tunit: pixel
   - name: g_dec
     "@id": "#Object.g_dec"
     datatype: double
@@ -647,11 +581,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
-  - name: g_gaap0p7Flux_flag_bigPsf
-    "@id": "#Object.g_gaap0p7Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    fits:tunit:
   - name: g_gaap1p0Flux
     "@id": "#Object.g_gaap1p0Flux"
     datatype: float
@@ -662,56 +591,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
-  - name: g_gaap1p0Flux_flag_bigPsf
-    "@id": "#Object.g_gaap1p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    fits:tunit:
-  - name: g_gaap1p5Flux
-    "@id": "#Object.g_gaap1p5Flux"
-    datatype: float
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaap1p5FluxErr
-    "@id": "#Object.g_gaap1p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaap1p5Flux_flag_bigPsf
-    "@id": "#Object.g_gaap1p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    fits:tunit:
-  - name: g_gaap2p5Flux
-    "@id": "#Object.g_gaap2p5Flux"
-    datatype: float
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaap2p5FluxErr
-    "@id": "#Object.g_gaap2p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaap2p5Flux_flag_bigPsf
-    "@id": "#Object.g_gaap2p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    fits:tunit:
-  - name: g_gaap3p0Flux
-    "@id": "#Object.g_gaap3p0Flux"
-    datatype: float
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaap3p0FluxErr
-    "@id": "#Object.g_gaap3p0FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaap3p0Flux_flag_bigPsf
-    "@id": "#Object.g_gaap3p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    fits:tunit:
   - name: g_gaapFlux_flag
     "@id": "#Object.g_gaapFlux_flag"
     datatype: boolean
@@ -721,26 +600,6 @@ tables:
     "@id": "#Object.g_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on g-band.
-    fits:tunit:
-  - name: g_gaapFlux_flag_gaussianization
-    "@id": "#Object.g_gaapFlux_flag_gaussianization"
-    datatype: boolean
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced on g-band.
-    fits:tunit:
-  - name: g_gaapOptimalFlux
-    "@id": "#Object.g_gaapOptimalFlux"
-    datatype: float
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaapOptimalFluxErr
-    "@id": "#Object.g_gaapOptimalFluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on g-band.
-    fits:tunit: nJy
-  - name: g_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.g_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
     fits:tunit:
   - name: g_gaapPsfFlux
     "@id": "#Object.g_gaapPsfFlux"
@@ -782,10 +641,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on g-band.
     fits:tunit:
-  - name: g_iRound_flag
-    "@id": "#Object.g_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on g-band.
   - name: g_i_flag
     "@id": "#Object.g_i_flag"
     datatype: boolean
@@ -821,11 +676,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
-  - name: g_ixxRound
-    "@id": "#Object.g_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
   - name: g_ixy
     "@id": "#Object.g_ixy"
     datatype: float
@@ -841,11 +691,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
-  - name: g_ixyRound
-    "@id": "#Object.g_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
   - name: g_iyy
     "@id": "#Object.g_iyy"
     datatype: float
@@ -858,11 +703,6 @@ tables:
     fits:tunit: pixel**2
   - name: g_iyyPSF
     "@id": "#Object.g_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
-  - name: g_iyyRound
-    "@id": "#Object.g_iyyRound"
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
@@ -1538,31 +1378,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on i-band.
     fits:tunit:
-  - name: i_calibFlux
-    "@id": "#Object.i_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on i-band.
-    fits:tunit: nJy
-  - name: i_calibFluxErr
-    "@id": "#Object.i_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on i-band.
-    fits:tunit: nJy
-  - name: i_calibFlux_flag
-    "@id": "#Object.i_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on i-band.
-    fits:tunit:
-  - name: i_calibFlux_flag_apertureTruncated
-    "@id": "#Object.i_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on i-band.
-    fits:tunit:
-  - name: i_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.i_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on i-band.
-    fits:tunit:
   - name: i_calib_astrometry_used
     "@id": "#Object.i_calib_astrometry_used"
     datatype: boolean
@@ -1598,26 +1413,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on i-band.
     fits:tunit:
-  - name: i_centroid_x
-    "@id": "#Object.i_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
-    fits:tunit: pixel
-  - name: i_centroid_xErr
-    "@id": "#Object.i_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on i-band.
-    fits:tunit: pixel
-  - name: i_centroid_y
-    "@id": "#Object.i_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on i-band.
-    fits:tunit: pixel
-  - name: i_centroid_yErr
-    "@id": "#Object.i_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on i-band.
-    fits:tunit: pixel
   - name: i_dec
     "@id": "#Object.i_dec"
     datatype: double
@@ -1695,11 +1490,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
-  - name: i_gaap0p7Flux_flag_bigPsf
-    "@id": "#Object.i_gaap0p7Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    fits:tunit:
   - name: i_gaap1p0Flux
     "@id": "#Object.i_gaap1p0Flux"
     datatype: float
@@ -1710,56 +1500,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
-  - name: i_gaap1p0Flux_flag_bigPsf
-    "@id": "#Object.i_gaap1p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    fits:tunit:
-  - name: i_gaap1p5Flux
-    "@id": "#Object.i_gaap1p5Flux"
-    datatype: float
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaap1p5FluxErr
-    "@id": "#Object.i_gaap1p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaap1p5Flux_flag_bigPsf
-    "@id": "#Object.i_gaap1p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    fits:tunit:
-  - name: i_gaap2p5Flux
-    "@id": "#Object.i_gaap2p5Flux"
-    datatype: float
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaap2p5FluxErr
-    "@id": "#Object.i_gaap2p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaap2p5Flux_flag_bigPsf
-    "@id": "#Object.i_gaap2p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    fits:tunit:
-  - name: i_gaap3p0Flux
-    "@id": "#Object.i_gaap3p0Flux"
-    datatype: float
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaap3p0FluxErr
-    "@id": "#Object.i_gaap3p0FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaap3p0Flux_flag_bigPsf
-    "@id": "#Object.i_gaap3p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    fits:tunit:
   - name: i_gaapFlux_flag
     "@id": "#Object.i_gaapFlux_flag"
     datatype: boolean
@@ -1769,26 +1509,6 @@ tables:
     "@id": "#Object.i_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on i-band.
-    fits:tunit:
-  - name: i_gaapFlux_flag_gaussianization
-    "@id": "#Object.i_gaapFlux_flag_gaussianization"
-    datatype: boolean
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced on i-band.
-    fits:tunit:
-  - name: i_gaapOptimalFlux
-    "@id": "#Object.i_gaapOptimalFlux"
-    datatype: float
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaapOptimalFluxErr
-    "@id": "#Object.i_gaapOptimalFluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on i-band.
-    fits:tunit: nJy
-  - name: i_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.i_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
     fits:tunit:
   - name: i_gaapPsfFlux
     "@id": "#Object.i_gaapPsfFlux"
@@ -1830,10 +1550,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on i-band.
     fits:tunit:
-  - name: i_iRound_flag
-    "@id": "#Object.i_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on i-band.
   - name: i_i_flag
     "@id": "#Object.i_i_flag"
     datatype: boolean
@@ -1869,11 +1585,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
-  - name: i_ixxRound
-    "@id": "#Object.i_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
   - name: i_ixy
     "@id": "#Object.i_ixy"
     datatype: float
@@ -1889,11 +1600,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
-  - name: i_ixyRound
-    "@id": "#Object.i_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
   - name: i_iyy
     "@id": "#Object.i_iyy"
     datatype: float
@@ -1906,11 +1612,6 @@ tables:
     fits:tunit: pixel**2
   - name: i_iyyPSF
     "@id": "#Object.i_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
-  - name: i_iyyRound
-    "@id": "#Object.i_iyyRound"
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
@@ -2586,31 +2287,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on r-band.
     fits:tunit:
-  - name: r_calibFlux
-    "@id": "#Object.r_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on r-band.
-    fits:tunit: nJy
-  - name: r_calibFluxErr
-    "@id": "#Object.r_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on r-band.
-    fits:tunit: nJy
-  - name: r_calibFlux_flag
-    "@id": "#Object.r_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on r-band.
-    fits:tunit:
-  - name: r_calibFlux_flag_apertureTruncated
-    "@id": "#Object.r_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on r-band.
-    fits:tunit:
-  - name: r_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.r_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on r-band.
-    fits:tunit:
   - name: r_calib_astrometry_used
     "@id": "#Object.r_calib_astrometry_used"
     datatype: boolean
@@ -2646,26 +2322,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on r-band.
     fits:tunit:
-  - name: r_centroid_x
-    "@id": "#Object.r_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
-    fits:tunit: pixel
-  - name: r_centroid_xErr
-    "@id": "#Object.r_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on r-band.
-    fits:tunit: pixel
-  - name: r_centroid_y
-    "@id": "#Object.r_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on r-band.
-    fits:tunit: pixel
-  - name: r_centroid_yErr
-    "@id": "#Object.r_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on r-band.
-    fits:tunit: pixel
   - name: r_dec
     "@id": "#Object.r_dec"
     datatype: double
@@ -2743,11 +2399,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
-  - name: r_gaap0p7Flux_flag_bigPsf
-    "@id": "#Object.r_gaap0p7Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    fits:tunit:
   - name: r_gaap1p0Flux
     "@id": "#Object.r_gaap1p0Flux"
     datatype: float
@@ -2758,56 +2409,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
-  - name: r_gaap1p0Flux_flag_bigPsf
-    "@id": "#Object.r_gaap1p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    fits:tunit:
-  - name: r_gaap1p5Flux
-    "@id": "#Object.r_gaap1p5Flux"
-    datatype: float
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaap1p5FluxErr
-    "@id": "#Object.r_gaap1p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaap1p5Flux_flag_bigPsf
-    "@id": "#Object.r_gaap1p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    fits:tunit:
-  - name: r_gaap2p5Flux
-    "@id": "#Object.r_gaap2p5Flux"
-    datatype: float
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaap2p5FluxErr
-    "@id": "#Object.r_gaap2p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaap2p5Flux_flag_bigPsf
-    "@id": "#Object.r_gaap2p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    fits:tunit:
-  - name: r_gaap3p0Flux
-    "@id": "#Object.r_gaap3p0Flux"
-    datatype: float
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaap3p0FluxErr
-    "@id": "#Object.r_gaap3p0FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaap3p0Flux_flag_bigPsf
-    "@id": "#Object.r_gaap3p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    fits:tunit:
   - name: r_gaapFlux_flag
     "@id": "#Object.r_gaapFlux_flag"
     datatype: boolean
@@ -2817,26 +2418,6 @@ tables:
     "@id": "#Object.r_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on r-band.
-    fits:tunit:
-  - name: r_gaapFlux_flag_gaussianization
-    "@id": "#Object.r_gaapFlux_flag_gaussianization"
-    datatype: boolean
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced on r-band.
-    fits:tunit:
-  - name: r_gaapOptimalFlux
-    "@id": "#Object.r_gaapOptimalFlux"
-    datatype: float
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaapOptimalFluxErr
-    "@id": "#Object.r_gaapOptimalFluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on r-band.
-    fits:tunit: nJy
-  - name: r_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.r_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
     fits:tunit:
   - name: r_gaapPsfFlux
     "@id": "#Object.r_gaapPsfFlux"
@@ -2878,10 +2459,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on r-band.
     fits:tunit:
-  - name: r_iRound_flag
-    "@id": "#Object.r_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on r-band.
   - name: r_i_flag
     "@id": "#Object.r_i_flag"
     datatype: boolean
@@ -2917,11 +2494,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
-  - name: r_ixxRound
-    "@id": "#Object.r_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
   - name: r_ixy
     "@id": "#Object.r_ixy"
     datatype: float
@@ -2937,11 +2509,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
-  - name: r_ixyRound
-    "@id": "#Object.r_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
   - name: r_iyy
     "@id": "#Object.r_iyy"
     datatype: float
@@ -2954,11 +2521,6 @@ tables:
     fits:tunit: pixel**2
   - name: r_iyyPSF
     "@id": "#Object.r_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
-  - name: r_iyyRound
-    "@id": "#Object.r_iyyRound"
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
@@ -3634,31 +3196,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on u-band.
     fits:tunit:
-  - name: u_calibFlux
-    "@id": "#Object.u_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on u-band.
-    fits:tunit: nJy
-  - name: u_calibFluxErr
-    "@id": "#Object.u_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on u-band.
-    fits:tunit: nJy
-  - name: u_calibFlux_flag
-    "@id": "#Object.u_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on u-band.
-    fits:tunit:
-  - name: u_calibFlux_flag_apertureTruncated
-    "@id": "#Object.u_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on u-band.
-    fits:tunit:
-  - name: u_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.u_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on u-band.
-    fits:tunit:
   - name: u_calib_astrometry_used
     "@id": "#Object.u_calib_astrometry_used"
     datatype: boolean
@@ -3694,26 +3231,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on u-band.
     fits:tunit:
-  - name: u_centroid_x
-    "@id": "#Object.u_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
-    fits:tunit: pixel
-  - name: u_centroid_xErr
-    "@id": "#Object.u_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on u-band.
-    fits:tunit: pixel
-  - name: u_centroid_y
-    "@id": "#Object.u_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on u-band.
-    fits:tunit: pixel
-  - name: u_centroid_yErr
-    "@id": "#Object.u_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on u-band.
-    fits:tunit: pixel
   - name: u_dec
     "@id": "#Object.u_dec"
     datatype: double
@@ -3791,11 +3308,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
-  - name: u_gaap0p7Flux_flag_bigPsf
-    "@id": "#Object.u_gaap0p7Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    fits:tunit:
   - name: u_gaap1p0Flux
     "@id": "#Object.u_gaap1p0Flux"
     datatype: float
@@ -3806,56 +3318,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
-  - name: u_gaap1p0Flux_flag_bigPsf
-    "@id": "#Object.u_gaap1p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    fits:tunit:
-  - name: u_gaap1p5Flux
-    "@id": "#Object.u_gaap1p5Flux"
-    datatype: float
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaap1p5FluxErr
-    "@id": "#Object.u_gaap1p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaap1p5Flux_flag_bigPsf
-    "@id": "#Object.u_gaap1p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    fits:tunit:
-  - name: u_gaap2p5Flux
-    "@id": "#Object.u_gaap2p5Flux"
-    datatype: float
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaap2p5FluxErr
-    "@id": "#Object.u_gaap2p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaap2p5Flux_flag_bigPsf
-    "@id": "#Object.u_gaap2p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    fits:tunit:
-  - name: u_gaap3p0Flux
-    "@id": "#Object.u_gaap3p0Flux"
-    datatype: float
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaap3p0FluxErr
-    "@id": "#Object.u_gaap3p0FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaap3p0Flux_flag_bigPsf
-    "@id": "#Object.u_gaap3p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    fits:tunit:
   - name: u_gaapFlux_flag
     "@id": "#Object.u_gaapFlux_flag"
     datatype: boolean
@@ -3865,26 +3327,6 @@ tables:
     "@id": "#Object.u_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on u-band.
-    fits:tunit:
-  - name: u_gaapFlux_flag_gaussianization
-    "@id": "#Object.u_gaapFlux_flag_gaussianization"
-    datatype: boolean
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced on u-band.
-    fits:tunit:
-  - name: u_gaapOptimalFlux
-    "@id": "#Object.u_gaapOptimalFlux"
-    datatype: float
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaapOptimalFluxErr
-    "@id": "#Object.u_gaapOptimalFluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on u-band.
-    fits:tunit: nJy
-  - name: u_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.u_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
     fits:tunit:
   - name: u_gaapPsfFlux
     "@id": "#Object.u_gaapPsfFlux"
@@ -3926,10 +3368,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on u-band.
     fits:tunit:
-  - name: u_iRound_flag
-    "@id": "#Object.u_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on u-band.
   - name: u_i_flag
     "@id": "#Object.u_i_flag"
     datatype: boolean
@@ -3965,11 +3403,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
-  - name: u_ixxRound
-    "@id": "#Object.u_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on u-band.
-    fits:tunit: pixel**2
   - name: u_ixy
     "@id": "#Object.u_ixy"
     datatype: float
@@ -3985,11 +3418,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
-  - name: u_ixyRound
-    "@id": "#Object.u_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on u-band.
-    fits:tunit: pixel**2
   - name: u_iyy
     "@id": "#Object.u_iyy"
     datatype: float
@@ -4002,11 +3430,6 @@ tables:
     fits:tunit: pixel**2
   - name: u_iyyPSF
     "@id": "#Object.u_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on u-band.
-    fits:tunit: pixel**2
-  - name: u_iyyRound
-    "@id": "#Object.u_iyyRound"
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
@@ -4682,31 +4105,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on y-band.
     fits:tunit:
-  - name: y_calibFlux
-    "@id": "#Object.y_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on y-band.
-    fits:tunit: nJy
-  - name: y_calibFluxErr
-    "@id": "#Object.y_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on y-band.
-    fits:tunit: nJy
-  - name: y_calibFlux_flag
-    "@id": "#Object.y_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on y-band.
-    fits:tunit:
-  - name: y_calibFlux_flag_apertureTruncated
-    "@id": "#Object.y_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on y-band.
-    fits:tunit:
-  - name: y_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.y_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on y-band.
-    fits:tunit:
   - name: y_calib_astrometry_used
     "@id": "#Object.y_calib_astrometry_used"
     datatype: boolean
@@ -4742,26 +4140,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on y-band.
     fits:tunit:
-  - name: y_centroid_x
-    "@id": "#Object.y_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
-    fits:tunit: pixel
-  - name: y_centroid_xErr
-    "@id": "#Object.y_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on y-band.
-    fits:tunit: pixel
-  - name: y_centroid_y
-    "@id": "#Object.y_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on y-band.
-    fits:tunit: pixel
-  - name: y_centroid_yErr
-    "@id": "#Object.y_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on y-band.
-    fits:tunit: pixel
   - name: y_dec
     "@id": "#Object.y_dec"
     datatype: double
@@ -4839,11 +4217,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
-  - name: y_gaap0p7Flux_flag_bigPsf
-    "@id": "#Object.y_gaap0p7Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    fits:tunit:
   - name: y_gaap1p0Flux
     "@id": "#Object.y_gaap1p0Flux"
     datatype: float
@@ -4854,56 +4227,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
-  - name: y_gaap1p0Flux_flag_bigPsf
-    "@id": "#Object.y_gaap1p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    fits:tunit:
-  - name: y_gaap1p5Flux
-    "@id": "#Object.y_gaap1p5Flux"
-    datatype: float
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaap1p5FluxErr
-    "@id": "#Object.y_gaap1p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaap1p5Flux_flag_bigPsf
-    "@id": "#Object.y_gaap1p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    fits:tunit:
-  - name: y_gaap2p5Flux
-    "@id": "#Object.y_gaap2p5Flux"
-    datatype: float
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaap2p5FluxErr
-    "@id": "#Object.y_gaap2p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaap2p5Flux_flag_bigPsf
-    "@id": "#Object.y_gaap2p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    fits:tunit:
-  - name: y_gaap3p0Flux
-    "@id": "#Object.y_gaap3p0Flux"
-    datatype: float
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaap3p0FluxErr
-    "@id": "#Object.y_gaap3p0FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaap3p0Flux_flag_bigPsf
-    "@id": "#Object.y_gaap3p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    fits:tunit:
   - name: y_gaapFlux_flag
     "@id": "#Object.y_gaapFlux_flag"
     datatype: boolean
@@ -4913,26 +4236,6 @@ tables:
     "@id": "#Object.y_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on y-band.
-    fits:tunit:
-  - name: y_gaapFlux_flag_gaussianization
-    "@id": "#Object.y_gaapFlux_flag_gaussianization"
-    datatype: boolean
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced on y-band.
-    fits:tunit:
-  - name: y_gaapOptimalFlux
-    "@id": "#Object.y_gaapOptimalFlux"
-    datatype: float
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaapOptimalFluxErr
-    "@id": "#Object.y_gaapOptimalFluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on y-band.
-    fits:tunit: nJy
-  - name: y_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.y_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
     fits:tunit:
   - name: y_gaapPsfFlux
     "@id": "#Object.y_gaapPsfFlux"
@@ -4974,10 +4277,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on y-band.
     fits:tunit:
-  - name: y_iRound_flag
-    "@id": "#Object.y_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on y-band.
   - name: y_i_flag
     "@id": "#Object.y_i_flag"
     datatype: boolean
@@ -5013,11 +4312,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
-  - name: y_ixxRound
-    "@id": "#Object.y_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
   - name: y_ixy
     "@id": "#Object.y_ixy"
     datatype: float
@@ -5033,11 +4327,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
-  - name: y_ixyRound
-    "@id": "#Object.y_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
   - name: y_iyy
     "@id": "#Object.y_iyy"
     datatype: float
@@ -5050,11 +4339,6 @@ tables:
     fits:tunit: pixel**2
   - name: y_iyyPSF
     "@id": "#Object.y_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
-  - name: y_iyyRound
-    "@id": "#Object.y_iyyRound"
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
@@ -5730,31 +5014,6 @@ tables:
     datatype: boolean
     description: Set if unable to aperture correct modelfit_CModel. Forced on z-band.
     fits:tunit:
-  - name: z_calibFlux
-    "@id": "#Object.z_calibFlux"
-    datatype: float
-    description: Flux within 12.0-pixel aperture. Measured on z-band.
-    fits:tunit: nJy
-  - name: z_calibFluxErr
-    "@id": "#Object.z_calibFluxErr"
-    datatype: float
-    description: Flux uncertainty within 12.0-pixel aperture. Measured on z-band.
-    fits:tunit: nJy
-  - name: z_calibFlux_flag
-    "@id": "#Object.z_calibFlux_flag"
-    datatype: boolean
-    description: General Failure Flag. Measured on z-band.
-    fits:tunit:
-  - name: z_calibFlux_flag_apertureTruncated
-    "@id": "#Object.z_calibFlux_flag_apertureTruncated"
-    datatype: boolean
-    description: Aperture did not fit within measurement image. Measured on z-band.
-    fits:tunit:
-  - name: z_calibFlux_flag_sincCoeffsTruncated
-    "@id": "#Object.z_calibFlux_flag_sincCoeffsTruncated"
-    datatype: boolean
-    description: Full sinc coefficient image did not fit within measurement image. Measured on z-band.
-    fits:tunit:
   - name: z_calib_astrometry_used
     "@id": "#Object.z_calib_astrometry_used"
     datatype: boolean
@@ -5790,26 +5049,6 @@ tables:
     datatype: boolean
     description: General Failure Flag. Measured on z-band.
     fits:tunit:
-  - name: z_centroid_x
-    "@id": "#Object.z_centroid_x"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
-    fits:tunit: pixel
-  - name: z_centroid_xErr
-    "@id": "#Object.z_centroid_xErr"
-    datatype: float
-    description: 1-sigma uncertainty on x position. Measured on z-band.
-    fits:tunit: pixel
-  - name: z_centroid_y
-    "@id": "#Object.z_centroid_y"
-    datatype: double
-    description: Centroid from Sdss Centroid algorithm. Measured on z-band.
-    fits:tunit: pixel
-  - name: z_centroid_yErr
-    "@id": "#Object.z_centroid_yErr"
-    datatype: float
-    description: 1-sigma uncertainty on y position. Measured on z-band.
-    fits:tunit: pixel
   - name: z_dec
     "@id": "#Object.z_dec"
     datatype: double
@@ -5887,11 +5126,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 0.7 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
-  - name: z_gaap0p7Flux_flag_bigPsf
-    "@id": "#Object.z_gaap0p7Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    fits:tunit:
   - name: z_gaap1p0Flux
     "@id": "#Object.z_gaap1p0Flux"
     datatype: float
@@ -5902,56 +5136,6 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with 1.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
-  - name: z_gaap1p0Flux_flag_bigPsf
-    "@id": "#Object.z_gaap1p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    fits:tunit:
-  - name: z_gaap1p5Flux
-    "@id": "#Object.z_gaap1p5Flux"
-    datatype: float
-    description: GAaP Flux with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaap1p5FluxErr
-    "@id": "#Object.z_gaap1p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 1.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaap1p5Flux_flag_bigPsf
-    "@id": "#Object.z_gaap1p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    fits:tunit:
-  - name: z_gaap2p5Flux
-    "@id": "#Object.z_gaap2p5Flux"
-    datatype: float
-    description: GAaP Flux with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaap2p5FluxErr
-    "@id": "#Object.z_gaap2p5FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 2.5 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaap2p5Flux_flag_bigPsf
-    "@id": "#Object.z_gaap2p5Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    fits:tunit:
-  - name: z_gaap3p0Flux
-    "@id": "#Object.z_gaap3p0Flux"
-    datatype: float
-    description: GAaP Flux with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaap3p0FluxErr
-    "@id": "#Object.z_gaap3p0FluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with 3.0 aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaap3p0Flux_flag_bigPsf
-    "@id": "#Object.z_gaap3p0Flux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    fits:tunit:
   - name: z_gaapFlux_flag
     "@id": "#Object.z_gaapFlux_flag"
     datatype: boolean
@@ -5961,26 +5145,6 @@ tables:
     "@id": "#Object.z_gaapFlux_flag_edge"
     datatype: boolean
     description: Source is too close to the edge. Forced on z-band.
-    fits:tunit:
-  - name: z_gaapFlux_flag_gaussianization
-    "@id": "#Object.z_gaapFlux_flag_gaussianization"
-    datatype: boolean
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced on z-band.
-    fits:tunit:
-  - name: z_gaapOptimalFlux
-    "@id": "#Object.z_gaapOptimalFlux"
-    datatype: float
-    description: GAaP Flux with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaapOptimalFluxErr
-    "@id": "#Object.z_gaapOptimalFluxErr"
-    datatype: float
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the seeing by 1.15. Forced on z-band.
-    fits:tunit: nJy
-  - name: z_gaapOptimalFlux_flag_bigPsf
-    "@id": "#Object.z_gaapOptimalFlux_flag_bigPsf"
-    datatype: boolean
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
     fits:tunit:
   - name: z_gaapPsfFlux
     "@id": "#Object.z_gaapPsfFlux"
@@ -6022,10 +5186,6 @@ tables:
     datatype: boolean
     description: General failure flag, set if anything went wrong. Measured on z-band.
     fits:tunit:
-  - name: z_iRound_flag
-    "@id": "#Object.z_iRound_flag"
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on z-band.
   - name: z_i_flag
     "@id": "#Object.z_i_flag"
     datatype: boolean
@@ -6061,11 +5221,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
-  - name: z_ixxRound
-    "@id": "#Object.z_ixxRound"
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
   - name: z_ixy
     "@id": "#Object.z_ixy"
     datatype: float
@@ -6081,11 +5236,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
-  - name: z_ixyRound
-    "@id": "#Object.z_ixyRound"
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
   - name: z_iyy
     "@id": "#Object.z_iyy"
     datatype: float
@@ -6098,11 +5248,6 @@ tables:
     fits:tunit: pixel**2
   - name: z_iyyPSF
     "@id": "#Object.z_iyyPSF"
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
-  - name: z_iyyRound
-    "@id": "#Object.z_iyyRound"
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
