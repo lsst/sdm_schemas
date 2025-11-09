@@ -143,46 +143,6 @@ tables:
       by 1.15. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
-  - name: z_gaap1p5Flux
-    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_gaap2p5Flux
-    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_gaap3p0Flux
-    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_gaapOptimalFluxErr
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the
-      seeing by 1.15. Forced on z-band.
-    datatype: float
-    ivoa:unit: nJy
   - name: z_ixx
     description: Gaussian-weighted adaptive moments. Measured on z-band.
     datatype: float
@@ -213,21 +173,6 @@ tables:
   - name: z_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on z-band.
     datatype: boolean
-  - name: z_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on z-band.
-    datatype: boolean
   - name: z_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on z-band.
     datatype: float
@@ -252,14 +197,6 @@ tables:
     ivoa:unit: nJy
   - name: z_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_calibFlux
-    description: Duplicate of z_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_calibFluxErr
-    description: Duplicate of z_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: z_ap03Flux
@@ -595,28 +532,6 @@ tables:
   - name: z_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on z-band.
     datatype: boolean
-  - name: z_gaapFlux_flag_gaussianization
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced
-      on z-band.
-    datatype: boolean
-  - name: z_gaapOptimalFlux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    datatype: boolean
-  - name: z_gaap0p7Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    datatype: boolean
-  - name: z_gaap1p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    datatype: boolean
-  - name: z_gaap1p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    datatype: boolean
-  - name: z_gaap2p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    datatype: boolean
-  - name: z_gaap3p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on z-band.
-    datatype: boolean
   - name: z_blendedness_flag
     description: Flag set for any failure in the blendedness algorithm. Measured on z-band.
     datatype: boolean
@@ -712,35 +627,9 @@ tables:
     description: Duplicate of z_ap12Flux_flag_sincCoeffsTruncated.
       Measured on z-band.
     datatype: boolean
-  - name: z_calibFlux_flag
-    description: Duplicate of z_ap12Flux_flag.
-    datatype: boolean
-  - name: z_calibFlux_flag_apertureTruncated
-    description: Duplicate of z_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: z_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of z_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on z-band.
-    datatype: boolean
   - name: z_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on z-band.
     datatype: boolean
-  - name: z_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on z-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: z_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: z_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on z-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: z_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: z_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on z-band.
     datatype: boolean
@@ -899,46 +788,6 @@ tables:
       by 1.15. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
-  - name: u_gaap1p5Flux
-    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_gaap2p5Flux
-    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_gaap3p0Flux
-    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_gaapOptimalFluxErr
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the
-      seeing by 1.15. Forced on u-band.
-    datatype: float
-    ivoa:unit: nJy
   - name: u_ixx
     description: Gaussian-weighted adaptive moments. Measured on u-band.
     datatype: float
@@ -969,21 +818,6 @@ tables:
   - name: u_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on u-band.
     datatype: boolean
-  - name: u_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: u_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: u_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: u_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on u-band.
-    datatype: boolean
   - name: u_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on u-band.
     datatype: float
@@ -1008,14 +842,6 @@ tables:
     ivoa:unit: nJy
   - name: u_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on u-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_calibFlux
-    description: Duplicate of u_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_calibFluxErr
-    description: Duplicate of u_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: u_ap03Flux
@@ -1351,28 +1177,6 @@ tables:
   - name: u_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on u-band.
     datatype: boolean
-  - name: u_gaapFlux_flag_gaussianization
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced
-      on u-band.
-    datatype: boolean
-  - name: u_gaapOptimalFlux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    datatype: boolean
-  - name: u_gaap0p7Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    datatype: boolean
-  - name: u_gaap1p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    datatype: boolean
-  - name: u_gaap1p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    datatype: boolean
-  - name: u_gaap2p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    datatype: boolean
-  - name: u_gaap3p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on u-band.
-    datatype: boolean
   - name: u_blendedness_flag
     description: Flag set for any failure in the blendedness algorithm. Measured on u-band.
     datatype: boolean
@@ -1468,35 +1272,9 @@ tables:
     description: Duplicate of u_ap12Flux_flag_sincCoeffsTruncated.
       Measured on u-band.
     datatype: boolean
-  - name: u_calibFlux_flag
-    description: Duplicate of u_ap12Flux_flag.
-    datatype: boolean
-  - name: u_calibFlux_flag_apertureTruncated
-    description: Duplicate of u_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: u_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of u_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on u-band.
-    datatype: boolean
   - name: u_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on u-band.
     datatype: boolean
-  - name: u_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on u-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: u_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: u_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on u-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: u_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on u-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: u_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on u-band.
     datatype: boolean
@@ -1655,46 +1433,6 @@ tables:
       by 1.15. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
-  - name: g_gaap1p5Flux
-    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_gaap2p5Flux
-    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_gaap3p0Flux
-    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_gaapOptimalFluxErr
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the
-      seeing by 1.15. Forced on g-band.
-    datatype: float
-    ivoa:unit: nJy
   - name: g_ixx
     description: Gaussian-weighted adaptive moments. Measured on g-band.
     datatype: float
@@ -1725,21 +1463,6 @@ tables:
   - name: g_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on g-band.
     datatype: boolean
-  - name: g_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: g_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: g_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: g_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on g-band.
-    datatype: boolean
   - name: g_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on g-band.
     datatype: float
@@ -1764,14 +1487,6 @@ tables:
     ivoa:unit: nJy
   - name: g_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on g-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_calibFlux
-    description: Duplicate of g_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_calibFluxErr
-    description: Duplicate of g_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: g_ap03Flux
@@ -2107,28 +1822,6 @@ tables:
   - name: g_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on g-band.
     datatype: boolean
-  - name: g_gaapFlux_flag_gaussianization
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced
-      on g-band.
-    datatype: boolean
-  - name: g_gaapOptimalFlux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    datatype: boolean
-  - name: g_gaap0p7Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    datatype: boolean
-  - name: g_gaap1p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    datatype: boolean
-  - name: g_gaap1p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    datatype: boolean
-  - name: g_gaap2p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    datatype: boolean
-  - name: g_gaap3p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on g-band.
-    datatype: boolean
   - name: g_blendedness_flag
     description: Flag set for any failure in the blendedness algorithm. Measured on g-band.
     datatype: boolean
@@ -2224,35 +1917,9 @@ tables:
     description: Duplicate of g_ap12Flux_flag_sincCoeffsTruncated.
       Measured on g-band.
     datatype: boolean
-  - name: g_calibFlux_flag
-    description: Duplicate of g_ap12Flux_flag.
-    datatype: boolean
-  - name: g_calibFlux_flag_apertureTruncated
-    description: Duplicate of g_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: g_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of g_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on g-band.
-    datatype: boolean
   - name: g_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on g-band.
     datatype: boolean
-  - name: g_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on g-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: g_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: g_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on g-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: g_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on g-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: g_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on g-band.
     datatype: boolean
@@ -2411,46 +2078,6 @@ tables:
       by 1.15. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
-  - name: r_gaap1p5Flux
-    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_gaap2p5Flux
-    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_gaap3p0Flux
-    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_gaapOptimalFluxErr
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the
-      seeing by 1.15. Forced on r-band.
-    datatype: float
-    ivoa:unit: nJy
   - name: r_ixx
     description: Gaussian-weighted adaptive moments. Measured on r-band.
     datatype: float
@@ -2481,21 +2108,6 @@ tables:
   - name: r_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on r-band.
     datatype: boolean
-  - name: r_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: r_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: r_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: r_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on r-band.
-    datatype: boolean
   - name: r_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on r-band.
     datatype: float
@@ -2520,14 +2132,6 @@ tables:
     ivoa:unit: nJy
   - name: r_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on r-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_calibFlux
-    description: Duplicate of r_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_calibFluxErr
-    description: Duplicate of r_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: r_ap03Flux
@@ -2863,28 +2467,6 @@ tables:
   - name: r_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on r-band.
     datatype: boolean
-  - name: r_gaapFlux_flag_gaussianization
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced
-      on r-band.
-    datatype: boolean
-  - name: r_gaapOptimalFlux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    datatype: boolean
-  - name: r_gaap0p7Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    datatype: boolean
-  - name: r_gaap1p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    datatype: boolean
-  - name: r_gaap1p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    datatype: boolean
-  - name: r_gaap2p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    datatype: boolean
-  - name: r_gaap3p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on r-band.
-    datatype: boolean
   - name: r_blendedness_flag
     description: Flag set for any failure in the blendedness algorithm. Measured on r-band.
     datatype: boolean
@@ -2980,35 +2562,9 @@ tables:
     description: Duplicate of r_ap12Flux_flag_sincCoeffsTruncated.
       Measured on r-band.
     datatype: boolean
-  - name: r_calibFlux_flag
-    description: Duplicate of r_ap12Flux_flag.
-    datatype: boolean
-  - name: r_calibFlux_flag_apertureTruncated
-    description: Duplicate of r_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: r_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of r_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on r-band.
-    datatype: boolean
   - name: r_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on r-band.
     datatype: boolean
-  - name: r_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on r-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: r_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: r_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on r-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: r_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on r-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: r_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on r-band.
     datatype: boolean
@@ -3167,46 +2723,6 @@ tables:
       by 1.15. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
-  - name: i_gaap1p5Flux
-    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_gaap2p5Flux
-    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_gaap3p0Flux
-    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_gaapOptimalFluxErr
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the
-      seeing by 1.15. Forced on i-band.
-    datatype: float
-    ivoa:unit: nJy
   - name: i_ixx
     description: Gaussian-weighted adaptive moments. Measured on i-band.
     datatype: float
@@ -3237,21 +2753,6 @@ tables:
   - name: i_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on i-band.
     datatype: boolean
-  - name: i_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: i_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: i_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: i_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on i-band.
-    datatype: boolean
   - name: i_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on i-band.
     datatype: float
@@ -3276,14 +2777,6 @@ tables:
     ivoa:unit: nJy
   - name: i_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on i-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_calibFlux
-    description: Duplicate of i_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: i_calibFluxErr
-    description: Duplicate of i_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: i_ap03Flux
@@ -3619,28 +3112,6 @@ tables:
   - name: i_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on i-band.
     datatype: boolean
-  - name: i_gaapFlux_flag_gaussianization
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced
-      on i-band.
-    datatype: boolean
-  - name: i_gaapOptimalFlux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    datatype: boolean
-  - name: i_gaap0p7Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    datatype: boolean
-  - name: i_gaap1p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    datatype: boolean
-  - name: i_gaap1p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    datatype: boolean
-  - name: i_gaap2p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    datatype: boolean
-  - name: i_gaap3p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on i-band.
-    datatype: boolean
   - name: i_blendedness_flag
     description: Flag set for any failure in the blendedness algorithm. Measured on i-band.
     datatype: boolean
@@ -3736,35 +3207,9 @@ tables:
     description: Duplicate of i_ap12Flux_flag_sincCoeffsTruncated.
       Measured on i-band.
     datatype: boolean
-  - name: i_calibFlux_flag
-    description: Duplicate of i_ap12Flux_flag.
-    datatype: boolean
-  - name: i_calibFlux_flag_apertureTruncated
-    description: Duplicate of i_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: i_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of i_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on i-band.
-    datatype: boolean
   - name: i_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on i-band.
     datatype: boolean
-  - name: i_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on i-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: i_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: i_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on i-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: i_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on i-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: i_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on i-band.
     datatype: boolean
@@ -3923,46 +3368,6 @@ tables:
       by 1.15. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
-  - name: y_gaap1p5Flux
-    description: GAaP Flux with 1.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_gaap1p5FluxErr
-    description: GAaP Flux uncertainty with 1.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_gaap2p5Flux
-    description: GAaP Flux with 2.5 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_gaap2p5FluxErr
-    description: GAaP Flux uncertainty with 2.5 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_gaap3p0Flux
-    description: GAaP Flux with 3.0 arcsec aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_gaap3p0FluxErr
-    description: GAaP Flux uncertainty with 3.0 arcsec aperture after multiplying the seeing
-      by 1.15. Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_gaapOptimalFlux
-    description: GAaP Flux with optimal aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
-      Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_gaapOptimalFluxErr
-    description: GAaP Flux uncertainty with optimal aperture after multiplying the
-      seeing by 1.15. Forced on y-band.
-    datatype: float
-    ivoa:unit: nJy
   - name: y_ixx
     description: Gaussian-weighted adaptive moments. Measured on y-band.
     datatype: float
@@ -3993,21 +3398,6 @@ tables:
   - name: y_iPSF_flag
     description: Flag set for any failure in the PSF model moments. Measured on y-band.
     datatype: boolean
-  - name: y_ixxRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: y_iyyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: y_ixyRound
-    description: Adaptive moments using an isotropic Gaussian weight function. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: y_iRound_flag
-    description: Flag set for any failure in the round moments. Measured on y-band.
-    datatype: boolean
   - name: y_ixxDebiasedPSF
     description: Gaussian-weighted adaptive moments of the PSF model at the position of the object, with synthetic noise added to match S/N with the object. Measured on y-band.
     datatype: float
@@ -4032,14 +3422,6 @@ tables:
     ivoa:unit: nJy
   - name: y_kronFluxErr
     description: Flux uncertainty from Kron Flux algorithm. Measured on y-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_calibFlux
-    description: Duplicate of y_ap12Flux.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_calibFluxErr
-    description: Duplicate of y_ap12FluxErr.
     datatype: float
     ivoa:unit: nJy
   - name: y_ap03Flux
@@ -4375,28 +3757,6 @@ tables:
   - name: y_gaapFlux_flag_edge
     description: Source is too close to the edge. Forced on y-band.
     datatype: boolean
-  - name: y_gaapFlux_flag_gaussianization
-    description: PSF Gaussianization failed when trying to scale by this factor. Forced
-      on y-band.
-    datatype: boolean
-  - name: y_gaapOptimalFlux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    datatype: boolean
-  - name: y_gaap0p7Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    datatype: boolean
-  - name: y_gaap1p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    datatype: boolean
-  - name: y_gaap1p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    datatype: boolean
-  - name: y_gaap2p5Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    datatype: boolean
-  - name: y_gaap3p0Flux_flag_bigPsf
-    description: The Gaussianized PSF is bigger than the aperture. Forced on y-band.
-    datatype: boolean
   - name: y_blendedness_flag
     description: Flag set for any failure in the blendedness algorithm. Measured on y-band.
     datatype: boolean
@@ -4492,35 +3852,9 @@ tables:
     description: Duplicate of y_ap12Flux_flag_sincCoeffsTruncated.
       Measured on y-band.
     datatype: boolean
-  - name: y_calibFlux_flag
-    description: Duplicate of y_ap12Flux_flag.
-    datatype: boolean
-  - name: y_calibFlux_flag_apertureTruncated
-    description: Duplicate of y_ap12Flux_flag_apertureTruncated.
-    datatype: boolean
-  - name: y_calibFlux_flag_sincCoeffsTruncated
-    description: Duplicate of y_ap12Flux_flag_sincCoeffsTruncated.
-      Measured on y-band.
-    datatype: boolean
   - name: y_centroid_flag
     description: Flag set for any failure in the centroid algorithm. Measured on y-band.
     datatype: boolean
-  - name: y_centroid_x
-    description: Centroid from the SDSS centroid algorithm. Measured on y-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: y_centroid_xErr
-    description: 1-sigma uncertainty on x position. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: y_centroid_y
-    description: Centroid from the SDSS centroid algorithm. Measured on y-band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: y_centroid_yErr
-    description: 1-sigma uncertainty on y position. Measured on y-band.
-    datatype: float
-    ivoa:unit: pixel
   - name: y_kronFlux_flag
     description: Flag set for any failure in the Kron photometry. Measured on y-band.
     datatype: boolean
@@ -4610,6 +3944,9 @@ tables:
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec;meta.main
     ivoa:unit: deg**2
+  - name: coord_flag
+    description: General Failure Flag. Reference band.
+    datatype: boolean
   - name: refBand
     description: Reference band - parameters measured on coadds of this band were
       used for multi-band forced photometry
@@ -4624,25 +3961,6 @@ tables:
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Reference band.
     datatype: float
     tap:principal: 1
-  - name: x
-    description: Centroid from the SDSS centroid algorithm. Reference band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: y
-    description: Centroid from the SDSS centroid algorithm. Reference band.
-    datatype: double
-    ivoa:unit: pixel
-  - name: xErr
-    description: 1-sigma uncertainty on x position. Reference band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: yErr
-    description: 1-sigma uncertainty on y position. Reference band.
-    datatype: float
-    ivoa:unit: pixel
-  - name: xy_flag
-    description: General Failure Flag. Reference band.
-    datatype: boolean
   - name: footprintArea
     description: Number of pixels in the sources detection footprint. Reference band.
     datatype: int
