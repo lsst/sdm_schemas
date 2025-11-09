@@ -5580,6 +5580,9 @@ tables:
       and image characterization, as well as the information on the Telescope and
       Camera system (e.g., ghost maps, defect maps, etc.).
     datatype: float
+  - name: glint_trail
+    description: This flag is set if the source is part of a glint trail.
+    datatype: boolean
   - name: pixelFlags
     description: General pixel flags failure; set if anything went wrong when setting
       pixels flags from this footprint's mask. This implies that some pixelFlags for
