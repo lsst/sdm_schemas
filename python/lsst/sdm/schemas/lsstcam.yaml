@@ -5587,6 +5587,9 @@ tables:
   - name: glint_trail
     description: This flag is set if the source is part of a glint trail.
     datatype: boolean
+  - name: is_negative
+    description: Source was detected as significantly negative.
+    datatype: boolean
   - name: pixelFlags
     description: General pixel flags failure; set if anything went wrong when setting
       pixels flags from this footprint's mask. This implies that some pixelFlags for
