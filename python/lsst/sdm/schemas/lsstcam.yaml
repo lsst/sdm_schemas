@@ -362,6 +362,78 @@ tables:
   - name: z_hsmShapeRegauss_flag
     description: Flag set for any failure with the Regaussianziation shapes. Measured on z-band.
     datatype: boolean
+  - name: z_moments_uu
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_vv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_uv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_flag
+    description: General failure flag for moments measurement.
+    datatype: boolean
+  - name: z_moments_psf_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_psf_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_psf_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_psf_flag
+    description: General failure flag for PSF moments measurement.
+    datatype: boolean
+  - name: z_moments_round_uu
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_round_vv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_round_uv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_round_flag
+    description: General failure flag for circular moments measurement.
+    datatype: boolean
+  - name: z_moments_psf_debiased_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_psf_debiased_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_psf_debiased_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: z_moments_psf_debiased_flag
+    description: General failure flag for debiased PSF moments measurement.
+    datatype: boolean
+  - name: z_moments_a
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_b
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_theta
+    description: Position angle of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: deg
   - name: z_hsm_moments_30
     description: HSM higher-order moment 30. Measured on z-band.
     datatype: float
@@ -1007,6 +1079,78 @@ tables:
   - name: u_hsmShapeRegauss_flag
     description: Flag set for any failure with the Regaussianziation shapes. Measured on u-band.
     datatype: boolean
+  - name: u_moments_uu
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_vv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_uv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_flag
+    description: General failure flag for moments measurement.
+    datatype: boolean
+  - name: u_moments_psf_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_psf_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_psf_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_psf_flag
+    description: General failure flag for PSF moments measurement.
+    datatype: boolean
+  - name: u_moments_round_uu
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_round_vv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_round_uv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_round_flag
+    description: General failure flag for circular moments measurement.
+    datatype: boolean
+  - name: u_moments_psf_debiased_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_psf_debiased_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_psf_debiased_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: u_moments_psf_debiased_flag
+    description: General failure flag for debiased PSF moments measurement.
+    datatype: boolean
+  - name: u_moments_a
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_b
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_theta
+    description: Position angle of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: deg
   - name: u_hsm_moments_30
     description: HSM higher-order moment 30. Measured on u-band.
     datatype: float
@@ -1652,6 +1796,78 @@ tables:
   - name: g_hsmShapeRegauss_flag
     description: Flag set for any failure with the Regaussianziation shapes. Measured on g-band.
     datatype: boolean
+  - name: g_moments_uu
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_vv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_uv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_flag
+    description: General failure flag for moments measurement.
+    datatype: boolean
+  - name: g_moments_psf_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_psf_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_psf_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_psf_flag
+    description: General failure flag for PSF moments measurement.
+    datatype: boolean
+  - name: g_moments_round_uu
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_round_vv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_round_uv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_round_flag
+    description: General failure flag for circular moments measurement.
+    datatype: boolean
+  - name: g_moments_psf_debiased_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_psf_debiased_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_psf_debiased_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: g_moments_psf_debiased_flag
+    description: General failure flag for debiased PSF moments measurement.
+    datatype: boolean
+  - name: g_moments_a
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_b
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_theta
+    description: Position angle of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: deg
   - name: g_hsm_moments_30
     description: HSM higher-order moment 30. Measured on g-band.
     datatype: float
@@ -2297,6 +2513,78 @@ tables:
   - name: r_hsmShapeRegauss_flag
     description: Flag set for any failure with the Regaussianziation shapes. Measured on r-band.
     datatype: boolean
+  - name: r_moments_uu
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_vv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_uv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_flag
+    description: General failure flag for moments measurement.
+    datatype: boolean
+  - name: r_moments_psf_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_psf_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_psf_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_psf_flag
+    description: General failure flag for PSF moments measurement.
+    datatype: boolean
+  - name: r_moments_round_uu
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_round_vv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_round_uv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_round_flag
+    description: General failure flag for circular moments measurement.
+    datatype: boolean
+  - name: r_moments_psf_debiased_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_psf_debiased_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_psf_debiased_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: r_moments_psf_debiased_flag
+    description: General failure flag for debiased PSF moments measurement.
+    datatype: boolean
+  - name: r_moments_a
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_b
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_theta
+    description: Position angle of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: deg
   - name: r_hsm_moments_30
     description: HSM higher-order moment 30. Measured on r-band.
     datatype: float
@@ -2942,6 +3230,78 @@ tables:
   - name: i_hsmShapeRegauss_flag
     description: Flag set for any failure with the Regaussianziation shapes. Measured on i-band.
     datatype: boolean
+  - name: i_moments_uu
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_vv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_uv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_flag
+    description: General failure flag for moments measurement.
+    datatype: boolean
+  - name: i_moments_psf_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_psf_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_psf_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_psf_flag
+    description: General failure flag for PSF moments measurement.
+    datatype: boolean
+  - name: i_moments_round_uu
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_round_vv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_round_uv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_round_flag
+    description: General failure flag for circular moments measurement.
+    datatype: boolean
+  - name: i_moments_psf_debiased_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_psf_debiased_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_psf_debiased_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: i_moments_psf_debiased_flag
+    description: General failure flag for debiased PSF moments measurement.
+    datatype: boolean
+  - name: i_moments_a
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_b
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_theta
+    description: Position angle of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: deg
   - name: i_hsm_moments_30
     description: HSM higher-order moment 30. Measured on i-band.
     datatype: float
@@ -3587,6 +3947,78 @@ tables:
   - name: y_hsmShapeRegauss_flag
     description: Flag set for any failure with the Regaussianziation shapes. Measured on y-band.
     datatype: boolean
+  - name: y_moments_uu
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_vv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_uv
+    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_flag
+    description: General failure flag for moments measurement.
+    datatype: boolean
+  - name: y_moments_psf_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_psf_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_psf_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_psf_flag
+    description: General failure flag for PSF moments measurement.
+    datatype: boolean
+  - name: y_moments_round_uu
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_round_vv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_round_uv
+    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_round_flag
+    description: General failure flag for circular moments measurement.
+    datatype: boolean
+  - name: y_moments_psf_debiased_uu
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_psf_debiased_vv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_psf_debiased_uv
+    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: y_moments_psf_debiased_flag
+    description: General failure flag for debiased PSF moments measurement.
+    datatype: boolean
+  - name: y_moments_a
+    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_b
+    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_theta
+    description: Position angle of the adaptive Gaussian-weighted second moments.
+    datatype: float
+    ivoa:unit: deg
   - name: y_hsm_moments_30
     description: HSM higher-order moment 30. Measured on y-band.
     datatype: float
