@@ -5484,6 +5484,10 @@ tables:
     description: Trailed source flux.
     datatype: float
     ivoa:unit: nJy
+  - name: trailFluxErr
+    description: Uncertainty of trailFlux.
+    datatype: float
+    fits:tunit: nJy
   - name: trailRa
     description: Trail centroid right ascension.
     datatype: double
