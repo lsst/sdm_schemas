@@ -4475,8 +4475,18 @@ tables:
     datatype: int
     ivoa:unit: pixel
   - name: deblend_logL
-    description: Log likelihood of the entire blend in scarlet_lite.
+    description: Log likelihood of the source after deblending.
     datatype: float
+  - name: deblend_chi2
+    description: Chi^2 of the source after deblending.
+    datatype: float
+  - name: deblend_blendId
+    description: Unique ID of the deconvolved parent source that this source was deblended from.
+    datatype: long
+  - name: deblend_blendNChild
+    description: Number of children in the deconvolved parent source that this source
+      was deblended from.
+    datatype: int
   - name: shape_flag
     description: General failure flag, set if anything went wrong. Reference band.
     datatype: boolean
