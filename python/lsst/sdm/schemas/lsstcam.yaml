@@ -4490,6 +4490,123 @@ tables:
   - name: shape_flag
     description: General failure flag, set if anything went wrong. Reference band.
     datatype: boolean
+  - name: exponential_x
+    description: Centroid (tract, x-axis) from the multiband exponential model fit.
+    datatype: double
+    ivoa:unit: pixel
+  - name: exponential_xErr
+    description: Error on the centroid (tract, x-axis) from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: pixel
+  - name: exponential_y
+    description: Centroid (tract, y-axis) from the multiband exponential model fit.
+    datatype: double
+    ivoa:unit: pixel
+  - name: exponential_yErr
+    description: Error on the centroid (tract, y-axis) from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: pixel
+  - name: exponential_ra
+    description: Centroid (right ascension) from the multiband exponential model fit.
+    datatype: double
+    ivoa:unit: deg
+  - name: exponential_raErr
+    description: Error on the centroid (right ascension) from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: deg
+  - name: exponential_dec
+    description: Centroid (declination) from the multiband exponential model fit.
+    datatype: double
+    ivoa:unit: deg
+  - name: exponential_decErr
+    description: Error on the centroid (declination) from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: deg
+  - name: exponential_reff_x
+    description: Effective radius (x-axis) from the multiband exponential model fit, prior to convolution with the adjusted (see config) PSF value.
+    datatype: float
+    ivoa:unit: pixel
+  - name: exponential_reff_xErr
+    description: Error on the effective radius (x-axis) from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: pixel
+  - name: exponential_reff_y
+    description: Effective radius (y-axis) from the multiband exponential model fit, prior to convolution with the adjusted (see config) PSF value.
+    datatype: float
+    ivoa:unit: pixel
+  - name: exponential_reff_yErr
+    description: Error on the effective radius (y-axis) from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: pixel
+  - name: exponential_rho
+    description: Ellipse rho (correlation coefficient) from the multiband exponential model fit.
+    datatype: float
+  - name: exponential_rhoErr
+    description: Error on ellipse rho (correlation coefficient) from the multiband exponential model fit.
+    datatype: float
+  - name: g_exponentialFlux
+    description: g-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_exponentialFluxErr
+    description: Error on the g-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_exponentialFlux
+    description: i-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_exponentialFluxErr
+    description: Error on the i-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_exponentialFlux
+    description: r-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_exponentialFluxErr
+    description: Error on the r-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: u_exponentialFlux
+    description: u-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: u_exponentialFluxErr
+    description: Error on the u-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: y_exponentialFlux
+    description: y-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: y_exponentialFluxErr
+    description: Error on the y-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_exponentialFlux
+    description: z-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_exponentialFluxErr
+    description: Error on the z-band flux from the multiband exponential model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: exponential_n_eval_jac
+    description: Number of Jacobian evaluations for the multiband exponential model fit.
+    datatype: int
+  - name: exponential_n_iter
+    description: Number of iterations in the non-linear fit for the multiband exponential model.
+    datatype: int
+  - name: exponential_chisq_reduced
+    description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband exponential model.
+    datatype: float
+  - name: exponential_no_data_flag
+    description: Flag set when there is insufficient data to fit for the multiband exponential model.
+    datatype: boolean
+  - name: exponential_unknown_flag
+    description: Flag set for failures with an unexpected or unknown cause for the multiband exponential model.
+    datatype: boolean
   - name: sersic_x
     description: Centroid (tract, x-axis) from the multiband Sersic model fit.
     datatype: double
