@@ -5406,13 +5406,12 @@ tables:
   - name: bboxSize
     description: Bounding box of diaSource footprint.
     datatype: long
-  - name: time_processed
-    description: Time when the image was processed and this DiaSource record was generated.
-    datatype: timestamp
-    precision: 6
+  - name: timeProcessedMjdTai
+    description: Time when the image was processed and this DiaSource record was generated,
+      expressed as Modified Julian Date, International Atomic Time.
     nullable: false
-    votable:arraysize: '*'
-    votable:xtype: timestamp
+    datatype: double
+    ivoa:ucd: time.epoch
   - name: ra
     description: Position in right ascension.
     datatype: double
