@@ -4611,21 +4611,41 @@ tables:
     description: Centroid (tract, x-axis) from the multiband Sersic model fit.
     datatype: double
     ivoa:unit: pixel
+  - name: sersic_xErr
+    description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: pixel
   - name: sersic_y
     description: Centroid (tract, y-axis) from the multiband Sersic model fit.
     datatype: double
+    ivoa:unit: pixel
+  - name: sersic_yErr
+    description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
+    datatype: float
     ivoa:unit: pixel
   - name: sersic_ra
     description: Centroid (right ascension) from the multiband Sersic model fit.
     datatype: double
     ivoa:unit: deg
+  - name: sersic_raErr
+    description: Error on the centroid (right ascension) from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: deg
   - name: sersic_dec
     description: Centroid (declination) from the multiband Sersic model fit.
     datatype: double
     ivoa:unit: deg
+  - name: sersic_decErr
+    description: Error on the centroid (declination) from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: deg
   - name: sersic_reff_x
     description: Effective radius (x-axis) from the multiband Sersic model fit, prior
       to convolution with the adjusted (see config) PSF value.
+    datatype: float
+    ivoa:unit: pixel
+  - name: sersic_reff_xErr
+    description: Error on the effective radius (x-axis) from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_y
@@ -4633,95 +4653,68 @@ tables:
       to convolution with the adjusted (see config) PSF value.
     datatype: float
     ivoa:unit: pixel
+  - name: sersic_reff_yErr
+    description: Error on the effective radius (y-axis) from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: pixel
   - name: sersic_rho
-    description: Ellipse rho (correlation coefficient) from the multiband Sersic model
-      fit.
+    description: Ellipse rho (correlation coefficient) from the multiband Sersic model fit.
+    datatype: float
+  - name: sersic_rhoErr
+    description: Error on ellipse rho (correlation coefficient) from the multiband Sersic
+      model fit.
     datatype: float
   - name: g_sersicFlux
     description: g-band flux from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_sersicFluxErr
+    description: Error on the g-band flux from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: nJy
   - name: i_sersicFlux
     description: i-band flux from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: nJy
-  - name: r_sersicFlux
-    description: r-band flux from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_sersicFlux
-    description: u-band flux from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_sersicFlux
-    description: y-band flux from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_sersicFlux
-    description: z-band flux from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: nJy
-  - name: sersic_index
-    description: Sersic profile index parameter from the multiband Sersic model fit.
-    datatype: float
-  - name: sersic_xErr
-    description: Error on the centroid (tract, x-axis) from the multiband Sersic model
-      fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: sersic_yErr
-    description: Error on the centroid (tract, y-axis) from the multiband Sersic model
-      fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: sersic_raErr
-    description: Error on the centroid (right ascension) from the multiband Sersic
-      model fit.
-    datatype: float
-    ivoa:unit: deg
-  - name: sersic_decErr
-    description: Error on the centroid (declination) from the multiband Sersic model
-      fit.
-    datatype: float
-    ivoa:unit: deg
-  - name: sersic_reff_xErr
-    description: Error on the effective radius (x-axis) from the multiband Sersic
-      model fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: sersic_reff_yErr
-    description: Error on the effective radius (y-axis) from the multiband Sersic
-      model fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: sersic_rhoErr
-    description: Error on ellipse rho (correlation coefficient) from the multiband
-      Sersic model fit.
-    datatype: float
-  - name: g_sersicFluxErr
-    description: Error on the g-band flux from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: nJy
   - name: i_sersicFluxErr
     description: Error on the i-band flux from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_sersicFlux
+    description: r-band flux from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: nJy
   - name: r_sersicFluxErr
     description: Error on the r-band flux from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: nJy
+  - name: u_sersicFlux
+    description: u-band flux from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: nJy
   - name: u_sersicFluxErr
     description: Error on the u-band flux from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: nJy
+  - name: y_sersicFlux
+    description: y-band flux from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: nJy
   - name: y_sersicFluxErr
     description: Error on the y-band flux from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: nJy
+  - name: z_sersicFlux
+    description: z-band flux from the multiband Sersic model fit.
+    datatype: float
+    ivoa:unit: nJy
   - name: z_sersicFluxErr
     description: Error on the z-band flux from the multiband Sersic model fit.
     datatype: float
     ivoa:unit: nJy
+  - name: sersic_index
+    description: Sersic profile index parameter from the multiband Sersic model fit.
+    datatype: float
   - name: sersic_indexErr
     description: Error on the Sersic profile index parameter from the multiband Sersic
       model fit.
