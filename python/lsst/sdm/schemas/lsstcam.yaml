@@ -5548,6 +5548,17 @@ tables:
     description: Forced PSF flux uncertainty measured on the direct image.
     datatype: float
     ivoa:unit: nJy
+  - name: templateFlux
+    description: Forced photometry flux for a point source model measured on the template image
+      centered at the DiaObject position.
+    datatype: float
+    ivoa:ucd: phot.count
+    ivoa:unit: nJy
+  - name: templateFluxErr
+    description: Uncertainty of templateFlux.
+    datatype: float
+    ivoa:ucd: stat.error;phot.count
+    ivoa:unit: nJy
   - name: ixx
     description: Elliptical Gaussian adaptive moments.
     datatype: double
