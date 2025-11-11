@@ -5490,6 +5490,11 @@ tables:
   description: "Properties of transient-object detections on the single-epoch difference images."
   tap:table_index: 50
   columns:
+  - name: diaSourceId
+    description: Unique identifier of this DiaSource.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id;obs.image
   - name: visit
     description: Id of the visit where this diaSource was measured.
     datatype: long
@@ -5500,170 +5505,237 @@ tables:
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;obs.image
-  - name: band
-    description: Band used to take this observation.
-    datatype: char
-    length: 1
   - name: diaObjectId
-    description: Id of the DiaObject that this DiaSource was associated with.
+    description: Id of the diaObject this source was associated with, if any. If not,
+      it is set to 0
     datatype: long
+    nullable: true
+    ivoa:ucd: meta.id;src
   - name: ssObjectId
     description: Id of the ssObject this source was associated with, if any. If not,
       it is set to 0
     datatype: long
+    nullable: true
+    ivoa:ucd: meta.id;src
   - name: parentDiaSourceId
-    description: Unique ID of parent source.
+    description: Id of the parent diaSource this diaSource has been deblended from,
+      if any.
     datatype: long
+    ivoa:ucd: meta.id;src
   - name: midpointMjdTai
-    description: Mid-exposure time for the Visit for this DiaSource, expressed as Modified
+    description: Effective mid-visit time for this diaSource, expressed as Modified
       Julian Date, International Atomic Time.
     datatype: double
-    ivoa:unit: d
-  - name: bboxSize
-    description: Bounding box of diaSource footprint.
-    datatype: long
-  - name: timeProcessedMjdTai
-    description: Time when the image was processed and this DiaSource record was generated,
-      expressed as Modified Julian Date, International Atomic Time.
     nullable: false
-    datatype: double
+    ivoa:unit: d
     ivoa:ucd: time.epoch
+  - name: coord_dec
+    description: Fiducial ICRS Declination of centroid used for database indexing.
+    datatype: double
+    ivoa:unit: deg
+    ivoa:ucd: pos.eq.dec;meta.main
+  - name: coord_ra
+    description: Fiducial ICRS Right Ascension of centroid used for database indexing.
+    datatype: double
+    ivoa:unit: deg
+    ivoa:ucd: pos.eq.ra;meta.main
   - name: ra
-    description: Position in right ascension.
+    description: Right ascension coordinate of the center of this diaSource.
     datatype: double
+    nullable: false
+    ivoa:unit: deg
     ivoa:ucd: pos.eq.ra
-    ivoa:unit: deg
   - name: dec
-    description: Position in declination.
+    description: Declination coordinate of the center of this diaSource.
     datatype: double
-    ivoa:ucd: pos.eq.dec
+    nullable: false
     ivoa:unit: deg
+    ivoa:ucd: pos.eq.dec
   - name: raErr
     description: Error in right ascension.
     datatype: float
-    ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
+    ivoa:ucd: stat.error;pos.eq.ra
   - name: decErr
     description: Error in declination.
     datatype: float
-    ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
+    ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
     description: Covariance between right ascension and declination.
     datatype: float
-    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
   - name: x
-    description: Unweighted first moment centroid, overall centroid
+    description: Unweighted first moment centroid, overall centroid.
     datatype: double
+    nullable: false
     ivoa:unit: pixel
-  - name: y
-    description: Unweighted first moment centroid, overall centroid
-    datatype: double
-    ivoa:unit: pixel
+    ivoa:ucd: pos.cartesian.x
   - name: xErr
-    description: 1-sigma uncertainty on x position
+    description: 1-sigma uncertainty on x position.
     datatype: float
     ivoa:unit: pixel
+    ivoa:ucd: stat.error;pos.cartesian.x
+  - name: y
+    description: Unweighted first moment centroid, overall centroid.
+    datatype: double
+    nullable: false
+    ivoa:unit: pixel
+    ivoa:ucd: pos.cartesian.y
   - name: yErr
-    description: 1-sigma uncertainty on y position
+    description: 1-sigma uncertainty on y position.
     datatype: float
     ivoa:unit: pixel
+    ivoa:ucd: stat.error;pos.cartesian.y
+  - name: centroid_flag
+    description: General centroid algorithm failure flag; set if anything went wrong
+      when fitting the centroid. Another centroid flag field should also be set to
+      provide more information.
+    datatype: boolean
   - name: apFlux
     description: Flux in a 12 pixel radius aperture on the difference image.
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: phot.count
   - name: apFluxErr
     description: Estimated uncertainty of apFlux.
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: stat.error;phot.count
+  - name: apFlux_flag
+    description: General aperture flux algorithm failure flag; set if anything went
+      wrong when measuring aperture fluxes. Another apFlux flag field should also
+      be set to provide more information.
+    datatype: boolean
+  - name: apFlux_flag_apertureTruncated
+    description: Aperture did not fit within measurement image.
+    datatype: boolean
+  - name: isNegative
+    description: Source was detected as significantly negative.
+    datatype: boolean
   - name: snr
-    description: Ratio of apFlux/apFluxErr
+    description: The signal-to-noise ratio at which this source was detected in the
+      difference image. Ratio of apFlux/apFluxErr.
     datatype: double
+    ivoa:ucd: stat.snr
   - name: psfFlux
-    description: Flux derived from linear least-squares fit of PSF model.
+    description: Flux for Point Source model. Note this actually measures
+      the flux difference between the template and the visit image.
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: phot.count
   - name: psfFluxErr
-    description: Flux uncertainty derived from linear least-squares fit of PSF model.
+    description: Uncertainty of psfFlux.
     datatype: float
     ivoa:unit: nJy
   - name: psfChi2
     description: Chi^2 statistic of the point source model fit.
     datatype: float
+    ivoa:ucd: stat.fit.chi2
   - name: psfNdata
-    description: Number of pixels that were included in the PSF fit.
+    description: The number of data points (pixels) used to fit the point source model.
     datatype: int
     ivoa:unit: pixel
+  - name: psfFlux_flag
+    description: Failure to derive linear least-squares fit of psf model. Another
+      psfFlux flag field should also be set to provide more information.
+    datatype: boolean
+  - name: psfFlux_flag_edge
+    description: Object was too close to the edge of the image to use the full PSF model.
+    datatype: boolean
+  - name: psfFlux_flag_noGoodPixels
+    description: Not enough non-rejected pixels in data to attempt the fit.
+    datatype: boolean
   - name: trailFlux
-    description: Trailed source flux.
+    description: Flux for a trailed source model. Note this actually measures
+      the flux difference between the template and the visit image.
     datatype: float
     ivoa:unit: nJy
   - name: trailFluxErr
     description: Uncertainty of trailFlux.
     datatype: float
-    fits:tunit: nJy
+    ivoa:unit: nJy
   - name: trailRa
-    description: Trail centroid right ascension.
+    description: Right ascension coordinate of centroid for trailed source model.
     datatype: double
+    ivoa:unit: deg
     ivoa:ucd: pos.eq.ra
-    ivoa:unit: deg
   - name: trailDec
-    description: Trail centroid declination.
+    description: Declination coordinate of centroid for trailed source model.
     datatype: double
-    ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
+    ivoa:ucd: pos.eq.dec
   - name: trailLength
-    description: Trail length.
+    description: Maximum likelihood fit of trail length.
     datatype: double
-    ivoa:unit: pixel
+    ivoa:unit: arcsec
   - name: trailAngle
-    description: Angle measured from +x-axis.
+    description: Maximum likelihood fit of the angle between the meridian through
+      the centroid and the trail direction (bearing).
     datatype: double
+    ivoa:unit: deg
+  - name: trail_flag_edge
+    description: This flag is set if a trailed source extends onto or past edge pixels.
+    datatype: boolean
   - name: dipoleMeanFlux
-    description: Raw flux counts, positive lobe.
+    description: Maximum likelihood value for the mean absolute flux of the two lobes
+      for a dipole model.
     datatype: double
-    ivoa:unit: count
+    ivoa:unit: nJy
   - name: dipoleMeanFluxErr
-    description: Raw flux uncertainty counts, positive lobe.
+    description: Uncertainty of dipoleMeanFlux.
     datatype: double
-    ivoa:unit: count
+    ivoa:unit: nJy
+    ivoa:ucd: stat.error
   - name: dipoleFluxDiff
-    description: Raw flux counts, positive lobe.
+    description: Maximum likelihood value for the difference of absolute fluxes of
+      the two lobes for a dipole model.
     datatype: double
     ivoa:unit: nJy
   - name: dipoleFluxDiffErr
-    description: Raw flux uncertainty counts, positive lobe.
+    description: Uncertainty of dipoleFluxDiff.
     datatype: double
     ivoa:unit: nJy
+    ivoa:ucd: stat.error
   - name: dipoleLength
-    description: Pixel separation between positive and negative lobes of dipole.
+    description: Maximum likelihood value for the lobe separation in dipole model.
     datatype: double
-    ivoa:unit: pixel
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance
   - name: dipoleAngle
-    description: Dipole orientation
+    description: Maximum likelihood fit of the angle between the meridian through
+      the centroid and the dipole direction (bearing, from negative to positive lobe).
     datatype: double
     ivoa:unit: deg
+    ivoa:ucd: pos.posAng
   - name: dipoleChi2
-    description: Chi2 per degree of freedom of dipole fit.
+    description: Chi^2 statistic of the model fit.
     datatype: double
-  - name: isDipole
-    description: Source well fit by a dipole.
-    datatype: boolean
-  - name: dipoleFitAttempted
-    description: Attempted to fit a dipole model to this source.
-    datatype: boolean
+    ivoa:ucd: stat.fit.chi2
   - name: dipoleNdata
-    description: Number of data points in the dipole fit
+    description: The number of data points (pixels) used to fit the model.
     datatype: long
   - name: scienceFlux
-    description: Forced PSF flux measured on the direct image.
+    description: Forced photometry flux for a point source model measured on the visit image
+      centered at DiaSource position.
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: phot.count
   - name: scienceFluxErr
-    description: Forced PSF flux uncertainty measured on the direct image.
+    description: Estimated uncertainty of scienceFlux.
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: stat.error;phot.count
+  - name: forced_PsfFlux_flag
+    description: Forced PSF photometry on science image failed. Another forced_PsfFlux flag field should also be set to provide more information.
+    datatype: boolean
+  - name: forced_PsfFlux_flag_edge
+    description: Forced PSF flux on science image was too close to the edge of the image to use the full PSF model.
+    datatype: boolean
+  - name: forced_PsfFlux_flag_noGoodPixels
+    description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
+    datatype: boolean
   - name: templateFlux
     description: Forced photometry flux for a point source model measured on the template image
       centered at the DiaObject position.
@@ -5676,124 +5748,32 @@ tables:
     ivoa:ucd: stat.error;phot.count
     ivoa:unit: nJy
   - name: ixx
-    description: Elliptical Gaussian adaptive moments.
+    description: Adaptive second moment of the source intensity.
     datatype: double
-    ivoa:unit: arcsec**2
+    ivoa:unit: nJy.arcsec**2
   - name: iyy
-    description: Elliptical Gaussian adaptive moments.
+    description: Adaptive second moment of the source intensity.
     datatype: double
-    ivoa:unit: arcsec**2
+    ivoa:unit: nJy.arcsec**2
   - name: ixy
-    description: Elliptical Gaussian adaptive moments.
+    description: Adaptive second moment of the source intensity.
     datatype: double
-    ivoa:unit: arcsec**2
+    ivoa:unit: nJy.arcsec**2
   - name: ixxPSF
-    description: Adaptive moments of the PSF model at the object position.
+    description: Adaptive second moment for the PSF.
     datatype: double
-    ivoa:unit: arcsec**2
+    ivoa:unit: nJy.arcsec**2
   - name: iyyPSF
-    description: Adaptive moments of the PSF model at the object position.
+    description: Adaptive second moment for the PSF.
     datatype: double
-    ivoa:unit: arcsec**2
+    ivoa:unit: nJy.arcsec**2
   - name: ixyPSF
-    description: Adaptive moments of the PSF model at the object position.
+    description: Adaptive second moment for the PSF.
     datatype: double
-    ivoa:unit: arcsec**2
-  - name: extendedness
-    description: A measure of extendedness, computed by comparing an object's moment-based
-      traced radius to the PSF moments. extendedness = 1 implies a high degree of
-      confidence that the source is extended. extendedness = 0 implies a high degree
-      of confidence that the source is point-like.
-    datatype: double
-  - name: reliability
-    description: A measure of reliability, computed using information from the source
-      and image characterization, as well as the information on the Telescope and
-      Camera system (e.g., ghost maps, defect maps, etc.).
-    datatype: float
-  - name: glint_trail
-    description: This flag is set if the source is part of a glint trail.
-    datatype: boolean
-  - name: is_negative
-    description: Source was detected as significantly negative.
-    datatype: boolean
-  - name: pixelFlags
-    description: General pixel flags failure; set if anything went wrong when setting
-      pixels flags from this footprint's mask. This implies that some pixelFlags for
-      this source may be incorrectly set to False.
-    datatype: boolean
-  - name: pixelFlags_offimage
-    description: DiaSource center is off image.
-    datatype: boolean
-  - name: pixelFlags_edge
-    description: Some of the source footprint is outside usable exposure region (masked
-      EDGE or centroid off image).
-    datatype: boolean
-  - name: pixelFlags_interpolated
-    description: Interpolated pixel in the DiaSource footprint.
-    datatype: boolean
-  - name: pixelFlags_saturated
-    description: Saturated pixel in the DiaSource footprint.
-    datatype: boolean
-  - name: pixelFlags_cr
-    description: Cosmic ray in the DiaSource footprint.
-    datatype: boolean
-  - name: pixelFlags_bad
-    description: Bad pixel in the DiaSource footprint.
-    datatype: boolean
-  - name: pixelFlags_suspect
-    description: DiaSource's footprint includes suspect pixels.
-    datatype: boolean
-  - name: pixelFlags_interpolatedCenter
-    description: Interpolated pixel in the 3x3 region around the centroid.
-    datatype: boolean
-  - name: pixelFlags_saturatedCenter
-    description: Saturated pixel in the 3x3 region around the centroid.
-    datatype: boolean
-  - name: pixelFlags_crCenter
-    description: Cosmic ray in the 3x3 region around the centroid.
-    datatype: boolean
-  - name: pixelFlags_suspectCenter
-    description: Suspect pixel in the 3x3 region around the centroid.
-    datatype: boolean
-  - name: centroid_flag
-    description: General centroid algorithm failure flag; set if anything went wrong
-      when fitting the centroid. Another centroid flag field should also be set to
-      provide more information.
-    datatype: boolean
-  - name: apFlux_flag
-    description: General aperture flux algorithm failure flag; set if anything went
-      wrong when measuring aperture fluxes. Another apFlux flag field should also
-      be set to provide more information.
-    datatype: boolean
-  - name: apFlux_flag_apertureTruncated
-    description: Aperture did not fit within measurement image.
-    datatype: boolean
-  - name: psfFlux_flag
-    description: Failure to derive linear least-squares fit of psf model. Another
-      psfFlux flag field should also be set to provide more information.
-    datatype: boolean
-  - name: psfFlux_flag_noGoodPixels
-    description: Not enough non-rejected pixels in data to attempt the fit.
-    datatype: boolean
-  - name: psfFlux_flag_edge
-    description: Object was too close to the edge of the image to use the full PSF
-      model.
-    datatype: boolean
-  - name: forced_PsfFlux_flag
-    description: Forced PSF photometry on science image failed. Another forced_PsfFlux
-      flag field should also be set to provide more information.
-    datatype: boolean
-  - name: forced_PsfFlux_flag_noGoodPixels
-    description: Forced PSF flux not enough non-rejected pixels in data to attempt
-      the fit.
-    datatype: boolean
-  - name: forced_PsfFlux_flag_edge
-    description: Forced PSF flux object was too close to the edge of the image to
-      use the full PSF model.
-    datatype: boolean
+    ivoa:unit: nJy.arcsec**2
   - name: shape_flag
-    description: General source shape algorithm failure flag; set if anything went
-      wrong when measuring the shape. Another shape flag field should also be set
+    description: General source shape algorithm failure flag; set if anything went wrong
+      when measuring the shape. Another shape flag field should also be set
       to provide more information.
     datatype: boolean
   - name: shape_flag_no_pixels
@@ -5803,11 +5783,81 @@ tables:
     description: Center not contained in footprint bounding box.
     datatype: boolean
   - name: shape_flag_parent_source
-    description: This source is a parent source; we should only be measuring on deblended
-      children in difference imaging.
+    description: This source is a parent source; we should only be measuring on deblended children in difference imaging.
     datatype: boolean
-  - name: trail_flag_edge
-    description: This flag is set if a trailed source contains edge pixels.
+  - name: extendedness
+    description: A measure of extendedness, computed by comparing an object's moment-based trace radius to
+      the PSF moments. extendedness = 1 implies a high degree of confidence
+      that the source is extended. extendedness = 0 implies a high degree of confidence
+      that the source is point-like.
+    datatype: double
+  - name: reliability
+    description: Probability (0-1) that the diaSource is astrophysical,
+       derived from a machine learning model.
+    datatype: float
+  - name: band
+    description: Filter band this source was observed with.
+    datatype: char
+    length: 1
+  - name: isDipole
+    description: Source well fit by a dipole.
+    datatype: boolean
+  - name: dipoleFitAttempted
+    description: Attempted to fit a dipole model to this source.
+    datatype: boolean
+  - name: timeProcessedMjdTai
+    description: Time when the image was processed and this DiaSource record was generated,
+      expressed as Modified Julian Date, International Atomic Time.
+    datatype: double
+    nullable: false
+    ivoa:ucd: time.epoch
+  - name: bboxSize
+    description: Size of the square bounding box that fully contains the detection footprint.
+    datatype: long
+    ivoa:unit: pixel
+  - name: pixelFlags
+    description: General pixel flags failure; set if anything went wrong when setting
+      pixels flags from this footprint's mask. This implies that some pixelFlags for
+      this source may be incorrectly set to False.
+    datatype: boolean
+  - name: pixelFlags_bad
+    description: Bad pixel in the DiaSource footprint.
+    datatype: boolean
+  - name: pixelFlags_cr
+    description: Cosmic ray in the DiaSource footprint.
+    datatype: boolean
+  - name: pixelFlags_crCenter
+    description: Cosmic ray in the 3x3 region around the centroid.
+    datatype: boolean
+  - name: pixelFlags_edge
+    description: Some of the source footprint is outside usable exposure region (masked EDGE or centroid off image).
+    datatype: boolean
+  - name: pixelFlags_nodata
+    description: NO_DATA pixel in the source footprint.
+    datatype: boolean
+  - name: pixelFlags_nodataCenter
+    description: NO_DATA pixel in the 3x3 region around the centroid.
+    datatype: boolean
+  - name: pixelFlags_interpolated
+    description: Interpolated pixel in the DiaSource footprint.
+    datatype: boolean
+  - name: pixelFlags_interpolatedCenter
+    description: Interpolated pixel in the 3x3 region around the centroid.
+    datatype: boolean
+  - name: pixelFlags_offimage
+    description: DiaSource center is off image.
+    datatype: boolean
+  - name: pixelFlags_saturated
+    description: Saturated pixel in the DiaSource footprint.
+    datatype: boolean
+  - name: pixelFlags_saturatedCenter
+    description: Saturated pixel in the 3x3 region around the centroid.
+    datatype: boolean
+  - name: pixelFlags_suspect
+    description: DiaSource's footprint includes suspect pixels.
+    datatype: boolean
+  - name: pixelFlags_suspectCenter
+    description: Suspect pixel in the 3x3 region around the centroid.
     datatype: boolean
   - name: pixelFlags_streak
     description: Streak in the DiaSource footprint.
@@ -5827,25 +5877,9 @@ tables:
   - name: pixelFlags_injected_templateCenter
     description: Template injection in the 3x3 region around the centroid.
     datatype: boolean
-  - name: pixelFlags_nodata
-    description: NO_DATA pixel in the source footprint.
+  - name: glint_trail
+    description: This flag is set if the source is part of a glint trail.
     datatype: boolean
-  - name: pixelFlags_nodataCenter
-    description: NO_DATA pixel in the 3x3 region around the centroid.
-    datatype: boolean
-  - name: coord_ra
-    description: Fiducial ICRS Right Ascension of centroid used for database indexing.
-    datatype: double
-    ivoa:ucd: pos.eq.ra;meta.main
-    ivoa:unit: deg
-  - name: coord_dec
-    description: Fiducial ICRS Declination of centroid used for database indexing.
-    datatype: double
-    ivoa:ucd: pos.eq.dec;meta.main
-    ivoa:unit: deg
-  - name: diaSourceId
-    description: Unique identifier of this DiaSource.
-    datatype: long
   constraints:
   - name: uniq_diaSourceId
     description: Unique constraint on diaSourceId
@@ -5885,574 +5919,290 @@ tables:
   tap:table_index: 40
   primaryKey: '#DiaObject.diaObjectId'
   columns:
+  - name: diaObjectId
+    description: Unique identifier of this DiaObject.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id;src
   - name: ra
-    description: Right Ascension coordinate of the position of the diaObject at time
-      radecMjdTai.
+    description: Right Ascension coordinate of the position of the DiaObject.
     datatype: double
+    nullable: false
     ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
   - name: dec
-    description: Declination coordinate of the position of the diaObject at time radecMjdTai.
+    description: Declination coordinate of the position of the DiaObject.
     datatype: double
+    nullable: false
     ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
-  - name: nDiaSources
-    description: Number of diaSources associated with this diaObject.
-    datatype: long
-    # ivoa:unit: '1'
-  - name: radecMjdTai
-    description: Time at which the object was at a position ra/dec, expressed as Modified
-      Julian Date, International Atomic Time.
-    datatype: double
-    ivoa:unit: d
-  - name: g_psfFluxLinearSlope
-    description: Slope of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: g_psfFluxLinearIntercept
-    description: y-intercept of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxMAD
-    description: Median absolute deviation of diaSource PSF flux. Does not include
-      scale factor for comparison to sigma
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_psfFluxMaxSlope
-    description: Maximum ratio of time ordered deltaFlux / deltaTime
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: g_psfFluxErrMean
-    description: Mean of the diaSource PSF flux errors
-    datatype: float
-    ivoa:unit: nJy
-  - name: g_psfFluxMean
-    description: Weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxMeanErr
-    description: Standard error on the weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxNdata
-    description: The number of data points used to compute g_psfFluxChi2
-    datatype: double
-    # ivoa:unit: '1'
-  - name: g_scienceFluxMean
-    description: Weighted mean of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_scienceFluxMeanErr
-    description: Standard error on g_scienceFluxMean
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxMin
-    description: Minimum diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxMax
-    description: Maximum diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxPercentile05
-    description: 5th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxPercentile25
-    description: 10th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxPercentile50
-    description: Median diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxPercentile75
-    description: 75th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxPercentile95
-    description: 95th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxSigma
-    description: Standard deviation of the distribution of g_psfFlux
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_scienceFluxSigma
-    description: Standard deviation of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: g_psfFluxSkew
-    description: Skew of diaSource PSF flux
-    datatype: float
-    # ivoa:unit: '1'
-  - name: g_psfFluxChi2
-    description: Chi^2 statistic for the scatter of g_psfFlux around g_psfFluxMean
-    datatype: float
-    # ivoa:unit: '1'
-  - name: g_psfFluxStetsonJ
-    description: StetsonJ statistic of diaSource PSF flux
-    datatype: double
-    # ivoa:unit: '1'
-  - name: r_psfFluxLinearSlope
-    description: Slope of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: r_psfFluxLinearIntercept
-    description: y-intercept of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxMAD
-    description: Median absolute deviation of diaSource PSF flux. Does not include
-      scale factor for comparison to sigma
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_psfFluxMaxSlope
-    description: Maximum ratio of time ordered deltaFlux / deltaTime
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: r_psfFluxErrMean
-    description: Mean of the diaSource PSF flux errors
-    datatype: float
-    ivoa:unit: nJy
-  - name: r_psfFluxMean
-    description: Weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxMeanErr
-    description: Standard error on the weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxNdata
-    description: The number of data points used to compute r_psfFluxChi2
-    datatype: double
-    # ivoa:unit: '1'
-  - name: r_scienceFluxMean
-    description: Weighted mean of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_scienceFluxMeanErr
-    description: Standard error on r_scienceFluxMean
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxMin
-    description: Minimum diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxMax
-    description: Maximum diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxPercentile05
-    description: 5th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxPercentile25
-    description: 10th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxPercentile50
-    description: Median diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxPercentile75
-    description: 75th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxPercentile95
-    description: 95th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxSigma
-    description: Standard deviation of the distribution of r_psfFlux
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_scienceFluxSigma
-    description: Standard deviation of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: r_psfFluxSkew
-    description: Skew of diaSource PSF flux
-    datatype: float
-    # ivoa:unit: '1'
-  - name: r_psfFluxChi2
-    description: Chi^2 statistic for the scatter of r_psfFlux around r_psfFluxMean
-    datatype: float
-    # ivoa:unit: '1'
-  - name: r_psfFluxStetsonJ
-    description: StetsonJ statistic of diaSource PSF flux
-    datatype: double
-    # ivoa:unit: '1'
-  - name: u_psfFluxLinearSlope
-    description: Slope of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: u_psfFluxLinearIntercept
-    description: y-intercept of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_psfFluxMAD
-    description: Median absolute deviation of diaSource PSF flux. Does not include
-      scale factor for comparison to sigma
-    datatype: float
-    ivoa:unit: nJy
-  - name: u_psfFluxMaxSlope
-    description: Maximum ratio of time ordered deltaFlux / deltaTime
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: u_psfFluxErrMean
-    description: Mean of the diaSource PSF flux errors
-    datatype: float
-    ivoa:unit: nJy
   - name: u_psfFluxMean
-    description: Weighted mean of diaSource PSF flux
+    description: Weighted mean point-source model magnitude for u filter.
     datatype: double
     ivoa:unit: nJy
+    ivoa:ucd: phot.count
   - name: u_psfFluxMeanErr
-    description: Standard error on the weighted mean of diaSource PSF flux
+    description: Standard error of u_psfFluxMean.
     datatype: double
     ivoa:unit: nJy
+    ivoa:ucd: stat.error
+  - name: u_psfFluxSigma
+    description: Standard deviation of the distribution of u_psfFlux.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.stdev
   - name: u_psfFluxNdata
-    description: The number of data points used to compute u_psfFluxChi2
+    description: The number of u-band data points.
     datatype: double
-    # ivoa:unit: '1'
+  - name: g_psfFluxMean
+    description: Weighted mean point-source model magnitude for g filter.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: phot.count
+  - name: g_psfFluxMeanErr
+    description: Standard error of g_psfFluxMean.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.error
+  - name: g_psfFluxSigma
+    description: Standard deviation of the distribution of g_psfFlux.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.stdev
+  - name: g_psfFluxNdata
+    description: The number of g-band data points.
+    datatype: double
+  - name: r_psfFluxMean
+    description: Weighted mean point-source model magnitude for r filter.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: phot.count
+  - name: r_psfFluxMeanErr
+    description: Standard error of r_psfFluxMean.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.error
+  - name: r_psfFluxSigma
+    description: Standard deviation of the distribution of r_psfFlux.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.stdev
+  - name: r_psfFluxNdata
+    description: The number of r-band data points.
+    datatype: double
+  - name: i_psfFluxMean
+    description: Weighted mean point-source model magnitude for i filter.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: phot.count
+  - name: i_psfFluxMeanErr
+    description: Standard error of i_psfFluxMean.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.error
+  - name: i_psfFluxSigma
+    description: Standard deviation of the distribution of i_psfFlux.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.stdev
+  - name: i_psfFluxNdata
+    description: The number of i-band data points.
+    datatype: double
+  - name: z_psfFluxMean
+    description: Weighted mean point-source model magnitude for z filter.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: phot.count
+  - name: z_psfFluxMeanErr
+    description: Standard error of z_psfFluxMean.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.error
+  - name: z_psfFluxSigma
+    description: Standard deviation of the distribution of z_psfFlux.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.stdev
+  - name: z_psfFluxNdata
+    description: The number of z-band data points.
+    datatype: double
+  - name: y_psfFluxMean
+    datatype: double
+    ivoa:unit: nJy
+    description: Weighted mean point-source model magnitude for y filter.
+    ivoa:ucd: phot.count
+  - name: y_psfFluxMeanErr
+    description: Standard error of y_psfFluxMean.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.error
+  - name: y_psfFluxSigma
+    description: Standard deviation of the distribution of y_psfFlux.
+    datatype: double
+    ivoa:unit: nJy
+    ivoa:ucd: stat.stdev
+  - name: y_psfFluxNdata
+    description: The number of y-band data points.
+    datatype: double
   - name: u_scienceFluxMean
-    description: Weighted mean of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
+    description: Weighted mean forced photometry flux for u filter.
     datatype: double
+    ivoa:ucd: phot.count
     ivoa:unit: nJy
   - name: u_scienceFluxMeanErr
-    description: Standard error on u_scienceFluxMean
+    description: Standard error of u_scienceFluxMean.
     datatype: double
+    ivoa:ucd: stat.error
+    ivoa:unit: nJy
+  - name: g_scienceFluxMean
+    description: Weighted mean forced photometry flux for g filter.
+    datatype: double
+    ivoa:ucd: phot.count
+    ivoa:unit: nJy
+  - name: g_scienceFluxMeanErr
+    description: Standard error of g_scienceFluxMean.
+    datatype: double
+    ivoa:ucd: stat.error
+    ivoa:unit: nJy
+  - name: r_scienceFluxMean
+    description: Weighted mean forced photometry flux for r filter.
+    datatype: double
+    ivoa:ucd: phot.count
+    ivoa:unit: nJy
+  - name: r_scienceFluxMeanErr
+    description: Standard error of r_scienceFluxMean.
+    datatype: double
+    ivoa:ucd: stat.error
+    ivoa:unit: nJy
+  - name: i_scienceFluxMean
+    description: Weighted mean forced photometry flux for i filter.
+    datatype: double
+    ivoa:ucd: phot.count
+    ivoa:unit: nJy
+  - name: i_scienceFluxMeanErr
+    description: Standard error of i_scienceFluxMean.
+    datatype: double
+    ivoa:ucd: stat.error
+    ivoa:unit: nJy
+  - name: z_scienceFluxMean
+    description: Weighted mean forced photometry flux for z filter.
+    datatype: double
+    ivoa:ucd: phot.count
+    ivoa:unit: nJy
+  - name: z_scienceFluxMeanErr
+    description: Standard error of z_scienceFluxMean.
+    datatype: double
+    ivoa:ucd: stat.error
+    ivoa:unit: nJy
+  - name: y_scienceFluxMean
+    description: Weighted mean forced photometry flux for y filter.
+    datatype: double
+    ivoa:ucd: phot.count
+    ivoa:unit: nJy
+  - name: y_scienceFluxMeanErr
+    description: Standard error of y_scienceFluxMean.
+    datatype: double
+    ivoa:ucd: stat.error
     ivoa:unit: nJy
   - name: u_psfFluxMin
-    description: Minimum diaSource PSF flux
+    description: Minimum observed u band fluxes.
     datatype: double
     ivoa:unit: nJy
   - name: u_psfFluxMax
-    description: Maximum diaSource PSF flux
+    description: Maximum observed u band fluxes.
     datatype: double
     ivoa:unit: nJy
-  - name: u_psfFluxPercentile05
-    description: 5th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_psfFluxPercentile25
-    description: 10th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_psfFluxPercentile50
-    description: Median diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_psfFluxPercentile75
-    description: 75th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_psfFluxPercentile95
-    description: 95th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_psfFluxSigma
-    description: Standard deviation of the distribution of u_psfFlux
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_scienceFluxSigma
-    description: Standard deviation of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: u_psfFluxSkew
-    description: Skew of diaSource PSF flux
-    datatype: float
-    # ivoa:unit: '1'
-  - name: u_psfFluxChi2
-    description: Chi^2 statistic for the scatter of u_psfFlux around u_psfFluxMean
-    datatype: float
-    # ivoa:unit: '1'
-  - name: u_psfFluxStetsonJ
-    description: StetsonJ statistic of diaSource PSF flux
-    datatype: double
-    # ivoa:unit: '1'
-  - name: i_psfFluxLinearSlope
-    description: Slope of a linear model fit to diaSource PSF flux vs time
+  - name: u_psfFluxMaxSlope
+    description: Maximum slope between u band flux obsevations max(delta_flux/delta_time).
     datatype: double
     ivoa:unit: nJy/d
-  - name: i_psfFluxLinearIntercept
-    description: y-intercept of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_psfFluxMAD
-    description: Median absolute deviation of diaSource PSF flux. Does not include
-      scale factor for comparison to sigma
+  - name: u_psfFluxErrMean
+    description: Mean of the u band flux errors.
     datatype: float
     ivoa:unit: nJy
-  - name: i_psfFluxMaxSlope
-    description: Maximum ratio of time ordered deltaFlux / deltaTime
+  - name: g_psfFluxMin
+    description: Minimum observed g band fluxes.
+    datatype: double
+    ivoa:unit: nJy
+  - name: g_psfFluxMax
+    description: Maximum observed g band fluxes.
+    datatype: double
+    ivoa:unit: nJy
+  - name: g_psfFluxMaxSlope
+    description: Maximum slope between g band flux obsevations max(delta_flux/delta_time).
     datatype: double
     ivoa:unit: nJy/d
-  - name: i_psfFluxErrMean
-    description: Mean of the diaSource PSF flux errors
+  - name: g_psfFluxErrMean
+    description: Mean of the g band flux errors.
     datatype: float
     ivoa:unit: nJy
-  - name: i_psfFluxMean
-    description: Weighted mean of diaSource PSF flux
+  - name: r_psfFluxMin
+    description: Minimum observed r band fluxes.
     datatype: double
     ivoa:unit: nJy
-  - name: i_psfFluxMeanErr
-    description: Standard error on the weighted mean of diaSource PSF flux
+  - name: r_psfFluxMax
+    description: Maximum observed r band fluxes.
     datatype: double
     ivoa:unit: nJy
-  - name: i_psfFluxNdata
-    description: The number of data points used to compute i_psfFluxChi2
+  - name: r_psfFluxMaxSlope
+    description: Maximum slope between r band flux obsevations max(delta_flux/delta_time).
     datatype: double
-    # ivoa:unit: '1'
-  - name: i_scienceFluxMean
-    description: Weighted mean of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_scienceFluxMeanErr
-    description: Standard error on i_scienceFluxMean
-    datatype: double
+    ivoa:unit: nJy/d
+  - name: r_psfFluxErrMean
+    description: Mean of the r band flux errors.
+    datatype: float
     ivoa:unit: nJy
   - name: i_psfFluxMin
-    description: Minimum diaSource PSF flux
+    description: Minimum observed i band fluxes.
     datatype: double
     ivoa:unit: nJy
   - name: i_psfFluxMax
-    description: Maximum diaSource PSF flux
+    description: Maximum observed i band fluxes.
     datatype: double
     ivoa:unit: nJy
-  - name: i_psfFluxPercentile05
-    description: 5th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_psfFluxPercentile25
-    description: 10th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_psfFluxPercentile50
-    description: Median diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_psfFluxPercentile75
-    description: 75th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_psfFluxPercentile95
-    description: 95th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_psfFluxSigma
-    description: Standard deviation of the distribution of i_psfFlux
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_scienceFluxSigma
-    description: Standard deviation of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: i_psfFluxSkew
-    description: Skew of diaSource PSF flux
-    datatype: float
-    # ivoa:unit: '1'
-  - name: i_psfFluxChi2
-    description: Chi^2 statistic for the scatter of i_psfFlux around i_psfFluxMean
-    datatype: float
-    # ivoa:unit: '1'
-  - name: i_psfFluxStetsonJ
-    description: StetsonJ statistic of diaSource PSF flux
-    datatype: double
-    # ivoa:unit: '1'
-  - name: z_psfFluxLinearSlope
-    description: Slope of a linear model fit to diaSource PSF flux vs time
+  - name: i_psfFluxMaxSlope
+    description: Maximum slope between i band flux obsevations max(delta_flux/delta_time).
     datatype: double
     ivoa:unit: nJy/d
-  - name: z_psfFluxLinearIntercept
-    description: y-intercept of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxMAD
-    description: Median absolute deviation of diaSource PSF flux. Does not include
-      scale factor for comparison to sigma
+  - name: i_psfFluxErrMean
+    description: Mean of the i band flux errors.
     datatype: float
-    ivoa:unit: nJy
-  - name: z_psfFluxMaxSlope
-    description: Maximum ratio of time ordered deltaFlux / deltaTime
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: z_psfFluxErrMean
-    description: Mean of the diaSource PSF flux errors
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_psfFluxMean
-    description: Weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxMeanErr
-    description: Standard error on the weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxNdata
-    description: The number of data points used to compute z_psfFluxChi2
-    datatype: double
-    # ivoa:unit: '1'
-  - name: z_scienceFluxMean
-    description: Weighted mean of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_scienceFluxMeanErr
-    description: Standard error on z_scienceFluxMean
-    datatype: double
     ivoa:unit: nJy
   - name: z_psfFluxMin
-    description: Minimum diaSource PSF flux
+    description: Minimum observed z band fluxes.
     datatype: double
     ivoa:unit: nJy
   - name: z_psfFluxMax
-    description: Maximum diaSource PSF flux
+    description: Maximum observed z band fluxes.
     datatype: double
     ivoa:unit: nJy
-  - name: z_psfFluxPercentile05
-    description: 5th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxPercentile25
-    description: 10th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxPercentile50
-    description: Median diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxPercentile75
-    description: 75th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxPercentile95
-    description: 95th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxSigma
-    description: Standard deviation of the distribution of z_psfFlux
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_scienceFluxSigma
-    description: Standard deviation of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: z_psfFluxSkew
-    description: Skew of diaSource PSF flux
-    datatype: float
-    # ivoa:unit: '1'
-  - name: z_psfFluxChi2
-    description: Chi^2 statistic for the scatter of z_psfFlux around z_psfFluxMean
-    datatype: float
-    # ivoa:unit: '1'
-  - name: z_psfFluxStetsonJ
-    description: StetsonJ statistic of diaSource PSF flux
-    datatype: double
-    # ivoa:unit: '1'
-  - name: y_psfFluxLinearSlope
-    description: Slope of a linear model fit to diaSource PSF flux vs time
+  - name: z_psfFluxMaxSlope
+    description: Maximum slope between z band flux obsevations max(delta_flux/delta_time).
     datatype: double
     ivoa:unit: nJy/d
-  - name: y_psfFluxLinearIntercept
-    description: y-intercept of a linear model fit to diaSource PSF flux vs time
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxMAD
-    description: Median absolute deviation of diaSource PSF flux. Does not include
-      scale factor for comparison to sigma
+  - name: z_psfFluxErrMean
+    description: Mean of the z band flux errors.
     datatype: float
-    ivoa:unit: nJy
-  - name: y_psfFluxMaxSlope
-    description: Maximum ratio of time ordered deltaFlux / deltaTime
-    datatype: double
-    ivoa:unit: nJy/d
-  - name: y_psfFluxErrMean
-    description: Mean of the diaSource PSF flux errors
-    datatype: float
-    ivoa:unit: nJy
-  - name: y_psfFluxMean
-    description: Weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxMeanErr
-    description: Standard error on the weighted mean of diaSource PSF flux
-    datatype: double
-    ivoa:unit: "nJy"
-  - name: y_psfFluxNdata
-    description: The number of data points used to compute y_psfFluxChi2
-    datatype: double
-    # ivoa:unit: '1'
-  - name: y_scienceFluxMean
-    description: Weighted mean of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_scienceFluxMeanErr
-    description: Standard error on y_scienceFluxMean
-    datatype: double
     ivoa:unit: nJy
   - name: y_psfFluxMin
-    description: Minimum diaSource PSF flux
+    description: Minimum observed y band fluxes.
     datatype: double
     ivoa:unit: nJy
   - name: y_psfFluxMax
-    description: Maximum diaSource PSF flux
+    description: Maximum observed y band fluxes.
     datatype: double
     ivoa:unit: nJy
-  - name: y_psfFluxPercentile05
-    description: 5th percentile diaSource PSF flux
+  - name: y_psfFluxMaxSlope
+    description: Maximum slope between y band flux obsevations max(delta_flux/delta_time).
     datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxPercentile25
-    description: 10th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxPercentile50
-    description: Median diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxPercentile75
-    description: 75th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxPercentile95
-    description: 95th percentile diaSource PSF flux
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxSigma
-    description: Standard deviation of the distribution of y_psfFlux
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_scienceFluxSigma
-    description: Standard deviation of the PSF flux forced photometered at the diaSource
-      position on the calibrated image
-    datatype: double
-    ivoa:unit: nJy
-  - name: y_psfFluxSkew
-    description: Skew of diaSource PSF flux
+    ivoa:unit: nJy/d
+  - name: y_psfFluxErrMean
+    description: Mean of the y band flux errors.
     datatype: float
-    # ivoa:unit: '1'
-  - name: y_psfFluxChi2
-    description: Chi^2 statistic for the scatter of y_psfFlux around y_psfFluxMean
-    datatype: float
-    # ivoa:unit: '1'
-  - name: y_psfFluxStetsonJ
-    description: StetsonJ statistic of diaSource PSF flux
-    datatype: double
-    # ivoa:unit: '1'
-  - name: diaObjectId
-    description: Unique identifier of this DiaObject.
+    ivoa:unit: nJy
+  - name: nDiaSources
+    description: Total number of DiaSources associated with this DiaObject.
+    nullable: false
     datatype: long
   indexes:
   - name: idx_DiaObject_diaObjectId
