@@ -5296,7 +5296,7 @@ tables:
     ivoa:ucd: meta.id;obs.image
   - name: detector
     description: Id of the detector where this source was measured.
-    datatype: int
+    datatype: short
     nullable: false
     ivoa:ucd: meta.id;obs.image
   - name: band
@@ -5362,7 +5362,7 @@ tables:
     tap:principal: 1
   - name: detector
     description: Id of the detector where this source was measured.
-    datatype: long
+    datatype: short
     nullable: false
     ivoa:ucd: meta.id;obs.image
     tap:principal: 1
@@ -5502,7 +5502,7 @@ tables:
     ivoa:ucd: meta.id;obs.image
   - name: detector
     description: Id of the detector where this diaSource was measured.
-    datatype: long
+    datatype: short
     nullable: false
     ivoa:ucd: meta.id;obs.image
   - name: diaObjectId
@@ -6243,7 +6243,7 @@ tables:
     tap:principal: 1
   - name: detector
     description: Id of the detector where this forced source was measured.
-    datatype: int
+    datatype: short
     nullable: false
     ivoa:ucd: meta.id;obs.image
     tap:principal: 1
