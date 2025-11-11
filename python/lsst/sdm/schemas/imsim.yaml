@@ -7205,11 +7205,6 @@ tables:
      measurement on an individual Exposure based on a Multifit shape model
      derived from a deep detection.
   columns:
-  - name: forcedSourceId
-    "@id": "#ForcedSource.forcedSourceId"
-    datatype: long
-    description: Unique ID of forced source. Primary Key.
-    fits:tunit:
   - name: objectId
     "@id": "#ForcedSource.objectId"
     datatype: long
@@ -8291,11 +8286,6 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.diaObjectId"
     datatype: long
     description: Id of the DiaObject that this DiaForcedSource was associated with.
-    fits:tunit:
-  - name: forcedSourceOnDiaObjectId
-    "@id": "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"
-    datatype: long
-    description: Unique ID of forced source. Primary Key.
     fits:tunit:
   - name: parentObjectId
     "@id": "#ForcedSourceOnDiaObject.parentObjectId"
