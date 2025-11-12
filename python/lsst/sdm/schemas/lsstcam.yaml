@@ -5738,7 +5738,7 @@ tables:
     datatype: boolean
   - name: templateFlux
     description: Forced photometry flux for a point source model measured on the template image
-      centered at the DiaObject position.
+      centered at the DiaSource position.
     datatype: float
     ivoa:ucd: phot.count
     ivoa:unit: nJy
