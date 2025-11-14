@@ -7205,11 +7205,6 @@ tables:
      measurement on an individual Exposure based on a Multifit shape model
      derived from a deep detection.
   columns:
-  - name: forcedSourceId
-    "@id": "#ForcedSource.forcedSourceId"
-    datatype: long
-    description: Unique ID of forced source. Primary Key.
-    fits:tunit:
   - name: objectId
     "@id": "#ForcedSource.objectId"
     datatype: long
@@ -8051,7 +8046,7 @@ tables:
     "@id": "#DiaSource.templateFlux"
     datatype: float
     description: Forced photometry flux for a point source model measured on the template image
-      centered at the DiaObject position.
+      centered at the DiaSource position.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: templateFluxErr
@@ -8291,11 +8286,6 @@ tables:
     "@id": "#ForcedSourceOnDiaObject.diaObjectId"
     datatype: long
     description: Id of the DiaObject that this DiaForcedSource was associated with.
-    fits:tunit:
-  - name: forcedSourceOnDiaObjectId
-    "@id": "#ForcedSourceOnDiaObject.forcedSourceOnDiaObjectId"
-    datatype: long
-    description: Unique ID of forced source. Primary Key.
     fits:tunit:
   - name: parentObjectId
     "@id": "#ForcedSourceOnDiaObject.parentObjectId"
