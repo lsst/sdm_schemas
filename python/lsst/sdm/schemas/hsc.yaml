@@ -44,55 +44,16 @@ tables:
     datatype: float
     description: Covariance between fiducial ICRS Right Ascension and Declination of centroid.
     fits:tunit: deg**2
-  - name: deblend_nChild
-    "@id": "#Object.deblend_nChild"
+  - name: deblend_parentNChild
+    "@id": "#Object.deblend_parentNChild"
     datatype: int
-    description: Number of children this object has (defaults to 0)
+    description: Number of children in deblended from the parent footprint.
     fits:tunit:
-  - name: deblend_nPeaks
-    "@id": "#Object.deblend_nPeaks"
+  - name: deblend_parentNPeaks
+    "@id": "#Object.deblend_parentNPeaks"
     datatype: int
-    description: Number of peaks this parent footprint has (even if the deblender failed or skipped this blend)
-    fits:tunit:
-  - name: deblend_failed
-    "@id": "#Object.deblend_failed"
-    datatype: boolean
-    description: Deblender failed to deblend this source
-    fits:tunit:
-  - name: deblend_skipped
-    "@id": "#Object.deblend_skipped"
-    datatype: boolean
-    description: Deblender skipped this source
-    fits:tunit:
-  - name: deblend_isolatedParent
-    "@id": "#Object.deblend_isolatedParent"
-    datatype: boolean
-    description: Deblender skipped this footprint because there was only a single peak
-    fits:tunit:
-  - name: deblend_parentTooBig
-    "@id": "#Object.deblend_parentTooBig"
-    datatype: boolean
-    description: Deblender skipped this source because the parent footprint was too large.
-    fits:tunit:
-  - name: deblend_tooManyPeaks
-    "@id": "#Object.deblend_tooManyPeaks"
-    datatype: boolean
-    description: Deblender skipped this source because there were too many peaks in the Footprint.
-    fits:tunit:
-  - name: deblend_masked
-    "@id": "#Object.deblend_masked"
-    datatype: boolean
-    description: Deblender skipped this source because there were too many masked pixels.
-    fits:tunit:
-  - name: deblend_incompleteData
-    "@id": "#Object.deblend_incompleteData"
-    datatype: boolean
-    description: One or more bands were not deblended due to an inability to model the PSF.
-    fits:tunit:
-  - name: deblend_iterations
-    "@id": "#Object.deblend_iterations"
-    datatype: int
-    description: Number of iterations during deblending
+    description: Number of peaks the parent footprint has (even if the deblender
+      failed or skipped this blend)
     fits:tunit:
   - name: deblend_peak_center_x
     "@id": "#Object.deblend_peak_center_x"
@@ -104,11 +65,6 @@ tables:
     datatype: int
     description: y-coordinate of the peak after source detection
     fits:tunit: pixel
-  - name: deblend_logL
-    "@id": "#Object.deblend_logL"
-    datatype: float
-    description: Log likelihood of the source after deblending.
-    fits:tunit:
   - name: deblend_chi2
     "@id": "#Object.deblend_chi2"
     description: Chi^2 of the source after deblending.
@@ -6494,3 +6450,84 @@ tables:
     datatype: double
     description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel)
     fits:tunit: pixel
+
+- name: Parent
+  description: "Descriptions of the parent objects in the deblending hierarchy."
+  tap:table_index: 130
+  primaryKey: '#Parent.objectId'
+  columns:
+  - name: objectId
+    "@id": "#Parent.objectId"
+    datatype: long
+    description: Unique id. Unique ObjectID
+    ivoa:ucd: meta.id;src
+  - name: parentObjectId
+    "@id": "#Parent.parentObjectId"
+    datatype: long
+    description: Unique ID of parent source. Reference band.
+    fits:tunit:
+  - name: merge_peak_sky
+    "@id": "#Parent.merge_peak_sky"
+    datatype: boolean
+    description: Peak detected in filter sky
+    fits:tunit:
+  - name: deblend_nChild
+    "@id": "#Parent.deblend_nChild"
+    datatype: int
+    description: Number of children this object has (defaults to 0)
+    fits:tunit:
+  - name: deblend_nPeaks
+    "@id": "#Parent.deblend_nPeaks"
+    datatype: int
+    description: Number of peaks this parent footprint has (even if the deblender failed or skipped this blend)
+    fits:tunit:
+  - name: deblend_failed
+    "@id": "#Parent.deblend_failed"
+    datatype: boolean
+    description: Deblender failed to deblend this source
+    fits:tunit:
+  - name: deblend_skipped
+    "@id": "#Parent.deblend_skipped"
+    datatype: boolean
+    description: Deblender skipped this source
+    fits:tunit:
+  - name: deblend_isolatedParent
+    "@id": "#Parent.deblend_isolatedParent"
+    datatype: boolean
+    description: Deblender skipped this footprint because there was only a single peak
+    fits:tunit:
+  - name: deblend_parentTooBig
+    "@id": "#Parent.deblend_parentTooBig"
+    datatype: boolean
+    description: Deblender skipped this source because the parent footprint was too large.
+    fits:tunit:
+  - name: deblend_tooManyPeaks
+    "@id": "#Parent.deblend_tooManyPeaks"
+    datatype: boolean
+    description: Deblender skipped this source because there were too many peaks in the Footprint.
+    fits:tunit:
+  - name: deblend_masked
+    "@id": "#Parent.deblend_masked"
+    datatype: boolean
+    description: Deblender skipped this source because there were too many masked pixels.
+    fits:tunit:
+  - name: deblend_incompleteData
+    "@id": "#Parent.deblend_incompleteData"
+    datatype: boolean
+    description: One or more bands were not deblended due to an inability to model the PSF.
+    fits:tunit:
+  - name: deblend_iterations
+    "@id": "#Parent.deblend_iterations"
+    datatype: int
+    description: Number of iterations during deblending
+    fits:tunit:
+  - name: deblend_chi2
+    "@id": "#Parent.deblend_chi2"
+    description: Chi^2 of the source after deblending.
+    datatype: float
+    fits:tunit:
+  indexes:
+  - name: idx_Parent_objectId
+    description: Unique index on objectId column
+    columns:
+    - "#Parent.objectId"

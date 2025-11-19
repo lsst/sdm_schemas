@@ -4429,42 +4429,13 @@ tables:
       patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter
       (see config.pseudoFilterList) and is a deblended child
     datatype: boolean
-  - name: deblend_nChild
-    description: Number of children this object has (defaults to 0)
+  - name: deblend_parentNChild
+    description: Number of children in deblended from the parent footprint.
     datatype: int
     tap:principal: 1
-  - name: deblend_nPeaks
-    description: Number of peaks this parent footprint has (even if the deblender
+  - name: deblend_parentNPeaks
+    description: Number of peaks the parent footprint has (even if the deblender
       failed or skipped this blend)
-    datatype: int
-  - name: deblend_failed
-    description: Deblender failed to deblend this source
-    datatype: boolean
-  - name: deblend_skipped
-    description: Deblender skipped this source
-    datatype: boolean
-  - name: deblend_isolatedParent
-    description: Deblender skipped this footprint because there was only a single
-      peak
-    datatype: boolean
-  - name: deblend_parentTooBig
-    description: Deblender skipped this source because the parent footprint was too
-      large.
-    datatype: boolean
-  - name: deblend_tooManyPeaks
-    description: Deblender skipped this source because there were too many peaks in
-      the Footprint.
-    datatype: boolean
-  - name: deblend_masked
-    description: Deblender skipped this source because there were too many masked
-      pixels.
-    datatype: boolean
-  - name: deblend_incompleteData
-    description: One or more bands were not deblended due to an inability to model
-      the PSF.
-    datatype: boolean
-  - name: deblend_iterations
-    description: Number of iterations during deblending
     datatype: int
   - name: deblend_peak_center_x
     description: x-coordinate of the peak after source detection
@@ -4474,9 +4445,6 @@ tables:
     description: y-coordinate of the peak after source detection
     datatype: int
     ivoa:unit: pixel
-  - name: deblend_logL
-    description: Log likelihood of the source after deblending.
-    datatype: float
   - name: deblend_chi2
     description: Chi^2 of the source after deblending.
     datatype: float
@@ -6959,3 +6927,65 @@ tables:
     description: Non-unique index on the ssObjectId column; accelerates retrieval of single-epoch data for SSObjects
     columns:
     - "#SSSource.ssObjectId"
+
+- name: Parent
+  description: "Descriptions of the parent objects in the deblending hierarchy."
+  tap:table_index: 130
+  primaryKey: '#Parent.objectId'
+  columns:
+  - name: objectId
+    description: Unique id. Unique ObjectID
+    datatype: long
+    ivoa:ucd: meta.id;src
+    tap:principal: 1
+  - name: parentObjectId
+    description: Unique ID of parent source. Reference band.
+    datatype: long
+    tap:principal: 1
+  - name: merge_peak_sky
+    description: True when the parent object is a sky object
+    datatype: boolean
+  - name: deblend_nChild
+    description: Number of children this object has (defaults to 0)
+    datatype: int
+  - name: deblend_nPeaks
+    description: Number of peaks this parent footprint has (even if the deblender
+      failed or skipped this blend)
+    datatype: int
+  - name: deblend_failed
+    description: Deblender failed to deblend this source
+    datatype: boolean
+  - name: deblend_skipped
+    description: Deblender skipped this source
+    datatype: boolean
+  - name: deblend_isolatedParent
+    description: Deblender skipped this footprint because there was only a single
+      peak
+    datatype: boolean
+  - name: deblend_parentTooBig
+    description: Deblender skipped this source because the parent footprint was too
+      large.
+    datatype: boolean
+  - name: deblend_tooManyPeaks
+    description: Deblender skipped this source because there were too many peaks in
+      the Footprint.
+    datatype: boolean
+  - name: deblend_masked
+    description: Deblender skipped this source because there were too many masked
+      pixels.
+    datatype: boolean
+  - name: deblend_incompleteData
+    description: One or more bands were not deblended due to an inability to model
+      the PSF.
+    datatype: boolean
+  - name: deblend_iterations
+    description: Number of iterations during deblending
+    datatype: int
+  - name: deblend_chi2
+    description: Chi^2 of the source after deblending.
+    datatype: float
+  indexes:
+  - name: idx_Parent_objectId
+    description: Unique index on objectId column
+    columns:
+    - "#Parent.objectId"
