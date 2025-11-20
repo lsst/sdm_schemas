@@ -5942,7 +5942,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: u_psfFluxNdata
     description: The number of u-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: g_psfFluxMean
     description: Weighted mean point-source model magnitude for g filter.
     datatype: double
@@ -5960,7 +5961,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: g_psfFluxNdata
     description: The number of g-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: r_psfFluxMean
     description: Weighted mean point-source model magnitude for r filter.
     datatype: double
@@ -5978,7 +5980,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: r_psfFluxNdata
     description: The number of r-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: i_psfFluxMean
     description: Weighted mean point-source model magnitude for i filter.
     datatype: double
@@ -5996,7 +5999,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: i_psfFluxNdata
     description: The number of i-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: z_psfFluxMean
     description: Weighted mean point-source model magnitude for z filter.
     datatype: double
@@ -6014,7 +6018,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: z_psfFluxNdata
     description: The number of z-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: y_psfFluxMean
     datatype: double
     ivoa:unit: nJy
@@ -6032,7 +6037,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: y_psfFluxNdata
     description: The number of y-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: u_scienceFluxMean
     description: Weighted mean forced photometry flux for u filter.
     datatype: double

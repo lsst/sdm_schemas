@@ -7412,7 +7412,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: u_psfFluxNdata
     "@id": "#DiaObject.u_psfFluxNdata"
-    datatype: double
+    datatype: int
+    nullable: false
     description: The number of u-band data points.
   - name: g_psfFluxMean
     "@id": "#DiaObject.g_psfFluxMean"
@@ -7434,7 +7435,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: g_psfFluxNdata
     "@id": "#DiaObject.g_psfFluxNdata"
-    datatype: double
+    datatype: int
+    nullable: false
     description: The number of g-band data points.
   - name: r_psfFluxMean
     "@id": "#DiaObject.r_psfFluxMean"
@@ -7456,7 +7458,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: r_psfFluxNdata
     "@id": "#DiaObject.r_psfFluxNdata"
-    datatype: double
+    datatype: int
+    nullable: false
     description: The number of r-band data points.
   - name: i_psfFluxMean
     "@id": "#DiaObject.i_psfFluxMean"
@@ -7478,7 +7481,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: i_psfFluxNdata
     "@id": "#DiaObject.i_psfFluxNdata"
-    datatype: double
+    datatype: int
+    nullable: false
     description: The number of i-band data points.
   - name: z_psfFluxMean
     "@id": "#DiaObject.z_psfFluxMean"
@@ -7500,7 +7504,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: z_psfFluxNdata
     "@id": "#DiaObject.z_psfFluxNdata"
-    datatype: double
+    datatype: int
+    nullable: false
     description: The number of z-band data points.
   - name: y_psfFluxMean
     "@id": "#DiaObject.y_psfFluxMean"
@@ -7522,7 +7527,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: y_psfFluxNdata
     "@id": "#DiaObject.y_psfFluxNdata"
-    datatype: double
+    datatype: int
+    nullable: false
     description: The number of y-band data points.
   - name: u_scienceFluxMean
     "@id": "#DiaObject.u_scienceFluxMean"
@@ -7904,6 +7910,7 @@ tables:
   - name: psfNdata
     "@id": "#DiaSource.psfNdata"
     datatype: int
+    nullable: false
     description: The number of data points (pixels) used to fit the point source model.
   - name: psfFlux_flag
     "@id": "#DiaSource.psfFlux_flag"
@@ -8004,6 +8011,7 @@ tables:
   - name: dipoleNdata
     "@id": "#DiaSource.dipoleNdata"
     datatype: long
+    nullable: false
     description: The number of data points (pixels) used to fit the model.
   - name: scienceFlux
     "@id": "#DiaSource.scienceFlux"
