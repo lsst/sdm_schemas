@@ -6842,99 +6842,231 @@ tables:
   description: LSST-computed per-source quantities. 1:1 relationship with DiaSource.
   tap:table_index: 120
   primaryKey: '#SSSource.diaSourceId'
+
   columns:
   - name: phaseAngle
-    description: Phase angle
+    description: Phase angle between the Sun, object, and observer.
     datatype: float
     ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+
   - name: heliocentricDist
-    description: Heliocentric distance
+    description: Heliocentric distance at the light-emission time.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.distance;pos.heliocentric
+
   - name: topocentricDist
-    description: Topocentric distace
+    description: Topocentric distance at the light-emission time.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.distance
+
   - name: heliocentricX
-    description: Cartesian heliocentric X coordinate (at the emit time)
+    description: Cartesian heliocentric X coordinate at the light-emission time, in an ICRS-like frame.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.x;pos.heliocentric
+
   - name: heliocentricY
-    description: Cartesian heliocentric Y coordinate (at the emit time)
+    description: Cartesian heliocentric Y coordinate at the light-emission time, in an ICRS-like frame.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.y;pos.heliocentric
+
   - name: heliocentricZ
-    description: Cartesian heliocentric Z coordinate (at the emit time)
+    description: Cartesian heliocentric Z coordinate at the light-emission time, in an ICRS-like frame.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.z;pos.heliocentric
+
   - name: heliocentricVX
-    description: Cartesian heliocentric X velocity (at the emit time)
+    description: Cartesian heliocentric X velocity at the light-emission time, in an ICRS-like frame.
     datatype: float
-    ivoa:unit: AU
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.x
+
   - name: heliocentricVY
-    description: Cartesian heliocentric Y velocity (at the emit time)
+    description: Cartesian heliocentric Y velocity at the light-emission time, in an ICRS-like frame.
     datatype: float
-    ivoa:unit: AU
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.y
+
   - name: heliocentricVZ
-    description: Cartesian heliocentric Z velocity (at the emit time)
+    description: Cartesian heliocentric Z velocity at the light-emission time, in an ICRS-like frame.
     datatype: float
-    ivoa:unit: AU
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.z
+
   - name: topocentricX
-    description: Cartesian topocentric X coordinate (at the emit time)
+    description: Cartesian topocentric X coordinate at the light-emission time, in an ICRS-like frame.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.x;pos.geocentric
+
   - name: topocentricY
-    description: Cartesian topocentric Y coordinate (at the emit time)
+    description: Cartesian topocentric Y coordinate at the light-emission time, in an ICRS-like frame.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.y;pos.geocentric
+
   - name: topocentricZ
-    description: Cartesian topocentric Z coordinate (at the emit time)
+    description: Cartesian topocentric Z coordinate at the light-emission time, in an ICRS-like frame.
     datatype: float
     ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.z;pos.geocentric
+
   - name: topocentricVX
-    description: Cartesian topocentric X velocity (at the emit time)
+    description: Cartesian topocentric X velocity at the light-emission time, in an ICRS-like frame.
     datatype: float
-    ivoa:unit: AU
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.x
+
   - name: topocentricVY
-    description: Cartesian topocentric Y velocity (at the emit time)
+    description: Cartesian topocentric Y velocity at the light-emission time, in an ICRS-like frame.
     datatype: float
-    ivoa:unit: AU
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.y
+
   - name: topocentricVZ
-    description: Cartesian topocentric Z velocity (at the emit time)
+    description: Cartesian topocentric Z velocity at the light-emission time, in an ICRS-like frame.
     datatype: float
-    ivoa:unit: AU
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.z
+
   - name: ssObjectId
-    description: Unique identifier of the object.
+    description: Unique LSST identifier of the Solar System object.
     datatype: long
+    nullable: false
     ivoa:ucd: meta.id;src
-  - name: residualRa
-    description: Residual R.A. vs. ephemeris
+
+  - name: ephOffsetRa
+    description: Offset between observed and predicted position in the R.A. direction (includes cos(dec) term).
     datatype: double
-    ivoa:unit: deg
-  - name: residualDec
-    description: Residual Dec vs. ephemeris
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.eq.ra;stat.fit.omc
+
+  - name: ephOffsetDec
+    description: Offset between observed and predicted position in declination.
     datatype: double
-    ivoa:unit: deg
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.eq.dec;stat.fit.omc
+
   - name: diaSourceId
-    description: Unique identifier of the observation
+    description: Unique identifier of the observation (matching DiaSource.diaSourceId).
     datatype: long
+    nullable: false
     ivoa:ucd: meta.id;src
+
   - name: galacticL
-    description: Galactic longitude
+    description: Galactic longitude, converted from the observed coordinates.
     datatype: double
+    nullable: false
     ivoa:unit: deg
+    ivoa:ucd: pos.galactic.lon
+
   - name: galacticB
-    description: Galactic latitute
+    description: Galactic latitude, converted from the observed coordinates.
     datatype: double
+    nullable: false
     ivoa:unit: deg
+    ivoa:ucd: pos.galactic.lat
+
   - name: eclipticLambda
-    description: Ecliptic longitude
+    description: Ecliptic longitude, converted from the observed coordinates.
     datatype: double
+    nullable: false
     ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lon
+
   - name: eclipticBeta
-    description: Ecliptic latitude
+    description: Ecliptic latitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lat
+
+  - name: unpacked_primary_provisional_designation
+    description: >
+      Primary MPC provisional designation for this object, in unpacked form.
+    datatype: char
+    length: 16
+    ivoa:ucd: meta.id;src
+
+  - name: ephVmag
+    description: >
+      Predicted V-band magnitude computed from the orbit solution and the
+      adopted absolute magnitude for the object.
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag;em.opt.V
+
+  - name: ephRa
+    description: Predicted ICRS right ascension from the orbit model.
     datatype: double
     ivoa:unit: deg
+    ivoa:ucd: pos.eq.ra;meta.modelled
+
+  - name: ephDec
+    description: Predicted ICRS declination from the orbit model.
+    datatype: double
+    ivoa:unit: deg
+    ivoa:ucd: pos.eq.dec;meta.modelled
+
+  - name: ephRate
+    description: Total predicted on-sky angular rate of motion.
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm
+
+  - name: ephRateRa
+    description: Predicted on-sky angular rate in the R.A. direction (includes the cos(dec) factor).
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.eq.ra
+
+  - name: ephRateDec
+    description: Predicted on-sky angular rate in the declination direction.
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.eq.dec
+
+  - name: ephOffset
+    description: Total observed versus predicted angular separation on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+
+  - name: topocentricV
+    description: Topocentric line-of-sight velocity; positive values indicate motion away from the observer.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.geocentric
+
+  - name: heliocentricV
+    description: Heliocentric line-of-sight velocity; positive values indicate motion away from the Sun.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.heliocentric
+
+  - name: ephOffsetAlongTrack
+    description: Offset between observed and predicted position in the along-track direction on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+
+  - name: ephOffsetCrossTrack
+    description: Offset between observed and predicted position in the cross-track direction on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+
+  - name: elongation
+    description: Solar elongation of the object at the time of observation.
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+
   constraints:
   - name: fk_SSSource_DiaSource
     description: Link an SSSource to its associated DiaSource
@@ -6943,6 +7075,7 @@ tables:
     - '#SSSource.diaSourceId'
     referencedColumns:
     - '#DiaSource.diaSourceId'
+
   - name: fk_SSSource_SSObject
     description: Link an SSObject to its associated SSSources
     '@type': ForeignKey
@@ -6950,12 +7083,25 @@ tables:
     - '#SSSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
+
   indexes:
   - name: idx_SSSource_diaSourceId
-    description: Unique index on the diaSourceId column; accelerates joins between DiaSource and SSSource
+    description: >
+      Unique index on the diaSourceId column; accelerates joins between
+      DiaSource and SSSource.
     columns:
     - "#SSSource.diaSourceId"
+
   - name: idx_SSSource_ssObjectId
-    description: Non-unique index on the ssObjectId column; accelerates retrieval of single-epoch data for SSObjects
+    description: >
+      Non-unique index on the ssObjectId column; accelerates retrieval of
+      single-epoch data for SSObjects.
     columns:
     - "#SSSource.ssObjectId"
+
+  - name: idx_SSSource_unpacked_primary_provisional_designation
+    description: >
+      Non-unique index on the unpacked_primary_provisional_designation column; accelerates retrieval of
+      single-epoch data for SSObjects.
+    columns:
+    - "#SSSource.unpacked_primary_provisional_designation"
