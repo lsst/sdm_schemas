@@ -7738,28 +7738,7 @@ tables:
     ivoa:ucd: meta.code.status;meta.dataset
   - name: identifier_ids
     description: This is a set of unique identifier_ids in an array that points to the identification_metadata
-      table. Identifications have state where they are either AUTHORITATIVE or OBSELETE so they can
-      handle transitions. Where AUTHORITATIVE is true, OBSELETE must be false. Where both are false
-      the identification is a candidate that is not yet AUTHORITATIVE but has been formally saved.
-      An example scenario is that the identification metadata has been created but with only the
-      metadata and not references. Then for the very first instance of identifier_id for a
-      provisional that is in the current_identifications table the AUTHORITATIVE should be true. If
-      a candidate was manually generated in e.g. an API call, so it existed in the
-      identification_metadata table but not yet in current_identifications, this would be the
-      AUTHORITATIVE candidate. If this happens and then later on the MINOR PLANET CIRCULARS are
-      ingested and this same identification is published in MPEC format, then the initial
-      identification metadata record would be set to OBSELETE and a new record created for the MPC
-      version of the identification and then this identifier_id used instead for the eventual
-      AUTHORITATIVE identifier_id that appears in the current_identifications table. Historically,
-      the publication_references and identifier_ids in the current_identifications table could be
-      used to deduce the rest of the fields that used to be this table but have since migrated to
-      identification_metadata and id_history, so think of this table as a "frontline interface"
-      to the rest of the system. In addition whenever the MPEC is added to identification_metadata,
-      this would be recorded in the identification_metadata table. This is important for the
-      backfill when reading the flat files. So in the backfill scenario, if the record exists and
-      it has a different name and/or reference then 1. add to the id_history, then add to metadata,
-      then UPDATE columns publication_references, identifier_ids in current_identifications
-      otherwise if no record exists create one
+      table.
     datatype: text
     nullable: false
     ivoa:ucd: meta.id;src
