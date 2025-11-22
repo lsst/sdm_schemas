@@ -7447,3 +7447,414 @@ tables:
       single-epoch data for SSObjects.
     columns:
     - "#SSSource.unpacked_primary_provisional_designation"
+
+- name: mpc_orbits
+  description: Table of orbital elements and related information of known (sun-orbiting and unbound) Solar
+    System objects. Replicated from the Minor Planet Center (Postgres) database. This schema will
+    generally closely follow the schema of the upstream table, to allow end-users to rerun queries
+    developed elsewhere on the RSP.
+  tap:table_index: 130
+  primaryKey: '#mpc_orbits.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: mpc_orb_jsonb
+    description: Details of the orbit solution in JSON form
+    datatype: text
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  - name: orbit_type_int
+    description: Orbit Type (Integer)
+    datatype: int
+  - name: u_param
+    description: U parameter
+    datatype: int
+  - name: nopp
+    description: number of oppositions
+    datatype: int
+  - name: arc_length_total
+    description: "Arc length over total observations [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: arc_length_sel
+    description: "Arc length over total observations *selected* [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: nobs_total
+    description: Total number of all observations (optical + radar) available
+    datatype: int
+  - name: nobs_total_sel
+    description: Total number of all observations (optical + radar) selected for use in orbit fitting
+    datatype: int
+  - name: a
+    description: "Semi Major Axis [au]"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: q
+    description: "Pericenter Distance [au]"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: e
+    description: "Eccentricity"
+    datatype: double
+    ivoa:ucd: src.orbital.eccentricity
+  - name: i
+    description: "Inclination [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.inclination
+    ivoa:unit: deg
+  - name: node
+    description: "Longitude of Ascending Node [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.node
+    ivoa:unit: deg
+  - name: argperi
+    description: "Argument of Pericenter [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.periastron
+    ivoa:unit: deg
+  - name: peri_time
+    description: "Time from Pericenter Passage [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: yarkovsky
+    description: "Yarkovsky Component [10^(-10)*au/day^2]"
+    datatype: double
+    ivoa:unit: 1e-10.au.d-2
+  - name: srp
+    description: "Solar-Radiation Pressure Component [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a1
+    description: "A1 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a2
+    description: "A2 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a3
+    description: "A3 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: dt
+    description: DT non-grav component
+    datatype: double
+  - name: mean_anomaly
+    description: "Mean Anomaly [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.meanAnomaly
+    ivoa:unit: deg
+  - name: period
+    description: "Orbital Period [days]"
+    datatype: double
+    ivoa:ucd: time.period.revolution;src.orbital
+    ivoa:unit: d
+  - name: mean_motion
+    description: "Orbital Mean Motion [degrees per day]"
+    datatype: double
+    ivoa:ucd: src.orbital.meanMotion
+    ivoa:unit: deg.d-1
+  - name: a_unc
+    description: "Uncertainty on Semi Major Axis [au]"
+    datatype: double
+    ivoa:ucd: stat.error;pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: q_unc
+    description: "Uncertainty on Pericenter Distance [au]"
+    datatype: double
+    ivoa:ucd: stat.error;pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: e_unc
+    description: "Uncertainty on Eccentricity"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.eccentricity
+  - name: i_unc
+    description: "Uncertainty on Inclination [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.inclination
+    ivoa:unit: deg
+  - name: node_unc
+    description: "Uncertainty on Longitude of Ascending Node [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.node
+    ivoa:unit: deg
+  - name: argperi_unc
+    description: "Uncertainty on Argument of Pericenter [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.periastron
+    ivoa:unit: deg
+  - name: peri_time_unc
+    description: "Uncertainty on Time from Pericenter Passage [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: yarkovsky_unc
+    description: "Uncertainty on Yarkovsky Component [10^(-10)*au/day^2]"
+    datatype: double
+    ivoa:unit: 1e-10.au.d-2
+  - name: srp_unc
+    description: "Uncertainty on Solar-Radiation Pressure Component [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a1_unc
+    description: "Uncertainty on A1 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a2_unc
+    description: "Uncertainty on A2 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a3_unc
+    description: "Uncertainty on A3 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: dt_unc
+    description: Uncertainty on DT non-grav component
+    datatype: double
+  - name: mean_anomaly_unc
+    description: "Uncertainty on Mean Anomaly [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.meanAnomaly
+    ivoa:unit: deg
+  - name: period_unc
+    description: "Uncertainty on Orbital Period [days]"
+    datatype: double
+    ivoa:ucd: stat.error;time.period.revolution;src.orbital
+    ivoa:unit: d
+  - name: mean_motion_unc
+    description: "Uncertainty on Orbital Mean Motion [degrees per day]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.meanMotion
+    ivoa:unit: deg.d-1
+  - name: epoch_mjd
+    description: Epoch of the Orbfit-Solution in MJD
+    datatype: double
+    ivoa:ucd: time.epoch;src.orbital
+    ivoa:unit: d
+  - name: h
+    description: H-Magnitude
+    datatype: double
+    ivoa:ucd: phys.magAbs
+    ivoa:unit: mag
+  - name: g
+    description: G-Slope Parameter
+    datatype: double
+  - name: not_normalized_rms
+    description: "unnormalized rms of the fit [arcsec]"
+    datatype: double
+    ivoa:ucd: stat.rms;stat.fit
+    ivoa:unit: arcsec
+  - name: normalized_rms
+    description: "rms of the fit [unitless]"
+    datatype: double
+    ivoa:ucd: stat.rms;stat.fit
+  - name: earth_moid
+    description: "Minimum Orbit Intersection Distance [au] with respect to the Earths Orbit"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: fitting_datetime
+    description: Date of the last orbit fit
+    datatype: timestamp
+    precision: 6
+  indexes:
+  - name: idx_mpc_orbits_packed_primary_provisional_designation
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#mpc_orbits.packed_primary_provisional_designation'
+  - name: idx_mpc_orbits_unpacked_primary_provisional_designation
+    description: Unique index on the unpacked_primary_provisional_designation column
+    columns:
+    - '#mpc_orbits.unpacked_primary_provisional_designation'
+
+- name: current_identifications
+  description: All single-designations, and all identifications between designations. Always uses primary
+    provisional designation (even for numbered objects). Includes all comets and satellites.
+    Replicated from the Minor Planet Center (Postgres) database. This schema will generally closely
+    follow the schema of the upstream table, to allow end-users to rerun queries developed
+    elsewhere on the RSP.
+  tap:table_index: 140
+  primaryKey: '#current_identifications.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_secondary_provisional_designation
+    description: The secondary provisional designation in packed form (e.g. K08A00B). May be the same-as (A=A)
+      or different-to (A=B) the primary provisional designation
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_secondary_provisional_designation
+    description: The secondary provisional designation in unpacked form (e.g. 2008 AB). May be the same-as
+      (A=A) or different-to (A=B) the primary provisional designation
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: published
+    description: Has this been published yet? i.e. has it been released to the public?
+    datatype: boolean
+    ivoa:ucd: meta.code.status;meta.dataset
+  - name: identifier_ids
+    description: This is a set of unique identifier_ids in an array that points to the identification_metadata
+      table. Identifications have state where they are either AUTHORITATIVE or OBSELETE so they can
+      handle transitions. Where AUTHORITATIVE is true, OBSELETE must be false. Where both are false
+      the identification is a candidate that is not yet AUTHORITATIVE but has been formally saved.
+      An example scenario is that the identification metadata has been created but with only the
+      metadata and not references. Then for the very first instance of identifier_id for a
+      provisional that is in the current_identifications table the AUTHORITATIVE should be true. If
+      a candidate was manually generated in e.g. an API call, so it existed in the
+      identification_metadata table but not yet in current_identifications, this would be the
+      AUTHORITATIVE candidate. If this happens and then later on the MINOR PLANET CIRCULARS are
+      ingested and this same identification is published in MPEC format, then the initial
+      identification metadata record would be set to OBSELETE and a new record created for the MPC
+      version of the identification and then this identifier_id used instead for the eventual
+      AUTHORITATIVE identifier_id that appears in the current_identifications table. Historically,
+      the publication_references and identifier_ids in the current_identifications table could be
+      used to deduce the rest of the fields that used to be this table but have since migrated to
+      identification_metadata and id_history, so think of this table as a "frontline interface"
+      to the rest of the system. In addition whenever the MPEC is added to identification_metadata,
+      this would be recorded in the identification_metadata table. This is important for the
+      backfill when reading the flat files. So in the backfill scenario, if the record exists and
+      it has a different name and/or reference then 1. add to the id_history, then add to metadata,
+      then UPDATE columns publication_references, identifier_ids in current_identifications
+      otherwise if no record exists create one
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: object_type
+    description: Integer to indicate the object type. To be linked (foreign key) to object_type lookup table
+    datatype: int
+  - name: numbered
+    description: Has the object been numbered and hence does it appear in the numbered_objects table?
+    datatype: boolean
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  indexes:
+  - name: idx_current_identifications_packed_primary_provisional_designation
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#current_identifications.packed_primary_provisional_designation'
+  - name: idx_current_identifications_packed_secondary_provisional_designation
+    description: Unique index on the packed_secondary_provisional_designation column
+    columns:
+    - '#current_identifications.packed_secondary_provisional_designation'
+
+- name: numbered_identifications
+  description: The numbered identification table contains all the numbered objects (minor planets, comets and
+    natural satellites) with their primary provisional designations. The table is continously
+    updated everytime a new object is numbered. Replicated from the Minor Planet Center (Postgres)
+    database. This schema will generally closely follow the schema of the upstream table, to allow
+    end-users to rerun queries developed elsewhere on the RSP.
+  tap:table_index: 150
+  primaryKey: '#numbered_identifications.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: permid
+    description: Permanent designation (number)
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: iau_designation
+    description: IAU-approved designation (not filled at the moment)
+    datatype: text
+    ivoa:ucd: meta.id;src
+  - name: iau_name
+    description: IAU-approved name (not filled at the moment)
+    datatype: text
+    ivoa:ucd: meta.id;src
+  - name: numbered_publication_references
+    description: MPEC where this object was numbered
+    datatype: text
+    ivoa:ucd: meta.bib.bibcode
+  - name: named_publication_references
+    description: MPEC where this object was named
+    datatype: text
+    ivoa:ucd: meta.bib.bibcode
+  - name: naming_credit
+    description: Credit for suggesting the name
+    datatype: text
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  indexes:
+  - name: idx_numbered_identifications_iau_name
+    description: Unique index on the iau_name column
+    columns:
+    - '#numbered_identifications.iau_name'
+  - name: idx_numbered_identifications_packed_primary_provisional_designation
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#numbered_identifications.packed_primary_provisional_designation'
+  - name: idx_numbered_identifications_permid
+    description: Unique index on the permid column
+    columns:
+    - '#numbered_identifications.permid'
+  - name: idx_numbered_identifications_unpacked_primary_provisional_designation
+    description: Unique index on the unpacked_primary_provisional_designation column
+    columns:
+    - '#numbered_identifications.unpacked_primary_provisional_designation'
