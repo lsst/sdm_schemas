@@ -6826,7 +6826,7 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;src
   - name: nObs
-    description: Number of LSST observations of this object.
+    description: Total number of LSST observations of this object.
     datatype: int
     nullable: false
     ivoa:ucd: meta.number;obs
@@ -6855,7 +6855,7 @@ tables:
     datatype: float
     ivoa:ucd: stat.fit.param
   - name: g_G12Err
-    description: Uncertainty of G12 (g band).
+    description: Error in the estimate of G12 (g band).
     datatype: float
     ivoa:ucd: stat.error;stat.fit.param
   - name: g_H
@@ -6869,7 +6869,7 @@ tables:
     ivoa:unit: mag**2
     ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
   - name: g_HErr
-    description: Uncertainty of H (g band).
+    description: Error in the estimate of H (g band).
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
@@ -6886,7 +6886,7 @@ tables:
     datatype: float
     ivoa:ucd: stat.fit.param
   - name: i_G12Err
-    description: Uncertainty of G12 (i band).
+    description: Error in the estimate of G12 (i band).
     datatype: float
     ivoa:ucd: stat.error;stat.fit.param
   - name: i_H
@@ -6900,7 +6900,7 @@ tables:
     ivoa:unit: mag**2
     ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
   - name: i_HErr
-    description: Uncertainty of H (i band).
+    description: Error in the estimate of H (i band).
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
@@ -6952,7 +6952,7 @@ tables:
     datatype: float
     ivoa:ucd: stat.fit.param
   - name: r_G12Err
-    description: Uncertainty of G12 (r band).
+    description: Error in the estimate of G12 (r band).
     datatype: float
     ivoa:ucd: stat.error;stat.fit.param
   - name: r_H
@@ -6966,7 +6966,7 @@ tables:
     ivoa:unit: mag**2
     ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
   - name: r_HErr
-    description: Uncertainty of H (r band).
+    description: Error in the estimate of H (r band).
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
@@ -6984,7 +6984,7 @@ tables:
     datatype: float
     ivoa:ucd: stat.fit.param
   - name: u_G12Err
-    description: Uncertainty of G12 (u band).
+    description: Error in the estimate of G12 (u band).
     datatype: float
     ivoa:ucd: stat.error;stat.fit.param
   - name: u_H
@@ -6998,7 +6998,7 @@ tables:
     ivoa:unit: mag**2
     ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
   - name: u_HErr
-    description: Uncertainty of H (u band).
+    description: Error in the estimate of H (u band).
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
@@ -7016,7 +7016,7 @@ tables:
     datatype: float
     ivoa:ucd: stat.fit.param
   - name: y_G12Err
-    description: Uncertainty of G12 (y band).
+    description: Error in the estimate of G12 (y band).
     datatype: float
     ivoa:ucd: stat.error;stat.fit.param
   - name: y_H
@@ -7030,7 +7030,7 @@ tables:
     ivoa:unit: mag**2
     ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
   - name: y_HErr
-    description: Uncertainty of H (y band).
+    description: Error in the estimate of H (y band).
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
@@ -7048,7 +7048,7 @@ tables:
     datatype: float
     ivoa:ucd: stat.fit.param
   - name: z_G12Err
-    description: Uncertainty of G12 (z band).
+    description: Error in the estimate of G12 (z band).
     datatype: float
     ivoa:ucd: stat.error;stat.fit.param
   - name: z_H
@@ -7062,7 +7062,7 @@ tables:
     ivoa:unit: mag**2
     ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
   - name: z_HErr
-    description: Uncertainty of H (z band).
+    description: Error in the estimate of H (z band).
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
