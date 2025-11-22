@@ -6816,7 +6816,7 @@ tables:
     - "#CcdVisit.detector"
 
 - name: SSObject
-  description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
+  description: LSST-computed per-object quantities.
   tap:table_index: 110
   primaryKey: '#SSObject.ssObjectId'
   columns:
@@ -6841,7 +6841,7 @@ tables:
     ivoa:unit: d
     ivoa:ucd: time.epoch;obs
   - name: arc
-    description: Arc of LSST observations.
+    description: 'Timespan ("arc") of all LSST observations, t_{last} - t_{first}'
     datatype: float
     nullable: false
     ivoa:unit: d
@@ -6918,27 +6918,27 @@ tables:
   - name: extendednessMin
     description: Minimum `extendedness` value from the DiaSource.
     datatype: float
-  - name: 'MOID Earth'
+  - name: MOIDEarth
     description: Minimum orbit intersection distance to Earth.
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.distance;src.orbital
-  - name: 'MOID Earth DeltaV'
+  - name: MOIDEarthDeltaV
     description: DeltaV at the MOID point.
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc.orbital
-  - name: 'MOID Earth EclipticLongitude'
+  - name: MOIDEarthEclipticLongitude
     description: "Ecliptic longitude of the MOID point (Earth's orbit)."
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.ecliptic.lon
-  - name: 'MOID Earth TrueAnomaly'
+  - name: MOIDEarthTrueAnomaly
     description: "True anomaly of the MOID point on Earth's orbit."
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng
-  - name: 'MOID Earth TrueAnomalyObject'
+  - name: MOIDEarthTrueAnomalyObject
     description: "True anomaly of the MOID point on the object's orbit."
     datatype: float
     ivoa:unit: deg
@@ -7193,85 +7193,85 @@ tables:
     ivoa:ucd: pos.phaseAng
 
   - name: heliocentricDist
-    description: Heliocentric distance at the light-emission time.
+    description: Heliocentric distance at light-emission time.
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.distance;pos.heliocentric
 
   - name: topocentricDist
-    description: Topocentric distance at the light-emission time.
+    description: Topocentric distance at light-emission time.
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.distance
 
   - name: heliocentricX
-    description: Cartesian heliocentric X coordinate at the light-emission time (ICRS).
+    description: Cartesian heliocentric X coordinate at light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.x;pos.heliocentric
 
   - name: heliocentricY
-    description: Cartesian heliocentric Y coordinate at the light-emission time (ICRS).
+    description: Cartesian heliocentric Y coordinate at light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.y;pos.heliocentric
 
   - name: heliocentricZ
-    description: Cartesian heliocentric Z coordinate at the light-emission time (ICRS).
+    description: Cartesian heliocentric Z coordinate at light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.z;pos.heliocentric
 
   - name: heliocentricVX
-    description: Cartesian heliocentric X velocity at the light-emission time (ICRS).
+    description: Cartesian heliocentric X velocity at light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.x
 
   - name: heliocentricVY
-    description: Cartesian heliocentric Y velocity at the light-emission time (ICRS).
+    description: Cartesian heliocentric Y velocity at light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.y
 
   - name: heliocentricVZ
-    description: Cartesian heliocentric Z velocity at the light-emission time (ICRS).
+    description: Cartesian heliocentric Z velocity at light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.z
 
   - name: topocentricX
-    description: Cartesian topocentric X coordinate at the light-emission time (ICRS).
+    description: Cartesian topocentric X coordinate at light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.x
 
   - name: topocentricY
-    description: Cartesian topocentric Y coordinate at the light-emission time (ICRS).
+    description: Cartesian topocentric Y coordinate at light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.y
 
   - name: topocentricZ
-    description: Cartesian topocentric Z coordinate at the light-emission time (ICRS).
+    description: Cartesian topocentric Z coordinate at light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.z
 
   - name: topocentricVX
-    description: Cartesian topocentric X velocity at the light-emission time (ICRS).
+    description: Cartesian topocentric X velocity at light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.x
 
   - name: topocentricVY
-    description: Cartesian topocentric Y velocity at the light-emission time (ICRS).
+    description: Cartesian topocentric Y velocity at light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.y
 
   - name: topocentricVZ
-    description: Cartesian topocentric Z velocity at the light-emission time (ICRS).
+    description: Cartesian topocentric Z velocity at light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.z
@@ -7338,19 +7338,19 @@ tables:
   - name: ephVmag
     description: >
       Predicted magnitude in V band, computed from mpc_orbits data including
-      the MPC-provided (H, G) estimates
+      the mpc_orbits-provided (H, G) estimates
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: phot.mag;em.opt.V
 
   - name: ephRa
-    description: Predicted ICRS right ascension from the orbit model.
+    description: Predicted ICRS right ascension from the orbit in mpc_orbits.
     datatype: double
     ivoa:unit: deg
     ivoa:ucd: pos.eq.ra;meta.modelled;pos.ephem
 
   - name: ephDec
-    description: Predicted ICRS declination from the orbit model.
+    description: Predicted ICRS declination from the orbit in mpc_orbits.
     datatype: double
     ivoa:unit: deg
     ivoa:ucd: pos.eq.dec;meta.modelled;pos.ephem
@@ -7387,6 +7387,18 @@ tables:
 
   - name: heliocentricVrad
     description: Heliocentric radial velocity; positive values indicate motion away from the Sun.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.heliocentric
+
+  - name: topocentricVtot
+    description: The magnitude of the topocentric velocity vector.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc
+
+  - name: heliocentricVtot
+    description: The magnitude of the heliocentric velocity vector.
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.heliocentric
