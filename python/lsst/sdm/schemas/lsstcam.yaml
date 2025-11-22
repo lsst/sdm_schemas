@@ -7780,11 +7780,11 @@ tables:
     precision: 6
     ivoa:ucd: time.processing;meta.dataset
   indexes:
-  - name: idx_current_identifications_packed_primary_provisional_designation
+  - name: idx_current_identifications_packed_primary_provisional_desig
     description: Unique index on the packed_primary_provisional_designation column
     columns:
     - '#current_identifications.packed_primary_provisional_designation'
-  - name: idx_current_identifications_packed_secondary_provisional_designation
+  - name: idx_current_identifications_packed_secondary_provisional_desig
     description: Unique index on the packed_secondary_provisional_designation column
     columns:
     - '#current_identifications.packed_secondary_provisional_designation'
@@ -7856,7 +7856,7 @@ tables:
     description: Unique index on the iau_name column
     columns:
     - '#numbered_identifications.iau_name'
-  - name: idx_numbered_identifications_packed_primary_provisional_designation
+  - name: idx_numbered_identifications_packed_primary_provisional_desig
     description: Unique index on the packed_primary_provisional_designation column
     columns:
     - '#numbered_identifications.packed_primary_provisional_designation'
@@ -7864,7 +7864,7 @@ tables:
     description: Unique index on the permid column
     columns:
     - '#numbered_identifications.permid'
-  - name: idx_numbered_identifications_unpacked_primary_provisional_designation
+  - name: idx_numbered_identifications_unpacked_primary_provisional_desig
     description: Unique index on the unpacked_primary_provisional_designation column
     columns:
     - '#numbered_identifications.unpacked_primary_provisional_designation'
