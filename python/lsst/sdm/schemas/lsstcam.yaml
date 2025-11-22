@@ -7205,73 +7205,73 @@ tables:
     ivoa:ucd: pos.distance
 
   - name: heliocentricX
-    description: Cartesian heliocentric X coordinate at the light-emission time, in an ICRS-like frame.
+    description: Cartesian heliocentric X coordinate at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.x;pos.heliocentric
 
   - name: heliocentricY
-    description: Cartesian heliocentric Y coordinate at the light-emission time, in an ICRS-like frame.
+    description: Cartesian heliocentric Y coordinate at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.y;pos.heliocentric
 
   - name: heliocentricZ
-    description: Cartesian heliocentric Z coordinate at the light-emission time, in an ICRS-like frame.
+    description: Cartesian heliocentric Z coordinate at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.z;pos.heliocentric
 
   - name: heliocentricVX
-    description: Cartesian heliocentric X velocity at the light-emission time, in an ICRS-like frame.
+    description: Cartesian heliocentric X velocity at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.x
 
   - name: heliocentricVY
-    description: Cartesian heliocentric Y velocity at the light-emission time, in an ICRS-like frame.
+    description: Cartesian heliocentric Y velocity at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.y
 
   - name: heliocentricVZ
-    description: Cartesian heliocentric Z velocity at the light-emission time, in an ICRS-like frame.
+    description: Cartesian heliocentric Z velocity at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.z
 
   - name: topocentricX
-    description: Cartesian topocentric X coordinate at the light-emission time, in an ICRS-like frame.
+    description: Cartesian topocentric X coordinate at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
-    ivoa:ucd: pos.cartesian.x;pos.geocentric
+    ivoa:ucd: pos.cartesian.x
 
   - name: topocentricY
-    description: Cartesian topocentric Y coordinate at the light-emission time, in an ICRS-like frame.
+    description: Cartesian topocentric Y coordinate at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
-    ivoa:ucd: pos.cartesian.y;pos.geocentric
+    ivoa:ucd: pos.cartesian.y
 
   - name: topocentricZ
-    description: Cartesian topocentric Z coordinate at the light-emission time, in an ICRS-like frame.
+    description: Cartesian topocentric Z coordinate at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: AU
-    ivoa:ucd: pos.cartesian.z;pos.geocentric
+    ivoa:ucd: pos.cartesian.z
 
   - name: topocentricVX
-    description: Cartesian topocentric X velocity at the light-emission time, in an ICRS-like frame.
+    description: Cartesian topocentric X velocity at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.x
 
   - name: topocentricVY
-    description: Cartesian topocentric Y velocity at the light-emission time, in an ICRS-like frame.
+    description: Cartesian topocentric Y velocity at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.y
 
   - name: topocentricVZ
-    description: Cartesian topocentric Z velocity at the light-emission time, in an ICRS-like frame.
+    description: Cartesian topocentric Z velocity at the light-emission time (ICRS).
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.cartesian.z
@@ -7337,8 +7337,8 @@ tables:
 
   - name: ephVmag
     description: >
-      Predicted V-band magnitude computed from the orbit solution and the
-      adopted absolute magnitude for the object.
+      Predicted magnitude in V band, computed from mpc_orbits data including
+      the MPC-provided (H, G) estimates
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: phot.mag;em.opt.V
@@ -7347,31 +7347,31 @@ tables:
     description: Predicted ICRS right ascension from the orbit model.
     datatype: double
     ivoa:unit: deg
-    ivoa:ucd: pos.eq.ra;meta.modelled
+    ivoa:ucd: pos.eq.ra;meta.modelled;pos.ephem
 
   - name: ephDec
     description: Predicted ICRS declination from the orbit model.
     datatype: double
     ivoa:unit: deg
-    ivoa:ucd: pos.eq.dec;meta.modelled
+    ivoa:ucd: pos.eq.dec;meta.modelled;pos.ephem
 
   - name: ephRate
     description: Total predicted on-sky angular rate of motion.
     datatype: float
     ivoa:unit: deg/d
-    ivoa:ucd: pos.pm
+    ivoa:ucd: pos.pm;pos.ephem
 
   - name: ephRateRa
     description: Predicted on-sky angular rate in the R.A. direction (includes the cos(dec) factor).
     datatype: float
     ivoa:unit: deg/d
-    ivoa:ucd: pos.pm;pos.eq.ra
+    ivoa:ucd: pos.pm;pos.eq.ra;pos.ephem
 
   - name: ephRateDec
     description: Predicted on-sky angular rate in the declination direction.
     datatype: float
     ivoa:unit: deg/d
-    ivoa:ucd: pos.pm;pos.eq.dec
+    ivoa:ucd: pos.pm;pos.eq.dec;pos.ephem
 
   - name: ephOffset
     description: Total observed versus predicted angular separation on the sky.
@@ -7379,14 +7379,14 @@ tables:
     ivoa:unit: arcsec
     ivoa:ucd: pos.angDistance;stat.fit.omc
 
-  - name: topocentricV
-    description: Topocentric line-of-sight velocity; positive values indicate motion away from the observer.
+  - name: topocentricVrad
+    description: Topocentric radial (line-of-sight) velocity; positive values indicate motion away from the observer.
     datatype: float
     ivoa:unit: km/s
-    ivoa:ucd: phys.veloc;pos.geocentric
+    ivoa:ucd: phys.veloc
 
-  - name: heliocentricV
-    description: Heliocentric line-of-sight velocity; positive values indicate motion away from the Sun.
+  - name: heliocentricVrad
+    description: Heliocentric radial velocity; positive values indicate motion away from the Sun.
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc;pos.heliocentric
