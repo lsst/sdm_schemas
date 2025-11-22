@@ -7463,12 +7463,14 @@ tables:
     ivoa:ucd: meta.id;src
   - name: packed_primary_provisional_designation
     description: The primary provisional designation in packed form (e.g. K08A00B)
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: unpacked_primary_provisional_designation
     description: The primary provisional designation in unpacked form (e.g. 2008 AB)
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: mpc_orb_jsonb
@@ -7706,24 +7708,28 @@ tables:
     ivoa:ucd: meta.id;src
   - name: packed_primary_provisional_designation
     description: The primary provisional designation in packed form (e.g. K08A00B)
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: packed_secondary_provisional_designation
     description: The secondary provisional designation in packed form (e.g. K08A00B). May be the same-as (A=A)
       or different-to (A=B) the primary provisional designation
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: unpacked_primary_provisional_designation
     description: The primary provisional designation in unpacked form (e.g. 2008 AB)
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: unpacked_secondary_provisional_designation
     description: The secondary provisional designation in unpacked form (e.g. 2008 AB). May be the same-as
       (A=A) or different-to (A=B) the primary provisional designation
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: published
@@ -7799,17 +7805,20 @@ tables:
     ivoa:ucd: meta.id;src
   - name: packed_primary_provisional_designation
     description: The primary provisional designation in packed form (e.g. K08A00B)
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: unpacked_primary_provisional_designation
     description: The primary provisional designation in unpacked form (e.g. 2008 AB)
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: permid
     description: Permanent designation (number)
-    datatype: text
+    datatype: char
+    length: 16
     nullable: false
     ivoa:ucd: meta.id;src
   - name: iau_designation
@@ -7818,7 +7827,8 @@ tables:
     ivoa:ucd: meta.id;src
   - name: iau_name
     description: IAU-approved name (not filled at the moment)
-    datatype: text
+    datatype: char
+    length: 32
     ivoa:ucd: meta.id;src
   - name: numbered_publication_references
     description: MPEC where this object was numbered
