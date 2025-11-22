@@ -6929,17 +6929,17 @@ tables:
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc.orbital
   - name: 'MOID Earth EclipticLongitude'
-    description: Ecliptic longitude of the MOID point (Earth's orbit).
+    description: "Ecliptic longitude of the MOID point (Earth's orbit)."
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.ecliptic.lon
   - name: 'MOID Earth TrueAnomaly'
-    description: True anomaly of the MOID point on Earth's orbit.
+    description: "True anomaly of the MOID point on Earth's orbit."
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng
   - name: 'MOID Earth TrueAnomalyObject'
-    description: True anomaly of the MOID point on the object's orbit.
+    description: "True anomaly of the MOID point on the object's orbit."
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng;src.orbital
