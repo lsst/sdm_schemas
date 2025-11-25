@@ -1,6 +1,6 @@
 ---
 name: "ApdbSchema"
-version: "10.0.0"
+version: "9.1.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -1259,18 +1259,18 @@ tables:
     datatype: double
     ivoa:unit: d
     ivoa:ucd: time.epoch;obs
-# DP2 DISABLED: we will not deliver this for DP2.  The list of Rubin
-# discoveries will be in flux early in the survey.  Due to the long lead
-# time between freezing the input data and the release, what we write into
-# here may change significantly by the time DP2 is released.  Users
-# interested in this can easily pull it from the MPC (or the PPDB) at the
-# time of DP2 release.
-#
-#  - name: discoverySubmissionDate
-#    description: The date the LSST first submitted the discovery observations to the MPC. NULL if not an LSST discovery. TAI.
-#    datatype: double
-#    ivoa:unit: d
-#    ivoa:ucd: time.epoch
+    # DP2 DISABLED: we will not deliver this for DP2.  The list of Rubin
+    # discoveries will be in flux early in the survey.  Due to the long lead
+    # time between freezing the input data and the release, what we write into
+    # here may change significantly by the time DP2 is released.  Users
+    # interested in this can easily pull it from the MPC (or the PPDB) at the
+    # time of DP2 release.
+    #
+    #  - name: discoverySubmissionDate
+    #    description: The date the LSST first submitted the discovery observations to the MPC. NULL if not an LSST discovery. TAI.
+    #    datatype: double
+    #    ivoa:unit: d
+    #    ivoa:ucd: time.epoch
 
   - name: MOIDEarth
     description: Minimum orbit intersection distance to Earth.
@@ -1611,38 +1611,27 @@ tables:
   - name: y_slope_fit_failed
     description: G12 fit failed in y band. G12 contains a fiducial value used to fit H.
     datatype: boolean
-#
-# FIXME: commented out as it generates a
-# >           raise ValueError(f"Dependency cycle in foreign keys: {tables}")
-# exception. Unclear why, but as these aren't used in APDB yet there should be no harm. See:
-#    https://rubin-obs.slack.com/archives/C07QJMPRMLJ/p1763919304828269?thread_ts=1763826894.543509&cid=C07QJMPRMLJ
-# for some discussion.
-#
-#  constraints:
-#  - name: fk_SSObject_mpc_orbits
-#    description: Link an SSObject to its associated mpc_orbits
-#    '@type': ForeignKey
-#    columns:
-#    - '#SSObject.designation'
-#    referencedColumns:
-#    - '#mpc_orbits.designation'
-  indexes:
-  - name: idx_SSObject_ssObjectId
-    description: Unique index on the ssObjectId column
+  constraints:
+  - name: fk_SSObject_mpc_orbits
+    description: Link an SSObject to its associated mpc_orbits
+    '@type': ForeignKey
     columns:
-    - "#SSObject.ssObjectId"
-  - name: idx_SSObject_designation
-    description: >-
-      Unique index on the designation column
+    - '#SSObject.designation'
+    referencedColumns:
+    - '#mpc_orbits.designation'
+  - name: unique_SSObject_designation
+    description: Unique index on the designation column
+    '@type': Unique
     columns:
     - "#SSObject.designation"
+  indexes:
   - name: idx_SSObject_MOIDEarth
     description: Index on the MOIDEarth column
     columns:
     - "#SSObject.MOIDEarth"
 
 - name: SSSource
-  description: LSST-computed per-source quantities. 1:1 relationship with DiaSource.
+  description: LSST-computed per-source quantities. 1::1 relationship with DiaSource.
   tap:table_index: 120
   primaryKey: '#SSSource.diaSourceId'
 
@@ -1862,7 +1851,7 @@ tables:
       closeness to the predicted SSO position.  If diaSourceId is the
       nearest DiaSource to this SSO prediction, diaSourceDistanceRank=1
       would be set. If it is the second nearest, it would be 2, etc.
-    datatype: int
+    datatype: short
 
 
   constraints:
@@ -1891,13 +1880,6 @@ tables:
     - '#mpc_orbits.designation'
 
   indexes:
-  - name: idx_SSSource_diaSourceId
-    description: >
-      Unique index on the diaSourceId column; accelerates joins between
-      DiaSource and SSSource.
-    columns:
-    - "#SSSource.diaSourceId"
-
   - name: idx_SSSource_ssObjectId
     description: >
       Non-unique index on the ssObjectId column; accelerates retrieval of
@@ -2165,19 +2147,11 @@ tables:
     '@type': Unique
     columns:
     - '#mpc_orbits.designation'
-  indexes:
-  - name: idx_mpc_orbits_packed_primary_provisional_designation
-    description: Unique index on the packed_primary_provisional_designation column
+  - name: unique_mpc_orbits_packed_primary_provisional_designation
+    description: Uniqueness of packed_primary_provisional_designation
+    '@type': Unique
     columns:
     - '#mpc_orbits.packed_primary_provisional_designation'
-  - name: idx_mpc_orbits_unpacked_primary_provisional_designation
-    description: Unique index on the unpacked_primary_provisional_designation column
-    columns:
-    - '#mpc_orbits.unpacked_primary_provisional_designation'
-  - name: idx_mpc_orbits_designation
-    description: Unique index on the designation column
-    columns:
-    - '#mpc_orbits.designation'
 
 - name: current_identifications
   description: All single-designations, and all identifications between designations. Always uses primary
@@ -2245,12 +2219,14 @@ tables:
     datatype: timestamp
     precision: 6
     ivoa:ucd: time.processing;meta.dataset
-  indexes:
-  - name: idx_current_identifications_packed_primary_provisional_desig
+  constraints:
+  - name: unique_current_identifications_packed_primary_provisional_desig
+    "@type": Unique
     description: Unique index on the packed_primary_provisional_designation column
     columns:
     - '#current_identifications.packed_primary_provisional_designation'
-  - name: idx_current_identifications_packed_secondary_provisional_desig
+  - name: uniq_current_identifications_packed_secondary_provisional_desig
+    "@type": Unique
     description: Unique index on the packed_secondary_provisional_designation column
     columns:
     - '#current_identifications.packed_secondary_provisional_designation'
@@ -2317,20 +2293,24 @@ tables:
     datatype: timestamp
     precision: 6
     ivoa:ucd: time.processing;meta.dataset
-  indexes:
-  - name: idx_numbered_identifications_iau_name
+  constraints:
+  - name: unique_numbered_identifications_iau_name
+    "@type": Unique
     description: Unique index on the iau_name column
     columns:
     - '#numbered_identifications.iau_name'
-  - name: idx_numbered_identifications_packed_primary_provisional_desig
+  - name: unique_numbered_identifications_packed_primary_prov_desig
+    "@type": Unique
     description: Unique index on the packed_primary_provisional_designation column
     columns:
     - '#numbered_identifications.packed_primary_provisional_designation'
-  - name: idx_numbered_identifications_permid
+  - name: unique_numbered_identifications_permid
+    "@type": Unique
     description: Unique index on the permid column
     columns:
     - '#numbered_identifications.permid'
-  - name: idx_numbered_identifications_unpacked_primary_provisional_desig
+  - name: uniq_numbered_identifications_unpacked_primary_prov_desig
+    "@type": Unique
     description: Unique index on the unpacked_primary_provisional_designation column
     columns:
     - '#numbered_identifications.unpacked_primary_provisional_designation'
