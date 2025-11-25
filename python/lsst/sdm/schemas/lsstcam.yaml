@@ -6782,8 +6782,9 @@ tables:
     columns:
     - "#CcdVisit.visitId"
     - "#CcdVisit.detector"
+
 - name: SSObject
-  description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
+  description: LSST-computed per-object quantities.
   tap:table_index: 110
   primaryKey: '#SSObject.ssObjectId'
   columns:
@@ -6792,117 +6793,629 @@ tables:
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;src
-  - name: numObs
-    description: Number of LSST observations of this object
+  - name: designation
+    description: The unpacked primary provisional designation for this object.
+    datatype: char
+    length: 16
+    ivoa:ucd: meta.id;src
+  - name: nObs
+    description: Total number of LSST observations of this object.
     datatype: int
-  - name: discoverySubmissionDate
-    description: The date the LSST first linked and submitted the discovery observations
-      to the MPC. May be NULL if not an LSST discovery. The date format will follow
-      general LSST conventions (MJD TAI, at the moment).
+    nullable: false
+    ivoa:ucd: meta.number;obs
+  - name: arc
+    description: 'Timespan ("arc") of all LSST observations, t_{last} - t_{first}'
+    datatype: float
+    nullable: false
+    ivoa:unit: d
+    ivoa:ucd: time.duration;obs
+  - name: firstObservationMjdTai
+    description: The time of the first LSST observation of this object (could be precovered), TAI.
     datatype: double
     ivoa:unit: d
+    ivoa:ucd: time.epoch;obs
+# DP2 DISABLED: we will not deliver this for DP2.  The list of Rubin
+# discoveries will be in flux early in the survey.  Due to the long lead
+# time between freezing the input data and the release, what we write into
+# here may change significantly by the time DP2 is released.  Users
+# interested in this can easily pull it from the MPC (or the PPDB) at the
+# time of DP2 release.
+#
+#  - name: discoverySubmissionDate
+#    description: The date the LSST first submitted the discovery observations to the MPC. NULL if not an LSST discovery. TAI.
+#    datatype: double
+#    ivoa:unit: d
+#    ivoa:ucd: time.epoch
+
+  - name: MOIDEarth
+    description: Minimum orbit intersection distance to Earth.
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.distance;src.orbital
+  - name: MOIDEarthDeltaV
+    description: DeltaV at the MOID point.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc.orbital
+  - name: MOIDEarthEclipticLongitude
+    description: "Ecliptic longitude of the MOID point (Earth's orbit)."
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lon
+  - name: MOIDEarthTrueAnomaly
+    description: "True anomaly of the MOID point on Earth's orbit."
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+  - name: MOIDEarthTrueAnomalyObject
+    description: "True anomaly of the MOID point on the object's orbit."
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;src.orbital
+
+  - name: tisserand_J
+    description: Tisserand parameter with respect to Jupiter (T_J).
+    datatype: float
+    ivoa:ucd: src.orbital.TissJ
+
+  - name: extendednessMax
+    description: Maximum `extendedness` value from the DiaSource.
+    datatype: float
+  - name: extendednessMedian
+    description: Median `extendedness` value from the DiaSource.
+    datatype: float
+  - name: extendednessMin
+    description: Minimum `extendedness` value from the DiaSource.
+    datatype: float
+
+  - name: u_nObs
+    description: Total number of data points (u band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: u_H
+    description: Best fit absolute magnitude (u band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: u_HErr
+    description: Error in the estimate of H (u band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: u_G12
+    description: Best fit G12 slope parameter (u band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: u_G12Err
+    description: Error in the estimate of G12 (u band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: u_H_u_G12_Cov
+    description: H–G12 covariance (u band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: u_nObsUsed
+    description: The number of data points used to fit the phase curve (u band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: u_Chi2
+    description: Chi^2 statistic of the phase curve fit (u band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: u_phaseAngleMin
+    description: Minimum phase angle observed (u band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: u_phaseAngleMax
+    description: Maximum phase angle observed (u band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: u_slope_fit_failed
+    description: G12 fit failed in u band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: g_nObs
+    description: Total number of data points (g band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: g_H
+    description: Best fit absolute magnitude (g band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: g_HErr
+    description: Error in the estimate of H (g band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: g_G12
+    description: Best fit G12 slope parameter (g band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: g_G12Err
+    description: Error in the estimate of G12 (g band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: g_H_g_G12_Cov
+    description: H–G12 covariance (g band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: g_nObsUsed
+    description: The number of data points used to fit the phase curve (g band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: g_Chi2
+    description: Chi^2 statistic of the phase curve fit (g band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: g_phaseAngleMin
+    description: Minimum phase angle observed (g band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: g_phaseAngleMax
+    description: Maximum phase angle observed (g band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: g_slope_fit_failed
+    description: G12 fit failed in g band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: r_nObs
+    description: Total number of data points (r band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: r_H
+    description: Best fit absolute magnitude (r band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: r_HErr
+    description: Error in the estimate of H (r band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: r_G12
+    description: Best fit G12 slope parameter (r band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: r_G12Err
+    description: Error in the estimate of G12 (r band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: r_H_r_G12_Cov
+    description: H–G12 covariance (r band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: r_nObsUsed
+    description: The number of data points used to fit the phase curve (r band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: r_Chi2
+    description: Chi^2 statistic of the phase curve fit (r band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: r_phaseAngleMin
+    description: Minimum phase angle observed (r band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: r_phaseAngleMax
+    description: Maximum phase angle observed (r band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: r_slope_fit_failed
+    description: G12 fit failed in r band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: i_nObs
+    description: Total number of data points (i band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: i_H
+    description: Best fit absolute magnitude (i band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: i_HErr
+    description: Error in the estimate of H (i band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: i_G12
+    description: Best fit G12 slope parameter (i band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: i_G12Err
+    description: Error in the estimate of G12 (i band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: i_H_i_G12_Cov
+    description: H–G12 covariance (i band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: i_nObsUsed
+    description: The number of data points used to fit the phase curve (i band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: i_Chi2
+    description: Chi^2 statistic of the phase curve fit (i band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: i_phaseAngleMin
+    description: Minimum phase angle observed (i band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: i_phaseAngleMax
+    description: Maximum phase angle observed (i band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: i_slope_fit_failed
+    description: G12 fit failed in i band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: z_nObs
+    description: Total number of data points (z band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: z_H
+    description: Best fit absolute magnitude (z band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: z_HErr
+    description: Error in the estimate of H (z band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: z_G12
+    description: Best fit G12 slope parameter (z band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: z_G12Err
+    description: Error in the estimate of G12 (z band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: z_H_z_G12_Cov
+    description: H–G12 covariance (z band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: z_nObsUsed
+    description: The number of data points used to fit the phase curve (z band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: z_Chi2
+    description: Chi^2 statistic of the phase curve fit (z band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: z_phaseAngleMin
+    description: Minimum phase angle observed (z band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: z_phaseAngleMax
+    description: Maximum phase angle observed (z band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: z_slope_fit_failed
+    description: G12 fit failed in z band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: y_nObs
+    description: Total number of data points (y band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: y_H
+    description: Best fit absolute magnitude (y band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: y_HErr
+    description: Error in the estimate of H (y band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: y_G12
+    description: Best fit G12 slope parameter (y band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: y_G12Err
+    description: Error in the estimate of G12 (y band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: y_H_y_G12_Cov
+    description: H–G12 covariance (y band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: y_nObsUsed
+    description: The number of data points used to fit the phase curve (y band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: y_Chi2
+    description: Chi^2 statistic of the phase curve fit (y band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: y_phaseAngleMin
+    description: Minimum phase angle observed (y band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: y_phaseAngleMax
+    description: Maximum phase angle observed (y band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: y_slope_fit_failed
+    description: G12 fit failed in y band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+  constraints:
+  - name: fk_SSObject_mpc_orbits
+    description: Link an SSObject to its associated mpc_orbits
+    '@type': ForeignKey
+    columns:
+    - '#SSObject.designation'
+    referencedColumns:
+    - '#mpc_orbits.designation'
+
+
   indexes:
   - name: idx_SSObject_ssObjectId
     description: Unique index on the ssObjectId column
     columns:
     - "#SSObject.ssObjectId"
+  - name: idx_SSObject_designation
+    description: >-
+      Unique index on the designation column
+    columns:
+    - "#SSObject.designation"
+  - name: idx_SSObject_MOIDEarth
+    description: Index on the MOIDEarth column
+    columns:
+    - "#SSObject.MOIDEarth"
+
 - name: SSSource
   description: LSST-computed per-source quantities. 1:1 relationship with DiaSource.
   tap:table_index: 120
   primaryKey: '#SSSource.diaSourceId'
+
   columns:
-  - name: phaseAngle
-    description: Phase angle
-    datatype: float
-    ivoa:unit: deg
-  - name: heliocentricDist
-    description: Heliocentric distance
-    datatype: float
-    ivoa:unit: AU
-  - name: topocentricDist
-    description: Topocentric distace
-    datatype: float
-    ivoa:unit: AU
-  - name: heliocentricX
-    description: Cartesian heliocentric X coordinate (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: heliocentricY
-    description: Cartesian heliocentric Y coordinate (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: heliocentricZ
-    description: Cartesian heliocentric Z coordinate (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: heliocentricVX
-    description: Cartesian heliocentric X velocity (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: heliocentricVY
-    description: Cartesian heliocentric Y velocity (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: heliocentricVZ
-    description: Cartesian heliocentric Z velocity (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: topocentricX
-    description: Cartesian topocentric X coordinate (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: topocentricY
-    description: Cartesian topocentric Y coordinate (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: topocentricZ
-    description: Cartesian topocentric Z coordinate (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: topocentricVX
-    description: Cartesian topocentric X velocity (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: topocentricVY
-    description: Cartesian topocentric Y velocity (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: topocentricVZ
-    description: Cartesian topocentric Z velocity (at the emit time)
-    datatype: float
-    ivoa:unit: AU
-  - name: ssObjectId
-    description: Unique identifier of the object.
-    datatype: long
-    ivoa:ucd: meta.id;src
-  - name: residualRa
-    description: Residual R.A. vs. ephemeris
-    datatype: double
-    ivoa:unit: deg
-  - name: residualDec
-    description: Residual Dec vs. ephemeris
-    datatype: double
-    ivoa:unit: deg
   - name: diaSourceId
-    description: Unique identifier of the observation
+    description: Unique identifier of the observation (matching DiaSource.diaSourceId).
     datatype: long
+    nullable: false
     ivoa:ucd: meta.id;src
-  - name: galacticL
-    description: Galactic longitude
+  - name: ssObjectId
+    description: Unique LSST identifier of the Solar System object.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: designation
+    description: The unpacked primary provisional designation for this object.
+    datatype: char
+    length: 16
+    ivoa:ucd: meta.id;src
+
+
+  - name: eclLambda
+    description: Ecliptic longitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lon
+  - name: eclBeta
+    description: Ecliptic latitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lat
+
+  - name: galLon
+    description: Galactic longitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.galactic.lon
+  - name: galLat
+    description: Galactic latitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.galactic.lat
+
+  - name: elongation
+    description: Solar elongation of the object at the time of observation.
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+  - name: phaseAngle
+    description: Phase angle between the Sun, object, and observer.
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+
+  - name: topoRange
+    description: Topocentric distance (delta) at light-emission time.
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.distance
+  - name: topoRangeRate
+    description: Topocentric radial (line-of-sight) velocity (deldot); positive values indicate motion away from the observer.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc
+
+  - name: helioRange
+    description: Heliocentric distance (r) at light-emission time.
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.distance;pos.heliocentric
+  - name: helioRangeRate
+    description: Heliocentric radial velocity (rdot); positive values indicate motion away from the Sun.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.heliocentric
+
+  - name: ephRa
+    description: Predicted ICRS right ascension from the orbit in mpc_orbits.
     datatype: double
     ivoa:unit: deg
-  - name: galacticB
-    description: Galactic latitute
+    ivoa:ucd: pos.eq.ra;meta.modelled;pos.ephem
+  - name: ephDec
+    description: Predicted ICRS declination from the orbit in mpc_orbits.
     datatype: double
     ivoa:unit: deg
-  - name: eclipticLambda
-    description: Ecliptic longitude
+    ivoa:ucd: pos.eq.dec;meta.modelled;pos.ephem
+  - name: ephVmag
+    description: >
+      Predicted magnitude in V band, computed from mpc_orbits data including
+      the mpc_orbits-provided (H, G) estimates
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag;em.opt.V
+
+  - name: ephRate
+    description: Total predicted on-sky angular rate of motion.
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.ephem
+  - name: ephRateRa
+    description: Predicted on-sky angular rate in the R.A. direction (includes the cos(dec) factor).
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.eq.ra;pos.ephem
+  - name: ephRateDec
+    description: Predicted on-sky angular rate in the declination direction.
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.eq.dec;pos.ephem
+
+  - name: ephOffset
+    description: Total observed versus predicted angular separation on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+  - name: ephOffsetRa
+    description: Offset between observed and predicted position in the R.A. direction (includes cos(dec) term).
     datatype: double
-    ivoa:unit: deg
-  - name: eclipticBeta
-    description: Ecliptic latitude
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.eq.ra;stat.fit.omc
+  - name: ephOffsetDec
+    description: Offset between observed and predicted position in declination.
     datatype: double
-    ivoa:unit: deg
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.eq.dec;stat.fit.omc
+  - name: ephOffsetAlongTrack
+    description: Offset between observed and predicted position in the along-track direction on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+  - name: ephOffsetCrossTrack
+    description: Offset between observed and predicted position in the cross-track direction on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+
+
+  - name: helio_x
+    description: Cartesian heliocentric X coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.x;pos.heliocentric
+  - name: helio_y
+    description: Cartesian heliocentric Y coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.y;pos.heliocentric
+  - name: helio_z
+    description: Cartesian heliocentric Z coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.z;pos.heliocentric
+  - name: helio_vx
+    description: Cartesian heliocentric X velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.x
+  - name: helio_vy
+    description: Cartesian heliocentric Y velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.y
+  - name: helio_vz
+    description: Cartesian heliocentric Z velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.z
+  - name: helio_vtot
+    description: "The magnitude of the heliocentric velocity vector, sqrt(vx*vx + vy*vy + vz*vz)."
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.heliocentric
+
+  - name: topo_x
+    description: Cartesian topocentric X coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.x
+  - name: topo_y
+    description: Cartesian topocentric Y coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.y
+  - name: topo_z
+    description: Cartesian topocentric Z coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.z
+  - name: topo_vx
+    description: Cartesian topocentric X velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.x
+  - name: topo_vy
+    description: Cartesian topocentric Y velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.y
+  - name: topo_vz
+    description: Cartesian topocentric Z velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.z
+  - name: topo_vtot
+    description: "The magnitude of the topocentric velocity vector, sqrt(vx*vx + vy*vy + vz*vz)."
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc
+
+  - name: diaDistanceRank
+    description: >-
+      The rank of the diaSourceId-identified source in terms of its
+      closeness to the predicted SSO position.  If diaSourceId is the
+      nearest DiaSource to this SSO prediction, diaSourceDistanceRank=1
+      would be set. If it is the second nearest, it would be 2, etc.
+    datatype: int
+
+
   constraints:
   - name: fk_SSSource_DiaSource
     description: Link an SSSource to its associated DiaSource
@@ -6911,6 +7424,7 @@ tables:
     - '#SSSource.diaSourceId'
     referencedColumns:
     - '#DiaSource.diaSourceId'
+
   - name: fk_SSSource_SSObject
     description: Link an SSObject to its associated SSSources
     '@type': ForeignKey
@@ -6918,19 +7432,462 @@ tables:
     - '#SSSource.ssObjectId'
     referencedColumns:
     - '#SSObject.ssObjectId'
+
+  - name: fk_SSSource_mpc_orbits
+    description: Link an SSSource to its associated mpc_orbits
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.designation'
+    referencedColumns:
+    - '#mpc_orbits.designation'
+
   indexes:
   - name: idx_SSSource_diaSourceId
-    description: Unique index on the diaSourceId column; accelerates joins between DiaSource and SSSource
+    description: >
+      Unique index on the diaSourceId column; accelerates joins between
+      DiaSource and SSSource.
     columns:
     - "#SSSource.diaSourceId"
+
   - name: idx_SSSource_ssObjectId
-    description: Non-unique index on the ssObjectId column; accelerates retrieval of single-epoch data for SSObjects
+    description: >
+      Non-unique index on the ssObjectId column; accelerates retrieval of
+      single-epoch data for SSObjects.
     columns:
     - "#SSSource.ssObjectId"
+  - name: idx_SSSource_designation
+    description: >
+      Non-unique index on the designation column; accelerates retrieval of
+      single-epoch data for SSObjects.
+    columns:
+    - "#SSSource.designation"
+
+- name: mpc_orbits
+  description: Table of orbital elements and related information of known (sun-orbiting and unbound) Solar
+    System objects. Replicated from the Minor Planet Center (Postgres) database. This schema will
+    generally closely follow the schema of the upstream table, to allow end-users to rerun queries
+    developed elsewhere on the RSP.
+  tap:table_index: 130
+  primaryKey: '#mpc_orbits.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: designation
+    # Note: the 'designation' column is a Rubin-provided copy of the
+    # unpacked_primary_provisional_designation column to work around UX issues.
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB).
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: mpc_orb_jsonb
+    description: Details of the orbit solution in JSON form
+    datatype: text
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  - name: orbit_type_int
+    description: Orbit Type (Integer)
+    datatype: int
+  - name: u_param
+    description: U parameter
+    datatype: int
+  - name: nopp
+    description: number of oppositions
+    datatype: int
+  - name: arc_length_total
+    description: "Arc length over total observations [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: arc_length_sel
+    description: "Arc length over total observations *selected* [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: nobs_total
+    description: Total number of all observations (optical + radar) available
+    datatype: int
+  - name: nobs_total_sel
+    description: Total number of all observations (optical + radar) selected for use in orbit fitting
+    datatype: int
+  - name: a
+    description: "Semi Major Axis [au]"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: q
+    description: "Pericenter Distance [au]"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: e
+    description: "Eccentricity"
+    datatype: double
+    ivoa:ucd: src.orbital.eccentricity
+  - name: i
+    description: "Inclination [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.inclination
+    ivoa:unit: deg
+  - name: node
+    description: "Longitude of Ascending Node [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.node
+    ivoa:unit: deg
+  - name: argperi
+    description: "Argument of Pericenter [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.periastron
+    ivoa:unit: deg
+  - name: peri_time
+    description: "Time from Pericenter Passage [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: yarkovsky
+    description: "Yarkovsky Component [10^(-10)*au/day^2]"
+    datatype: double
+    ivoa:unit: 1e-10.au.d-2
+  - name: srp
+    description: "Solar-Radiation Pressure Component [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a1
+    description: "A1 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a2
+    description: "A2 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a3
+    description: "A3 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: dt
+    description: DT non-grav component
+    datatype: double
+  - name: mean_anomaly
+    description: "Mean Anomaly [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.meanAnomaly
+    ivoa:unit: deg
+  - name: period
+    description: "Orbital Period [days]"
+    datatype: double
+    ivoa:ucd: time.period.revolution;src.orbital
+    ivoa:unit: d
+  - name: mean_motion
+    description: "Orbital Mean Motion [degrees per day]"
+    datatype: double
+    ivoa:ucd: src.orbital.meanMotion
+    ivoa:unit: deg.d-1
+  - name: a_unc
+    description: "Uncertainty on Semi Major Axis [au]"
+    datatype: double
+    ivoa:ucd: stat.error;pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: q_unc
+    description: "Uncertainty on Pericenter Distance [au]"
+    datatype: double
+    ivoa:ucd: stat.error;pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: e_unc
+    description: "Uncertainty on Eccentricity"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.eccentricity
+  - name: i_unc
+    description: "Uncertainty on Inclination [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.inclination
+    ivoa:unit: deg
+  - name: node_unc
+    description: "Uncertainty on Longitude of Ascending Node [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.node
+    ivoa:unit: deg
+  - name: argperi_unc
+    description: "Uncertainty on Argument of Pericenter [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.periastron
+    ivoa:unit: deg
+  - name: peri_time_unc
+    description: "Uncertainty on Time from Pericenter Passage [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: yarkovsky_unc
+    description: "Uncertainty on Yarkovsky Component [10^(-10)*au/day^2]"
+    datatype: double
+    ivoa:unit: 1e-10.au.d-2
+  - name: srp_unc
+    description: "Uncertainty on Solar-Radiation Pressure Component [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a1_unc
+    description: "Uncertainty on A1 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a2_unc
+    description: "Uncertainty on A2 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a3_unc
+    description: "Uncertainty on A3 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: dt_unc
+    description: Uncertainty on DT non-grav component
+    datatype: double
+  - name: mean_anomaly_unc
+    description: "Uncertainty on Mean Anomaly [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.meanAnomaly
+    ivoa:unit: deg
+  - name: period_unc
+    description: "Uncertainty on Orbital Period [days]"
+    datatype: double
+    ivoa:ucd: stat.error;time.period.revolution;src.orbital
+    ivoa:unit: d
+  - name: mean_motion_unc
+    description: "Uncertainty on Orbital Mean Motion [degrees per day]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.meanMotion
+    ivoa:unit: deg.d-1
+  - name: epoch_mjd
+    description: Epoch of the Orbfit-Solution in MJD
+    datatype: double
+    ivoa:ucd: time.epoch;src.orbital
+    ivoa:unit: d
+  - name: h
+    description: H-Magnitude
+    datatype: double
+    ivoa:ucd: phys.magAbs
+    ivoa:unit: mag
+  - name: g
+    description: G-Slope Parameter
+    datatype: double
+  - name: not_normalized_rms
+    description: "unnormalized rms of the fit [arcsec]"
+    datatype: double
+    ivoa:ucd: stat.rms;stat.fit
+    ivoa:unit: arcsec
+  - name: normalized_rms
+    description: "rms of the fit [unitless]"
+    datatype: double
+    ivoa:ucd: stat.rms;stat.fit
+  - name: earth_moid
+    description: "Minimum Orbit Intersection Distance [au] with respect to the Earths Orbit"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: fitting_datetime
+    description: Date of the last orbit fit
+    datatype: timestamp
+    precision: 6
+  constraints:
+  - name: unique_mpc_orbits_unpacked_primary_provisional_designation
+    description: Uniqueness of unpacked_primary_provisional_designation
+    '@type': Unique
+    columns:
+    - '#mpc_orbits.unpacked_primary_provisional_designation'
+  - name: unique_mpc_orbits_designation
+    description: Uniqueness of designation
+    '@type': Unique
+    columns:
+    - '#mpc_orbits.designation'
+  indexes:
+  - name: idx_mpc_orbits_packed_primary_provisional_designation
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#mpc_orbits.packed_primary_provisional_designation'
+  - name: idx_mpc_orbits_unpacked_primary_provisional_designation
+    description: Unique index on the unpacked_primary_provisional_designation column
+    columns:
+    - '#mpc_orbits.unpacked_primary_provisional_designation'
+  - name: idx_mpc_orbits_designation
+    description: Unique index on the designation column
+    columns:
+    - '#mpc_orbits.designation'
+
+- name: current_identifications
+  description: All single-designations, and all identifications between designations. Always uses primary
+    provisional designation (even for numbered objects). Includes all comets and satellites.
+    Replicated from the Minor Planet Center (Postgres) database. This schema will generally closely
+    follow the schema of the upstream table, to allow end-users to rerun queries developed
+    elsewhere on the RSP.
+  tap:table_index: 140
+  primaryKey: '#current_identifications.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_secondary_provisional_designation
+    description: The secondary provisional designation in packed form (e.g. K08A00B). May be the same-as (A=A)
+      or different-to (A=B) the primary provisional designation
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_secondary_provisional_designation
+    description: The secondary provisional designation in unpacked form (e.g. 2008 AB). May be the same-as
+      (A=A) or different-to (A=B) the primary provisional designation
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: published
+    description: Has this been published yet? i.e. has it been released to the public?
+    datatype: boolean
+    ivoa:ucd: meta.code.status;meta.dataset
+  - name: identifier_ids
+    description: This is a set of unique identifier_ids in an array that points to the identification_metadata
+      table.
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: object_type
+    description: Integer to indicate the object type. To be linked (foreign key) to object_type lookup table
+    datatype: int
+  - name: numbered
+    description: Has the object been numbered and hence does it appear in the numbered_objects table?
+    datatype: boolean
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  indexes:
+  - name: idx_current_identifications_packed_primary_provisional_desig
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#current_identifications.packed_primary_provisional_designation'
+  - name: idx_current_identifications_packed_secondary_provisional_desig
+    description: Unique index on the packed_secondary_provisional_designation column
+    columns:
+    - '#current_identifications.packed_secondary_provisional_designation'
+
+- name: numbered_identifications
+  description: The numbered identification table contains all the numbered objects (minor planets, comets and
+    natural satellites) with their primary provisional designations. The table is continously
+    updated everytime a new object is numbered. Replicated from the Minor Planet Center (Postgres)
+    database. This schema will generally closely follow the schema of the upstream table, to allow
+    end-users to rerun queries developed elsewhere on the RSP.
+  tap:table_index: 150
+  primaryKey: '#numbered_identifications.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: permid
+    description: Permanent designation (number)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: iau_designation
+    description: IAU-approved designation (not filled at the moment)
+    datatype: text
+    ivoa:ucd: meta.id;src
+  - name: iau_name
+    description: IAU-approved name (not filled at the moment)
+    datatype: char
+    length: 32
+    ivoa:ucd: meta.id;src
+  - name: numbered_publication_references
+    description: MPEC where this object was numbered
+    datatype: text
+    ivoa:ucd: meta.bib.bibcode
+  - name: named_publication_references
+    description: MPEC where this object was named
+    datatype: text
+    ivoa:ucd: meta.bib.bibcode
+  - name: naming_credit
+    description: Credit for suggesting the name
+    datatype: text
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  indexes:
+  - name: idx_numbered_identifications_iau_name
+    description: Unique index on the iau_name column
+    columns:
+    - '#numbered_identifications.iau_name'
+  - name: idx_numbered_identifications_packed_primary_provisional_desig
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#numbered_identifications.packed_primary_provisional_designation'
+  - name: idx_numbered_identifications_permid
+    description: Unique index on the permid column
+    columns:
+    - '#numbered_identifications.permid'
+  - name: idx_numbered_identifications_unpacked_primary_provisional_desig
+    description: Unique index on the unpacked_primary_provisional_designation column
+    columns:
+    - '#numbered_identifications.unpacked_primary_provisional_designation'
 
 - name: Parent
   description: "Descriptions of the parent objects in the deblending hierarchy."
-  tap:table_index: 130
+  tap:table_index: 160
   primaryKey: '#Parent.objectId'
   columns:
   - name: objectId
