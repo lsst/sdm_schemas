@@ -6958,21 +6958,25 @@ tables:
   - name: deblend_skipped
     description: Deblender skipped this source
     datatype: boolean
-  - name: deblend_isolatedParent
+  - name: deblend_skipped_isolatedParent
     description: Deblender skipped this footprint because there was only a single
       peak
     datatype: boolean
-  - name: deblend_parentTooBig
+  - name: deblend_skipped_parentTooBig
     description: Deblender skipped this source because the parent footprint was too
       large.
     datatype: boolean
-  - name: deblend_tooManyPeaks
+  - name: deblend_skipped_tooManyPeaks
     description: Deblender skipped this source because there were too many peaks in
       the Footprint.
     datatype: boolean
-  - name: deblend_masked
+  - name: deblend_skipped_masked
     description: Deblender skipped this source because there were too many masked
       pixels.
+    datatype: boolean
+  - name: deblend_skipped_isPseudo
+    description: Deblender skipped this source because it was marked as a pseudo
+      source like a sky object.
     datatype: boolean
   - name: deblend_incompleteData
     description: One or more bands were not deblended due to an inability to model
