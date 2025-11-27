@@ -1657,10 +1657,10 @@ tables:
     datatype: float
     description: RMS of PSF FWHM after trendline is subtracted.
     ivoa:unit: arcsec
-  - name: guider_t_mean
-    "@id": "#visit1_quicklook.guider_t_mean"
+  - name: guider_psf_fwhm
+    "@id": "#visit1_quicklook.guider_psf_fwhm"
     datatype: float
-    description: Mean second moment T for all measurements over the exposure.
+    description: Mean PSF FWHM for all measurements over the exposure.
     ivoa:unit: arcsec2
   - name: guider_e1_mean
     "@id": "#visit1_quicklook.guider_e1_mean"
