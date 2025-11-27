@@ -1538,13 +1538,24 @@ tables:
   - name: guider_exp_time
     "@id": "#visit1_quicklook.guider_exp_time"
     datatype: float
-    description: Guider exposure time.
+    description: Total guider exposure time across all stamps.
     ivoa:ucd: time.interval
     ivoa:unit: s
-  - name: guider_roi_size
-    "@id": "#visit1_quicklook.guider_roi_size"
+  - name: guider_stamp_exp_time
+    "@id": "#visit1_quicklook.guider_stamp_exp_time"
     datatype: float
-    description: Length of guider ROI side in pixels.
+    description: The delivered guider exposure time for a single stamp.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+  - name: guider_roi_cols
+    "@id": "#visit1_quicklook.guider_roi_cols"
+    datatype: float
+    description: Number of columns in the guider ROI, in pixels.
+    ivoa:unit: pixel
+  - name: guider_roi_rows
+    "@id": "#visit1_quicklook.guider_roi_rows"
+    datatype: float
+    description: Number of rows in the guider ROI, in pixels.
     ivoa:unit: pixel
   - name: guider_n_tracked_stars
     "@id": "#visit1_quicklook.guider_n_tracked_stars"
