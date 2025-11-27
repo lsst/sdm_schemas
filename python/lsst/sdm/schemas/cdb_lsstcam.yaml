@@ -1547,6 +1547,16 @@ tables:
     description: The delivered guider exposure time for a single stamp.
     ivoa:ucd: time.interval
     ivoa:unit: s
+  - name: guider_n_stamps_expected
+    "@id": "#visit1_quicklook.guider_n_stamps_expected"
+    datatype: int
+    description: Number of expected guider stamps.
+    ivoa:unit: count
+  - name: guider_n_stamps_delivered
+    "@id": "#visit1_quicklook.guider_n_stamps_delivered"
+    datatype: int
+    description: Number of delivered guider stamps.
+    ivoa:unit: count
   - name: guider_roi_cols
     "@id": "#visit1_quicklook.guider_roi_cols"
     datatype: float
