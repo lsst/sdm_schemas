@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LSSTCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, the primary instrument for the Legacy Survey of Space and Time.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "1.5.0"
+  current: "1.6.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -1661,7 +1661,7 @@ tables:
     "@id": "#visit1_quicklook.guider_psf_fwhm"
     datatype: float
     description: Mean PSF FWHM for all measurements over the exposure.
-    ivoa:unit: arcsec2
+    ivoa:unit: arcsec
   - name: guider_e1_mean
     "@id": "#visit1_quicklook.guider_e1_mean"
     datatype: float
