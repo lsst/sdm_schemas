@@ -1,492 +1,404 @@
 ---
 name: "ApdbSchema"
-"@id": "#apdbSchema"
 version: "9.1.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
 tables:
 - name: metadata
-  "@id": "#metadata"
   description: Table containing various metadata key:value pairs for APDB.
   columns:
   - name: name
-    "@id": "#metadata.name"
     datatype: text
     nullable: false
     description: Name or key for a metadata item.
     mysql:datatype: VARCHAR(64)  # DO NOT REMOVE: This is needed to make MySQL happy in CI.
   - name: value
-    "@id": "#metadata.value"
     datatype: text
     nullable: false
     description: Content of the metadata item in string representation.
   primaryKey: "#metadata.name"
 - name: DiaObject
-  "@id": "#DiaObject"
   description: The DiaObject table contains descriptions of the astronomical objects
     detected on one or more difference images.
   columns:
   - name: diaObjectId
-    "@id": "#DiaObject.diaObjectId"
     datatype: long
     nullable: false
     description: Unique identifier of this DiaObject.
     ivoa:ucd: meta.id;src
   - name: validityStartMjdTai
-    "@id": "#DiaObject.validityStartMjdTai"
     datatype: double
     nullable: false
     description: Processing time when validity of this diaObject starts,
       expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: validityEndMjdTai
-    "@id": "#DiaObject.validityEndMjdTai"
     datatype: double
     nullable: true
     description: Processing time when validity of this diaObject ends,
       expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: ra
-    "@id": "#DiaObject.ra"
     datatype: double
     nullable: false
     description: Right ascension coordinate of the position of the object.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: raErr
-    "@id": "#DiaObject.raErr"
     datatype: float
     description: Uncertainty of ra.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
-    "@id": "#DiaObject.dec"
     datatype: double
     nullable: false
     description: Declination coordinate of the position of the object.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: decErr
-    "@id": "#DiaObject.decErr"
     datatype: float
     description: Uncertainty of dec.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
-    "@id": "#DiaObject.ra_dec_Cov"
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg**2
   - name: u_psfFluxMean
-    "@id": "#DiaObject.u_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for u filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: u_psfFluxMeanErr
-    "@id": "#DiaObject.u_psfFluxMeanErr"
     datatype: float
     description: Standard error of u_psfFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: u_psfFluxSigma
-    "@id": "#DiaObject.u_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of u_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: u_psfFluxNdata
-    "@id": "#DiaObject.u_psfFluxNdata"
     datatype: int
     description: The number of u-band data points.
   - name: u_fpFluxMean
-    "@id": "#DiaObject.u_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: u_fpFluxMeanErr
-    "@id": "#DiaObject.u_fpFluxMeanErr"
     datatype: float
     description: Standard error of u_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: g_psfFluxMean
-    "@id": "#DiaObject.g_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for g filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: g_psfFluxMeanErr
-    "@id": "#DiaObject.g_psfFluxMeanErr"
     datatype: float
     description: Standard error of g_psfFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: g_psfFluxSigma
-    "@id": "#DiaObject.g_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of g_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: g_psfFluxNdata
-    "@id": "#DiaObject.g_psfFluxNdata"
     datatype: int
     description: The number of g-band data points.
   - name: g_fpFluxMean
-    "@id": "#DiaObject.g_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: g_fpFluxMeanErr
-    "@id": "#DiaObject.g_fpFluxMeanErr"
     datatype: float
     description: Standard error of g_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: r_psfFluxMean
-    "@id": "#DiaObject.r_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for r filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: r_psfFluxMeanErr
-    "@id": "#DiaObject.r_psfFluxMeanErr"
     datatype: float
     description: Standard error of r_psfFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: r_psfFluxSigma
-    "@id": "#DiaObject.r_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of r_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: r_psfFluxNdata
-    "@id": "#DiaObject.r_psfFluxNdata"
     datatype: int
     description: The number of r-band data points.
   - name: r_fpFluxMean
-    "@id": "#DiaObject.r_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: r_fpFluxMeanErr
-    "@id": "#DiaObject.r_fpFluxMeanErr"
     datatype: float
     description: Standard error of r_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: i_psfFluxMean
-    "@id": "#DiaObject.i_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for i filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: i_psfFluxMeanErr
-    "@id": "#DiaObject.i_psfFluxMeanErr"
     datatype: float
     description: Standard error of i_psfFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: i_psfFluxSigma
-    "@id": "#DiaObject.i_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of i_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: i_psfFluxNdata
-    "@id": "#DiaObject.i_psfFluxNdata"
     datatype: int
     description: The number of i-band data points.
   - name: i_fpFluxMean
-    "@id": "#DiaObject.i_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: i_fpFluxMeanErr
-    "@id": "#DiaObject.i_fpFluxMeanErr"
     datatype: float
     description: Standard error of i_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: z_psfFluxMean
-    "@id": "#DiaObject.z_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for z filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: z_psfFluxMeanErr
-    "@id": "#DiaObject.z_psfFluxMeanErr"
     datatype: float
     description: Standard error of z_psfFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: z_psfFluxSigma
-    "@id": "#DiaObject.z_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of z_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: z_psfFluxNdata
-    "@id": "#DiaObject.z_psfFluxNdata"
     datatype: int
     description: The number of z-band data points.
   - name: z_fpFluxMean
-    "@id": "#DiaObject.z_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: z_fpFluxMeanErr
-    "@id": "#DiaObject.z_fpFluxMeanErr"
     datatype: float
     description: Standard error of z_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: y_psfFluxMean
-    "@id": "#DiaObject.y_psfFluxMean"
     datatype: float
     description: Weighted mean point-source model magnitude for y filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: y_psfFluxMeanErr
-    "@id": "#DiaObject.y_psfFluxMeanErr"
     datatype: float
     description: Standard error of y_psfFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: y_psfFluxSigma
-    "@id": "#DiaObject.y_psfFluxSigma"
     datatype: float
     description: Standard deviation of the distribution of y_psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.stdev
   - name: y_psfFluxNdata
-    "@id": "#DiaObject.y_psfFluxNdata"
     datatype: int
     description: The number of y-band data points.
   - name: y_fpFluxMean
-    "@id": "#DiaObject.y_fpFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: y_fpFluxMeanErr
-    "@id": "#DiaObject.y_fpFluxMeanErr"
     datatype: float
     description: Standard error of y_fpFluxMean.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: u_scienceFluxMean
-    "@id": "#DiaObject.u_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: u_scienceFluxMeanErr
-    "@id": "#DiaObject.u_scienceFluxMeanErr"
     datatype: float
     description: Standard error of u_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
   - name: g_scienceFluxMean
-    "@id": "#DiaObject.g_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: g_scienceFluxMeanErr
-    "@id": "#DiaObject.g_scienceFluxMeanErr"
     datatype: float
     description: Standard error of g_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
   - name: r_scienceFluxMean
-    "@id": "#DiaObject.r_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: r_scienceFluxMeanErr
-    "@id": "#DiaObject.r_scienceFluxMeanErr"
     datatype: float
     description: Standard error of r_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
   - name: i_scienceFluxMean
-    "@id": "#DiaObject.i_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: i_scienceFluxMeanErr
-    "@id": "#DiaObject.i_scienceFluxMeanErr"
     datatype: float
     description: Standard error of i_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
   - name: z_scienceFluxMean
-    "@id": "#DiaObject.z_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: z_scienceFluxMeanErr
-    "@id": "#DiaObject.z_scienceFluxMeanErr"
     datatype: float
     description: Standard error of z_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
   - name: y_scienceFluxMean
-    "@id": "#DiaObject.y_scienceFluxMean"
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: y_scienceFluxMeanErr
-    "@id": "#DiaObject.y_scienceFluxMeanErr"
     datatype: float
     description: Standard error of y_scienceFluxMean.
     ivoa:ucd: stat.error
     fits:tunit: nJy
   - name: u_psfFluxMin
-    "@id": "#DiaObject.u_psfFluxMin"
     datatype: float
     description: Minimum observed u band fluxes.
     fits:tunit: nJy
   - name: u_psfFluxMax
-    "@id": "#DiaObject.u_psfFluxMax"
     datatype: float
     description: Maximum observed u band fluxes.
     fits:tunit: nJy
   - name: u_psfFluxMaxSlope
-    "@id": "#DiaObject.u_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between u band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/d
   - name: u_psfFluxErrMean
-    "@id": "#DiaObject.u_psfFluxErrMean"
     datatype: float
     description: Mean of the u band flux errors.
     fits:tunit: nJy
   - name: g_psfFluxMin
-    "@id": "#DiaObject.g_psfFluxMin"
     datatype: float
     description: Minimum observed g band fluxes.
     fits:tunit: nJy
   - name: g_psfFluxMax
-    "@id": "#DiaObject.g_psfFluxMax"
     datatype: float
     description: Maximum observed g band fluxes.
     fits:tunit: nJy
   - name: g_psfFluxMaxSlope
-    "@id": "#DiaObject.g_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between g band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/d
   - name: g_psfFluxErrMean
-    "@id": "#DiaObject.g_psfFluxErrMean"
     datatype: float
     description: Mean of the g band flux errors.
     fits:tunit: nJy
   - name: r_psfFluxMin
-    "@id": "#DiaObject.r_psfFluxMin"
     datatype: float
     description: Minimum observed r band fluxes.
     fits:tunit: nJy
   - name: r_psfFluxMax
-    "@id": "#DiaObject.r_psfFluxMax"
     datatype: float
     description: Maximum observed r band fluxes.
     fits:tunit: nJy
   - name: r_psfFluxMaxSlope
-    "@id": "#DiaObject.r_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between r band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/d
   - name: r_psfFluxErrMean
-    "@id": "#DiaObject.r_psfFluxErrMean"
     datatype: float
     description: Mean of the r band flux errors.
     fits:tunit: nJy
   - name: i_psfFluxMin
-    "@id": "#DiaObject.i_psfFluxMin"
     datatype: float
     description: Minimum observed i band fluxes.
     fits:tunit: nJy
   - name: i_psfFluxMax
-    "@id": "#DiaObject.i_psfFluxMax"
     datatype: float
     description: Maximum observed i band fluxes.
     fits:tunit: nJy
   - name: i_psfFluxMaxSlope
-    "@id": "#DiaObject.i_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between i band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/d
   - name: i_psfFluxErrMean
-    "@id": "#DiaObject.i_psfFluxErrMean"
     datatype: float
     description: Mean of the i band flux errors.
     fits:tunit: nJy
   - name: z_psfFluxMin
-    "@id": "#DiaObject.z_psfFluxMin"
     datatype: float
     description: Minimum observed z band fluxes.
     fits:tunit: nJy
   - name: z_psfFluxMax
-    "@id": "#DiaObject.z_psfFluxMax"
     datatype: float
     description: Maximum observed z band fluxes.
     fits:tunit: nJy
   - name: z_psfFluxMaxSlope
-    "@id": "#DiaObject.z_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between z band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/d
   - name: z_psfFluxErrMean
-    "@id": "#DiaObject.z_psfFluxErrMean"
     datatype: float
     description: Mean of the z band flux errors.
     fits:tunit: nJy
   - name: y_psfFluxMin
-    "@id": "#DiaObject.y_psfFluxMin"
     datatype: float
     description: Minimum observed y band fluxes.
     fits:tunit: nJy
   - name: y_psfFluxMax
-    "@id": "#DiaObject.y_psfFluxMax"
     datatype: float
     description: Maximum observed y band fluxes.
     fits:tunit: nJy
   - name: y_psfFluxMaxSlope
-    "@id": "#DiaObject.y_psfFluxMaxSlope"
     datatype: float
     description: Maximum slope between y band flux obsevations max(delta_flux/delta_time).
     fits:tunit: nJy/d
   - name: y_psfFluxErrMean
-    "@id": "#DiaObject.y_psfFluxErrMean"
     datatype: float
     description: Mean of the y band flux errors.
     fits:tunit: nJy
   - name: firstDiaSourceMjdTai
-    "@id": "#DiaObject.firstDiaSourceMjdTai"
     datatype: double
     description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: lastDiaSourceMjdTai
-    "@id": "#DiaObject.lastDiaSourceMjdTai"
     datatype: double
     description: Time of the most recent non-forced DIASource for this object, expressed as
         Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: nDiaSources
-    "@id": "#DiaObject.nDiaSources"
     datatype: int
     nullable: false
     description: Total number of DiaSources associated with this DiaObject.
@@ -495,331 +407,30 @@ tables:
   - "#DiaObject.validityStartMjdTai"
   indexes:
   - name: IDX_DiaObject_validityStart
-    "@id": "#IDX_DiaObject_validityStartMjdTai"
     columns:
     - "#DiaObject.validityStartMjdTai"
-- name: SSObject
-  "@id": "#SSObject"
-  description: LSST-computed per-object quantities. 1:1 relationship with MPCORB.
-    Recomputed daily, upon MPCORB ingestion.
-  primaryKey: "#SSObject.ssObjectId"
-  columns:
-  - name: ssObjectId
-    "@id": "#SSObject.ssObjectId"
-    datatype: long
-    nullable: false
-    autoincrement: false
-    description: Unique identifier.
-    ivoa:ucd: meta.id;src
-  - name: discoverySubmissionDate
-    "@id": "#SSObject.discoverySubmissionDate"
-    datatype: double
-    description: The date the LSST first linked and submitted the discovery observations
-      to the MPC. May be NULL if not an LSST discovery. The date format will follow
-      general LSST conventions (MJD TAI, at the moment).
-    fits:tunit: d
-  - name: firstObservationDate
-    "@id": "#SSObject.firstObservationDate"
-    datatype: double
-    description: The time of the first LSST observation of this object (could be precovered)
-      as Modified Julian Date, International Atomic Time.
-    fits:tunit: d
-  - name: arc
-    "@id": "#SSObject.arc"
-    datatype: float
-    description: Arc of LSST observations.
-    fits:tunit: d
-  - name: numObs
-    "@id": "#SSObject.numObs"
-    datatype: int
-    description: Number of LSST observations of this object.
-  - name: lcPeriodic
-    "@id": "#SSObject.lcPeriodic"
-    datatype: binary
-    length: 768
-    description: Periodic light curve features computed on phase/distance-corrected
-      magnitudes (H), 6x32 floats.
-  - name: MOID
-    "@id": "#SSObject.MOID"
-    datatype: float
-    description: Minimum orbit intersection distance to Earth.
-    fits:tunit: AU
-  - name: MOIDTrueAnomaly
-    "@id": "#SSObject.MOIDTrueAnomaly"
-    datatype: float
-    description: True anomaly of the MOID point.
-    fits:tunit: deg
-  - name: MOIDEclipticLongitude
-    "@id": "#SSObject.MOIDEclipticLongitude"
-    datatype: float
-    description: Ecliptic longitude of the MOID point.
-    fits:tunit: deg
-  - name: MOIDDeltaV
-    "@id": "#SSObject.MOIDDeltaV"
-    datatype: float
-    description: DeltaV at the MOID point.
-    fits:tunit: km/s
-  - name: u_H
-    "@id": "#SSObject.u_H"
-    datatype: float
-    description: Best fit absolute magnitude (u band).
-    fits:tunit: mag
-  - name: u_G12
-    "@id": "#SSObject.u_G12"
-    datatype: float
-    description: Best fit G12 slope parameter (u band).
-    fits:tunit: mag
-  - name: u_HErr
-    "@id": "#SSObject.u_HErr"
-    datatype: float
-    description: Uncertainty of H (u band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: u_G12Err
-    "@id": "#SSObject.u_G12Err"
-    datatype: float
-    description: Uncertainty of G12 (u band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: u_H_u_G12_Cov
-    "@id": "#SSObject.u_H_u_G12_Cov"
-    datatype: float
-    description: H-G12 covariance (u band).
-    ivoa:ucd: stat.covariance
-    fits:tunit: mag**2
-  - name: u_Chi2
-    "@id": "#SSObject.u_Chi2"
-    datatype: float
-    description: Chi^2 statistic of the phase curve fit (u band).
-    ivoa:ucd: stat.fit.chi2
-  - name: u_Ndata
-    "@id": "#SSObject.u_Ndata"
-    datatype: int
-    description: The number of data points used to fit the phase curve (u band).
-  - name: g_H
-    "@id": "#SSObject.g_H"
-    datatype: float
-    description: Best fit absolute magnitude (g band).
-    fits:tunit: mag
-  - name: g_G12
-    "@id": "#SSObject.g_G12"
-    datatype: float
-    description: Best fit G12 slope parameter (g band).
-    fits:tunit: mag
-  - name: g_HErr
-    "@id": "#SSObject.g_HErr"
-    datatype: float
-    description: Uncertainty of H (g band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: g_G12Err
-    "@id": "#SSObject.g_G12Err"
-    datatype: float
-    description: Uncertainty of G12 (g band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: g_H_g_G12_Cov
-    "@id": "#SSObject.g_H_g_G12_Cov"
-    datatype: float
-    description: H-G12 covariance (g band).
-    ivoa:ucd: stat.covariance
-    fits:tunit: mag**2
-  - name: g_Chi2
-    "@id": "#SSObject.g_Chi2"
-    datatype: float
-    description: Chi^2 statistic of the phase curve fit (g band).
-    ivoa:ucd: stat.fit.chi2
-  - name: g_Ndata
-    "@id": "#SSObject.g_Ndata"
-    datatype: int
-    description: The number of data points used to fit the phase curve (g band).
-  - name: r_H
-    "@id": "#SSObject.r_H"
-    datatype: float
-    description: Best fit absolute magnitude (r band).
-    fits:tunit: mag
-  - name: r_G12
-    "@id": "#SSObject.r_G12"
-    datatype: float
-    description: Best fit G12 slope parameter (r band).
-    fits:tunit: mag
-  - name: r_HErr
-    "@id": "#SSObject.r_HErr"
-    datatype: float
-    description: Uncertainty of H (r band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: r_G12Err
-    "@id": "#SSObject.r_G12Err"
-    datatype: float
-    description: Uncertainty of G12 (r band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: r_H_r_G12_Cov
-    "@id": "#SSObject.r_H_r_G12_Cov"
-    datatype: float
-    description: H-G12 covariance (r band).
-    ivoa:ucd: stat.covariance
-    fits:tunit: mag**2
-  - name: r_Chi2
-    "@id": "#SSObject.r_Chi2"
-    datatype: float
-    description: Chi^2 statistic of the phase curve fit (r band).
-    ivoa:ucd: stat.fit.chi2
-  - name: r_Ndata
-    "@id": "#SSObject.r_Ndata"
-    datatype: int
-    description: The number of data points used to fit the phase curve (r band).
-  - name: i_H
-    "@id": "#SSObject.i_H"
-    datatype: float
-    description: Best fit absolute magnitude (i band).
-    fits:tunit: mag
-  - name: i_G12
-    "@id": "#SSObject.i_G12"
-    datatype: float
-    description: Best fit G12 slope parameter (i band).
-    fits:tunit: mag
-  - name: i_HErr
-    "@id": "#SSObject.i_HErr"
-    datatype: float
-    description: Uncertainty of H (i band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: i_G12Err
-    "@id": "#SSObject.i_G12Err"
-    datatype: float
-    description: Uncertainty of G12 (i band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: i_H_i_G12_Cov
-    "@id": "#SSObject.i_H_i_G12_Cov"
-    datatype: float
-    description: H-G12 covariance (i band).
-    ivoa:ucd: stat.covariance
-    fits:tunit: mag**2
-  - name: i_Chi2
-    "@id": "#SSObject.i_Chi2"
-    datatype: float
-    description: Chi^2 statistic of the phase curve fit (i band).
-    ivoa:ucd: stat.fit.chi2
-  - name: i_Ndata
-    "@id": "#SSObject.i_Ndata"
-    datatype: int
-    description: The number of data points used to fit the phase curve (i band).
-  - name: z_H
-    "@id": "#SSObject.z_H"
-    datatype: float
-    description: Best fit absolute magnitude (z band).
-    fits:tunit: mag
-  - name: z_G12
-    "@id": "#SSObject.z_G12"
-    datatype: float
-    description: Best fit G12 slope parameter (z band).
-    fits:tunit: mag
-  - name: z_HErr
-    "@id": "#SSObject.z_HErr"
-    datatype: float
-    description: Uncertainty of H (z band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: z_G12Err
-    "@id": "#SSObject.z_G12Err"
-    datatype: float
-    description: Uncertainty of G12 (z band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: z_H_z_G12_Cov
-    "@id": "#SSObject.z_H_z_G12_Cov"
-    datatype: float
-    description: H-G12 covariance (z band).
-    ivoa:ucd: stat.covariance
-    fits:tunit: mag**2
-  - name: z_Chi2
-    "@id": "#SSObject.z_Chi2"
-    datatype: float
-    description: Chi^2 statistic of the phase curve fit (z band).
-    ivoa:ucd: stat.fit.chi2
-  - name: z_Ndata
-    "@id": "#SSObject.z_Ndata"
-    datatype: int
-    description: The number of data points used to fit the phase curve (z band).
-  - name: y_H
-    "@id": "#SSObject.y_H"
-    datatype: float
-    description: Best fit absolute magnitude (y band).
-    fits:tunit: mag
-  - name: y_G12
-    "@id": "#SSObject.y_G12"
-    datatype: float
-    description: Best fit G12 slope parameter (y band).
-    fits:tunit: mag
-  - name: y_HErr
-    "@id": "#SSObject.y_HErr"
-    datatype: float
-    description: Uncertainty of H (y band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: y_G12Err
-    "@id": "#SSObject.y_G12Err"
-    datatype: float
-    description: Uncertainty of G12 (y band).
-    ivoa:ucd: stat.error
-    fits:tunit: mag
-  - name: y_H_y_G12_Cov
-    "@id": "#SSObject.y_H_y_G12_Cov"
-    datatype: float
-    description: H-G12 covariance (y band).
-    ivoa:ucd: stat.covariance
-    fits:tunit: mag**2
-  - name: y_Chi2
-    "@id": "#SSObject.y_Chi2"
-    datatype: float
-    description: Chi^2 statistic of the phase curve fit (y band).
-    ivoa:ucd: stat.fit.chi2
-  - name: y_Ndata
-    "@id": "#SSObject.y_Ndata"
-    datatype: int
-    description: The number of data points used to fit the phase curve (y band).
-  - name: maxExtendedness
-    "@id": "#SSObject.maxExtendedness"
-    datatype: float
-    description: maximum `extendedness` value from the DIASource.
-  - name: minExtendedness
-    "@id": "#SSObject.minExtendedness"
-    datatype: float
-    description: minimum `extendedness` value from the DIASource.
-  - name: medianExtendedness
-    "@id": "#SSObject.medianExtendedness"
-    datatype: float
-    description: median `extendedness` value from the DIASource.
 - name: DiaSource
-  "@id": "#DiaSource"
   description: Table to store 'difference image sources'; - sources detected at
     SNR >=5 on difference images.
   columns:
   - name: diaSourceId
-    "@id": "#DiaSource.diaSourceId"
     datatype: long
     nullable: false
     autoincrement: false
     description: Unique identifier of this DiaSource.
     ivoa:ucd: meta.id;obs.image
   - name: visit
-    "@id": "#DiaSource.visit"
     datatype: long
     nullable: false
     description: Id of the visit where this diaSource was measured.
     ivoa:ucd: meta.id;obs.image
   - name: detector
-    "@id": "#DiaSource.detector"
     datatype: short
     nullable: false
     description: Id of the detector where this diaSource was measured.
       Datatype short instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
   - name: diaObjectId
-    "@id": "#DiaSource.diaObjectId"
     datatype: long
     nullable: true
     description: Id of the diaObject this source was associated with, if any. If not,
@@ -827,7 +438,6 @@ tables:
       or ssObject).
     ivoa:ucd: meta.id;src
   - name: ssObjectId
-    "@id": "#DiaSource.ssObjectId"
     datatype: long
     nullable: true
     description: Id of the ssObject this source was associated with, if any. If not,
@@ -835,19 +445,16 @@ tables:
       or ssObject).
     ivoa:ucd: meta.id;src
   - name: parentDiaSourceId
-    "@id": "#DiaSource.parentDiaSourceId"
     datatype: long
     description: Id of the parent diaSource this diaSource has been deblended from,
       if any.
     ivoa:ucd: meta.id;src
   - name: ssObjectReassocTimeMjdTai
-    "@id": "#DiaSource.ssObjectReassocTimeMjdTai"
     datatype: double
     description: Time when this diaSource was reassociated from diaObject to ssObject,
       expressed as Modified Julian Date, International Atomic Time
       (if such reassociation happens, otherwise NULL).
   - name: midpointMjdTai
-    "@id": "#DiaSource.midpointMjdTai"
     datatype: double
     nullable: false
     description: Effective mid-visit time for this diaSource, expressed as Modified
@@ -855,572 +462,468 @@ tables:
     fits:tunit: d
     ivoa:ucd: time.epoch
   - name: ra
-    "@id": "#DiaSource.ra"
     datatype: double
     nullable: false
     description: Right ascension coordinate of the center of this diaSource.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: raErr
-    "@id": "#DiaSource.raErr"
     datatype: float
     description: Uncertainty of ra.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
-    "@id": "#DiaSource.dec"
     datatype: double
     nullable: false
     description: Declination coordinate of the center of this diaSource.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: decErr
-    "@id": "#DiaSource.decErr"
     datatype: float
     description: Uncertainty of dec.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
-    "@id": "#DiaSource.ra_dec_Cov"
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg**2
     ivoa:ucd: stat.covariance
   - name: x
-    "@id": "#DiaSource.x"
     datatype: float
     nullable: false
     description: x position computed by a centroiding algorithm.
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.x
   - name: xErr
-    "@id": "#DiaSource.xErr"
     datatype: float
     description: Uncertainty of x.
     fits:tunit: pixel
     ivoa:ucd: stat.error;pos.cartesian.x
   - name: y
-    "@id": "#DiaSource.y"
     datatype: float
     nullable: false
     description: y position computed by a centroiding algorithm.
     fits:tunit: pixel
     ivoa:ucd: pos.cartesian.y
   - name: yErr
-    "@id": "#DiaSource.yErr"
     datatype: float
     description: Uncertainty of y.
     fits:tunit: pixel
     ivoa:ucd: stat.error;pos.cartesian.y
   - name: centroid_flag
-    "@id": "#DiaSource.centroid_flag"
     datatype: boolean
     description: General centroid algorithm failure flag; set if anything went wrong when fitting the centroid. Another centroid flag field should also be set to provide more information.
     fits:tunit:
   - name: apFlux
-    "@id": "#DiaSource.apFlux"
     datatype: float
     description: Flux in a 12 pixel radius aperture on the difference image.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: apFluxErr
-    "@id": "#DiaSource.apFluxErr"
     datatype: float
     description: Estimated uncertainty of apFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: apFlux_flag
-    "@id": "#DiaSource.apFlux_flag"
     datatype: boolean
     description: General aperture flux algorithm failure flag; set if anything went wrong when measuring aperture fluxes. Another apFlux flag field should also be set to provide more information.
     fits:tunit:
   - name: apFlux_flag_apertureTruncated
-    "@id": "#DiaSource.apFlux_flag_apertureTruncated"
     datatype: boolean
     description: Aperture did not fit within measurement image.
     fits:tunit:
   - name: isNegative
-    "@id": "#DiaSource.isNegative"
     datatype: boolean
     description: Source was detected as significantly negative.
     fits:tunit:
   - name: snr
-    "@id": "#DiaSource.snr"
     datatype: float
     description: The signal-to-noise ratio at which this source was detected in the
       difference image.
     ivoa:ucd: stat.snr
   - name: psfFlux
-    "@id": "#DiaSource.psfFlux"
     datatype: float
     description: Flux for Point Source model. Note this actually measures
       the flux difference between the template and the visit image.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: psfFluxErr
-    "@id": "#DiaSource.psfFluxErr"
     datatype: float
     description: Uncertainty of psfFlux.
     fits:tunit: nJy
   - name: psfLnL
-    "@id": "#DiaSource.psfLnL"
     datatype: float
     description: Natural log likelihood of the observed data given the point source
       model.
     ivoa:ucd: stat.likelihood
   - name: psfChi2
-    "@id": "#DiaSource.psfChi2"
     datatype: float
     description: Chi^2 statistic of the point source model fit.
     ivoa:ucd: stat.fit.chi2
   - name: psfNdata
-    "@id": "#DiaSource.psfNdata"
     datatype: int
     description: The number of data points (pixels) used to fit the point source model.
   - name: psfFlux_flag
-    "@id": "#DiaSource.psfFlux_flag"
     datatype: boolean
     description: Failure to derive linear least-squares fit of psf model. Another psfFlux flag field should also be set to provide more information.
     fits:tunit:
   - name: psfFlux_flag_edge
-    "@id": "#DiaSource.psfFlux_flag_edge"
     datatype: boolean
     description: Object was too close to the edge of the image to use the full PSF model.
     fits:tunit:
   - name: psfFlux_flag_noGoodPixels
-    "@id": "#DiaSource.psfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Not enough non-rejected pixels in data to attempt the fit.
     fits:tunit:
   - name: trailFlux
-    "@id": "#DiaSource.trailFlux"
     datatype: float
     description: Flux for a trailed source model. Note this actually measures
       the flux difference between the template and the visit image.
     fits:tunit: nJy
   - name: trailFluxErr
-    "@id": "#DiaSource.trailFluxErr"
     datatype: float
     description: Uncertainty of trailFlux.
     fits:tunit: nJy
   - name: trailRa
-    "@id": "#DiaSource.trailRa"
     datatype: double
     description: Right ascension coordinate of centroid for trailed source model.
     fits:tunit: deg
     ivoa:ucd: pos.eq.ra
   - name: trailRaErr
-    "@id": "#DiaSource.trailRaErr"
     datatype: float
     description: Uncertainty of trailRa.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: trailDec
-    "@id": "#DiaSource.trailDec"
     datatype: double
     description: Declination coordinate of centroid for trailed source model.
     fits:tunit: deg
     ivoa:ucd: pos.eq.dec
   - name: trailDecErr
-    "@id": "#DiaSource.trailDecErr"
     datatype: float
     description: Uncertainty of trailDec.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: trailLength
-    "@id": "#DiaSource.trailLength"
     datatype: float
     description: Maximum likelihood fit of trail length.
     fits:tunit: arcsec
   - name: trailLengthErr
-    "@id": "#DiaSource.trailLengthErr"
     datatype: float
     description: Uncertainty of trailLength.
     fits:tunit: nJy
   - name: trailAngle
-    "@id": "#DiaSource.trailAngle"
     datatype: float
     description: Maximum likelihood fit of the angle between the meridian through
       the centroid and the trail direction (bearing).
     fits:tunit: deg
   - name: trailAngleErr
-    "@id": "#DiaSource.trailAngleErr"
     datatype: float
     description: Uncertainty of trailAngle.
     fits:tunit: nJy
   - name: trailChi2
-    "@id": "#DiaSource.trailChi2"
     datatype: float
     description: Chi^2 statistic of the trailed source model fit.
     ivoa:ucd: stat.fit.chi2
   - name: trailNdata
-    "@id": "#DiaSource.trailNdata"
     datatype: int
     value: 0
     description: The number of data points (pixels) used to fit the trailed source model.
   - name: trail_flag_edge
-    "@id": "#DiaSource.trail_flag_edge"
     datatype: boolean
     description: This flag is set if a trailed source extends onto or past edge pixels.
     fits:tunit:
   - name: dipoleMeanFlux
-    "@id": "#DiaSource.dipoleMeanFlux"
     datatype: float
     description: Maximum likelihood value for the mean absolute flux of the two lobes
       for a dipole model.
     fits:tunit: nJy
   - name: dipoleMeanFluxErr
-    "@id": "#DiaSource.dipoleMeanFluxErr"
     datatype: float
     description: Uncertainty of dipoleMeanFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: dipoleFluxDiff
-    "@id": "#DiaSource.dipoleFluxDiff"
     datatype: float
     description: Maximum likelihood value for the difference of absolute fluxes of
       the two lobes for a dipole model.
     fits:tunit: nJy
   - name: dipoleFluxDiffErr
-    "@id": "#DiaSource.dipoleFluxDiffErr"
     datatype: float
     description: Uncertainty of dipoleFluxDiff.
     fits:tunit: nJy
     ivoa:ucd: stat.error
   - name: dipoleLength
-    "@id": "#DiaSource.dipoleLength"
     datatype: float
     description: Maximum likelihood value for the lobe separation in dipole model.
     fits:tunit: arcsec
     ivoa:ucd: pos.angDistance
   - name: dipoleAngle
-    "@id": "#DiaSource.dipoleAngle"
     datatype: float
     description: Maximum likelihood fit of the angle between the meridian through
       the centroid and the dipole direction (bearing, from negative to positive lobe).
     fits:tunit: deg
     ivoa:ucd: pos.posAng
   - name: dipoleChi2
-    "@id": "#DiaSource.dipoleChi2"
     datatype: float
     description: Chi^2 statistic of the model fit.
     ivoa:ucd: stat.fit.chi2
   - name: dipoleNdata
-    "@id": "#DiaSource.dipoleNdata"
     datatype: int
     description: The number of data points (pixels) used to fit the model.
   - name: scienceFlux
-    "@id": "#DiaSource.scienceFlux"
     datatype: float
     description: Forced photometry flux for a point source model measured on the visit image
       centered at DiaSource position.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: scienceFluxErr
-    "@id": "#DiaSource.scienceFluxErr"
     datatype: float
     description: Estimated uncertainty of scienceFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: forced_PsfFlux_flag
-    "@id": "#DiaSource.forced_PsfFlux_flag"
     datatype: boolean
     description: Forced PSF photometry on science image failed. Another forced_PsfFlux flag field should also be set to provide more information.
     fits:tunit:
   - name: forced_PsfFlux_flag_edge
-    "@id": "#DiaSource.forced_PsfFlux_flag_edge"
     datatype: boolean
     description: Forced PSF flux on science image was too close to the edge of the image to use the full PSF model.
     fits:tunit:
   - name: forced_PsfFlux_flag_noGoodPixels
-    "@id": "#DiaSource.forced_PsfFlux_flag_noGoodPixels"
     datatype: boolean
     description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
     fits:tunit:
   - name: templateFlux
-    "@id": "#DiaSource.templateFlux"
     datatype: float
     description: Forced photometry flux for a point source model measured on the template image
       centered at the DiaObject position.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: templateFluxErr
-    "@id": "#DiaSource.templateFluxErr"
     datatype: float
     description: Uncertainty of templateFlux.
     ivoa:ucd: stat.error;phot.count
     fits:tunit: nJy
   - name: ixx
-    "@id": "#DiaSource.ixx"
     datatype: float
     description: Adaptive second moment of the source intensity.
     fits:tunit: nJy.arcsec**2
   - name: iyy
-    "@id": "#DiaSource.iyy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     fits:tunit: nJy.arcsec**2
   - name: ixy
-    "@id": "#DiaSource.ixy"
     datatype: float
     description: Adaptive second moment of the source intensity.
     fits:tunit: nJy.arcsec**2
   - name: ixxPSF
-    "@id": "#DiaSource.ixxPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     fits:tunit: nJy.arcsec**2
   - name: iyyPSF
-    "@id": "#DiaSource.iyyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     fits:tunit: nJy.arcsec**2
   - name: ixyPSF
-    "@id": "#DiaSource.ixyPSF"
     datatype: float
     description: Adaptive second moment for the PSF.
     fits:tunit: nJy.arcsec**2
   - name: shape_flag
-    "@id": "#DiaSource.shape_flag"
     datatype: boolean
     description: General source shape algorithm failure flag; set if anything went wrong when measuring the shape. Another shape flag field should also be set to provide more information.
     fits:tunit:
   - name: shape_flag_no_pixels
-    "@id": "#DiaSource.shape_flag_no_pixels"
     datatype: boolean
     description: No pixels to measure shape.
     fits:tunit:
   - name: shape_flag_not_contained
-    "@id": "#DiaSource.shape_flag_not_contained"
     datatype: boolean
     description: Center not contained in footprint bounding box.
     fits:tunit:
   - name: shape_flag_parent_source
-    "@id": "#DiaSource.shape_flag_parent_source"
     datatype: boolean
     description: This source is a parent source; we should only be measuring on deblended children in difference imaging.
     fits:tunit:
   - name: extendedness
-    "@id": "#DiaSource.extendedness"
     datatype: float
     description: A measure of extendedness, computed by comparing an object's moment-based traced radius to
       the PSF moments. extendedness = 1 implies a high degree of confidence
       that the source is extended. extendedness = 0 implies a high degree of confidence
       that the source is point-like.
   - name: reliability
-    "@id": "#DiaSource.reliability"
     datatype: float
     description: Probability (0-1) that the diaSource is astrophysical,
        derived from a machine learning model.
   - name: band
-    "@id": "#DiaSource.band"
     datatype: char
     length: 1
     description: Filter band this source was observed with.
   - name: isDipole
-    "@id": "#DiaSource.isDipole"
     datatype: boolean
     description: Source well fit by a dipole.
   - name: dipoleFitAttempted
-    "@id": "#DiaSource.dipoleFitAttempted"
     datatype: boolean
     description: Attempted to fit a dipole model to this source.
   - name: timeProcessedMjdTai
-    "@id": "#DiaSource.timeProcessedMjdTai"
     datatype: double
     nullable: false
     description: Time when the image was processed and this DiaSource record was generated,
       expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: timeWithdrawnMjdTai
-    "@id": "#DiaSource.timeWithdrawnMjdTai"
     datatype: double
     nullable: true
     description: Time when this record was marked invalid,
       expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: bboxSize
-    "@id": "#DiaSource.bboxSize"
     datatype: int
     description: Size of the square bounding box that fully contains the detection footprint.
     fits:tunit: pixel
   - name: pixelFlags
-    "@id": "#DiaSource.pixelFlags"
     datatype: boolean
     description: General pixel flags failure; set if anything went wrong when setting pixels flags from this footprint's mask. This implies that some pixelFlags for this source may be incorrectly set to False.
     fits:tunit:
   - name: pixelFlags_bad
-    "@id": "#DiaSource.pixelFlags_bad"
     datatype: boolean
     description: Bad pixel in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_cr
-    "@id": "#DiaSource.pixelFlags_cr"
     datatype: boolean
     description: Cosmic ray in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_crCenter
-    "@id": "#DiaSource.pixelFlags_crCenter"
     datatype: boolean
     description: Cosmic ray in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_edge
-    "@id": "#DiaSource.pixelFlags_edge"
     datatype: boolean
     description: Some of the source footprint is outside usable exposure region (masked EDGE or centroid off image).
     fits:tunit:
   - name: pixelFlags_nodata
-    "@id": "#DiaSource.pixelFlags_nodata"
     datatype: boolean
     description: NO_DATA pixel in the source footprint.
     fits:tunit:
   - name: pixelFlags_nodataCenter
-    "@id": "#DiaSource.pixelFlags_nodataCenter"
     datatype: boolean
     description: NO_DATA pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_interpolated
-    "@id": "#DiaSource.pixelFlags_interpolated"
     datatype: boolean
     description: Interpolated pixel in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_interpolatedCenter
-    "@id": "#DiaSource.pixelFlags_interpolatedCenter"
     datatype: boolean
     description: Interpolated pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_offimage
-    "@id": "#DiaSource.pixelFlags_offimage"
     datatype: boolean
     description: DiaSource center is off image.
     fits:tunit:
   - name: pixelFlags_saturated
-    "@id": "#DiaSource.pixelFlags_saturated"
     datatype: boolean
     description: Saturated pixel in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_saturatedCenter
-    "@id": "#DiaSource.pixelFlags_saturatedCenter"
     datatype: boolean
     description: Saturated pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_suspect
-    "@id": "#DiaSource.pixelFlags_suspect"
     datatype: boolean
     description: DiaSource's footprint includes suspect pixels.
     fits:tunit:
   - name: pixelFlags_suspectCenter
-    "@id": "#DiaSource.pixelFlags_suspectCenter"
     datatype: boolean
     description: Suspect pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_streak
-    "@id": "#DiaSource.pixelFlags_streak"
     datatype: boolean
     description: Streak in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_streakCenter
-    "@id": "#DiaSource.pixelFlags_streakCenter"
     datatype: boolean
     description: Streak in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_injected
-    "@id": "#DiaSource.pixelFlags_injected"
     datatype: boolean
     description: Injection in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_injectedCenter
-    "@id": "#DiaSource.pixelFlags_injectedCenter"
     datatype: boolean
     description: Injection in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_injected_template
-    "@id": "#DiaSource.pixelFlags_injected_template"
     datatype: boolean
     description: Template injection in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_injected_templateCenter
-    "@id": "#DiaSource.pixelFlags_injected_templateCenter"
     datatype: boolean
     description: Template injection in the 3x3 region around the centroid.
     fits:tunit:
   - name: glint_trail
-    "@id": "#DiaSource.glint_trail"
     datatype: boolean
     description: This flag is set if the source is part of a glint trail.
     fits:tunit:
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
   - name: IDX_DiaSource_visitDetector
-    "@id": "#IDX_DiaSource_visitDetector"
     columns:
     - "#DiaSource.visit"
     - "#DiaSource.detector"
   - name: IDX_DiaSource_diaObjectId
-    "@id": "#IDX_DiaSource_diaObjectId"
     columns:
     - "#DiaSource.diaObjectId"
   - name: IDX_DiaSource_ssObjectId
-    "@id": "#IDX_DiaSource_ssObjectId"
     columns:
     - "#DiaSource.ssObjectId"
 - name: DiaForcedSource
-  "@id": "#DiaForcedSource"
   description: Forced-photometry source measurement on an individual difference Exposure
     for all objects in the DiaObject table.
   columns:
   - name: diaForcedSourceId
-    "@id": "#DiaForcedSource.diaForcedSourceId"
     datatype: long
     nullable: false
     description: Unique id.
   - name: diaObjectId
-    "@id": "#DiaForcedSource.diaObjectId"
     datatype: long
     nullable: false
     description: Id of the DiaObject that this DiaForcedSource was associated with.
     ivoa:ucd: meta.id;src
   - name: ra
-    "@id": "#DiaForcedSource.ra"
     datatype: double
     nullable: false
     description: Right ascension coordinate of the position of the DiaObject.
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
   - name: dec
-    "@id": "#DiaForcedSource.dec"
     datatype: double
     nullable: false
     description: Declination coordinate of the position of the DiaObject.
     ivoa:ucd: pos.eq.dec
     fits:tunit: deg
   - name: visit
-    "@id": "#DiaForcedSource.visit"
     datatype: long
     nullable: false
     description: Id of the visit where this forcedSource was measured.
     ivoa:ucd: meta.id;obs.image
   - name: detector
-    "@id": "#DiaForcedSource.detector"
     datatype: short
     nullable: false
     description: Id of the detector where this forcedSource was measured.
       Datatype short instead of byte because of DB concerns about unsigned bytes.
     ivoa:ucd: meta.id;obs.image
   - name: psfFlux
-    "@id": "#DiaForcedSource.psfFlux"
     datatype: float
     description: Point Source model flux.
     fits:tunit: nJy
     ivoa:ucd: phot.count
   - name: psfFluxErr
-    "@id": "#DiaForcedSource.psfFluxErr"
     datatype: float
     description: Uncertainty of psfFlux.
     fits:tunit: nJy
     ivoa:ucd: stat.error;phot.count
   - name: midpointMjdTai
-    "@id": "#DiaForcedSource.midpointMjdTai"
     datatype: double
     nullable: false
     description: Effective mid-visit time for this diaForcedSource, expressed as Modified
@@ -1428,32 +931,27 @@ tables:
     ivoa:ucd: time.epoch
     fits:tunit: d
   - name: scienceFlux
-    "@id": "#DiaForcedSource.scienceFlux"
     datatype: float
     description: Forced photometry flux for a point source model measured on the visit image
       centered at the DiaObject position.
     ivoa:ucd: phot.count
     fits:tunit: nJy
   - name: scienceFluxErr
-    "@id": "#DiaForcedSource.scienceFluxErr"
     datatype: float
     description: Uncertainty of scienceFlux.
     ivoa:ucd: stat.error;phot.count
     fits:tunit: nJy
   - name: band
-    "@id": "#DiaForcedSource.band"
     datatype: char
     length: 1
     description: Filter band this source was observed with.
     ivoa:ucd: meta.id;instr.filter
   - name: timeProcessedMjdTai
-    "@id": "#DiaForcedSource.timeProcessedMjdTai"
     datatype: double
     nullable: false
     description: Time when this record was generated,
       expressed as Modified Julian Date, International Atomic Time.
   - name: timeWithdrawnMjdTai
-    "@id": "#DiaForcedSource.timeWithdrawnMjdTai"
     datatype: double
     nullable: true
     description: Time when this record was marked invalid,
@@ -1464,331 +962,93 @@ tables:
   - "#DiaForcedSource.detector"
   indexes:
   - name: IDX_DiaForcedSource_visitDetector
-    "@id": "#IDX_DiaForcedSource_visitDetector"
     columns:
     - "#DiaForcedSource.visit"
     - "#DiaForcedSource.detector"
 - name: DiaObject_To_Object_Match
-  "@id": "#DiaObject_To_Object_Match"
   description: The table stores mapping of diaObjects to the nearby objects.
   columns:
   - name: diaObjectId
-    "@id": "#DiaObject_To_Object_Match.diaObjectId"
     datatype: long
     nullable: false
     description: Id of diaObject.
     ivoa:ucd: meta.id;src
   - name: objectId
-    "@id": "#DiaObject_To_Object_Match.objectId"
     datatype: long
     nullable: false
     description: Id of a nearby object.
     ivoa:ucd: meta.id;src
   - name: dist
-    "@id": "#DiaObject_To_Object_Match.dist"
     datatype: float
     description: The distance between the diaObject and the object.
     fits:tunit: arcsec
   - name: lnP
-    "@id": "#DiaObject_To_Object_Match.lnP"
     datatype: float
     description: Natural log of the probability that the observed diaObject is the
       same as the nearby object.
   indexes:
   - name: IDX_DiaObjectToObjectMatch_diaObjectId
-    "@id": "#IDX_DiaObjectToObjectMatch_diaObjectId"
     columns:
     - "#DiaObject_To_Object_Match.diaObjectId"
   - name: IDX_DiaObjectToObjectMatch_objectId
-    "@id": "#IDX_DiaObjectToObjectMatch_objectId"
     columns:
     - "#DiaObject_To_Object_Match.objectId"
 - name: DiaObjectLast
-  "@id": "#DiaObjectLast"
   description: Table with a subset of DiaObject columns used to store only the
     latest version of each object.
   columns:
   - name: diaObjectId
-    "@id": "#DiaObjectLast.diaObjectId"
     datatype: long
     nullable: false
     autoincrement: false
     description: Unique id.
     ivoa:ucd: meta.id;src
   - name: validityStartMjdTai
-    "@id": "#DiaObjectLast.validityStartMjdTai"
     datatype: double
     nullable: false
     description: Processing time when validity of this diaObject starts,
       expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: lastDiaSourceMjdTai
-    "@id": "#DiaObjectLast.lastDiaSourceMjdTai"
     datatype: double
     description: Time of the most recent non-forced DIASource for this object, expressed as
         Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: ra
-    "@id": "#DiaObjectLast.ra"
     datatype: double
     nullable: false
     description: Right ascension coordinate of the position of the object.
     ivoa:ucd: pos.eq.ra
     fits:tunit: deg
   - name: raErr
-    "@id": "#DiaObjectLast.raErr"
     datatype: float
     description: Uncertainty of ra.
     ivoa:ucd: stat.error;pos.eq.ra
     fits:tunit: deg
   - name: dec
-    "@id": "#DiaObjectLast.dec"
     datatype: double
     nullable: false
     description: Declination coordinate of the position of the object.
     ivoa:ucd: pos.eq.dec
     fits:tunit: deg
   - name: decErr
-    "@id": "#DiaObjectLast.decErr"
     datatype: float
     description: Uncertainty of dec.
     ivoa:ucd: stat.error;pos.eq.dec
     fits:tunit: deg
   - name: ra_dec_Cov
-    "@id": "#DiaObjectLast.ra_dec_Cov"
     datatype: float
     description: Covariance between ra and dec.
     fits:tunit: deg**2
   - name: firstDiaSourceMjdTai
-    "@id": "#DiaObjectLast.firstDiaSourceMjdTai"
     datatype: double
     description: Time of the first diaSource, expressed as Modified Julian Date, International Atomic Time.
     ivoa:ucd: time.epoch
   - name: nDiaSources
-    "@id": "#DiaObjectLast.nDiaSources"
     datatype: int
     nullable: false
     description: Total number of DiaSources associated with this DiaObject.
   primaryKey: "#DiaObjectLast.diaObjectId"
-- name: MPCORB
-  "@id": "#MPCORB"
-  description: The orbit catalog produced by the Minor Planet Center. Ingested daily.
-    O(10M) rows by survey end. The columns are described at https://minorplanetcenter.net//iau/info/MPOrbitFormat.html
-  primaryKey: "#MPCORB.mpcDesignation"
-  columns:
-  - name: mpcDesignation
-    "@id": "#MPCORB.mpcDesignation"
-    datatype: char
-    length: 8
-    description: Number or provisional designation (in packed form).
-    ivoa:ucd: meta.id;src
-  - name: ssObjectId
-    "@id": "#MPCORB.ssObjectId"
-    datatype: long
-    description: LSST unique identifier (if observed by LSST).
-    ivoa:ucd: meta.id;src
-  - name: mpcH
-    "@id": "#MPCORB.mpcH"
-    datatype: float
-    description: Absolute magnitude, H.
-    fits:tunit: mag
-  - name: epoch
-    "@id": "#MPCORB.epoch"
-    datatype: double
-    description: Epoch (in MJD, .0 TT).
-    fits:tunit: d
-  - name: M
-    "@id": "#MPCORB.M"
-    datatype: double
-    description: Mean anomaly at the epoch.
-    fits:tunit: deg
-  - name: peri
-    "@id": "#MPCORB.peri"
-    datatype: double
-    description: Argument of perihelion, J2000.0.
-    fits:tunit: deg
-  - name: node
-    "@id": "#MPCORB.node"
-    datatype: double
-    description: Longitude of the ascending node, J2000.0.
-    fits:tunit: deg
-  - name: incl
-    "@id": "#MPCORB.incl"
-    datatype: double
-    description: Inclination to the ecliptic, J2000.0.
-    fits:tunit: deg
-  - name: e
-    "@id": "#MPCORB.e"
-    datatype: double
-    description: Orbital eccentricity.
-  - name: a
-    "@id": "#MPCORB.a"
-    datatype: double
-    description: Semimajor axis.
-    fits:tunit: AU
-  - name: q
-    "@id": "#MPCORB.q"
-    datatype: double
-    description: Perihelion distance.
-    fits:tunit: AU
-  - name: t_p
-    "@id": "#MPCORB.t_p"
-    datatype: double
-    description: MJD of pericentric passage.
-    fits:tunit: d
-- name: MPCORBDESIGMAP
-  "@id": "#MPCORBDESIGMAP"
-  description: The mapping between old and new provisional MPC designation, produced
-    by the Minor Planet Center. Ingested daily. O(few x 10M) rows by survey end.
-  primaryKey: "#MPCORBDESIGMAP.mpcDesignation"
-  columns:
-  - name: mpcDesignation
-    "@id": "#MPCORBDESIGMAP.mpcDesignation"
-    datatype: char
-    length: 8
-    description: Either the MPC provisional or permanent designation.
-    ivoa:ucd: meta.id;src
-  - name: mpcNumber
-    "@id": "#MPCORBDESIGMAP.mpcNumber"
-    datatype: int
-    description: MPC number (if the asteroid has been numbered).
-  - name: otherDesignation
-    "@id": "#MPCORBDESIGMAP.otherDesignation"
-    datatype: char
-    length: 8
-    description: Other designation by which this object is known.
-  - name: ssObjectId
-    "@id": "#MPCORBDESIGMAP.ssObjectId"
-    datatype: long
-    description: LSST unique identifier (if observed by LSST).
-    ivoa:ucd: meta.id;src
-- name: SSSource
-  "@id": "#SSSource"
-  description: LSST-computed per-source quantities. 1:1 relationship with DIASource.
-    Recomputed daily, upon MPCORB ingestion.
-  primaryKey: "#SSSource.ssObjectId"
-  columns:
-  - name: ssObjectId
-    "@id": "#SSSource.ssObjectId"
-    datatype: long
-    autoincrement: false
-    description: Unique identifier of the object.
-    ivoa:ucd: meta.id;src
-  - name: diaSourceId
-    "@id": "#SSSource.diaSourceId"
-    datatype: long
-    description: Unique identifier of the observation.
-    ivoa:ucd: meta.id;src
-  - name: eclipticLambda
-    "@id": "#SSSource.eclipticLambda"
-    datatype: double
-    description: Ecliptic longitude.
-    fits:tunit: deg
-  - name: eclipticBeta
-    "@id": "#SSSource.eclipticBeta"
-    datatype: double
-    description: Ecliptic latitude.
-    fits:tunit: deg
-  - name: galacticL
-    "@id": "#SSSource.galacticL"
-    datatype: double
-    description: Galactic longitude.
-    fits:tunit: deg
-  - name: galacticB
-    "@id": "#SSSource.galacticB"
-    datatype: double
-    description: Galactic latitute.
-    fits:tunit: deg
-  - name: phaseAngle
-    "@id": "#SSSource.phaseAngle"
-    datatype: float
-    description: Phase angle.
-    fits:tunit: deg
-  - name: heliocentricDist
-    "@id": "#SSSource.heliocentricDist"
-    datatype: float
-    description: Heliocentric distance.
-    fits:tunit: AU
-  - name: topocentricDist
-    "@id": "#SSSource.topocentricDist"
-    datatype: float
-    description: Topocentric distace.
-    fits:tunit: AU
-  - name: predictedVMagnitude
-    "@id": "#SSSource.predictedVMagnitude"
-    datatype: float
-    description: Predicted V-band magnitude.
-    fits:tunit: mag
-  - name: residualRa
-    "@id": "#SSSource.residualRa"
-    datatype: double
-    description: Residual R.A. vs. ephemeris.
-    fits:tunit: deg
-  - name: residualDec
-    "@id": "#SSSource.residualDec"
-    datatype: double
-    description: Residual Dec vs. ephemeris.
-    fits:tunit: deg
-  - name: heliocentricX
-    "@id": "#SSSource.heliocentricX"
-    datatype: float
-    description: Cartesian heliocentric X coordinate (at the emit time).
-    fits:tunit: AU
-  - name: heliocentricY
-    "@id": "#SSSource.heliocentricY"
-    datatype: float
-    description: Cartesian heliocentric Y coordinate (at the emit time).
-    fits:tunit: AU
-  - name: heliocentricZ
-    "@id": "#SSSource.heliocentricZ"
-    datatype: float
-    description: Cartesian heliocentric Z coordinate (at the emit time).
-    fits:tunit: AU
-  - name: heliocentricVX
-    "@id": "#SSSource.heliocentricVX"
-    datatype: float
-    description: Cartesian heliocentric X velocity (at the emit time).
-    fits:tunit: AU/d
-  - name: heliocentricVY
-    "@id": "#SSSource.heliocentricVY"
-    datatype: float
-    description: Cartesian heliocentric Y velocity (at the emit time).
-    fits:tunit: AU/d
-  - name: heliocentricVZ
-    "@id": "#SSSource.heliocentricVZ"
-    datatype: float
-    description: Cartesian heliocentric Z velocity (at the emit time).
-    fits:tunit: AU/d
-  - name: topocentricX
-    "@id": "#SSSource.topocentricX"
-    datatype: float
-    description: Cartesian topocentric X coordinate (at the emit time).
-    fits:tunit: AU
-  - name: topocentricY
-    "@id": "#SSSource.topocentricY"
-    datatype: float
-    description: Cartesian topocentric Y coordinate (at the emit time).
-    fits:tunit: AU
-  - name: topocentricZ
-    "@id": "#SSSource.topocentricZ"
-    datatype: float
-    description: Cartesian topocentric Z coordinate (at the emit time).
-    fits:tunit: AU
-  - name: topocentricVX
-    "@id": "#SSSource.topocentricVX"
-    datatype: float
-    description: Cartesian topocentric X velocity (at the emit time).
-    fits:tunit: AU/d
-  - name: topocentricVY
-    "@id": "#SSSource.topocentricVY"
-    datatype: float
-    description: Cartesian topocentric Y velocity (at the emit time).
-    fits:tunit: AU/d
-  - name: topocentricVZ
-    "@id": "#SSSource.topocentricVZ"
-    datatype: float
-    description: Cartesian topocentric Z velocity (at the emit time).
-    fits:tunit: AU/d
 - name: DetectorVisitProcessingSummary
   '@id': '#DetectorVisitProcessingSummary'
   description: Properties of an image from one processing of a single detector in a visit.
@@ -1967,3 +1227,1090 @@ tables:
     datatype: double
     description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel).
     fits:tunit: pixel
+
+- name: SSObject
+  description: LSST-computed per-object quantities.
+  tap:table_index: 110
+  primaryKey: '#SSObject.ssObjectId'
+  columns:
+  - name: ssObjectId
+    description: Unique identifier.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: designation
+    description: The unpacked primary provisional designation for this object.
+    datatype: char
+    length: 16
+    ivoa:ucd: meta.id;src
+  - name: nObs
+    description: Total number of LSST observations of this object.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.number;obs
+  - name: arc
+    description: 'Timespan ("arc") of all LSST observations, t_{last} - t_{first}'
+    datatype: float
+    nullable: false
+    ivoa:unit: d
+    ivoa:ucd: time.duration;obs
+  - name: firstObservationMjdTai
+    description: The time of the first LSST observation of this object (could be precovered), TAI.
+    datatype: double
+    ivoa:unit: d
+    ivoa:ucd: time.epoch;obs
+    # DP2 DISABLED: we will not deliver this for DP2.  The list of Rubin
+    # discoveries will be in flux early in the survey.  Due to the long lead
+    # time between freezing the input data and the release, what we write into
+    # here may change significantly by the time DP2 is released.  Users
+    # interested in this can easily pull it from the MPC (or the PPDB) at the
+    # time of DP2 release.
+    #
+    #  - name: discoverySubmissionDate
+    #    description: The date the LSST first submitted the discovery observations to the MPC. NULL if not an LSST discovery. TAI.
+    #    datatype: double
+    #    ivoa:unit: d
+    #    ivoa:ucd: time.epoch
+
+  - name: MOIDEarth
+    description: Minimum orbit intersection distance to Earth.
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.distance;src.orbital
+  - name: MOIDEarthDeltaV
+    description: DeltaV at the MOID point.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc.orbital
+  - name: MOIDEarthEclipticLongitude
+    description: "Ecliptic longitude of the MOID point (Earth's orbit)."
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lon
+  - name: MOIDEarthTrueAnomaly
+    description: "True anomaly of the MOID point on Earth's orbit."
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+  - name: MOIDEarthTrueAnomalyObject
+    description: "True anomaly of the MOID point on the object's orbit."
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;src.orbital
+
+  - name: tisserand_J
+    description: Tisserand parameter with respect to Jupiter (T_J).
+    datatype: float
+    ivoa:ucd: src.orbital.TissJ
+
+  - name: extendednessMax
+    description: Maximum `extendedness` value from the DiaSource.
+    datatype: float
+  - name: extendednessMedian
+    description: Median `extendedness` value from the DiaSource.
+    datatype: float
+  - name: extendednessMin
+    description: Minimum `extendedness` value from the DiaSource.
+    datatype: float
+
+  - name: u_nObs
+    description: Total number of data points (u band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: u_H
+    description: Best fit absolute magnitude (u band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: u_HErr
+    description: Error in the estimate of H (u band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: u_G12
+    description: Best fit G12 slope parameter (u band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: u_G12Err
+    description: Error in the estimate of G12 (u band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: u_H_u_G12_Cov
+    description: H–G12 covariance (u band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: u_nObsUsed
+    description: The number of data points used to fit the phase curve (u band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: u_Chi2
+    description: Chi^2 statistic of the phase curve fit (u band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: u_phaseAngleMin
+    description: Minimum phase angle observed (u band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: u_phaseAngleMax
+    description: Maximum phase angle observed (u band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: u_slope_fit_failed
+    description: G12 fit failed in u band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: g_nObs
+    description: Total number of data points (g band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: g_H
+    description: Best fit absolute magnitude (g band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: g_HErr
+    description: Error in the estimate of H (g band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: g_G12
+    description: Best fit G12 slope parameter (g band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: g_G12Err
+    description: Error in the estimate of G12 (g band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: g_H_g_G12_Cov
+    description: H–G12 covariance (g band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: g_nObsUsed
+    description: The number of data points used to fit the phase curve (g band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: g_Chi2
+    description: Chi^2 statistic of the phase curve fit (g band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: g_phaseAngleMin
+    description: Minimum phase angle observed (g band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: g_phaseAngleMax
+    description: Maximum phase angle observed (g band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: g_slope_fit_failed
+    description: G12 fit failed in g band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: r_nObs
+    description: Total number of data points (r band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: r_H
+    description: Best fit absolute magnitude (r band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: r_HErr
+    description: Error in the estimate of H (r band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: r_G12
+    description: Best fit G12 slope parameter (r band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: r_G12Err
+    description: Error in the estimate of G12 (r band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: r_H_r_G12_Cov
+    description: H–G12 covariance (r band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: r_nObsUsed
+    description: The number of data points used to fit the phase curve (r band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: r_Chi2
+    description: Chi^2 statistic of the phase curve fit (r band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: r_phaseAngleMin
+    description: Minimum phase angle observed (r band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: r_phaseAngleMax
+    description: Maximum phase angle observed (r band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: r_slope_fit_failed
+    description: G12 fit failed in r band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: i_nObs
+    description: Total number of data points (i band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: i_H
+    description: Best fit absolute magnitude (i band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: i_HErr
+    description: Error in the estimate of H (i band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: i_G12
+    description: Best fit G12 slope parameter (i band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: i_G12Err
+    description: Error in the estimate of G12 (i band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: i_H_i_G12_Cov
+    description: H–G12 covariance (i band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: i_nObsUsed
+    description: The number of data points used to fit the phase curve (i band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: i_Chi2
+    description: Chi^2 statistic of the phase curve fit (i band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: i_phaseAngleMin
+    description: Minimum phase angle observed (i band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: i_phaseAngleMax
+    description: Maximum phase angle observed (i band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: i_slope_fit_failed
+    description: G12 fit failed in i band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: z_nObs
+    description: Total number of data points (z band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: z_H
+    description: Best fit absolute magnitude (z band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: z_HErr
+    description: Error in the estimate of H (z band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: z_G12
+    description: Best fit G12 slope parameter (z band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: z_G12Err
+    description: Error in the estimate of G12 (z band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: z_H_z_G12_Cov
+    description: H–G12 covariance (z band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: z_nObsUsed
+    description: The number of data points used to fit the phase curve (z band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: z_Chi2
+    description: Chi^2 statistic of the phase curve fit (z band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: z_phaseAngleMin
+    description: Minimum phase angle observed (z band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: z_phaseAngleMax
+    description: Maximum phase angle observed (z band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: z_slope_fit_failed
+    description: G12 fit failed in z band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+
+
+  - name: y_nObs
+    description: Total number of data points (y band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: y_H
+    description: Best fit absolute magnitude (y band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag
+  - name: y_HErr
+    description: Error in the estimate of H (y band).
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: stat.error;phot.mag
+  - name: y_G12
+    description: Best fit G12 slope parameter (y band).
+    datatype: float
+    ivoa:ucd: stat.fit.param
+  - name: y_G12Err
+    description: Error in the estimate of G12 (y band).
+    datatype: float
+    ivoa:ucd: stat.error;stat.fit.param
+  - name: y_H_y_G12_Cov
+    description: H–G12 covariance (y band).
+    datatype: float
+    ivoa:unit: mag**2
+    ivoa:ucd: stat.covariance;phot.mag;stat.fit.param
+  - name: y_nObsUsed
+    description: The number of data points used to fit the phase curve (y band).
+    datatype: int
+    ivoa:ucd: meta.number;obs
+  - name: y_Chi2
+    description: Chi^2 statistic of the phase curve fit (y band).
+    datatype: float
+    ivoa:ucd: stat.fit.chi2
+  - name: y_phaseAngleMin
+    description: Minimum phase angle observed (y band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.min
+  - name: y_phaseAngleMax
+    description: Maximum phase angle observed (y band).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng;stat.max
+  - name: y_slope_fit_failed
+    description: G12 fit failed in y band. G12 contains a fiducial value used to fit H.
+    datatype: boolean
+  constraints:
+  - name: fk_SSObject_mpc_orbits
+    description: Link an SSObject to its associated mpc_orbits
+    '@type': ForeignKey
+    columns:
+    - '#SSObject.designation'
+    referencedColumns:
+    - '#mpc_orbits.designation'
+  - name: unique_SSObject_designation
+    description: Unique index on the designation column
+    '@type': Unique
+    columns:
+    - "#SSObject.designation"
+  indexes:
+  - name: idx_SSObject_MOIDEarth
+    description: Index on the MOIDEarth column
+    columns:
+    - "#SSObject.MOIDEarth"
+
+- name: SSSource
+  description: LSST-computed per-source quantities. 1::1 relationship with DiaSource.
+  tap:table_index: 120
+  primaryKey: '#SSSource.diaSourceId'
+
+  columns:
+  - name: diaSourceId
+    description: Unique identifier of the observation (matching DiaSource.diaSourceId).
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: ssObjectId
+    description: Unique LSST identifier of the Solar System object.
+    datatype: long
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: designation
+    description: The unpacked primary provisional designation for this object.
+    datatype: char
+    length: 16
+    ivoa:ucd: meta.id;src
+
+
+  - name: eclLambda
+    description: Ecliptic longitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lon
+  - name: eclBeta
+    description: Ecliptic latitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.ecliptic.lat
+
+  - name: galLon
+    description: Galactic longitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.galactic.lon
+  - name: galLat
+    description: Galactic latitude, converted from the observed coordinates.
+    datatype: double
+    nullable: false
+    ivoa:unit: deg
+    ivoa:ucd: pos.galactic.lat
+
+  - name: elongation
+    description: Solar elongation of the object at the time of observation.
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+  - name: phaseAngle
+    description: Phase angle between the Sun, object, and observer.
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.phaseAng
+
+  - name: topoRange
+    description: Topocentric distance (delta) at light-emission time.
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.distance
+  - name: topoRangeRate
+    description: Topocentric radial (line-of-sight) velocity (deldot); positive values indicate motion away from the observer.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc
+
+  - name: helioRange
+    description: Heliocentric distance (r) at light-emission time.
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.distance;pos.heliocentric
+  - name: helioRangeRate
+    description: Heliocentric radial velocity (rdot); positive values indicate motion away from the Sun.
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.heliocentric
+
+  - name: ephRa
+    description: Predicted ICRS right ascension from the orbit in mpc_orbits.
+    datatype: double
+    ivoa:unit: deg
+    ivoa:ucd: pos.eq.ra;meta.modelled;pos.ephem
+  - name: ephDec
+    description: Predicted ICRS declination from the orbit in mpc_orbits.
+    datatype: double
+    ivoa:unit: deg
+    ivoa:ucd: pos.eq.dec;meta.modelled;pos.ephem
+  - name: ephVmag
+    description: >
+      Predicted magnitude in V band, computed from mpc_orbits data including
+      the mpc_orbits-provided (H, G) estimates
+    datatype: float
+    ivoa:unit: mag
+    ivoa:ucd: phot.mag;em.opt.V
+
+  - name: ephRate
+    description: Total predicted on-sky angular rate of motion.
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.ephem
+  - name: ephRateRa
+    description: Predicted on-sky angular rate in the R.A. direction (includes the cos(dec) factor).
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.eq.ra;pos.ephem
+  - name: ephRateDec
+    description: Predicted on-sky angular rate in the declination direction.
+    datatype: float
+    ivoa:unit: deg/d
+    ivoa:ucd: pos.pm;pos.eq.dec;pos.ephem
+
+  - name: ephOffset
+    description: Total observed versus predicted angular separation on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+  - name: ephOffsetRa
+    description: Offset between observed and predicted position in the R.A. direction (includes cos(dec) term).
+    datatype: double
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.eq.ra;stat.fit.omc
+  - name: ephOffsetDec
+    description: Offset between observed and predicted position in declination.
+    datatype: double
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.eq.dec;stat.fit.omc
+  - name: ephOffsetAlongTrack
+    description: Offset between observed and predicted position in the along-track direction on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+  - name: ephOffsetCrossTrack
+    description: Offset between observed and predicted position in the cross-track direction on the sky.
+    datatype: float
+    ivoa:unit: arcsec
+    ivoa:ucd: pos.angDistance;stat.fit.omc
+
+
+  - name: helio_x
+    description: Cartesian heliocentric X coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.x;pos.heliocentric
+  - name: helio_y
+    description: Cartesian heliocentric Y coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.y;pos.heliocentric
+  - name: helio_z
+    description: Cartesian heliocentric Z coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.z;pos.heliocentric
+  - name: helio_vx
+    description: Cartesian heliocentric X velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.x
+  - name: helio_vy
+    description: Cartesian heliocentric Y velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.y
+  - name: helio_vz
+    description: Cartesian heliocentric Z velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.z
+  - name: helio_vtot
+    description: "The magnitude of the heliocentric velocity vector, sqrt(vx*vx + vy*vy + vz*vz)."
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.heliocentric
+
+  - name: topo_x
+    description: Cartesian topocentric X coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.x
+  - name: topo_y
+    description: Cartesian topocentric Y coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.y
+  - name: topo_z
+    description: Cartesian topocentric Z coordinate at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: AU
+    ivoa:ucd: pos.cartesian.z
+  - name: topo_vx
+    description: Cartesian topocentric X velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.x
+  - name: topo_vy
+    description: Cartesian topocentric Y velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.y
+  - name: topo_vz
+    description: Cartesian topocentric Z velocity at light-emission time (ICRS).
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc;pos.cartesian.z
+  - name: topo_vtot
+    description: "The magnitude of the topocentric velocity vector, sqrt(vx*vx + vy*vy + vz*vz)."
+    datatype: float
+    ivoa:unit: km/s
+    ivoa:ucd: phys.veloc
+
+  - name: diaDistanceRank
+    description: >-
+      The rank of the diaSourceId-identified source in terms of its
+      closeness to the predicted SSO position.  If diaSourceId is the
+      nearest DiaSource to this SSO prediction, diaSourceDistanceRank=1
+      would be set. If it is the second nearest, it would be 2, etc.
+    datatype: short
+
+
+  constraints:
+  - name: fk_SSSource_DiaSource
+    description: Link an SSSource to its associated DiaSource
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.diaSourceId'
+    referencedColumns:
+    - '#DiaSource.diaSourceId'
+
+  - name: fk_SSSource_SSObject
+    description: Link an SSObject to its associated SSSources
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.ssObjectId'
+    referencedColumns:
+    - '#SSObject.ssObjectId'
+
+  - name: fk_SSSource_mpc_orbits
+    description: Link an SSSource to its associated mpc_orbits
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.designation'
+    referencedColumns:
+    - '#mpc_orbits.designation'
+
+  indexes:
+  - name: idx_SSSource_ssObjectId
+    description: >
+      Non-unique index on the ssObjectId column; accelerates retrieval of
+      single-epoch data for SSObjects.
+    columns:
+    - "#SSSource.ssObjectId"
+
+  - name: idx_SSSource_designation
+    description: >
+      Non-unique index on the designation column; accelerates retrieval of
+      single-epoch data for SSObjects.
+    columns:
+    - "#SSSource.designation"
+
+- name: mpc_orbits
+  description: Table of orbital elements and related information of known (sun-orbiting and unbound) Solar
+    System objects. Replicated from the Minor Planet Center (Postgres) database. This schema will
+    generally closely follow the schema of the upstream table, to allow end-users to rerun queries
+    developed elsewhere on the RSP.
+  tap:table_index: 130
+  primaryKey: '#mpc_orbits.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: designation
+    # Note: the 'designation' column is a Rubin-provided copy of the
+    # unpacked_primary_provisional_designation column to work around UX issues.
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB).
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: mpc_orb_jsonb
+    description: Details of the orbit solution in JSON form
+    datatype: text
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  - name: orbit_type_int
+    description: Orbit Type (Integer)
+    datatype: int
+  - name: u_param
+    description: U parameter
+    datatype: int
+  - name: nopp
+    description: number of oppositions
+    datatype: int
+  - name: arc_length_total
+    description: "Arc length over total observations [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: arc_length_sel
+    description: "Arc length over total observations *selected* [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: nobs_total
+    description: Total number of all observations (optical + radar) available
+    datatype: int
+  - name: nobs_total_sel
+    description: Total number of all observations (optical + radar) selected for use in orbit fitting
+    datatype: int
+  - name: a
+    description: "Semi Major Axis [au]"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: q
+    description: "Pericenter Distance [au]"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: e
+    description: "Eccentricity"
+    datatype: double
+    ivoa:ucd: src.orbital.eccentricity
+  - name: i
+    description: "Inclination [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.inclination
+    ivoa:unit: deg
+  - name: node
+    description: "Longitude of Ascending Node [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.node
+    ivoa:unit: deg
+  - name: argperi
+    description: "Argument of Pericenter [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.periastron
+    ivoa:unit: deg
+  - name: peri_time
+    description: "Time from Pericenter Passage [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: yarkovsky
+    description: "Yarkovsky Component [10^(-10)*au/day^2]"
+    datatype: double
+    ivoa:unit: 1e-10.au.d-2
+  - name: srp
+    description: "Solar-Radiation Pressure Component [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a1
+    description: "A1 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a2
+    description: "A2 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a3
+    description: "A3 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: dt
+    description: DT non-grav component
+    datatype: double
+  - name: mean_anomaly
+    description: "Mean Anomaly [degrees]"
+    datatype: double
+    ivoa:ucd: src.orbital.meanAnomaly
+    ivoa:unit: deg
+  - name: period
+    description: "Orbital Period [days]"
+    datatype: double
+    ivoa:ucd: time.period.revolution;src.orbital
+    ivoa:unit: d
+  - name: mean_motion
+    description: "Orbital Mean Motion [degrees per day]"
+    datatype: double
+    ivoa:ucd: src.orbital.meanMotion
+    ivoa:unit: deg.d-1
+  - name: a_unc
+    description: "Uncertainty on Semi Major Axis [au]"
+    datatype: double
+    ivoa:ucd: stat.error;pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: q_unc
+    description: "Uncertainty on Pericenter Distance [au]"
+    datatype: double
+    ivoa:ucd: stat.error;pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: e_unc
+    description: "Uncertainty on Eccentricity"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.eccentricity
+  - name: i_unc
+    description: "Uncertainty on Inclination [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.inclination
+    ivoa:unit: deg
+  - name: node_unc
+    description: "Uncertainty on Longitude of Ascending Node [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.node
+    ivoa:unit: deg
+  - name: argperi_unc
+    description: "Uncertainty on Argument of Pericenter [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.periastron
+    ivoa:unit: deg
+  - name: peri_time_unc
+    description: "Uncertainty on Time from Pericenter Passage [days]"
+    datatype: double
+    ivoa:unit: d
+  - name: yarkovsky_unc
+    description: "Uncertainty on Yarkovsky Component [10^(-10)*au/day^2]"
+    datatype: double
+    ivoa:unit: 1e-10.au.d-2
+  - name: srp_unc
+    description: "Uncertainty on Solar-Radiation Pressure Component [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a1_unc
+    description: "Uncertainty on A1 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a2_unc
+    description: "Uncertainty on A2 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: a3_unc
+    description: "Uncertainty on A3 non-grav components [m^2/ton]"
+    datatype: double
+    ivoa:unit: m2.t-1
+  - name: dt_unc
+    description: Uncertainty on DT non-grav component
+    datatype: double
+  - name: mean_anomaly_unc
+    description: "Uncertainty on Mean Anomaly [degrees]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.meanAnomaly
+    ivoa:unit: deg
+  - name: period_unc
+    description: "Uncertainty on Orbital Period [days]"
+    datatype: double
+    ivoa:ucd: stat.error;time.period.revolution;src.orbital
+    ivoa:unit: d
+  - name: mean_motion_unc
+    description: "Uncertainty on Orbital Mean Motion [degrees per day]"
+    datatype: double
+    ivoa:ucd: stat.error;src.orbital.meanMotion
+    ivoa:unit: deg.d-1
+  - name: epoch_mjd
+    description: Epoch of the Orbfit-Solution in MJD
+    datatype: double
+    ivoa:ucd: time.epoch;src.orbital
+    ivoa:unit: d
+  - name: h
+    description: H-Magnitude
+    datatype: double
+    ivoa:ucd: phys.magAbs
+    ivoa:unit: mag
+  - name: g
+    description: G-Slope Parameter
+    datatype: double
+  - name: not_normalized_rms
+    description: "unnormalized rms of the fit [arcsec]"
+    datatype: double
+    ivoa:ucd: stat.rms;stat.fit
+    ivoa:unit: arcsec
+  - name: normalized_rms
+    description: "rms of the fit [unitless]"
+    datatype: double
+    ivoa:ucd: stat.rms;stat.fit
+  - name: earth_moid
+    description: "Minimum Orbit Intersection Distance [au] with respect to the Earths Orbit"
+    datatype: double
+    ivoa:ucd: pos.distance;src.orbital
+    ivoa:unit: AU
+  - name: fitting_datetime
+    description: Date of the last orbit fit
+    datatype: timestamp
+    precision: 6
+  constraints:
+  - name: unique_mpc_orbits_unpacked_primary_provisional_designation
+    description: Uniqueness of unpacked_primary_provisional_designation
+    '@type': Unique
+    columns:
+    - '#mpc_orbits.unpacked_primary_provisional_designation'
+  - name: unique_mpc_orbits_designation
+    description: Uniqueness of designation
+    '@type': Unique
+    columns:
+    - '#mpc_orbits.designation'
+  - name: unique_mpc_orbits_packed_primary_provisional_designation
+    description: Uniqueness of packed_primary_provisional_designation
+    '@type': Unique
+    columns:
+    - '#mpc_orbits.packed_primary_provisional_designation'
+
+- name: current_identifications
+  description: All single-designations, and all identifications between designations. Always uses primary
+    provisional designation (even for numbered objects). Includes all comets and satellites.
+    Replicated from the Minor Planet Center (Postgres) database. This schema will generally closely
+    follow the schema of the upstream table, to allow end-users to rerun queries developed
+    elsewhere on the RSP.
+  tap:table_index: 140
+  primaryKey: '#current_identifications.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_secondary_provisional_designation
+    description: The secondary provisional designation in packed form (e.g. K08A00B). May be the same-as (A=A)
+      or different-to (A=B) the primary provisional designation
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_secondary_provisional_designation
+    description: The secondary provisional designation in unpacked form (e.g. 2008 AB). May be the same-as
+      (A=A) or different-to (A=B) the primary provisional designation
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: published
+    description: Has this been published yet? i.e. has it been released to the public?
+    datatype: boolean
+    ivoa:ucd: meta.code.status;meta.dataset
+  - name: identifier_ids
+    description: This is a set of unique identifier_ids in an array that points to the identification_metadata
+      table.
+    datatype: text
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: object_type
+    description: Integer to indicate the object type. To be linked (foreign key) to object_type lookup table
+    datatype: int
+  - name: numbered
+    description: Has the object been numbered and hence does it appear in the numbered_objects table?
+    datatype: boolean
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  constraints:
+  - name: unique_current_identifications_packed_primary_provisional_desig
+    "@type": Unique
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#current_identifications.packed_primary_provisional_designation'
+  - name: uniq_current_identifications_packed_secondary_provisional_desig
+    "@type": Unique
+    description: Unique index on the packed_secondary_provisional_designation column
+    columns:
+    - '#current_identifications.packed_secondary_provisional_designation'
+
+- name: numbered_identifications
+  description: The numbered identification table contains all the numbered objects (minor planets, comets and
+    natural satellites) with their primary provisional designations. The table is continously
+    updated everytime a new object is numbered. Replicated from the Minor Planet Center (Postgres)
+    database. This schema will generally closely follow the schema of the upstream table, to allow
+    end-users to rerun queries developed elsewhere on the RSP.
+  tap:table_index: 150
+  primaryKey: '#numbered_identifications.id'
+  columns:
+  - name: id
+    description: Internal ID (generally not seen/used by the user)
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: packed_primary_provisional_designation
+    description: The primary provisional designation in packed form (e.g. K08A00B)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: unpacked_primary_provisional_designation
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: permid
+    description: Permanent designation (number)
+    datatype: char
+    length: 16
+    nullable: false
+    ivoa:ucd: meta.id;src
+  - name: iau_designation
+    description: IAU-approved designation (not filled at the moment)
+    datatype: text
+    ivoa:ucd: meta.id;src
+  - name: iau_name
+    description: IAU-approved name (not filled at the moment)
+    datatype: char
+    length: 32
+    ivoa:ucd: meta.id;src
+  - name: numbered_publication_references
+    description: MPEC where this object was numbered
+    datatype: text
+    ivoa:ucd: meta.bib.bibcode
+  - name: named_publication_references
+    description: MPEC where this object was named
+    datatype: text
+    ivoa:ucd: meta.bib.bibcode
+  - name: naming_credit
+    description: Credit for suggesting the name
+    datatype: text
+  - name: created_at
+    description: When this row was created
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.creation;meta.dataset
+  - name: updated_at
+    description: When this row was updated
+    datatype: timestamp
+    precision: 6
+    ivoa:ucd: time.processing;meta.dataset
+  constraints:
+  - name: unique_numbered_identifications_iau_name
+    "@type": Unique
+    description: Unique index on the iau_name column
+    columns:
+    - '#numbered_identifications.iau_name'
+  - name: unique_numbered_identifications_packed_primary_prov_desig
+    "@type": Unique
+    description: Unique index on the packed_primary_provisional_designation column
+    columns:
+    - '#numbered_identifications.packed_primary_provisional_designation'
+  - name: unique_numbered_identifications_permid
+    "@type": Unique
+    description: Unique index on the permid column
+    columns:
+    - '#numbered_identifications.permid'
+  - name: uniq_numbered_identifications_unpacked_primary_prov_desig
+    "@type": Unique
+    description: Unique index on the unpacked_primary_provisional_designation column
+    columns:
+    - '#numbered_identifications.unpacked_primary_provisional_designation'
