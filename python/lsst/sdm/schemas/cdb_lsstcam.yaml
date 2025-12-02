@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LSSTCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, the primary instrument for the Legacy Survey of Space and Time.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "1.4.0"
+  current: "1.6.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -1535,6 +1535,161 @@ tables:
     description: Physical rotator angle in degrees.
     ivoa:ucd: pos.posAng
     ivoa:unit: deg
+  - name: guider_exp_time
+    "@id": "#visit1_quicklook.guider_exp_time"
+    datatype: float
+    description: Total guider exposure time across all stamps.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+  - name: guider_stamp_exp_time
+    "@id": "#visit1_quicklook.guider_stamp_exp_time"
+    datatype: float
+    description: The delivered guider exposure time for a single stamp.
+    ivoa:ucd: time.interval
+    ivoa:unit: s
+  - name: guider_n_stamps_expected
+    "@id": "#visit1_quicklook.guider_n_stamps_expected"
+    datatype: int
+    description: Number of expected guider stamps.
+    ivoa:unit: count
+  - name: guider_n_stamps_delivered
+    "@id": "#visit1_quicklook.guider_n_stamps_delivered"
+    datatype: int
+    description: Number of delivered guider stamps.
+    ivoa:unit: count
+  - name: guider_roi_cols
+    "@id": "#visit1_quicklook.guider_roi_cols"
+    datatype: float
+    description: Number of columns in the guider ROI, in pixels.
+    ivoa:unit: pixel
+  - name: guider_roi_rows
+    "@id": "#visit1_quicklook.guider_roi_rows"
+    datatype: float
+    description: Number of rows in the guider ROI, in pixels.
+    ivoa:unit: pixel
+  - name: guider_n_tracked_stars
+    "@id": "#visit1_quicklook.guider_n_tracked_stars"
+    datatype: int
+    description: Number of tracked stars.
+    ivoa:unit: count
+  - name: guider_n_measurements
+    "@id": "#visit1_quicklook.guider_n_measurements"
+    datatype: int
+    description: Number of tracked star measurements.
+    ivoa:unit: count
+  - name: guider_altitude_drift
+    "@id": "#visit1_quicklook.guider_altitude_drift"
+    datatype: float
+    description: Altitude drift over exposure in arcsec.
+    ivoa:unit: arcsec
+  - name: guider_altitude_standard_deviation
+    "@id": "#visit1_quicklook.guider_altitude_standard_deviation"
+    datatype: float
+    description: Standard deviation of altitude over exposure.
+    ivoa:unit: arcsec
+  - name: guider_altitude_rms_detrended
+    "@id": "#visit1_quicklook.guider_altitude_rms_detrended"
+    datatype: float
+    description: RMS of altitude after trendline is subtracted.
+    ivoa:unit: arcsec
+  - name: guider_azimuth_drift
+    "@id": "#visit1_quicklook.guider_azimuth_drift"
+    datatype: float
+    description: Azimuth drift over exposure in arcsec.
+    ivoa:unit: arcsec
+  - name: guider_azimuth_standard_deviation
+    "@id": "#visit1_quicklook.guider_azimuth_standard_deviation"
+    datatype: float
+    description: Standard deviation of azimuth over exposure.
+    ivoa:unit: arcsec
+  - name: guider_azimuth_rms_detrended
+    "@id": "#visit1_quicklook.guider_azimuth_rms_detrended"
+    datatype: float
+    description: RMS of azimuth after trendline is subtracted.
+    ivoa:unit: arcsec
+  - name: guider_focalplane_theta_drift
+    "@id": "#visit1_quicklook.guider_focalplane_theta_drift"
+    datatype: float
+    description: Focal plane theta drift over exposure in arcsec.
+    ivoa:unit: arcsec
+  - name: guider_focalplane_theta_standard_deviation
+    "@id": "#visit1_quicklook.guider_focalplane_theta_standard_deviation"
+    datatype: float
+    description: Standard deviation of focal plane theta over exposure.
+    ivoa:unit: arcsec
+  - name: guider_focalplane_theta_rms_detrended
+    "@id": "#visit1_quicklook.guider_focalplane_theta_rms_detrended"
+    datatype: float
+    description: RMS of focal plane theta after trendline is subtracted.
+    ivoa:unit: arcsec
+  - name: guider_magnitude_drift
+    "@id": "#visit1_quicklook.guider_magnitude_drift"
+    datatype: float
+    description: Magnitude drift over exposure in magnitudes.
+    ivoa:unit: mag
+  - name: guider_magnitude_standard_deviation
+    "@id": "#visit1_quicklook.guider_magnitude_standard_deviation"
+    datatype: float
+    description: Standard deviation of magnitude over exposure.
+    ivoa:unit: mag
+  - name: guider_magnitude_rms_detrended
+    "@id": "#visit1_quicklook.guider_magnitude_rms_detrended"
+    datatype: float
+    description: RMS of magnitude after trendline is subtracted.
+    ivoa:unit: mag
+  - name: guider_psf_fwhm_start
+    "@id": "#visit1_quicklook.guider_psf_fwhm_start"
+    datatype: float
+    description: PSF FWHM of the guider star at the start of the exposure.
+    ivoa:unit: arcsec
+  - name: guider_psf_fwhm_drift
+    "@id": "#visit1_quicklook.guider_psf_fwhm_drift"
+    datatype: float
+    description: PSF FWHM drift over exposure in arcsec.
+    ivoa:unit: arcsec
+  - name: guider_psf_fwhm_standard_deviation
+    "@id": "#visit1_quicklook.guider_psf_fwhm_standard_deviation"
+    datatype: float
+    description: Standard deviation of PSF FWHM over exposure.
+    ivoa:unit: arcsec
+  - name: guider_psf_fwhm_rms_detrended
+    "@id": "#visit1_quicklook.guider_psf_fwhm_rms_detrended"
+    datatype: float
+    description: RMS of PSF FWHM after trendline is subtracted.
+    ivoa:unit: arcsec
+  - name: guider_psf_fwhm
+    "@id": "#visit1_quicklook.guider_psf_fwhm"
+    datatype: float
+    description: Mean PSF FWHM for all measurements over the exposure.
+    ivoa:unit: arcsec
+  - name: guider_e1_mean
+    "@id": "#visit1_quicklook.guider_e1_mean"
+    datatype: float
+    description: Mean second moment e1 for all measurements over the exposure.
+  - name: guider_e2_mean
+    "@id": "#visit1_quicklook.guider_e2_mean"
+    datatype: float
+    description: Mean second moment e2 for all measurements over the exposure.
+  - name: guider_ground_layer_seeing
+    "@id": "#visit1_quicklook.guider_ground_layer_seeing"
+    datatype: float
+    description: Ground layer seeing calculated with guider exposure.
+    ivoa:unit: arcsec
+  - name: guider_mid_layer_seeing
+    "@id": "#visit1_quicklook.guider_mid_layer_seeing"
+    datatype: float
+    description: Mid layer seeing calculated with guider exposure.
+    ivoa:unit: arcsec
+  - name: guider_free_seeing
+    "@id": "#visit1_quicklook.guider_free_seeing"
+    datatype: float
+    description: Free atmosphere seeing calculated with guider exposure.
+    ivoa:unit: arcsec
+  - name: guider_total_seeing
+    "@id": "#visit1_quicklook.guider_total_seeing"
+    datatype: float
+    description: Total seeing calculated with guider exposure.
+    ivoa:unit: arcsec
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
   tap:table_index: 150
