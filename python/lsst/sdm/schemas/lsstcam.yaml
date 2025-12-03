@@ -76,43 +76,6 @@ tables:
   - name: z_free_psfFlux_flag
     description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on z-band.
     datatype: boolean
-  - name: z_bdE1
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_bdE2
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_bdReB
-    description: Half-light ellipse of the de Vaucouleurs fit. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_bdReD
-    description: Half-light ellipse of the exponential fit. Measured on z-band.
-    datatype: float
-    ivoa:unit: pixel**2
-  - name: z_bdChi2
-    description: -ln(likelihood) (chi^2) in CModel fit. Measured on z-band.
-    datatype: float
-  - name: z_bdFluxB
-    description: Flux from the de Vaucouleurs fit. Measured on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_bdFluxBErr
-    description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_bdFluxD
-    description: Flux from the exponential fit. Measured on z-band.
-    datatype: float
-    ivoa:unit: nJy
-  - name: z_bdFluxDErr
-    description: Flux uncertainty from the exponential fit. Measured on z-band.
-    datatype: float
-    ivoa:unit: nJy
   - name: z_gaapPsfFlux
     description: GAaP Flux with PSF aperture after reconvolving the image to a Gaussian PSF larger than the original by a factor of 1.15.
       Forced on z-band.
@@ -334,6 +297,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
+  - name: z_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on z-band.
+    datatype: float
   - name: z_free_cModelFlux
     description: Flux from the final CModel fit. Measured on z-band.
     datatype: float
@@ -346,10 +312,56 @@ tables:
     description: Flux within the fit region, with no extrapolation. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
+  - name: z_free_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on z-band.
+    datatype: float
   - name: z_free_cModelFlux_flag
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on z-band.
     datatype: boolean
+  - name: z_cModel_dev_reff_major
+    datatype: float
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on z-band.
+    ivoa:unit: arcsec
+  - name: z_cModel_dev_reff_minor
+    datatype: float
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on z-band.
+    ivoa:unit: arcsec
+  - name: z_cModel_dev_theta
+    datatype: float
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on z-band.
+    ivoa:unit:
+  - name: z_cModel_exp_reff_major
+    datatype: float
+    description: Half-light ellipse of the exponential fit (major axis). Measured on z-band.
+    ivoa:unit: arcsec
+  - name: z_cModel_exp_reff_minor
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on z-band.
+    ivoa:unit: arcsec
+  - name: z_cModel_exp_theta
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on z-band.
+    ivoa:unit:
+  - name: z_cModel_chi2
+    description: -ln(likelihood) (chi^2) in CModel fit. Measured on z-band.
+    datatype: float
+  - name: z_cModel_devFlux
+    description: Flux from the de Vaucouleurs fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_cModel_devFluxErr
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_cModel_expFlux
+    description: Flux from the exponential fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_cModel_expFluxErr
+    description: Flux uncertainty from the exponential fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
   - name: z_hsmShapeRegauss_e1
     description: PSF-corrected shear using the Hirata & Seljak (2003) Regaussianization algorithm.
       Measured on z-band.
@@ -558,7 +570,7 @@ tables:
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF
       model (z-band).
     datatype: int
-  - name: z_psfModel_TwoGaussian_chisq_reduced
+  - name: z_psfModel_TwoGaussian_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
       the number of data points) for the two-Gaussian PSF model (z-band).
     datatype: float
@@ -796,40 +808,46 @@ tables:
   - name: u_free_psfFlux_flag
     description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on u-band.
     datatype: boolean
-  - name: u_bdE1
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on u-band.
+  - name: u_cModel_dev_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: u_bdE2
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on u-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on u-band.
+    ivoa:unit: arcsec
+  - name: u_cModel_dev_reff_minor
     datatype: float
-    ivoa:unit: pixel**2
-  - name: u_bdReB
-    description: Half-light ellipse of the de Vaucouleurs fit. Measured on u-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on u-band.
+    ivoa:unit: arcsec
+  - name: u_cModel_dev_theta
     datatype: float
-    ivoa:unit: pixel**2
-  - name: u_bdReD
-    description: Half-light ellipse of the exponential fit. Measured on u-band.
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on u-band.
+    ivoa:unit:
+  - name: u_cModel_exp_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: u_bdChi2
+    description: Half-light ellipse of the exponential fit (major axis). Measured on u-band.
+    ivoa:unit: arcsec
+  - name: u_cModel_exp_reff_minor
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on u-band.
+    ivoa:unit: arcsec
+  - name: u_cModel_exp_theta
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on u-band.
+    ivoa:unit:
+  - name: u_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on u-band.
     datatype: float
-  - name: u_bdFluxB
+  - name: u_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
-  - name: u_bdFluxBErr
+  - name: u_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
-  - name: u_bdFluxD
+  - name: u_cModel_expFlux
     description: Flux from the exponential fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
-  - name: u_bdFluxDErr
+  - name: u_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
@@ -1054,6 +1072,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
+  - name: u_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on u-band.
+    datatype: float
   - name: u_free_cModelFlux
     description: Flux from the final CModel fit. Measured on u-band.
     datatype: float
@@ -1066,6 +1087,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
+  - name: u_free_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on u-band.
+    datatype: float
   - name: u_free_cModelFlux_flag
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on u-band.
@@ -1278,7 +1302,7 @@ tables:
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF
       model (u-band).
     datatype: int
-  - name: u_psfModel_TwoGaussian_chisq_reduced
+  - name: u_psfModel_TwoGaussian_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
       the number of data points) for the two-Gaussian PSF model (u-band).
     datatype: float
@@ -1516,40 +1540,46 @@ tables:
   - name: g_free_psfFlux_flag
     description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on g-band.
     datatype: boolean
-  - name: g_bdE1
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on g-band.
+  - name: g_cModel_dev_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: g_bdE2
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on g-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on g-band.
+    ivoa:unit: arcsec
+  - name: g_cModel_dev_reff_minor
     datatype: float
-    ivoa:unit: pixel**2
-  - name: g_bdReB
-    description: Half-light ellipse of the de Vaucouleurs fit. Measured on g-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on g-band.
+    ivoa:unit: arcsec
+  - name: g_cModel_dev_theta
     datatype: float
-    ivoa:unit: pixel**2
-  - name: g_bdReD
-    description: Half-light ellipse of the exponential fit. Measured on g-band.
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on g-band.
+    ivoa:unit:
+  - name: g_cModel_exp_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: g_bdChi2
+    description: Half-light ellipse of the exponential fit (major axis). Measured on g-band.
+    ivoa:unit: arcsec
+  - name: g_cModel_exp_reff_minor
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on g-band.
+    ivoa:unit: arcsec
+  - name: g_cModel_exp_theta
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on g-band.
+    ivoa:unit:
+  - name: g_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on g-band.
     datatype: float
-  - name: g_bdFluxB
+  - name: g_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
-  - name: g_bdFluxBErr
+  - name: g_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
-  - name: g_bdFluxD
+  - name: g_cModel_expFlux
     description: Flux from the exponential fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
-  - name: g_bdFluxDErr
+  - name: g_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
@@ -1777,6 +1807,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
+  - name: g_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on g-band.
+    datatype: float
   - name: g_free_cModelFlux
     description: Flux from the final CModel fit. Measured on g-band.
     datatype: float
@@ -1789,6 +1822,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
+  - name: g_free_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on g-band.
+    datatype: float
   - name: g_free_cModelFlux_flag
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on g-band.
@@ -2001,7 +2037,7 @@ tables:
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF
       model (g-band).
     datatype: int
-  - name: g_psfModel_TwoGaussian_chisq_reduced
+  - name: g_psfModel_TwoGaussian_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
       the number of data points) for the two-Gaussian PSF model (g-band).
     datatype: float
@@ -2239,40 +2275,46 @@ tables:
   - name: r_free_psfFlux_flag
     description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on r-band.
     datatype: boolean
-  - name: r_bdE1
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on r-band.
+  - name: r_cModel_dev_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: r_bdE2
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on r-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on r-band.
+    ivoa:unit: arcsec
+  - name: r_cModel_dev_reff_minor
     datatype: float
-    ivoa:unit: pixel**2
-  - name: r_bdReB
-    description: Half-light ellipse of the de Vaucouleurs fit. Measured on r-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on r-band.
+    ivoa:unit: arcsec
+  - name: r_cModel_dev_theta
     datatype: float
-    ivoa:unit: pixel**2
-  - name: r_bdReD
-    description: Half-light ellipse of the exponential fit. Measured on r-band.
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on r-band.
+    ivoa:unit:
+  - name: r_cModel_exp_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: r_bdChi2
+    description: Half-light ellipse of the exponential fit (major axis). Measured on r-band.
+    ivoa:unit: arcsec
+  - name: r_cModel_exp_reff_minor
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on r-band.
+    ivoa:unit: arcsec
+  - name: r_cModel_exp_theta
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on r-band.
+    ivoa:unit:
+  - name: r_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on r-band.
     datatype: float
-  - name: r_bdFluxB
+  - name: r_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
-  - name: r_bdFluxBErr
+  - name: r_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
-  - name: r_bdFluxD
+  - name: r_cModel_expFlux
     description: Flux from the exponential fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
-  - name: r_bdFluxDErr
+  - name: r_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
@@ -2497,6 +2539,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
+  - name: r_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on r-band.
+    datatype: float
   - name: r_free_cModelFlux
     description: Flux from the final CModel fit. Measured on r-band.
     datatype: float
@@ -2509,6 +2554,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
+  - name: r_free_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on r-band.
+    datatype: float
   - name: r_free_cModelFlux_flag
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on r-band.
@@ -2721,7 +2769,7 @@ tables:
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF
       model (r-band).
     datatype: int
-  - name: r_psfModel_TwoGaussian_chisq_reduced
+  - name: r_psfModel_TwoGaussian_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
       the number of data points) for the two-Gaussian PSF model (r-band).
     datatype: float
@@ -2959,40 +3007,46 @@ tables:
   - name: i_free_psfFlux_flag
     description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on i-band.
     datatype: boolean
-  - name: i_bdE1
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on i-band.
+  - name: i_cModel_dev_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: i_bdE2
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on i-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on i-band.
+    ivoa:unit: arcsec
+  - name: i_cModel_dev_reff_minor
     datatype: float
-    ivoa:unit: pixel**2
-  - name: i_bdReB
-    description: Half-light ellipse of the de Vaucouleurs fit. Measured on i-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on i-band.
+    ivoa:unit: arcsec
+  - name: i_cModel_dev_theta
     datatype: float
-    ivoa:unit: pixel**2
-  - name: i_bdReD
-    description: Half-light ellipse of the exponential fit. Measured on i-band.
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on i-band.
+    ivoa:unit:
+  - name: i_cModel_exp_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: i_bdChi2
+    description: Half-light ellipse of the exponential fit (major axis). Measured on i-band.
+    ivoa:unit: arcsec
+  - name: i_cModel_exp_reff_minor
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on i-band.
+    ivoa:unit: arcsec
+  - name: i_cModel_exp_theta
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on i-band.
+    ivoa:unit:
+  - name: i_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on i-band.
     datatype: float
-  - name: i_bdFluxB
+  - name: i_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
-  - name: i_bdFluxBErr
+  - name: i_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
-  - name: i_bdFluxD
+  - name: i_cModel_expFlux
     description: Flux from the exponential fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
-  - name: i_bdFluxDErr
+  - name: i_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
@@ -3217,6 +3271,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
+  - name: i_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on i-band.
+    datatype: float
   - name: i_free_cModelFlux
     description: Flux from the final CModel fit. Measured on i-band.
     datatype: float
@@ -3229,6 +3286,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
+  - name: i_free_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on i-band.
+    datatype: float
   - name: i_free_cModelFlux_flag
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on i-band.
@@ -3441,7 +3501,7 @@ tables:
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF
       model (i-band).
     datatype: int
-  - name: i_psfModel_TwoGaussian_chisq_reduced
+  - name: i_psfModel_TwoGaussian_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
       the number of data points) for the two-Gaussian PSF model (i-band).
     datatype: float
@@ -3679,40 +3739,46 @@ tables:
   - name: y_free_psfFlux_flag
     description: Flag set if the unforced PSF flux failed in this band for any reason. Measured on y-band.
     datatype: boolean
-  - name: y_bdE1
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on y-band.
+  - name: y_cModel_dev_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: y_bdE2
-    description: Flux-weighted average of exponential and de Vaucouleurs ellipticities. Measured
-      on y-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on y-band.
+    ivoa:unit: arcsec
+  - name: y_cModel_dev_reff_minor
     datatype: float
-    ivoa:unit: pixel**2
-  - name: y_bdReB
-    description: Half-light ellipse of the de Vaucouleurs fit. Measured on y-band.
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on y-band.
+    ivoa:unit: arcsec
+  - name: y_cModel_dev_theta
     datatype: float
-    ivoa:unit: pixel**2
-  - name: y_bdReD
-    description: Half-light ellipse of the exponential fit. Measured on y-band.
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on y-band.
+    ivoa:unit:
+  - name: y_cModel_exp_reff_major
     datatype: float
-    ivoa:unit: pixel**2
-  - name: y_bdChi2
+    description: Half-light ellipse of the exponential fit (major axis). Measured on y-band.
+    ivoa:unit: arcsec
+  - name: y_cModel_exp_reff_minor
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on y-band.
+    ivoa:unit: arcsec
+  - name: y_cModel_exp_theta
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on y-band.
+    ivoa:unit:
+  - name: y_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on y-band.
     datatype: float
-  - name: y_bdFluxB
+  - name: y_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
-  - name: y_bdFluxBErr
+  - name: y_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
-  - name: y_bdFluxD
+  - name: y_cModel_expFlux
     description: Flux from the exponential fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
-  - name: y_bdFluxDErr
+  - name: y_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
@@ -3937,6 +4003,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
+  - name: y_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on y-band.
+    datatype: float
   - name: y_free_cModelFlux
     description: Flux from the final CModel fit. Measured on y-band.
     datatype: float
@@ -3949,6 +4018,9 @@ tables:
     description: Flux within the fit region, with no extrapolation. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
+  - name: y_free_cModel_fracDev
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on y-band.
+    datatype: float
   - name: y_free_cModelFlux_flag
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on y-band.
@@ -4161,7 +4233,7 @@ tables:
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF
       model (y-band).
     datatype: int
-  - name: y_psfModel_TwoGaussian_chisq_reduced
+  - name: y_psfModel_TwoGaussian_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
       the number of data points) for the two-Gaussian PSF model (y-band).
     datatype: float
@@ -4512,7 +4584,7 @@ tables:
     datatype: float
     ivoa:unit: deg
   - name: exponential_reff_x
-    description: Effective radius (x-axis) from the multiband exponential model fit, prior to convolution with the adjusted (see config) PSF value.
+    description: Effective radius (x-axis) from the multiband exponential model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_xErr
@@ -4520,7 +4592,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_y
-    description: Effective radius (y-axis) from the multiband exponential model fit, prior to convolution with the adjusted (see config) PSF value.
+    description: Effective radius (y-axis) from the multiband exponential model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_yErr
@@ -4533,6 +4605,17 @@ tables:
   - name: exponential_rhoErr
     description: Error on ellipse rho (correlation coefficient) from the multiband exponential model fit.
     datatype: float
+  - name: exponential_reff_major
+    datatype: float
+    description: Effective radius (major axis) from the multiband Sersic model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
+    ivoa:unit: arcsec
+  - name: exponential_reff_minor
+    datatype: float
+    description: Effective radius (minor axis) from the multiband Sersic model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
+    ivoa:unit: arcsec
+  - name: exponential_theta
+    datatype: float
+    description: Position angle of the multiband Sersic fit ellipse.
   - name: g_exponentialFlux
     description: g-band flux from the multiband exponential model fit.
     datatype: float
@@ -4587,7 +4670,7 @@ tables:
   - name: exponential_n_iter
     description: Number of iterations in the non-linear fit for the multiband exponential model.
     datatype: int
-  - name: exponential_chisq_reduced
+  - name: exponential_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband exponential model.
     datatype: float
   - name: exponential_delta_lnL_fit_linear
@@ -4635,8 +4718,7 @@ tables:
     datatype: float
     ivoa:unit: deg
   - name: sersic_reff_x
-    description: Effective radius (x-axis) from the multiband Sersic model fit, prior
-      to convolution with the adjusted (see config) PSF value.
+    description: Effective radius (x-axis) from the multiband Sersic model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_xErr
@@ -4644,8 +4726,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_y
-    description: Effective radius (y-axis) from the multiband Sersic model fit, prior
-      to convolution with the adjusted (see config) PSF value.
+    description: Effective radius (y-axis) from the multiband Sersic model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_yErr
@@ -4659,6 +4740,18 @@ tables:
     description: Error on ellipse rho (correlation coefficient) from the multiband Sersic
       model fit.
     datatype: float
+  - name: sersic_reff_major
+    datatype: float
+    description: Effective radius (major axis) from the multiband Sersic model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
+    ivoa:unit: arcsec
+  - name: sersic_reff_minor
+    datatype: float
+    description: Effective radius (minor axis) from the multiband Sersic model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
+    ivoa:unit: arcsec
+  - name: sersic_theta
+    datatype: float
+    description: Position angle of the multiband Sersic fit ellipse.
+    ivoa:unit:
   - name: g_sersicFlux
     description: g-band flux from the multiband Sersic model fit.
     datatype: float
@@ -4721,7 +4814,7 @@ tables:
     description: Number of iterations in the non-linear fit for the multiband Sersic
       model.
     datatype: int
-  - name: sersic_chisq_reduced
+  - name: sersic_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
       the number of data points) for the multiband Sersic model.
     datatype: float

@@ -345,51 +345,61 @@ tables:
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on g-band.
     fits:tunit:
-  - name: g_bdChi2
-    "@id": "#Object.g_bdChi2"
+  - name: g_cModel_chi2
+    "@id": "#Object.g_cModel_chi2"
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on g-band.
     fits:tunit:
-  - name: g_bdE1
-    "@id": "#Object.g_bdE1"
+  - name: g_cModel_devFlux
+    "@id": "#Object.g_cModel_devFlux"
     datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on g-band.
-    fits:tunit: pixel**2
-  - name: g_bdE2
-    "@id": "#Object.g_bdE2"
-    datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on g-band.
-    fits:tunit: pixel**2
-  - name: g_bdFluxB
-    "@id": "#Object.g_bdFluxB"
-    datatype: float
-    description: Flux from the de Vaucouleur fit. Measured on g-band.
+    description: Flux from the de Vaucouleurs fit. Measured on g-band.
     fits:tunit: nJy
-  - name: g_bdFluxBErr
-    "@id": "#Object.g_bdFluxBErr"
+  - name: g_cModel_devFluxErr
+    "@id": "#Object.g_cModel_devFluxErr"
     datatype: float
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on g-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
     fits:tunit: nJy
-  - name: g_bdFluxD
-    "@id": "#Object.g_bdFluxD"
+  - name: g_cModel_expFlux
+    "@id": "#Object.g_cModel_expFlux"
     datatype: float
     description: Flux from the exponential fit. Measured on g-band.
     fits:tunit: nJy
-  - name: g_bdFluxDErr
-    "@id": "#Object.g_bdFluxDErr"
+  - name: g_cModel_expFluxErr
+    "@id": "#Object.g_cModel_expFluxErr"
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on g-band.
     fits:tunit: nJy
-  - name: g_bdReB
-    "@id": "#Object.g_bdReB"
+  - name: g_cModel_dev_reff_major
+    "@id": "#Object.g_cModel_dev_reff_major"
     datatype: float
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on g-band.
-    fits:tunit: pixel**2
-  - name: g_bdReD
-    "@id": "#Object.g_bdReD"
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on g-band.
+    fits:tunit: arcsec
+  - name: g_cModel_dev_reff_minor
+    "@id": "#Object.g_cModel_dev_reff_minor"
     datatype: float
-    description: Half-light ellipse of the exponential fit. Measured on g-band.
-    fits:tunit: pixel**2
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on g-band.
+    fits:tunit: arcsec
+  - name: g_cModel_dev_theta
+    "@id": "#Object.g_cModel_dev_theta"
+    datatype: float
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on g-band.
+    fits:tunit:
+  - name: g_cModel_exp_reff_major
+    "@id": "#Object.g_cModel_exp_reff_major"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (major axis). Measured on g-band.
+    fits:tunit: arcsec
+  - name: g_cModel_exp_reff_minor
+    "@id": "#Object.g_cModel_exp_reff_minor"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on g-band.
+    fits:tunit: arcsec
+  - name: g_cModel_exp_theta
+    "@id": "#Object.g_cModel_exp_theta"
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on g-band.
+    fits:tunit:
   - name: g_blendedness
     "@id": "#Object.g_blendedness"
     datatype: float
@@ -415,6 +425,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on g-band.
     fits:tunit: nJy
+  - name: g_cModel_fracDev
+    "@id": "#Object.g_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on g-band.
+    fits:tunit:
   - name: g_cModel_flag
     "@id": "#Object.g_cModel_flag"
     datatype: boolean
@@ -522,6 +537,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on g-band.
     fits:tunit: nJy
+  - name: g_free_cModel_fracDev
+    "@id": "#Object.g_free_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on g-band.
+    fits:tunit:
   - name: g_free_psfFlux
     "@id": "#Object.g_free_psfFlux"
     datatype: float
@@ -1264,51 +1284,61 @@ tables:
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on i-band.
     fits:tunit:
-  - name: i_bdChi2
-    "@id": "#Object.i_bdChi2"
+  - name: i_cModel_chi2
+    "@id": "#Object.i_cModel_chi2"
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on i-band.
     fits:tunit:
-  - name: i_bdE1
-    "@id": "#Object.i_bdE1"
+  - name: i_cModel_devFlux
+    "@id": "#Object.i_cModel_devFlux"
     datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on i-band.
-    fits:tunit: pixel**2
-  - name: i_bdE2
-    "@id": "#Object.i_bdE2"
-    datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on i-band.
-    fits:tunit: pixel**2
-  - name: i_bdFluxB
-    "@id": "#Object.i_bdFluxB"
-    datatype: float
-    description: Flux from the de Vaucouleur fit. Measured on i-band.
+    description: Flux from the de Vaucouleurs fit. Measured on i-band.
     fits:tunit: nJy
-  - name: i_bdFluxBErr
-    "@id": "#Object.i_bdFluxBErr"
+  - name: i_cModel_devFluxErr
+    "@id": "#Object.i_cModel_devFluxErr"
     datatype: float
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on i-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
     fits:tunit: nJy
-  - name: i_bdFluxD
-    "@id": "#Object.i_bdFluxD"
+  - name: i_cModel_expFlux
+    "@id": "#Object.i_cModel_expFlux"
     datatype: float
     description: Flux from the exponential fit. Measured on i-band.
     fits:tunit: nJy
-  - name: i_bdFluxDErr
-    "@id": "#Object.i_bdFluxDErr"
+  - name: i_cModel_expFluxErr
+    "@id": "#Object.i_cModel_expFluxErr"
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on i-band.
     fits:tunit: nJy
-  - name: i_bdReB
-    "@id": "#Object.i_bdReB"
+  - name: i_cModel_dev_reff_major
+    "@id": "#Object.i_cModel_dev_reff_major"
     datatype: float
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on i-band.
-    fits:tunit: pixel**2
-  - name: i_bdReD
-    "@id": "#Object.i_bdReD"
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on i-band.
+    fits:tunit: arcsec
+  - name: i_cModel_dev_reff_minor
+    "@id": "#Object.i_cModel_dev_reff_minor"
     datatype: float
-    description: Half-light ellipse of the exponential fit. Measured on i-band.
-    fits:tunit: pixel**2
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on i-band.
+    fits:tunit: arcsec
+  - name: i_cModel_dev_theta
+    "@id": "#Object.i_cModel_dev_theta"
+    datatype: float
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on i-band.
+    fits:tunit:
+  - name: i_cModel_exp_reff_major
+    "@id": "#Object.i_cModel_exp_reff_major"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (major axis). Measured on i-band.
+    fits:tunit: arcsec
+  - name: i_cModel_exp_reff_minor
+    "@id": "#Object.i_cModel_exp_reff_minor"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on i-band.
+    fits:tunit: arcsec
+  - name: i_cModel_exp_theta
+    "@id": "#Object.i_cModel_exp_theta"
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on i-band.
+    fits:tunit:
   - name: i_blendedness
     "@id": "#Object.i_blendedness"
     datatype: float
@@ -1334,6 +1364,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on i-band.
     fits:tunit: nJy
+  - name: i_cModel_fracDev
+    "@id": "#Object.i_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on i-band.
+    fits:tunit:
   - name: i_cModel_flag
     "@id": "#Object.i_cModel_flag"
     datatype: boolean
@@ -1436,6 +1471,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on i-band.
     fits:tunit: nJy
+  - name: i_free_cModel_fracDev
+    "@id": "#Object.i_free_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on i-band.
+    fits:tunit:
   - name: i_free_psfFlux
     "@id": "#Object.i_free_psfFlux"
     datatype: float
@@ -2178,51 +2218,61 @@ tables:
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on r-band.
     fits:tunit:
-  - name: r_bdChi2
-    "@id": "#Object.r_bdChi2"
+  - name: r_cModel_chi2
+    "@id": "#Object.r_cModel_chi2"
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on r-band.
     fits:tunit:
-  - name: r_bdE1
-    "@id": "#Object.r_bdE1"
+  - name: r_cModel_devFlux
+    "@id": "#Object.r_cModel_devFlux"
     datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on r-band.
-    fits:tunit: pixel**2
-  - name: r_bdE2
-    "@id": "#Object.r_bdE2"
-    datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on r-band.
-    fits:tunit: pixel**2
-  - name: r_bdFluxB
-    "@id": "#Object.r_bdFluxB"
-    datatype: float
-    description: Flux from the de Vaucouleur fit. Measured on r-band.
+    description: Flux from the de Vaucouleurs fit. Measured on r-band.
     fits:tunit: nJy
-  - name: r_bdFluxBErr
-    "@id": "#Object.r_bdFluxBErr"
+  - name: r_cModel_devFluxErr
+    "@id": "#Object.r_cModel_devFluxErr"
     datatype: float
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on r-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
     fits:tunit: nJy
-  - name: r_bdFluxD
-    "@id": "#Object.r_bdFluxD"
+  - name: r_cModel_expFlux
+    "@id": "#Object.r_cModel_expFlux"
     datatype: float
     description: Flux from the exponential fit. Measured on r-band.
     fits:tunit: nJy
-  - name: r_bdFluxDErr
-    "@id": "#Object.r_bdFluxDErr"
+  - name: r_cModel_expFluxErr
+    "@id": "#Object.r_cModel_expFluxErr"
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on r-band.
     fits:tunit: nJy
-  - name: r_bdReB
-    "@id": "#Object.r_bdReB"
+  - name: r_cModel_dev_reff_major
+    "@id": "#Object.r_cModel_dev_reff_major"
     datatype: float
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on r-band.
-    fits:tunit: pixel**2
-  - name: r_bdReD
-    "@id": "#Object.r_bdReD"
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on r-band.
+    fits:tunit: arcsec
+  - name: r_cModel_dev_reff_minor
+    "@id": "#Object.r_cModel_dev_reff_minor"
     datatype: float
-    description: Half-light ellipse of the exponential fit. Measured on r-band.
-    fits:tunit: pixel**2
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on r-band.
+    fits:tunit: arcsec
+  - name: r_cModel_dev_theta
+    "@id": "#Object.r_cModel_dev_theta"
+    datatype: float
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on r-band.
+    fits:tunit:
+  - name: r_cModel_exp_reff_major
+    "@id": "#Object.r_cModel_exp_reff_major"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (major axis). Measured on r-band.
+    fits:tunit: arcsec
+  - name: r_cModel_exp_reff_minor
+    "@id": "#Object.r_cModel_exp_reff_minor"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on r-band.
+    fits:tunit: arcsec
+  - name: r_cModel_exp_theta
+    "@id": "#Object.r_cModel_exp_theta"
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on r-band.
+    fits:tunit:
   - name: r_blendedness
     "@id": "#Object.r_blendedness"
     datatype: float
@@ -2248,6 +2298,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on r-band.
     fits:tunit: nJy
+  - name: r_cModel_fracDev
+    "@id": "#Object.r_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on r-band.
+    fits:tunit:
   - name: r_cModel_flag
     "@id": "#Object.r_cModel_flag"
     datatype: boolean
@@ -2350,6 +2405,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on r-band.
     fits:tunit: nJy
+  - name: r_free_cModel_fracDev
+    "@id": "#Object.r_free_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on r-band.
+    fits:tunit:
   - name: r_free_psfFlux
     "@id": "#Object.r_free_psfFlux"
     datatype: float
@@ -3092,51 +3152,61 @@ tables:
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on u-band.
     fits:tunit:
-  - name: u_bdChi2
-    "@id": "#Object.u_bdChi2"
+  - name: u_cModel_chi2
+    "@id": "#Object.u_cModel_chi2"
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on u-band.
     fits:tunit:
-  - name: u_bdE1
-    "@id": "#Object.u_bdE1"
+  - name: u_cModel_devFlux
+    "@id": "#Object.u_cModel_devFlux"
     datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on u-band.
-    fits:tunit: pixel**2
-  - name: u_bdE2
-    "@id": "#Object.u_bdE2"
-    datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on u-band.
-    fits:tunit: pixel**2
-  - name: u_bdFluxB
-    "@id": "#Object.u_bdFluxB"
-    datatype: float
-    description: Flux from the de Vaucouleur fit. Measured on u-band.
+    description: Flux from the de Vaucouleurs fit. Measured on u-band.
     fits:tunit: nJy
-  - name: u_bdFluxBErr
-    "@id": "#Object.u_bdFluxBErr"
+  - name: u_cModel_devFluxErr
+    "@id": "#Object.u_cModel_devFluxErr"
     datatype: float
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on u-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
     fits:tunit: nJy
-  - name: u_bdFluxD
-    "@id": "#Object.u_bdFluxD"
+  - name: u_cModel_expFlux
+    "@id": "#Object.u_cModel_expFlux"
     datatype: float
     description: Flux from the exponential fit. Measured on u-band.
     fits:tunit: nJy
-  - name: u_bdFluxDErr
-    "@id": "#Object.u_bdFluxDErr"
+  - name: u_cModel_expFluxErr
+    "@id": "#Object.u_cModel_expFluxErr"
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on u-band.
     fits:tunit: nJy
-  - name: u_bdReB
-    "@id": "#Object.u_bdReB"
+  - name: u_cModel_dev_reff_major
+    "@id": "#Object.u_cModel_dev_reff_major"
     datatype: float
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on u-band.
-    fits:tunit: pixel**2
-  - name: u_bdReD
-    "@id": "#Object.u_bdReD"
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on u-band.
+    fits:tunit: arcsec
+  - name: u_cModel_dev_reff_minor
+    "@id": "#Object.u_cModel_dev_reff_minor"
     datatype: float
-    description: Half-light ellipse of the exponential fit. Measured on u-band.
-    fits:tunit: pixel**2
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on u-band.
+    fits:tunit: arcsec
+  - name: u_cModel_dev_theta
+    "@id": "#Object.u_cModel_dev_theta"
+    datatype: float
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on u-band.
+    fits:tunit:
+  - name: u_cModel_exp_reff_major
+    "@id": "#Object.u_cModel_exp_reff_major"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (major axis). Measured on u-band.
+    fits:tunit: arcsec
+  - name: u_cModel_exp_reff_minor
+    "@id": "#Object.u_cModel_exp_reff_minor"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on u-band.
+    fits:tunit: arcsec
+  - name: u_cModel_exp_theta
+    "@id": "#Object.u_cModel_exp_theta"
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on u-band.
+    fits:tunit:
   - name: u_blendedness
     "@id": "#Object.u_blendedness"
     datatype: float
@@ -3162,6 +3232,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on u-band.
     fits:tunit: nJy
+  - name: u_cModel_fracDev
+    "@id": "#Object.u_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on u-band.
+    fits:tunit:
   - name: u_cModel_flag
     "@id": "#Object.u_cModel_flag"
     datatype: boolean
@@ -3264,6 +3339,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on u-band.
     fits:tunit: nJy
+  - name: u_free_cModel_fracDev
+    "@id": "#Object.u_free_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on u-band.
+    fits:tunit:
   - name: u_free_psfFlux
     "@id": "#Object.u_free_psfFlux"
     datatype: float
@@ -4006,51 +4086,61 @@ tables:
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on y-band.
     fits:tunit:
-  - name: y_bdChi2
-    "@id": "#Object.y_bdChi2"
+  - name: y_cModel_chi2
+    "@id": "#Object.y_cModel_chi2"
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on y-band.
     fits:tunit:
-  - name: y_bdE1
-    "@id": "#Object.y_bdE1"
+  - name: y_cModel_devFlux
+    "@id": "#Object.y_cModel_devFlux"
     datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on y-band.
-    fits:tunit: pixel**2
-  - name: y_bdE2
-    "@id": "#Object.y_bdE2"
-    datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on y-band.
-    fits:tunit: pixel**2
-  - name: y_bdFluxB
-    "@id": "#Object.y_bdFluxB"
-    datatype: float
-    description: Flux from the de Vaucouleur fit. Measured on y-band.
+    description: Flux from the de Vaucouleurs fit. Measured on y-band.
     fits:tunit: nJy
-  - name: y_bdFluxBErr
-    "@id": "#Object.y_bdFluxBErr"
+  - name: y_cModel_devFluxErr
+    "@id": "#Object.y_cModel_devFluxErr"
     datatype: float
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on y-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
     fits:tunit: nJy
-  - name: y_bdFluxD
-    "@id": "#Object.y_bdFluxD"
+  - name: y_cModel_expFlux
+    "@id": "#Object.y_cModel_expFlux"
     datatype: float
     description: Flux from the exponential fit. Measured on y-band.
     fits:tunit: nJy
-  - name: y_bdFluxDErr
-    "@id": "#Object.y_bdFluxDErr"
+  - name: y_cModel_expFluxErr
+    "@id": "#Object.y_cModel_expFluxErr"
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on y-band.
     fits:tunit: nJy
-  - name: y_bdReB
-    "@id": "#Object.y_bdReB"
+  - name: y_cModel_dev_reff_major
+    "@id": "#Object.y_cModel_dev_reff_major"
     datatype: float
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on y-band.
-    fits:tunit: pixel**2
-  - name: y_bdReD
-    "@id": "#Object.y_bdReD"
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on y-band.
+    fits:tunit: arcsec
+  - name: y_cModel_dev_reff_minor
+    "@id": "#Object.y_cModel_dev_reff_minor"
     datatype: float
-    description: Half-light ellipse of the exponential fit. Measured on y-band.
-    fits:tunit: pixel**2
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on y-band.
+    fits:tunit: arcsec
+  - name: y_cModel_dev_theta
+    "@id": "#Object.y_cModel_dev_theta"
+    datatype: float
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on y-band.
+    fits:tunit:
+  - name: y_cModel_exp_reff_major
+    "@id": "#Object.y_cModel_exp_reff_major"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (major axis). Measured on y-band.
+    fits:tunit: arcsec
+  - name: y_cModel_exp_reff_minor
+    "@id": "#Object.y_cModel_exp_reff_minor"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on y-band.
+    fits:tunit: arcsec
+  - name: y_cModel_exp_theta
+    "@id": "#Object.y_cModel_exp_theta"
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on y-band.
+    fits:tunit:
   - name: y_blendedness
     "@id": "#Object.y_blendedness"
     datatype: float
@@ -4076,6 +4166,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on y-band.
     fits:tunit: nJy
+  - name: y_cModel_fracDev
+    "@id": "#Object.y_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on y-band.
+    fits:tunit:
   - name: y_cModel_flag
     "@id": "#Object.y_cModel_flag"
     datatype: boolean
@@ -4178,6 +4273,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on y-band.
     fits:tunit: nJy
+  - name: y_free_cModel_fracDev
+    "@id": "#Object.y_free_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on y-band.
+    fits:tunit:
   - name: y_free_psfFlux
     "@id": "#Object.y_free_psfFlux"
     datatype: float
@@ -4920,51 +5020,61 @@ tables:
     datatype: boolean
     description: Full sinc coefficient image did not fit within measurement image. Measured on z-band.
     fits:tunit:
-  - name: z_bdChi2
-    "@id": "#Object.z_bdChi2"
+  - name: z_cModel_chi2
+    "@id": "#Object.z_cModel_chi2"
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on z-band.
     fits:tunit:
-  - name: z_bdE1
-    "@id": "#Object.z_bdE1"
+  - name: z_cModel_devFlux
+    "@id": "#Object.z_cModel_devFlux"
     datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on z-band.
-    fits:tunit: pixel**2
-  - name: z_bdE2
-    "@id": "#Object.z_bdE2"
-    datatype: float
-    description: FracDev-weighted average of exp.ellipse and dev.ellipse. Measured on z-band.
-    fits:tunit: pixel**2
-  - name: z_bdFluxB
-    "@id": "#Object.z_bdFluxB"
-    datatype: float
-    description: Flux from the de Vaucouleur fit. Measured on z-band.
+    description: Flux from the de Vaucouleurs fit. Measured on z-band.
     fits:tunit: nJy
-  - name: z_bdFluxBErr
-    "@id": "#Object.z_bdFluxBErr"
+  - name: z_cModel_devFluxErr
+    "@id": "#Object.z_cModel_devFluxErr"
     datatype: float
-    description: Flux uncertainty from the de Vaucouleur fit. Measured on z-band.
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
     fits:tunit: nJy
-  - name: z_bdFluxD
-    "@id": "#Object.z_bdFluxD"
+  - name: z_cModel_expFlux
+    "@id": "#Object.z_cModel_expFlux"
     datatype: float
     description: Flux from the exponential fit. Measured on z-band.
     fits:tunit: nJy
-  - name: z_bdFluxDErr
-    "@id": "#Object.z_bdFluxDErr"
+  - name: z_cModel_expFluxErr
+    "@id": "#Object.z_cModel_expFluxErr"
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on z-band.
     fits:tunit: nJy
-  - name: z_bdReB
-    "@id": "#Object.z_bdReB"
+  - name: z_cModel_dev_reff_major
+    "@id": "#Object.z_cModel_dev_reff_major"
     datatype: float
-    description: Half-light ellipse of the de Vaucouleur fit. Measured on z-band.
-    fits:tunit: pixel**2
-  - name: z_bdReD
-    "@id": "#Object.z_bdReD"
+    description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on z-band.
+    fits:tunit: arcsec
+  - name: z_cModel_dev_reff_minor
+    "@id": "#Object.z_cModel_dev_reff_minor"
     datatype: float
-    description: Half-light ellipse of the exponential fit. Measured on z-band.
-    fits:tunit: pixel**2
+    description: Half-light ellipse of the de Vaucouleurs fit (minor axis). Measured on z-band.
+    fits:tunit: arcsec
+  - name: z_cModel_dev_theta
+    "@id": "#Object.z_cModel_dev_theta"
+    datatype: float
+    description: Position angle of the de Vaucouleurs fit ellipse. Measured on z-band.
+    fits:tunit:
+  - name: z_cModel_exp_reff_major
+    "@id": "#Object.z_cModel_exp_reff_major"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (major axis). Measured on z-band.
+    fits:tunit: arcsec
+  - name: z_cModel_exp_reff_minor
+    "@id": "#Object.z_cModel_exp_reff_minor"
+    datatype: float
+    description: Half-light ellipse of the exponential fit (minor axis). Measured on z-band.
+    fits:tunit: arcsec
+  - name: z_cModel_exp_theta
+    "@id": "#Object.z_cModel_exp_theta"
+    datatype: float
+    description: Position angle of the exponential fit ellipse. Measured on z-band.
+    fits:tunit:
   - name: z_blendedness
     "@id": "#Object.z_blendedness"
     datatype: float
@@ -4990,6 +5100,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Forced on z-band.
     fits:tunit: nJy
+  - name: z_cModel_fracDev
+    "@id": "#Object.z_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Forced on z-band.
+    fits:tunit:
   - name: z_cModel_flag
     "@id": "#Object.z_cModel_flag"
     datatype: boolean
@@ -5092,6 +5207,11 @@ tables:
     datatype: float
     description: Flux within the fit region, with no extrapolation. Measured on z-band.
     fits:tunit: nJy
+  - name: z_free_cModel_fracDev
+    "@id": "#Object.z_free_cModel_fracDev"
+    datatype: float
+    description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on z-band.
+    fits:tunit:
   - name: z_free_psfFlux
     "@id": "#Object.z_free_psfFlux"
     datatype: float
@@ -5724,8 +5844,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (g-band).
     fits:tunit:
-  - name: g_psfModel_TwoGaussian_chisq_reduced
-    "@id": "#Object.g_psfModel_TwoGaussian_chisq_reduced"
+  - name: g_psfModel_TwoGaussian_chi2_reduced
+    "@id": "#Object.g_psfModel_TwoGaussian_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (g-band).
     fits:tunit:
@@ -5779,8 +5899,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (i-band).
     fits:tunit:
-  - name: i_psfModel_TwoGaussian_chisq_reduced
-    "@id": "#Object.i_psfModel_TwoGaussian_chisq_reduced"
+  - name: i_psfModel_TwoGaussian_chi2_reduced
+    "@id": "#Object.i_psfModel_TwoGaussian_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (i-band).
     fits:tunit:
@@ -5834,8 +5954,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (r-band).
     fits:tunit:
-  - name: r_psfModel_TwoGaussian_chisq_reduced
-    "@id": "#Object.r_psfModel_TwoGaussian_chisq_reduced"
+  - name: r_psfModel_TwoGaussian_chi2_reduced
+    "@id": "#Object.r_psfModel_TwoGaussian_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (r-band).
     fits:tunit:
@@ -5889,8 +6009,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (u-band).
     fits:tunit:
-  - name: u_psfModel_TwoGaussian_chisq_reduced
-    "@id": "#Object.u_psfModel_TwoGaussian_chisq_reduced"
+  - name: u_psfModel_TwoGaussian_chi2_reduced
+    "@id": "#Object.u_psfModel_TwoGaussian_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (u-band).
     fits:tunit:
@@ -5944,8 +6064,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (y-band).
     fits:tunit:
-  - name: y_psfModel_TwoGaussian_chisq_reduced
-    "@id": "#Object.y_psfModel_TwoGaussian_chisq_reduced"
+  - name: y_psfModel_TwoGaussian_chi2_reduced
+    "@id": "#Object.y_psfModel_TwoGaussian_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (y-band).
     fits:tunit:
@@ -5999,8 +6119,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the two-Gaussian PSF model (z-band).
     fits:tunit:
-  - name: z_psfModel_TwoGaussian_chisq_reduced
-    "@id": "#Object.z_psfModel_TwoGaussian_chisq_reduced"
+  - name: z_psfModel_TwoGaussian_chi2_reduced
+    "@id": "#Object.z_psfModel_TwoGaussian_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the two-Gaussian PSF model (z-band).
     fits:tunit:
@@ -6084,6 +6204,21 @@ tables:
     datatype: float
     description: Error on ellipse rho (correlation coefficient) from the multiband exponential model fit.
     fits:tunit:
+  - name: exponential_reff_major
+    "@id": "#Object.exponential_reff_major"
+    datatype: float
+    description: Effective radius (major axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: arcsec
+  - name: exponential_reff_minor
+    "@id": "#Object.exponential_reff_minor"
+    datatype: float
+    description: Effective radius (minor axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: arcsec
+  - name: exponential_theta
+    "@id": "#Object.exponential_theta"
+    datatype: float
+    description: Position angle of the multiband Sersic fit ellipse.
+    fits:tunit:
   - name: g_exponentialFlux
     "@id": "#Object.g_exponentialFlux"
     datatype: float
@@ -6154,8 +6289,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the multiband exponential model.
     fits:tunit:
-  - name: exponential_chisq_reduced
-    "@id": "#Object.exponential_chisq_reduced"
+  - name: exponential_chi2_reduced
+    "@id": "#Object.exponential_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband exponential model.
     fits:tunit:
@@ -6249,6 +6384,21 @@ tables:
     datatype: float
     description: Error on ellipse rho (correlation coefficient) from the multiband Sersic model fit.
     fits:tunit:
+  - name: sersic_reff_major
+    "@id": "#Object.sersic_reff_major"
+    datatype: float
+    description: Effective radius (major axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: arcsec
+  - name: sersic_reff_minor
+    "@id": "#Object.sersic_reff_minor"
+    datatype: float
+    description: Effective radius (minor axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
+    fits:tunit: arcsec
+  - name: sersic_theta
+    "@id": "#Object.sersic_theta"
+    datatype: float
+    description: Position angle of the multiband Sersic fit ellipse.
+    fits:tunit:
   - name: g_sersicFlux
     "@id": "#Object.g_sersicFlux"
     datatype: float
@@ -6329,8 +6479,8 @@ tables:
     datatype: int
     description: Number of iterations in the non-linear fit for the multiband Sersic model.
     fits:tunit:
-  - name: sersic_chisq_reduced
-    "@id": "#Object.sersic_chisq_reduced"
+  - name: sersic_chi2_reduced
+    "@id": "#Object.sersic_chi2_reduced"
     datatype: float
     description: Reduced chi-squared of the best-fit model parameters (chi divided the number of data points) for the multiband Sersic model.
     fits:tunit:
@@ -8483,14 +8633,14 @@ tables:
     '@id': '#MatchesTruth.match_count'
     datatype: int
     description: Number of candidate object matches within match radius
-  - name: match_chisq
-    '@id': '#MatchesTruth.match_chisq'
+  - name: match_chi2
+    '@id': '#MatchesTruth.match_chi2'
     datatype: double
     description: The chi-squared value of the (best) match
-  - name: match_n_chisq_finite
-    '@id': '#MatchesTruth.match_n_chisq_finite'
+  - name: match_n_chi2_finite
+    '@id': '#MatchesTruth.match_n_chi2_finite'
     datatype: int
-    description: The number of finite columns used to compute the match chisq
+    description: The number of finite columns used to compute the match chi2
   - name: id
     '@id': '#MatchesTruth.id'
     datatype: char
