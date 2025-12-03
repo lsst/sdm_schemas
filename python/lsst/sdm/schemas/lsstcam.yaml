@@ -304,6 +304,9 @@ tables:
   - name: z_sizeExtendedness
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on z-band.
     datatype: float
+  - name: z_model_extendedness
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses z-band fluxes.
+    datatype: float
   - name: z_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
       on the absolute value of the pixels to try to obtain a de-noised value.  See
@@ -1020,6 +1023,9 @@ tables:
     datatype: float
   - name: u_sizeExtendedness
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on u-band.
+    datatype: float
+  - name: u_model_extendedness
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses u-band fluxes.
     datatype: float
   - name: u_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -1738,6 +1744,12 @@ tables:
   - name: g_sizeExtendedness
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on g-band.
     datatype: float
+  - name: g_model_extendedness
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes.
+    datatype: float
+  - name: griz_model_extendedness
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes.
+    datatype: float
   - name: g_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
       on the absolute value of the pixels to try to obtain a de-noised value.  See
@@ -2454,6 +2466,9 @@ tables:
     datatype: float
   - name: r_sizeExtendedness
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on r-band.
+    datatype: float
+  - name: r_model_extendedness
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses r-band fluxes.
     datatype: float
   - name: r_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
@@ -3172,6 +3187,9 @@ tables:
   - name: i_sizeExtendedness
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on i-band.
     datatype: float
+  - name: i_model_extendedness
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses i-band fluxes.
+    datatype: float
   - name: i_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
       on the absolute value of the pixels to try to obtain a de-noised value.  See
@@ -3888,6 +3906,9 @@ tables:
     datatype: float
   - name: y_sizeExtendedness
     description: Moments-based measure of whether an object is point-like (0) or extended (1). Measured on y-band.
+    datatype: float
+  - name: y_model_extendedness
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses y-band fluxes.
     datatype: float
   - name: y_blendedness
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates

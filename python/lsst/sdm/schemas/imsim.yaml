@@ -492,6 +492,16 @@ tables:
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on g-band.
     fits:tunit:
+  - name: g_model_extendedness
+    "@id": "#Object.g_model_extendedness"
+    datatype: float
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes.
+    fits:tunit:
+  - name: griz_model_extendedness
+    "@id": "#Object.griz_model_extendedness"
+    datatype: float
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes.
+    fits:tunit:
   - name: g_free_cModelFlux
     "@id": "#Object.g_free_cModelFlux"
     datatype: float
@@ -1400,6 +1410,11 @@ tables:
     "@id": "#Object.i_sizeExtendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on i-band.
+    fits:tunit:
+  - name: i_model_extendedness
+    "@id": "#Object.i_model_extendedness"
+    datatype: float
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses i-band fluxes.
     fits:tunit:
   - name: i_free_cModelFlux
     "@id": "#Object.i_free_cModelFlux"
@@ -2310,6 +2325,11 @@ tables:
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on r-band.
     fits:tunit:
+  - name: r_model_extendedness
+    "@id": "#Object.r_model_extendedness"
+    datatype: float
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses r-band fluxes.
+    fits:tunit:
   - name: r_free_cModelFlux
     "@id": "#Object.r_free_cModelFlux"
     datatype: float
@@ -3218,6 +3238,11 @@ tables:
     "@id": "#Object.u_sizeExtendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on u-band.
+    fits:tunit:
+  - name: u_model_extendedness
+    "@id": "#Object.u_model_extendedness"
+    datatype: float
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses u-band fluxes.
     fits:tunit:
   - name: u_free_cModelFlux
     "@id": "#Object.u_free_cModelFlux"
@@ -4128,6 +4153,11 @@ tables:
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on y-band.
     fits:tunit:
+  - name: y_model_extendedness
+    "@id": "#Object.y_model_extendedness"
+    datatype: float
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses y-band fluxes.
+    fits:tunit:
   - name: y_free_cModelFlux
     "@id": "#Object.y_free_cModelFlux"
     datatype: float
@@ -5036,6 +5066,11 @@ tables:
     "@id": "#Object.z_sizeExtendedness_flag"
     datatype: boolean
     description: Set to 1 for any fatal failure. Measured on z-band.
+    fits:tunit:
+  - name: z_model_extendedness
+    "@id": "#Object.z_model_extendedness"
+    datatype: float
+    description: Model flux- and size-based estimate of whether the object is extended (resolved) or not, from 0 (compact) to 1 (extended). Uses z-band fluxes.
     fits:tunit:
   - name: z_free_cModelFlux
     "@id": "#Object.z_free_cModelFlux"
