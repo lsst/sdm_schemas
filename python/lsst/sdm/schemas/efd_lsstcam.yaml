@@ -1,16 +1,36 @@
 ---
 name: efd_lsstcam
 "@id": "#efd_lsstcam"
-description: Transformed EFD Consolidated Database for LSSTCam.
+description: Transformed EFD Consolidated Database for lsstcam.
 version:
-  current: "1.0.0"
+  current: 1.0.0
 tables:
 - name: exposure_efd
   "@id": "#exposure_efd"
-  description: Transformed EFD topics by exposure
+  description: Transformed EFD topics by exposure.
   primaryKey:
-  - "#exposure_efd.exposure_id"
+  - "#exposure_efd.day_obs"
+  - "#exposure_efd.seq_num"
+  constraints:
+  - name: un_exposure_efd_exposure_id
+    "@id": "#exposure_efd.un_exposure_efd_exposure_id"
+    "@type": Unique
+    description: Ensure exposure_id is unique.
+    columns:
+    - "#exposure_efd.exposure_id"
   columns:
+  - name: day_obs
+    "@id": "#exposure_efd.day_obs"
+    description: Day of observation in YYYYMMDD format.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#exposure_efd.seq_num"
+    description: Sequence number for the exposure.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
   - name: exposure_id
     "@id": "#exposure_efd.exposure_id"
     description: Exposure unique ID.
@@ -27,41 +47,49 @@ tables:
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_azimuth_encoder_absolute_position_1_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_1_rms_jitter"
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_azimuth_encoder_absolute_position_2_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_2_rms_jitter"
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_azimuth_encoder_absolute_position_3_rms_jitter
     "@id": "#exposure_efd.mt_azimuth_encoder_absolute_position_3_rms_jitter"
     description: RMS after 4th order polynomial fit of azimuth absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_elevation_encoder_absolute_position_0_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_0_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_elevation_encoder_absolute_position_1_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_1_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_elevation_encoder_absolute_position_2_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_2_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_elevation_encoder_absolute_position_3_rms_jitter
     "@id": "#exposure_efd.mt_elevation_encoder_absolute_position_3_rms_jitter"
     description: RMS after 4th order polynomial fit of elevation absolute position read by each encoder head.
     datatype: float
     ivoa:ucd: stat.rms
+    ivoa:unit: ""
   - name: mt_salindex110_sonic_temperature_mean
     "@id": "#exposure_efd.mt_salindex110_sonic_temperature_mean"
     description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
@@ -76,13 +104,13 @@ tables:
     ivoa:unit: deg_C
   - name: mt_salindex110_sonic_temperature_stddev_mean
     "@id": "#exposure_efd.mt_salindex110_sonic_temperature_stddev_mean"
-    description: Standard deviation of the mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
   - name: mt_salindex110_sonic_temperature_stddev_stddev
     "@id": "#exposure_efd.mt_salindex110_sonic_temperature_stddev_stddev"
-    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
@@ -158,74 +186,74 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_mean
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_mean"
+  - name: mt_salindex110_wind_speed_stddev_0_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_0_mean"
     description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_stddev
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_stddev"
+  - name: mt_salindex110_wind_speed_stddev_0_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_0_stddev"
     description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_min
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_min"
+  - name: mt_salindex110_wind_speed_stddev_0_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_0_min"
     description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_max
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_0_max"
+  - name: mt_salindex110_wind_speed_stddev_0_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_0_max"
     description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_mean
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_mean"
+  - name: mt_salindex110_wind_speed_stddev_1_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_1_mean"
     description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_stddev
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_stddev"
+  - name: mt_salindex110_wind_speed_stddev_1_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_1_stddev"
     description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_min
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_min"
+  - name: mt_salindex110_wind_speed_stddev_1_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_1_min"
     description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_max
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_1_max"
+  - name: mt_salindex110_wind_speed_stddev_1_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_1_max"
     description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_mean
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_mean"
+  - name: mt_salindex110_wind_speed_stddev_2_mean
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_2_mean"
     description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_stddev
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_stddev"
+  - name: mt_salindex110_wind_speed_stddev_2_stddev
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_2_stddev"
     description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_min
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_min"
+  - name: mt_salindex110_wind_speed_stddev_2_min
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_2_min"
     description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_max
-    "@id": "#exposure_efd.mt_salindex110_wind_speed_speedstddev_2_max"
+  - name: mt_salindex110_wind_speed_stddev_2_max
+    "@id": "#exposure_efd.mt_salindex110_wind_speed_stddev_2_max"
     description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
@@ -238,7 +266,7 @@ tables:
     ivoa:unit: m/s
   - name: mt_salindex110_wind_speed_magnitude_stddev
     "@id": "#exposure_efd.mt_salindex110_wind_speed_magnitude_stddev"
-    description: Standard deviation of the edian wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+    description: Standard deviation of the median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
@@ -302,26 +330,26 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_mean
-    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_mean"
+  - name: mt_salindex301_airflow_stddev_mean
+    "@id": "#exposure_efd.mt_salindex301_airflow_stddev_mean"
     description: Mean standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_stddev
-    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_stddev"
+  - name: mt_salindex301_airflow_stddev_stddev
+    "@id": "#exposure_efd.mt_salindex301_airflow_stddev_stddev"
     description: Standard deviation of the standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_min
-    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_min"
+  - name: mt_salindex301_airflow_stddev_min
+    "@id": "#exposure_efd.mt_salindex301_airflow_stddev_min"
     description: Minimum standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_max
-    "@id": "#exposure_efd.mt_salindex301_airflow_speedstddev_max"
+  - name: mt_salindex301_airflow_stddev_max
+    "@id": "#exposure_efd.mt_salindex301_airflow_stddev_max"
     description: Maximum standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
@@ -542,578 +570,578 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_0_mean"
+  - name: mt_salindex111_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_0_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_0_stddev"
+  - name: mt_salindex111_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_0_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_0_min"
+  - name: mt_salindex111_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_0_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_1_mean"
+  - name: mt_salindex111_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_1_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_0_max"
+  - name: mt_salindex111_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_0_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_1_stddev"
+  - name: mt_salindex111_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_1_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_1_min"
+  - name: mt_salindex111_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_1_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_1_max"
+  - name: mt_salindex111_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_1_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_2_mean"
+  - name: mt_salindex111_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_2_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_2_stddev"
+  - name: mt_salindex111_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_2_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_2_min"
+  - name: mt_salindex111_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_2_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_2_max"
+  - name: mt_salindex111_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_2_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_3_mean"
+  - name: mt_salindex111_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_3_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_3_stddev"
+  - name: mt_salindex111_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_3_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_3_min"
+  - name: mt_salindex111_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_3_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_3_max"
+  - name: mt_salindex111_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_3_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_4_mean"
+  - name: mt_salindex111_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_4_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_4_stddev"
+  - name: mt_salindex111_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_4_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_4_min"
+  - name: mt_salindex111_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_4_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_4_max"
+  - name: mt_salindex111_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_4_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_5_mean"
+  - name: mt_salindex111_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_5_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_5_stddev"
+  - name: mt_salindex111_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_5_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_5_min"
+  - name: mt_salindex111_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_5_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_5_max"
+  - name: mt_salindex111_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_5_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_6_mean"
+  - name: mt_salindex111_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_6_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_6_stddev"
+  - name: mt_salindex111_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_6_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_6_min"
+  - name: mt_salindex111_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_6_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_6_max"
+  - name: mt_salindex111_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_6_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_mean
-    "@id": "#exposure_efd.mt_salindex101_temperature_7_mean"
+  - name: mt_salindex111_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex111_temperature_7_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_stddev
-    "@id": "#exposure_efd.mt_salindex101_temperature_7_stddev"
+  - name: mt_salindex111_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex111_temperature_7_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_min
-    "@id": "#exposure_efd.mt_salindex101_temperature_7_min"
+  - name: mt_salindex111_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex111_temperature_7_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_max
-    "@id": "#exposure_efd.mt_salindex101_temperature_7_max"
+  - name: mt_salindex111_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex111_temperature_7_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_0_mean"
+  - name: mt_salindex112_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_0_mean"
     description: Mean UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_0_stddev"
+  - name: mt_salindex112_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_0_stddev"
     description: Standard deviation of the UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_0_min"
+  - name: mt_salindex112_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_0_min"
     description: Minimum UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_1_mean"
+  - name: mt_salindex112_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_1_mean"
     description: Mean UNKNOWN temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_0_max"
+  - name: mt_salindex112_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_0_max"
     description: Maximum UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_1_stddev"
+  - name: mt_salindex112_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_1_stddev"
     description: Standard deviation of temperature item 1.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_1_min"
+  - name: mt_salindex112_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_1_min"
     description: Minimum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_1_max"
+  - name: mt_salindex112_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_1_max"
     description: Maximum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_2_mean"
+  - name: mt_salindex112_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_2_mean"
     description: Mean temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_2_stddev"
+  - name: mt_salindex112_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_2_stddev"
     description: Standard deviation of temperature item 2.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_2_min"
+  - name: mt_salindex112_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_2_min"
     description: Minimum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_2_max"
+  - name: mt_salindex112_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_2_max"
     description: Maximum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_3_mean"
+  - name: mt_salindex112_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_3_mean"
     description: Mean temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_3_stddev"
+  - name: mt_salindex112_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_3_stddev"
     description: Standard deviation of the UNKNOWN temperature item 3.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_3_min"
+  - name: mt_salindex112_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_3_min"
     description: Minimum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_3_max"
+  - name: mt_salindex112_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_3_max"
     description: Maximum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_4_mean"
+  - name: mt_salindex112_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_4_mean"
     description: Mean temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_4_stddev"
+  - name: mt_salindex112_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_4_stddev"
     description: Standard deviation of temperature item 4.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_4_min"
+  - name: mt_salindex112_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_4_min"
     description: Minimum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_4_max"
+  - name: mt_salindex112_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_4_max"
     description: Maximum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_5_mean"
+  - name: mt_salindex112_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_5_mean"
     description: Mean temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_5_stddev"
+  - name: mt_salindex112_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_5_stddev"
     description: Standard deviation of temperature item 5.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_5_min"
+  - name: mt_salindex112_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_5_min"
     description: Minimum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_5_max"
+  - name: mt_salindex112_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_5_max"
     description: Maximum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_6_mean"
+  - name: mt_salindex112_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_6_mean"
     description: Mean temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_6_stddev"
+  - name: mt_salindex112_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_6_stddev"
     description: Standard deviation of temperature item 6.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_6_min"
+  - name: mt_salindex112_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_6_min"
     description: Minimum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_6_max"
+  - name: mt_salindex112_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_6_max"
     description: Maximum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_mean
-    "@id": "#exposure_efd.mt_salindex102_temperature_7_mean"
+  - name: mt_salindex112_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex112_temperature_7_mean"
     description: Mean temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_stddev
-    "@id": "#exposure_efd.mt_salindex102_temperature_7_stddev"
+  - name: mt_salindex112_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex112_temperature_7_stddev"
     description: Standard deviation of temperature item 7.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_min
-    "@id": "#exposure_efd.mt_salindex102_temperature_7_min"
+  - name: mt_salindex112_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex112_temperature_7_min"
     description: Minimum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_max
-    "@id": "#exposure_efd.mt_salindex102_temperature_7_max"
+  - name: mt_salindex112_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex112_temperature_7_max"
     description: Maximum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_0_mean"
+  - name: mt_salindex113_temperature_0_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_0_mean"
     description: Mean temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_0_stddev"
+  - name: mt_salindex113_temperature_0_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_0_stddev"
     description: Standard deviation of temperature item 0.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_0_min"
+  - name: mt_salindex113_temperature_0_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_0_min"
     description: Minimum temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_1_mean"
+  - name: mt_salindex113_temperature_1_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_1_mean"
     description: Mean temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_0_max"
+  - name: mt_salindex113_temperature_0_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_0_max"
     description: Maximum temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_1_stddev"
+  - name: mt_salindex113_temperature_1_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_1_stddev"
     description: Standard deviation of temperature item 1.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_1_min"
+  - name: mt_salindex113_temperature_1_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_1_min"
     description: Minimum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_1_max"
+  - name: mt_salindex113_temperature_1_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_1_max"
     description: Maximum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_2_mean"
+  - name: mt_salindex113_temperature_2_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_2_mean"
     description: Mean temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_2_stddev"
+  - name: mt_salindex113_temperature_2_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_2_stddev"
     description: Standard deviation of temperature item 2.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_2_min"
+  - name: mt_salindex113_temperature_2_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_2_min"
     description: Minimum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_2_max"
+  - name: mt_salindex113_temperature_2_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_2_max"
     description: Maximum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_3_mean"
+  - name: mt_salindex113_temperature_3_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_3_mean"
     description: Mean temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_3_stddev"
+  - name: mt_salindex113_temperature_3_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_3_stddev"
     description: Standard deviation of temperature item 3.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_3_min"
+  - name: mt_salindex113_temperature_3_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_3_min"
     description: Minimum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_3_max"
+  - name: mt_salindex113_temperature_3_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_3_max"
     description: Maximum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_4_mean"
+  - name: mt_salindex113_temperature_4_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_4_mean"
     description: Mean temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_4_stddev"
+  - name: mt_salindex113_temperature_4_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_4_stddev"
     description: Standard deviation of temperature item 4.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_4_min"
+  - name: mt_salindex113_temperature_4_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_4_min"
     description: Minimum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_4_max"
+  - name: mt_salindex113_temperature_4_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_4_max"
     description: Maximum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_5_mean"
+  - name: mt_salindex113_temperature_5_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_5_mean"
     description: Mean temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_5_stddev"
+  - name: mt_salindex113_temperature_5_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_5_stddev"
     description: Standard deviation of temperature item 5.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_5_min"
+  - name: mt_salindex113_temperature_5_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_5_min"
     description: Minimum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_5_max"
+  - name: mt_salindex113_temperature_5_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_5_max"
     description: Maximum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_6_mean"
+  - name: mt_salindex113_temperature_6_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_6_mean"
     description: Mean temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_6_stddev"
+  - name: mt_salindex113_temperature_6_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_6_stddev"
     description: Standard deviation of temperature item 6.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_6_min"
+  - name: mt_salindex113_temperature_6_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_6_min"
     description: Minimum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_6_max"
+  - name: mt_salindex113_temperature_6_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_6_max"
     description: Maximum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_mean
-    "@id": "#exposure_efd.mt_salindex103_temperature_7_mean"
+  - name: mt_salindex113_temperature_7_mean
+    "@id": "#exposure_efd.mt_salindex113_temperature_7_mean"
     description: Mean temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_stddev
-    "@id": "#exposure_efd.mt_salindex103_temperature_7_stddev"
+  - name: mt_salindex113_temperature_7_stddev
+    "@id": "#exposure_efd.mt_salindex113_temperature_7_stddev"
     description: Standard deviation of temperature item 7.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_min
-    "@id": "#exposure_efd.mt_salindex103_temperature_7_min"
+  - name: mt_salindex113_temperature_7_min
+    "@id": "#exposure_efd.mt_salindex113_temperature_7_min"
     description: Minimum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_max
-    "@id": "#exposure_efd.mt_salindex103_temperature_7_max"
+  - name: mt_salindex113_temperature_7_max
+    "@id": "#exposure_efd.mt_salindex113_temperature_7_max"
     description: Maximum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
@@ -2066,20 +2094,20 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex111_relativehumidity_mean
-    "@id": "#exposure_efd.mt_salindex111_relativehumidity_mean"
+  - name: mt_salindex111_relative_humidity_mean
+    "@id": "#exposure_efd.mt_salindex111_relative_humidity_mean"
     description: Mean relative humidity.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: "%"
-  - name: mt_salindex112_relativehumidity_mean
-    "@id": "#exposure_efd.mt_salindex112_relativehumidity_mean"
+  - name: mt_salindex112_relative_humidity_mean
+    "@id": "#exposure_efd.mt_salindex112_relative_humidity_mean"
     description: Mean relative humidity.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: "%"
-  - name: mt_salindex113_relativehumidity_mean
-    "@id": "#exposure_efd.mt_salindex113_relativehumidity_mean"
+  - name: mt_salindex113_relative_humidity_mean
+    "@id": "#exposure_efd.mt_salindex113_relative_humidity_mean"
     description: Mean relative humidity.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
@@ -2594,55 +2622,261 @@ tables:
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_y_stddev
     "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_y_stddev"
-    description: Standard deviation of the acceleromete's Y-axis angular acceleration.
+    description: Standard deviation of the accelerometer's Y-axis angular acceleration.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_y_max
     "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_y_max"
-    description: Maximum acceleromete's Y-axis angular acceleration.
+    description: Maximum accelerometer's Y-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_y_min
     "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_y_min"
-    description: Minimum acceleromete's Y-axis angular acceleration.
+    description: Minimum accelerometer's Y-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_mean
     "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_mean"
-    description: Mean acceleromete's Z-axis angular acceleration.
+    description: Mean accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_stddev
     "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_stddev"
-    description: Standard deviation of the acceleromete's Z-axis angular acceleration.
+    description: Standard deviation of the accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_max
     "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_max"
-    description: Maximum acceleromete's Z-axis angular acceleration.
+    description: Maximum accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_min
     "@id": "#exposure_efd.mt_salindex104_m1m3_angular_acceleration_z_min"
-    description: Minimum acceleromete's Z-axis angular acceleration.
+    description: Minimum accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg/s**2
+  - name: mt_dome_temperature_mean
+    "@id": "#exposure_efd.mt_dome_temperature_mean"
+    description: Mean dome temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_inside_cell_temp_1
+    "@id": "#exposure_efd.mt_m1m3_glycol_loop_temperature_inside_cell_temp_1"
+    description: Mean median temperature inside M1M3 Cell thermocouple 1. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_inside_cell_temp_2
+    "@id": "#exposure_efd.mt_m1m3_glycol_loop_temperature_inside_cell_temp_2"
+    description: Mean median temperature inside M1M3 Cell thermocouple 2. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_inside_cell_temp_3
+    "@id": "#exposure_efd.mt_m1m3_glycol_loop_temperature_inside_cell_temp_3"
+    description: Mean median temperature inside M1M3 Cell thermocouple 3. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_above_mirror_temp
+    "@id": "#exposure_efd.mt_m1m3_glycol_loop_temperature_above_mirror_temp"
+    description: Mean median temperature above mirror M1M3. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring0
+    "@id": "#exposure_efd.mt_m2_temperature_ring0"
+    description: Mean median temperature on ring0 (LG2-1 A5/A6 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring1
+    "@id": "#exposure_efd.mt_m2_temperature_ring1"
+    description: Mean median temperature on ring1 (LG2-2 A1 INNER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring2
+    "@id": "#exposure_efd.mt_m2_temperature_ring2"
+    description: Mean median temperature on ring2 (LG2-3 A1 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring3
+    "@id": "#exposure_efd.mt_m2_temperature_ring3"
+    description: Mean median temperature on ring3 (LG2-4 A1 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring4
+    "@id": "#exposure_efd.mt_m2_temperature_ring4"
+    description: Mean median temperature on ring4 (LG3-1 A4 INNER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring5
+    "@id": "#exposure_efd.mt_m2_temperature_ring5"
+    description: Mean median temperature on ring5 (LG3-2 A2/A3 INNER (not mounted)) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring6
+    "@id": "#exposure_efd.mt_m2_temperature_ring6"
+    description: Mean median temperature on ring6 (LG3-3 A2/A3 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring7
+    "@id": "#exposure_efd.mt_m2_temperature_ring7"
+    description: Mean median temperature on ring7 (LG3-4 A2/A3 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring8
+    "@id": "#exposure_efd.mt_m2_temperature_ring8"
+    description: Mean median temperature on ring8 (LG4-1 A4 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring9
+    "@id": "#exposure_efd.mt_m2_temperature_ring9"
+    description: Mean median temperature on ring9 (LG4-2 A4 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring10
+    "@id": "#exposure_efd.mt_m2_temperature_ring10"
+    description: Mean median temperature on ring10 (LG4-3 A5/A6 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring11
+    "@id": "#exposure_efd.mt_m2_temperature_ring11"
+    description: Mean median temperature on ring11 (LG4-4 A5/A6 INNER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_ringss_fwhm_free
+    "@id": "#exposure_efd.mt_ringss_fwhm_free"
+    description: Mean RINGSS free seeing full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: mt_ringss_fwhm_scintillation
+    "@id": "#exposure_efd.mt_ringss_fwhm_scintillation"
+    description: Mean RINGSS scintillation seeing full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: mt_ringss_fwhm_sector
+    "@id": "#exposure_efd.mt_ringss_fwhm_sector"
+    description: Mean RINGSS sector seeing full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: camera_hexapod_compensation_offset_u
+    "@id": "#exposure_efd.camera_hexapod_compensation_offset_u"
+    description: Camera Hexapod compensation offset (LUT) mean U angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: camera_hexapod_compensation_offset_v
+    "@id": "#exposure_efd.camera_hexapod_compensation_offset_v"
+    description: Camera Hexapod compensation offset (LUT) mean V angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: camera_hexapod_compensation_offset_w
+    "@id": "#exposure_efd.camera_hexapod_compensation_offset_w"
+    description: Camera Hexapod compensation offset (LUT) mean W angle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat
+    ivoa:unit: deg
+  - name: camera_hexapod_compensation_offset_x
+    "@id": "#exposure_efd.camera_hexapod_compensation_offset_x"
+    description: Camera Hexapod compensation offset (LUT) mean X position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: camera_hexapod_compensation_offset_y
+    "@id": "#exposure_efd.camera_hexapod_compensation_offset_y"
+    description: Camera Hexapod compensation offset (LUT) mean Y position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: camera_hexapod_compensation_offset_z
+    "@id": "#exposure_efd.camera_hexapod_compensation_offset_z"
+    description: Camera Hexapod compensation offset (LUT) mean Z position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: m2_hexapod_compensation_offset_u
+    "@id": "#exposure_efd.m2_hexapod_compensation_offset_u"
+    description: M2 Hexapod compensation offset (LUT) mean U angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: m2_hexapod_compensation_offset_v
+    "@id": "#exposure_efd.m2_hexapod_compensation_offset_v"
+    description: M2 Hexapod compensation offset (LUT) mean V angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: m2_hexapod_compensation_offset_w
+    "@id": "#exposure_efd.m2_hexapod_compensation_offset_w"
+    description: M2 Hexapod compensation offset (LUT) mean W angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: m2_hexapod_compensation_offset_x
+    "@id": "#exposure_efd.m2_hexapod_compensation_offset_x"
+    description: M2 Hexapod compensation offset (LUT) mean X position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: m2_hexapod_compensation_offset_y
+    "@id": "#exposure_efd.m2_hexapod_compensation_offset_y"
+    description: M2 Hexapod compensation offset (LUT) mean Y position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: m2_hexapod_compensation_offset_z
+    "@id": "#exposure_efd.m2_hexapod_compensation_offset_z"
+    description: M2 Hexapod compensation offset (LUT) mean Z position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
 
 - name: exposure_efd_unpivoted
   "@id": "#exposure_efd_unpivoted"
-  description: Unpivoted EFD exposure data
+  description: Unpivoted EFD exposure data.
   primaryKey:
+  - "#exposure_efd_unpivoted.day_obs"
+  - "#exposure_efd_unpivoted.seq_num"
   - "#exposure_efd_unpivoted.exposure_id"
   - "#exposure_efd_unpivoted.property"
   - "#exposure_efd_unpivoted.field"
   columns:
+  - name: day_obs
+    "@id": "#exposure_efd_unpivoted.day_obs"
+    description: Day of observation in YYYYMMDD format.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#exposure_efd_unpivoted.seq_num"
+    description: Sequence number for the exposure.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
   - name: exposure_id
     "@id": "#exposure_efd_unpivoted.exposure_id"
     description: Unique identifier for the exposure.
@@ -2675,10 +2909,30 @@ tables:
 
 - name: visit1_efd
   "@id": "#visit1_efd"
-  description: Transformed EFD topics by visit
+  description: Transformed EFD topics by visit.
   primaryKey:
-  - "#visit1_efd.visit_id"
+  - "#visit1_efd.day_obs"
+  - "#visit1_efd.seq_num"
+  constraints:
+  - name: un_visit1_efd_visit_id
+    "@id": "#visit1_efd.un_visit1_efd_visit_id"
+    "@type": Unique
+    description: Ensure visit_id is unique.
+    columns:
+    - "#visit1_efd.visit_id"
   columns:
+  - name: day_obs
+    "@id": "#visit1_efd.day_obs"
+    description: Day of observation in YYYYMMDD format.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#visit1_efd.seq_num"
+    description: Sequence number for the visit.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
   - name: visit_id
     "@id": "#visit1_efd.visit_id"
     description: Visit unique ID.
@@ -2704,13 +2958,13 @@ tables:
     ivoa:unit: deg_C
   - name: mt_salindex110_sonic_temperature_stddev_mean
     "@id": "#visit1_efd.mt_salindex110_sonic_temperature_stddev_mean"
-    description: Standard deviation of the mean standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
   - name: mt_salindex110_sonic_temperature_stddev_stddev
     "@id": "#visit1_efd.mt_salindex110_sonic_temperature_stddev_stddev"
-    description: Standard deviation of the standard devation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
@@ -2786,74 +3040,74 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_mean
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_mean"
+  - name: mt_salindex110_wind_speed_stddev_0_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_0_mean"
     description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_stddev
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_stddev"
+  - name: mt_salindex110_wind_speed_stddev_0_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_0_stddev"
     description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_min
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_min"
+  - name: mt_salindex110_wind_speed_stddev_0_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_0_min"
     description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_0_max
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_0_max"
+  - name: mt_salindex110_wind_speed_stddev_0_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_0_max"
     description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 0 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_mean
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_mean"
+  - name: mt_salindex110_wind_speed_stddev_1_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_1_mean"
     description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_stddev
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_stddev"
+  - name: mt_salindex110_wind_speed_stddev_1_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_1_stddev"
     description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_min
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_min"
+  - name: mt_salindex110_wind_speed_stddev_1_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_1_min"
     description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_1_max
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_1_max"
+  - name: mt_salindex110_wind_speed_stddev_1_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_1_max"
     description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 1 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_mean
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_mean"
+  - name: mt_salindex110_wind_speed_stddev_2_mean
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_2_mean"
     description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_stddev
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_stddev"
+  - name: mt_salindex110_wind_speed_stddev_2_stddev
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_2_stddev"
     description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_min
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_min"
+  - name: mt_salindex110_wind_speed_stddev_2_min
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_2_min"
     description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex110_wind_speed_speedstddev_2_max
-    "@id": "#visit1_efd.mt_salindex110_wind_speed_speedstddev_2_max"
+  - name: mt_salindex110_wind_speed_stddev_2_max
+    "@id": "#visit1_efd.mt_salindex110_wind_speed_stddev_2_max"
     description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TMA-GillLabJack01 along axis 2 (salIndex 110).
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
@@ -2866,7 +3120,7 @@ tables:
     ivoa:unit: m/s
   - name: mt_salindex110_wind_speed_magnitude_stddev
     "@id": "#visit1_efd.mt_salindex110_wind_speed_magnitude_stddev"
-    description: Standard deviation of the edian wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
+    description: Standard deviation of the median wind speed magnitude in TMA-GillLabJack01 (salIndex 110).
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
@@ -2930,26 +3184,26 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_mean
-    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_mean"
+  - name: mt_salindex301_airflow_stddev_mean
+    "@id": "#visit1_efd.mt_salindex301_airflow_stddev_mean"
     description: Mean standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_stddev
-    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_stddev"
+  - name: mt_salindex301_airflow_stddev_stddev
+    "@id": "#visit1_efd.mt_salindex301_airflow_stddev_stddev"
     description: Standard deviation of the standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_min
-    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_min"
+  - name: mt_salindex301_airflow_stddev_min
+    "@id": "#visit1_efd.mt_salindex301_airflow_stddev_min"
     description: Minimum standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: m/s
-  - name: mt_salindex301_airflow_speedstddev_max
-    "@id": "#visit1_efd.mt_salindex301_airflow_speedstddev_max"
+  - name: mt_salindex301_airflow_stddev_max
+    "@id": "#visit1_efd.mt_salindex301_airflow_stddev_max"
     description: Maximum standard deviation of wind speed estimated from quartiles (salIndex 301). Not available for all sensor types.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
@@ -3170,578 +3424,578 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_0_mean"
+  - name: mt_salindex111_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_0_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_0_stddev"
+  - name: mt_salindex111_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_0_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_0_min"
+  - name: mt_salindex111_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_0_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_1_mean"
+  - name: mt_salindex111_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_1_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_0_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_0_max"
+  - name: mt_salindex111_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_0_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_1_stddev"
+  - name: mt_salindex111_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_1_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_1_min"
+  - name: mt_salindex111_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_1_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_1_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_1_max"
+  - name: mt_salindex111_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_1_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_2_mean"
+  - name: mt_salindex111_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_2_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_2_stddev"
+  - name: mt_salindex111_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_2_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_2_min"
+  - name: mt_salindex111_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_2_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_2_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_2_max"
+  - name: mt_salindex111_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_2_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_3_mean"
+  - name: mt_salindex111_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_3_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_3_stddev"
+  - name: mt_salindex111_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_3_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_3_min"
+  - name: mt_salindex111_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_3_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_3_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_3_max"
+  - name: mt_salindex111_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_3_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_4_mean"
+  - name: mt_salindex111_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_4_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_4_stddev"
+  - name: mt_salindex111_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_4_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_4_min"
+  - name: mt_salindex111_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_4_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_4_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_4_max"
+  - name: mt_salindex111_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_4_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_5_mean"
+  - name: mt_salindex111_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_5_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_5_stddev"
+  - name: mt_salindex111_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_5_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_5_min"
+  - name: mt_salindex111_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_5_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_5_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_5_max"
+  - name: mt_salindex111_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_5_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_6_mean"
+  - name: mt_salindex111_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_6_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_6_stddev"
+  - name: mt_salindex111_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_6_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_6_min"
+  - name: mt_salindex111_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_6_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_6_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_6_max"
+  - name: mt_salindex111_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_6_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_mean
-    "@id": "#visit1_efd.mt_salindex101_temperature_7_mean"
+  - name: mt_salindex111_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex111_temperature_7_mean"
     description: Mean MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_stddev
-    "@id": "#visit1_efd.mt_salindex101_temperature_7_stddev"
+  - name: mt_salindex111_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex111_temperature_7_stddev"
     description: Standard deviation of the MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_min
-    "@id": "#visit1_efd.mt_salindex101_temperature_7_min"
+  - name: mt_salindex111_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex111_temperature_7_min"
     description: Minimum MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex101_temperature_7_max
-    "@id": "#visit1_efd.mt_salindex101_temperature_7_max"
+  - name: mt_salindex111_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex111_temperature_7_max"
     description: Maximum MTCameraAssembly-ESS01 temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_0_mean"
+  - name: mt_salindex112_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_0_mean"
     description: Mean UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_0_stddev"
+  - name: mt_salindex112_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_0_stddev"
     description: Standard deviation of the UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_0_min"
+  - name: mt_salindex112_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_0_min"
     description: Minimum UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_1_mean"
+  - name: mt_salindex112_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_1_mean"
     description: Mean UNKNOWN temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_0_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_0_max"
+  - name: mt_salindex112_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_0_max"
     description: Maximum UNKNOWN temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_1_stddev"
+  - name: mt_salindex112_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_1_stddev"
     description: Standard deviation of temperature item 1.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_1_min"
+  - name: mt_salindex112_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_1_min"
     description: Minimum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_1_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_1_max"
+  - name: mt_salindex112_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_1_max"
     description: Maximum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_2_mean"
+  - name: mt_salindex112_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_2_mean"
     description: Mean temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_2_stddev"
+  - name: mt_salindex112_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_2_stddev"
     description: Standard deviation of temperature item 2.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_2_min"
+  - name: mt_salindex112_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_2_min"
     description: Minimum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_2_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_2_max"
+  - name: mt_salindex112_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_2_max"
     description: Maximum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_3_mean"
+  - name: mt_salindex112_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_3_mean"
     description: Mean temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_3_stddev"
+  - name: mt_salindex112_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_3_stddev"
     description: Standard deviation of the UNKNOWN temperature item 3.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_3_min"
+  - name: mt_salindex112_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_3_min"
     description: Minimum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_3_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_3_max"
+  - name: mt_salindex112_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_3_max"
     description: Maximum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_4_mean"
+  - name: mt_salindex112_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_4_mean"
     description: Mean temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_4_stddev"
+  - name: mt_salindex112_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_4_stddev"
     description: Standard deviation of temperature item 4.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_4_min"
+  - name: mt_salindex112_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_4_min"
     description: Minimum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_4_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_4_max"
+  - name: mt_salindex112_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_4_max"
     description: Maximum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_5_mean"
+  - name: mt_salindex112_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_5_mean"
     description: Mean temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_5_stddev"
+  - name: mt_salindex112_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_5_stddev"
     description: Standard deviation of temperature item 5.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_5_min"
+  - name: mt_salindex112_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_5_min"
     description: Minimum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_5_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_5_max"
+  - name: mt_salindex112_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_5_max"
     description: Maximum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_6_mean"
+  - name: mt_salindex112_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_6_mean"
     description: Mean temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_6_stddev"
+  - name: mt_salindex112_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_6_stddev"
     description: Standard deviation of temperature item 6.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_6_min"
+  - name: mt_salindex112_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_6_min"
     description: Minimum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_6_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_6_max"
+  - name: mt_salindex112_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_6_max"
     description: Maximum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_mean
-    "@id": "#visit1_efd.mt_salindex102_temperature_7_mean"
+  - name: mt_salindex112_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex112_temperature_7_mean"
     description: Mean temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_stddev
-    "@id": "#visit1_efd.mt_salindex102_temperature_7_stddev"
+  - name: mt_salindex112_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex112_temperature_7_stddev"
     description: Standard deviation of temperature item 7.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_min
-    "@id": "#visit1_efd.mt_salindex102_temperature_7_min"
+  - name: mt_salindex112_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex112_temperature_7_min"
     description: Minimum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex102_temperature_7_max
-    "@id": "#visit1_efd.mt_salindex102_temperature_7_max"
+  - name: mt_salindex112_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex112_temperature_7_max"
     description: Maximum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_0_mean"
+  - name: mt_salindex113_temperature_0_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_0_mean"
     description: Mean temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_0_stddev"
+  - name: mt_salindex113_temperature_0_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_0_stddev"
     description: Standard deviation of temperature item 0.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_0_min"
+  - name: mt_salindex113_temperature_0_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_0_min"
     description: Minimum temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_1_mean"
+  - name: mt_salindex113_temperature_1_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_1_mean"
     description: Mean temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_0_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_0_max"
+  - name: mt_salindex113_temperature_0_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_0_max"
     description: Maximum temperature item 0.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_1_stddev"
+  - name: mt_salindex113_temperature_1_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_1_stddev"
     description: Standard deviation of temperature item 1.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_1_min"
+  - name: mt_salindex113_temperature_1_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_1_min"
     description: Minimum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_1_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_1_max"
+  - name: mt_salindex113_temperature_1_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_1_max"
     description: Maximum temperature item 1.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_2_mean"
+  - name: mt_salindex113_temperature_2_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_2_mean"
     description: Mean temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_2_stddev"
+  - name: mt_salindex113_temperature_2_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_2_stddev"
     description: Standard deviation of temperature item 2.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_2_min"
+  - name: mt_salindex113_temperature_2_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_2_min"
     description: Minimum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_2_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_2_max"
+  - name: mt_salindex113_temperature_2_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_2_max"
     description: Maximum temperature item 2.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_3_mean"
+  - name: mt_salindex113_temperature_3_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_3_mean"
     description: Mean temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_3_stddev"
+  - name: mt_salindex113_temperature_3_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_3_stddev"
     description: Standard deviation of temperature item 3.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_3_min"
+  - name: mt_salindex113_temperature_3_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_3_min"
     description: Minimum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_3_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_3_max"
+  - name: mt_salindex113_temperature_3_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_3_max"
     description: Maximum temperature item 3.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_4_mean"
+  - name: mt_salindex113_temperature_4_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_4_mean"
     description: Mean temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_4_stddev"
+  - name: mt_salindex113_temperature_4_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_4_stddev"
     description: Standard deviation of temperature item 4.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_4_min"
+  - name: mt_salindex113_temperature_4_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_4_min"
     description: Minimum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_4_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_4_max"
+  - name: mt_salindex113_temperature_4_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_4_max"
     description: Maximum temperature item 4.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_5_mean"
+  - name: mt_salindex113_temperature_5_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_5_mean"
     description: Mean temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_5_stddev"
+  - name: mt_salindex113_temperature_5_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_5_stddev"
     description: Standard deviation of temperature item 5.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_5_min"
+  - name: mt_salindex113_temperature_5_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_5_min"
     description: Minimum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_5_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_5_max"
+  - name: mt_salindex113_temperature_5_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_5_max"
     description: Maximum temperature item 5.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_6_mean"
+  - name: mt_salindex113_temperature_6_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_6_mean"
     description: Mean temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_6_stddev"
+  - name: mt_salindex113_temperature_6_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_6_stddev"
     description: Standard deviation of temperature item 6.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_6_min"
+  - name: mt_salindex113_temperature_6_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_6_min"
     description: Minimum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_6_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_6_max"
+  - name: mt_salindex113_temperature_6_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_6_max"
     description: Maximum temperature item 6.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_mean
-    "@id": "#visit1_efd.mt_salindex103_temperature_7_mean"
+  - name: mt_salindex113_temperature_7_mean
+    "@id": "#visit1_efd.mt_salindex113_temperature_7_mean"
     description: Mean temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_stddev
-    "@id": "#visit1_efd.mt_salindex103_temperature_7_stddev"
+  - name: mt_salindex113_temperature_7_stddev
+    "@id": "#visit1_efd.mt_salindex113_temperature_7_stddev"
     description: Standard deviation of temperature item 7.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_min
-    "@id": "#visit1_efd.mt_salindex103_temperature_7_min"
+  - name: mt_salindex113_temperature_7_min
+    "@id": "#visit1_efd.mt_salindex113_temperature_7_min"
     description: Minimum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg_C
-  - name: mt_salindex103_temperature_7_max
-    "@id": "#visit1_efd.mt_salindex103_temperature_7_max"
+  - name: mt_salindex113_temperature_7_max
+    "@id": "#visit1_efd.mt_salindex113_temperature_7_max"
     description: Maximum temperature item 7.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
@@ -4694,20 +4948,20 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg_C
-  - name: mt_salindex111_relativehumidity_mean
-    "@id": "#visit1_efd.mt_salindex111_relativehumidity_mean"
+  - name: mt_salindex111_relative_humidity_mean
+    "@id": "#visit1_efd.mt_salindex111_relative_humidity_mean"
     description: Mean relative humidity.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: "%"
-  - name: mt_salindex112_relativehumidity_mean
-    "@id": "#visit1_efd.mt_salindex112_relativehumidity_mean"
+  - name: mt_salindex112_relative_humidity_mean
+    "@id": "#visit1_efd.mt_salindex112_relative_humidity_mean"
     description: Mean relative humidity.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: "%"
-  - name: mt_salindex113_relativehumidity_mean
-    "@id": "#visit1_efd.mt_salindex113_relativehumidity_mean"
+  - name: mt_salindex113_relative_humidity_mean
+    "@id": "#visit1_efd.mt_salindex113_relative_humidity_mean"
     description: Mean relative humidity.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
@@ -5222,55 +5476,261 @@ tables:
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_y_stddev
     "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_y_stddev"
-    description: Standard deviation of the acceleromete's Y-axis angular acceleration.
+    description: Standard deviation of the accelerometer's Y-axis angular acceleration.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_y_max
     "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_y_max"
-    description: Maximum acceleromete's Y-axis angular acceleration.
+    description: Maximum accelerometer's Y-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_y_min
     "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_y_min"
-    description: Minimum acceleromete's Y-axis angular acceleration.
+    description: Minimum accelerometer's Y-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_mean
     "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_mean"
-    description: Mean acceleromete's Z-axis angular acceleration.
+    description: Mean accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.mean
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_stddev
     "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_stddev"
-    description: Standard deviation of the acceleromete's Z-axis angular acceleration.
+    description: Standard deviation of the accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: stat.stdev
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_max
     "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_max"
-    description: Maximum acceleromete's Z-axis angular acceleration.
+    description: Maximum accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: deg/s**2
   - name: mt_salindex104_m1m3_angular_acceleration_z_min
     "@id": "#visit1_efd.mt_salindex104_m1m3_angular_acceleration_z_min"
-    description: Minimum acceleromete's Z-axis angular acceleration.
+    description: Minimum accelerometer's Z-axis angular acceleration.
     datatype: float
     ivoa:ucd: meta.ucd;stat.min
     ivoa:unit: deg/s**2
+  - name: mt_dome_temperature_mean
+    "@id": "#visit1_efd.mt_dome_temperature_mean"
+    description: Mean dome temperature item 0.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_inside_cell_temp_1
+    "@id": "#visit1_efd.mt_m1m3_glycol_loop_temperature_inside_cell_temp_1"
+    description: Mean median temperature inside M1M3 Cell thermocouple 1. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_inside_cell_temp_2
+    "@id": "#visit1_efd.mt_m1m3_glycol_loop_temperature_inside_cell_temp_2"
+    description: Mean median temperature inside M1M3 Cell thermocouple 2. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_inside_cell_temp_3
+    "@id": "#visit1_efd.mt_m1m3_glycol_loop_temperature_inside_cell_temp_3"
+    description: Mean median temperature inside M1M3 Cell thermocouple 3. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_glycol_loop_temperature_above_mirror_temp
+    "@id": "#visit1_efd.mt_m1m3_glycol_loop_temperature_above_mirror_temp"
+    description: Mean median temperature above mirror M1M3. See M1M3 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring0
+    "@id": "#visit1_efd.mt_m2_temperature_ring0"
+    description: Mean median temperature on ring0 (LG2-1 A5/A6 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring1
+    "@id": "#visit1_efd.mt_m2_temperature_ring1"
+    description: Mean median temperature on ring1 (LG2-2 A1 INNER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring2
+    "@id": "#visit1_efd.mt_m2_temperature_ring2"
+    description: Mean median temperature on ring2 (LG2-3 A1 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring3
+    "@id": "#visit1_efd.mt_m2_temperature_ring3"
+    description: Mean median temperature on ring3 (LG2-4 A1 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring4
+    "@id": "#visit1_efd.mt_m2_temperature_ring4"
+    description: Mean median temperature on ring4 (LG3-1 A4 INNER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring5
+    "@id": "#visit1_efd.mt_m2_temperature_ring5"
+    description: Mean median temperature on ring5 (LG3-2 A2/A3 INNER (not mounted)) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring6
+    "@id": "#visit1_efd.mt_m2_temperature_ring6"
+    description: Mean median temperature on ring6 (LG3-3 A2/A3 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring7
+    "@id": "#visit1_efd.mt_m2_temperature_ring7"
+    description: Mean median temperature on ring7 (LG3-4 A2/A3 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring8
+    "@id": "#visit1_efd.mt_m2_temperature_ring8"
+    description: Mean median temperature on ring8 (LG4-1 A4 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring9
+    "@id": "#visit1_efd.mt_m2_temperature_ring9"
+    description: Mean median temperature on ring9 (LG4-2 A4 OD) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring10
+    "@id": "#visit1_efd.mt_m2_temperature_ring10"
+    description: Mean median temperature on ring10 (LG4-3 A5/A6 OUTER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m2_temperature_ring11
+    "@id": "#visit1_efd.mt_m2_temperature_ring11"
+    description: Mean median temperature on ring11 (LG4-4 A5/A6 INNER) thermocouple on M2. See M2 documentation for a map of the thermocouples.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_ringss_fwhm_free
+    "@id": "#visit1_efd.mt_ringss_fwhm_free"
+    description: Mean RINGSS free seeing full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: mt_ringss_fwhm_scintillation
+    "@id": "#visit1_efd.mt_ringss_fwhm_scintillation"
+    description: Mean RINGSS scintillation seeing full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: mt_ringss_fwhm_sector
+    "@id": "#visit1_efd.mt_ringss_fwhm_sector"
+    description: Mean RINGSS sector seeing full width half maximum.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: arcsec
+  - name: camera_hexapod_compensation_offset_u
+    "@id": "#visit1_efd.camera_hexapod_compensation_offset_u"
+    description: Camera Hexapod compensation offset (LUT) mean U angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: camera_hexapod_compensation_offset_v
+    "@id": "#visit1_efd.camera_hexapod_compensation_offset_v"
+    description: Camera Hexapod compensation offset (LUT) mean V angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: camera_hexapod_compensation_offset_w
+    "@id": "#visit1_efd.camera_hexapod_compensation_offset_w"
+    description: Camera Hexapod compensation offset (LUT) mean W angle.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat
+    ivoa:unit: deg
+  - name: camera_hexapod_compensation_offset_x
+    "@id": "#visit1_efd.camera_hexapod_compensation_offset_x"
+    description: Camera Hexapod compensation offset (LUT) mean X position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: camera_hexapod_compensation_offset_y
+    "@id": "#visit1_efd.camera_hexapod_compensation_offset_y"
+    description: Camera Hexapod compensation offset (LUT) mean Y position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: camera_hexapod_compensation_offset_z
+    "@id": "#visit1_efd.camera_hexapod_compensation_offset_z"
+    description: Camera Hexapod compensation offset (LUT) mean Z position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: m2_hexapod_compensation_offset_u
+    "@id": "#visit1_efd.m2_hexapod_compensation_offset_u"
+    description: M2 Hexapod compensation offset (LUT) mean U angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: m2_hexapod_compensation_offset_v
+    "@id": "#visit1_efd.m2_hexapod_compensation_offset_v"
+    description: M2 Hexapod compensation offset (LUT) mean V angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: m2_hexapod_compensation_offset_w
+    "@id": "#visit1_efd.m2_hexapod_compensation_offset_w"
+    description: M2 Hexapod compensation offset (LUT) mean W angle.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: deg
+  - name: m2_hexapod_compensation_offset_x
+    "@id": "#visit1_efd.m2_hexapod_compensation_offset_x"
+    description: M2 Hexapod compensation offset (LUT) mean X position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: m2_hexapod_compensation_offset_y
+    "@id": "#visit1_efd.m2_hexapod_compensation_offset_y"
+    description: M2 Hexapod compensation offset (LUT) mean Y position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
+  - name: m2_hexapod_compensation_offset_z
+    "@id": "#visit1_efd.m2_hexapod_compensation_offset_z"
+    description: M2 Hexapod compensation offset (LUT) mean Z position.
+    datatype: float
+    ivoa:ucd: meta.ucd
+    ivoa:unit: um
 
 - name: visit1_efd_unpivoted
   "@id": "#visit1_efd_unpivoted"
-  description: Unpivoted EFD visit data
+  description: Unpivoted EFD visit data.
   primaryKey:
+  - "#visit1_efd_unpivoted.day_obs"
+  - "#visit1_efd_unpivoted.seq_num"
   - "#visit1_efd_unpivoted.visit_id"
   - "#visit1_efd_unpivoted.property"
   - "#visit1_efd_unpivoted.field"
   columns:
+  - name: day_obs
+    "@id": "#visit1_efd_unpivoted.day_obs"
+    description: Day of observation in YYYYMMDD format.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#visit1_efd_unpivoted.seq_num"
+    description: Sequence number for the visit.
+    datatype: int
+    nullable: false
+    ivoa:ucd: meta.id.part
   - name: visit_id
     "@id": "#visit1_efd_unpivoted.visit_id"
     description: Unique identifier for the visit.
