@@ -5630,6 +5630,7 @@ tables:
   - name: psfNdata
     description: The number of data points (pixels) used to fit the point source model.
     datatype: int
+    nullable: false
     ivoa:unit: pixel
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model. Another
@@ -5714,6 +5715,7 @@ tables:
   - name: dipoleNdata
     description: The number of data points (pixels) used to fit the model.
     datatype: long
+    nullable: false
   - name: scienceFlux
     description: Forced photometry flux for a point source model measured on the visit image
       centered at DiaSource position.
@@ -5821,6 +5823,7 @@ tables:
   - name: bboxSize
     description: Size of the square bounding box that fully contains the detection footprint.
     datatype: long
+    nullable: false
     ivoa:unit: pixel
   - name: pixelFlags
     description: General pixel flags failure; set if anything went wrong when setting
