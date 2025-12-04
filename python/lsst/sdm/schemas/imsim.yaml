@@ -7854,6 +7854,7 @@ tables:
   - name: centroid_flag
     "@id": "#DiaSource.centroid_flag"
     datatype: boolean
+    nullable: false
     description: General centroid algorithm failure flag; set if anything went wrong when fitting the centroid. Another centroid flag field should also be set to provide more information.
     fits:tunit:
   - name: apFlux
@@ -7871,16 +7872,19 @@ tables:
   - name: apFlux_flag
     "@id": "#DiaSource.apFlux_flag"
     datatype: boolean
+    nullable: false
     description: General aperture flux algorithm failure flag; set if anything went wrong when measuring aperture fluxes. Another apFlux flag field should also be set to provide more information.
     fits:tunit:
   - name: apFlux_flag_apertureTruncated
     "@id": "#DiaSource.apFlux_flag_apertureTruncated"
     datatype: boolean
+    nullable: false
     description: Aperture did not fit within measurement image.
     fits:tunit:
   - name: isNegative
     "@id": "#DiaSource.isNegative"
     datatype: boolean
+    nullable: false
     description: Source was detected as significantly negative.
     fits:tunit:
   - name: snr
@@ -7914,16 +7918,19 @@ tables:
   - name: psfFlux_flag
     "@id": "#DiaSource.psfFlux_flag"
     datatype: boolean
+    nullable: false
     description: Failure to derive linear least-squares fit of psf model. Another psfFlux flag field should also be set to provide more information.
     fits:tunit:
   - name: psfFlux_flag_edge
     "@id": "#DiaSource.psfFlux_flag_edge"
     datatype: boolean
+    nullable: false
     description: Object was too close to the edge of the image to use the full PSF model.
     fits:tunit:
   - name: psfFlux_flag_noGoodPixels
     "@id": "#DiaSource.psfFlux_flag_noGoodPixels"
     datatype: boolean
+    nullable: false
     description: Not enough non-rejected pixels in data to attempt the fit.
     fits:tunit:
   - name: trailFlux
@@ -7963,6 +7970,7 @@ tables:
   - name: trail_flag_edge
     "@id": "#DiaSource.trail_flag_edge"
     datatype: boolean
+    nullable: false
     description: This flag is set if a trailed source extends onto or past edge pixels.
     fits:tunit:
   - name: dipoleMeanFlux
@@ -8028,16 +8036,19 @@ tables:
   - name: forced_PsfFlux_flag
     "@id": "#DiaSource.forced_PsfFlux_flag"
     datatype: boolean
+    nullable: false
     description: Forced PSF photometry on science image failed. Another forced_PsfFlux flag field should also be set to provide more information.
     fits:tunit:
   - name: forced_PsfFlux_flag_edge
     "@id": "#DiaSource.forced_PsfFlux_flag_edge"
     datatype: boolean
+    nullable: false
     description: Forced PSF flux on science image was too close to the edge of the image to use the full PSF model.
     fits:tunit:
   - name: forced_PsfFlux_flag_noGoodPixels
     "@id": "#DiaSource.forced_PsfFlux_flag_noGoodPixels"
     datatype: boolean
+    nullable: false
     description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
     fits:tunit:
   - name: templateFlux
@@ -8086,21 +8097,25 @@ tables:
   - name: shape_flag
     "@id": "#DiaSource.shape_flag"
     datatype: boolean
+    nullable: false
     description: General source shape algorithm failure flag; set if anything went wrong when measuring the shape. Another shape flag field should also be set to provide more information.
     fits:tunit:
   - name: shape_flag_no_pixels
     "@id": "#DiaSource.shape_flag_no_pixels"
     datatype: boolean
+    nullable: false
     description: No pixels to measure shape.
     fits:tunit:
   - name: shape_flag_not_contained
     "@id": "#DiaSource.shape_flag_not_contained"
     datatype: boolean
+    nullable: false
     description: Center not contained in footprint bounding box.
     fits:tunit:
   - name: shape_flag_parent_source
     "@id": "#DiaSource.shape_flag_parent_source"
     datatype: boolean
+    nullable: false
     description: This source is a parent source; we should only be measuring on deblended children in difference imaging.
     fits:tunit:
   - name: extendedness
@@ -8123,10 +8138,12 @@ tables:
   - name: isDipole
     "@id": "#DiaSource.isDipole"
     datatype: boolean
+    nullable: false
     description: Source well fit by a dipole.
   - name: dipoleFitAttempted
     "@id": "#DiaSource.dipoleFitAttempted"
     datatype: boolean
+    nullable: false
     description: Attempted to fit a dipole model to this source.
   - name: timeProcessedMjdTai
     "@id": "#DiaSource.timeProcessedMjdTai"
@@ -8143,106 +8160,127 @@ tables:
   - name: pixelFlags
     "@id": "#DiaSource.pixelFlags"
     datatype: boolean
+    nullable: false
     description: General pixel flags failure; set if anything went wrong when setting pixels flags from this footprint's mask. This implies that some pixelFlags for this source may be incorrectly set to False.
     fits:tunit:
   - name: pixelFlags_bad
     "@id": "#DiaSource.pixelFlags_bad"
     datatype: boolean
+    nullable: false
     description: Bad pixel in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_cr
     "@id": "#DiaSource.pixelFlags_cr"
     datatype: boolean
+    nullable: false
     description: Cosmic ray in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_crCenter
     "@id": "#DiaSource.pixelFlags_crCenter"
     datatype: boolean
+    nullable: false
     description: Cosmic ray in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_edge
     "@id": "#DiaSource.pixelFlags_edge"
     datatype: boolean
+    nullable: false
     description: Some of the source footprint is outside usable exposure region (masked EDGE or centroid off image).
     fits:tunit:
   - name: pixelFlags_nodata
     "@id": "#DiaSource.pixelFlags_nodata"
     datatype: boolean
+    nullable: false
     description: NO_DATA pixel in the source footprint.
     fits:tunit:
   - name: pixelFlags_nodataCenter
     "@id": "#DiaSource.pixelFlags_nodataCenter"
     datatype: boolean
+    nullable: false
     description: NO_DATA pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#DiaSource.pixelFlags_interpolated"
     datatype: boolean
+    nullable: false
     description: Interpolated pixel in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_interpolatedCenter
     "@id": "#DiaSource.pixelFlags_interpolatedCenter"
     datatype: boolean
+    nullable: false
     description: Interpolated pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_offimage
     "@id": "#DiaSource.pixelFlags_offimage"
     datatype: boolean
+    nullable: false
     description: DiaSource center is off image.
     fits:tunit:
   - name: pixelFlags_saturated
     "@id": "#DiaSource.pixelFlags_saturated"
     datatype: boolean
+    nullable: false
     description: Saturated pixel in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_saturatedCenter
     "@id": "#DiaSource.pixelFlags_saturatedCenter"
     datatype: boolean
+    nullable: false
     description: Saturated pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_suspect
     "@id": "#DiaSource.pixelFlags_suspect"
     datatype: boolean
+    nullable: false
     description: DiaSource's footprint includes suspect pixels.
     fits:tunit:
   - name: pixelFlags_suspectCenter
     "@id": "#DiaSource.pixelFlags_suspectCenter"
     datatype: boolean
+    nullable: false
     description: Suspect pixel in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_streak
     "@id": "#DiaSource.pixelFlags_streak"
     datatype: boolean
+    nullable: false
     description: Streak in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_streakCenter
     "@id": "#DiaSource.pixelFlags_streakCenter"
     datatype: boolean
+    nullable: false
     description: Streak in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_injected
     "@id": "#DiaSource.pixelFlags_injected"
     datatype: boolean
+    nullable: false
     description: Injection in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_injectedCenter
     "@id": "#DiaSource.pixelFlags_injectedCenter"
     datatype: boolean
+    nullable: false
     description: Injection in the 3x3 region around the centroid.
     fits:tunit:
   - name: pixelFlags_injected_template
     "@id": "#DiaSource.pixelFlags_injected_template"
     datatype: boolean
+    nullable: false
     description: Template injection in the DiaSource footprint.
     fits:tunit:
   - name: pixelFlags_injected_templateCenter
     "@id": "#DiaSource.pixelFlags_injected_templateCenter"
     datatype: boolean
+    nullable: false
     description: Template injection in the 3x3 region around the centroid.
     fits:tunit:
   - name: glint_trail
     "@id": "#DiaSource.glint_trail"
     datatype: boolean
+    nullable: false
     description: This flag is set if the source is part of a glint trail.
     fits:tunit:
 - name: ForcedSourceOnDiaObject
