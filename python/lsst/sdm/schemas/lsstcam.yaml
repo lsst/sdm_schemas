@@ -5498,13 +5498,13 @@ tables:
     description: Id of the diaObject this source was associated with, if any. If not,
       it is set to 0
     datatype: long
-    nullable: true
+    nullable: false
     ivoa:ucd: meta.id;src
   - name: ssObjectId
     description: Id of the ssObject this source was associated with, if any. If not,
       it is set to 0
     datatype: long
-    nullable: true
+    nullable: false
     ivoa:ucd: meta.id;src
   - name: parentDiaSourceId
     description: Id of the parent diaSource this diaSource has been deblended from,

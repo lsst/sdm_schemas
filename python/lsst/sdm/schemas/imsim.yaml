@@ -7755,18 +7755,16 @@ tables:
   - name: diaObjectId
     "@id": "#DiaSource.diaObjectId"
     datatype: long
-    nullable: true
+    nullable: false
     description: Id of the diaObject this source was associated with, if any. If not,
-      it is set to NULL (each diaSource will be associated with either a diaObject
-      or ssObject).
+      it is set to 0.
     ivoa:ucd: meta.id;src
   - name: ssObjectId
     "@id": "#DiaSource.ssObjectId"
     datatype: long
-    nullable: true
+    nullable: false
     description: Id of the ssObject this source was associated with, if any. If not,
-      it is set to NULL (each diaSource will be associated with either a diaObject
-      or ssObject).
+      it is set to 0.
     ivoa:ucd: meta.id;src
   - name: parentDiaSourceId
     "@id": "#DiaSource.parentDiaSourceId"
