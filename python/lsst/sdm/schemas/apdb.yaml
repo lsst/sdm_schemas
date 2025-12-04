@@ -1,6 +1,6 @@
 ---
 name: "ApdbSchema"
-version: "9.1.0"
+version: "9.1.1"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -82,6 +82,7 @@ tables:
     ivoa:ucd: stat.stdev
   - name: u_psfFluxNdata
     datatype: int
+    nullable: false
     description: The number of u-band data points.
   - name: u_fpFluxMean
     datatype: float
@@ -110,6 +111,7 @@ tables:
     ivoa:ucd: stat.stdev
   - name: g_psfFluxNdata
     datatype: int
+    nullable: false
     description: The number of g-band data points.
   - name: g_fpFluxMean
     datatype: float
@@ -138,6 +140,7 @@ tables:
     ivoa:ucd: stat.stdev
   - name: r_psfFluxNdata
     datatype: int
+    nullable: false
     description: The number of r-band data points.
   - name: r_fpFluxMean
     datatype: float
@@ -166,6 +169,7 @@ tables:
     ivoa:ucd: stat.stdev
   - name: i_psfFluxNdata
     datatype: int
+    nullable: false
     description: The number of i-band data points.
   - name: i_fpFluxMean
     datatype: float
@@ -194,6 +198,7 @@ tables:
     ivoa:ucd: stat.stdev
   - name: z_psfFluxNdata
     datatype: int
+    nullable: false
     description: The number of z-band data points.
   - name: z_fpFluxMean
     datatype: float
@@ -222,6 +227,7 @@ tables:
     ivoa:ucd: stat.stdev
   - name: y_psfFluxNdata
     datatype: int
+    nullable: false
     description: The number of y-band data points.
   - name: y_fpFluxMean
     datatype: float
@@ -562,6 +568,7 @@ tables:
     ivoa:ucd: stat.fit.chi2
   - name: psfNdata
     datatype: int
+    nullable: false
     description: The number of data points (pixels) used to fit the point source model.
   - name: psfFlux_flag
     datatype: boolean
@@ -627,6 +634,7 @@ tables:
     ivoa:ucd: stat.fit.chi2
   - name: trailNdata
     datatype: int
+    nullable: false
     value: 0
     description: The number of data points (pixels) used to fit the trailed source model.
   - name: trail_flag_edge
@@ -670,6 +678,7 @@ tables:
     ivoa:ucd: stat.fit.chi2
   - name: dipoleNdata
     datatype: int
+    nullable: false
     description: The number of data points (pixels) used to fit the model.
   - name: scienceFlux
     datatype: float
@@ -779,6 +788,7 @@ tables:
     ivoa:ucd: time.epoch
   - name: bboxSize
     datatype: int
+    nullable: false
     description: Size of the square bounding box that fully contains the detection footprint.
     fits:tunit: pixel
   - name: pixelFlags
@@ -1110,11 +1120,13 @@ tables:
   - name: xSize
     '@id': '#DetectorVisitProcessingSummary.xSize'
     datatype: long
+    nullable: false
     description: Number of columns in the image.
     fits:tunit: pixel
   - name: ySize
     '@id': '#DetectorVisitProcessingSummary.ySize'
     datatype: long
+    nullable: false
     description: Number of rows in the image.
     fits:tunit: pixel
   - name: llcra
@@ -1170,6 +1182,7 @@ tables:
   - name: nPsfStar
     '@id': '#DetectorVisitProcessingSummary.nPsfStar'
     datatype: int
+    nullable: false
     description: Number of stars used for PSF model.
     fits:tunit:
   - name: psfStarDeltaE1Median
@@ -1316,6 +1329,7 @@ tables:
   - name: u_nObs
     description: Total number of data points (u band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: u_H
     description: Best fit absolute magnitude (u band).
@@ -1343,6 +1357,7 @@ tables:
   - name: u_nObsUsed
     description: The number of data points used to fit the phase curve (u band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: u_Chi2
     description: Chi^2 statistic of the phase curve fit (u band).
@@ -1366,6 +1381,7 @@ tables:
   - name: g_nObs
     description: Total number of data points (g band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: g_H
     description: Best fit absolute magnitude (g band).
@@ -1393,6 +1409,7 @@ tables:
   - name: g_nObsUsed
     description: The number of data points used to fit the phase curve (g band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: g_Chi2
     description: Chi^2 statistic of the phase curve fit (g band).
@@ -1416,6 +1433,7 @@ tables:
   - name: r_nObs
     description: Total number of data points (r band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: r_H
     description: Best fit absolute magnitude (r band).
@@ -1443,6 +1461,7 @@ tables:
   - name: r_nObsUsed
     description: The number of data points used to fit the phase curve (r band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: r_Chi2
     description: Chi^2 statistic of the phase curve fit (r band).
@@ -1466,6 +1485,7 @@ tables:
   - name: i_nObs
     description: Total number of data points (i band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: i_H
     description: Best fit absolute magnitude (i band).
@@ -1493,6 +1513,7 @@ tables:
   - name: i_nObsUsed
     description: The number of data points used to fit the phase curve (i band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: i_Chi2
     description: Chi^2 statistic of the phase curve fit (i band).
@@ -1516,6 +1537,7 @@ tables:
   - name: z_nObs
     description: Total number of data points (z band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: z_H
     description: Best fit absolute magnitude (z band).
@@ -1543,6 +1565,7 @@ tables:
   - name: z_nObsUsed
     description: The number of data points used to fit the phase curve (z band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: z_Chi2
     description: Chi^2 statistic of the phase curve fit (z band).
@@ -1566,6 +1589,7 @@ tables:
   - name: y_nObs
     description: Total number of data points (y band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: y_H
     description: Best fit absolute magnitude (y band).
@@ -1593,6 +1617,7 @@ tables:
   - name: y_nObsUsed
     description: The number of data points used to fit the phase curve (y band).
     datatype: int
+    nullable: false
     ivoa:ucd: meta.number;obs
   - name: y_Chi2
     description: Chi^2 statistic of the phase curve fit (y band).

@@ -5498,18 +5498,19 @@ tables:
     description: Id of the diaObject this source was associated with, if any. If not,
       it is set to 0
     datatype: long
-    nullable: true
+    nullable: false
     ivoa:ucd: meta.id;src
   - name: ssObjectId
     description: Id of the ssObject this source was associated with, if any. If not,
       it is set to 0
     datatype: long
-    nullable: true
+    nullable: false
     ivoa:ucd: meta.id;src
   - name: parentDiaSourceId
     description: Id of the parent diaSource this diaSource has been deblended from,
       if any.
     datatype: long
+    nullable: false
     ivoa:ucd: meta.id;src
   - name: midpointMjdTai
     description: Effective mid-visit time for this diaSource, expressed as Modified
@@ -5582,6 +5583,7 @@ tables:
       when fitting the centroid. Another centroid flag field should also be set to
       provide more information.
     datatype: boolean
+    nullable: false
   - name: apFlux
     description: Flux in a 12 pixel radius aperture on the difference image.
     datatype: float
@@ -5597,12 +5599,15 @@ tables:
       wrong when measuring aperture fluxes. Another apFlux flag field should also
       be set to provide more information.
     datatype: boolean
+    nullable: false
   - name: apFlux_flag_apertureTruncated
     description: Aperture did not fit within measurement image.
     datatype: boolean
+    nullable: false
   - name: isNegative
     description: Source was detected as significantly negative.
     datatype: boolean
+    nullable: false
   - name: snr
     description: The signal-to-noise ratio at which this source was detected in the
       difference image. Ratio of apFlux/apFluxErr.
@@ -5625,17 +5630,21 @@ tables:
   - name: psfNdata
     description: The number of data points (pixels) used to fit the point source model.
     datatype: int
+    nullable: false
     ivoa:unit: pixel
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model. Another
       psfFlux flag field should also be set to provide more information.
     datatype: boolean
+    nullable: false
   - name: psfFlux_flag_edge
     description: Object was too close to the edge of the image to use the full PSF model.
     datatype: boolean
+    nullable: false
   - name: psfFlux_flag_noGoodPixels
     description: Not enough non-rejected pixels in data to attempt the fit.
     datatype: boolean
+    nullable: false
   - name: trailFlux
     description: Flux for a trailed source model. Note this actually measures
       the flux difference between the template and the visit image.
@@ -5667,6 +5676,7 @@ tables:
   - name: trail_flag_edge
     description: This flag is set if a trailed source extends onto or past edge pixels.
     datatype: boolean
+    nullable: false
   - name: dipoleMeanFlux
     description: Maximum likelihood value for the mean absolute flux of the two lobes
       for a dipole model.
@@ -5705,6 +5715,7 @@ tables:
   - name: dipoleNdata
     description: The number of data points (pixels) used to fit the model.
     datatype: long
+    nullable: false
   - name: scienceFlux
     description: Forced photometry flux for a point source model measured on the visit image
       centered at DiaSource position.
@@ -5719,12 +5730,15 @@ tables:
   - name: forced_PsfFlux_flag
     description: Forced PSF photometry on science image failed. Another forced_PsfFlux flag field should also be set to provide more information.
     datatype: boolean
+    nullable: false
   - name: forced_PsfFlux_flag_edge
     description: Forced PSF flux on science image was too close to the edge of the image to use the full PSF model.
     datatype: boolean
+    nullable: false
   - name: forced_PsfFlux_flag_noGoodPixels
     description: Forced PSF flux not enough non-rejected pixels in data to attempt the fit.
     datatype: boolean
+    nullable: false
   - name: templateFlux
     description: Forced photometry flux for a point source model measured on the template image
       centered at the DiaSource position.
@@ -5765,15 +5779,19 @@ tables:
       when measuring the shape. Another shape flag field should also be set
       to provide more information.
     datatype: boolean
+    nullable: false
   - name: shape_flag_no_pixels
     description: No pixels to measure shape.
     datatype: boolean
+    nullable: false
   - name: shape_flag_not_contained
     description: Center not contained in footprint bounding box.
     datatype: boolean
+    nullable: false
   - name: shape_flag_parent_source
     description: This source is a parent source; we should only be measuring on deblended children in difference imaging.
     datatype: boolean
+    nullable: false
   - name: extendedness
     description: A measure of extendedness, computed by comparing an object's moment-based trace radius to
       the PSF moments. extendedness = 1 implies a high degree of confidence
@@ -5791,9 +5809,11 @@ tables:
   - name: isDipole
     description: Source well fit by a dipole.
     datatype: boolean
+    nullable: false
   - name: dipoleFitAttempted
     description: Attempted to fit a dipole model to this source.
     datatype: boolean
+    nullable: false
   - name: timeProcessedMjdTai
     description: Time when the image was processed and this DiaSource record was generated,
       expressed as Modified Julian Date, International Atomic Time.
@@ -5803,72 +5823,94 @@ tables:
   - name: bboxSize
     description: Size of the square bounding box that fully contains the detection footprint.
     datatype: long
+    nullable: false
     ivoa:unit: pixel
   - name: pixelFlags
     description: General pixel flags failure; set if anything went wrong when setting
       pixels flags from this footprint's mask. This implies that some pixelFlags for
       this source may be incorrectly set to False.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_bad
     description: Bad pixel in the DiaSource footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_cr
     description: Cosmic ray in the DiaSource footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_crCenter
     description: Cosmic ray in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_edge
     description: Some of the source footprint is outside usable exposure region (masked EDGE or centroid off image).
     datatype: boolean
+    nullable: false
   - name: pixelFlags_nodata
     description: NO_DATA pixel in the source footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_nodataCenter
     description: NO_DATA pixel in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_interpolated
     description: Interpolated pixel in the DiaSource footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_interpolatedCenter
     description: Interpolated pixel in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_offimage
     description: DiaSource center is off image.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_saturated
     description: Saturated pixel in the DiaSource footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_saturatedCenter
     description: Saturated pixel in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_suspect
     description: DiaSource's footprint includes suspect pixels.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_suspectCenter
     description: Suspect pixel in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_streak
     description: Streak in the DiaSource footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_streakCenter
     description: Streak in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_injected
     description: Injection in the DiaSource footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_injectedCenter
     description: Injection in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_injected_template
     description: Template injection in the DiaSource footprint.
     datatype: boolean
+    nullable: false
   - name: pixelFlags_injected_templateCenter
     description: Template injection in the 3x3 region around the centroid.
     datatype: boolean
+    nullable: false
   - name: glint_trail
     description: This flag is set if the source is part of a glint trail.
     datatype: boolean
+    nullable: false
   constraints:
   - name: uniq_diaSourceId
     description: Unique constraint on diaSourceId
@@ -5942,7 +5984,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: u_psfFluxNdata
     description: The number of u-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: g_psfFluxMean
     description: Weighted mean point-source model magnitude for g filter.
     datatype: double
@@ -5960,7 +6003,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: g_psfFluxNdata
     description: The number of g-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: r_psfFluxMean
     description: Weighted mean point-source model magnitude for r filter.
     datatype: double
@@ -5978,7 +6022,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: r_psfFluxNdata
     description: The number of r-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: i_psfFluxMean
     description: Weighted mean point-source model magnitude for i filter.
     datatype: double
@@ -5996,7 +6041,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: i_psfFluxNdata
     description: The number of i-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: z_psfFluxMean
     description: Weighted mean point-source model magnitude for z filter.
     datatype: double
@@ -6014,7 +6060,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: z_psfFluxNdata
     description: The number of z-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: y_psfFluxMean
     datatype: double
     ivoa:unit: nJy
@@ -6032,7 +6079,8 @@ tables:
     ivoa:ucd: stat.stdev
   - name: y_psfFluxNdata
     description: The number of y-band data points.
-    datatype: double
+    datatype: int
+    nullable: false
   - name: u_scienceFluxMean
     description: Weighted mean forced photometry flux for u filter.
     datatype: double
@@ -6257,6 +6305,7 @@ tables:
     description: Failure to derive linear least-squares fit of psf model forced on
       the calexp
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: psfDiffFlux
     description: Flux derived from linear least-squares fit of psf model forced on
@@ -6274,59 +6323,73 @@ tables:
     description: Failure to derive linear least-squares fit of psf model forced on
       the image difference
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: diff_PixelFlags_nodataCenter
     description: Source center is outside usable region on image difference (masked
       NO_DATA)
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_bad
     description: Bad pixel in the Source footprint
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_cr
     description: Cosmic ray in the Source footprint
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_crCenter
     description: Cosmic ray in the Source center
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_edge
     description: Source is on the edge of an exposure region (masked EDGE)
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_interpolated
     description: Interpolated pixel in the Source footprint
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_interpolatedCenter
     description: Interpolated pixel in the Source center
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_nodata
     description: Source is outside usable exposure region (masked NO_DATA)
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_saturated
     description: Saturated pixel in the Source footprint
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_saturatedCenter
     description: Saturated pixel in the Source center
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_suspect
     description: Sources footprint includes suspect pixels
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: pixelFlags_suspectCenter
     description: Sources center is close to suspect pixels
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: invalidPsfFlag
     description: Forced source has an invalid PSF.
     datatype: boolean
+    nullable: false
     tap:principal: 0
   - name: tract
     description: Skymap tract ID
