@@ -8155,6 +8155,7 @@ tables:
   - name: bboxSize
     "@id": "#DiaSource.bboxSize"
     datatype: long
+    nullable: false
     description: Size of the square bounding box that fully contains the detection footprint.
     fits:tunit: pixel
   - name: pixelFlags
@@ -8321,71 +8322,85 @@ tables:
   - name: diaObjectId
     "@id": "#ForcedSourceOnDiaObject.diaObjectId"
     datatype: long
+    nullable: false
     description: Id of the DiaObject that this DiaForcedSource was associated with.
     fits:tunit:
   - name: parentObjectId
     "@id": "#ForcedSourceOnDiaObject.parentObjectId"
     datatype: long
+    nullable: false
     description: Unique ObjectId of the parent of the ObjectId in context of the deblender.
     fits:tunit:
   - name: patch
     "@id": "#ForcedSourceOnDiaObject.patch"
     datatype: long
+    nullable: false
     description: Skymap patch ID
     fits:tunit:
   - name: pixelFlags_bad
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_bad"
     datatype: boolean
+    nullable: false
     description: Bad pixel in the Source footprint
     fits:tunit:
   - name: pixelFlags_cr
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_cr"
     datatype: boolean
+    nullable: false
     description: Cosmic ray in the Source footprint
     fits:tunit:
   - name: pixelFlags_crCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_crCenter"
     datatype: boolean
+    nullable: false
     description: Cosmic ray in the Source center
     fits:tunit:
   - name: pixelFlags_edge
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_edge"
     datatype: boolean
+    nullable: false
     description: Source is on the edge of an exposure region (masked EDGE)
     fits:tunit:
   - name: pixelFlags_interpolated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolated"
     datatype: boolean
+    nullable: false
     description: Interpolated pixel in the Source footprint
     fits:tunit:
   - name: pixelFlags_interpolatedCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_interpolatedCenter"
     datatype: boolean
+    nullable: false
     description: Interpolated pixel in the Source center
     fits:tunit:
   - name: pixelFlags_nodata
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_nodata"
     datatype: boolean
+    nullable: false
     description: Source is outside usable exposure region (masked NO_DATA)
     fits:tunit:
   - name: pixelFlags_saturated
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturated"
     datatype: boolean
+    nullable: false
     description: Saturated pixel in the Source footprint
     fits:tunit:
   - name: pixelFlags_saturatedCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_saturatedCenter"
     datatype: boolean
+    nullable: false
     description: Saturated pixel in the Source center
     fits:tunit:
   - name: pixelFlags_suspect
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspect"
     datatype: boolean
+    nullable: false
     description: Sources footprint includes suspect pixels
     fits:tunit:
   - name: pixelFlags_suspectCenter
     "@id": "#ForcedSourceOnDiaObject.pixelFlags_suspectCenter"
     datatype: boolean
+    nullable: false
     description: Sources center is close to suspect pixels
     fits:tunit:
   # - name: pixelFlags_streak
@@ -8401,6 +8416,7 @@ tables:
   - name: invalidPsfFlag
     "@id": "#ForcedSourceOnDiaObject.invalidPsfFlag"
     datatype: boolean
+    nullable: false
     description: Forced source has an invalid PSF.
     fits:tunit:
   - name: psfDiffFlux
@@ -8416,11 +8432,13 @@ tables:
   - name: psfDiffFlux_flag
     "@id": "#ForcedSourceOnDiaObject.psfDiffFlux_flag"
     datatype: boolean
+    nullable: false
     description: Failure to derive linear least-squares fit of psf model forced on the image difference
     fits:tunit:
   - name: diff_PixelFlags_nodataCenter
     "@id": "#ForcedSourceOnDiaObject.diff_PixelFlags_nodataCenter"
     datatype: boolean
+    nullable: false
     description: Source center is outside usable region on image difference (masked NO_DATA)
     fits:tunit:
   - name: psfFlux
@@ -8436,11 +8454,13 @@ tables:
   - name: psfFlux_flag
     "@id": "#ForcedSourceOnDiaObject.psfFlux_flag"
     datatype: boolean
+    nullable: false
     description: Failure to derive linear least-squares fit of psf model forced on the calexp
     fits:tunit:
   - name: tract
     "@id": "#ForcedSourceOnDiaObject.tract"
     datatype: long
+    nullable: false
     description: Skymap tract ID
     fits:tunit:
 - name: MatchesTruth
