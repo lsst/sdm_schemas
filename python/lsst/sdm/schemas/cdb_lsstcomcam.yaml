@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LSSTComCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, a 9-detector camera for commissioning the Vera C. Rubin Observatory.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.7.1"
+  current: "3.7.2"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -72,7 +72,10 @@ tables:
   - name: s_ra
     "@id": "#exposure.s_ra"
     datatype: double
-    description: Central Spatial Position in ICRS; Right ascension of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; right ascension of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.ra
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
@@ -80,7 +83,10 @@ tables:
   - name: s_dec
     "@id": "#exposure.s_dec"
     datatype: double
-    description: Central Spatial Position in ICRS; Declination of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; declination of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.dec
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
@@ -638,7 +644,10 @@ tables:
   - name: s_ra
     "@id": "#visit1.s_ra"
     datatype: double
-    description: Central Spatial Position in ICRS; Right ascension of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; right ascension of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.ra
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
@@ -646,7 +655,10 @@ tables:
   - name: s_dec
     "@id": "#visit1.s_dec"
     datatype: double
-    description: Central Spatial Position in ICRS; Declination of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; declination of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.dec
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
