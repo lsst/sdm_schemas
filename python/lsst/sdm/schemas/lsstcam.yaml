@@ -5510,6 +5510,7 @@ tables:
     description: Id of the parent diaSource this diaSource has been deblended from,
       if any.
     datatype: long
+    nullable: false
     ivoa:ucd: meta.id;src
   - name: midpointMjdTai
     description: Effective mid-visit time for this diaSource, expressed as Modified

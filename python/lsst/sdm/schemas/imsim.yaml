@@ -7769,6 +7769,7 @@ tables:
   - name: parentDiaSourceId
     "@id": "#DiaSource.parentDiaSourceId"
     datatype: long
+    nullable: false
     description: Id of the parent diaSource this diaSource has been deblended from,
       if any.
     ivoa:ucd: meta.id;src
