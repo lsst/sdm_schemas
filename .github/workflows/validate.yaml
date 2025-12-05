@@ -9,9 +9,15 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v6
+        with:
+          # Need to clone everything for the git tags.
+          fetch-depth: 0
 
       - name: Setup Python and install dependencies
         uses: ./.github/actions/setup-test-environment
+
+      - name: Install sdm_schemas
+        run: uv pip install --system --no-deps .
 
       - name: Validate YAML files
         run: felis validate --check-redundant-datatypes ./yml/*.yaml
