@@ -10,9 +10,11 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
-      - name: Setup Python and install dependencies
-        uses: ./.github/actions/setup-test-environment
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python
 
       - name: Validate YAML files with extra checks
         run: |

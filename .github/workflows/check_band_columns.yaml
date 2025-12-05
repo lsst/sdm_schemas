@@ -12,8 +12,10 @@ jobs:
 
       - name: Check out repo
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
-      - name: Setup python and install dependencies
+      - name: Setup Python environment
         uses: ./.github/actions/setup-python
 
       - name: Set SDM Tools log Level
