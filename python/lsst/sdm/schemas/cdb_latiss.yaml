@@ -959,7 +959,7 @@ tables:
     "@id": "#visit1_quicklook.astrom_ra"
     datatype: double
     description: >-
-      Central Spatial Position (boresight position) in ICRS; Right ascension of targeted focal plane center.
+      Central Spatial Position in ICRS; Right ascension of the CCD center.
       In contrast with #exposure.s_ra, which is the targeted sky position, this is the position
       fitted after plate solving the image.
     tap:std: 1
@@ -970,7 +970,7 @@ tables:
     "@id": "#visit1_quicklook.astrom_dec"
     datatype: double
     description: >-
-      Central Spatial Position (boresight position) in ICRS; Declination of targeted focal plane center.
+      Central Spatial Position in ICRS; Declination of the CCD center.
       In contrast with #exposure.s_dec, which is the targeted sky position, this is the position
       fitted after plate solving the image.
     tap:std: 1
@@ -981,7 +981,7 @@ tables:
     "@id": "#visit1_quicklook.astrom_sky_rotation"
     datatype: double
     description: >-
-      Fitted sky rotation angle based on plate solving the image. This quantity can be compared
+      Fitted sky rotation angle based on plate solving. This quantity can be compared
       to #exposure.sky_rotation, the targeted sky rotation angle.
     ivoa:ucd: pos.posAng
     ivoa:unit: deg
