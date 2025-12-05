@@ -963,6 +963,36 @@ tables:
     datatype: float
     description: Standard deviation of offsets of astrometric calibration matches (median across all detectors).
     ivoa:unit: arcsec
+  - name: astrom_ra
+    "@id": "#visit1_quicklook.astrom_ra"
+    datatype: double
+    description: >-
+      Central Spatial Position in ICRS; Right ascension of the center position of the central CCD (R22_S11).
+      In contrast with #exposure.s_ra, which is the targeted sky position, this is the position
+      fitted after plate solving the image.
+    tap:std: 1
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    ivoa:unit: deg
+  - name: astrom_dec
+    "@id": "#visit1_quicklook.astrom_dec"
+    datatype: double
+    description: >-
+      Central Spatial Position in ICRS; Declination of the center position of the central CCD (R22_S11).
+      In contrast with #exposure.s_dec, which is the targeted sky position, this is the position
+      fitted after plate solving the image.
+    tap:std: 1
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    ivoa:unit: deg
+  - name: astrom_sky_rotation
+    "@id": "#visit1_quicklook.astrom_sky_rotation"
+    datatype: double
+    description: >-
+      Fitted sky rotation angle based on plate solving. This quantity can be compared
+      to #exposure.sky_rotation, the targeted sky rotation angle.
+    ivoa:ucd: pos.posAng
+    ivoa:unit: deg
   - name: eff_time_min
     "@id": "#visit1_quicklook.eff_time_min"
     datatype: float
