@@ -1,3 +1,6 @@
 setupRequired(sconsUtils)
 
+setupOptional(sdm_tools)
+setupOptional(felis)
+
 envPrepend(PYTHONPATH, ${PRODUCT_DIR}/python)
