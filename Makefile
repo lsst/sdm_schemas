@@ -6,7 +6,7 @@ help:
 	@echo "Available targets for sdm_schemas:"
 	@echo "  init  - Install the required Ruby gems"
 	@echo "  site  - Build the schema browser site"
-	@echo "  serve  - Serve the schema browser site"
+	@echo "  serve - Serve the schema browser site"
 	@echo "  clean - Clean the schema browser site"
 	@echo "  check - Validate the schema files using Felis"
 
@@ -22,6 +22,10 @@ init:
 serve:
 	jekyll serve --watch
 
+# Deference the YAML files
+yaml:
+	./scripts/dereference-yaml-for-browser.sh
+
 # Validate the schema files using Felis
 check:
 	@command -v felis >/dev/null 2>&1 || { \
@@ -31,7 +35,7 @@ check:
 	@command felis validate yml/*.yaml
 
 # Build the site
-site: check
+site: check yaml
 	jekyll build
 
 # Cleanup local config and remove the generated site
