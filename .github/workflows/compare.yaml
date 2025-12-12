@@ -11,27 +11,16 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v6
         with:
-          path: current-ref
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-          cache: "pip"
-
-      - name: Install dependencies
-        working-directory: current-ref
-        run: |
-          python -m pip install --upgrade pip uv
-          uv pip install --system -r requirements.txt
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python
 
       - name: Set relative path to schema directory
         run: |
           echo "SCHEMA_DIR=python/lsst/sdm/schemas" >> $GITHUB_ENV
 
       - name: Get list of changed YAML files
-        working-directory: current-ref
         run: |
           echo "Checking for changes compared with: ${{ github.event.pull_request.base.ref }}"
           DIFF_OUTPUT=$(git diff --name-only origin/${{ github.event.pull_request.base.ref }}..HEAD -- ${{ env.SCHEMA_DIR }})
@@ -63,7 +52,7 @@ jobs:
                 echo "File $file not found in base ref, removing from list of changed files."
                 CHANGED_FILES=$(echo "$CHANGED_FILES" | sed "s|$file||")
               fi
-              if [ ! -f "current-ref/${{ env.SCHEMA_DIR }}/$file" ]; then
+              if [ ! -f "${{ env.SCHEMA_DIR }}/$file" ]; then
                 echo "File $file not found in current ref, removing from list of changed files."
                 CHANGED_FILES=$(echo "$CHANGED_FILES" | sed "s|$file||")
               fi
@@ -83,7 +72,7 @@ jobs:
           for file in ${{ env.CHANGED_FILES }}; do
             echo "Comparing $file..."
             BASE_FILE=base-ref/${{ env.SCHEMA_DIR }}/$file
-            CURRENT_FILE=current-ref/${{ env.SCHEMA_DIR }}/$file
+            CURRENT_FILE=${{ env.SCHEMA_DIR }}/$file
             felis --log-level ERROR diff -c deepdiff $BASE_FILE $CURRENT_FILE
           done
 
@@ -93,7 +82,7 @@ jobs:
           for file in ${{ env.CHANGED_FILES }}; do
             echo "Comparing $file..."
             BASE_FILE=base-ref/${{ env.SCHEMA_DIR }}/$file
-            CURRENT_FILE=current-ref/${{ env.SCHEMA_DIR }}/$file
+            CURRENT_FILE=${{ env.SCHEMA_DIR }}/$file
             felis --log-level ERROR diff -c alembic $BASE_FILE $CURRENT_FILE
           done
 
@@ -101,12 +90,12 @@ jobs:
         if: env.SCHEMA_FILES_CHANGED == 'true'
         run: |
           ERROR_FLAG=0
-          DEPLOYED_SCHEMAS=$(cat current-ref/yml/deployed-schemas.txt)
+          DEPLOYED_SCHEMAS=$(cat yml/deployed-schemas.txt)
           for file in ${{ env.CHANGED_FILES }}; do
             if echo "$DEPLOYED_SCHEMAS" | grep -q "^$file$"; then
               echo "Comparing $file..."
               BASE_FILE=base-ref/${{ env.SCHEMA_DIR }}/$file
-              CURRENT_FILE=current-ref/${{ env.SCHEMA_DIR }}/$file
+              CURRENT_FILE=${{ env.SCHEMA_DIR }}/$file
               if ! felis --log-level ERROR diff -E -c alembic $BASE_FILE $CURRENT_FILE; then
                 echo "Error comparing $file"
                 ERROR_FLAG=1

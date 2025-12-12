@@ -27,7 +27,18 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          fetch-depth: 0  # full history for setuptools_scm
+          fetch-depth: 0
+
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python
+
+      - name: Dereference schemas for browser
+        run: |
+          mkdir -p browser/yml
+          for schema in yml/*.yaml; do
+            base=$(basename "$schema")
+            felis --log-level ERROR dump "$schema" "browser/yml/$base" --dereference-resources --strip-ids
+          done
 
       - name: Install Ruby and other prerequisites
         run: sudo apt-get install -y ruby-full build-essential zlib1g-dev

@@ -23,11 +23,7 @@ classifiers = [
 keywords = ["lsst"]
 dependencies = [
     "lsst-felis",
-    "click",
-    "pyyaml",
-    "psycopg2-binary",
-    "pymysql",
-    "cryptography"
+    "lsst-sdm-tools",
 ]
 requires-python = ">=3.11.0"
 dynamic = ["version"]
