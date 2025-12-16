@@ -1,2 +1,6 @@
 lsst-felis @ git+https://github.com/lsst/felis.git@main
+
+# This is here for setup in CI and using sdm_tools ticket branches 
+# easily. It is deliberately not included in the pyproject deps
+# because the project is not on PyPI.
 lsst-sdm-tools @ git+https://github.com/lsst-dm/sdm_tools.git@main
