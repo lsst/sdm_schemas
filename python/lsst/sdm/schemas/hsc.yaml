@@ -6480,6 +6480,15 @@ tables:
     datatype: double
     description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel)
     fits:tunit: pixel
+  - name: starEMedian
+    '@id': '#CcdVisit.starEMedian'
+    datatype: double
+    description: Median ellipticity (sqrt(starE1**2.0 + starE2**2.0)) of the stars used in the PSF model
+  - name: starUnNormalizedEMedian
+    '@id': '#CcdVisit.starUnNormalizedEMedian'
+    datatype: double
+    description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0)) of the stars used in the PSF model
+    fits:tunit: pixel**2
 
 - name: Parent
   description: "Descriptions of the parent objects in the deblending hierarchy."
