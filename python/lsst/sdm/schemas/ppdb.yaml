@@ -2353,7 +2353,7 @@ tables:
     Indices to solar system objects closest to DiaSources, within some
     matching radius.
   tap:table_index: 125
-  primaryKey: '#NearbySSOs.diaSourceId'
+  primaryKey: '#NearbySSO.diaSourceId'
   columns:
   - name: diaSourceId
     datatype: long
