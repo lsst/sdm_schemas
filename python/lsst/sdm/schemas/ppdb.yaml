@@ -877,9 +877,6 @@ tables:
   - name: IDX_DiaSource_diaObjectId
     columns:
     - "#DiaSource.diaObjectId"
-  - name: IDX_DiaSource_ssObjectId
-    columns:
-    - "#DiaSource.ssObjectId"
 - name: DiaForcedSource
   description: Forced-photometry source measurement on an individual difference Exposure
     for all objects in the DiaObject table.
