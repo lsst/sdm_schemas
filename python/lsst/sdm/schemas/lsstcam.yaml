@@ -6715,6 +6715,17 @@ tables:
     datatype: double
     ivoa:unit: pixel
     tap:principal: 0
+  - name: starEMedian
+    description: Median ellipticity (sqrt(starE1**2.0 + starE2**2.0)) of the stars
+      used in the PSF model.
+    datatype: double
+    tap:principal: 0
+  - name: starUnNormalizedEMedian
+    description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0))
+      of the stars used in the PSF model.
+    datatype: double
+    ivoa:unit: pixel**2
+    tap:principal: 0
   - name: ccdVisitId
     description: Primary key (unique identifier).
     datatype: long

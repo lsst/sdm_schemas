@@ -1240,6 +1240,15 @@ tables:
     datatype: double
     description: Maximum distance of an unmasked pixel to its nearest model psf star (pixel).
     fits:tunit: pixel
+  - name: starEMedian
+    '@id': '#DetectorVisitProcessingSummary.starEMedian'
+    datatype: double
+    description: Median ellipticity (sqrt(starE1**2.0 + starE2**2.0)) of the stars used in the PSF model
+  - name: starUnNormalizedEMedian
+    '@id': '#DetectorVisitProcessingSummary.starUnNormalizedEMedian'
+    datatype: double
+    description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0)) of the stars used in the PSF model
+    fits:tunit: pixel**2
 
 - name: SSObject
   description: LSST-computed per-object quantities.
