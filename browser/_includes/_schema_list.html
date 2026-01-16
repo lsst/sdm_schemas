@@ -1,19 +1,20 @@
 <ul>
   {%- assign schemas = site.pages | where: 'dir', '/' | where_exp: "page", "page.schema" | sort: 'sort-index' %}
   {%- for schema in schemas %}
-    <li>
-       <a href=".{{ schema.url }}">{{ schema.title }}</a>
-        {%- if include.include_description %}
-        <p>
-          {%- if site.data[schema.schema] and site.data[schema.schema].description -%}
-            {{ site.data[schema.schema].description }}
-          {%- endif -%}
-          {%- assign stripped_content = schema.content | strip -%}
-          {%- if schema.content and stripped_content != "" -%}
-            {{ schema.content }}
-          {%- endif -%}
-        </p>
-        {%- endif %}
-    </li>
+  <li>
+    <a href=".{{ schema.url }}">{{ schema.title }}</a>
+    {%- assign schema_data = site.data[schema.schema] -%}
+    {%- if include.include_description %}
+    <p>
+      {%- if schema_data.description -%}
+        {{ schema_data.description }}
+      {%- endif -%}
+      {%- assign stripped_content = schema.content | strip -%}
+      {%- if stripped_content != "" -%}
+        {{ schema.content }}
+      {%- endif -%}
+    </p>
+    {%- endif -%}
+  </li>
   {%- endfor %}
 </ul>
