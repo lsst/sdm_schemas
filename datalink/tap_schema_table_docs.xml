@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2">
+
+  <INFO name="$tap_schema_columns_table_name$" ID="$tap_schema_columns_table_name$" value="this will be dropped..." />  
+
+  <RESOURCE type="meta" utype="adhoc:service" name="TableDocumentationRedirect">
+    <DESCRIPTION>
+      Redirect to the most relevant documentation link for a table.
+    </DESCRIPTION>
+    <PARAM name="accessURL" datatype="char" arraysize="*"
+          value="$baseUrl$/api/hoverdrive/table-docs-redirect"/>
+    <GROUP name="inputParams">
+      <PARAM name="table" datatype="char" arraysize="*" ref="$tap_schema_columns_table_name$" value="">
+        <DESCRIPTION>The name of the table.</DESCRIPTION>
+      </PARAM>
+    </GROUP>
+    <PARAM name="exampleURL" datatype="char" arraysize="*"
+          value="$baseUrl$/api/hoverdrive/table-docs-redirect?table=dp02_dc2_catalogs.Object">
+      <DESCRIPTION>Example request to redirect to the documentation for the 'dp02_dc2_catalogs.Object' table.</DESCRIPTION>
+    </PARAM>
+  </RESOURCE>
+</VOTABLE>
