@@ -2,9 +2,17 @@
   {%- assign schemas = site.pages | where: 'dir', '/' | where_exp: "page", "page.schema" | sort: 'sort-index' %}
   {%- for schema in schemas %}
     <li>
-        <a href=".{{ schema.url }}">{{ schema.title }}</a>
+       <a href=".{{ schema.url }}">{{ schema.title }}</a>
         {%- if include.include_description %}
-        {{ schema.content }}
+        <p>
+          {%- if site.data[schema.schema] and site.data[schema.schema].description -%}
+            {{ site.data[schema.schema].description }}
+          {%- endif -%}
+          {%- assign stripped_content = schema.content | strip -%}
+          {%- if schema.content and stripped_content != "" -%}
+            {{ schema.content }}
+          {%- endif -%}
+        </p>
         {%- endif %}
     </li>
   {%- endfor %}
