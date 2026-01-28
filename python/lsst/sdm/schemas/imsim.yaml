@@ -597,6 +597,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
+  - name: g_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (g-band)
+    datatype: float
+  - name: g_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (g-band)
+    datatype: float
+  - name: g_moments_trace
+    description: Moments-based trace radius (g-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_flag
+    description: Failure flag for moments (g-band)
+    datatype: boolean
+  - name: g_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (g-band)
+    datatype: float
+  - name: g_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (g-band)
+    datatype: float
+  - name: g_moments_psf_trace
+    description: Moments-based trace radius of the PSF (g-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_psf_flag
+    description: Failure flag for PSF moments (g-band)
+    datatype: boolean
+  - name: g_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (g-band)
+    datatype: float
+  - name: g_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (g-band)
+    datatype: float
+  - name: g_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (g-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (g-band)
+    datatype: boolean
   - name: g_hsmShapeRegauss_e1
     "@id": "#Object.g_hsmShapeRegauss_e1"
     datatype: float
@@ -1417,6 +1456,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
+  - name: i_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (i-band)
+    datatype: float
+  - name: i_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (i-band)
+    datatype: float
+  - name: i_moments_trace
+    description: Moments-based trace radius (i-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_flag
+    description: Failure flag for moments (i-band)
+    datatype: boolean
+  - name: i_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (i-band)
+    datatype: float
+  - name: i_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (i-band)
+    datatype: float
+  - name: i_moments_psf_trace
+    description: Moments-based trace radius of the PSF (i-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_psf_flag
+    description: Failure flag for PSF moments (i-band)
+    datatype: boolean
+  - name: i_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (i-band)
+    datatype: float
+  - name: i_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (i-band)
+    datatype: float
+  - name: i_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (i-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (i-band)
+    datatype: boolean
   - name: i_hsmShapeRegauss_e1
     "@id": "#Object.i_hsmShapeRegauss_e1"
     datatype: float
@@ -2237,6 +2315,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
+  - name: r_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (r-band)
+    datatype: float
+  - name: r_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (r-band)
+    datatype: float
+  - name: r_moments_trace
+    description: Moments-based trace radius (r-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_flag
+    description: Failure flag for moments (r-band)
+    datatype: boolean
+  - name: r_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (r-band)
+    datatype: float
+  - name: r_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (r-band)
+    datatype: float
+  - name: r_moments_psf_trace
+    description: Moments-based trace radius of the PSF (r-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_psf_flag
+    description: Failure flag for PSF moments (r-band)
+    datatype: boolean
+  - name: r_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (r-band)
+    datatype: float
+  - name: r_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (r-band)
+    datatype: float
+  - name: r_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (r-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (r-band)
+    datatype: boolean
   - name: r_hsmShapeRegauss_e1
     "@id": "#Object.r_hsmShapeRegauss_e1"
     datatype: float
@@ -3057,6 +3174,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
+  - name: u_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (u-band)
+    datatype: float
+  - name: u_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (u-band)
+    datatype: float
+  - name: u_moments_trace
+    description: Moments-based trace radius (u-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_flag
+    description: Failure flag for moments (u-band)
+    datatype: boolean
+  - name: u_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (u-band)
+    datatype: float
+  - name: u_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (u-band)
+    datatype: float
+  - name: u_moments_psf_trace
+    description: Moments-based trace radius of the PSF (u-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_psf_flag
+    description: Failure flag for PSF moments (u-band)
+    datatype: boolean
+  - name: u_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (u-band)
+    datatype: float
+  - name: u_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (u-band)
+    datatype: float
+  - name: u_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (u-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (u-band)
+    datatype: boolean
   - name: u_hsmShapeRegauss_e1
     "@id": "#Object.u_hsmShapeRegauss_e1"
     datatype: float
@@ -3877,6 +4033,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
+  - name: y_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (y-band)
+    datatype: float
+  - name: y_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (y-band)
+    datatype: float
+  - name: y_moments_trace
+    description: Moments-based trace radius (y-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_flag
+    description: Failure flag for moments (y-band)
+    datatype: boolean
+  - name: y_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (y-band)
+    datatype: float
+  - name: y_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (y-band)
+    datatype: float
+  - name: y_moments_psf_trace
+    description: Moments-based trace radius of the PSF (y-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_psf_flag
+    description: Failure flag for PSF moments (y-band)
+    datatype: boolean
+  - name: y_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (y-band)
+    datatype: float
+  - name: y_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (y-band)
+    datatype: float
+  - name: y_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (y-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (y-band)
+    datatype: boolean
   - name: y_hsmShapeRegauss_e1
     "@id": "#Object.y_hsmShapeRegauss_e1"
     datatype: float
@@ -4697,6 +4892,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
+  - name: z_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (z-band)
+    datatype: float
+  - name: z_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (z-band)
+    datatype: float
+  - name: z_moments_trace
+    description: Moments-based trace radius (z-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_flag
+    description: Failure flag for moments (z-band)
+    datatype: boolean
+  - name: z_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (z-band)
+    datatype: float
+  - name: z_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (z-band)
+    datatype: float
+  - name: z_moments_psf_trace
+    description: Moments-based trace radius of the PSF (z-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_psf_flag
+    description: Failure flag for PSF moments (z-band)
+    datatype: boolean
+  - name: z_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (z-band)
+    datatype: float
+  - name: z_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (z-band)
+    datatype: float
+  - name: z_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (z-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (z-band)
+    datatype: boolean
   - name: z_hsmShapeRegauss_e1
     "@id": "#Object.z_hsmShapeRegauss_e1"
     datatype: float
