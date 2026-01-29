@@ -4264,22 +4264,6 @@ tables:
   - name: shape_flag
     description: General failure flag, set if anything went wrong. Reference band.
     datatype: boolean
-  - name: exponential_x
-    description: Centroid (tract, x-axis) from the multiband exponential model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: exponential_xErr
-    description: Error on the centroid (tract, x-axis) from the multiband exponential model fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: exponential_y
-    description: Centroid (tract, y-axis) from the multiband exponential model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: exponential_yErr
-    description: Error on the centroid (tract, y-axis) from the multiband exponential model fit.
-    datatype: float
-    ivoa:unit: pixel
   - name: exponential_ra
     description: Centroid (right ascension) from the multiband exponential model fit.
     datatype: double
@@ -4398,22 +4382,6 @@ tables:
   - name: exponential_unknown_flag
     description: Flag set for failures with an unexpected or unknown cause for the multiband exponential model.
     datatype: boolean
-  - name: sersic_x
-    description: Centroid (tract, x-axis) from the multiband Sersic model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: sersic_xErr
-    description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: sersic_y
-    description: Centroid (tract, y-axis) from the multiband Sersic model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: sersic_yErr
-    description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: pixel
   - name: sersic_ra
     description: Centroid (right ascension) from the multiband Sersic model fit.
     datatype: double
