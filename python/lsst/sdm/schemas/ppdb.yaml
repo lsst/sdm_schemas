@@ -1,0 +1,500 @@
+---
+name: ppdb
+description: |
+  The Prompt Products Database stores results from nightly and daily processing
+  that detects time-variable astrophysical phenomena, including
+  difference-image detections, associated objects, and Solar System objects.
+version: 0.1.0
+resources:
+  apdb:
+    uri: "resource://lsst.sdm.schemas/apdb.yaml"
+tables:
+- name: DiaObject
+  description: Astronomical objects detected on one or more difference images
+  primaryKey:
+  - "#DiaObject.diaObjectId"
+  - "#DiaObject.validityStartMjdTai"
+  columnRefs:
+    apdb:
+      DiaObject:
+        diaObjectId:
+        validityStartMjdTai:
+        validityEndMjdTai:
+        ra:
+        raErr:
+          overrides:
+            datatype: double
+        dec:
+        decErr:
+          overrides:
+            datatype: double
+        ra_dec_Cov:
+          overrides:
+            datatype: double
+        u_psfFluxMean:
+          overrides:
+            datatype: double
+        u_psfFluxMeanErr:
+          overrides:
+            datatype: double
+        u_psfFluxSigma:
+          overrides:
+            datatype: double
+        u_psfFluxNdata:
+          overrides:
+            datatype: long
+        u_fpFluxMean:
+          overrides:
+            datatype: double
+        u_fpFluxMeanErr:
+          overrides:
+            datatype: double
+        g_psfFluxMean:
+          overrides:
+            datatype: double
+        g_psfFluxMeanErr:
+          overrides:
+            datatype: double
+        g_psfFluxSigma:
+          overrides:
+            datatype: double
+        g_psfFluxNdata:
+          overrides:
+            datatype: long
+        g_fpFluxMean:
+          overrides:
+            datatype: double
+        g_fpFluxMeanErr:
+          overrides:
+            datatype: double
+        r_psfFluxMean:
+          overrides:
+            datatype: double
+        r_psfFluxMeanErr:
+          overrides:
+            datatype: double
+        r_psfFluxSigma:
+          overrides:
+            datatype: double
+        r_psfFluxNdata:
+          overrides:
+            datatype: long
+        r_fpFluxMean:
+          overrides:
+            datatype: double
+        r_fpFluxMeanErr:
+          overrides:
+            datatype: double
+        i_psfFluxMean:
+          overrides:
+            datatype: double
+        i_psfFluxMeanErr:
+          overrides:
+            datatype: double
+        i_psfFluxSigma:
+          overrides:
+            datatype: double
+        i_psfFluxNdata:
+          overrides:
+            datatype: long
+        i_fpFluxMean:
+          overrides:
+            datatype: double
+        i_fpFluxMeanErr:
+          overrides:
+            datatype: double
+        z_psfFluxMean:
+          overrides:
+            datatype: double
+        z_psfFluxMeanErr:
+          overrides:
+            datatype: double
+        z_psfFluxSigma:
+          overrides:
+            datatype: double
+        z_psfFluxNdata:
+          overrides:
+            datatype: long
+        z_fpFluxMean:
+          overrides:
+            datatype: double
+        z_fpFluxMeanErr:
+          overrides:
+            datatype: double
+        y_psfFluxMean:
+          overrides:
+            datatype: double
+        y_psfFluxMeanErr:
+          overrides:
+            datatype: double
+        y_psfFluxSigma:
+          overrides:
+            datatype: double
+        y_psfFluxNdata:
+          overrides:
+            datatype: long
+        y_fpFluxMean:
+          overrides:
+            datatype: double
+        y_fpFluxMeanErr:
+          overrides:
+            datatype: double
+        u_scienceFluxMean:
+          overrides:
+            datatype: double
+        u_scienceFluxMeanErr:
+          overrides:
+            datatype: double
+        g_scienceFluxMean:
+          overrides:
+            datatype: double
+        g_scienceFluxMeanErr:
+          overrides:
+            datatype: double
+        r_scienceFluxMean:
+          overrides:
+            datatype: double
+        r_scienceFluxMeanErr:
+          overrides:
+            datatype: double
+        i_scienceFluxMean:
+          overrides:
+            datatype: double
+        i_scienceFluxMeanErr:
+          overrides:
+            datatype: double
+        z_scienceFluxMean:
+          overrides:
+            datatype: double
+        z_scienceFluxMeanErr:
+          overrides:
+            datatype: double
+        y_scienceFluxMean:
+          overrides:
+            datatype: double
+        y_scienceFluxMeanErr:
+          overrides:
+            datatype: double
+        u_psfFluxMin:
+          overrides:
+            datatype: double
+        u_psfFluxMax:
+          overrides:
+            datatype: double
+        u_psfFluxMaxSlope:
+          overrides:
+            datatype: double
+        u_psfFluxErrMean:
+          overrides:
+            datatype: double
+        g_psfFluxMin:
+          overrides:
+            datatype: double
+        g_psfFluxMax:
+          overrides:
+            datatype: double
+        g_psfFluxMaxSlope:
+          overrides:
+            datatype: double
+        g_psfFluxErrMean:
+          overrides:
+            datatype: double
+        r_psfFluxMin:
+          overrides:
+            datatype: double
+        r_psfFluxMax:
+          overrides:
+            datatype: double
+        r_psfFluxMaxSlope:
+          overrides:
+            datatype: double
+        r_psfFluxErrMean:
+          overrides:
+            datatype: double
+        i_psfFluxMin:
+          overrides:
+            datatype: double
+        i_psfFluxMax:
+          overrides:
+            datatype: double
+        i_psfFluxMaxSlope:
+          overrides:
+            datatype: double
+        i_psfFluxErrMean:
+          overrides:
+            datatype: double
+        z_psfFluxMin:
+          overrides:
+            datatype: double
+        z_psfFluxMax:
+          overrides:
+            datatype: double
+        z_psfFluxMaxSlope:
+          overrides:
+            datatype: double
+        z_psfFluxErrMean:
+          overrides:
+            datatype: double
+        y_psfFluxMin:
+          overrides:
+            datatype: double
+        y_psfFluxMax:
+          overrides:
+            datatype: double
+        y_psfFluxMaxSlope:
+          overrides:
+            datatype: double
+        y_psfFluxErrMean:
+          overrides:
+            datatype: double
+        firstDiaSourceMjdTai:
+        lastDiaSourceMjdTai:
+        nDiaSources:
+          overrides:
+            datatype: long
+- name: DiaSource
+  description: Difference image sources detected on difference images
+  primaryKey: "#DiaSource.diaSourceId"
+  columnRefs:
+    apdb:
+      DiaSource:
+        diaSourceId:
+        visit:
+        detector:
+          overrides:
+            datatype: long
+        diaObjectId:
+        ssObjectId:
+        parentDiaSourceId:
+        ssObjectReassocTimeMjdTai:
+        midpointMjdTai:
+        ra:
+        raErr:
+          overrides:
+            datatype: double
+        dec:
+        decErr:
+          overrides:
+            datatype: double
+        ra_dec_Cov:
+          overrides:
+            datatype: double
+        x:
+          overrides:
+            datatype: double
+        xErr:
+          overrides:
+            datatype: double
+        y:
+          overrides:
+            datatype: double
+        yErr:
+          overrides:
+            datatype: double
+        centroid_flag:
+        apFlux:
+          overrides:
+            datatype: double
+        apFluxErr:
+          overrides:
+            datatype: double
+        apFlux_flag:
+        apFlux_flag_apertureTruncated:
+        isNegative:
+        snr:
+          overrides:
+            datatype: double
+        psfFlux:
+          overrides:
+            datatype: double
+        psfFluxErr:
+          overrides:
+            datatype: double
+        psfLnL:
+          overrides:
+            datatype: double
+        psfChi2:
+          overrides:
+            datatype: double
+        psfNdata:
+          overrides:
+            datatype: long
+        psfFlux_flag:
+        psfFlux_flag_edge:
+        psfFlux_flag_noGoodPixels:
+        trailFlux:
+          overrides:
+            datatype: double
+        trailFluxErr:
+          overrides:
+            datatype: double
+        trailRa:
+          overrides:
+            datatype: double
+        trailRaErr:
+          overrides:
+            datatype: double
+        trailDec:
+        trailDecErr:
+          overrides:
+            datatype: double
+        trailLength:
+          overrides:
+            datatype: double
+        trailLengthErr:
+          overrides:
+            datatype: double
+        trailAngle:
+          overrides:
+            datatype: double
+        trailAngleErr:
+          overrides:
+            datatype: double
+        trailChi2:
+          overrides:
+            datatype: double
+        trailNdata:
+          overrides:
+            datatype: long
+        trail_flag_edge:
+        dipoleMeanFlux:
+          overrides:
+            datatype: double
+        dipoleMeanFluxErr:
+          overrides:
+            datatype: double
+        dipoleFluxDiff:
+          overrides:
+            datatype: double
+        dipoleFluxDiffErr:
+          overrides:
+            datatype: double
+        dipoleLength:
+          overrides:
+            datatype: double
+        dipoleAngle:
+          overrides:
+            datatype: double
+        dipoleChi2:
+          overrides:
+            datatype: double
+        dipoleNdata:
+          overrides:
+            datatype: long
+        scienceFlux:
+          overrides:
+            datatype: double
+        scienceFluxErr:
+          overrides:
+            datatype: double
+        forced_PsfFlux_flag:
+        forced_PsfFlux_flag_edge:
+        forced_PsfFlux_flag_noGoodPixels:
+        templateFlux:
+          overrides:
+            datatype: double
+        templateFluxErr:
+          overrides:
+            datatype: double
+        ixx:
+          overrides:
+            datatype: double
+        iyy:
+          overrides:
+            datatype: double
+        ixy:
+          overrides:
+            datatype: double
+        ixxPSF:
+          overrides:
+            datatype: double
+        iyyPSF:
+          overrides:
+            datatype: double
+        ixyPSF:
+          overrides:
+            datatype: double
+        shape_flag:
+        shape_flag_no_pixels:
+        shape_flag_not_contained:
+        shape_flag_parent_source:
+        extendedness:
+          overrides:
+            datatype: double
+        reliability:
+          overrides:
+            datatype: double
+        band:
+        isDipole:
+        dipoleFitAttempted:
+        timeProcessedMjdTai:
+        timeWithdrawnMjdTai:
+        bboxSize:
+          overrides:
+            datatype: long
+        pixelFlags:
+        pixelFlags_bad:
+        pixelFlags_cr:
+        pixelFlags_crCenter:
+        pixelFlags_edge:
+        pixelFlags_nodata:
+        pixelFlags_nodataCenter:
+        pixelFlags_interpolated:
+        pixelFlags_interpolatedCenter:
+        pixelFlags_offimage:
+        pixelFlags_saturated:
+        pixelFlags_saturatedCenter:
+        pixelFlags_suspect:
+        pixelFlags_suspectCenter:
+        pixelFlags_streak:
+        pixelFlags_streakCenter:
+        pixelFlags_injected:
+        pixelFlags_injectedCenter:
+        pixelFlags_injected_template:
+        pixelFlags_injected_templateCenter:
+        glint_trail:
+  constraints:
+  - name: fk_DiaSource_DiaObject
+    description: Link a DiaObject to its associated DiaSources
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.diaObjectId'
+    referencedColumns:
+    - '#DiaObject.diaObjectId'
+- name: DiaForcedSource
+  description: Forced-photometry source measurement on an individual difference Exposure for all objects in the DiaObject table
+  columnRefs:
+    apdb:
+      DiaForcedSource:
+        diaForcedSourceId:
+        diaObjectId:
+        ra:
+        dec:
+        visit:
+        detector:
+          overrides:
+            datatype: long
+        psfFlux:
+          overrides:
+            datatype: double
+        psfFluxErr:
+          overrides:
+            datatype: double
+        midpointMjdTai:
+        scienceFlux:
+          overrides:
+            datatype: double
+        scienceFluxErr:
+          overrides:
+            datatype: double
+        band:
+        timeProcessedMjdTai:
+        timeWithdrawnMjdTai:
+  constraints:
+  - name: fk_DiaForcedSource_DiaObject
+    description: Link a DiaObject to its associated DiaForcedSources
+    '@type': ForeignKey
+    columns:
+    - '#DiaForcedSource.diaObjectId'
+    referencedColumns:
+    - '#DiaObject.diaObjectId'
