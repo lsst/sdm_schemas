@@ -4554,18 +4554,22 @@ tables:
   - name: exponential_ra
     description: Centroid (right ascension) from the multiband exponential model fit.
     datatype: double
+    ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: exponential_raErr
     description: Error on the centroid (right ascension) from the multiband exponential model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: exponential_dec
     description: Centroid (declination) from the multiband exponential model fit.
     datatype: double
+    ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: exponential_decErr
     description: Error on the centroid (declination) from the multiband exponential model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
   - name: exponential_ra_dec_Cov
     description: Covariance between right ascension and declination from the multiband exponential model fit.
@@ -4677,18 +4681,22 @@ tables:
   - name: sersic_ra
     description: Centroid (right ascension) from the multiband Sersic model fit.
     datatype: double
+    ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: sersic_raErr
     description: Error on the centroid (right ascension) from the multiband Sersic model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: sersic_dec
     description: Centroid (declination) from the multiband Sersic model fit.
     datatype: double
+    ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: sersic_decErr
     description: Error on the centroid (declination) from the multiband Sersic model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
   - name: sersic_ra_dec_Cov
     description: Covariance between right ascension and declination from the multiband Sersic model fit.
