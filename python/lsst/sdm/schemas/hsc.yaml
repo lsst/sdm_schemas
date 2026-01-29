@@ -3809,6 +3809,11 @@ tables:
     datatype: float
     description: Error on the centroid (declination) from the multiband exponential model fit.
     fits:tunit: deg
+  - name: exponential_ra_dec_Cov
+    description: Covariance between right ascension and declination from the multiband exponential model fit.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
   - name: exponential_reff_x
     datatype: float
     description: Effective radius (x-axis) from the multiband exponential model fit, prior to convolution with the adjusted (see config) PSF value.
@@ -3929,6 +3934,11 @@ tables:
     datatype: float
     description: Error on the centroid (declination) from the multiband Sersic model fit.
     fits:tunit: deg
+  - name: sersic_ra_dec_Cov
+    description: Covariance between right ascension and declination from the multiband Sersic model fit.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
   - name: sersic_reff_x
     datatype: float
     description: Effective radius (x-axis) from the multiband Sersic model fit, prior to convolution with the adjusted (see config) PSF value.
