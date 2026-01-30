@@ -107,6 +107,36 @@ tables:
       by 1.15. Forced on z-band.
     datatype: float
     ivoa:unit: nJy
+  - name: z_ixx
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: z_iyy
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: z_ixy
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: z_i_flag
+    description: General failure flag, set if anything went wrong. Measured on z-band.
+    datatype: boolean
+  - name: z_ixxPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on z-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: z_iyyPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on z-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: z_ixyPSF
+    description: Gaussian-weighted adaptive moments. Measured on z-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: z_iPSF_flag
+    description: Flag set for any failure in the PSF model moments. Measured on z-band.
+    datatype: boolean
   - name: z_kronRad
     description: Kron radius (sqrt(a*b)).  Measured on z-band.
     datatype: float
@@ -804,6 +834,36 @@ tables:
       by 1.15. Forced on u-band.
     datatype: float
     ivoa:unit: nJy
+  - name: u_ixx
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: u_iyy
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: u_ixy
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: u_i_flag
+    description: General failure flag, set if anything went wrong. Measured on u-band.
+    datatype: boolean
+  - name: u_ixxPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on u-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: u_iyyPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on u-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: u_ixyPSF
+    description: Gaussian-weighted adaptive moments. Measured on u-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: u_iPSF_flag
+    description: Flag set for any failure in the PSF model moments. Measured on u-band.
+    datatype: boolean
   - name: u_kronRad
     description: Kron radius (sqrt(a*b)).  Measured on u-band.
     datatype: float
@@ -1458,6 +1518,36 @@ tables:
       by 1.15. Forced on g-band.
     datatype: float
     ivoa:unit: nJy
+  - name: g_ixx
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: g_iyy
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: g_ixy
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: g_i_flag
+    description: General failure flag, set if anything went wrong. Measured on g-band.
+    datatype: boolean
+  - name: g_ixxPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on g-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: g_iyyPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on g-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: g_ixyPSF
+    description: Gaussian-weighted adaptive moments. Measured on g-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: g_iPSF_flag
+    description: Flag set for any failure in the PSF model moments. Measured on g-band.
+    datatype: boolean
   - name: g_kronRad
     description: Kron radius (sqrt(a*b)).  Measured on g-band.
     datatype: float
@@ -2115,6 +2205,36 @@ tables:
       by 1.15. Forced on r-band.
     datatype: float
     ivoa:unit: nJy
+  - name: r_ixx
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: r_iyy
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: r_ixy
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: r_i_flag
+    description: General failure flag, set if anything went wrong. Measured on r-band.
+    datatype: boolean
+  - name: r_ixxPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on r-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: r_iyyPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on r-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: r_ixyPSF
+    description: Gaussian-weighted adaptive moments. Measured on r-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: r_iPSF_flag
+    description: Flag set for any failure in the PSF model moments. Measured on r-band.
+    datatype: boolean
   - name: r_kronRad
     description: Kron radius (sqrt(a*b)).  Measured on r-band.
     datatype: float
@@ -2769,6 +2889,36 @@ tables:
       by 1.15. Forced on i-band.
     datatype: float
     ivoa:unit: nJy
+  - name: i_ixx
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: i_iyy
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: i_ixy
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: i_i_flag
+    description: General failure flag, set if anything went wrong. Measured on i-band.
+    datatype: boolean
+  - name: i_ixxPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on i-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: i_iyyPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on i-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: i_ixyPSF
+    description: Gaussian-weighted adaptive moments. Measured on i-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: i_iPSF_flag
+    description: Flag set for any failure in the PSF model moments. Measured on i-band.
+    datatype: boolean
   - name: i_kronRad
     description: Kron radius (sqrt(a*b)).  Measured on i-band.
     datatype: float
@@ -3423,6 +3573,36 @@ tables:
       by 1.15. Forced on y-band.
     datatype: float
     ivoa:unit: nJy
+  - name: y_ixx
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: y_iyy
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: y_ixy
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: y_i_flag
+    description: General failure flag, set if anything went wrong. Measured on y-band.
+    datatype: boolean
+  - name: y_ixxPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on y-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: y_iyyPSF
+    description: Gaussian-weighted adaptive moments of the PSF model at the position of this object. Measured on y-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: y_ixyPSF
+    description: Gaussian-weighted adaptive moments. Measured on y-band.
+    datatype: float
+    ivoa:unit: pixel**2
+  - name: y_iPSF_flag
+    description: Flag set for any failure in the PSF model moments. Measured on y-band.
+    datatype: boolean
   - name: y_kronRad
     description: Kron radius (sqrt(a*b)).  Measured on y-band.
     datatype: float
@@ -4027,6 +4207,21 @@ tables:
     description: E(B-V) at coord_ra/coord_dec per Schlegel, Finkbeiner & Davis (1998)
     datatype: float
     ivoa:unit: mag
+  - name: shape_xx
+    description: Gaussian-weighted adaptive moments. Reference band.
+    datatype: float
+    ivoa:unit: pixel**2
+    tap:principal: 1
+  - name: shape_yy
+    description: Gaussian-weighted adaptive moments. Reference band.
+    datatype: float
+    ivoa:unit: pixel**2
+    tap:principal: 1
+  - name: shape_xy
+    description: Gaussian-weighted adaptive moments. Reference band.
+    datatype: float
+    ivoa:unit: pixel**2
+    tap:principal: 1
   - name: detect_isIsolated
     description: This source is not a part of a blend.
     datatype: boolean
@@ -4066,6 +4261,9 @@ tables:
     description: Number of children in the deconvolved parent source that this source
       was deblended from.
     datatype: int
+  - name: shape_flag
+    description: General failure flag, set if anything went wrong. Reference band.
+    datatype: boolean
   - name: exponential_x
     description: Centroid (tract, x-axis) from the multiband exponential model fit.
     datatype: double
