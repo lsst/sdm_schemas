@@ -347,19 +347,19 @@ tables:
   - name: z_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on z-band.
     datatype: float
-  - name: z_cModel_devFlux
+  - name: z_free_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
-  - name: z_cModel_devFluxErr
+  - name: z_free_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
-  - name: z_cModel_expFlux
+  - name: z_free_cModel_expFlux
     description: Flux from the exponential fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
-  - name: z_cModel_expFluxErr
+  - name: z_free_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
@@ -836,19 +836,19 @@ tables:
   - name: u_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on u-band.
     datatype: float
-  - name: u_cModel_devFlux
+  - name: u_free_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
-  - name: u_cModel_devFluxErr
+  - name: u_free_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
-  - name: u_cModel_expFlux
+  - name: u_free_cModel_expFlux
     description: Flux from the exponential fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
-  - name: u_cModel_expFluxErr
+  - name: u_free_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on u-band.
     datatype: float
     ivoa:unit: nJy
@@ -1568,19 +1568,19 @@ tables:
   - name: g_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on g-band.
     datatype: float
-  - name: g_cModel_devFlux
+  - name: g_free_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
-  - name: g_cModel_devFluxErr
+  - name: g_free_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
-  - name: g_cModel_expFlux
+  - name: g_free_cModel_expFlux
     description: Flux from the exponential fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
-  - name: g_cModel_expFluxErr
+  - name: g_free_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on g-band.
     datatype: float
     ivoa:unit: nJy
@@ -2303,19 +2303,19 @@ tables:
   - name: r_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on r-band.
     datatype: float
-  - name: r_cModel_devFlux
+  - name: r_free_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
-  - name: r_cModel_devFluxErr
+  - name: r_free_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
-  - name: r_cModel_expFlux
+  - name: r_free_cModel_expFlux
     description: Flux from the exponential fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
-  - name: r_cModel_expFluxErr
+  - name: r_free_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on r-band.
     datatype: float
     ivoa:unit: nJy
@@ -3035,19 +3035,19 @@ tables:
   - name: i_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on i-band.
     datatype: float
-  - name: i_cModel_devFlux
+  - name: i_free_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
-  - name: i_cModel_devFluxErr
+  - name: i_free_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
-  - name: i_cModel_expFlux
+  - name: i_free_cModel_expFlux
     description: Flux from the exponential fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
-  - name: i_cModel_expFluxErr
+  - name: i_free_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on i-band.
     datatype: float
     ivoa:unit: nJy
@@ -3767,19 +3767,19 @@ tables:
   - name: y_cModel_chi2
     description: -ln(likelihood) (chi^2) in CModel fit. Measured on y-band.
     datatype: float
-  - name: y_cModel_devFlux
+  - name: y_free_cModel_devFlux
     description: Flux from the de Vaucouleurs fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
-  - name: y_cModel_devFluxErr
+  - name: y_free_cModel_devFluxErr
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
-  - name: y_cModel_expFlux
+  - name: y_free_cModel_expFlux
     description: Flux from the exponential fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
-  - name: y_cModel_expFluxErr
+  - name: y_free_cModel_expFluxErr
     description: Flux uncertainty from the exponential fit. Measured on y-band.
     datatype: float
     ivoa:unit: nJy
