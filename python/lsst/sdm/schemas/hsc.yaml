@@ -441,11 +441,6 @@ tables:
     datatype: boolean
     description: Propagated from sources. Measured on g-band.
     fits:tunit:
-  - name: g_calib_photometry_reserved
-    "@id": "#Object.g_calib_photometry_reserved"
-    datatype: boolean
-    description: Propagated from sources. Measured on g-band.
-    fits:tunit:
   - name: g_calib_photometry_used
     "@id": "#Object.g_calib_photometry_used"
     datatype: boolean
@@ -1306,11 +1301,6 @@ tables:
     datatype: boolean
     description: Propagated from sources. Measured on i-band.
     fits:tunit:
-  - name: i_calib_photometry_reserved
-    "@id": "#Object.i_calib_photometry_reserved"
-    datatype: boolean
-    description: Propagated from sources. Measured on i-band.
-    fits:tunit:
   - name: i_calib_photometry_used
     "@id": "#Object.i_calib_photometry_used"
     datatype: boolean
@@ -2163,11 +2153,6 @@ tables:
     fits:tunit:
   - name: r_calib_astrometry_used
     "@id": "#Object.r_calib_astrometry_used"
-    datatype: boolean
-    description: Propagated from sources. Measured on r-band.
-    fits:tunit:
-  - name: r_calib_photometry_reserved
-    "@id": "#Object.r_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on r-band.
     fits:tunit:
@@ -3026,11 +3011,6 @@ tables:
     datatype: boolean
     description: Propagated from sources. Measured on y-band.
     fits:tunit:
-  - name: y_calib_photometry_reserved
-    "@id": "#Object.y_calib_photometry_reserved"
-    datatype: boolean
-    description: Propagated from sources. Measured on y-band.
-    fits:tunit:
   - name: y_calib_photometry_used
     "@id": "#Object.y_calib_photometry_used"
     datatype: boolean
@@ -3883,11 +3863,6 @@ tables:
     fits:tunit:
   - name: z_calib_astrometry_used
     "@id": "#Object.z_calib_astrometry_used"
-    datatype: boolean
-    description: Propagated from sources. Measured on z-band.
-    fits:tunit:
-  - name: z_calib_photometry_reserved
-    "@id": "#Object.z_calib_photometry_reserved"
     datatype: boolean
     description: Propagated from sources. Measured on z-band.
     fits:tunit:
