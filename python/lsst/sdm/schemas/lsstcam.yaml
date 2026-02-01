@@ -658,9 +658,6 @@ tables:
   - name: z_calib_astrometry_used
     description: Propagated from sources. Measured on z-band.
     datatype: boolean
-  - name: z_calib_photometry_reserved
-    description: Propagated from sources. Measured on z-band.
-    datatype: boolean
   - name: z_calib_photometry_used
     description: Propagated from sources. Measured on z-band.
     datatype: boolean
@@ -1356,9 +1353,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on u-band.
     datatype: boolean
   - name: u_calib_astrometry_used
-    description: Propagated from sources. Measured on u-band.
-    datatype: boolean
-  - name: u_calib_photometry_reserved
     description: Propagated from sources. Measured on u-band.
     datatype: boolean
   - name: u_calib_photometry_used
@@ -2061,9 +2055,6 @@ tables:
   - name: g_calib_astrometry_used
     description: Propagated from sources. Measured on g-band.
     datatype: boolean
-  - name: g_calib_photometry_reserved
-    description: Propagated from sources. Measured on g-band.
-    datatype: boolean
   - name: g_calib_photometry_used
     description: Propagated from sources. Measured on g-band.
     datatype: boolean
@@ -2759,9 +2750,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on r-band.
     datatype: boolean
   - name: r_calib_astrometry_used
-    description: Propagated from sources. Measured on r-band.
-    datatype: boolean
-  - name: r_calib_photometry_reserved
     description: Propagated from sources. Measured on r-band.
     datatype: boolean
   - name: r_calib_photometry_used
@@ -3461,9 +3449,6 @@ tables:
   - name: i_calib_astrometry_used
     description: Propagated from sources. Measured on i-band.
     datatype: boolean
-  - name: i_calib_photometry_reserved
-    description: Propagated from sources. Measured on i-band.
-    datatype: boolean
   - name: i_calib_photometry_used
     description: Propagated from sources. Measured on i-band.
     datatype: boolean
@@ -4159,9 +4144,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on y-band.
     datatype: boolean
   - name: y_calib_astrometry_used
-    description: Propagated from sources. Measured on y-band.
-    datatype: boolean
-  - name: y_calib_photometry_reserved
     description: Propagated from sources. Measured on y-band.
     datatype: boolean
   - name: y_calib_photometry_used
