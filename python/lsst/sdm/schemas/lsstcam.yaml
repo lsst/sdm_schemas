@@ -348,11 +348,11 @@ tables:
     description: Flux uncertainty from the exponential fit. Measured on z-band.
     datatype: float
     ivoa:unit: nJy
-  - name: z_moments_e1
-    description: Moments-based E1 ellipticity parameter (z-band)
+  - name: z_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (z-band)
     datatype: float
-  - name: z_moments_e2
-    description: Moments-based E2 ellipticity parameter (z-band)
+  - name: z_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (z-band)
     datatype: float
   - name: z_moments_trace
     description: Moments-based trace radius (z-band)
@@ -361,11 +361,11 @@ tables:
   - name: z_moments_flag
     description: Failure flag for moments (z-band)
     datatype: boolean
-  - name: z_moments_psf_e1
-    description: Moments-based E1 ellipticity of of the PSF (z-band)
+  - name: z_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (z-band)
     datatype: float
-  - name: z_moments_psf_e2
-    description: Moments-based E2 ellipticity of of the PSF (z-band)
+  - name: z_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (z-band)
     datatype: float
   - name: z_moments_psf_trace
     description: Moments-based trace radius of the PSF (z-band)
@@ -374,11 +374,11 @@ tables:
   - name: z_moments_psf_flag
     description: Failure flag for PSF moments (z-band)
     datatype: boolean
-  - name: z_moments_psf_debiased_e1
-    description: Moments-based E1 ellipticity of the PSF, debiased (z-band)
+  - name: z_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (z-band)
     datatype: float
-  - name: z_moments_psf_debiased_e2
-    description: Moments-based E2 ellipticity of the PSF, debiased (z-band)
+  - name: z_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (z-band)
     datatype: float
   - name: z_moments_psf_debiased_trace
     description: Moments-based trace radius of the PSF, debiased (z-band)
@@ -1032,11 +1032,11 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on u-band.
     datatype: boolean
-  - name: u_moments_e1
-    description: Moments-based E1 ellipticity parameter (u-band)
+  - name: u_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (u-band)
     datatype: float
-  - name: u_moments_e2
-    description: Moments-based E2 ellipticity parameter (u-band)
+  - name: u_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (u-band)
     datatype: float
   - name: u_moments_trace
     description: Moments-based trace radius (u-band)
@@ -1045,11 +1045,11 @@ tables:
   - name: u_moments_flag
     description: Failure flag for moments (u-band)
     datatype: boolean
-  - name: u_moments_psf_e1
-    description: Moments-based E1 ellipticity of of the PSF (u-band)
+  - name: u_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (u-band)
     datatype: float
-  - name: u_moments_psf_e2
-    description: Moments-based E2 ellipticity of of the PSF (u-band)
+  - name: u_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (u-band)
     datatype: float
   - name: u_moments_psf_trace
     description: Moments-based trace radius of the PSF (u-band)
@@ -1058,11 +1058,11 @@ tables:
   - name: u_moments_psf_flag
     description: Failure flag for PSF moments (u-band)
     datatype: boolean
-  - name: u_moments_psf_debiased_e1
-    description: Moments-based E1 ellipticity of the PSF, debiased (u-band)
+  - name: u_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (u-band)
     datatype: float
-  - name: u_moments_psf_debiased_e2
-    description: Moments-based E2 ellipticity of the PSF, debiased (u-band)
+  - name: u_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (u-band)
     datatype: float
   - name: u_moments_psf_debiased_trace
     description: Moments-based trace radius of the PSF, debiased (u-band)
@@ -1719,11 +1719,11 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on g-band.
     datatype: boolean
-  - name: g_moments_e1
-    description: Moments-based E1 ellipticity parameter (g-band)
+  - name: g_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (g-band)
     datatype: float
-  - name: g_moments_e2
-    description: Moments-based E2 ellipticity parameter (g-band)
+  - name: g_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (g-band)
     datatype: float
   - name: g_moments_trace
     description: Moments-based trace radius (g-band)
@@ -1732,11 +1732,11 @@ tables:
   - name: g_moments_flag
     description: Failure flag for moments (g-band)
     datatype: boolean
-  - name: g_moments_psf_e1
-    description: Moments-based E1 ellipticity of of the PSF (g-band)
+  - name: g_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (g-band)
     datatype: float
-  - name: g_moments_psf_e2
-    description: Moments-based E2 ellipticity of of the PSF (g-band)
+  - name: g_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (g-band)
     datatype: float
   - name: g_moments_psf_trace
     description: Moments-based trace radius of the PSF (g-band)
@@ -1745,11 +1745,11 @@ tables:
   - name: g_moments_psf_flag
     description: Failure flag for PSF moments (g-band)
     datatype: boolean
-  - name: g_moments_psf_debiased_e1
-    description: Moments-based E1 ellipticity of the PSF, debiased (g-band)
+  - name: g_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (g-band)
     datatype: float
-  - name: g_moments_psf_debiased_e2
-    description: Moments-based E2 ellipticity of the PSF, debiased (g-band)
+  - name: g_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (g-band)
     datatype: float
   - name: g_moments_psf_debiased_trace
     description: Moments-based trace radius of the PSF, debiased (g-band)
@@ -2403,11 +2403,11 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on r-band.
     datatype: boolean
-  - name: r_moments_e1
-    description: Moments-based E1 ellipticity parameter (r-band)
+  - name: r_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (r-band)
     datatype: float
-  - name: r_moments_e2
-    description: Moments-based E2 ellipticity parameter (r-band)
+  - name: r_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (r-band)
     datatype: float
   - name: r_moments_trace
     description: Moments-based trace radius (r-band)
@@ -2416,11 +2416,11 @@ tables:
   - name: r_moments_flag
     description: Failure flag for moments (r-band)
     datatype: boolean
-  - name: r_moments_psf_e1
-    description: Moments-based E1 ellipticity of of the PSF (r-band)
+  - name: r_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (r-band)
     datatype: float
-  - name: r_moments_psf_e2
-    description: Moments-based E2 ellipticity of of the PSF (r-band)
+  - name: r_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (r-band)
     datatype: float
   - name: r_moments_psf_trace
     description: Moments-based trace radius of the PSF (r-band)
@@ -2429,11 +2429,11 @@ tables:
   - name: r_moments_psf_flag
     description: Failure flag for PSF moments (r-band)
     datatype: boolean
-  - name: r_moments_psf_debiased_e1
-    description: Moments-based E1 ellipticity of the PSF, debiased (r-band)
+  - name: r_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (r-band)
     datatype: float
-  - name: r_moments_psf_debiased_e2
-    description: Moments-based E2 ellipticity of the PSF, debiased (r-band)
+  - name: r_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (r-band)
     datatype: float
   - name: r_moments_psf_debiased_trace
     description: Moments-based trace radius of the PSF, debiased (r-band)
@@ -3087,11 +3087,11 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on i-band.
     datatype: boolean
-  - name: i_moments_e1
-    description: Moments-based E1 ellipticity parameter (i-band)
+  - name: i_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (i-band)
     datatype: float
-  - name: i_moments_e2
-    description: Moments-based E2 ellipticity parameter (i-band)
+  - name: i_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (i-band)
     datatype: float
   - name: i_moments_trace
     description: Moments-based trace radius (i-band)
@@ -3100,11 +3100,11 @@ tables:
   - name: i_moments_flag
     description: Failure flag for moments (i-band)
     datatype: boolean
-  - name: i_moments_psf_e1
-    description: Moments-based E1 ellipticity of of the PSF (i-band)
+  - name: i_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (i-band)
     datatype: float
-  - name: i_moments_psf_e2
-    description: Moments-based E2 ellipticity of of the PSF (i-band)
+  - name: i_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (i-band)
     datatype: float
   - name: i_moments_psf_trace
     description: Moments-based trace radius of the PSF (i-band)
@@ -3113,11 +3113,11 @@ tables:
   - name: i_moments_psf_flag
     description: Failure flag for PSF moments (i-band)
     datatype: boolean
-  - name: i_moments_psf_debiased_e1
-    description: Moments-based E1 ellipticity of the PSF, debiased (i-band)
+  - name: i_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (i-band)
     datatype: float
-  - name: i_moments_psf_debiased_e2
-    description: Moments-based E2 ellipticity of the PSF, debiased (i-band)
+  - name: i_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (i-band)
     datatype: float
   - name: i_moments_psf_debiased_trace
     description: Moments-based trace radius of the PSF, debiased (i-band)
@@ -3771,11 +3771,11 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on y-band.
     datatype: boolean
-  - name: y_moments_e1
-    description: Moments-based E1 ellipticity parameter (y-band)
+  - name: y_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (y-band)
     datatype: float
-  - name: y_moments_e2
-    description: Moments-based E2 ellipticity parameter (y-band)
+  - name: y_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (y-band)
     datatype: float
   - name: y_moments_trace
     description: Moments-based trace radius (y-band)
@@ -3784,11 +3784,11 @@ tables:
   - name: y_moments_flag
     description: Failure flag for moments (y-band)
     datatype: boolean
-  - name: y_moments_psf_e1
-    description: Moments-based E1 ellipticity of of the PSF (y-band)
+  - name: y_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (y-band)
     datatype: float
-  - name: y_moments_psf_e2
-    description: Moments-based E2 ellipticity of of the PSF (y-band)
+  - name: y_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (y-band)
     datatype: float
   - name: y_moments_psf_trace
     description: Moments-based trace radius of the PSF (y-band)
@@ -3797,11 +3797,11 @@ tables:
   - name: y_moments_psf_flag
     description: Failure flag for PSF moments (y-band)
     datatype: boolean
-  - name: y_moments_psf_debiased_e1
-    description: Moments-based E1 ellipticity of the PSF, debiased (y-band)
+  - name: y_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (y-band)
     datatype: float
-  - name: y_moments_psf_debiased_e2
-    description: Moments-based E2 ellipticity of the PSF, debiased (y-band)
+  - name: y_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (y-band)
     datatype: float
   - name: y_moments_psf_debiased_trace
     description: Moments-based trace radius of the PSF, debiased (y-band)
