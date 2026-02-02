@@ -6,7 +6,7 @@ description: >
   This information was recorded during an Operations Rehearsal.
   This includes simulated observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.4.1"
+  current: "3.5.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -30,6 +30,14 @@ tables:
     description: Ensure exposure_id is unique.
     columns:
     - "#exposure.exposure_id"
+  - name: un_exposure_exposure_id_day_obs_seq_num
+    "@id": "#exposure.un_exposure_exposure_id_day_obs_seq_num"
+    "@type": Unique
+    description: Ensure exposure_id plus day_obs plus seq_num is unique.
+    columns:
+    - "#exposure.exposure_id"
+    - "#exposure.day_obs"
+    - "#exposure.seq_num"
   columns:
   - name: exposure_id
     "@id": "#exposure.exposure_id"
@@ -331,6 +339,12 @@ tables:
     description: Flex data obs_id must be an Exposure exposure_id.
     columns: ["#exposure_flexdata.obs_id"]
     referencedColumns: ["#exposure.exposure_id"]
+  - name: fk_exposure_flexdata_obs_id_day_obs_seq_num
+    "@id": "#exposure_flexdata.fk_exposure_flexdata_obs_id_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Flex data obs_id/day_obs/seq_num must match an Exposure.
+    columns: ["#exposure_flexdata.obs_id", "#exposure_flexdata.day_obs", "#exposure_flexdata.seq_num"]
+    referencedColumns: ["#exposure.exposure_id", "#exposure.day_obs", "#exposure.seq_num"]
   - name: fk_exposure_flexdata_key
     "@id": "#exposure_flexdata.fk_exposure_flexdata_key"
     "@type": ForeignKey
@@ -344,6 +358,13 @@ tables:
     columns:
     - "#exposure_flexdata.day_obs"
     - "#exposure_flexdata.seq_num"
+    - "#exposure_flexdata.key"
+  - name: un_exposure_flexdata_obs_id_key
+    "@id": "#exposure_flexdata.un_exposure_flexdata_obs_id_key"
+    "@type": Unique
+    description: obs_id plus key must be unique.
+    columns:
+    - "#exposure_flexdata.obs_id"
     - "#exposure_flexdata.key"
   columns:
   - name: obs_id
@@ -414,7 +435,9 @@ tables:
   description: >
     Information from observatory systems about each detector (CCD) within each raw image taken
   primaryKey:
-  - "#ccdexposure.ccdexposure_id"
+  - "#ccdexposure.day_obs"
+  - "#ccdexposure.seq_num"
+  - "#ccdexposure.detector"
   constraints:
   - name: un_ccdexposure_ccdexposure_id
     "@id": "#ccdexposure.un_ccdexposure_ccdexposure_id"
@@ -422,20 +445,21 @@ tables:
     description: Ensure ccdexposure_id is unique.
     columns:
     - "#ccdexposure.ccdexposure_id"
-  - name: un_ccdexposure_day_obs_seq_num_detector
-    "@id": "#ccdexposure.un_ccdexposure_day_obs_seq_num_detector"
-    "@type": Unique
-    description: Ensure day_obs plus seq_num plus detector is unique.
-    columns:
-    - "#ccdexposure.day_obs"
-    - "#ccdexposure.seq_num"
-    - "#ccdexposure.detector"
   - name: un_ccdexposure_exposure_id_detector
     "@id": "#ccdexposure.un_ccdexposure_exposure_id_detector"
     "@type": Unique
     description: Ensure exposure_id plus detector is unique.
     columns:
     - "#ccdexposure.exposure_id"
+    - "#ccdexposure.detector"
+  - name: un_ccdexposure_ccdexposure_id_day_obs_seq_num_detector
+    "@id": "#ccdexposure.un_ccdexposure_ccdexposure_id_day_obs_seq_num_detector"
+    "@type": Unique
+    description: Ensure ccdexposure_id plus day_obs plus seq_num plus detector is unique.
+    columns:
+    - "#ccdexposure.ccdexposure_id"
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
     - "#ccdexposure.detector"
   - name: fk_ccdexposure_day_obs_seq_num
     "@id": "#ccdexposure.fk_ccdexposure_day_obs_seq_num"
@@ -449,6 +473,12 @@ tables:
     description: exposure_id must be in the Exposure table.
     columns: ["#ccdexposure.exposure_id"]
     referencedColumns: ["#exposure.exposure_id"]
+  - name: fk_ccdexposure_exposure_id_day_obs_seq_num
+    "@id": "#ccdexposure.fk_ccdexposure_exposure_id_day_obs_seq_num"
+    "@type": ForeignKey
+    description: exposure_id/day_obs/seq_num must match an Exposure.
+    columns: ["#ccdexposure.exposure_id", "#ccdexposure.day_obs", "#ccdexposure.seq_num"]
+    referencedColumns: ["#exposure.exposure_id", "#exposure.day_obs", "#exposure.seq_num"]
   columns:
   - name: ccdexposure_id
     "@id": "#ccdexposure.ccdexposure_id"
@@ -491,7 +521,9 @@ tables:
   description: >
     Information from the Camera Control System about each detector (CCD) within each raw image taken
   primaryKey:
-  - "#ccdexposure_camera.ccdexposure_id"
+  - "#ccdexposure_camera.day_obs"
+  - "#ccdexposure_camera.seq_num"
+  - "#ccdexposure_camera.detector"
   constraints:
   - name: fk_ccdexposure_camera_ccdexposure_id
     "@id": "#ccdexposure_camera.fk_ccdexposure_camera_ccdexposure_id"
@@ -499,7 +531,51 @@ tables:
     description: exposure_id must be in the Exposure table.
     columns: ["#ccdexposure_camera.ccdexposure_id"]
     referencedColumns: ["#ccdexposure.ccdexposure_id"]
+  - name: fk_ccdexposure_camera_day_obs_seq_num_detector
+    "@id": "#ccdexposure_camera.fk_ccdexposure_camera_day_obs_seq_num_detector"
+    "@type": ForeignKey
+    description: day_obs/seq_num/detector must be in the CcdExposure table.
+    columns:
+    - "#ccdexposure_camera.day_obs"
+    - "#ccdexposure_camera.seq_num"
+    - "#ccdexposure_camera.detector"
+    referencedColumns:
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
+  - name: fk_ccdexposure_camera_ccdexposure_id_day_obs_seq_num_detector
+    "@id": "#ccdexposure_camera.fk_ccdexposure_camera_ccdexposure_id_day_obs_seq_num_detector"
+    "@type": ForeignKey
+    description: ccdexposure_id/day_obs/seq_num/detector must match a CcdExposure.
+    columns:
+    - "#ccdexposure_camera.ccdexposure_id"
+    - "#ccdexposure_camera.day_obs"
+    - "#ccdexposure_camera.seq_num"
+    - "#ccdexposure_camera.detector"
+    referencedColumns:
+    - "#ccdexposure.ccdexposure_id"
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
   columns:
+  - name: day_obs
+    "@id": "#ccdexposure_camera.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#ccdexposure_camera.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
+  - name: detector
+    "@id": "#ccdexposure_camera.detector"
+    datatype: int
+    nullable: false
+    description: Number of the detector in the focal plane.
+    ivoa:ucd: meta.id.part;instr.det
   - name: ccdexposure_id
     "@id": "#ccdexposure_camera.ccdexposure_id"
     datatype: long
@@ -521,7 +597,9 @@ tables:
     Flexible key/value metadata about each detector (CCD) within each raw image taken;
     used for development and engineering purposes
   primaryKey:
-  - "#ccdexposure_flexdata.obs_id"
+  - "#ccdexposure_flexdata.day_obs"
+  - "#ccdexposure_flexdata.seq_num"
+  - "#ccdexposure_flexdata.detector"
   - "#ccdexposure_flexdata.key"
   constraints:
   - name: fk_ccdexposure_flexdata_obs_id
@@ -530,6 +608,32 @@ tables:
     description: Flex data obs_id must be a CcdExposure ccdexposure_id.
     columns: ["#ccdexposure_flexdata.obs_id"]
     referencedColumns: ["#ccdexposure.ccdexposure_id"]
+  - name: fk_ccdexposure_flexdata_day_obs_seq_num_detector
+    "@id": "#ccdexposure_flexdata.fk_ccdexposure_flexdata_day_obs_seq_num_detector"
+    "@type": ForeignKey
+    description: Flex data day_obs/seq_num/detector must be a CcdExposure.
+    columns:
+    - "#ccdexposure_flexdata.day_obs"
+    - "#ccdexposure_flexdata.seq_num"
+    - "#ccdexposure_flexdata.detector"
+    referencedColumns:
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
+  - name: fk_ccdexposure_flexdata_obs_id_day_obs_seq_num_detector
+    "@id": "#ccdexposure_flexdata.fk_ccdexposure_flexdata_obs_id_day_obs_seq_num_detector"
+    "@type": ForeignKey
+    description: Flex data obs_id/day_obs/seq_num/detector must match a CcdExposure.
+    columns:
+    - "#ccdexposure_flexdata.obs_id"
+    - "#ccdexposure_flexdata.day_obs"
+    - "#ccdexposure_flexdata.seq_num"
+    - "#ccdexposure_flexdata.detector"
+    referencedColumns:
+    - "#ccdexposure.ccdexposure_id"
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
   - name: fk_ccdexposure_flexdata_key
     "@id": "#ccdexposure_flexdata.fk_ccdexposure_flexdata_key"
     "@type": ForeignKey
@@ -537,6 +641,24 @@ tables:
     columns: ["#ccdexposure_flexdata.key"]
     referencedColumns: ["#ccdexposure_flexdata_schema.key"]
   columns:
+  - name: day_obs
+    "@id": "#ccdexposure_flexdata.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#ccdexposure_flexdata.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
+  - name: detector
+    "@id": "#ccdexposure_flexdata.detector"
+    datatype: int
+    nullable: false
+    description: Number of the detector in the focal plane.
+    ivoa:ucd: meta.id.part;instr.det
   - name: obs_id
     "@id": "#ccdexposure_flexdata.obs_id"
     datatype: long
@@ -596,6 +718,21 @@ tables:
   primaryKey:
   - "#visit1.day_obs"
   - "#visit1.seq_num"
+  constraints:
+  - name: un_visit1_visit_id
+    "@id": "#visit1.un_visit1_visit_id"
+    "@type": Unique
+    description: Ensure visit_id is unique.
+    columns:
+    - "#visit1.visit_id"
+  - name: un_visit1_visit_id_day_obs_seq_num
+    "@id": "#visit1.un_visit1_visit_id_day_obs_seq_num"
+    "@type": Unique
+    description: Ensure visit_id plus day_obs plus seq_num is unique.
+    columns:
+    - "#visit1.visit_id"
+    - "#visit1.day_obs"
+    - "#visit1.seq_num"
   columns:
   - name: visit_id
     "@id": "#visit1.visit_id"
@@ -896,6 +1033,12 @@ tables:
     description: Quicklook day_obs must be an Exposure day_obs.
     columns: ["#visit1_quicklook.day_obs", "#visit1_quicklook.seq_num"]
     referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: fk_visit1_quicklook_visit_id_day_obs_seq_num
+    "@id": "#visit1_quicklook.fk_visit1_quicklook_visit_id_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Quicklook visit_id/day_obs/seq_num must match an Exposure.
+    columns: ["#visit1_quicklook.visit_id", "#visit1_quicklook.day_obs", "#visit1_quicklook.seq_num"]
+    referencedColumns: ["#exposure.exposure_id", "#exposure.day_obs", "#exposure.seq_num"]
   columns:
   - name: visit_id
     "@id": "#visit1_quicklook.visit_id"
@@ -1352,6 +1495,120 @@ tables:
     datatype: float
     description: Median postISR pixel value (max across all detectors).
     ivoa:unit: electron
+- name: exposure_quicklook
+  "@id": "#exposure_quicklook"
+  tap:table_index: 150
+  description: >
+    Information from Summit Rapid Analysis about each raw image taken
+  primaryKey:
+  - "#exposure_quicklook.day_obs"
+  - "#exposure_quicklook.seq_num"
+  constraints:
+  - name: fk_exposure_quicklook_day_obs_seq_num
+    "@id": "#exposure_quicklook.fk_exposure_quicklook_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Quicklook day_obs must be an Exposure day_obs.
+    columns: ["#exposure_quicklook.day_obs", "#exposure_quicklook.seq_num"]
+    referencedColumns: ["#exposure.day_obs", "#exposure.seq_num"]
+  - name: fk_exposure_quicklook_obs_id
+    "@id": "#exposure_quicklook.fk_exposure_quicklook_obs_id"
+    "@type": ForeignKey
+    description: Quicklook exposure_id must be an Exposure id.
+    columns: ["#exposure_quicklook.exposure_id"]
+    referencedColumns: ["#exposure.exposure_id"]
+  - name: fk_exposure_quicklook_exposure_id_day_obs_seq_num
+    "@id": "#exposure_quicklook.fk_exposure_quicklook_exposure_id_day_obs_seq_num"
+    "@type": ForeignKey
+    description: Quicklook exposure_id/day_obs/seq_num must match an Exposure.
+    columns: ["#exposure_quicklook.exposure_id", "#exposure_quicklook.day_obs", "#exposure_quicklook.seq_num"]
+    referencedColumns: ["#exposure.exposure_id", "#exposure.day_obs", "#exposure.seq_num"]
+  columns:
+  - name: exposure_id
+    "@id": "#exposure_quicklook.exposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
+  - name: day_obs
+    "@id": "#exposure_quicklook.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#exposure_quicklook.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
+  - name: postisr_pixel_median_median
+    "@id": "#exposure_quicklook.postisr_pixel_median_median"
+    datatype: float
+    description: Median postISR pixel value (median across all detectors).
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
+  - name: postisr_pixel_median_mean
+    "@id": "#exposure_quicklook.postisr_pixel_median_mean"
+    datatype: float
+    description: Median postISR pixel value (mean across all detectors).
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
+  - name: postisr_pixel_median_max
+    "@id": "#exposure_quicklook.postisr_pixel_median_max"
+    datatype: float
+    description: Median postISR pixel value (max across all detectors).
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
+  - name: mount_motion_image_degradation
+    "@id": "#exposure_quicklook.mount_motion_image_degradation"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion.
+  - name: mount_motion_image_degradation_az
+    "@id": "#exposure_quicklook.mount_motion_image_degradation_az"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion in azimuth.
+  - name: mount_motion_image_degradation_el
+    "@id": "#exposure_quicklook.mount_motion_image_degradation_el"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to mount motion in elevation.
+  - name: mount_motion_image_degradation_rot
+    "@id": "#exposure_quicklook.mount_motion_image_degradation_rotator"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Image degradation due to rotator jitter.
+  - name: mount_jitter_rms_cam_hexapod
+    "@id": "#exposure_quicklook.mount_jitter_rms_cam_hexapod"
+    datatype: float
+    ivoa:unit: arcsec
+    description: The RMS image motion due to movement of the camera hexapod.
+  - name: mount_jitter_rms_m2_hexapod
+    "@id": "#exposure_quicklook.mount_jitter_rms_m2_hexapod"
+    datatype: float
+    ivoa:unit: arcsec
+    description: The RMS image motion due to movement of the M2 hexapod.
+  - name: mount_jitter_rms
+    "@id": "#exposure_quicklook.mount_jitter_rms"
+    datatype: float
+    ivoa:unit: arcsec
+    description: RMS mount jitter.
+  - name: mount_jitter_rms_az
+    "@id": "#exposure_quicklook.mount_jitter_rms_az"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Azimuth RMS mount jitter.
+  - name: mount_jitter_rms_el
+    "@id": "#exposure_quicklook.mount_jitter_rms_el"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Elevation RMS mount jitter.
+  - name: mount_jitter_rms_rot
+    "@id": "#exposure_quicklook.mount_jitter_rms_rotator"
+    datatype: float
+    ivoa:unit: arcsec
+    description: Rotator RMS mount jitter.
+
 - name: ccdvisit1
   "@id": "#ccdvisit1"
   tap:table_index: 400
@@ -1359,8 +1616,57 @@ tables:
     Information from observatory systems about each detector (CCD) within each visit in visit system 1 (visit per exposure);
     describes detectors in processed visit images (or calibrated exposures)
   primaryKey:
-  - "#ccdvisit1.ccdvisit_id"
+  - "#ccdvisit1.day_obs"
+  - "#ccdvisit1.seq_num"
+  - "#ccdvisit1.detector"
+  constraints:
+  - name: un_ccdvisit1_ccdvisit_id
+    "@id": "#ccdvisit1.un_ccdvisit1_ccdvisit_id"
+    "@type": Unique
+    description: Ensure ccdvisit_id is unique.
+    columns:
+    - "#ccdvisit1.ccdvisit_id"
+  - name: un_ccdvisit1_ccdvisit_id_day_obs_seq_num_detector
+    "@id": "#ccdvisit1.un_ccdvisit1_ccdvisit_id_day_obs_seq_num_detector"
+    "@type": Unique
+    description: Ensure ccdvisit_id plus day_obs plus seq_num plus detector is unique.
+    columns:
+    - "#ccdvisit1.ccdvisit_id"
+    - "#ccdvisit1.day_obs"
+    - "#ccdvisit1.seq_num"
+    - "#ccdvisit1.detector"
+  - name: un_ccdvisit1_visit_id_detector
+    "@id": "#ccdvisit1.un_ccdvisit1_visit_id_detector"
+    "@type": Unique
+    description: Ensure visit_id plus detector is unique.
+    columns:
+    - "#ccdvisit1.visit_id"
+    - "#ccdvisit1.detector"
+  - name: fk_ccdvisit1_visit_id
+    "@id": "#ccdvisit1.fk_ccdvisit1_visit_id"
+    "@type": ForeignKey
+    description: visit_id must be in the Visit1 table.
+    columns: ["#ccdvisit1.visit_id"]
+    referencedColumns: ["#visit1.visit_id"]
+  - name: fk_ccdvisit1_day_obs_seq_num
+    "@id": "#ccdvisit1.fk_ccdvisit1_day_obs_seq_num"
+    "@type": ForeignKey
+    description: day_obs/seq_num must be in the Visit1 table.
+    columns: ["#ccdvisit1.day_obs", "#ccdvisit1.seq_num"]
+    referencedColumns: ["#visit1.day_obs", "#visit1.seq_num"]
   columns:
+  - name: day_obs
+    "@id": "#ccdvisit1.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#ccdvisit1.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
   - name: ccdvisit_id
     "@id": "#ccdvisit1.ccdvisit_id"
     datatype: long
@@ -1392,7 +1698,9 @@ tables:
     Information from Summit Rapid Analysis about each detector (CCD) within each visit in visit system 1 (visit per exposure);
     describes detectors in processed visit images (or calibrated exposures)
   primaryKey:
-  - "#ccdvisit1_quicklook.ccdvisit_id"
+  - "#ccdvisit1_quicklook.day_obs"
+  - "#ccdvisit1_quicklook.seq_num"
+  - "#ccdvisit1_quicklook.detector"
   constraints:
   - name: fk_ccdvisit1_quicklook_obs_id
     "@id": "#ccdvisit1_quicklook.fk_ccdvisit1_quicklook_obs_id"
@@ -1400,7 +1708,51 @@ tables:
     description: Quicklook ccdvisit_id must be a CcdExposure ccdexposure_id.
     columns: ["#ccdvisit1_quicklook.ccdvisit_id"]
     referencedColumns: ["#ccdexposure.ccdexposure_id"]
+  - name: fk_ccdvisit1_quicklook_day_obs_seq_num_detector
+    "@id": "#ccdvisit1_quicklook.fk_ccdvisit1_quicklook_day_obs_seq_num_detector"
+    "@type": ForeignKey
+    description: day_obs/seq_num/detector must be in the CcdExposure table.
+    columns:
+    - "#ccdvisit1_quicklook.day_obs"
+    - "#ccdvisit1_quicklook.seq_num"
+    - "#ccdvisit1_quicklook.detector"
+    referencedColumns:
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
+  - name: fk_ccdvisit1_quicklook_ccdvisit_id_day_obs_seq_num_detector
+    "@id": "#ccdvisit1_quicklook.fk_ccdvisit1_quicklook_ccdvisit_id_day_obs_seq_num_detector"
+    "@type": ForeignKey
+    description: ccdvisit_id/day_obs/seq_num/detector must match a CcdExposure.
+    columns:
+    - "#ccdvisit1_quicklook.ccdvisit_id"
+    - "#ccdvisit1_quicklook.day_obs"
+    - "#ccdvisit1_quicklook.seq_num"
+    - "#ccdvisit1_quicklook.detector"
+    referencedColumns:
+    - "#ccdexposure.ccdexposure_id"
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
   columns:
+  - name: day_obs
+    "@id": "#ccdvisit1_quicklook.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#ccdvisit1_quicklook.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
+  - name: detector
+    "@id": "#ccdvisit1_quicklook.detector"
+    datatype: int
+    nullable: false
+    description: Number of the detector in the focal plane.
+    ivoa:ucd: meta.id.part;instr.det
   - name: ccdvisit_id
     "@id": "#ccdvisit1_quicklook.ccdvisit_id"
     datatype: long
@@ -1561,8 +1913,75 @@ tables:
     datatype: float
     description: Maximum distance of an unmasked pixel to its nearest model PSF star.
     ivoa:unit: pixel
+- name: ccdexposure_quicklook
+  "@id": "#ccdexposure_quicklook"
+  tap:table_index: 350
+  description: >
+    Information from Summit Rapid Analysis about each detector (CCD) within each raw image taken
+  primaryKey:
+  - "#ccdexposure_quicklook.day_obs"
+  - "#ccdexposure_quicklook.seq_num"
+  - "#ccdexposure_quicklook.detector"
+  constraints:
+  - name: fk_ccdexposure_quicklook_obs_id
+    "@id": "#ccdexposure_quicklook.fk_ccdexposure_quicklook_obs_id"
+    "@type": ForeignKey
+    description: Quicklook ccdexposure_id must be a CcdExposure ccdexposure_id.
+    columns: ["#ccdexposure_quicklook.ccdexposure_id"]
+    referencedColumns: ["#ccdexposure.ccdexposure_id"]
+  - name: fk_ccdexposure_quicklook_day_obs_seq_num_detector
+    "@id": "#ccdexposure_quicklook.fk_ccdexposure_quicklook_day_obs_seq_num_detector"
+    "@type": ForeignKey
+    description: day_obs/seq_num/detector must be in the CcdExposure table.
+    columns:
+    - "#ccdexposure_quicklook.day_obs"
+    - "#ccdexposure_quicklook.seq_num"
+    - "#ccdexposure_quicklook.detector"
+    referencedColumns:
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
+  - name: fk_ccdexposure_qk_id_day_seq_det
+    "@id": "#ccdexposure_quicklook.fk_ccdexposure_qk_id_day_seq_det"
+    "@type": ForeignKey
+    description: ccdexposure_id/day_obs/seq_num/detector must match a CcdExposure.
+    columns:
+    - "#ccdexposure_quicklook.ccdexposure_id"
+    - "#ccdexposure_quicklook.day_obs"
+    - "#ccdexposure_quicklook.seq_num"
+    - "#ccdexposure_quicklook.detector"
+    referencedColumns:
+    - "#ccdexposure.ccdexposure_id"
+    - "#ccdexposure.day_obs"
+    - "#ccdexposure.seq_num"
+    - "#ccdexposure.detector"
+  columns:
+  - name: day_obs
+    "@id": "#ccdexposure_quicklook.day_obs"
+    datatype: int
+    nullable: false
+    description: Day of observation.
+    ivoa:ucd: meta.id.part
+  - name: seq_num
+    "@id": "#ccdexposure_quicklook.seq_num"
+    datatype: int
+    nullable: false
+    description: Sequence number.
+    ivoa:ucd: meta.id.part
+  - name: detector
+    "@id": "#ccdexposure_quicklook.detector"
+    datatype: int
+    nullable: false
+    description: Number of the detector in the focal plane.
+    ivoa:ucd: meta.id.part;instr.det
+  - name: ccdexposure_id
+    "@id": "#ccdexposure_quicklook.ccdexposure_id"
+    datatype: long
+    nullable: false
+    description: Unique identifier.
   - name: postisr_pixel_median
-    "@id": "#visit1_quicklook.postisr_pixel_median"
+    "@id": "#ccdexposure_quicklook.postisr_pixel_median"
     datatype: float
     description: Median postISR pixel value.
-    ivoa:unit: electron
+    ivoa:unit: count
+    ivoa:ucd: phot;phys.electron
