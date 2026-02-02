@@ -6,7 +6,7 @@ description: >
   This information was recorded during an Operations Rehearsal.
   This includes simulated observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.4.1"
+  current: "4.0.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -1406,22 +1406,6 @@ tables:
     datatype: long
     nullable: false
     description: Unique identifier.
-  - name: s_ra
-    "@id": "#ccdvisit1_quicklook.s_ra"
-    datatype: double
-    description: Central Spatial Position in ICRS; Computed right ascension of CCD center.
-    tap:std: 1
-    ivoa:ucd: pos.eq.ra
-    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
-    ivoa:unit: deg
-  - name: s_dec
-    "@id": "#ccdvisit1_quicklook.s_dec"
-    datatype: double
-    description: Central Spatial Position in ICRS; Computed declination of CCD center.
-    tap:std: 1
-    ivoa:ucd: pos.eq.dec
-    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
-    ivoa:unit: deg
   - name: zenith_distance
     "@id": "#ccdvisit1_quicklook.zenith_distance"
     datatype: float
