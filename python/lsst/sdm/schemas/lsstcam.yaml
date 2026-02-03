@@ -7859,12 +7859,12 @@ tables:
   - name: y
     description: Centroid (tract, y-axis) of the detected ShearObject.
     datatype: float
-  - name: coord_ra
+  - name: ra
     description: Detected Right Ascension of the ShearObject.
     datatype: double
     ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
-  - name: coord_dec
+  - name: dec
     description: Detected Declination of the ShearObject.
     datatype: double
     ivoa:ucd: pos.eq.dec
