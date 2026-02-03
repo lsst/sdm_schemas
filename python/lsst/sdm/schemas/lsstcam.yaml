@@ -7882,10 +7882,10 @@ tables:
     description: Trace (<x^2> + <y^2>) measurement of the original PSF from adaptive moments.
     datatype: float
     ivoa:unit: arcsec**2
-  - name: bmask
+  - name: bmask_flags
     description: bmask flags for the ShearObject.
     datatype: int
-  - name: ormask
+  - name: ormask_flags
     description: ored mask flags for the ShearObject.
     datatype: int
   - name: mfrac
