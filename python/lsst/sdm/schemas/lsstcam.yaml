@@ -305,6 +305,22 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on z-band.
     datatype: boolean
+  - name: z_free_cModel_devFlux
+    description: Flux from the de Vaucouleurs fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_free_cModel_devFluxErr
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_free_cModel_expFlux
+    description: Flux from the exponential fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_free_cModel_expFluxErr
+    description: Flux uncertainty from the exponential fit. Measured on z-band.
+    datatype: float
+    ivoa:unit: nJy
   - name: z_cModel_dev_reff_major
     datatype: float
     description: Half-light ellipse of the de Vaucouleurs fit (major axis). Measured on z-band.
@@ -640,9 +656,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on z-band.
     datatype: boolean
   - name: z_calib_astrometry_used
-    description: Propagated from sources. Measured on z-band.
-    datatype: boolean
-  - name: z_calib_photometry_reserved
     description: Propagated from sources. Measured on z-band.
     datatype: boolean
   - name: z_calib_photometry_used
@@ -1032,6 +1045,22 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on u-band.
     datatype: boolean
+  - name: u_free_cModel_devFlux
+    description: Flux from the de Vaucouleurs fit. Measured on u-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: u_free_cModel_devFluxErr
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: u_free_cModel_expFlux
+    description: Flux from the exponential fit. Measured on u-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: u_free_cModel_expFluxErr
+    description: Flux uncertainty from the exponential fit. Measured on u-band.
+    datatype: float
+    ivoa:unit: nJy
   - name: u_moments_g1
     description: Moments-based G1 shear ellipticity parameter (u-band)
     datatype: float
@@ -1324,9 +1353,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on u-band.
     datatype: boolean
   - name: u_calib_astrometry_used
-    description: Propagated from sources. Measured on u-band.
-    datatype: boolean
-  - name: u_calib_photometry_reserved
     description: Propagated from sources. Measured on u-band.
     datatype: boolean
   - name: u_calib_photometry_used
@@ -1719,6 +1745,22 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on g-band.
     datatype: boolean
+  - name: g_free_cModel_devFlux
+    description: Flux from the de Vaucouleurs fit. Measured on g-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_free_cModel_devFluxErr
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_free_cModel_expFlux
+    description: Flux from the exponential fit. Measured on g-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_free_cModel_expFluxErr
+    description: Flux uncertainty from the exponential fit. Measured on g-band.
+    datatype: float
+    ivoa:unit: nJy
   - name: g_moments_g1
     description: Moments-based G1 shear ellipticity parameter (g-band)
     datatype: float
@@ -2011,9 +2053,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on g-band.
     datatype: boolean
   - name: g_calib_astrometry_used
-    description: Propagated from sources. Measured on g-band.
-    datatype: boolean
-  - name: g_calib_photometry_reserved
     description: Propagated from sources. Measured on g-band.
     datatype: boolean
   - name: g_calib_photometry_used
@@ -2403,6 +2442,22 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on r-band.
     datatype: boolean
+  - name: r_free_cModel_devFlux
+    description: Flux from the de Vaucouleurs fit. Measured on r-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_free_cModel_devFluxErr
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_free_cModel_expFlux
+    description: Flux from the exponential fit. Measured on r-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_free_cModel_expFluxErr
+    description: Flux uncertainty from the exponential fit. Measured on r-band.
+    datatype: float
+    ivoa:unit: nJy
   - name: r_moments_g1
     description: Moments-based G1 shear ellipticity parameter (r-band)
     datatype: float
@@ -2695,9 +2750,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on r-band.
     datatype: boolean
   - name: r_calib_astrometry_used
-    description: Propagated from sources. Measured on r-band.
-    datatype: boolean
-  - name: r_calib_photometry_reserved
     description: Propagated from sources. Measured on r-band.
     datatype: boolean
   - name: r_calib_photometry_used
@@ -3087,6 +3139,22 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on i-band.
     datatype: boolean
+  - name: i_free_cModel_devFlux
+    description: Flux from the de Vaucouleurs fit. Measured on i-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_free_cModel_devFluxErr
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_free_cModel_expFlux
+    description: Flux from the exponential fit. Measured on i-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_free_cModel_expFluxErr
+    description: Flux uncertainty from the exponential fit. Measured on i-band.
+    datatype: float
+    ivoa:unit: nJy
   - name: i_moments_g1
     description: Moments-based G1 shear ellipticity parameter (i-band)
     datatype: float
@@ -3379,9 +3447,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on i-band.
     datatype: boolean
   - name: i_calib_astrometry_used
-    description: Propagated from sources. Measured on i-band.
-    datatype: boolean
-  - name: i_calib_photometry_reserved
     description: Propagated from sources. Measured on i-band.
     datatype: boolean
   - name: i_calib_photometry_used
@@ -3771,6 +3836,22 @@ tables:
     description: Flag set if the final CModel fit (or any previous fit) failed. Measured
       on y-band.
     datatype: boolean
+  - name: y_free_cModel_devFlux
+    description: Flux from the de Vaucouleurs fit. Measured on y-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: y_free_cModel_devFluxErr
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: y_free_cModel_expFlux
+    description: Flux from the exponential fit. Measured on y-band.
+    datatype: float
+    ivoa:unit: nJy
+  - name: y_free_cModel_expFluxErr
+    description: Flux uncertainty from the exponential fit. Measured on y-band.
+    datatype: float
+    ivoa:unit: nJy
   - name: y_moments_g1
     description: Moments-based G1 shear ellipticity parameter (y-band)
     datatype: float
@@ -4063,9 +4144,6 @@ tables:
     description: This object has an invalid PSF (usually no inputs). Measured on y-band.
     datatype: boolean
   - name: y_calib_astrometry_used
-    description: Propagated from sources. Measured on y-band.
-    datatype: boolean
-  - name: y_calib_photometry_reserved
     description: Propagated from sources. Measured on y-band.
     datatype: boolean
   - name: y_calib_photometry_used
