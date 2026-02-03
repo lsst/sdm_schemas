@@ -282,19 +282,19 @@ tables:
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on g-band.
     fits:tunit:
-  - name: g_free_cModel_devFlux
+  - name: g_cModel_devFlux
     datatype: float
     description: Flux from the de Vaucouleurs fit. Measured on g-band.
     fits:tunit: nJy
-  - name: g_free_cModel_devFluxErr
+  - name: g_cModel_devFluxErr
     datatype: float
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
     fits:tunit: nJy
-  - name: g_free_cModel_expFlux
+  - name: g_cModel_expFlux
     datatype: float
     description: Flux from the exponential fit. Measured on g-band.
     fits:tunit: nJy
-  - name: g_free_cModel_expFluxErr
+  - name: g_cModel_expFluxErr
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on g-band.
     fits:tunit: nJy
@@ -432,6 +432,22 @@ tables:
     datatype: float
     description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on g-band.
     fits:tunit:
+  - name: g_free_cModel_devFlux
+    datatype: float
+    description: Flux from the de Vaucouleurs fit. Measured on g-band.
+    fits:tunit: nJy
+  - name: g_free_cModel_devFluxErr
+    datatype: float
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on g-band.
+    fits:tunit: nJy
+  - name: g_free_cModel_expFlux
+    datatype: float
+    description: Flux from the exponential fit. Measured on g-band.
+    fits:tunit: nJy
+  - name: g_free_cModel_expFluxErr
+    datatype: float
+    description: Flux uncertainty from the exponential fit. Measured on g-band.
+    fits:tunit: nJy
   - name: g_free_psfFlux
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on g-band.
@@ -1030,19 +1046,19 @@ tables:
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on i-band.
     fits:tunit:
-  - name: i_free_cModel_devFlux
+  - name: i_cModel_devFlux
     datatype: float
     description: Flux from the de Vaucouleurs fit. Measured on i-band.
     fits:tunit: nJy
-  - name: i_free_cModel_devFluxErr
+  - name: i_cModel_devFluxErr
     datatype: float
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
     fits:tunit: nJy
-  - name: i_free_cModel_expFlux
+  - name: i_cModel_expFlux
     datatype: float
     description: Flux from the exponential fit. Measured on i-band.
     fits:tunit: nJy
-  - name: i_free_cModel_expFluxErr
+  - name: i_cModel_expFluxErr
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on i-band.
     fits:tunit: nJy
@@ -1176,6 +1192,22 @@ tables:
     datatype: float
     description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on i-band.
     fits:tunit:
+  - name: i_free_cModel_devFlux
+    datatype: float
+    description: Flux from the de Vaucouleurs fit. Measured on i-band.
+    fits:tunit: nJy
+  - name: i_free_cModel_devFluxErr
+    datatype: float
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on i-band.
+    fits:tunit: nJy
+  - name: i_free_cModel_expFlux
+    datatype: float
+    description: Flux from the exponential fit. Measured on i-band.
+    fits:tunit: nJy
+  - name: i_free_cModel_expFluxErr
+    datatype: float
+    description: Flux uncertainty from the exponential fit. Measured on i-band.
+    fits:tunit: nJy
   - name: i_free_psfFlux
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on i-band.
@@ -1774,19 +1806,19 @@ tables:
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on r-band.
     fits:tunit:
-  - name: r_free_cModel_devFlux
+  - name: r_cModel_devFlux
     datatype: float
     description: Flux from the de Vaucouleurs fit. Measured on r-band.
     fits:tunit: nJy
-  - name: r_free_cModel_devFluxErr
+  - name: r_cModel_devFluxErr
     datatype: float
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
     fits:tunit: nJy
-  - name: r_free_cModel_expFlux
+  - name: r_cModel_expFlux
     datatype: float
     description: Flux from the exponential fit. Measured on r-band.
     fits:tunit: nJy
-  - name: r_free_cModel_expFluxErr
+  - name: r_cModel_expFluxErr
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on r-band.
     fits:tunit: nJy
@@ -1920,6 +1952,22 @@ tables:
     datatype: float
     description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on r-band.
     fits:tunit:
+  - name: r_free_cModel_devFlux
+    datatype: float
+    description: Flux from the de Vaucouleurs fit. Measured on r-band.
+    fits:tunit: nJy
+  - name: r_free_cModel_devFluxErr
+    datatype: float
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on r-band.
+    fits:tunit: nJy
+  - name: r_free_cModel_expFlux
+    datatype: float
+    description: Flux from the exponential fit. Measured on r-band.
+    fits:tunit: nJy
+  - name: r_free_cModel_expFluxErr
+    datatype: float
+    description: Flux uncertainty from the exponential fit. Measured on r-band.
+    fits:tunit: nJy
   - name: r_free_psfFlux
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on r-band.
@@ -2518,19 +2566,19 @@ tables:
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on u-band.
     fits:tunit:
-  - name: u_free_cModel_devFlux
+  - name: u_cModel_devFlux
     datatype: float
     description: Flux from the de Vaucouleurs fit. Measured on u-band.
     fits:tunit: nJy
-  - name: u_free_cModel_devFluxErr
+  - name: u_cModel_devFluxErr
     datatype: float
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
     fits:tunit: nJy
-  - name: u_free_cModel_expFlux
+  - name: u_cModel_expFlux
     datatype: float
     description: Flux from the exponential fit. Measured on u-band.
     fits:tunit: nJy
-  - name: u_free_cModel_expFluxErr
+  - name: u_cModel_expFluxErr
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on u-band.
     fits:tunit: nJy
@@ -2664,6 +2712,22 @@ tables:
     datatype: float
     description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on u-band.
     fits:tunit:
+  - name: u_free_cModel_devFlux
+    datatype: float
+    description: Flux from the de Vaucouleurs fit. Measured on u-band.
+    fits:tunit: nJy
+  - name: u_free_cModel_devFluxErr
+    datatype: float
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on u-band.
+    fits:tunit: nJy
+  - name: u_free_cModel_expFlux
+    datatype: float
+    description: Flux from the exponential fit. Measured on u-band.
+    fits:tunit: nJy
+  - name: u_free_cModel_expFluxErr
+    datatype: float
+    description: Flux uncertainty from the exponential fit. Measured on u-band.
+    fits:tunit: nJy
   - name: u_free_psfFlux
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on u-band.
@@ -3262,19 +3326,19 @@ tables:
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on y-band.
     fits:tunit:
-  - name: y_free_cModel_devFlux
+  - name: y_cModel_devFlux
     datatype: float
     description: Flux from the de Vaucouleurs fit. Measured on y-band.
     fits:tunit: nJy
-  - name: y_free_cModel_devFluxErr
+  - name: y_cModel_devFluxErr
     datatype: float
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
     fits:tunit: nJy
-  - name: y_free_cModel_expFlux
+  - name: y_cModel_expFlux
     datatype: float
     description: Flux from the exponential fit. Measured on y-band.
     fits:tunit: nJy
-  - name: y_free_cModel_expFluxErr
+  - name: y_cModel_expFluxErr
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on y-band.
     fits:tunit: nJy
@@ -3408,6 +3472,22 @@ tables:
     datatype: float
     description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on y-band.
     fits:tunit:
+  - name: y_free_cModel_devFlux
+    datatype: float
+    description: Flux from the de Vaucouleurs fit. Measured on y-band.
+    fits:tunit: nJy
+  - name: y_free_cModel_devFluxErr
+    datatype: float
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on y-band.
+    fits:tunit: nJy
+  - name: y_free_cModel_expFlux
+    datatype: float
+    description: Flux from the exponential fit. Measured on y-band.
+    fits:tunit: nJy
+  - name: y_free_cModel_expFluxErr
+    datatype: float
+    description: Flux uncertainty from the exponential fit. Measured on y-band.
+    fits:tunit: nJy
   - name: y_free_psfFlux
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on y-band.
@@ -4006,19 +4086,19 @@ tables:
     datatype: float
     description: -ln(likelihood) (chi^2) in cmodel fit. Measured on z-band.
     fits:tunit:
-  - name: z_free_cModel_devFlux
+  - name: z_cModel_devFlux
     datatype: float
     description: Flux from the de Vaucouleurs fit. Measured on z-band.
     fits:tunit: nJy
-  - name: z_free_cModel_devFluxErr
+  - name: z_cModel_devFluxErr
     datatype: float
     description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
     fits:tunit: nJy
-  - name: z_free_cModel_expFlux
+  - name: z_cModel_expFlux
     datatype: float
     description: Flux from the exponential fit. Measured on z-band.
     fits:tunit: nJy
-  - name: z_free_cModel_expFluxErr
+  - name: z_cModel_expFluxErr
     datatype: float
     description: Flux uncertainty from the exponential fit. Measured on z-band.
     fits:tunit: nJy
@@ -4152,6 +4232,22 @@ tables:
     datatype: float
     description: Fraction of the CModel flux from the De Vaucouleurs (n=4) component. Measured on z-band.
     fits:tunit:
+  - name: z_free_cModel_devFlux
+    datatype: float
+    description: Flux from the de Vaucouleurs fit. Measured on z-band.
+    fits:tunit: nJy
+  - name: z_free_cModel_devFluxErr
+    datatype: float
+    description: Flux uncertainty from the de Vaucouleurs fit. Measured on z-band.
+    fits:tunit: nJy
+  - name: z_free_cModel_expFlux
+    datatype: float
+    description: Flux from the exponential fit. Measured on z-band.
+    fits:tunit: nJy
+  - name: z_free_cModel_expFluxErr
+    datatype: float
+    description: Flux uncertainty from the exponential fit. Measured on z-band.
+    fits:tunit: nJy
   - name: z_free_psfFlux
     datatype: float
     description: Flux derived from linear least-squares fit of PSF model. Measured on z-band.
