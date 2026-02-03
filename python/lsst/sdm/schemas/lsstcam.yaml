@@ -7849,8 +7849,8 @@ tables:
     description: Type of artificial shear applied to image. One of 'ns', '1p', '1m', '2p', '2m'.
     datatype: char
     length: 2
-  - name: stamp_flags
-    description: Flags for the stamp on which this measurement was made.
+  - name: image_flags
+    description: Flags for the image on which this measurement was made.
     datatype: int
   - name: x
     description: Centroid (tract, x-axis) of the detected ShearObject.
