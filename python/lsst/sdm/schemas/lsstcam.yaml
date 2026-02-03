@@ -7930,8 +7930,8 @@ tables:
     description: Uncertainty in the trace measurement of the ShearObject (measured with gauss algorithm).
     datatype: float
     ivoa:unit: arcsec**2
-  - name: gauss_T_flags
-    description: Flags for the trace (<x^2> + <y^2>) measurement of the ShearObject (measured with gauss algorithm).
+  - name: gauss_shape_flags
+    description: Flags for the second moments measurement of the ShearObject (measured with gauss algorithm).
     datatype: int
   - name: gauss_object_flags
     description: Flags for the ShearObject measurement (measured with gauss algorithm).
@@ -7950,8 +7950,8 @@ tables:
     description: Uncertainty in the trace measurement of the ShearObject (measured with pgauss algorithm).
     datatype: float
     ivoa:unit: arcsec**2
-  - name: pgauss_T_flags
-    description: Flags for the trace (<x^2> + <y^2>) measurement of the ShearObject (measured with pgauss algorithm).
+  - name: pgauss_shape_flags
+    description: Flags for the second moments measurement of the ShearObject (measured with pgauss algorithm).
     datatype: int
   - name: pgauss_object_flags
     description: Flags for the ShearObject measurement (measured with pgauss algorithm).
