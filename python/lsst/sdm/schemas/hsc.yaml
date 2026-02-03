@@ -5066,26 +5066,6 @@ tables:
     datatype: boolean
     description: Flag set for objects not fit because there were no coadd PSF inputs for the two-Gaussian PSF model (z-band).
     fits:tunit:
-  - name: exponential_x
-    "@id": "#Object.exponential_x"
-    datatype: double
-    description: Centroid (tract, x-axis) from the multiband exponential model fit.
-    fits:tunit: pixel
-  - name: exponential_xErr
-    "@id": "#Object.exponential_xErr"
-    datatype: float
-    description: Error on the centroid (tract, x-axis) from the multiband exponential model fit.
-    fits:tunit: pixel
-  - name: exponential_y
-    "@id": "#Object.exponential_y"
-    datatype: double
-    description: Centroid (tract, y-axis) from the multiband exponential model fit.
-    fits:tunit: pixel
-  - name: exponential_yErr
-    "@id": "#Object.exponential_yErr"
-    datatype: float
-    description: Error on the centroid (tract, y-axis) from the multiband exponential model fit.
-    fits:tunit: pixel
   - name: exponential_ra
     "@id": "#Object.exponential_ra"
     datatype: double
@@ -5106,6 +5086,11 @@ tables:
     datatype: float
     description: Error on the centroid (declination) from the multiband exponential model fit.
     fits:tunit: deg
+  - name: exponential_ra_dec_Cov
+    description: Covariance between right ascension and declination from the multiband exponential model fit.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
   - name: exponential_reff_x
     "@id": "#Object.exponential_reff_x"
     datatype: float
@@ -5236,26 +5221,6 @@ tables:
     datatype: boolean
     description: Flag set for failures with an unexpected or unknown cause for the multiband exponential model.
     fits:tunit:
-  - name: sersic_x
-    "@id": "#Object.sersic_x"
-    datatype: double
-    description: Centroid (tract, x-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
-  - name: sersic_xErr
-    "@id": "#Object.sersic_xErr"
-    datatype: float
-    description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
-  - name: sersic_y
-    "@id": "#Object.sersic_y"
-    datatype: double
-    description: Centroid (tract, y-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
-  - name: sersic_yErr
-    "@id": "#Object.sersic_yErr"
-    datatype: float
-    description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
-    fits:tunit: pixel
   - name: sersic_ra
     "@id": "#Object.sersic_ra"
     datatype: double
@@ -5276,6 +5241,11 @@ tables:
     datatype: float
     description: Error on the centroid (declination) from the multiband Sersic model fit.
     fits:tunit: deg
+  - name: sersic_ra_dec_Cov
+    description: Covariance between right ascension and declination from the multiband Sersic model fit.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
   - name: sersic_reff_x
     "@id": "#Object.sersic_reff_x"
     datatype: float
