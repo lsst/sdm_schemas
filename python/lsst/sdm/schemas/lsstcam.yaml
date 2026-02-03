@@ -4921,16 +4921,6 @@ tables:
   tap:table_index: 20
   primaryKey: '#Source.sourceId'
   columns:
-  - name: coord_ra
-    description: Fiducial ICRS Right Ascension of centroid used for database indexing
-    datatype: double
-    ivoa:ucd: pos.eq.ra;meta.main
-    ivoa:unit: deg
-  - name: coord_dec
-    description: Fiducial ICRS Declination of centroid used for database indexing
-    datatype: double
-    ivoa:ucd: pos.eq.dec;meta.main
-    ivoa:unit: deg
   - name: parentSourceId
     description: Unique ID of parent source
     datatype: long

@@ -4416,14 +4416,6 @@ tables:
     nullable: false
     description: Unique id. Unique Source ID. Primary Key.
     ivoa:ucd: meta.id;src
-  - name: coord_ra
-    datatype: double
-    description: Fiducial ICRS Right Ascension of centroid used for database indexing
-    fits:tunit: deg
-  - name: coord_dec
-    datatype: double
-    description: Fiducial ICRS Declination of centroid used for database indexing
-    fits:tunit: deg
   - name: visit
     datatype: long
     nullable: false
