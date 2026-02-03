@@ -480,6 +480,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on g-band.
     fits:tunit: nJy
+  - name: g_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (g-band)
+    datatype: float
+  - name: g_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (g-band)
+    datatype: float
+  - name: g_moments_trace
+    description: Moments-based trace radius (g-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_flag
+    description: Failure flag for moments (g-band)
+    datatype: boolean
+  - name: g_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (g-band)
+    datatype: float
+  - name: g_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (g-band)
+    datatype: float
+  - name: g_moments_psf_trace
+    description: Moments-based trace radius of the PSF (g-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_psf_flag
+    description: Failure flag for PSF moments (g-band)
+    datatype: boolean
+  - name: g_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (g-band)
+    datatype: float
+  - name: g_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (g-band)
+    datatype: float
+  - name: g_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (g-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: g_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (g-band)
+    datatype: boolean
   - name: g_hsmShapeRegauss_e1
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on g-band.
@@ -495,10 +534,6 @@ tables:
   - name: g_hsmShapeRegauss_sigma
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on g-band.
-    fits:tunit:
-  - name: g_iDebiasedPSF_flag
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on g-band.
     fits:tunit:
   - name: g_iPSF_flag
     datatype: boolean
@@ -524,19 +559,11 @@ tables:
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
-  - name: g_ixxDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
   - name: g_ixxPSF
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
   - name: g_ixy
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
-  - name: g_ixyDebiasedPSF
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
@@ -548,89 +575,10 @@ tables:
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
-  - name: g_iyyDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on g-band.
-    fits:tunit: pixel**2
   - name: g_iyyPSF
     datatype: float
     description: HSM moments. Measured on g-band.
     fits:tunit: pixel**2
-  - name: g_moments_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: g_moments_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: g_moments_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: g_moments_flag
-    datatype: boolean
-    description: General failure flag for moments measurement.
-    fits:tunit:
-  - name: g_moments_psf_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: g_moments_psf_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: g_moments_psf_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: g_moments_psf_flag
-    datatype: boolean
-    description: General failure flag for PSF moments measurement.
-    fits:tunit:
-  - name: g_moments_round_uu
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: g_moments_round_vv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: g_moments_round_uv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: g_moments_round_flag
-    datatype: boolean
-    description: General failure flag for circular moments measurement.
-  - name: g_moments_psf_debiased_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: g_moments_psf_debiased_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: g_moments_psf_debiased_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: g_moments_psf_debiased_flag
-    datatype: boolean
-    description: General failure flag for debiased PSF moments measurement.
-    fits:tunit:
-  - name: g_moments_a
-    datatype: float
-    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: g_moments_b
-    datatype: float
-    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: g_moments_theta
-    datatype: float
-    description: Position angle of the adaptive Gaussian-weighted second moments.
-    fits:tunit: deg
   - name: g_hsm_moments_30
     datatype: float
     description: HSM higher order moments 30. Measured on g-band.
@@ -1228,6 +1176,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on i-band.
     fits:tunit: nJy
+  - name: i_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (i-band)
+    datatype: float
+  - name: i_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (i-band)
+    datatype: float
+  - name: i_moments_trace
+    description: Moments-based trace radius (i-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_flag
+    description: Failure flag for moments (i-band)
+    datatype: boolean
+  - name: i_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (i-band)
+    datatype: float
+  - name: i_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (i-band)
+    datatype: float
+  - name: i_moments_psf_trace
+    description: Moments-based trace radius of the PSF (i-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_psf_flag
+    description: Failure flag for PSF moments (i-band)
+    datatype: boolean
+  - name: i_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (i-band)
+    datatype: float
+  - name: i_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (i-band)
+    datatype: float
+  - name: i_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (i-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: i_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (i-band)
+    datatype: boolean
   - name: i_hsmShapeRegauss_e1
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on i-band.
@@ -1243,10 +1230,6 @@ tables:
   - name: i_hsmShapeRegauss_sigma
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on i-band.
-    fits:tunit:
-  - name: i_iDebiasedPSF_flag
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on i-band.
     fits:tunit:
   - name: i_iPSF_flag
     datatype: boolean
@@ -1272,19 +1255,11 @@ tables:
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
-  - name: i_ixxDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
   - name: i_ixxPSF
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
   - name: i_ixy
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
-  - name: i_ixyDebiasedPSF
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
@@ -1296,89 +1271,10 @@ tables:
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
-  - name: i_iyyDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on i-band.
-    fits:tunit: pixel**2
   - name: i_iyyPSF
     datatype: float
     description: HSM moments. Measured on i-band.
     fits:tunit: pixel**2
-  - name: i_moments_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: i_moments_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: i_moments_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: i_moments_flag
-    datatype: boolean
-    description: General failure flag for moments measurement.
-    fits:tunit:
-  - name: i_moments_psf_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: i_moments_psf_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: i_moments_psf_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: i_moments_psf_flag
-    datatype: boolean
-    description: General failure flag for PSF moments measurement.
-    fits:tunit:
-  - name: i_moments_round_uu
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: i_moments_round_vv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: i_moments_round_uv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: i_moments_round_flag
-    datatype: boolean
-    description: General failure flag for circular moments measurement.
-  - name: i_moments_psf_debiased_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: i_moments_psf_debiased_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: i_moments_psf_debiased_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: i_moments_psf_debiased_flag
-    datatype: boolean
-    description: General failure flag for debiased PSF moments measurement.
-    fits:tunit:
-  - name: i_moments_a
-    datatype: float
-    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: i_moments_b
-    datatype: float
-    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: i_moments_theta
-    datatype: float
-    description: Position angle of the adaptive Gaussian-weighted second moments.
-    fits:tunit: deg
   - name: i_hsm_moments_30
     datatype: float
     description: HSM higher order moments 30. Measured on i-band.
@@ -1976,6 +1872,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on r-band.
     fits:tunit: nJy
+  - name: r_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (r-band)
+    datatype: float
+  - name: r_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (r-band)
+    datatype: float
+  - name: r_moments_trace
+    description: Moments-based trace radius (r-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_flag
+    description: Failure flag for moments (r-band)
+    datatype: boolean
+  - name: r_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (r-band)
+    datatype: float
+  - name: r_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (r-band)
+    datatype: float
+  - name: r_moments_psf_trace
+    description: Moments-based trace radius of the PSF (r-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_psf_flag
+    description: Failure flag for PSF moments (r-band)
+    datatype: boolean
+  - name: r_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (r-band)
+    datatype: float
+  - name: r_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (r-band)
+    datatype: float
+  - name: r_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (r-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: r_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (r-band)
+    datatype: boolean
   - name: r_hsmShapeRegauss_e1
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on r-band.
@@ -1991,10 +1926,6 @@ tables:
   - name: r_hsmShapeRegauss_sigma
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on r-band.
-    fits:tunit:
-  - name: r_iDebiasedPSF_flag
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on r-band.
     fits:tunit:
   - name: r_iPSF_flag
     datatype: boolean
@@ -2020,19 +1951,11 @@ tables:
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
-  - name: r_ixxDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
   - name: r_ixxPSF
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
   - name: r_ixy
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
-  - name: r_ixyDebiasedPSF
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
@@ -2044,89 +1967,10 @@ tables:
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
-  - name: r_iyyDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on r-band.
-    fits:tunit: pixel**2
   - name: r_iyyPSF
     datatype: float
     description: HSM moments. Measured on r-band.
     fits:tunit: pixel**2
-  - name: r_moments_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: r_moments_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: r_moments_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: r_moments_flag
-    datatype: boolean
-    description: General failure flag for moments measurement.
-    fits:tunit:
-  - name: r_moments_psf_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: r_moments_psf_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: r_moments_psf_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: r_moments_psf_flag
-    datatype: boolean
-    description: General failure flag for PSF moments measurement.
-    fits:tunit:
-  - name: r_moments_round_uu
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: r_moments_round_vv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: r_moments_round_uv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: r_moments_round_flag
-    datatype: boolean
-    description: General failure flag for circular moments measurement.
-  - name: r_moments_psf_debiased_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: r_moments_psf_debiased_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: r_moments_psf_debiased_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: r_moments_psf_debiased_flag
-    datatype: boolean
-    description: General failure flag for debiased PSF moments measurement.
-    fits:tunit:
-  - name: r_moments_a
-    datatype: float
-    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: r_moments_b
-    datatype: float
-    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: r_moments_theta
-    datatype: float
-    description: Position angle of the adaptive Gaussian-weighted second moments.
-    fits:tunit: deg
   - name: r_hsm_moments_30
     datatype: float
     description: HSM higher order moments 30. Measured on r-band.
@@ -2724,6 +2568,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on u-band.
     fits:tunit: nJy
+  - name: u_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (u-band)
+    datatype: float
+  - name: u_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (u-band)
+    datatype: float
+  - name: u_moments_trace
+    description: Moments-based trace radius (u-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_flag
+    description: Failure flag for moments (u-band)
+    datatype: boolean
+  - name: u_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (u-band)
+    datatype: float
+  - name: u_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (u-band)
+    datatype: float
+  - name: u_moments_psf_trace
+    description: Moments-based trace radius of the PSF (u-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_psf_flag
+    description: Failure flag for PSF moments (u-band)
+    datatype: boolean
+  - name: u_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (u-band)
+    datatype: float
+  - name: u_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (u-band)
+    datatype: float
+  - name: u_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (u-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: u_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (u-band)
+    datatype: boolean
   - name: u_hsmShapeRegauss_e1
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on u-band.
@@ -2739,10 +2622,6 @@ tables:
   - name: u_hsmShapeRegauss_sigma
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on u-band.
-    fits:tunit:
-  - name: u_iDebiasedPSF_flag
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on u-band.
     fits:tunit:
   - name: u_iPSF_flag
     datatype: boolean
@@ -2768,19 +2647,11 @@ tables:
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
-  - name: u_ixxDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on u-band.
-    fits:tunit: pixel**2
   - name: u_ixxPSF
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
   - name: u_ixy
-    datatype: float
-    description: HSM moments. Measured on u-band.
-    fits:tunit: pixel**2
-  - name: u_ixyDebiasedPSF
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
@@ -2792,89 +2663,10 @@ tables:
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
-  - name: u_iyyDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on u-band.
-    fits:tunit: pixel**2
   - name: u_iyyPSF
     datatype: float
     description: HSM moments. Measured on u-band.
     fits:tunit: pixel**2
-  - name: u_moments_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: u_moments_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: u_moments_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: u_moments_flag
-    datatype: boolean
-    description: General failure flag for moments measurement.
-    fits:tunit:
-  - name: u_moments_psf_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: u_moments_psf_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: u_moments_psf_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: u_moments_psf_flag
-    datatype: boolean
-    description: General failure flag for PSF moments measurement.
-    fits:tunit:
-  - name: u_moments_round_uu
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: u_moments_round_vv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: u_moments_round_uv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: u_moments_round_flag
-    datatype: boolean
-    description: General failure flag for circular moments measurement.
-  - name: u_moments_psf_debiased_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: u_moments_psf_debiased_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: u_moments_psf_debiased_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: u_moments_psf_debiased_flag
-    datatype: boolean
-    description: General failure flag for debiased PSF moments measurement.
-    fits:tunit:
-  - name: u_moments_a
-    datatype: float
-    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: u_moments_b
-    datatype: float
-    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: u_moments_theta
-    datatype: float
-    description: Position angle of the adaptive Gaussian-weighted second moments.
-    fits:tunit: deg
   - name: u_hsm_moments_30
     datatype: float
     description: HSM higher order moments 30. Measured on u-band.
@@ -3472,6 +3264,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on y-band.
     fits:tunit: nJy
+  - name: y_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (y-band)
+    datatype: float
+  - name: y_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (y-band)
+    datatype: float
+  - name: y_moments_trace
+    description: Moments-based trace radius (y-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_flag
+    description: Failure flag for moments (y-band)
+    datatype: boolean
+  - name: y_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (y-band)
+    datatype: float
+  - name: y_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (y-band)
+    datatype: float
+  - name: y_moments_psf_trace
+    description: Moments-based trace radius of the PSF (y-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_psf_flag
+    description: Failure flag for PSF moments (y-band)
+    datatype: boolean
+  - name: y_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (y-band)
+    datatype: float
+  - name: y_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (y-band)
+    datatype: float
+  - name: y_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (y-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: y_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (y-band)
+    datatype: boolean
   - name: y_hsmShapeRegauss_e1
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on y-band.
@@ -3487,10 +3318,6 @@ tables:
   - name: y_hsmShapeRegauss_sigma
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on y-band.
-    fits:tunit:
-  - name: y_iDebiasedPSF_flag
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on y-band.
     fits:tunit:
   - name: y_iPSF_flag
     datatype: boolean
@@ -3508,15 +3335,7 @@ tables:
     datatype: boolean
     description: Set for any fatal failure. Forced on y-band.
     fits:tunit:
-  - name: y_inputCount_flag_noInputs
-    datatype: boolean
-    description: No coadd inputs available. Forced on y-band.
-    fits:tunit:
   - name: y_ixx
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
-  - name: y_ixxDebiasedPSF
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
@@ -3528,10 +3347,6 @@ tables:
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
-  - name: y_ixyDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
   - name: y_ixyPSF
     datatype: float
     description: HSM moments. Measured on y-band.
@@ -3540,89 +3355,14 @@ tables:
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
-  - name: y_iyyDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on y-band.
-    fits:tunit: pixel**2
   - name: y_iyyPSF
     datatype: float
     description: HSM moments. Measured on y-band.
     fits:tunit: pixel**2
-  - name: y_moments_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: y_moments_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: y_moments_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: y_moments_flag
+  - name: y_inputCount_flag_noInputs
     datatype: boolean
-    description: General failure flag for moments measurement.
+    description: No coadd inputs available. Forced on y-band.
     fits:tunit:
-  - name: y_moments_psf_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: y_moments_psf_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: y_moments_psf_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: y_moments_psf_flag
-    datatype: boolean
-    description: General failure flag for PSF moments measurement.
-    fits:tunit:
-  - name: y_moments_round_uu
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: y_moments_round_vv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: y_moments_round_uv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: y_moments_round_flag
-    datatype: boolean
-    description: General failure flag for circular moments measurement.
-  - name: y_moments_psf_debiased_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: y_moments_psf_debiased_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: y_moments_psf_debiased_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: y_moments_psf_debiased_flag
-    datatype: boolean
-    description: General failure flag for debiased PSF moments measurement.
-    fits:tunit:
-  - name: y_moments_a
-    datatype: float
-    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: y_moments_b
-    datatype: float
-    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: y_moments_theta
-    datatype: float
-    description: Position angle of the adaptive Gaussian-weighted second moments.
-    fits:tunit: deg
   - name: y_hsm_moments_30
     datatype: float
     description: HSM higher order moments 30. Measured on y-band.
@@ -4220,6 +3960,45 @@ tables:
     datatype: float
     description: GAaP Flux uncertainty with PSF aperture after multiplying the seeing by 1.15. Forced on z-band.
     fits:tunit: nJy
+  - name: z_moments_g1
+    description: Moments-based G1 shear ellipticity parameter (z-band)
+    datatype: float
+  - name: z_moments_g2
+    description: Moments-based G2 shear ellipticity parameter (z-band)
+    datatype: float
+  - name: z_moments_trace
+    description: Moments-based trace radius (z-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_flag
+    description: Failure flag for moments (z-band)
+    datatype: boolean
+  - name: z_moments_psf_g1
+    description: Moments-based G1 ellipticity of of the PSF (z-band)
+    datatype: float
+  - name: z_moments_psf_g2
+    description: Moments-based G2 ellipticity of of the PSF (z-band)
+    datatype: float
+  - name: z_moments_psf_trace
+    description: Moments-based trace radius of the PSF (z-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_psf_flag
+    description: Failure flag for PSF moments (z-band)
+    datatype: boolean
+  - name: z_moments_psf_debiased_g1
+    description: Moments-based G1 ellipticity of the PSF, debiased (z-band)
+    datatype: float
+  - name: z_moments_psf_debiased_g2
+    description: Moments-based G2 ellipticity of the PSF, debiased (z-band)
+    datatype: float
+  - name: z_moments_psf_debiased_trace
+    description: Moments-based trace radius of the PSF, debiased (z-band)
+    datatype: float
+    ivoa:unit: arcsec
+  - name: z_moments_psf_debiased_flag
+    description: Failure flag for the debiased PSF moments (z-band)
+    datatype: boolean
   - name: z_hsmShapeRegauss_e1
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on z-band.
@@ -4235,10 +4014,6 @@ tables:
   - name: z_hsmShapeRegauss_sigma
     datatype: float
     description: PSF-corrected shear using Hirata & Seljak (2003) regaussianization. Measured on z-band.
-    fits:tunit:
-  - name: z_iDebiasedPSF_flag
-    datatype: boolean
-    description: General failure flag, set if anything went wrong. Measured on z-band.
     fits:tunit:
   - name: z_iPSF_flag
     datatype: boolean
@@ -4264,19 +4039,11 @@ tables:
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
-  - name: z_ixxDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
   - name: z_ixxPSF
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
   - name: z_ixy
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
-  - name: z_ixyDebiasedPSF
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
@@ -4288,89 +4055,10 @@ tables:
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
-  - name: z_iyyDebiasedPSF
-    datatype: float
-    description: HSM moments. Measured on z-band.
-    fits:tunit: pixel**2
   - name: z_iyyPSF
     datatype: float
     description: HSM moments. Measured on z-band.
     fits:tunit: pixel**2
-  - name: z_moments_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: z_moments_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: z_moments_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: z_moments_flag
-    datatype: boolean
-    description: General failure flag for moments measurement.
-    fits:tunit:
-  - name: z_moments_psf_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: z_moments_psf_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: z_moments_psf_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model at the position of the object, in a local gnomonic projection.
-    fits:tunit: arcsec**2
-  - name: z_moments_psf_flag
-    datatype: boolean
-    description: General failure flag for PSF moments measurement.
-    fits:tunit:
-  - name: z_moments_round_uu
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: z_moments_round_vv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: z_moments_round_uv
-    datatype: float
-    description: Adaptive circular Gaussian-weighted second moments PSF moments, in a local gnomonic projection, with u aligned with RA and v aligned with dec.
-    fits:tunit: arcsec**2
-  - name: z_moments_round_flag
-    datatype: boolean
-    description: General failure flag for circular moments measurement.
-  - name: z_moments_psf_debiased_uu
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: z_moments_psf_debiased_vv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: z_moments_psf_debiased_uv
-    datatype: float
-    description: Adaptive Gaussian-weighted second moments of the PSF model, after adding noise to match the signal-to-noise ratio of the object.
-    fits:tunit: arcsec**2
-  - name: z_moments_psf_debiased_flag
-    datatype: boolean
-    description: General failure flag for debiased PSF moments measurement.
-    fits:tunit:
-  - name: z_moments_a
-    datatype: float
-    description: Semimajor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: z_moments_b
-    datatype: float
-    description: Semiminor axis length of the adaptive Gaussian-weighted second moments.
-    fits:tunit: arcsec
-  - name: z_moments_theta
-    datatype: float
-    description: Position angle of the adaptive Gaussian-weighted second moments.
-    fits:tunit: deg
   - name: z_hsm_moments_30
     datatype: float
     description: HSM higher order moments 30. Measured on z-band.
