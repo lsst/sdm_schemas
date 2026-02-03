@@ -4264,38 +4264,31 @@ tables:
   - name: shape_flag
     description: General failure flag, set if anything went wrong. Reference band.
     datatype: boolean
-  - name: exponential_x
-    description: Centroid (tract, x-axis) from the multiband exponential model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: exponential_xErr
-    description: Error on the centroid (tract, x-axis) from the multiband exponential model fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: exponential_y
-    description: Centroid (tract, y-axis) from the multiband exponential model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: exponential_yErr
-    description: Error on the centroid (tract, y-axis) from the multiband exponential model fit.
-    datatype: float
-    ivoa:unit: pixel
   - name: exponential_ra
     description: Centroid (right ascension) from the multiband exponential model fit.
     datatype: double
+    ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: exponential_raErr
     description: Error on the centroid (right ascension) from the multiband exponential model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: exponential_dec
     description: Centroid (declination) from the multiband exponential model fit.
     datatype: double
+    ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: exponential_decErr
     description: Error on the centroid (declination) from the multiband exponential model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
+  - name: exponential_ra_dec_Cov
+    description: Covariance between right ascension and declination from the multiband exponential model fit.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
   - name: exponential_reff_x
     description: Effective radius (x-axis) from the multiband exponential model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
     datatype: float
@@ -4398,38 +4391,31 @@ tables:
   - name: exponential_unknown_flag
     description: Flag set for failures with an unexpected or unknown cause for the multiband exponential model.
     datatype: boolean
-  - name: sersic_x
-    description: Centroid (tract, x-axis) from the multiband Sersic model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: sersic_xErr
-    description: Error on the centroid (tract, x-axis) from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: pixel
-  - name: sersic_y
-    description: Centroid (tract, y-axis) from the multiband Sersic model fit.
-    datatype: double
-    ivoa:unit: pixel
-  - name: sersic_yErr
-    description: Error on the centroid (tract, y-axis) from the multiband Sersic model fit.
-    datatype: float
-    ivoa:unit: pixel
   - name: sersic_ra
     description: Centroid (right ascension) from the multiband Sersic model fit.
     datatype: double
+    ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: sersic_raErr
     description: Error on the centroid (right ascension) from the multiband Sersic model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: sersic_dec
     description: Centroid (declination) from the multiband Sersic model fit.
     datatype: double
+    ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: sersic_decErr
     description: Error on the centroid (declination) from the multiband Sersic model fit.
     datatype: float
+    ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
+  - name: sersic_ra_dec_Cov
+    description: Covariance between right ascension and declination from the multiband Sersic model fit.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
   - name: sersic_reff_x
     description: Effective radius (x-axis) from the multiband Sersic model fit, prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature by default).
     datatype: float
