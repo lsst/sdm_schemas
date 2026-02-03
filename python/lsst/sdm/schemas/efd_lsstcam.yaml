@@ -3,7 +3,7 @@ name: efd_lsstcam
 "@id": "#efd_lsstcam"
 description: Transformed EFD Consolidated Database for lsstcam.
 version:
-  current: 1.0.0
+  current: 1.1.0
 tables:
 - name: exposure_efd
   "@id": "#exposure_efd"
@@ -2854,6 +2854,18 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd
     ivoa:unit: um
+  - name: mt_salindex122_temperature_6
+    "@id": "#exposure_efd.mt_salindex122_temperature_6"
+    description: M2-ESS02, temperature item 6, plus X plus Y Truss Structure
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex122_temperature_7
+    "@id": "#exposure_efd.mt_salindex122_temperature_7"
+    description: M2-ESS02, temperature item 7, minus X minus Y Truss Structure
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
 
 - name: exposure_efd_unpivoted
   "@id": "#exposure_efd_unpivoted"
@@ -5708,6 +5720,18 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd
     ivoa:unit: um
+  - name: mt_salindex122_temperature_6
+    "@id": "#visit1_efd.mt_salindex122_temperature_6"
+    description: M2-ESS02, temperature item 6, plus X plus Y Truss Structure
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex122_temperature_7
+    "@id": "#visit1_efd.mt_salindex122_temperature_7"
+    description: M2-ESS02, temperature item 7, minus X minus Y Truss Structure
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
 
 - name: visit1_efd_unpivoted
   "@id": "#visit1_efd_unpivoted"
