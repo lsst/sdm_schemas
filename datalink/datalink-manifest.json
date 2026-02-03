@@ -5,5 +5,7 @@
     "dp02_object_to_fs_timeseries": ["dp02_dc2_catalogs_Object_objectId"],
     "dp02_diaobject_to_dias_timeseries": ["dp02_dc2_catalogs_DiaObject_diaObjectId"],
     "dp02_diaobject_to_diafs_timeseries": ["dp02_dc2_catalogs_DiaObject_diaObjectId"],
-    "obscore_links": ["ivoa_ObsCore_access_url"]
+    "obscore_links": ["ivoa_ObsCore_access_url"],
+    "tap_schema_column_docs": ["tap_schema_columns_table_name", "tap_schema_columns_column_name"],
+    "tap_schema_table_docs": ["tap_schema_columns_table_name"]
 }
