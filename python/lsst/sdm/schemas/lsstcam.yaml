@@ -7820,3 +7820,229 @@ tables:
     description: Unique index on objectId column
     columns:
     - "#Parent.objectId"
+
+- name: ShearObject
+  description: "Descriptions of shear objects detected and measured on coadds with metadetection."
+  tap:table_index: 170
+  primaryKey: '#ShearObject.shearObjectId'
+  columns:
+  - name: shearObjectId
+    description: Unique identifier for a ShearObject, specific to a single metacalibration counterfactual image.
+    datatype: long
+    ivoa:ucd: meta.id;src
+    tap:principal: 1
+  - name: tract
+    description: Skymap tract ID
+    datatype: long
+    tap:principal: 1
+  - name: patch
+    description: Skymap patch ID
+    datatype: long
+    tap:principal: 1
+  - name: cell_x
+    description: Column of the cell within the patch on which this measurement was made.
+    datatype: int
+  - name: cell_y
+    description: Row of the cell within the patch on which this measurement was made.
+    datatype: int
+  - name: metaStep
+    description: Type of artificial shear applied to image. One of 'ns', '1p', '1m', '2p', '2m'.
+    datatype: char
+    length: 2
+  - name: image_flags
+    description: Flags for the image on which this measurement was made.
+    datatype: int
+  - name: x
+    description: Centroid (tract, x-axis) of the detected ShearObject.
+    datatype: float
+  - name: y
+    description: Centroid (tract, y-axis) of the detected ShearObject.
+    datatype: float
+  - name: ra
+    description: Detected Right Ascension of the ShearObject.
+    datatype: double
+    ivoa:ucd: pos.eq.ra
+    ivoa:unit: deg
+  - name: dec
+    description: Detected Declination of the ShearObject.
+    datatype: double
+    ivoa:ucd: pos.eq.dec
+    ivoa:unit: deg
+  - name: psfOriginal_flags
+    description: Flags for the original PSF measurement.
+    datatype: int
+  - name: psfOriginal_e1
+    description: Distortion-style e1 of the original PSF from adaptive moments.
+    datatype: float
+  - name: psfOriginal_e2
+    description: Distortion-style e2 of the original PSF from adaptive moments.
+    datatype: float
+  - name: psfOriginal_T
+    description: Trace (<x^2> + <y^2>) measurement of the original PSF from adaptive moments.
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: bmask_flags
+    description: bmask flags for the ShearObject.
+    datatype: int
+  - name: ormask_flags
+    description: ored mask flags for the ShearObject.
+    datatype: int
+  - name: mfrac
+    description: Gaussian-weighted masked fraction for the ShearObject.
+    datatype: float
+  - name: gauss_psfReconvolved_flags
+    description: Flags for reconvolved PSF (measured with gauss algorithm).
+    datatype: int
+  - name: gauss_psfReconvolved_g1
+    description: Reduced-shear g1 of the reconvolved PSF (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_psfReconvolved_g2
+    description: Reduced-shear g2 of the reconvolved PSF (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_psfReconvolved_T
+    description: Trace (<x^2> + <y^2>) of the reconvolved PSF (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: gauss_g1
+    description: Reduced-shear g1 measurement of the ShearObject (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_g2
+    description: Reduced-shear g2 measurement of the ShearObject (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_g1_g1_Cov
+    description: Auto-covariance of g1 measurement of the ShearObject (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_g1_g2_Cov
+    description: Cross-covariance of g1 and g2 measurement of the ShearObject (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_g2_g2_Cov
+    description: Auto-covariance of g2 measurement of the ShearObject (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_snr
+    description: Signal-to-noise ratio measure of the ShearObject (measured with gauss algorithm).
+    datatype: float
+  - name: gauss_T
+    description: Trace (<x^2> + <y^2>) measurement of the ShearObject (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: gauss_TErr
+    description: Uncertainty in the trace measurement of the ShearObject (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: gauss_shape_flags
+    description: Flags for the second moments measurement of the ShearObject (measured with gauss algorithm).
+    datatype: int
+  - name: gauss_object_flags
+    description: Flags for the ShearObject measurement (measured with gauss algorithm).
+    datatype: int
+  - name: gauss_flags
+    description: Overall flags for gauss measurement algorithm.
+    datatype: int
+  - name: pgauss_snr
+    description: Signal-to-noise ratio measure of the ShearObject (measured with pgauss algorithm).
+    datatype: float
+  - name: pgauss_T
+    description: Trace (<x^2> + <y^2>) measurement of the ShearObject (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: pgauss_TErr
+    description: Uncertainty in the trace measurement of the ShearObject (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: arcsec**2
+  - name: pgauss_shape_flags
+    description: Flags for the second moments measurement of the ShearObject (measured with pgauss algorithm).
+    datatype: int
+  - name: pgauss_object_flags
+    description: Flags for the ShearObject measurement (measured with pgauss algorithm).
+    datatype: int
+  - name: pgauss_flags
+    description: Overall flags for pgauss measurement algorithm.
+    datatype: int
+  - name: g_gaussFlux_flags
+    description: Flags set for flux in g band measured with gauss algorithm.
+    datatype: int
+  - name: g_gaussFlux
+    description: Flux in g band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_gaussFluxErr
+    description: Flux uncertainty in g band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_gaussFlux_flags
+    description: Flags set for flux in r band measured with gauss algorithm.
+    datatype: int
+  - name: r_gaussFlux
+    description: Flux in r band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_gaussFluxErr
+    description: Flux uncertainty in r band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_gaussFlux_flags
+    description: Flags set for flux in i band measured with gauss algorithm.
+    datatype: int
+  - name: i_gaussFlux
+    description: Flux in i band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_gaussFluxErr
+    description: Flux uncertainty in i band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_gaussFlux_flags
+    description: Flags set for flux in z band measured with gauss algorithm.
+    datatype: int
+  - name: z_gaussFlux
+    description: Flux in z band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_gaussFluxErr
+    description: Flux uncertainty in z band (measured with gauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_pgaussFlux_flags
+    description: Flags set for flux in g band measured with pgauss algorithm.
+    datatype: int
+  - name: g_pgaussFlux
+    description: Flux in g band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: g_pgaussFluxErr
+    description: Flux uncertainty in g band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_pgaussFlux_flags
+    description: Flags set for flux in r band measured with pgauss algorithm.
+    datatype: int
+  - name: r_pgaussFlux
+    description: Flux in r band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: r_pgaussFluxErr
+    description: Flux uncertainty in r band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_pgaussFlux_flags
+    description: Flags set for flux in i band measured with pgauss algorithm.
+    datatype: int
+  - name: i_pgaussFlux
+    description: Flux in i band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: i_pgaussFluxErr
+    description: Flux uncertainty in i band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_pgaussFlux_flags
+    description: Flags set for flux in z band measured with pgauss algorithm.
+    datatype: int
+  - name: z_pgaussFlux
+    description: Flux in z band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
+  - name: z_pgaussFluxErr
+    description: Flux uncertainty in z band (measured with pgauss algorithm).
+    datatype: float
+    ivoa:unit: nJy
