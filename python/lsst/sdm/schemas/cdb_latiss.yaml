@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LATISS schema contains information for each exposure and visit taken by the instrument, an imaging slitless spectrometer mounted on the Rubin Observatory Auxiliary Telescope.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.6.1"
+  current: "3.7.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -72,7 +72,10 @@ tables:
   - name: s_ra
     "@id": "#exposure.s_ra"
     datatype: double
-    description: Central Spatial Position in ICRS; Right ascension of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; right ascension of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.ra
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
@@ -80,7 +83,10 @@ tables:
   - name: s_dec
     "@id": "#exposure.s_dec"
     datatype: double
-    description: Central Spatial Position in ICRS; Declination of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; declination of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.dec
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
@@ -653,7 +659,10 @@ tables:
   - name: s_ra
     "@id": "#visit1.s_ra"
     datatype: double
-    description: Central Spatial Position in ICRS; Right ascension of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; right ascension of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.ra
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
@@ -661,7 +670,10 @@ tables:
   - name: s_dec
     "@id": "#visit1.s_dec"
     datatype: double
-    description: Central Spatial Position in ICRS; Declination of targeted focal plane center.
+    description: >-
+      Central Spatial Position in ICRS; declination of focal plane center derived from encoder readings and
+      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
+      mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.dec
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
@@ -955,6 +967,36 @@ tables:
     datatype: float
     description: Standard deviation of offsets of astrometric calibration matches.
     ivoa:unit: arcsec
+  - name: astrom_ra
+    "@id": "#visit1_quicklook.astrom_ra"
+    datatype: double
+    description: >-
+      Central Spatial Position in ICRS; Right ascension of the CCD center.
+      In contrast with #exposure.s_ra, which is the targeted sky position, this is the position
+      fitted after plate solving the image.
+    tap:std: 1
+    ivoa:ucd: pos.eq.ra
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
+    ivoa:unit: deg
+  - name: astrom_dec
+    "@id": "#visit1_quicklook.astrom_dec"
+    datatype: double
+    description: >-
+      Central Spatial Position in ICRS; Declination of the CCD center.
+      In contrast with #exposure.s_dec, which is the targeted sky position, this is the position
+      fitted after plate solving the image.
+    tap:std: 1
+    ivoa:ucd: pos.eq.dec
+    votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
+    ivoa:unit: deg
+  - name: astrom_sky_rotation
+    "@id": "#visit1_quicklook.astrom_sky_rotation"
+    datatype: double
+    description: >-
+      Fitted sky rotation angle based on plate solving. This quantity can be compared
+      to #exposure.sky_rotation, the targeted sky rotation angle.
+    ivoa:ucd: pos.posAng
+    ivoa:unit: deg
   - name: eff_time
     "@id": "#visit1_quicklook.eff_time"
     datatype: float
