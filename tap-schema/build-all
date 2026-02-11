@@ -3,6 +3,11 @@
 # NB: The order of files in the ./build statements controls the TAP_SCHEMA.schemas.schema_index
 # values that control the presentation order of schemas.  This is respected by the Portal Aspect.
 #
+
+# Create a shared buildx builder
+docker buildx create --name tap-schema --driver docker-container \
+       --platform linux/amd64 --platform linux/arm64
+
 ./build mock
 
 # TAP services based on production Qserv at USDF:
@@ -29,3 +34,5 @@
 
 FELIS_UNIQUE_KEYS=1 ./build usdf-dev-cdb ../yml/{cdb,efd}_*.yaml
 FELIS_UNIQUE_KEYS=1 ./build usdf-prod-cdb ../yml/{cdb,efd}_*.yaml
+
+docker buildx rm tap-schema
