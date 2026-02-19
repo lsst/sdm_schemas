@@ -453,14 +453,14 @@ tables:
         pixelFlags_injected_template:
         pixelFlags_injected_templateCenter:
         glint_trail:
-  constraints:
-  - name: fk_DiaSource_DiaObject
-    description: Link a DiaObject to its associated DiaSources
-    '@type': ForeignKey
-    columns:
-    - '#DiaSource.diaObjectId'
-    referencedColumns:
-    - '#DiaObject.diaObjectId'
+  # constraints:
+  # - name: fk_DiaSource_DiaObject
+  #  description: Link a DiaObject to its associated DiaSources
+  #  '@type': ForeignKey
+  #  columns:
+  #  - '#DiaSource.diaObjectId'
+  #  referencedColumns:
+  #  - '#DiaObject.diaObjectId'
 - name: DiaForcedSource
   description: Forced-photometry source measurement on an individual difference Exposure for all objects in the DiaObject table
   columnRefs:
@@ -490,11 +490,11 @@ tables:
         band:
         timeProcessedMjdTai:
         timeWithdrawnMjdTai:
-  constraints:
-  - name: fk_DiaForcedSource_DiaObject
-    description: Link a DiaObject to its associated DiaForcedSources
-    '@type': ForeignKey
-    columns:
-    - '#DiaForcedSource.diaObjectId'
-    referencedColumns:
-    - '#DiaObject.diaObjectId'
+  # constraints:
+  # - name: fk_DiaForcedSource_DiaObject
+  #  description: Link a DiaObject to its associated DiaForcedSources
+  #  '@type': ForeignKey
+  #  columns:
+  #  - '#DiaForcedSource.diaObjectId'
+  #  referencedColumns:
+  #  - '#DiaObject.diaObjectId'
