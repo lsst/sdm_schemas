@@ -6269,6 +6269,42 @@ tables:
     datatype: double
     description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0)) of the stars used in the PSF model
     fits:tunit: pixel**2
+  - name: wcsDetectorPointingResidual
+    description: >
+      Maximum difference (on the pointing-fit grid) between the final WCS position and
+      the position predicted by camera geometry, after re-pointing using the final WCS
+      for this detector only.  The detector is rejected from the pointing fit if this
+      exceeds 10".
+    datatype: double
+    ivoa:unit: arcsec
+    tap:principal: 0
+  - name: wcsVisitPointingResidual
+    description: >
+      Maximum difference (on the pointing-fit grid) between the final WCS position and
+      the position predicted by camera geometry, after re-pointing using the final WCS
+      of all non-rejected detectors in the visit.
+      The WCS is set to null if this exceeds 60".
+    datatype: double
+    ivoa:unit: arcsec
+    tap:principal: 0
+  - name: wcsPreliminaryDetectorPointingResidual
+    description: >
+      Maximum difference (on the pointing-fit grid) between the preliminary WCS position and
+      the position predicted by camera geometry, after re-pointing using the prelimnary WCS
+      for this detector only.  The detector is rejected from the pointing fit if this
+      exceeds 10".
+    datatype: double
+    ivoa:unit: arcsec
+    tap:principal: 0
+  - name: wcsPreliminaryVisitPointingResidual
+    description: >
+      Maximum difference (on the pointing-fit grid) between the preliminary WCS position and
+      the position predicted by camera geometry, after re-pointing using the preliminary WCS
+      of all non-rejected detectors in the visit.
+      The WCS is set to null if this exceeds 60".
+    datatype: double
+    ivoa:unit: arcsec
+    tap:principal: 0
 
 - name: Parent
   description: "Descriptions of the parent objects in the deblending hierarchy."
