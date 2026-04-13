@@ -111,13 +111,13 @@ jobs:
 
     steps:
       - name: Download datalink artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: datalink-artifacts
           path: datalink
 
       - name: Download schema YAML files
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: schema-artifacts
           path: yml
