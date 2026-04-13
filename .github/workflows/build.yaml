@@ -41,7 +41,7 @@ jobs:
         working-directory: ./datalink
 
       - name: Upload datalink artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: datalink-artifacts
           path: |
@@ -49,7 +49,7 @@ jobs:
             datalink/datalink-snippets.zip
 
       - name: Upload schema YAML files
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: schema-artifacts
           path: yml/*.yaml
