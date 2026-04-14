@@ -8168,3 +8168,177 @@ tables:
     description: Flux uncertainty in z band (measured with pgauss algorithm).
     datatype: float
     ivoa:unit: nJy
+- name: IsolatedStarStellarMotions
+  description: Position, proper motion, and parallax for isolated stars, fit using
+    associated source measurements, with positions for associated reference objects
+    if available.
+  tap:table_index: 180
+  primaryKey: '#IsolatedStarStellarMotions.isolated_star_id'
+  columns:
+  - name: isolated_star_id
+    description: Unique id of isolated star
+    datatype: int
+    ivoa:ucd: meta.id;meta.main
+    tap:principal: 1
+  - name: ra
+    description: Position in right ascension at the reference epoch.
+    datatype: float
+    ivoa:ucd: pos.eq.ra
+    ivoa:unit: deg
+    tap:principal: 1
+  - name: dec
+    description: Position in declination at the reference epoch.
+    datatype: float
+    ivoa:ucd: pos.eq.dec
+    ivoa:unit: deg
+    tap:principal: 1
+  - name: raPM
+    description: Proper motion in right ascension.
+    datatype: float
+    ivoa:ucd: pos.pm;pos.eq.ra
+    ivoa:unit: mas/yr
+    tap:principal: 1
+  - name: decPM
+    description: Proper motion in declination.
+    datatype: float
+    ivoa:ucd: pos.pm;pos.eq.dec
+    ivoa:unit: mas/yr
+    tap:principal: 1
+  - name: parallax
+    description: Parallax
+    datatype: float
+    ivoa:ucd: pos.parallax
+    ivoa:unit: mas
+    tap:principal: 1
+  - name: epoch
+    description: Epoch in MJD to which the position corresponds.
+    datatype: float
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+    tap:principal: 1
+  - name: raErr
+    description: Error in right ascension at the reference epoch.
+    datatype: float
+    ivoa:ucd: stat.error;pos.eq.ra
+    ivoa:unit: deg
+    tap:principal: 1
+  - name: decErr
+    description: Error in declination at the reference epoch.
+    datatype: float
+    ivoa:ucd: stat.error;pos.eq.dec
+    ivoa:unit: deg
+    tap:principal: 1
+  - name: raPMErr
+    description: Error in proper motion in right ascension.
+    datatype: float
+    ivoa:ucd: stat.error;pos.pm;pos.eq.ra
+    ivoa:unit: mas/yr
+    tap:principal: 1
+  - name: decPMErr
+    description: Error in proper motion in declination.
+    datatype: float
+    ivoa:ucd: stat.error;pos.pm;pos.eq.dec
+    ivoa:unit: mas/yr
+    tap:principal: 1
+  - name: parallaxErr
+    description: Error in parallax.
+    datatype: float
+    ivoa:ucd: stat.error;pos.parallax
+    ivoa:unit: mas
+    tap:principal: 1
+  - name: ra_dec_Cov
+    description: Covariance between right ascension and declination.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
+    tap:principal: 1
+  - name: ra_raPM_Cov
+    description: Covariance between right ascension and proper motion in right ascension.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.pm;pos.eq.ra
+    ivoa:unit: deg*mas/yr
+    tap:principal: 1
+  - name: ra_decPM_Cov
+    description: Covariance between right ascension and proper motion in declination.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.pm;pos.eq.dec
+    ivoa:unit: deg*mas/yr
+    tap:principal: 1
+  - name: ra_parallax_Cov
+    description: Covariance between right ascension and parallax.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.parallax
+    ivoa:unit: deg*mas
+    tap:principal: 1
+  - name: dec_raPM_Cov
+    description: Covariance between declination and proper motion in right ascension.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.dec;pos.pm;pos.eq.ra
+    ivoa:unit: deg*mas/yr
+    tap:principal: 1
+  - name: dec_decPM_Cov
+    description: Covariance between declination and proper motion in declination.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.dec;pos.pm;pos.eq.dec
+    ivoa:unit: deg*mas/yr
+    tap:principal: 1
+  - name: dec_parallax_Cov
+    description: Covariance between declination and parallax.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.dec;pos.parallax
+    ivoa:unit: deg*mas
+    tap:principal: 1
+  - name: raPM_decPM_Cov
+    description: Covariance between proper motion in right ascension and proper motion in declination.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.pm;pos.eq.ra;pos.pm;pos.eq.dec
+    ivoa:unit: mas**2/yr**2
+    tap:principal: 1
+  - name: raPM_parallax_Cov
+    description: Covariance between proper motion in right ascension and parallax.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.pm;pos.eq.ra;pos.parallax
+    ivoa:unit: mas**2/yr
+    tap:principal: 1
+  - name: decPM_parallax_Cov
+    description: Covariance between proper motion in declination and parallax.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.pm;pos.eq.dec;pos.parallax
+    ivoa:unit: mas**2/yr
+    tap:principal: 1
+  - name: referenceId
+    description: Id of the reference object if available.
+    datatype: float
+    tap:principal: 1
+  - name: ref_ra
+    description: Position of the reference object in right ascension at the reference
+      epoch.
+    datatype: float
+    ivoa:ucd: pos.eq.ra
+    ivoa:unit: deg
+    tap:principal: 0
+  - name: ref_dec
+    description: Position of the reference object in declination at the reference
+      epoch.
+    datatype: float
+    ivoa:ucd: pos.eq.dec
+    ivoa:unit: deg
+    tap:principal: 0
+  - name: ref_raPM
+    description: Proper motion of the reference object in right ascension.
+    datatype: float
+    ivoa:ucd: pos.pm;pos.eq.ra
+    ivoa:unit: mas/yr
+    tap:principal: 0
+  - name: ref_decPM
+    description: Proper motion of the reference object in declination.
+    datatype: float
+    ivoa:ucd: pos.pm;pos.eq.dec
+    ivoa:unit: mas/yr
+    tap:principal: 0
+  - name: ref_parallax
+    description: Parallax of the reference object
+    datatype: float
+    ivoa:ucd: pos.parallax
+    ivoa:unit: mas
+    tap:principal: 0
