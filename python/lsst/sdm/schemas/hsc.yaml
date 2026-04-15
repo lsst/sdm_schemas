@@ -4880,7 +4880,7 @@ tables:
     datatype: double
     description: Start of the visit, expressed as Modified
       Julian Date, International Atomic Time, accurate to 10ms.
-- name: CcdVisit
+- name: VisitDetector
   description: Defines a single detector of a visit
   columns:
   - name: ccdVisitId
