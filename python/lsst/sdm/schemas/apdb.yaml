@@ -1179,6 +1179,41 @@ tables:
     datatype: double
     description: Standard deviation of offsets of astrometric calibration matches (arcsec).
     fits:tunit: arcsec
+  - name: starComa1Median
+    description: Coma-like higher-order moment combination (median M30 + M12 of the stars used in
+      the PSF model)
+    datatype: double
+    fits:tunit:
+  - name: starComa2Median
+    description: Coma-like higher-order moment combination (median M21 + M03 of the stars used in
+      the PSF model)
+    datatype: double
+    fits:tunit:
+  - name: starTrefoil1Median
+    description: Trefoil-like higher-order moment combination (median M30 - 3*M12 of the stars used in
+      the PSF model)
+    datatype: double
+    fits:tunit:
+  - name: starTrefoil2Median
+    description: Trefoil-like higher-order moment combination (median 3*M21 - M03 of the stars used in
+      the PSF model)
+    datatype: double
+    fits:tunit:
+  - name: starKurtosisMedian
+    description: Kurtosis-like higher-order moment combination (median M40 + 2*M22 + M04 of the stars
+      used in the PSF model)
+    datatype: double
+    fits:tunit:
+  - name: starE41Median
+    description: Fourth-order ellipticity-like higher-order moment combination (median M40 - M04
+      of the stars used in the PSF model)
+    datatype: double
+    fits:tunit:
+  - name: starE42Median
+    description: Fourth-order ellipticity-like higher-order moment combination (median 2*(M31 + M13)
+      of the stars used in the PSF model)
+    datatype: double
+    fits:tunit:
   - name: nPsfStar
     '@id': '#DetectorVisitProcessingSummary.nPsfStar'
     datatype: int

@@ -6528,6 +6528,41 @@ tables:
     datatype: double
     ivoa:unit: arcsec
     tap:principal: 0
+  - name: starComa1Median
+    description: Coma-like higher-order moment combination (median M30 + M12 of the stars used in
+      the PSF model)
+    datatype: double
+    tap:principal: 0
+  - name: starComa2Median
+    description: Coma-like higher-order moment combination (median M21 + M03 of the stars used in
+      the PSF model)
+    datatype: double
+    tap:principal: 0
+  - name: starTrefoil1Median
+    description: Trefoil-like higher-order moment combination (median M30 - 3*M12 of the stars used in
+      the PSF model)
+    datatype: double
+    tap:principal: 0
+  - name: starTrefoil2Median
+    description: Trefoil-like higher-order moment combination (median 3*M21 - M03 of the stars used in
+      the PSF model)
+    datatype: double
+    tap:principal: 0
+  - name: starKurtosisMedian
+    description: Kurtosis-like higher-order moment combination (median M40 + 2*M22 + M04 of the stars
+      used in the PSF model)
+    datatype: double
+    tap:principal: 0
+  - name: starE41Median
+    description: Fourth-order ellipticity-like higher-order moment combination (median M40 - M04
+      of the stars used in the PSF model)
+    datatype: double
+    tap:principal: 0
+  - name: starE42Median
+    description: Fourth-order ellipticity-like higher-order moment combination (median 2*(M31 + M13)
+      of the stars used in the PSF model)
+    datatype: double
+    tap:principal: 0
   - name: nPsfStar
     description: Number of stars used for PSF model
     datatype: int
