@@ -4883,12 +4883,12 @@ tables:
 - name: VisitDetector
   description: Defines a single detector of a visit
   columns:
-  - name: ccdVisitId
-    datatype: long
-    description: Primary key (unique identifier).
   - name: visitId
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
+  - name: detector
+    datatype: long
+    description: Detector ID. A detector associated with a particular instrument (not an observation of that detector)
   - name: physical_filter
     datatype: char
     length: 32
@@ -4938,9 +4938,6 @@ tables:
     datatype: float
     description: RMS noise of the sky background.
     fits:tunit: adu
-  - name: detector
-    datatype: long
-    description: Detector ID. A detector associated with a particular instrument (not an observation of that detector)
   - name: seeing
     datatype: double
     description: Mean measured FWHM of the PSF.
