@@ -4881,6 +4881,9 @@ tables:
     description: Start of the visit, expressed as Modified
       Julian Date, International Atomic Time, accurate to 10ms.
 - name: VisitDetector
+  primaryKey:
+  - "#VisitDetector.visitId"
+  - "#VisitDetector.detector"
   description: Defines a single detector of a visit
   columns:
   - name: visitId
