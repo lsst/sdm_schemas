@@ -6452,13 +6452,24 @@ tables:
     description: Unique index on the visit column
     columns:
     - "#Visit.visit"
-- name: CcdVisit
+- name: VisitDetector
   primaryKey:
-  - "#CcdVisit.visitId"
-  - "#CcdVisit.detector"
+  - "#VisitDetector.visitId"
+  - "#VisitDetector.detector"
   description: "Per-detector metadata and metrics associated with each visit"
   tap:table_index: 90
   columns:
+  - name: visitId
+    description: Reference to the corresponding entry in the Visit table.
+    datatype: long
+    ivoa:ucd: meta.id.parent;obs
+    tap:column_index: 2
+    tap:principal: 1
+  - name: detector
+    description: Detector ID. A detector associated with a particular instrument (not
+      an observation of that detector).
+    datatype: long
+    tap:principal: 1
   - name: physical_filter
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
@@ -6596,21 +6607,6 @@ tables:
     datatype: double
     ivoa:unit: pixel**2
     tap:principal: 0
-  - name: ccdVisitId
-    description: Primary key (unique identifier).
-    datatype: long
-    tap:principal: 0
-  - name: visitId
-    description: Reference to the corresponding entry in the Visit table.
-    datatype: long
-    ivoa:ucd: meta.id.parent;obs
-    tap:column_index: 2
-    tap:principal: 1
-  - name: detector
-    description: Detector ID. A detector associated with a particular instrument (not
-      an observation of that detector).
-    datatype: long
-    tap:principal: 1
   - name: seeing
     description: Mean measured FWHM of the PSF.
     datatype: double
@@ -6773,23 +6769,23 @@ tables:
     ivoa:unit: arcsec
     tap:principal: 0
   constraints:
-  - name: fk_CcdVisit_Visit
+  - name: fk_VisitDetector_Visit
     description: Link a Visit to the CCD-level images it contains
     '@type': ForeignKey
     columns:
-    - '#CcdVisit.visitId'
+    - '#VisitDetector.visitId'
     referencedColumns:
     - '#Visit.visit'
   indexes:
-  - name: idx_CcdVisit_visitId
+  - name: idx_VisitDetector_visitId
     description: Non-unique index on visitId column; accelerates retrieval of data for all detectors for a visit
     columns:
-    - "#CcdVisit.visitId"
-  - name: idx_CcdVisit_visitId_detector
+    - "#VisitDetector.visitId"
+  - name: idx_VisitDetector_visitId_detector
     description: Unique index on visit and detector columns in CcdVisit table
     columns:
-    - "#CcdVisit.visitId"
-    - "#CcdVisit.detector"
+    - "#VisitDetector.visitId"
+    - "#VisitDetector.detector"
 
 - name: SSObject
   description: LSST-computed per-object quantities.
