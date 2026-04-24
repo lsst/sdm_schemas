@@ -6802,9 +6802,6 @@ tables:
 - name: VisitDetector
   description: Defines a single detector of a visit
   columns:
-  - name: ccdVisitId
-    datatype: long
-    description: Primary key (unique identifier).
   - name: visit
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
