@@ -6799,12 +6799,12 @@ tables:
     datatype: double
     description: Start of the visit, expressed as Modified Julian Date,
       International Atomic Time, accurate to 10ms.
-- name: CcdVisit
+- name: VisitDetector
+  primaryKey:
+  - "#VisitDetector.visit"
+  - "#VisitDetector.detector"
   description: Defines a single detector of a visit
   columns:
-  - name: ccdVisitId
-    datatype: long
-    description: Primary key (unique identifier).
   - name: visit
     datatype: long
     description: Reference to the corresponding entry in the Visit table.
