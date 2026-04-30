@@ -618,7 +618,7 @@ tables:
   - name: trailLengthErr
     datatype: float
     description: Uncertainty of trailLength.
-    fits:tunit: nJy
+    fits:tunit: arcsec
   - name: trailAngle
     datatype: float
     description: Maximum likelihood fit of the angle between the meridian through
@@ -627,7 +627,7 @@ tables:
   - name: trailAngleErr
     datatype: float
     description: Uncertainty of trailAngle.
-    fits:tunit: nJy
+    fits:tunit: deg
   - name: trailChi2
     datatype: float
     description: Chi^2 statistic of the trailed source model fit.
@@ -717,27 +717,27 @@ tables:
   - name: ixx
     datatype: float
     description: Adaptive second moment of the source intensity.
-    fits:tunit: nJy.arcsec**2
+    fits:tunit: arcsec**2
   - name: iyy
     datatype: float
     description: Adaptive second moment of the source intensity.
-    fits:tunit: nJy.arcsec**2
+    fits:tunit: arcsec**2
   - name: ixy
     datatype: float
     description: Adaptive second moment of the source intensity.
-    fits:tunit: nJy.arcsec**2
+    fits:tunit: arcsec**2
   - name: ixxPSF
     datatype: float
     description: Adaptive second moment for the PSF.
-    fits:tunit: nJy.arcsec**2
+    fits:tunit: arcsec**2
   - name: iyyPSF
     datatype: float
     description: Adaptive second moment for the PSF.
-    fits:tunit: nJy.arcsec**2
+    fits:tunit: arcsec**2
   - name: ixyPSF
     datatype: float
     description: Adaptive second moment for the PSF.
-    fits:tunit: nJy.arcsec**2
+    fits:tunit: arcsec**2
   - name: shape_flag
     datatype: boolean
     description: General source shape algorithm failure flag; set if anything went wrong when measuring the shape. Another shape flag field should also be set to provide more information.
