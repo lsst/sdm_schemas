@@ -6569,6 +6569,11 @@ tables:
       of the sources used in the shapelet decomposition.
     datatype: double
     ivoa:unit: pixel**2
+  - name: refCatSourceDensity
+    description: Source density for the detector region as computed from the loaded reference catalog
+      (number per degrees**2)
+    datatype: float
+    ivoa:unit: count/deg**2
     tap:principal: 0
   - name: astromOffsetMean
     description: Mean offset of astrometric calibration matches (arcsec)
