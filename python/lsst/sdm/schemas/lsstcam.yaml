@@ -6528,6 +6528,39 @@ tables:
     datatype: float
     ivoa:unit: adu
     tap:principal: 0
+  - name: psfAdaptiveThresholdValue
+    description: Threshold value used in the adaptive threshold detection pass for PSF modelling.
+    datatype: double
+    tap:principal: 0
+  - name: psfAdaptiveIncludeThresholdMultiplier
+    description: Threshold multiplier used in the adaptive threshold detection pass for PSF modelling.
+    datatype: double
+    tap:principal: 0
+  - name: nShapeletStar
+    description: Number of stars used in the shapelet decomposition.
+    datatype: int
+    tap:principal: 0
+  - name: shapeletsScore
+    description: The dimensionless image quality score as determined from the shapelets decomposition.
+      The score spans the range [0.0, 1.0] with lower values indicating better image quality.
+    datatype: double
+    tap:principal: 0
+  - name: centroidDiffShapeletVsSlotMedian
+    description: Median centroid difference [sqrt((slot_x - shapelet_x)**2 + (slot_y - shapelet_y)**2)]
+      for sources used in the shapelet decomposition.
+    datatype: double
+    tap:principal: 0
+  - name: shapeletStarEMedian
+    description: Median ellipticity (sqrt(starE1**2.0 + starE2**2.0)) of the stars used in the
+      shapelet decomposition.
+    datatype: double
+    tap:principal: 0
+  - name: shapeletStarUnNormalizedEMedian
+    description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0))
+      of the stars used in the shapelet decomposition.
+    datatype: double
+    ivoa:unit: pixel**2
+    tap:principal: 0
   - name: astromOffsetMean
     description: Mean offset of astrometric calibration matches (arcsec)
     datatype: double

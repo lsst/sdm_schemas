@@ -6933,6 +6933,32 @@ tables:
     datatype: double
     description: Declination of lower right corner.
     fits:tunit: deg
+  - name: psfAdaptiveThresholdValue
+    datatype: double
+    description: Threshold value used in the adaptive threshold detection pass for PSF modelling.
+  - name: psfAdaptiveIncludeThresholdMultiplier
+    datatype: double
+    description: Threshold multiplier used in the adaptive threshold detection pass for PSF modelling.
+  - name: nShapeletStar
+    datatype: int
+    description: Number of stars used in the shapelet decomposition.
+  - name: shapeletsScore
+    datatype: double
+    description: The dimensionless image quality score as determined from the shapelets decomposition.
+      The score spans the range [0.0, 1.0] with lower values indicating better image quality.
+  - name: centroidDiffShapeletVsSlotMedian
+    datatype: double
+    description: Median centroid difference [sqrt((slot_x - shapelet_x)**2 + (slot_y - shapelet_y)**2)]
+      for sources used in the shapelet decomposition.
+  - name: shapeletStarEMedian
+    datatype: double
+    description: Median ellipticity (sqrt(starE1**2.0 + starE2**2.0)) of the stars used in the
+      shapelet decomposition.
+  - name: shapeletStarUnNormalizedEMedian
+    datatype: double
+    description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0))
+      of the stars used in the shapelet decomposition.
+    fits:tunit: pixel**2
   - name: astromOffsetMean
     datatype: double
     description: Mean offset of astrometric calibration matches (arcsec)
