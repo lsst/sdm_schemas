@@ -151,7 +151,7 @@ create table tap_schema.columns
 
 create table tap_schema.keys11
 (
-	key_id        varchar(64)  NOT NULL,
+	key_id        varchar(128)  NOT NULL,
 	from_table    varchar(128) NOT NULL,
 	target_table  varchar(128) NOT NULL,
 	utype         varchar(512),
@@ -165,7 +165,7 @@ create table tap_schema.keys11
 
 create table tap_schema.keys
 (
-	key_id        varchar(64)  NOT NULL,
+	key_id        varchar(128)  NOT NULL,
 	from_table    varchar(128) NOT NULL,
 	target_table  varchar(128) NOT NULL,
 	utype         varchar(512),
@@ -179,7 +179,7 @@ create table tap_schema.keys
 
 create table tap_schema.key_columns11
 (
-	key_id          varchar(64) NOT NULL,
+	key_id          varchar(128) NOT NULL,
 	from_column     varchar(64) NOT NULL,
 	target_column   varchar(64) NOT NULL,
 
@@ -190,7 +190,7 @@ create table tap_schema.key_columns11
 
 create table tap_schema.key_columns
 (
-	key_id          varchar(64) NOT NULL,
+	key_id          varchar(128) NOT NULL,
 	from_column     varchar(64) NOT NULL,
 	target_column   varchar(64) NOT NULL,
 
@@ -289,13 +289,13 @@ insert into tap_schema.columns11 (table_name,column_name,description,utype,ucd,u
 ( 'tap_schema.columns', 'std', 'a standard column; 1 means 1, 0 means 0',             NULL, NULL, NULL, 'int', NULL, NULL, 1,0,1,12, NULL),
 ( 'tap_schema.columns', 'column_index', 'recommended sort order when listing columns of a table',  NULL, NULL, NULL, 'int', NULL, NULL, 1,0,1,13, NULL),
 
-( 'tap_schema.keys', 'key_id', 'unique key to join to tap_schema.key_columns',            NULL, NULL, NULL, 'char', '64*', NULL, 1,0,1,1, 64),
+( 'tap_schema.keys', 'key_id', 'unique key to join to tap_schema.key_columns',            NULL, NULL, NULL, 'char', '128*', NULL, 1,0,1,1, 128),
 ( 'tap_schema.keys', 'from_table', 'the table with the foreign key',                      NULL, NULL, NULL, 'char', '64*', NULL, 1,0,1,2, 64),
 ( 'tap_schema.keys', 'target_table', 'the table with the primary key',                    NULL, NULL, NULL, 'char', '64*', NULL, 1,0,1,3, 64),
 ( 'tap_schema.keys', 'utype', 'lists the utype of keys in the tableset',              NULL, NULL, NULL, 'char', '512*', NULL, 1,0,1,4, 512),
 ( 'tap_schema.keys', 'description', 'describes keys in the tableset',                 NULL, NULL, NULL, 'char', '512*', NULL, 1,0,1,5, 512),
 
-( 'tap_schema.key_columns', 'key_id', 'key to join to tap_schema.keys',                   NULL, NULL, NULL, 'char', '64*', NULL, 1,0,1,1, 64),
+( 'tap_schema.key_columns', 'key_id', 'key to join to tap_schema.keys',                   NULL, NULL, NULL, 'char', '128*', NULL, 1,0,1,1, 128),
 ( 'tap_schema.key_columns', 'from_column', 'column in the from_table',                    NULL, NULL, NULL, 'char', '64*', NULL, 1,0,1,2, 64),
 ( 'tap_schema.key_columns', 'target_column', 'column in the target_table',                NULL, NULL, NULL, 'char', '64*', NULL, 1,0,1,3, 64)
 ;
