@@ -1203,6 +1203,11 @@ tables:
     description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0))
       of the sources used in the shapelet decomposition.
     fits:tunit: pixel**2
+  - name: refCatSourceDensity
+    datatype: float
+    description: Source density for the detector region as computed from the loaded reference catalog
+      (number per degrees**2)
+    fits:tunit: count/deg**2
   - name: astromOffsetMean
     '@id': '#DetectorVisitProcessingSummary.astromOffsetMean'
     datatype: double
