@@ -22,7 +22,7 @@ docker buildx create --name tap-schema --driver docker-container \
 
 # TAP services based on "live ObsCore" from the Butler Postgres server
 ./build usdf-prod-livetap ../yml/oga_live_obscore.yaml
-./build usdf-dev-livetap ../yml/oga_live_obscore.yaml
+./build usdf-dev-livetap ../yml/oga_live_obscore.yaml ../yml/obsloctap.yaml
 
 # TAP services based on the DP0.3 Postgres data
 ./build idfprod-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
