@@ -1449,15 +1449,15 @@ tables:
   - name: detect_isPatchInner
     datatype: boolean
     description: True if Object seed is in the inner region of a coadd patch
-    fits:tunit:
+    ivoa:unit:
   - name: detect_isPrimary
     datatype: boolean
     description: True if Object seed has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky object
-    fits:tunit:
+    ivoa:unit:
   - name: detect_isTractInner
     datatype: boolean
     description: True if Object seed is in the inner region of a coadd tract
-    fits:tunit:
+    ivoa:unit:
 - name: DiaObject
   description: The DiaObject table contains descriptions of the astronomical objects
     detected on one or more difference images.
@@ -1734,18 +1734,18 @@ tables:
   - name: decl
     datatype: double
     description: Deprecated duplicate of dec.
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: midpoint
     datatype: timestamp
     precision: 6
     description: Midpoint time for visit at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
-    fits:tunit:
+    ivoa:unit:
   - name: midpointMjdTai
     datatype: double
     description: Midpoint time for visit at the fiducial center of the focal plane array,
       expressed as Modified Julian Date, International Atomic Time, accurate to 10ms.
-    fits:tunit: d
+    ivoa:unit: d
   - name: obsStartMjdTai
     datatype: double
     description: Start of the visit, expressed as Modified Julian Date,
@@ -1830,7 +1830,7 @@ tables:
   - name: decl
     datatype: double
     description: Deprecated duplicate of dec.
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: midpoint
     datatype: timestamp
     precision: 6
@@ -1839,7 +1839,7 @@ tables:
     datatype: double
     description: Midpoint of the visit, expressed as Modified Julian Date,
       International Atomic Time, accurate to 10ms.
-    fits:tunit: d
+    ivoa:unit: d
   - name: obsStartMjdTai
     datatype: double
     description: Start of the visit, expressed as Modified Julian Date,

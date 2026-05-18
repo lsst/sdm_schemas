@@ -1223,35 +1223,35 @@ tables:
   - name: localPhotoCalib
     datatype: double
     description: Local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
+    ivoa:unit:
   - name: localPhotoCalib_flag
     datatype: boolean
     description: Set for any fatal failure
-    fits:tunit:
+    ivoa:unit:
   - name: localPhotoCalibErr
     datatype: double
     description: Error on the local approximation of the PhotoCalib calibration factor at the location of the src.
-    fits:tunit:
+    ivoa:unit:
   - name: localWcs_flag
     datatype: boolean
     description: Set for any fatal failure
-    fits:tunit:
+    ivoa:unit:
   - name: localWcs_CDMatrix_2_1
     datatype: double
     description: (2, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
+    ivoa:unit:
   - name: localWcs_CDMatrix_1_1
     datatype: double
     description: (1, 1) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
+    ivoa:unit:
   - name: localWcs_CDMatrix_1_2
     datatype: double
     description: (1, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
+    ivoa:unit:
   - name: localWcs_CDMatrix_2_2
     datatype: double
     description: (2, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
+    ivoa:unit:
 - name: Visit
   description: Defines a single Visit.
   columnRefs:
@@ -1273,18 +1273,18 @@ tables:
   - name: decl
     datatype: double
     description: Deprecated duplicate of dec.
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: midpoint
     datatype: timestamp
     precision: 6
     description: Midpoint time of the visit at the fiducial center of the focal plane array.
       TAI, accurate to 10ms.
-    fits:tunit:
+    ivoa:unit:
   - name: midpointMjdTai
     datatype: double
     description: Midpoint time of the visit at the fiducial center of the focal plane array,
       expressed as Modified Julian Date, International Atomic Time, accurate to 10ms.
-    fits:tunit: d
+    ivoa:unit: d
   - name: obsStartMjdTai
     datatype: double
     description: Start of the visit, expressed as Modified
@@ -1364,7 +1364,7 @@ tables:
   - name: decl
     datatype: double
     description: Deprecated duplicate of dec.
-    fits:tunit: deg
+    ivoa:unit: deg
   - name: midpoint
     datatype: timestamp
     precision: 6
@@ -1373,7 +1373,7 @@ tables:
     datatype: double
     description: Midpoint of this visit, expressed as Modified Julian Date,
       International Atomic Time, accurate to 10ms.
-    fits:tunit: d
+    ivoa:unit: d
   - name: obsStartMjdTai
     datatype: double
     description: Start of the visit, expressed as Modified
