@@ -33,6 +33,12 @@ tables:
         detect_fromBlend:
         detect_isDeblendedModelSource:
         detect_isIsolated:
+        detect_isDeblendedSource:
+        detect_isPatchInner:
+        detect_isPrimary:
+        detect_isTractInner:
+        merge_peak_sky:
+        sky_object:
         ebv:
         footprintArea:
         parentObjectId:
@@ -1049,31 +1055,6 @@ tables:
         r_epoch:
         y_epoch:
         z_epoch:
-  columns:
-  - name: detect_isDeblendedSource
-    datatype: boolean
-    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudoFilterList) and is either an unblended isolated source or a deblended child from a parent with
-    fits:tunit:
-  - name: detect_isPatchInner
-    datatype: boolean
-    description: True if source is in the inner region of a coadd patch
-    fits:tunit:
-  - name: detect_isPrimary
-    datatype: boolean
-    description: True if source has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter (see config.pseudoFilterList)
-    fits:tunit:
-  - name: detect_isTractInner
-    datatype: boolean
-    description: True if source is in the inner region of a coadd tract
-    fits:tunit:
-  - name: merge_peak_sky
-    datatype: boolean
-    description: Peak detected in filter sky
-    fits:tunit:
-  - name: sky_object
-    datatype: boolean
-    description: No source was detected here. This object exists to characterize properties of the sky background
-    fits:tunit:
 - name: Source
   description: Table to store high signal-to-noise sources;. A source is
     a measurement of Object's properties from a single image that contains its footprint
@@ -1146,6 +1127,7 @@ tables:
         blendedness_flag:
         blendedness_flag_noCentroid:
         blendedness_flag_noShape:
+        detect_isPrimary:
         apFlux_12_0_flag:
         apFlux_12_0_flag_apertureTruncated:
         apFlux_12_0_flag_sincCoeffsTruncated:
@@ -1269,10 +1251,6 @@ tables:
   - name: localWcs_CDMatrix_2_2
     datatype: double
     description: (2, 2) element of the CDMatrix for the linear approximation of the WCS at the src location. Gives units in radians.
-    fits:tunit:
-  - name: detect_isPrimary
-    datatype: boolean
-    description: True if Object seed has no children and is in the inner region of a coadd patch and is in the inner region of a coadd tract and is not a sky object
     fits:tunit:
 - name: Visit
   description: Defines a single Visit.

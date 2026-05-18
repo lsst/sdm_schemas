@@ -73,10 +73,27 @@ tables:
       patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter
       (see config.pseudoFilterList) and is a deblended child
     datatype: boolean
+  - name: detect_isDeblendedSource
+    description: True if source has no children and is in the inner region of a coadd
+      patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter
+      (see config.pseudoFilterList) and is either an unblended isolated source or
+      a deblended child from a parent with
+    datatype: boolean
   - name: detect_isIsolated
     description: This source is not a part of a blend.
     datatype: boolean
     tap:principal: 1
+  - name: detect_isPatchInner
+    description: True if source is in the inner region of a coadd patch
+    datatype: boolean
+  - name: detect_isPrimary
+    description: True if source has no children and is in the inner region of a coadd
+      patch and is in the inner region of a coadd tract and is not detected in a pseudo-filter
+      (see config.pseudoFilterList)
+    datatype: boolean
+  - name: detect_isTractInner
+    description: True if source is in the inner region of a coadd tract
+    datatype: boolean
   - name: ebv
     description: E(B-V) at coord_ra/coord_dec per Schlegel, Finkbeiner & Davis (1998)
     datatype: float
@@ -1722,6 +1739,9 @@ tables:
     description: Flag set for any failure in the moments-based extendedness. Measured
       on i-band.
     datatype: boolean
+  - name: merge_peak_sky
+    description: Peak detected in filter sky
+    datatype: boolean
   - name: objectId
     description: Unique id. Unique ObjectID
     datatype: long
@@ -2634,6 +2654,10 @@ tables:
     datatype: float
     ivoa:unit: pixel**2
     tap:principal: 1
+  - name: sky_object
+    description: No source was detected here. This object exists to characterize properties
+      of the sky background
+    datatype: boolean
   - name: tract
     description: Skymap tract ID
     datatype: long
@@ -5205,6 +5229,10 @@ tables:
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
+  - name: detect_isPrimary
+    description: True if Object seed has no children and is in the inner region of
+      a coadd patch and is in the inner region of a coadd tract and is not a sky object
+    datatype: boolean
   - name: detector
     description: Id of the detector where this source was measured.
     datatype: short
