@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LSSTCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, the primary instrument for the Legacy Survey of Space and Time.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "1.8.0"
+  current: "1.9.0"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -2002,34 +2002,34 @@ tables:
     "@id": "#ccdvisit1_quicklook.psf_iyy"
     datatype: float
     description: PSF Iyy moment.
-  - name: coma_1
-    "@id": "#ccdvisit1_quicklook.coma_1"
+  - name: psf_coma_1
+    "@id": "#ccdvisit1_quicklook.psf_coma_1"
     datatype: float
-    description: Coma-like higher-order moment combination, M30 + M12.
-  - name: coma_2
-    "@id": "#ccdvisit1_quicklook.coma_2"
+    description: PSF coma-like higher-order moment combination, M30 + M12.
+  - name: psf_coma_2
+    "@id": "#ccdvisit1_quicklook.psf_coma_2"
     datatype: float
-    description: Coma-like higher-order moment combination, M21 + M03.
-  - name: trefoil_1
-    "@id": "#ccdvisit1_quicklook.trefoil_1"
+    description: PSF coma-like higher-order moment combination, M21 + M03.
+  - name: psf_trefoil_1
+    "@id": "#ccdvisit1_quicklook.psf_trefoil_1"
     datatype: float
-    description: Trefoil-like higher-order moment combination, M30 - 3*M12.
-  - name: trefoil_2
-    "@id": "#ccdvisit1_quicklook.trefoil_2"
+    description: PSF trefoil-like higher-order moment combination, M30 - 3*M12.
+  - name: psf_trefoil_2
+    "@id": "#ccdvisit1_quicklook.psf_trefoil_2"
     datatype: float
-    description: Trefoil-like higher-order moment combination, 3*M21 - M03.
-  - name: kurtosis
-    "@id": "#ccdvisit1_quicklook.kurtosis"
+    description: PSF trefoil-like higher-order moment combination, 3*M21 - M03.
+  - name: psf_kurtosis
+    "@id": "#ccdvisit1_quicklook.psf_kurtosis"
     datatype: float
-    description: Kurtosis-like higher-order moment combination, M40 + 2*M22 + M04.
-  - name: e4_1
-    "@id": "#ccdvisit1_quicklook.e4_1"
+    description: PSF kurtosis-like higher-order moment combination, M40 + 2*M22 + M04.
+  - name: psf_e4_1
+    "@id": "#ccdvisit1_quicklook.psf_e4_1"
     datatype: float
-    description: Fourth-order ellipticity-like higher-order moment combination, M40 - M04.
-  - name: e4_2
-    "@id": "#ccdvisit1_quicklook.e4_2"
+    description: PSF fourth-order ellipticity-like higher-order moment combination, M40 - M04.
+  - name: psf_e4_2
+    "@id": "#ccdvisit1_quicklook.psf_e4_2"
     datatype: float
-    description: Fourth-order ellipticity-like higher-order moment combination, 2*(M31 + M13).
+    description: PSF fourth-order ellipticity-like higher-order moment combination, 2*(M31 + M13).
   - name: psf_star_delta_e1_median
     "@id": "#ccdvisit1_quicklook.psf_star_delta_e1_median"
     datatype: float
