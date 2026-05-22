@@ -2016,28 +2016,6 @@ tables:
         naming_credit:
         created_at:
         updated_at:
-- name: Parent
-  description: "Descriptions of the parent objects in the deblending hierarchy."
-  tap:table_index: 160
-  primaryKey: '#Parent.objectId'
-  columnRefs:
-    base:
-      Parent:
-        objectId:
-        parentObjectId:
-        merge_peak_sky:
-        deblend_nChild:
-        deblend_nPeaks:
-        deblend_failed:
-        deblend_skipped:
-        deblend_skipped_isolatedParent:
-        deblend_skipped_parentTooBig:
-        deblend_skipped_tooManyPeaks:
-        deblend_skipped_masked:
-        deblend_skipped_isPseudo:
-        deblend_incompleteData:
-        deblend_iterations:
-        deblend_chi2:
 - name: ShearObject
   description: "Descriptions of shear objects detected and measured on coadds with metadetection."
   tap:table_index: 170
