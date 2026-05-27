@@ -4,7 +4,7 @@ description: |
   The Prompt Products Database stores results from nightly and daily processing
   that detects time-variable astrophysical phenomena, including
   difference-image detections, associated objects, and Solar System objects.
-version: "9.1.1"
+version: "10.0.0"
 resources:
   apdb:
     uri: "apdb.yaml"
@@ -114,6 +114,7 @@ tables:
         parentDiaSourceId:
         ssObjectReassocTimeMjdTai:
         midpointMjdTai:
+        exposureTime:
         ra:
         raErr:
         dec:
@@ -138,6 +139,7 @@ tables:
         psfFlux_flag:
         psfFlux_flag_edge:
         psfFlux_flag_noGoodPixels:
+        trailAlgorithm:
         trailFlux:
         trailFluxErr:
         trailRa:
@@ -150,6 +152,7 @@ tables:
         trailAngleErr:
         trailChi2:
         trailNdata:
+        trail_flag:
         trail_flag_edge:
         dipoleMeanFlux:
         dipoleMeanFluxErr:
@@ -178,6 +181,7 @@ tables:
         shape_flag_parent_source:
         extendedness:
         reliability:
+        reliabilityVersion:
         band:
         isDipole:
         dipoleFitAttempted:
