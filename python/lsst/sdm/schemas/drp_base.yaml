@@ -8140,6 +8140,18 @@ tables:
   - name: image_flags
     description: Flags for the image on which this measurement was made.
     datatype: int
+  - name: is_cell_inner
+    description: Whether the object peak is within the inner cell boundary  .
+    datatype: boolean
+  - name: is_patch_inner
+    description: Whether the object is within the inner patch boundary.
+    datatype: boolean
+  - name: is_primary
+    description: Whether this object is to be selected after de-duplication.
+    datatype: boolean
+  - name: is_tract_inner
+    description: Whether the object is within the inner tract boundary.
+    datatype: boolean
   - name: metaStep
     description: Type of artificial shear applied to image. One of 'ns', '1p', '1m',
       '2p', '2m'.
