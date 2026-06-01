@@ -1263,6 +1263,11 @@ tables:
         sersic_unknown_flag:
         sersic_no_data_flag:
         objectId:
+  indexes:
+  - name: idx_Object_objectId
+    description: Unique index on objectId column.
+    columns:
+    - "#Object.objectId"
 - name: Source
   description: "Properties of detections on the single-epoch visit images,
     performed independently of the Object detections on coadded images."
@@ -1427,6 +1432,19 @@ tables:
         band:
         physical_filter:
         sourceId:
+  constraints:
+  - name: fk_Source_Visit
+    description: Link a Source to its associated Visit.
+    '@type': ForeignKey
+    columns:
+    - '#Source.visit'
+    referencedColumns:
+    - '#Visit.visit'
+  indexes:
+  - name: idx_Source_sourceId
+    description: Unique index on sourceId column.
+    columns:
+    - "#Source.sourceId"
 - name: ForcedSource
   description: "Forced-photometry measurements on individual single-epoch visit
     images and difference images, based on and linked to the entries in the
@@ -1465,6 +1483,26 @@ tables:
         invalidPsfFlag:
         tract:
         patch:
+  constraints:
+  - name: fk_ForcedSource_Object
+    description: Link an Object to its associated ForcedSources.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSource.objectId'
+    referencedColumns:
+    - '#Object.objectId'
+  - name: fk_ForcedSource_Visit
+    description: Link a ForcedSource to its associated visit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSource.visit'
+    referencedColumns:
+    - '#Visit.visit'
+  indexes:
+  - name: idx_ForcedSource_objectId
+    description: Non-unique index on the objectId column; accelerates retrieval of light curves for Objects.
+    columns:
+    - '#ForcedSource.objectId'
 - name: DiaSource
   description: "Properties of transient-object detections on the single-epoch difference images."
   tap:table_index: 50
@@ -1563,6 +1601,38 @@ tables:
         pixelFlags_injected_template:
         pixelFlags_injected_templateCenter:
         glint_trail:
+  constraints:
+  - name: uniq_diaSourceId
+    description: Unique constraint on diaSourceId.
+    '@type': Unique
+    columns:
+    - '#DiaSource.diaSourceId'
+  - name: fk_DiaSource_Visit
+    description: Link a DiaSource to its associated Visit.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.visit'
+    referencedColumns:
+    - '#Visit.visit'
+  - name: fk_DiaSource_DiaObject
+    description: Link a DiaObject to its associated DiaSources.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.diaObjectId'
+    referencedColumns:
+    - '#DiaObject.diaObjectId'
+  - name: fk_DiaSource_SSObject
+    description: Link a DiaSource to its associated SSObject, if any.
+    '@type': ForeignKey
+    columns:
+    - '#DiaSource.ssObjectId'
+    referencedColumns:
+    - '#SSObject.ssObjectId'
+  indexes:
+  - name: idx_DiaSource_diaObjectId
+    description: Non-unique index on the diaObjectId column; accelerates retrieval of light curves for DiaObjects.
+    columns:
+    - "#DiaSource.diaObjectId"
 - name: DiaObject
   description: "Properties of time-varying astronomical objects based on association
     of data from one or more spatially-related DiaSource detections on individual
@@ -1636,6 +1706,11 @@ tables:
         y_psfFluxMaxSlope:
         y_psfFluxErrMean:
         nDiaSources:
+  indexes:
+  - name: idx_DiaObject_diaObjectId
+    description: Unique index on the diaObjectId column.
+    columns:
+    - "#DiaObject.diaObjectId"
 - name: ForcedSourceOnDiaObject
   description: "Point-source forced-photometry measurements on individual single-epoch
     visit images and difference images, based on and linked to the entries in the
@@ -1672,6 +1747,26 @@ tables:
         invalidPsfFlag:
         tract:
         patch:
+  constraints:
+  - name: fk_ForcedSourceOnDiaobject_DiaObject
+    description: Link a DiaObject to its associated ForcedSourceOnDiaObjects.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSourceOnDiaObject.diaObjectId'
+    referencedColumns:
+    - '#DiaObject.diaObjectId'
+  - name: fk_ForcedSourceOnDiaObject_Visit
+    description: Link a ForcedSourceOnDiaObject to its associated Visit.
+    '@type': ForeignKey
+    columns:
+    - '#ForcedSourceOnDiaObject.visit'
+    referencedColumns:
+    - '#Visit.visit'
+  indexes:
+  - name: idx_ForcedSourceOnDiaObject_diaObjectId
+    description: Non-unique index on the diaObjectId column; accelerates retrieval of light curves for DiaObjects.
+    columns:
+    - "#ForcedSourceOnDiaObject.diaObjectId"
 
 # - name: CoaddPatches
 #   description: "Static information about the subset of tracts and patches from the standard
@@ -1709,11 +1804,16 @@ tables:
         expMidptMJD:
         obsStart:
         obsStartMJD:
+  indexes:
+  - name: idx_Visit_visit
+    description: Unique index on the visit column.
+    columns:
+    - "#Visit.visit"
 - name: VisitDetector
   primaryKey:
   - "#VisitDetector.visitId"
   - "#VisitDetector.detector"
-  description: "Per-detector metadata and metrics associated with each visit"
+  description: "Per-detector metadata and metrics associated with each visit."
   tap:table_index: 90
   columnRefs:
     base:
@@ -1774,6 +1874,24 @@ tables:
         wcsVisitPointingResidual:
         wcsPreliminaryDetectorPointingResidual:
         wcsPreliminaryVisitPointingResidual:
+  constraints:
+  - name: fk_VisitDetector_Visit
+    description: Link a Visit to the CCD-level images it contains.
+    '@type': ForeignKey
+    columns:
+    - '#VisitDetector.visitId'
+    referencedColumns:
+    - '#Visit.visit'
+  indexes:
+  - name: idx_VisitDetector_visitId
+    description: Non-unique index on visitId column; accelerates retrieval of data for all detectors for a visit.
+    columns:
+    - "#VisitDetector.visitId"
+  - name: idx_VisitDetector_visitId_detector
+    description: Unique index on visit and detector columns in VisitDetector table.
+    columns:
+    - "#VisitDetector.visitId"
+    - "#VisitDetector.detector"
 - name: SSObject
   description: LSST-computed per-object quantities.
   tap:table_index: 110
@@ -1861,6 +1979,11 @@ tables:
         y_phaseAngleMin:
         y_phaseAngleMax:
         y_slope_fit_failed:
+  indexes:
+  - name: idx_SSObject_ssObjectId
+    description: Unique index on the ssObjectId column.
+    columns:
+    - "#SSObject.ssObjectId"
 - name: SSSource
   description: LSST-computed per-source quantities. 1::1 relationship with DiaSource.
   tap:table_index: 120
@@ -1907,7 +2030,30 @@ tables:
         topo_vz:
         topo_vtot:
         diaDistanceRank:
-
+  constraints:
+  - name: fk_SSSource_DiaSource
+    description: Link an SSSource to its associated DiaSource.
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.diaSourceId'
+    referencedColumns:
+    - '#DiaSource.diaSourceId'
+  - name: fk_SSSource_SSObject
+    description: Link an SSObject to its associated SSSources.
+    '@type': ForeignKey
+    columns:
+    - '#SSSource.ssObjectId'
+    referencedColumns:
+    - '#SSObject.ssObjectId'
+  indexes:
+  - name: idx_SSSource_diaSourceId
+    description: Unique index on the diaSourceId column; accelerates joins between DiaSource and SSSource.
+    columns:
+    - "#SSSource.diaSourceId"
+  - name: idx_SSSource_ssObjectId
+    description: Non-unique index on the ssObjectId column; accelerates retrieval of single-epoch data for SSObjects.
+    columns:
+    - "#SSSource.ssObjectId"
 # - name: mpc_orbits
 #   description: Table of orbital elements and related information of known
 #     (sun-orbiting and unbound) Solar System objects. Replicated from the Minor
@@ -2092,10 +2238,16 @@ tables:
         z_pgaussFlux_flags:
         z_pgaussFlux:
         z_pgaussFluxErr:
+  indexes:
+  - name: idx_ShearObject_shearObjectId
+    description: Unique index on the shearObjectId column.
+    columns:
+    - "#ShearObject.shearObjectId"
 - name: IsolatedStarStellarMotions
   description: Position, proper motion, and parallax for isolated stars, fit using
     associated source measurements, with positions for associated reference objects
     if available.
+  primaryKey: '#IsolatedStarStellarMotions.isolated_star_id'
   columnRefs:
     base:
       IsolatedStarStellarMotions:
@@ -2127,3 +2279,12 @@ tables:
         ref_raPM:
         ref_decPM:
         ref_parallax:
+  indexes:
+  - name: idx_IsolatedStarStellarMotions_isolated_star_id
+    description: Unique index on the isolated_star_id column.
+    columns:
+    - "#IsolatedStarStellarMotions.isolated_star_id"
+  - name: idx_IsolatedStarStellarMotions_referenceId
+    description: Non-unique index on the referenceId column; accelerates retrieval of stellar motions for reference objects.
+    columns:
+    - "#IsolatedStarStellarMotions.referenceId"
