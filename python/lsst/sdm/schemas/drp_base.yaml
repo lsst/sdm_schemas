@@ -6103,6 +6103,11 @@ tables:
     nullable: false
     ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
+  - name: decErr
+    description: Error in declination.
+    datatype: float
+    ivoa:ucd: stat.error;pos.eq.dec
+    ivoa:unit: deg
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
@@ -6253,6 +6258,16 @@ tables:
     nullable: false
     ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
+  - name: raErr
+    description: Error in right ascension.
+    datatype: float
+    ivoa:ucd: stat.error;pos.eq.ra
+    ivoa:unit: deg
+  - name: ra_dec_Cov
+    description: Covariance between right ascension and declination.
+    datatype: float
+    ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
+    ivoa:unit: deg**2
   - name: u_psfFluxErrMean
     description: Mean of the u band flux errors.
     datatype: float
