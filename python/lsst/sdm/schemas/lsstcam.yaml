@@ -2350,6 +2350,10 @@ tables:
         z_pgaussFlux_flags:
         z_pgaussFlux:
         z_pgaussFluxErr:
+        is_cell_inner:
+        is_patch_inner:
+        is_tract_inner:
+        is_primary:
 - name: IsolatedStarStellarMotions
   description: Position, proper motion, and parallax for isolated stars, fit using
     associated source measurements, with positions for associated reference objects
