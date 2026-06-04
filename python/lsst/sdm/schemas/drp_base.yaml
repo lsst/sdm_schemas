@@ -5761,6 +5761,11 @@ tables:
     description: The number of data points (pixels) used to fit the model.
     datatype: long
     nullable: false
+  - name: exposureTime
+    datatype: float
+    description: Effective exposure time for this diaSource.
+    fits:tunit: s
+    ivoa:ucd: time.interval
   - name: extendedness
     description: A measure of extendedness, computed by comparing an object's moment-based
       trace radius to the PSF moments. extendedness = 1 implies a high degree of confidence
@@ -5967,6 +5972,10 @@ tables:
     description: Probability (0-1) that the diaSource is astrophysical, derived from
       a machine learning model.
     datatype: float
+  - name: reliabilityVersion
+    datatype: string
+    length: 7
+    description: Version of the reliability model.
   - name: scienceFlux
     description: Forced photometry flux for a point source model measured on the visit
       image centered at DiaSource position.
