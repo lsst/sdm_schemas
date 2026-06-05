@@ -27,13 +27,13 @@ tables:
     ivoa:unit: deg
     tap:principal: 1
   - name: coord_raErr
-    description: Error in fiducial ICRS Right Ascension of centroid
+    description: Angular error in fiducial ICRS Right Ascension (∂RA*cos(Dec)) of centroid
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra;meta.main
     ivoa:unit: deg
   - name: coord_ra_dec_Cov
-    description: Covariance between fiducial ICRS Right Ascension and Declination
-      of centroid
+    description: Covariance between fiducial ICRS Right Ascension (RA*cos(Dec))
+      and Declination of centroid
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec;meta.main
     ivoa:unit: deg**2
@@ -5462,12 +5462,13 @@ tables:
     ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: raErr
-    description: Error in right ascension.
+    description: Angular error in right ascension (∂RA*cos(Dec)).
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: ra_dec_Cov
-    description: Covariance between right ascension and declination.
+    description: Covariance between right ascension (RA*cos(Dec)) and
+      declination.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
@@ -5954,12 +5955,13 @@ tables:
     ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: raErr
-    description: Error in right ascension.
+    description: Angular error in right ascension (∂RA*cos(Dec)).
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: ra_dec_Cov
-    description: Covariance between right ascension and declination.
+    description: Covariance between right ascension (RA*cos(Dec)) and
+      declination.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
@@ -8354,7 +8356,7 @@ tables:
     ivoa:unit: deg
     tap:principal: 1
   - name: raErr
-    description: Error in right ascension at the reference epoch.
+    description: Angular error in right ascension (∂RA*cos(Dec)) at the reference epoch.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
@@ -8391,7 +8393,8 @@ tables:
     ivoa:unit: deg*mas/yr
     tap:principal: 1
   - name: ra_dec_Cov
-    description: Covariance between right ascension and declination.
+    description: Covariance between right ascension (RA*cos(Dec)) and
+      declination.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2

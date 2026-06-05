@@ -47,7 +47,7 @@ tables:
     ivoa:ucd: pos.eq.ra
   - name: raErr
     datatype: float
-    description: Uncertainty of ra.
+    description: Angular error of Right Ascension (∂RA*cos(Dec)).
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
@@ -58,12 +58,12 @@ tables:
     ivoa:ucd: pos.eq.dec
   - name: decErr
     datatype: float
-    description: Uncertainty of dec.
+    description: Angular error of dec.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
     datatype: float
-    description: Covariance between ra and dec.
+    description: Covariance between Right Ascension (RA*cos(Dec)) and dec.
     fits:tunit: deg**2
   - name: u_psfFluxMean
     datatype: float
@@ -475,7 +475,7 @@ tables:
     ivoa:ucd: pos.eq.ra
   - name: raErr
     datatype: float
-    description: Uncertainty of ra.
+    description: Angular error of Right Ascension (∂RA*cos(Dec)).
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
@@ -486,12 +486,12 @@ tables:
     ivoa:ucd: pos.eq.dec
   - name: decErr
     datatype: float
-    description: Uncertainty of dec.
+    description: Angular error of dec.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: ra_dec_Cov
     datatype: float
-    description: Covariance between ra and dec.
+    description: Covariance between Right Ascension (RA*cos(Dec)) and dec.
     fits:tunit: deg**2
     ivoa:ucd: stat.covariance
   - name: x
@@ -598,7 +598,7 @@ tables:
     ivoa:ucd: pos.eq.ra
   - name: trailRaErr
     datatype: float
-    description: Uncertainty of trailRa.
+    description: Angular error of trailRa (∂RA*cos(Dec)).
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: trailDec
@@ -608,7 +608,7 @@ tables:
     ivoa:ucd: pos.eq.dec
   - name: trailDecErr
     datatype: float
-    description: Uncertainty of trailDec.
+    description: Angular error of trailDec.
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.dec
   - name: trailLength
@@ -1032,7 +1032,7 @@ tables:
     fits:tunit: deg
   - name: raErr
     datatype: float
-    description: Uncertainty of ra.
+    description: Angular error of Right Ascension (∂RA*cos(Dec)).
     ivoa:ucd: stat.error;pos.eq.ra
     fits:tunit: deg
   - name: dec
@@ -1043,12 +1043,12 @@ tables:
     fits:tunit: deg
   - name: decErr
     datatype: float
-    description: Uncertainty of dec.
+    description: Angular error of dec.
     ivoa:ucd: stat.error;pos.eq.dec
     fits:tunit: deg
   - name: ra_dec_Cov
     datatype: float
-    description: Covariance between ra and dec.
+    description: Covariance between Right Ascension (RA*cos(Dec)) and dec.
     fits:tunit: deg**2
   - name: firstDiaSourceMjdTai
     datatype: double
