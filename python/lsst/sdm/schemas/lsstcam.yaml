@@ -8167,6 +8167,18 @@ tables:
     description: Flux uncertainty in z band (measured with pgauss algorithm).
     datatype: float
     ivoa:unit: nJy
+  - name: is_cell_inner
+    description: Whether the object peak is within the inner cell boundary  .
+    datatype: boolean
+  - name: is_patch_inner
+    description: Whether the object is within the inner patch boundary.
+    datatype: boolean
+  - name: is_primary
+    description: Whether this object is to be selected after de-duplication.
+    datatype: boolean
+  - name: is_tract_inner
+    description: Whether the object is within the inner tract boundary.
+    datatype: boolean
 - name: IsolatedStarStellarMotions
   description: Position, proper motion, and parallax for isolated stars, fit using
     associated source measurements, with positions for associated reference objects
