@@ -8205,11 +8205,11 @@ tables:
       moments, averaged over the shear bands.
     datatype: float
     ivoa:unit: arcsec**2
-  - name: psfOriginal_e1
-    description: Distortion-style e1 of the original PSF from adaptive moments, averaged over the shear bands.
+  - name: psfOriginal_g1
+    description: Reduced-shear g1 of the original PSF from adaptive moments, averaged over the shear bands.
     datatype: float
-  - name: psfOriginal_e2
-    description: Distortion-style e2 of the original PSF from adaptive moments, averaged over the shear bands.
+  - name: psfOriginal_g2
+    description: Reduced-shear g2 of the original PSF from adaptive moments, averaged over the shear bands.
     datatype: float
   - name: psfOriginal_flags
     description: Flags for the original PSF measurement, ORed over the shear bands.
