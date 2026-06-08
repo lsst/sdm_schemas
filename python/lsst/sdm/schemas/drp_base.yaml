@@ -5485,11 +5485,11 @@ tables:
     description: Set to 1 for any fatal failure.
     datatype: boolean
   - name: sky
-    description: Background in annulus around source
+    description: Background in annulus of radius 7-15 times the PSF sigma around source
     datatype: double
     ivoa:unit: nJy
   - name: skyErr
-    description: Background in annulus around source
+    description: Error in background in annulus around source
     datatype: double
     ivoa:unit: nJy
   - name: sky_source
