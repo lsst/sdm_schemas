@@ -742,8 +742,8 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: g_model_extendedness
-    description: Model flux- and size-based estimate of whether the object is extended
-      (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes.
+    description: Sersic model flux- and size-based estimate of whether the object is extended
+      (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes; values range from 0 to 1.
     datatype: float
   - name: g_moments_flag
     description: Failure flag for moments (g-band)
@@ -963,16 +963,16 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: g_sizeExtendedness
-    description: Moments-based measure of whether an object is point-like (0) or extended
-      (1). Measured on g-band.
+    description: Moments-based comparison of source size to the local PSF to estimate whether an object
+      is point-like (0) or extended (1). Measured on g-band; values range from 0 to 1.
     datatype: float
   - name: g_sizeExtendedness_flag
     description: Flag set for any failure in the moments-based extendedness. Measured
       on g-band.
     datatype: boolean
   - name: griz_model_extendedness
-    description: Model flux- and size-based estimate of whether the object is extended
-      (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes.
+    description: Sersic model flux- and size-based estimate of whether the object is extended
+      (resolved) or not, from 0 (compact) to 1 (extended). Uses griz-band fluxes; values range from 0 to 1.
     datatype: float
   - name: i_ap03Flux
     description: Flux within 3.0-pixel radius aperture. Forced on i-band.
@@ -1513,8 +1513,8 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: i_model_extendedness
-    description: Model flux- and size-based estimate of whether the object is extended
-      (resolved) or not, from 0 (compact) to 1 (extended). Uses i-band fluxes.
+    description: Sersic model flux- and size-based estimate of whether the object is extended
+      (resolved) or not, from 0 (compact) to 1 (extended). Uses i-band fluxes; values range from 0 to 1.
     datatype: float
   - name: i_moments_flag
     description: Failure flag for moments (i-band)
@@ -1734,8 +1734,8 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: i_sizeExtendedness
-    description: Moments-based measure of whether an object is point-like (0) or extended
-      (1). Measured on i-band.
+    description: Moments-based comparison of source size to the local PSF to estimate whether an object
+      is point-like (0) or extended (1). Measured on i-band; values range from 0 to 1.
     datatype: float
   - name: i_sizeExtendedness_flag
     description: Flag set for any failure in the moments-based extendedness. Measured
@@ -2296,8 +2296,8 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: r_model_extendedness
-    description: Model flux- and size-based estimate of whether the object is extended
-      (resolved) or not, from 0 (compact) to 1 (extended). Uses r-band fluxes.
+    description: Sersic model flux- and size-based estimate of whether the object is extended
+      (resolved) or not, from 0 (compact) to 1 (extended). Uses r-band fluxes; values range from 0 to 1.
     datatype: float
   - name: r_moments_flag
     description: Failure flag for moments (r-band)
@@ -2517,8 +2517,8 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: r_sizeExtendedness
-    description: Moments-based measure of whether an object is point-like (0) or extended
-      (1). Measured on r-band.
+    description: Moments-based comparison of source size to the local PSF to estimate whether an object
+      is point-like (0) or extended (1). Measured on r-band; values range from 0 to 1.
     datatype: float
   - name: r_sizeExtendedness_flag
     description: Flag set for any failure in the moments-based extendedness. Measured
@@ -2536,8 +2536,8 @@ tables:
     datatype: float
     tap:principal: 1
   - name: refSizeExtendedness
-    description: Moments-based measure of whether an object is point-like (0) or extended
-      (1). Reference band.
+    description: Moments-based comparison of source size to the local PSF to estimate whether an object
+      is point-like (0) or extended (1). Measured in the reference band; values range from 0 to 1.
     datatype: float
     tap:principal: 1
   - name: sersic_chi2_reduced
@@ -3204,8 +3204,8 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: u_model_extendedness
-    description: Model flux- and size-based estimate of whether the object is extended
-      (resolved) or not, from 0 (compact) to 1 (extended). Uses u-band fluxes.
+    description: Sersic model flux- and size-based estimate of whether the object is extended
+      (resolved) or not, from 0 (compact) to 1 (extended). Uses u-band fluxes; values range from 0 to 1.
     datatype: float
   - name: u_moments_flag
     description: Failure flag for moments (u-band)
@@ -3425,8 +3425,8 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: u_sizeExtendedness
-    description: Moments-based measure of whether an object is point-like (0) or extended
-      (1). Measured on u-band.
+    description: Moments-based comparison of source size to the local PSF to estimate whether an object
+      is point-like (0) or extended (1). Measured on u-band; values range from 0 to 1.
     datatype: float
   - name: u_sizeExtendedness_flag
     description: Flag set for any failure in the moments-based extendedness. Measured
@@ -3971,8 +3971,8 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: y_model_extendedness
-    description: Model flux- and size-based estimate of whether the object is extended
-      (resolved) or not, from 0 (compact) to 1 (extended). Uses y-band fluxes.
+    description: Sersic model flux- and size-based estimate of whether the object is extended
+      (resolved) or not, from 0 (compact) to 1 (extended). Uses y-band fluxes; values range from 0 to 1.
     datatype: float
   - name: y_moments_flag
     description: Failure flag for moments (y-band)
@@ -4192,8 +4192,8 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: y_sizeExtendedness
-    description: Moments-based measure of whether an object is point-like (0) or extended
-      (1). Measured on y-band.
+    description: Moments-based comparison of source size to the local PSF to estimate whether an object
+      is point-like (0) or extended (1). Measured on y-band; values range from 0 to 1.
     datatype: float
   - name: y_sizeExtendedness_flag
     description: Flag set for any failure in the moments-based extendedness. Measured
@@ -4738,8 +4738,8 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: z_model_extendedness
-    description: Model flux- and size-based estimate of whether the object is extended
-      (resolved) or not, from 0 (compact) to 1 (extended). Uses z-band fluxes.
+    description: Sersic model flux- and size-based estimate of whether the object is extended
+      (resolved) or not, from 0 (compact) to 1 (extended). Uses z-band fluxes; values range from 0 to 1.
     datatype: float
   - name: z_moments_flag
     description: Failure flag for moments (z-band)
@@ -4959,8 +4959,8 @@ tables:
     datatype: float
     ivoa:unit: nJy
   - name: z_sizeExtendedness
-    description: Moments-based measure of whether an object is point-like (0) or extended
-      (1). Measured on z-band.
+    description: Moments-based comparison of source size to the local PSF to estimate whether an object
+      is point-like (0) or extended (1). Measured on z-band; values range from 0 to 1.
     datatype: float
   - name: z_sizeExtendedness_flag
     description: Flag set for any failure in the moments-based extendedness. Measured
