@@ -2238,6 +2238,10 @@ tables:
         z_pgaussFlux_flags:
         z_pgaussFlux:
         z_pgaussFluxErr:
+        is_cell_inner:
+        is_patch_inner:
+        is_tract_inner:
+        is_primary:
   indexes:
   - name: idx_ShearObject_shearObjectId
     description: Unique index on the shearObjectId column.
