@@ -1297,8 +1297,8 @@ tables:
   columnRefs:
     base:
       VisitDetector:
+        ccdVisitId:
         visitId:
-        detector:
         physical_filter:
         band:
         ra:
@@ -1309,6 +1309,7 @@ tables:
         psfSigma:
         skyBg:
         skyNoise:
+        detector:
         seeing:
         skyRotation:
         expTime:

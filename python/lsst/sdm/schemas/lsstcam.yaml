@@ -1827,8 +1827,6 @@ tables:
   columnRefs:
     base:
       VisitDetector:
-        visitId:
-        detector:
         physical_filter:
         band:
         ra:
@@ -1856,6 +1854,9 @@ tables:
         maxDistToNearestPsf:
         starEMedian:
         starUnNormalizedEMedian:
+        ccdVisitId:
+        visitId:
+        detector:
         seeing:
         skyRotation:
         expMidpt:
