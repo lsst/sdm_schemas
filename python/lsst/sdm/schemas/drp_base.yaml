@@ -6675,11 +6675,6 @@ tables:
     length: 1
     tap:principal: 1
     votable:arraysize: '*'
-  - name: centroidDiffShapeletsVsSlotMedian
-    description: Median centroid difference (sqrt((slot_x - shapelet_x)**2 + (slot_y
-      - shapelet_y)**2)) for sources used in the shapelet decomposition.
-    datatype: double
-    ivoa:unit: pixel
   - name: darkTime
     description: Average dark current accumulation time, accurate to 10ms.
     datatype: double
@@ -6757,9 +6752,6 @@ tables:
   - name: nPsfStar
     description: Number of stars used for PSF model
     datatype: int
-  - name: nShapeletsStar
-    description: Number of sources used in the shapelet decomposition.
-    datatype: int
   - name: obsStart
     description: Start of the visit, TAI, accurate to 10ms.
     datatype: timestamp
@@ -6781,14 +6773,6 @@ tables:
     description: Measured detector pixel scale.
     datatype: float
     ivoa:unit: arcsec/pixel
-  - name: psfAdaptiveIncludeThresholdMultiplier
-    description: Threshold multiplier used in the adaptive threshold detection pass
-      for PSF modelling.
-    datatype: double
-  - name: psfAdaptiveThresholdValue
-    description: Threshold value used in the adaptive threshold detection pass for
-      PSF modelling.
-    datatype: double
   - name: psfApCorrSigmaScaledDelta
     description: Delta (max - min) of psf flux aperture correction factors scaled
       (divided) by the psfSigma evaluated on a grid of unmasked pixels
@@ -6836,38 +6820,11 @@ tables:
     datatype: double
     ivoa:unit: deg
     tap:principal: 1
-  - name: refCatSourceDensity
-    description: Source density for the detector region as computed from the loaded
-      reference catalog (number per degrees**2)
-    datatype: float
-    ivoa:unit: count/deg**2
   - name: seeing
     description: Mean measured FWHM of the PSF.
     datatype: double
     ivoa:unit: arcsec
     tap:principal: 1
-  - name: shapeletsIqScore
-    description: The dimensionless image quality score as determined from the shapelets
-      decomposition that includes power from the median centroid offset between those
-      used in the decomposition and those of the centroid slot in addition to non-atmospheric
-      decomposition coefficients. The score spans the range [0.0, 1.0] with lower
-      values indicating better image quality.
-    datatype: double
-  - name: shapeletsOnlyIqScore
-    description: The dimensionless image quality score as determined from the shapelets
-      decomposition that includes power only from the non-atmospheric decomposition
-      coefficients. The score spans the range [0.0, 1.0] with lower values indicating
-      better image quality.
-    datatype: double
-  - name: shapeletsStarEMedian
-    description: Median ellipticity (sqrt(starE1**2.0 + starE2**2.0)) of the sources
-      used in the shapelet decomposition.
-    datatype: double
-  - name: shapeletsStarUnNormalizedEMedian
-    description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0))
-      of the sources used in the shapelet decomposition.
-    datatype: double
-    ivoa:unit: pixel**2
   - name: skyBg
     description: Average sky background.
     datatype: float
@@ -6880,37 +6837,9 @@ tables:
     description: Sky rotation angle.
     datatype: double
     ivoa:unit: deg
-  - name: starComa1Median
-    description: Coma-like higher-order moment combination (median M30 + M12 of the
-      stars used in the PSF model)
-    datatype: double
-  - name: starComa2Median
-    description: Coma-like higher-order moment combination (median M21 + M03 of the
-      stars used in the PSF model)
-    datatype: double
-  - name: starE41Median
-    description: Fourth-order ellipticity-like higher-order moment combination (median
-      M40 - M04 of the stars used in the PSF model)
-    datatype: double
-  - name: starE42Median
-    description: Fourth-order ellipticity-like higher-order moment combination (median
-      2*(M31 + M13) of the stars used in the PSF model)
-    datatype: double
   - name: starEMedian
     description: Median ellipticity (sqrt(starE1**2.0 + starE2**2.0)) of the stars
       used in the PSF model.
-    datatype: double
-  - name: starKurtosisMedian
-    description: Kurtosis-like higher-order moment combination (median M40 + 2*M22
-      + M04 of the stars used in the PSF model)
-    datatype: double
-  - name: starTrefoil1Median
-    description: Trefoil-like higher-order moment combination (median M30 - 3*M12
-      of the stars used in the PSF model)
-    datatype: double
-  - name: starTrefoil2Median
-    description: Trefoil-like higher-order moment combination (median 3*M21 - M03
-      of the stars used in the PSF model)
     datatype: double
   - name: starUnNormalizedEMedian
     description: Median un-normalized ellipticity (sqrt((starXX - starYY)**2.0 + (2.0*starXY)**2.0))

@@ -1842,13 +1842,6 @@ tables:
         skyNoise:
         astromOffsetMean:
         astromOffsetStd:
-        starComa1Median:
-        starComa2Median:
-        starTrefoil1Median:
-        starTrefoil2Median:
-        starKurtosisMedian:
-        starE41Median:
-        starE42Median:
         nPsfStar:
         psfStarDeltaE1Median:
         psfStarDeltaE2Median:
@@ -1890,15 +1883,6 @@ tables:
         wcsVisitPointingResidual:
         wcsPreliminaryDetectorPointingResidual:
         wcsPreliminaryVisitPointingResidual:
-        shapeletsIqScore:
-        centroidDiffShapeletsVsSlotMedian:
-        shapeletsStarEMedian:
-        refCatSourceDensity:
-        psfAdaptiveIncludeThresholdMultiplier:
-        shapeletsStarUnNormalizedEMedian:
-        psfAdaptiveThresholdValue:
-        shapeletsOnlyIqScore:
-        nShapeletsStar:
   constraints:
   - name: fk_VisitDetector_Visit
     description: Link a Visit to the CCD-level images it contains
