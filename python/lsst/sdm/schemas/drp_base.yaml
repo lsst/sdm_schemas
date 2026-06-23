@@ -6675,6 +6675,9 @@ tables:
     length: 1
     tap:principal: 1
     votable:arraysize: '*'
+  - name: ccdVisitId
+    datatype: long
+    description: Primary key (unique identifier).
   - name: darkTime
     description: Average dark current accumulation time, accurate to 10ms.
     datatype: double
