@@ -2408,8 +2408,6 @@ tables:
   columnRefs:
     base:
       Source:
-        coord_ra:
-        coord_dec:
         parentSourceId:
         x:
         y:
@@ -2455,8 +2453,9 @@ tables:
         sizeExtendedness_flag:
         footprintArea_value:
         invalidPsfFlag:
-        jacobian_flag:
-        jacobian_value:
+        normCompTophatFlux_flag:
+        normCompTophatFlux_instFlux:
+        normCompTophatFlux_instFluxErr:
         localBackground_instFlux:
         localBackground_instFluxErr:
         localBackground_flag:
