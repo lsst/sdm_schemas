@@ -5768,6 +5768,11 @@ tables:
     description: The number of data points (pixels) used to fit the model.
     datatype: long
     nullable: false
+  - name: exposureTime
+    datatype: float
+    description: Effective exposure time for this diaSource.
+    fits:tunit: s
+    ivoa:ucd: time.interval
   - name: extendedness
     description: A measure of extendedness, computed by comparing an object's moment-based
       trace radius to the PSF moments. extendedness = 1 implies a high degree of confidence
@@ -5975,6 +5980,10 @@ tables:
     description: Probability (0-1) that the diaSource is astrophysical, derived from
       a machine learning model.
     datatype: float
+  - name: reliabilityVersion
+    datatype: string
+    length: 7
+    description: Version of the reliability model.
   - name: scienceFlux
     description: Forced photometry flux for a point source model measured on the visit
       image centered at DiaSource position.
@@ -6033,6 +6042,10 @@ tables:
     datatype: double
     nullable: false
     ivoa:ucd: time.epoch
+  - name: trailAlgorithm
+    description: Integer key indicating which algorithm was used to measure trailed source.
+      1=SDSSShape, 2=HSMShape.
+    datatype: int
   - name: trailAngle
     description: Maximum likelihood fit of the angle between the meridian through
       the centroid and the trail direction (bearing).
@@ -6061,6 +6074,10 @@ tables:
     datatype: double
     ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
+  - name: trail_flag
+    description: The trailed source fitting algorithm failed.
+    datatype: boolean
+    nullable: false
   - name: trail_flag_edge
     description: This flag is set if a trailed source extends onto or past edge pixels.
     datatype: boolean

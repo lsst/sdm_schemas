@@ -1,6 +1,6 @@
 ---
 name: "ApdbSchema"
-version: "9.1.1"
+version: "10.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -467,6 +467,11 @@ tables:
       Julian Date, International Atomic Time.
     fits:tunit: d
     ivoa:ucd: time.epoch
+  - name: exposureTime
+    datatype: float
+    description: Effective exposure time for this diaSource.
+    fits:tunit: s
+    ivoa:ucd: time.interval
   - name: ra
     datatype: double
     nullable: false
@@ -637,9 +642,17 @@ tables:
     nullable: false
     value: 0
     description: The number of data points (pixels) used to fit the trailed source model.
+  - name: trailAlgorithm
+    datatype: int
+    description: Integer key indicating which algorithm was used to
+            measure trailed source. 1=SDSSShape, 2=HSMShape.
   - name: trail_flag_edge
     datatype: boolean
     description: This flag is set if a trailed source extends onto or past edge pixels.
+    fits:tunit:
+  - name: trail_flag
+    datatype: boolean
+    description: The trailed source fitting algorithm failed.
     fits:tunit:
   - name: dipoleMeanFlux
     datatype: float
@@ -764,6 +777,10 @@ tables:
     datatype: float
     description: Probability (0-1) that the diaSource is astrophysical,
        derived from a machine learning model.
+  - name: reliabilityVersion
+    datatype: string
+    length: 7
+    description: Version of the reliability model.
   - name: band
     datatype: char
     length: 1
