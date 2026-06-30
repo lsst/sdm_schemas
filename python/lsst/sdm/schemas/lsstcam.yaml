@@ -2396,3 +2396,124 @@ tables:
         ref_raPM:
         ref_decPM:
         ref_parallax:
+- name: PromptSource
+  description: "Detections on the single-epoch visit images, performed
+    daily as part of Prompt Processing."
+  tap:table_index: 20
+  primaryKey: '#PromptSource.sourceId'
+  columnRefs:
+    base:
+      Source:
+        parentSourceId:
+        x:
+        y:
+        xErr:
+        yErr:
+        ra:
+        dec:
+        raErr:
+        decErr:
+        ra_dec_Cov:
+        calibFlux:
+        calibFluxErr:
+        ap09Flux:
+        ap09FluxErr:
+        ap09Flux_flag:
+        ap12Flux:
+        ap12FluxErr:
+        ap12Flux_flag:
+        ap25Flux:
+        ap25FluxErr:
+        ap25Flux_flag:
+        sky:
+        skyErr:
+        psfFlux:
+        psfFluxErr:
+        ixx:
+        iyy:
+        ixy:
+        ixxPSF:
+        iyyPSF:
+        ixyPSF:
+        ixxDebiasedPSF:
+        iyyDebiasedPSF:
+        ixyDebiasedPSF:
+        gaussianFlux:
+        gaussianFluxErr:
+        extendedness:
+        sizeExtendedness:
+        apFlux_12_0_flag:
+        apFlux_12_0_flag_apertureTruncated:
+        apFlux_12_0_flag_sincCoeffsTruncated:
+        extendedness_flag:
+        sizeExtendedness_flag:
+        footprintArea_value:
+        invalidPsfFlag:
+        normCompTophatFlux_flag:
+        normCompTophatFlux_instFlux:
+        normCompTophatFlux_instFluxErr:
+        localBackground_instFlux:
+        localBackground_instFluxErr:
+        localBackground_flag:
+        localBackground_flag_noGoodPixels:
+        localBackground_flag_noPsf:
+        pixelFlags_bad:
+        pixelFlags_cr:
+        pixelFlags_crCenter:
+        pixelFlags_edge:
+        pixelFlags_interpolated:
+        pixelFlags_interpolatedCenter:
+        pixelFlags_nodata:
+        pixelFlags_offimage:
+        pixelFlags_saturated:
+        pixelFlags_saturatedCenter:
+        pixelFlags_suspect:
+        pixelFlags_suspectCenter:
+        psfFlux_apCorr:
+        psfFlux_apCorrErr:
+        psfFlux_area:
+        psfFlux_flag:
+        psfFlux_flag_apCorr:
+        psfFlux_flag_edge:
+        psfFlux_flag_noGoodPixels:
+        gaussianFlux_flag:
+        centroid_flag:
+        centroid_flag_almostNoSecondDerivative:
+        centroid_flag_badError:
+        centroid_flag_edge:
+        centroid_flag_noSecondDerivative:
+        centroid_flag_notAtMaximum:
+        centroid_flag_resetToPeak:
+        deblend_deblendedAsPsf:
+        deblend_hasStrayFlux:
+        deblend_masked:
+        deblend_nChild:
+        deblend_parentTooBig:
+        deblend_patchedTemplate:
+        deblend_rampedTemplate:
+        deblend_skipped:
+        deblend_tooManyPeaks:
+        iDebiasedPSF_flag:
+        iDebiasedPSF_flag_no_pixels:
+        iDebiasedPSF_flag_not_contained:
+        iDebiasedPSF_flag_parent_source:
+        iDebiasedPSF_flag_galsim:
+        iDebiasedPSF_flag_edge:
+        visit:
+        detector:
+        band:
+        physical_filter:
+        sourceId:
+  constraints:
+  - name: fk_PromptSource_Visit
+    description: Link a Source to its associated Visit
+    '@type': ForeignKey
+    columns:
+    - '#PromptSource.visit'
+    referencedColumns:
+    - '#Visit.visit'
+  indexes:
+  - name: idx_PromptSource_sourceId
+    description: Unique index on sourceId column
+    columns:
+    - "#PromptSource.sourceId"
