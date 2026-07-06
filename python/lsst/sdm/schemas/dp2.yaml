@@ -1768,18 +1768,18 @@ tables:
     columns:
     - "#ForcedSourceOnDiaObject.diaObjectId"
 
-# - name: CoaddPatches
-#   description: "Static information about the subset of tracts and patches from the standard
-#   LSST skymap that apply to coadds in these catalogs"
-#   tap:table_index: 70
-#   columnRefs:
-#     base:
-#       CoaddPatches:
-#         lsst_tract:
-#         lsst_patch:
-#         s_ra:
-#         s_dec:
-#         s_region:
+- name: CoaddPatches
+  description: "Static information about the subset of tracts and patches from the standard
+    LSST skymap that apply to coadds in these catalogs."
+  tap:table_index: 70
+  columnRefs:
+    base:
+      CoaddPatches:
+        lsst_tract:
+        lsst_patch:
+        s_ra:
+        s_dec:
+        s_region:
 
 - name: Visit
   description: "Metadata about the pointings of the telescope,
