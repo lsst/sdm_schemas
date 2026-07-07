@@ -417,15 +417,15 @@ tables:
   - name: IDX_DiaSource_ccdVisitId
     "@id": "#IDX_DiaSource_ccdVisitId"
     columns:
-    - "#DiaSource.ccdVisitId"
+    - "ccdVisitId"
   - name: IDX_DiaSource_diaObjectId
     "@id": "#IDX_DiaSource_diaObjectId"
     columns:
-    - "#DiaSource.diaObjectId"
+    - "diaObjectId"
   - name: IDX_DiaSource_ssObjectId
     "@id": "#IDX_DiaSource_ssObjectId"
     columns:
-    - "#DiaSource.ssObjectId"
+    - "ssObjectId"
   mysql:engine: MyISAM
   mysql:charset: latin1
 - name: SSSource
