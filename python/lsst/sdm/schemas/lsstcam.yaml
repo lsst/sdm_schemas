@@ -1268,7 +1268,7 @@ tables:
   - name: idx_Object_objectId
     description: Unique index on objectId column
     columns:
-    - "#Object.objectId"
+    - "objectId"
 - name: Source
   description: "Properties of detections on the single-epoch visit images, performed
     independently of the Object detections on coadded images."
@@ -1438,14 +1438,16 @@ tables:
     description: Link a Source to its associated Visit
     '@type': ForeignKey
     columns:
-    - '#Source.visit'
-    referencedColumns:
-    - '#Visit.visit'
+    - 'visit'
+    reference:
+      table: 'Visit'
+      columns:
+      - 'visit'
   indexes:
   - name: idx_Source_sourceId
     description: Unique index on sourceId column
     columns:
-    - "#Source.sourceId"
+    - "sourceId"
 - name: ForcedSource
   description: "Forced-photometry measurements on individual single-epoch visit images and
     difference images, based on and linked to the entries in the Object table. Point-source
@@ -1489,21 +1491,25 @@ tables:
     description: Link an Object to its associated ForcedSources
     '@type': ForeignKey
     columns:
-    - '#ForcedSource.objectId'
-    referencedColumns:
-    - '#Object.objectId'
+    - 'objectId'
+    reference:
+      table: 'Object'
+      columns:
+      - 'objectId'
   - name: fk_ForcedSource_Visit
     description: Link a ForcedSource to its associated visit
     '@type': ForeignKey
     columns:
-    - '#ForcedSource.visit'
-    referencedColumns:
-    - '#Visit.visit'
+    - 'visit'
+    reference:
+      table: 'Visit'
+      columns:
+      - 'visit'
   indexes:
   - name: idx_ForcedSource_objectId
     description: Non-unique index on the objectId column; accelerates retrieval of light curves for Objects
     columns:
-    - '#ForcedSource.objectId'
+    - 'objectId'
 - name: DiaSource
   description: "Properties of transient-object detections on the single-epoch difference images."
   tap:table_index: 50
@@ -1609,33 +1615,39 @@ tables:
     description: Unique constraint on diaSourceId
     '@type': Unique
     columns:
-    - '#DiaSource.diaSourceId'
+    - 'diaSourceId'
   - name: fk_DiaSource_Visit
     description: Link a DiaSource to its associated Visit
     '@type': ForeignKey
     columns:
-    - '#DiaSource.visit'
-    referencedColumns:
-    - '#Visit.visit'
+    - 'visit'
+    reference:
+      table: 'Visit'
+      columns:
+      - 'visit'
   - name: fk_DiaSource_DiaObject
     description: Link a DiaObject to its associated DiaSources
     '@type': ForeignKey
     columns:
-    - '#DiaSource.diaObjectId'
-    referencedColumns:
-    - '#DiaObject.diaObjectId'
+    - 'diaObjectId'
+    reference:
+      table: 'DiaObject'
+      columns:
+      - 'diaObjectId'
   - name: fk_DiaSource_SSObject
     description: Link a DiaSource to its associated SSObject, if any
     '@type': ForeignKey
     columns:
-    - '#DiaSource.ssObjectId'
-    referencedColumns:
-    - '#SSObject.ssObjectId'
+    - 'ssObjectId'
+    reference:
+      table: 'SSObject'
+      columns:
+      - 'ssObjectId'
   indexes:
   - name: idx_DiaSource_diaObjectId
     description: Non-unique index on the diaObjectId column; accelerates retrieval of light curves for DiaObjects
     columns:
-    - "#DiaSource.diaObjectId"
+    - "diaObjectId"
 - name: DiaObject
   description: "Properties of time-varying astronomical objects based on association
     of data from one or more spatially-related DiaSource detections on individual
@@ -1716,7 +1728,7 @@ tables:
   - name: idx_DiaObject_diaObjectId
     description: Unique index on the diaObjectId column
     columns:
-    - "#DiaObject.diaObjectId"
+    - "diaObjectId"
 - name: ForcedSourceOnDiaObject
   description: "Point-source forced-photometry measurements on individual single-epoch
     visit images and difference images, based on and linked to the entries in the
@@ -1759,21 +1771,25 @@ tables:
     description: Link a DiaObject to its associated ForcedSourceOnDiaObjects
     '@type': ForeignKey
     columns:
-    - '#ForcedSourceOnDiaObject.diaObjectId'
-    referencedColumns:
-    - '#DiaObject.diaObjectId'
+    - 'diaObjectId'
+    reference:
+      table: 'DiaObject'
+      columns:
+      - 'diaObjectId'
   - name: fk_ForcedSourceOnDiaObject_Visit
     description: Link a ForcedSourceOnDiaObject to its associated Visit
     '@type': ForeignKey
     columns:
-    - '#ForcedSourceOnDiaObject.visit'
-    referencedColumns:
-    - '#Visit.visit'
+    - 'visit'
+    reference:
+      table: 'Visit'
+      columns:
+      - 'visit'
   indexes:
   - name: idx_ForcedSourceOnDiaObject_diaObjectId
     description: Non-unique index on the diaObjectId column; accelerates retrieval of light curves for DiaObjects
     columns:
-    - "#ForcedSourceOnDiaObject.diaObjectId"
+    - "diaObjectId"
 - name: CoaddPatches
   description: "Static information about the subset of tracts and patches from the standard
     LSST skymap that apply to coadds in these catalogs"
@@ -1790,11 +1806,11 @@ tables:
   - name: idx_CoaddPatches_lsst_patch
     description: Non-unique index on the lsst_patch column
     columns:
-    - "#CoaddPatches.lsst_patch"
+    - "lsst_patch"
   - name: idx_CoaddPatches_lsst_tract
     description: Non-unique index on the lsst_tract column
     columns:
-    - "#CoaddPatches.lsst_tract"
+    - "lsst_tract"
 - name: Visit
   description: "Metadata about the pointings of the telescope,
     largely associated with the boresight of the LSSTCam focal plane as a whole."
@@ -1822,7 +1838,7 @@ tables:
   - name: idx_Visit_visit
     description: Unique index on the visit column
     columns:
-    - "#Visit.visit"
+    - "visit"
 - name: VisitDetector
   primaryKey:
   - "#VisitDetector.visitId"
@@ -1909,19 +1925,21 @@ tables:
     description: Link a Visit to the CCD-level images it contains
     '@type': ForeignKey
     columns:
-    - '#VisitDetector.visitId'
-    referencedColumns:
-    - '#Visit.visit'
+    - 'visitId'
+    reference:
+      table: 'Visit'
+      columns:
+      - 'visit'
   indexes:
   - name: idx_VisitDetector_visitId
     description: Non-unique index on visitId column; accelerates retrieval of data for all detectors for a visit
     columns:
-    - "#VisitDetector.visitId"
+    - "visitId"
   - name: idx_VisitDetector_visitId_detector
     description: Unique index on visit and detector columns in CcdVisit table
     columns:
-    - "#VisitDetector.visitId"
-    - "#VisitDetector.detector"
+    - "visitId"
+    - "detector"
 - name: SSObject
   description: LSST-computed per-object quantities.
   tap:table_index: 110
@@ -2014,19 +2032,21 @@ tables:
     description: Link an SSObject to its associated mpc_orbits
     '@type': ForeignKey
     columns:
-    - '#SSObject.designation'
-    referencedColumns:
-    - '#mpc_orbits.designation'
+    - 'designation'
+    reference:
+      table: 'mpc_orbits'
+      columns:
+      - 'designation'
   - name: unique_SSObject_designation
     description: Unique index on the designation column
     '@type': Unique
     columns:
-    - "#SSObject.designation"
+    - "designation"
   indexes:
   - name: idx_SSObject_MOIDEarth
     description: Index on the MOIDEarth column
     columns:
-    - "#SSObject.MOIDEarth"
+    - "MOIDEarth"
 - name: SSSource
   description: LSST-computed per-source quantities. 1::1 relationship with DiaSource.
   tap:table_index: 120
@@ -2078,36 +2098,42 @@ tables:
     description: Link an SSSource to its associated DiaSource
     '@type': ForeignKey
     columns:
-    - '#SSSource.diaSourceId'
-    referencedColumns:
-    - '#DiaSource.diaSourceId'
+    - 'diaSourceId'
+    reference:
+      table: 'DiaSource'
+      columns:
+      - 'diaSourceId'
   - name: fk_SSSource_SSObject
     description: Link an SSObject to its associated SSSources
     '@type': ForeignKey
     columns:
-    - '#SSSource.ssObjectId'
-    referencedColumns:
-    - '#SSObject.ssObjectId'
+    - 'ssObjectId'
+    reference:
+      table: 'SSObject'
+      columns:
+      - 'ssObjectId'
   - name: fk_SSSource_mpc_orbits
     description: Link an SSSource to its associated mpc_orbits
     '@type': ForeignKey
     columns:
-    - '#SSSource.designation'
-    referencedColumns:
-    - '#mpc_orbits.designation'
+    - 'designation'
+    reference:
+      table: 'mpc_orbits'
+      columns:
+      - 'designation'
   indexes:
   - name: idx_SSSource_ssObjectId
     description: >
       Non-unique index on the ssObjectId column; accelerates retrieval of
       single-epoch data for SSObjects.
     columns:
-    - "#SSSource.ssObjectId"
+    - "ssObjectId"
   - name: idx_SSSource_designation
     description: >
       Non-unique index on the designation column; accelerates retrieval of
       single-epoch data for SSObjects.
     columns:
-    - "#SSSource.designation"
+    - "designation"
 - name: mpc_orbits
   description: Table of orbital elements and related information of known (sun-orbiting and unbound) Solar
     System objects. Replicated from the Minor Planet Center (Postgres) database. This schema will
@@ -2176,17 +2202,17 @@ tables:
     description: Uniqueness of unpacked_primary_provisional_designation
     '@type': Unique
     columns:
-    - '#mpc_orbits.unpacked_primary_provisional_designation'
+    - 'unpacked_primary_provisional_designation'
   - name: unique_mpc_orbits_designation
     description: Uniqueness of designation
     '@type': Unique
     columns:
-    - '#mpc_orbits.designation'
+    - 'designation'
   - name: unique_mpc_orbits_packed_primary_provisional_designation
     description: Uniqueness of packed_primary_provisional_designation
     '@type': Unique
     columns:
-    - '#mpc_orbits.packed_primary_provisional_designation'
+    - 'packed_primary_provisional_designation'
 - name: current_identifications
   description: All single-designations, and all identifications between designations. Always uses primary
     provisional designation (even for numbered objects). Includes all comets and satellites.
@@ -2214,12 +2240,12 @@ tables:
     "@type": Unique
     description: Unique index on the packed_primary_provisional_designation column
     columns:
-    - '#current_identifications.packed_primary_provisional_designation'
+    - 'packed_primary_provisional_designation'
   - name: uniq_current_identifications_packed_secondary_provisional_desig
     "@type": Unique
     description: Unique index on the packed_secondary_provisional_designation column
     columns:
-    - '#current_identifications.packed_secondary_provisional_designation'
+    - 'packed_secondary_provisional_designation'
 - name: numbered_identifications
   description: The numbered identification table contains all the numbered objects (minor planets, comets and
     natural satellites) with their primary provisional designations. The table is continously
@@ -2247,22 +2273,22 @@ tables:
     "@type": Unique
     description: Unique index on the iau_name column
     columns:
-    - '#numbered_identifications.iau_name'
+    - 'iau_name'
   - name: unique_numbered_identifications_packed_primary_prov_desig
     "@type": Unique
     description: Unique index on the packed_primary_provisional_designation column
     columns:
-    - '#numbered_identifications.packed_primary_provisional_designation'
+    - 'packed_primary_provisional_designation'
   - name: unique_numbered_identifications_permid
     "@type": Unique
     description: Unique index on the permid column
     columns:
-    - '#numbered_identifications.permid'
+    - 'permid'
   - name: uniq_numbered_identifications_unpacked_primary_prov_desig
     "@type": Unique
     description: Unique index on the unpacked_primary_provisional_designation column
     columns:
-    - '#numbered_identifications.unpacked_primary_provisional_designation'
+    - 'unpacked_primary_provisional_designation'
 - name: Parent
   description: "Descriptions of the parent objects in the deblending hierarchy."
   tap:table_index: 160
