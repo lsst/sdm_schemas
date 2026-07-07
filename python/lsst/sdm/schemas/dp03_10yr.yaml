@@ -417,24 +417,26 @@ tables:
   - name: IDX_DiaSource_ccdVisitId
     "@id": "#IDX_DiaSource_ccdVisitId"
     columns:
-    - "#DiaSource.ccdVisitId"
+    - "ccdVisitId"
   - name: IDX_DiaSource_diaObjectId
     "@id": "#IDX_DiaSource_diaObjectId"
     columns:
-    - "#DiaSource.diaObjectId"
+    - "diaObjectId"
   - name: IDX_DiaSource_ssObjectId
     "@id": "#IDX_DiaSource_ssObjectId"
     columns:
-    - "#DiaSource.ssObjectId"
+    - "ssObjectId"
   constraints:
   - name: SSO_DS_10yr
     "@type": "ForeignKey"
     "@id": "#FK_DiaSource_ssObjectId_SSObject_ssObjectId_10yr"
     description: Link SSObjects to associated DiaSources
     columns:
-    - "#DiaSource.ssObjectId"
-    referencedColumns:
-    - "#SSObject.ssObjectId"
+    - "ssObjectId"
+    reference:
+      table: "SSObject"
+      columns:
+      - "ssObjectId"
   mysql:engine: MyISAM
   mysql:charset: latin1
 - name: SSSource
@@ -596,9 +598,11 @@ tables:
     "@id": "#FK_SSSource_ssObjectId_SSObject_ssObjectId_10yr"
     description: Link SSObjects to associated SSSources
     columns:
-    - "#SSSource.ssObjectId"
-    referencedColumns:
-    - "#SSObject.ssObjectId"
+    - "ssObjectId"
+    reference:
+      table: "SSObject"
+      columns:
+      - "ssObjectId"
 - name: MPCORB
   "@id": "#MPCORB"
   description: The orbit catalog produced by the Minor Planet Center. Ingested daily.

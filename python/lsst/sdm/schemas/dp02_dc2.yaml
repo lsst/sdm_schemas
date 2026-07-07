@@ -5731,9 +5731,11 @@ tables:
     "@id": "#FK_Source_ccdVisitId_CcdVisit_ccdVisitId"
     description: Link CCD-level images to associated Sources
     columns:
-    - "#Source.ccdVisitId"
-    referencedColumns:
-    - "#CcdVisit.ccdVisitId"
+    - "ccdVisitId"
+    reference:
+      table: "CcdVisit"
+      columns:
+      - "ccdVisitId"
 - name: ForcedSource
   "@id": "#ForcedSource"
   description: "Forced-photometry measurements on individual single-epoch visit images and
@@ -6063,17 +6065,21 @@ tables:
     "@id": "#FK_ForcedSource_objectId_Object_objectId"
     description: Link Objects to associated ForcedSources
     columns:
-    - "#ForcedSource.objectId"
-    referencedColumns:
-    - "#Object.objectId"
+    - "objectId"
+    reference:
+      table: "Object"
+      columns:
+      - "objectId"
   - name: CcdV_FS
     "@type": "ForeignKey"
     "@id": "#FK_ForcedSource_ccdVisitId_CcdVisit_ccdVisitId"
     description: Link CCD-level images to associated ForcedSources
     columns:
-    - "#ForcedSource.ccdVisitId"
-    referencedColumns:
-    - "#CcdVisit.ccdVisitId"
+    - "ccdVisitId"
+    reference:
+      table: "CcdVisit"
+      columns:
+      - "ccdVisitId"
 - name: DiaObject
   "@id": "#DiaObject"
   description: "Properties of time-varying astronomical objects based on association
@@ -6995,17 +7001,21 @@ tables:
     "@id": "#FK_DiaSource_diaObjectId_DiaObject_diaObjectId"
     description: Link DiaObjects to associated DiaSources
     columns:
-    - "#DiaSource.diaObjectId"
-    referencedColumns:
-    - "#DiaObject.diaObjectId"
+    - "diaObjectId"
+    reference:
+      table: "DiaObject"
+      columns:
+      - "diaObjectId"
   - name: CcdV_DiaS
     "@type": "ForeignKey"
     "@id": "#FK_DiaSource_ccdVisitId_CcdVisit_ccdVisitId"
     description: Link CCD-level images to associated DiaSources
     columns:
-    - "#DiaSource.ccdVisitId"
-    referencedColumns:
-    - "#CcdVisit.ccdVisitId"
+    - "ccdVisitId"
+    reference:
+      table: "CcdVisit"
+      columns:
+      - "ccdVisitId"
 - name: ForcedSourceOnDiaObject
   "@id": "#ForcedSourceOnDiaObject"
   description: "Point-source forced-photometry measurements on individual single-epoch
@@ -7310,9 +7320,11 @@ tables:
     "@id": "#FK_ForcedSourceOnDiaObject_diaObjectId_DiaObject_diaObjectId"
     description: Link DiaObject to associated ForcedSourceOnDiaObjects
     columns:
-    - "#ForcedSourceOnDiaObject.diaObjectId"
-    referencedColumns:
-    - "#DiaObject.diaObjectId"
+    - "diaObjectId"
+    reference:
+      table: "DiaObject"
+      columns:
+      - "diaObjectId"
 - name: Visit
   '@id': '#Visit'
   description: "Metadata about the pointings of the DC2 simulated survey,
@@ -7701,9 +7713,11 @@ tables:
     "@id": "#FK_CcdVisit_visitId_Visit_visitId"
     description: Link Visits to the CcdVisits they contain
     columns:
-    - "#CcdVisit.visitId"
-    referencedColumns:
-    - "#Visit.visit"
+    - "visitId"
+    reference:
+      table: "Visit"
+      columns:
+      - "visit"
 - name: CoaddPatches
   "@id": "#coaddpatches"
   description: "Static information about the subset of tracts and patches from the standard
@@ -7840,17 +7854,21 @@ tables:
     "@id": "#FK_MatchesTruth_match_objectId_Object_objectId"
     description: Link Object to potential matches to Truth entries
     columns:
-    - "#MatchesTruth.match_objectId"
-    referencedColumns:
-    - "#Object.objectId"
+    - "match_objectId"
+    reference:
+      table: "Object"
+      columns:
+      - "objectId"
   - name: Tru_MatTru
     "@type": "ForeignKey"
     "@id": "#FK_MatchesTruth_id_truth_type_TruthSummary_id_truth_type"
     description: Link Truth entries to potential matches to Objects
     columns:
-    - "#MatchesTruth.id_truth_type"
-    referencedColumns:
-    - "#TruthSummary.id_truth_type"
+    - "id_truth_type"
+    reference:
+      table: "TruthSummary"
+      columns:
+      - "id_truth_type"
 # - name: MatchesObject
 #   '@id': '#MatchesObject'
 #   description: Match information for objectTable_tract sources
