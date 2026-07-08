@@ -2118,55 +2118,6 @@ tables:
         normalized_rms:
         earth_moid:
         fitting_datetime:
-# - name: current_identifications
-#   description: All single-designations, and all identifications between
-#     designations. Always uses primary provisional designation (even for
-#     numbered objects). Includes all comets and satellites. Replicated from the
-#     Minor Planet Center (Postgres) database. This schema will generally closely
-#     follow the schema of the upstream table, to allow end-users to rerun
-#     queries developed elsewhere on the RSP.
-#   tap:table_index: 140
-#   primaryKey: '#current_identifications.id'
-#   columnRefs:
-#     base:
-#       current_identifications:
-#         id:
-#         packed_primary_provisional_designation:
-#         packed_secondary_provisional_designation:
-#         unpacked_primary_provisional_designation:
-#         unpacked_secondary_provisional_designation:
-#         published:
-#         identifier_ids:
-#         object_type:
-#         numbered:
-#         created_at:
-#         updated_at:
-
-# - name: numbered_identifications
-  # description: The numbered identification table contains all the numbered
-  #   objects (minor planets, comets and natural satellites) with their primary
-  #   provisional designations. The table is continously updated everytime a new
-  #   object is numbered. Replicated from the Minor Planet Center (Postgres)
-  #   database. This schema will generally closely follow the schema of the
-  #   upstream table, to allow end-users to rerun queries developed elsewhere on
-  #   the RSP.
-  # tap:table_index: 150
-  # primaryKey: '#numbered_identifications.id'
-  # columnRefs:
-  #   base:
-  #     numbered_identifications:
-  #       id:
-  #       packed_primary_provisional_designation:
-  #       unpacked_primary_provisional_designation:
-  #       permid:
-  #       iau_designation:
-  #       iau_name:
-  #       numbered_publication_references:
-  #       named_publication_references:
-  #       naming_credit:
-  #       created_at:
-  #       updated_at:
-
 - name: ShearObject
   description: "Descriptions of shear objects detected and measured on coadds with metadetection."
   tap:table_index: 170
