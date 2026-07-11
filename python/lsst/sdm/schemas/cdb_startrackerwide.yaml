@@ -20,8 +20,8 @@ tables:
     "@type": Unique
     description: Ensure day_obs plus seq_num is unique.
     columns:
-    - "#exposure.day_obs"
-    - "#exposure.seq_num"
+    - "day_obs"
+    - "seq_num"
   columns:
   - name: exposure_id
     "@id": "#exposure.exposure_id"
@@ -232,14 +232,18 @@ tables:
     "@id": "#exposure_flexdata.fk_obs_id"
     "@type": ForeignKey
     description: Flex data obs_id must be an Exposure exposure_id.
-    columns: ["#exposure_flexdata.obs_id"]
-    referencedColumns: ["#exposure.exposure_id"]
+    columns: ["obs_id"]
+    reference:
+      table: "exposure"
+      columns: ["exposure_id"]
   - name: fk_exposure_flexdata_key
     "@id": "#exposure_flexdata.fk_key"
     "@type": ForeignKey
     description: Flex data key must be listed in the schema.
-    columns: ["#exposure_flexdata.key"]
-    referencedColumns: ["#exposure_flexdata_schema.key"]
+    columns: ["key"]
+    reference:
+      table: "exposure_flexdata_schema"
+      columns: ["key"]
   columns:
   - name: obs_id
     "@id": "#exposure_flexdata.obs_id"
@@ -303,8 +307,10 @@ tables:
     "@id": "#exposure_quicklook.fk_obs_id"
     "@type": ForeignKey
     description: Quicklook exposure_id must be an Exposure exposure_id.
-    columns: ["#exposure_quicklook.exposure_id"]
-    referencedColumns: ["#exposure.exposure_id"]
+    columns: ["exposure_id"]
+    reference:
+      table: "exposure"
+      columns: ["exposure_id"]
   columns:
   - name: exposure_id
     "@id": "#exposure_quicklook.exposure_id"
