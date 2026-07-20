@@ -22,7 +22,7 @@ classifiers = [
 ]
 keywords = ["lsst"]
 dependencies = [
-    "lsst-felis",
+    "lsst-felis < 30.100",
     "click",
     "pyyaml",
     "psycopg2-binary",
