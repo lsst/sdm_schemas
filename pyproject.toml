@@ -22,7 +22,7 @@ classifiers = [
 ]
 keywords = ["lsst"]
 dependencies = [
-    "lsst-felis",
+    "lsst-felis < 30.100",
     "click",
     "pyyaml",
     "psycopg2-binary",
@@ -59,7 +59,7 @@ where = ["python"]
     filename = "browser/CHANGES.md"
     directory = "docs/changes"
     title_format = "{version} ({project_date})"
-    issue_format = "[{issue}](https://jira.lsstcorp.org/browse/{issue})"
+    issue_format = "[{issue}](https://rubinobs.atlassian.net/browse/{issue})"
 
 
     [[tool.towncrier.type]]
