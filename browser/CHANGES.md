@@ -15,6 +15,29 @@ Changes in [SDM Schemas](https://github.com/lsst/sdm_schemas) are generally orga
 
 **Miscellaneous** - Catch-all category for changes which are not related to particular schemas, typically involving changes to GitHub workflows, project scripts, etc.
 
+v30.0.8 (2026-07-20)
+====================
+
+### Data Releases
+
+- Added ShearObject table schema for LSSTCam ([DM-53978](https://jira.lsstcorp.org/browse/DM-53978))
+- Added WCS-rejection columns to CcdVisit on LSSTCam (probably for DP2) and CI. ([DM-54286](https://jira.lsstcorp.org/browse/DM-54286))
+- Added IsolatedStarStellarMotions schema for LSSTCam. ([DM-54418](https://jira.lsstcorp.org/browse/DM-54418))
+- Renamed psfOriginal_e1/e2 to psfOriginal_g1/g2 in ShearObject to denote the change in convention. ([DM-54456](https://jira.lsstcorp.org/browse/DM-54456))
+- Added columns in ShearObject schema to flag duplicate detections. ([DM-54960](https://jira.lsstcorp.org/browse/DM-54960))
+
+### Science Pipelines
+
+- Removed calib_photometry_reserved from Object Table because it is always false.
+
+  Added cModel_devFlux and cModel_expFlux unforced free measurements to Object Table. ([DM-53352](https://jira.lsstcorp.org/browse/DM-53352))
+- Switched Object shape moments to e1/e2 parameterization ([DM-53886](https://jira.lsstcorp.org/browse/DM-53886))
+- Removed the exponential/Sersic model x/y and Err columns.
+
+  Added exponential/Sersic model ra_dec_Cov columns.
+
+  Added ivoa:ucd tags to exponential/Sersic RA/dec columns. ([DM-53940](https://jira.lsstcorp.org/browse/DM-53940))
+
 v30.0.0 (2026-01-16)
 ====================
 
