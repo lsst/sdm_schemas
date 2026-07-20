@@ -5,6 +5,34 @@
 # build_datalink_metadata.py, run during the build.
 
 tables:
+  dp2.Object:
+    lsst:minimal: []
+  dp2.Source:
+    lsst:minimal: []
+  dp2.ForcedSource:
+    lsst:minimal: []
+  dp2.DiaSource:
+    lsst:minimal: []
+  dp2.DiaObject:
+    lsst:minimal: []
+  dp2.ForcedSourceOnDiaObject:
+    lsst:minimal: []
+  dp2.CoaddPatches:
+    lsst:minimal: []
+  dp2.Visit:
+    lsst:minimal: []
+  dp2.VisitDetector:
+    lsst:minimal: []
+  dp2.SSObject:
+    lsst:minimal: []
+  dp2.SSSource:
+    lsst:minimal: []
+  dp2.mpc_orbits:
+    lsst:minimal: []
+  dp2.ShearObject:
+    lsst:minimal: []
+  dp2.IsolatedStarStellarMotions:
+    lsst:minimal: []
   dp1.CcdVisit:
     lsst:minimal: []
   dp1.CoaddPatches:
