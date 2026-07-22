@@ -2192,7 +2192,7 @@ tables:
 - name: IsolatedStarStellarMotions
   description: Position, proper motion, and parallax for isolated stars, fit using
     associated source measurements, with positions for associated reference objects
-    if available.
+    from Gaia DR3 where available.
   primaryKey: '#IsolatedStarStellarMotions.isolated_star_id'
   tap:table_index: 180
   columnRefs:
