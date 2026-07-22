@@ -8345,25 +8345,25 @@ tables:
     datatype: double
     ivoa:ucd: stat.covariance;pos.pm;pos.eq.dec;pos.parallax
     ivoa:unit: mas**2/yr
-    tap:principal: 1
+    tap:principal: 0
   - name: dec_decPM_Cov
     description: Covariance between declination and proper motion in declination.
     datatype: double
     ivoa:ucd: stat.covariance;pos.eq.dec;pos.pm;pos.eq.dec
     ivoa:unit: deg*mas/yr
-    tap:principal: 1
+    tap:principal: 0
   - name: dec_parallax_Cov
     description: Covariance between declination and parallax.
     datatype: double
     ivoa:ucd: stat.covariance;pos.eq.dec;pos.parallax
     ivoa:unit: deg*mas
-    tap:principal: 1
+    tap:principal: 0
   - name: dec_raPM_Cov
     description: Covariance between declination and proper motion in right ascension.
     datatype: double
     ivoa:ucd: stat.covariance;pos.eq.dec;pos.pm;pos.eq.ra
     ivoa:unit: deg*mas/yr
-    tap:principal: 1
+    tap:principal: 0
   - name: epoch
     description: Epoch in MJD to which the position corresponds.
     datatype: double
@@ -8417,65 +8417,70 @@ tables:
     datatype: double
     ivoa:ucd: stat.covariance;pos.pm;pos.eq.ra;pos.pm;pos.eq.dec
     ivoa:unit: mas**2/yr**2
-    tap:principal: 1
+    tap:principal: 0
   - name: raPM_parallax_Cov
     description: Covariance between proper motion in right ascension and parallax.
     datatype: double
     ivoa:ucd: stat.covariance;pos.pm;pos.eq.ra;pos.parallax
     ivoa:unit: mas**2/yr
-    tap:principal: 1
+    tap:principal: 0
   - name: ra_decPM_Cov
     description: Covariance between right ascension and proper motion in declination.
     datatype: double
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.pm;pos.eq.dec
     ivoa:unit: deg*mas/yr
-    tap:principal: 1
+    tap:principal: 0
   - name: ra_dec_Cov
     description: Covariance between right ascension (RA*cos(Dec)) and
       declination.
     datatype: double
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
-    tap:principal: 1
+    tap:principal: 0
   - name: ra_parallax_Cov
     description: Covariance between right ascension and parallax.
     datatype: double
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.parallax
     ivoa:unit: deg*mas
-    tap:principal: 1
+    tap:principal: 0
   - name: ra_raPM_Cov
     description: Covariance between right ascension and proper motion in right ascension.
     datatype: double
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.pm;pos.eq.ra
     ivoa:unit: deg*mas/yr
-    tap:principal: 1
+    tap:principal: 0
   - name: ref_dec
     description: Position of the reference object in declination at the reference
       epoch.
     datatype: double
     ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
+    tap:principal: 0
   - name: ref_decPM
     description: Proper motion of the reference object in declination.
     datatype: double
     ivoa:ucd: pos.pm;pos.eq.dec
     ivoa:unit: mas/yr
+    tap:principal: 0
   - name: ref_parallax
     description: Parallax of the reference object
     datatype: double
     ivoa:ucd: pos.parallax
     ivoa:unit: mas
+    tap:principal: 0
   - name: ref_ra
     description: Position of the reference object in right ascension at the reference
       epoch.
     datatype: double
     ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
+    tap:principal: 0
   - name: ref_raPM
     description: Proper motion of the reference object in right ascension.
     datatype: double
     ivoa:ucd: pos.pm;pos.eq.ra
     ivoa:unit: mas/yr
+    tap:principal: 0
   - name: referenceId
     description: Id of the reference object if available.
     datatype: long
