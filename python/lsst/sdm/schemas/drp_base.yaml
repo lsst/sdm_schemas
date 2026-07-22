@@ -8319,7 +8319,7 @@ tables:
   - name: dec
     description: Position in declination at the reference epoch.
     datatype: double
-    ivoa:ucd: pos.eq.dec
+    ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
     tap:principal: 1
   - name: decErr
@@ -8390,7 +8390,7 @@ tables:
   - name: ra
     description: Position in right ascension at the reference epoch.
     datatype: double
-    ivoa:ucd: pos.eq.ra
+    ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
     tap:principal: 1
   - name: raErr
@@ -8482,6 +8482,7 @@ tables:
     ivoa:unit: mas/yr
     tap:principal: 0
   - name: referenceId
-    description: Id of the reference object if available.
+    description: ID of the reference object if available, from Gaia DR3.
     datatype: long
     tap:principal: 1
+    ivoa:ucd: meta.id.assoc
