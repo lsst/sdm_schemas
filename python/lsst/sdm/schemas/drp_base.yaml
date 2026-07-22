@@ -5190,12 +5190,12 @@ tables:
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
     datatype: double
-    ivoa:ucd: pos.eq.dec;meta.main
+    ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: coord_ra
     description: Fiducial ICRS Right Ascension of centroid used for database indexing
     datatype: double
-    ivoa:ucd: pos.eq.ra;meta.main
+    ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: deblend_deblendedAsPsf
     description: Deblender thought this source looked like a PSF
@@ -5228,7 +5228,7 @@ tables:
   - name: dec
     description: Position in declination.
     datatype: double
-    ivoa:ucd: pos.eq.dec
+    ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
   - name: decErr
     description: Error in declination.
@@ -5465,7 +5465,7 @@ tables:
   - name: ra
     description: Position in right ascension.
     datatype: double
-    ivoa:ucd: pos.eq.ra
+    ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
   - name: raErr
     description: Angular error in right ascension (∂RA*cos(Dec)).
@@ -5691,18 +5691,18 @@ tables:
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing.
     datatype: double
-    ivoa:ucd: pos.eq.dec;meta.main
+    ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: coord_ra
     description: Fiducial ICRS Right Ascension of centroid used for database indexing.
     datatype: double
-    ivoa:ucd: pos.eq.ra;meta.main
+    ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: dec
     description: Declination coordinate of the center of this diaSource.
     datatype: double
     nullable: false
-    ivoa:ucd: pos.eq.dec
+    ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
   - name: decErr
     description: Error in declination.
@@ -5963,7 +5963,7 @@ tables:
     description: Right ascension coordinate of the center of this diaSource.
     datatype: double
     nullable: false
-    ivoa:ucd: pos.eq.ra
+    ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
   - name: raErr
     description: Angular error in right ascension (∂RA*cos(Dec)).

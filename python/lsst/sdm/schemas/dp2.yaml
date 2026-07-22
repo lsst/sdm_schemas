@@ -1276,8 +1276,6 @@ tables:
   columnRefs:
     base:
       Source:
-        coord_ra:
-        coord_dec:
         parentSourceId:
         x:
         y:
@@ -1457,8 +1455,6 @@ tables:
       ForcedSource:
         objectId:
         parentObjectId:
-        coord_ra:
-        coord_dec:
         visit:
         detector:
         band:
@@ -1516,8 +1512,6 @@ tables:
         ssObjectId:
         parentDiaSourceId:
         midpointMjdTai:
-        coord_dec:
-        coord_ra:
         ra:
         dec:
         raErr:
@@ -1721,8 +1715,6 @@ tables:
       ForcedSourceOnDiaObject:
         diaObjectId:
         parentObjectId:
-        coord_ra:
-        coord_dec:
         visit:
         detector:
         band:
