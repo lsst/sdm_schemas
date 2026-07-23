@@ -15,199 +15,19 @@ tables:
   columnRefs:
     base:
       Object:
+        objectId:
         tract:
         patch:
-        z_ra:
-        z_dec:
-        z_raErr:
-        z_decErr:
-        z_ra_dec_Cov:
-        z_psfFlux:
-        z_psfFluxErr:
-        z_psfMag:
-        z_psfMagErr:
-        z_free_psfFlux:
-        z_free_psfFluxErr:
-        z_free_psfFlux_flag:
-        z_gaapPsfFlux:
-        z_gaapPsfFluxErr:
-        z_gaap0p7Flux:
-        z_gaap0p7FluxErr:
-        z_gaap1p0Flux:
-        z_gaap1p0FluxErr:
-        z_ixx:
-        z_iyy:
-        z_ixy:
-        z_i_flag:
-        z_ixxPSF:
-        z_iyyPSF:
-        z_ixyPSF:
-        z_iPSF_flag:
-        z_kronRad:
-        z_kronFlux:
-        z_kronFluxErr:
-        z_ap03Flux:
-        z_ap03FluxErr:
-        z_ap03Flux_flag:
-        z_ap06Flux:
-        z_ap06FluxErr:
-        z_ap06Flux_flag:
-        z_ap09Flux:
-        z_ap09FluxErr:
-        z_ap09Flux_flag:
-        z_ap12Flux:
-        z_ap12FluxErr:
-        z_ap12Flux_flag:
-        z_ap17Flux:
-        z_ap17FluxErr:
-        z_ap17Flux_flag:
-        z_ap25Flux:
-        z_ap25FluxErr:
-        z_ap25Flux_flag:
-        z_ap35Flux:
-        z_ap35FluxErr:
-        z_ap35Flux_flag:
-        z_ap50Flux:
-        z_ap50FluxErr:
-        z_ap50Flux_flag:
-        z_ap70Flux:
-        z_ap70FluxErr:
-        z_ap70Flux_flag:
-        z_extendedness:
-        z_sizeExtendedness:
-        z_model_extendedness:
-        z_blendedness:
-        z_cModelFlux:
-        z_cModelFluxErr:
-        z_cModelMag:
-        z_cModelMagErr:
-        z_cModelFlux_inner:
-        z_cModel_fracDev:
-        z_free_cModelFlux:
-        z_free_cModelFluxErr:
-        z_free_cModelFlux_inner:
-        z_free_cModel_fracDev:
-        z_free_cModelFlux_flag:
-        z_free_cModel_devFlux:
-        z_free_cModel_devFluxErr:
-        z_free_cModel_expFlux:
-        z_free_cModel_expFluxErr:
-        z_cModel_dev_reff_major:
-        z_cModel_dev_reff_minor:
-        z_cModel_dev_theta:
-        z_cModel_exp_reff_major:
-        z_cModel_exp_reff_minor:
-        z_cModel_exp_theta:
-        z_cModel_chi2:
-        z_cModel_devFlux:
-        z_cModel_devFluxErr:
-        z_cModel_expFlux:
-        z_cModel_expFluxErr:
-        z_moments_g1:
-        z_moments_g2:
-        z_moments_trace:
-        z_moments_flag:
-        z_moments_psf_g1:
-        z_moments_psf_g2:
-        z_moments_psf_trace:
-        z_moments_psf_flag:
-        z_moments_psf_debiased_g1:
-        z_moments_psf_debiased_g2:
-        z_moments_psf_debiased_trace:
-        z_moments_psf_debiased_flag:
-        z_hsmShapeRegauss_e1:
-        z_hsmShapeRegauss_e2:
-        z_hsmShapeRegauss_sigma:
-        z_hsmShapeRegauss_flag:
-        z_hsm_moments_30:
-        z_hsm_momentsPsf_30:
-        z_hsm_moments_21:
-        z_hsm_momentsPsf_21:
-        z_hsm_moments_12:
-        z_hsm_momentsPsf_12:
-        z_hsm_moments_03:
-        z_hsm_momentsPsf_03:
-        z_hsm_moments_40:
-        z_hsm_momentsPsf_40:
-        z_hsm_moments_31:
-        z_hsm_momentsPsf_31:
-        z_hsm_moments_22:
-        z_hsm_momentsPsf_22:
-        z_hsm_moments_13:
-        z_hsm_momentsPsf_13:
-        z_hsm_moments_04:
-        z_hsm_momentsPsf_04:
-        z_hsm_moments_flag:
-        z_hsm_momentsPsf_flag:
-        z_inputCount:
-        z_deblend_dataCoverage:
-        z_deblend_blendedness:
-        z_deblend_fluxOverlap:
-        z_deblend_fluxOverlapFraction:
-        z_deblend_zeroFlux:
-        z_psfModel_TwoGaussian_gauss1_sigma_x:
-        z_psfModel_TwoGaussian_gauss1_sigma_y:
-        z_psfModel_TwoGaussian_gauss1_rho:
-        z_psfModel_TwoGaussian_gauss1_fluxfrac:
-        z_psfModel_TwoGaussian_gauss2_sigma_x:
-        z_psfModel_TwoGaussian_gauss2_sigma_y:
-        z_psfModel_TwoGaussian_gauss2_rho:
-        z_psfModel_TwoGaussian_n_iter:
-        z_psfModel_TwoGaussian_chi2_reduced:
-        z_psfModel_TwoGaussian_unknown_flag:
-        z_psfModel_TwoGaussian_no_inputs_flag:
-        z_inputCount_flag:
-        z_inputCount_flag_noInputs:
-        z_psfFlux_area:
-        z_psfFlux_flag:
-        z_psfFlux_flag_apCorr:
-        z_psfFlux_flag_edge:
-        z_psfFlux_flag_noGoodPixels:
-        z_cModel_flag:
-        z_cModel_flag_apCorr:
-        z_gaapFlux_flag:
-        z_gaapFlux_flag_edge:
-        z_blendedness_flag:
-        z_pixelFlags_bad:
-        z_pixelFlags_clipped:
-        z_pixelFlags_clippedCenter:
-        z_pixelFlags_cr:
-        z_pixelFlags_crCenter:
-        z_pixelFlags_edge:
-        z_pixelFlags_inexact_psf:
-        z_pixelFlags_inexact_psfCenter:
-        z_pixelFlags_interpolated:
-        z_pixelFlags_interpolatedCenter:
-        z_pixelFlags_nodata:
-        z_pixelFlags_offimage:
-        z_pixelFlags_saturated:
-        z_pixelFlags_saturatedCenter:
-        z_pixelFlags_sensor_edge:
-        z_pixelFlags_sensor_edgeCenter:
-        z_pixelFlags_suspect:
-        z_pixelFlags_suspectCenter:
-        z_extendedness_flag:
-        z_sizeExtendedness_flag:
-        z_invalidPsfFlag:
-        z_calib_astrometry_used:
-        z_calib_photometry_used:
-        z_calib_psf_candidate:
-        z_calib_psf_reserved:
-        z_calib_psf_used:
-        z_apFlux_flag:
-        z_apFlux_flag_apertureTruncated:
-        z_apFlux_flag_sincCoeffsTruncated:
-        z_centroid_flag:
-        z_kronFlux_flag:
-        z_kronFlux_flag_bad_radius:
-        z_kronFlux_flag_bad_shape:
-        z_kronFlux_flag_bad_shape_no_psf:
-        z_kronFlux_flag_edge:
-        z_kronFlux_flag_no_fallback_radius:
-        z_kronFlux_flag_no_minimum_radius:
-        z_kronFlux_flag_small_radius:
-        z_kronFlux_flag_used_minimum_radius:
-        z_kronFlux_flag_used_psf_radius:
+        coord_ra:
+        coord_dec:
+        coord_raErr:
+        coord_decErr:
+        coord_ra_dec_Cov:
+        coord_flag:
+        refBand:
+        refExtendedness:
+        refSizeExtendedness:
+        griz_model_extendedness:
         u_ra:
         u_dec:
         u_raErr:
@@ -469,7 +289,6 @@ tables:
         g_extendedness:
         g_sizeExtendedness:
         g_model_extendedness:
-        griz_model_extendedness:
         g_blendedness:
         g_cModelFlux:
         g_cModelFluxErr:
@@ -973,6 +792,197 @@ tables:
         i_kronFlux_flag_small_radius:
         i_kronFlux_flag_used_minimum_radius:
         i_kronFlux_flag_used_psf_radius:
+        z_ra:
+        z_dec:
+        z_raErr:
+        z_decErr:
+        z_ra_dec_Cov:
+        z_psfFlux:
+        z_psfFluxErr:
+        z_psfMag:
+        z_psfMagErr:
+        z_free_psfFlux:
+        z_free_psfFluxErr:
+        z_free_psfFlux_flag:
+        z_gaapPsfFlux:
+        z_gaapPsfFluxErr:
+        z_gaap0p7Flux:
+        z_gaap0p7FluxErr:
+        z_gaap1p0Flux:
+        z_gaap1p0FluxErr:
+        z_ixx:
+        z_iyy:
+        z_ixy:
+        z_i_flag:
+        z_ixxPSF:
+        z_iyyPSF:
+        z_ixyPSF:
+        z_iPSF_flag:
+        z_kronRad:
+        z_kronFlux:
+        z_kronFluxErr:
+        z_ap03Flux:
+        z_ap03FluxErr:
+        z_ap03Flux_flag:
+        z_ap06Flux:
+        z_ap06FluxErr:
+        z_ap06Flux_flag:
+        z_ap09Flux:
+        z_ap09FluxErr:
+        z_ap09Flux_flag:
+        z_ap12Flux:
+        z_ap12FluxErr:
+        z_ap12Flux_flag:
+        z_ap17Flux:
+        z_ap17FluxErr:
+        z_ap17Flux_flag:
+        z_ap25Flux:
+        z_ap25FluxErr:
+        z_ap25Flux_flag:
+        z_ap35Flux:
+        z_ap35FluxErr:
+        z_ap35Flux_flag:
+        z_ap50Flux:
+        z_ap50FluxErr:
+        z_ap50Flux_flag:
+        z_ap70Flux:
+        z_ap70FluxErr:
+        z_ap70Flux_flag:
+        z_extendedness:
+        z_sizeExtendedness:
+        z_model_extendedness:
+        z_blendedness:
+        z_cModelFlux:
+        z_cModelFluxErr:
+        z_cModelMag:
+        z_cModelMagErr:
+        z_cModelFlux_inner:
+        z_cModel_fracDev:
+        z_free_cModelFlux:
+        z_free_cModelFluxErr:
+        z_free_cModelFlux_inner:
+        z_free_cModel_fracDev:
+        z_free_cModelFlux_flag:
+        z_free_cModel_devFlux:
+        z_free_cModel_devFluxErr:
+        z_free_cModel_expFlux:
+        z_free_cModel_expFluxErr:
+        z_cModel_dev_reff_major:
+        z_cModel_dev_reff_minor:
+        z_cModel_dev_theta:
+        z_cModel_exp_reff_major:
+        z_cModel_exp_reff_minor:
+        z_cModel_exp_theta:
+        z_cModel_chi2:
+        z_cModel_devFlux:
+        z_cModel_devFluxErr:
+        z_cModel_expFlux:
+        z_cModel_expFluxErr:
+        z_moments_g1:
+        z_moments_g2:
+        z_moments_trace:
+        z_moments_flag:
+        z_moments_psf_g1:
+        z_moments_psf_g2:
+        z_moments_psf_trace:
+        z_moments_psf_flag:
+        z_moments_psf_debiased_g1:
+        z_moments_psf_debiased_g2:
+        z_moments_psf_debiased_trace:
+        z_moments_psf_debiased_flag:
+        z_hsmShapeRegauss_e1:
+        z_hsmShapeRegauss_e2:
+        z_hsmShapeRegauss_sigma:
+        z_hsmShapeRegauss_flag:
+        z_hsm_moments_30:
+        z_hsm_momentsPsf_30:
+        z_hsm_moments_21:
+        z_hsm_momentsPsf_21:
+        z_hsm_moments_12:
+        z_hsm_momentsPsf_12:
+        z_hsm_moments_03:
+        z_hsm_momentsPsf_03:
+        z_hsm_moments_40:
+        z_hsm_momentsPsf_40:
+        z_hsm_moments_31:
+        z_hsm_momentsPsf_31:
+        z_hsm_moments_22:
+        z_hsm_momentsPsf_22:
+        z_hsm_moments_13:
+        z_hsm_momentsPsf_13:
+        z_hsm_moments_04:
+        z_hsm_momentsPsf_04:
+        z_hsm_moments_flag:
+        z_hsm_momentsPsf_flag:
+        z_inputCount:
+        z_deblend_dataCoverage:
+        z_deblend_blendedness:
+        z_deblend_fluxOverlap:
+        z_deblend_fluxOverlapFraction:
+        z_deblend_zeroFlux:
+        z_psfModel_TwoGaussian_gauss1_sigma_x:
+        z_psfModel_TwoGaussian_gauss1_sigma_y:
+        z_psfModel_TwoGaussian_gauss1_rho:
+        z_psfModel_TwoGaussian_gauss1_fluxfrac:
+        z_psfModel_TwoGaussian_gauss2_sigma_x:
+        z_psfModel_TwoGaussian_gauss2_sigma_y:
+        z_psfModel_TwoGaussian_gauss2_rho:
+        z_psfModel_TwoGaussian_n_iter:
+        z_psfModel_TwoGaussian_chi2_reduced:
+        z_psfModel_TwoGaussian_unknown_flag:
+        z_psfModel_TwoGaussian_no_inputs_flag:
+        z_inputCount_flag:
+        z_inputCount_flag_noInputs:
+        z_psfFlux_area:
+        z_psfFlux_flag:
+        z_psfFlux_flag_apCorr:
+        z_psfFlux_flag_edge:
+        z_psfFlux_flag_noGoodPixels:
+        z_cModel_flag:
+        z_cModel_flag_apCorr:
+        z_gaapFlux_flag:
+        z_gaapFlux_flag_edge:
+        z_blendedness_flag:
+        z_pixelFlags_bad:
+        z_pixelFlags_clipped:
+        z_pixelFlags_clippedCenter:
+        z_pixelFlags_cr:
+        z_pixelFlags_crCenter:
+        z_pixelFlags_edge:
+        z_pixelFlags_inexact_psf:
+        z_pixelFlags_inexact_psfCenter:
+        z_pixelFlags_interpolated:
+        z_pixelFlags_interpolatedCenter:
+        z_pixelFlags_nodata:
+        z_pixelFlags_offimage:
+        z_pixelFlags_saturated:
+        z_pixelFlags_saturatedCenter:
+        z_pixelFlags_sensor_edge:
+        z_pixelFlags_sensor_edgeCenter:
+        z_pixelFlags_suspect:
+        z_pixelFlags_suspectCenter:
+        z_extendedness_flag:
+        z_sizeExtendedness_flag:
+        z_invalidPsfFlag:
+        z_calib_astrometry_used:
+        z_calib_photometry_used:
+        z_calib_psf_candidate:
+        z_calib_psf_reserved:
+        z_calib_psf_used:
+        z_apFlux_flag:
+        z_apFlux_flag_apertureTruncated:
+        z_apFlux_flag_sincCoeffsTruncated:
+        z_centroid_flag:
+        z_kronFlux_flag:
+        z_kronFlux_flag_bad_radius:
+        z_kronFlux_flag_bad_shape:
+        z_kronFlux_flag_bad_shape_no_psf:
+        z_kronFlux_flag_edge:
+        z_kronFlux_flag_no_fallback_radius:
+        z_kronFlux_flag_no_minimum_radius:
+        z_kronFlux_flag_small_radius:
+        z_kronFlux_flag_used_minimum_radius:
+        z_kronFlux_flag_used_psf_radius:
         y_ra:
         y_dec:
         y_raErr:
@@ -1164,22 +1174,13 @@ tables:
         y_kronFlux_flag_small_radius:
         y_kronFlux_flag_used_minimum_radius:
         y_kronFlux_flag_used_psf_radius:
-        g_epoch:
-        i_epoch:
-        r_epoch:
         u_epoch:
-        y_epoch:
+        g_epoch:
+        r_epoch:
+        i_epoch:
         z_epoch:
+        y_epoch:
         parentObjectId:
-        coord_ra:
-        coord_dec:
-        coord_raErr:
-        coord_decErr:
-        coord_ra_dec_Cov:
-        coord_flag:
-        refBand:
-        refExtendedness:
-        refSizeExtendedness:
         footprintArea:
         ebv:
         shape_xx:
@@ -1210,18 +1211,18 @@ tables:
         exponential_reff_major:
         exponential_reff_minor:
         exponential_theta:
-        g_exponentialFlux:
-        g_exponentialFluxErr:
-        i_exponentialFlux:
-        i_exponentialFluxErr:
-        r_exponentialFlux:
-        r_exponentialFluxErr:
         u_exponentialFlux:
         u_exponentialFluxErr:
-        y_exponentialFlux:
-        y_exponentialFluxErr:
+        g_exponentialFlux:
+        g_exponentialFluxErr:
+        r_exponentialFlux:
+        r_exponentialFluxErr:
+        i_exponentialFlux:
+        i_exponentialFluxErr:
         z_exponentialFlux:
         z_exponentialFluxErr:
+        y_exponentialFlux:
+        y_exponentialFluxErr:
         exponential_n_eval_jac:
         exponential_n_iter:
         exponential_chi2_reduced:
@@ -1243,18 +1244,18 @@ tables:
         sersic_reff_major:
         sersic_reff_minor:
         sersic_theta:
-        g_sersicFlux:
-        g_sersicFluxErr:
-        i_sersicFlux:
-        i_sersicFluxErr:
-        r_sersicFlux:
-        r_sersicFluxErr:
         u_sersicFlux:
         u_sersicFluxErr:
-        y_sersicFlux:
-        y_sersicFluxErr:
+        g_sersicFlux:
+        g_sersicFluxErr:
+        r_sersicFlux:
+        r_sersicFluxErr:
+        i_sersicFlux:
+        i_sersicFluxErr:
         z_sersicFlux:
         z_sersicFluxErr:
+        y_sersicFlux:
+        y_sersicFluxErr:
         sersic_index:
         sersic_indexErr:
         sersic_n_eval_jac:
@@ -1262,7 +1263,6 @@ tables:
         sersic_chi2_reduced:
         sersic_unknown_flag:
         sersic_no_data_flag:
-        objectId:
   indexes:
   - name: idx_Object_objectId
     description: Unique index on objectId column.
