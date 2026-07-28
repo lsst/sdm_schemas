@@ -47,7 +47,7 @@ tables:
     ivoa:ucd: pos.eq.ra
   - name: raErr
     datatype: float
-    description: Angular error of Right Ascension (∂RA*cos(Dec)).
+    description: Angular error of Right Ascension (dRA*cos(Dec)).
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
@@ -480,7 +480,7 @@ tables:
     ivoa:ucd: pos.eq.ra
   - name: raErr
     datatype: float
-    description: Angular error of Right Ascension (∂RA*cos(Dec)).
+    description: Angular error of Right Ascension (dRA*cos(Dec)).
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: dec
@@ -603,7 +603,7 @@ tables:
     ivoa:ucd: pos.eq.ra
   - name: trailRaErr
     datatype: float
-    description: Angular error of trailRa (∂RA*cos(Dec)).
+    description: Angular error of trailRa (dRA*cos(Dec)).
     fits:tunit: deg
     ivoa:ucd: stat.error;pos.eq.ra
   - name: trailDec
