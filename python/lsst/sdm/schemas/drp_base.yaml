@@ -6126,11 +6126,13 @@ tables:
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
+    tap:principal: 1
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
     nullable: false
     ivoa:ucd: meta.id;src;meta.main
+    tap:principal: 1
   - name: g_psfFluxErrMean
     description: Mean of the g band flux errors.
     datatype: float
@@ -6149,11 +6151,13 @@ tables:
     datatype: double
     ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: g_psfFluxMeanErr
     description: Standard error of g_psfFluxMean.
     datatype: double
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: g_psfFluxMin
     description: Minimum observed g band fluxes.
     datatype: double
@@ -6164,6 +6168,7 @@ tables:
     datatype: int
     nullable: false
     ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: g_psfFluxSigma
     description: Standard deviation of the distribution of g_psfFlux.
     datatype: double
@@ -6197,11 +6202,13 @@ tables:
     datatype: double
     ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: i_psfFluxMeanErr
     description: Standard error of i_psfFluxMean.
     datatype: double
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: i_psfFluxMin
     description: Minimum observed i band fluxes.
     datatype: double
@@ -6212,6 +6219,7 @@ tables:
     datatype: int
     nullable: false
     ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: i_psfFluxSigma
     description: Standard deviation of the distribution of i_psfFlux.
     datatype: double
@@ -6232,6 +6240,7 @@ tables:
     datatype: long
     nullable: false
     ivoa:ucd: meta.number;src
+    tap:principal: 1
   - name: r_psfFluxErrMean
     description: Mean of the r band flux errors.
     datatype: float
@@ -6250,11 +6259,13 @@ tables:
     datatype: double
     ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: r_psfFluxMeanErr
     description: Standard error of r_psfFluxMean.
     datatype: double
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: r_psfFluxMin
     description: Minimum observed r band fluxes.
     datatype: double
@@ -6265,6 +6276,7 @@ tables:
     datatype: int
     nullable: false
     ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: r_psfFluxSigma
     description: Standard deviation of the distribution of r_psfFlux.
     datatype: double
@@ -6286,11 +6298,13 @@ tables:
     nullable: false
     ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
+    tap:principal: 1
   - name: raErr
     description: Error in right ascension.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
+    tap:principal: 1
   - name: ra_dec_Cov
     description: Covariance between right ascension and declination.
     datatype: float
@@ -6314,11 +6328,13 @@ tables:
     datatype: double
     ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: u_psfFluxMeanErr
     description: Standard error of u_psfFluxMean.
     datatype: double
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: u_psfFluxMin
     description: Minimum observed u band fluxes.
     datatype: double
@@ -6329,6 +6345,7 @@ tables:
     datatype: int
     nullable: false
     ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: u_psfFluxSigma
     description: Standard deviation of the distribution of u_psfFlux.
     datatype: double
@@ -6362,11 +6379,13 @@ tables:
     datatype: double
     ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: y_psfFluxMeanErr
     description: Standard error of y_psfFluxMean.
     datatype: double
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: y_psfFluxMin
     description: Minimum observed y band fluxes.
     datatype: double
@@ -6377,6 +6396,7 @@ tables:
     datatype: int
     nullable: false
     ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: y_psfFluxSigma
     description: Standard deviation of the distribution of y_psfFlux.
     datatype: double
@@ -6410,11 +6430,13 @@ tables:
     datatype: double
     ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: z_psfFluxMeanErr
     description: Standard error of z_psfFluxMean.
     datatype: double
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: z_psfFluxMin
     description: Minimum observed z band fluxes.
     datatype: double
@@ -6425,6 +6447,7 @@ tables:
     datatype: int
     nullable: false
     ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: z_psfFluxSigma
     description: Standard deviation of the distribution of z_psfFlux.
     datatype: double
