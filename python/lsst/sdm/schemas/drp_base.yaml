@@ -6163,6 +6163,7 @@ tables:
     description: The number of g-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
   - name: g_psfFluxSigma
     description: Standard deviation of the distribution of g_psfFlux.
     datatype: double
@@ -6210,6 +6211,7 @@ tables:
     description: The number of i-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
   - name: i_psfFluxSigma
     description: Standard deviation of the distribution of i_psfFlux.
     datatype: double
@@ -6229,6 +6231,7 @@ tables:
     description: Total number of DiaSources associated with this DiaObject.
     datatype: long
     nullable: false
+    ivoa:ucd: meta.number;src
   - name: r_psfFluxErrMean
     description: Mean of the r band flux errors.
     datatype: float
@@ -6261,6 +6264,7 @@ tables:
     description: The number of r-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
   - name: r_psfFluxSigma
     description: Standard deviation of the distribution of r_psfFlux.
     datatype: double
@@ -6324,6 +6328,7 @@ tables:
     description: The number of u-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
   - name: u_psfFluxSigma
     description: Standard deviation of the distribution of u_psfFlux.
     datatype: double
@@ -6371,6 +6376,7 @@ tables:
     description: The number of y-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
   - name: y_psfFluxSigma
     description: Standard deviation of the distribution of y_psfFlux.
     datatype: double
@@ -6418,6 +6424,7 @@ tables:
     description: The number of z-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
   - name: z_psfFluxSigma
     description: Standard deviation of the distribution of z_psfFlux.
     datatype: double
