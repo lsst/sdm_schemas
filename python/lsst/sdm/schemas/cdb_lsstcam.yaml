@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LSSTCam schema contains information for each exposure and visit (and each detector within those) taken by the instrument, the primary instrument for the Legacy Survey of Space and Time.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "1.9.0"
+  current: "1.9.1"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -1366,6 +1366,58 @@ tables:
     datatype: float
     description: PSF sigma (median across all detectors).
     ivoa:unit: pixel
+  - name: psf_sigma_95
+    "@id": "#visit1_quicklook.psf_sigma_95"
+    datatype: float
+    description: PSF sigma (95% across all detectors).
+    ivoa:unit: pixel
+  - name: psf_sigma_05
+    "@id": "#visit1_quicklook.psf_sigma_05"
+    datatype: float
+    description: PSF sigma (5% across all detectors).
+    ivoa:unit: pixel
+  - name: psf_sigma_xgradient
+    "@id": "#visit1_quicklook.psf_sigma_xgradient"
+    datatype: float
+    description: Linear PSF Sigma X Gradient in CCS.
+    ivoa:unit: pixel/deg
+  - name: psf_sigma_ygradient
+    "@id": "#visit1_quicklook.psf_sigma_ygradient"
+    datatype: float
+    description: Linear PSF Sigma Y Gradient in CCS.
+    ivoa:unit: pixel/deg
+  - name: psf_sigma_bowl
+    "@id": "#visit1_quicklook.psf_sigma_bowl"
+    datatype: float
+    description: PSF sigma bowl.
+    ivoa:unit: pixel/deg**2
+  - name: ellipticity_median
+    "@id": "#visit1_quicklook.ellipticity_median"
+    datatype: float
+    description: Ellipticity median across all detectors.
+  - name: ellipticity_95
+    "@id": "#visit1_quicklook.ellipticity_95"
+    datatype: float
+    description: Ellipticity 95% across all detectors.
+  - name: ellipticity_05
+    "@id": "#visit1_quicklook.ellipticity_05"
+    datatype: float
+    description: Ellipticity 5% across all detectors.
+  - name: ellipticity_xgradient
+    "@id": "#visit1_quicklook.ellipticity_xgradient"
+    datatype: float
+    description: Linear ellipticity X Gradient in CCS.
+    ivoa:unit: 1/deg
+  - name: ellipticity_ygradient
+    "@id": "#visit1_quicklook.ellipticity_ygradient"
+    datatype: float
+    description: Linear ellipticity Y Gradient in CCS.
+    ivoa:unit: 1/deg
+  - name: ellipticity_bowl
+    "@id": "#visit1_quicklook.ellipticity_bowl"
+    datatype: float
+    description: Ellipticity bowl.
+    ivoa:unit: 1/deg**2
   - name: psf_star_delta_e1_median_min
     "@id": "#visit1_quicklook.psf_star_delta_e1_median_min"
     datatype: float
@@ -1577,127 +1629,402 @@ tables:
   - name: z4
     "@id": "#visit1_quicklook.z4"
     datatype: float
-    description: Estimated defocus (Z4), mean estimated across four corners in microns.
+    description: Estimated total defocus (Z4) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z5
     "@id": "#visit1_quicklook.z5"
     datatype: float
-    description: Estimated oblique primary astigmatism (Z5), mean estimated across four corners in microns.
+    description: Estimated total oblique primary astigmatism (Z5) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z6
     "@id": "#visit1_quicklook.z6"
     datatype: float
-    description: Estimated vertical primary astigmatism (Z6), mean estimated across four corners in microns.
+    description: Estimated total vertical primary astigmatism (Z6) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z7
     "@id": "#visit1_quicklook.z7"
     datatype: float
-    description: Estimated vertical primary coma (Z7), mean estimated across four corners in microns.
+    description: Estimated total vertical primary coma (Z7) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z8
     "@id": "#visit1_quicklook.z8"
     datatype: float
-    description: Estimated horizontal primary coma (Z8), mean estimated across four corners in microns.
+    description: Estimated total horizontal primary coma (Z8) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z9
     "@id": "#visit1_quicklook.z9"
     datatype: float
-    description: Estimated vertical trefoil (Z9), mean estimated across four corners in microns.
+    description: Estimated total vertical trefoil (Z9) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z10
     "@id": "#visit1_quicklook.z10"
     datatype: float
-    description: Estimated horizontal trefoil (Z10), mean estimated across four corners in microns.
+    description: Estimated total oblique trefoil (Z10) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z11
     "@id": "#visit1_quicklook.z11"
     datatype: float
-    description: Estimated primary spherical (Z11), mean estimated across four corners in microns.
+    description: Estimated total primary spherical (Z11) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z12
     "@id": "#visit1_quicklook.z12"
     datatype: float
-    description: Estimated vertical secondary astigmatism (Z12), mean estimated across four corners in microns.
+    description: Estimated total vertical secondary astigmatism (Z12) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z13
     "@id": "#visit1_quicklook.z13"
     datatype: float
-    description: Estimated oblique secondary astigmatism (Z13), mean estimated across four corners in microns.
+    description: Estimated total oblique secondary astigmatism (Z13) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z14
     "@id": "#visit1_quicklook.z14"
     datatype: float
-    description: Estimated vertical quadrafoil (Z14), mean estimated across four corners in microns.
+    description: Estimated total vertical quadrafoil (Z14) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z15
     "@id": "#visit1_quicklook.z15"
     datatype: float
-    description: Estimated horizontal quadrafoil (Z15), mean estimated across four corners in microns.
+    description: Estimated total oblique quadrafoil (Z15) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z16
     "@id": "#visit1_quicklook.z16"
     datatype: float
-    description: Estimated horizontal secondary coma (Z16), mean estimated across four corners in microns.
+    description: Estimated total oblique secondary coma (Z16) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z17
     "@id": "#visit1_quicklook.z17"
     datatype: float
-    description: Estimated vertical secondary coma (Z17), mean estimated across four corners in microns.
+    description: Estimated total vertical secondary coma (Z17) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z18
     "@id": "#visit1_quicklook.z18"
     datatype: float
-    description: Estimated oblique secondary trefoil (Z18), mean estimated across four corners in microns.
+    description: Estimated total oblique secondary trefoil (Z18) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z19
     "@id": "#visit1_quicklook.z19"
     datatype: float
-    description: Estimated vertical secondary trefoil (Z19), mean estimated across four corners in microns.
+    description: Estimated total vertical secondary trefoil (Z19) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z20
     "@id": "#visit1_quicklook.z20"
     datatype: float
-    description: Estimated oblique pentafoil (Z20), mean estimated across four corners in microns.
+    description: Estimated total oblique pentafoil (Z20) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z21
     "@id": "#visit1_quicklook.z21"
     datatype: float
-    description: Estimated vertical pentafoil (Z21), mean estimated across four corners in microns.
+    description: Estimated total vertical pentafoil (Z21) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z22
     "@id": "#visit1_quicklook.z22"
     datatype: float
-    description: Estimated secondary spherical (Z22), mean estimated across four corners in microns.
+    description: Estimated total secondary spherical (Z22) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z23
     "@id": "#visit1_quicklook.z23"
     datatype: float
-    description: Estimated tertiary astimgatism (Z23), mean estimated across four corners in microns.
+    description: Estimated total tertiary astimgatism (Z23) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z24
     "@id": "#visit1_quicklook.z24"
     datatype: float
-    description: Estimated tertiary astimgatism (Z24), mean estimated across four corners in microns.
+    description: Estimated total tertiary astimgatism (Z24) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z25
     "@id": "#visit1_quicklook.z25"
     datatype: float
-    description: Estimated oblique secondary quadrafoil (Z25), mean estimated across four corners in microns.
+    description: Estimated total oblique secondary quadrafoil (Z25) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z26
     "@id": "#visit1_quicklook.z26"
     datatype: float
-    description: Estimated vertical secondary quadrafoil (Z26), mean estimated across four corners in microns.
+    description: Estimated total vertical secondary quadrafoil (Z26) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z27
     "@id": "#visit1_quicklook.z27"
     datatype: float
-    description: Estimated hexafoil (Z27), mean estimated across four corners in microns.
+    description: Estimated total hexafoil (Z27) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z28
     "@id": "#visit1_quicklook.z28"
     datatype: float
-    description: Estimated hexafoil (Z28), mean estimated across four corners in microns.
+    description: Estimated total hexafoil (Z28) in OCS, mean estimated across four corners in microns.
+    ivoa:unit: um
+  - name: z4_intrinsic
+    "@id": "#visit1_quicklook.z4_intrinsic"
+    datatype: float
+    description: Intrinsic defocus (Z4) in OCS, mean across four corners in microns.
+    ivoa:unit: um
+  - name: z11_intrinsic
+    "@id": "#visit1_quicklook.z11_intrinsic"
+    datatype: float
+    description: Intrinsic primary spherical (Z11) in OCS, mean across four corners in microns.
+    ivoa:unit: um
+  - name: z22_intrinsic
+    "@id": "#visit1_quicklook.z22_intrinsic"
+    datatype: float
+    description: Intrinsic secondary spherical (Z22) in OCS, mean across four corners in microns.
+    ivoa:unit: um
+  - name: z2_8_intrinsic
+    "@id": "#visit1_quicklook.z2_8_intrinsic"
+    datatype: float
+    description: Intrinsic double zernike k=2, j=8 in OCS.
+    ivoa:unit: um
+  - name: z3_7_intrinsic
+    "@id": "#visit1_quicklook.z3_7_intrinsic"
+    datatype: float
+    description: Intrinsic double zernike k=3, j=7 in OCS.
+    ivoa:unit: um
+  - name: z2_4
+    "@id": "#visit1_quicklook.z2_4"
+    datatype: float
+    description: Double zernike k=2, j=4 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_5
+    "@id": "#visit1_quicklook.z2_5"
+    datatype: float
+    description: Double zernike k=2, j=5 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_6
+    "@id": "#visit1_quicklook.z2_6"
+    datatype: float
+    description: Double zernike k=2, j=6 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_7
+    "@id": "#visit1_quicklook.z2_7"
+    datatype: float
+    description: Double zernike k=2, j=7 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_8
+    "@id": "#visit1_quicklook.z2_8"
+    datatype: float
+    description: Double zernike k=2, j=8 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_9
+    "@id": "#visit1_quicklook.z2_9"
+    datatype: float
+    description: Double zernike k=2, j=9 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_10
+    "@id": "#visit1_quicklook.z2_10"
+    datatype: float
+    description: Double zernike k=2, j=10 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_11
+    "@id": "#visit1_quicklook.z2_11"
+    datatype: float
+    description: Double zernike k=2, j=11 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_12
+    "@id": "#visit1_quicklook.z2_12"
+    datatype: float
+    description: Double zernike k=2, j=12 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_13
+    "@id": "#visit1_quicklook.z2_13"
+    datatype: float
+    description: Double zernike k=2, j=13 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_14
+    "@id": "#visit1_quicklook.z2_14"
+    datatype: float
+    description: Double zernike k=2, j=14 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_15
+    "@id": "#visit1_quicklook.z2_15"
+    datatype: float
+    description: Double zernike k=2, j=15 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_16
+    "@id": "#visit1_quicklook.z2_16"
+    datatype: float
+    description: Double zernike k=2, j=16 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_17
+    "@id": "#visit1_quicklook.z2_17"
+    datatype: float
+    description: Double zernike k=2, j=17 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_18
+    "@id": "#visit1_quicklook.z2_18"
+    datatype: float
+    description: Double zernike k=2, j=18 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_19
+    "@id": "#visit1_quicklook.z2_19"
+    datatype: float
+    description: Double zernike k=2, j=19 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_20
+    "@id": "#visit1_quicklook.z2_20"
+    datatype: float
+    description: Double zernike k=2, j=20 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_21
+    "@id": "#visit1_quicklook.z2_21"
+    datatype: float
+    description: Double zernike k=2, j=21 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_22
+    "@id": "#visit1_quicklook.z2_22"
+    datatype: float
+    description: Double zernike k=2, j=22 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_23
+    "@id": "#visit1_quicklook.z2_23"
+    datatype: float
+    description: Double zernike k=2, j=23 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_24
+    "@id": "#visit1_quicklook.z2_24"
+    datatype: float
+    description: Double zernike k=2, j=24 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_25
+    "@id": "#visit1_quicklook.z2_25"
+    datatype: float
+    description: Double zernike k=2, j=25 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_26
+    "@id": "#visit1_quicklook.z2_26"
+    datatype: float
+    description: Double zernike k=2, j=26 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_27
+    "@id": "#visit1_quicklook.z2_27"
+    datatype: float
+    description: Double zernike k=2, j=27 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z2_28
+    "@id": "#visit1_quicklook.z2_28"
+    datatype: float
+    description: Double zernike k=2, j=28 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_4
+    "@id": "#visit1_quicklook.z3_4"
+    datatype: float
+    description: Double zernike k=3, j=4 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_5
+    "@id": "#visit1_quicklook.z3_5"
+    datatype: float
+    description: Double zernike k=3, j=5 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_6
+    "@id": "#visit1_quicklook.z3_6"
+    datatype: float
+    description: Double zernike k=3, j=6 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_7
+    "@id": "#visit1_quicklook.z3_7"
+    datatype: float
+    description: Double zernike k=3, j=7 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_8
+    "@id": "#visit1_quicklook.z3_8"
+    datatype: float
+    description: Double zernike k=3, j=8 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_9
+    "@id": "#visit1_quicklook.z3_9"
+    datatype: float
+    description: Double zernike k=3, j=9 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_10
+    "@id": "#visit1_quicklook.z3_10"
+    datatype: float
+    description: Double zernike k=3, j=10 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_11
+    "@id": "#visit1_quicklook.z3_11"
+    datatype: float
+    description: Double zernike k=3, j=11 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_12
+    "@id": "#visit1_quicklook.z3_12"
+    datatype: float
+    description: Double zernike k=3, j=12 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_13
+    "@id": "#visit1_quicklook.z3_13"
+    datatype: float
+    description: Double zernike k=3, j=13 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_14
+    "@id": "#visit1_quicklook.z3_14"
+    datatype: float
+    description: Double zernike k=3, j=14 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_15
+    "@id": "#visit1_quicklook.z3_15"
+    datatype: float
+    description: Double zernike k=3, j=15 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_16
+    "@id": "#visit1_quicklook.z3_16"
+    datatype: float
+    description: Double zernike k=3, j=16 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_17
+    "@id": "#visit1_quicklook.z3_17"
+    datatype: float
+    description: Double zernike k=3, j=17 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_18
+    "@id": "#visit1_quicklook.z3_18"
+    datatype: float
+    description: Double zernike k=3, j=18 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_19
+    "@id": "#visit1_quicklook.z3_19"
+    datatype: float
+    description: Double zernike k=3, j=19 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_20
+    "@id": "#visit1_quicklook.z3_20"
+    datatype: float
+    description: Double zernike k=3, j=20 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_21
+    "@id": "#visit1_quicklook.z3_21"
+    datatype: float
+    description: Double zernike k=3, j=21 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_22
+    "@id": "#visit1_quicklook.z3_22"
+    datatype: float
+    description: Double zernike k=3, j=22 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_23
+    "@id": "#visit1_quicklook.z3_23"
+    datatype: float
+    description: Double zernike k=3, j=23 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_24
+    "@id": "#visit1_quicklook.z3_24"
+    datatype: float
+    description: Double zernike k=3, j=24 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_25
+    "@id": "#visit1_quicklook.z3_25"
+    datatype: float
+    description: Double zernike k=3, j=25 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_26
+    "@id": "#visit1_quicklook.z3_26"
+    datatype: float
+    description: Double zernike k=3, j=26 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_27
+    "@id": "#visit1_quicklook.z3_27"
+    datatype: float
+    description: Double zernike k=3, j=27 in OCS in microns for field radius 1.75 deg.
+    ivoa:unit: um
+  - name: z3_28
+    "@id": "#visit1_quicklook.z3_28"
+    datatype: float
+    description: Double zernike k=3, j=28 in OCS in microns for field radius 1.75 deg.
     ivoa:unit: um
   - name: ringss_seeing
     "@id": "#visit1_quicklook.ringss_seeing"
@@ -1875,6 +2202,24 @@ tables:
     datatype: float
     description: Total seeing calculated with guider exposure.
     ivoa:unit: arcsec
+  - name: shapelet_score
+    "@id": "#visit1_quicklook.shapelet_score"
+    datatype: float
+    description: Median shapelet score across the FOV.
+  - name: last_correction_seq_num
+    "@id": "#visit1_quicklook.last_correction_seq_num"
+    datatype: int
+    description: Sequence number from which the last applied AOS corrections were calculated.
+  - name: ra_version
+    "@id": "#visit1_quicklook.ra_version"
+    datatype: text
+    postgresql:datatype: JSONB
+    description: ts_wep, donut_viz, tarts, danish versions used.
+  - name: mtaos_version
+    "@id": "#visit1_quicklook.mtaos_version"
+    datatype: text
+    postgresql:datatype: JSONB
+    description: mtaos version used.
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
   tap:table_index: 150
@@ -2325,127 +2670,142 @@ tables:
   - name: z4
     "@id": "#ccdvisit1_quicklook.z4"
     datatype: float
-    description: Estimated defocus (Z4), in microns.
+    description: Estimated total defocus (Z4) in OCS, in microns.
     ivoa:unit: um
   - name: z5
     "@id": "#ccdvisit1_quicklook.z5"
     datatype: float
-    description: Estimated oblique primary astigmatism (Z5), in microns.
+    description: Estimated total horizontal primary astigmatism (Z5) in OCS, in microns.
     ivoa:unit: um
   - name: z6
     "@id": "#ccdvisit1_quicklook.z6"
     datatype: float
-    description: Estimated vertical primary astigmatism (Z6), in microns.
+    description: Estimated total vertical primary astigmatism (Z6) in OCS, in microns.
     ivoa:unit: um
   - name: z7
     "@id": "#ccdvisit1_quicklook.z7"
     datatype: float
-    description: Estimated vertical primary coma (Z7), in microns.
+    description: Estimated total vertical primary coma (Z7) in OCS, in microns.
     ivoa:unit: um
   - name: z8
     "@id": "#ccdvisit1_quicklook.z8"
     datatype: float
-    description: Estimated horizontal primary coma (Z8), in microns.
+    description: Estimated total horizontal primary coma (Z8) in OCS, in microns.
     ivoa:unit: um
   - name: z9
     "@id": "#ccdvisit1_quicklook.z9"
     datatype: float
-    description: Estimated vertical trefoil (Z9), in microns.
+    description: Estimated total vertical trefoil (Z9) in OCS, in microns.
     ivoa:unit: um
   - name: z10
     "@id": "#ccdvisit1_quicklook.z10"
     datatype: float
-    description: Estimated horizontal trefoil (Z10), in microns.
+    description: Estimated total oblique trefoil (Z10) in OCS, in microns.
     ivoa:unit: um
   - name: z11
     "@id": "#ccdvisit1_quicklook.z11"
     datatype: float
-    description: Estimated primary spherical (Z11), in microns.
+    description: Estimated total primary spherical (Z11) in OCS, in microns.
     ivoa:unit: um
   - name: z12
     "@id": "#ccdvisit1_quicklook.z12"
     datatype: float
-    description: Estimated vertical secondary astigmatism (Z12), in microns.
+    description: Estimated total vertical secondary astigmatism (Z12) in OCS, in microns.
     ivoa:unit: um
   - name: z13
     "@id": "#ccdvisit1_quicklook.z13"
     datatype: float
-    description: Estimated oblique secondary astigmatism (Z13), in microns.
+    description: Estimated total oblique secondary astigmatism (Z13) in OCS, in microns.
     ivoa:unit: um
   - name: z14
     "@id": "#ccdvisit1_quicklook.z14"
     datatype: float
-    description: Estimated vertical quadrafoil (Z14), in microns.
+    description: Estimated total vertical quadrafoil (Z14) in OCS, in microns.
     ivoa:unit: um
   - name: z15
     "@id": "#ccdvisit1_quicklook.z15"
     datatype: float
-    description: Estimated horizontal quadrafoil (Z15), in microns.
+    description: Estimated total oblique quadrafoil (Z15) in OCS, in microns.
     ivoa:unit: um
   - name: z16
     "@id": "#ccdvisit1_quicklook.z16"
     datatype: float
-    description: Estimated horizontal secondary coma (Z16), in microns.
+    description: Estimated total oblique secondary coma (Z16) in OCS, in microns.
     ivoa:unit: um
   - name: z17
     "@id": "#ccdvisit1_quicklook.z17"
     datatype: float
-    description: Estimated vertical secondary coma (Z17), in microns.
+    description: Estimated total vertical secondary coma (Z17) in OCS, in microns.
     ivoa:unit: um
   - name: z18
     "@id": "#ccdvisit1_quicklook.z18"
     datatype: float
-    description: Estimated oblique secondary trefoil (Z18), in microns.
+    description: Estimated total oblique secondary trefoil (Z18) in OCS, in microns.
     ivoa:unit: um
   - name: z19
     "@id": "#ccdvisit1_quicklook.z19"
     datatype: float
-    description: Estimated vertical secondary trefoil (Z19), in microns.
+    description: Estimated total vertical secondary trefoil (Z19) in OCS, in microns.
     ivoa:unit: um
   - name: z20
     "@id": "#ccdvisit1_quicklook.z20"
     datatype: float
-    description: Estimated oblique pentafoil (Z20), in microns.
+    description: Estimated total oblique pentafoil (Z20) in OCS, in microns.
     ivoa:unit: um
   - name: z21
     "@id": "#ccdvisit1_quicklook.z21"
     datatype: float
-    description: Estimated vertical pentafoil (Z21), in microns.
+    description: Estimated total vertical pentafoil (Z21) in OCS, in microns.
     ivoa:unit: um
   - name: z22
     "@id": "#ccdvisit1_quicklook.z22"
     datatype: float
-    description: Estimated secondary spherical (Z22), in microns.
+    description: Estimated total secondary spherical (Z22) in OCS, in microns.
     ivoa:unit: um
   - name: z23
     "@id": "#ccdvisit1_quicklook.z23"
     datatype: float
-    description: Estimated tertiary astimgatism (Z23), in microns.
+    description: Estimated total tertiary astimgatism (Z23) in OCS, in microns.
     ivoa:unit: um
   - name: z24
     "@id": "#ccdvisit1_quicklook.z24"
     datatype: float
-    description: Estimated tertiary astimgatism (Z24), in microns.
+    description: Estimated total tertiary astimgatism (Z24) in OCS, in microns.
     ivoa:unit: um
   - name: z25
     "@id": "#ccdvisit1_quicklook.z25"
     datatype: float
-    description: Estimated oblique secondary quadrafoil (Z25), in microns.
+    description: Estimated total oblique secondary quadrafoil (Z25) in OCS, in microns.
     ivoa:unit: um
   - name: z26
     "@id": "#ccdvisit1_quicklook.z26"
     datatype: float
-    description: Estimated vertical secondary quadrafoil (Z26), in microns.
+    description: Estimated total vertical secondary quadrafoil (Z26) in OCS, in microns.
     ivoa:unit: um
   - name: z27
     "@id": "#ccdvisit1_quicklook.z27"
     datatype: float
-    description: Estimated hexafoil (Z27), in microns.
+    description: Estimated total hexafoil (Z27) in OCS, in microns.
     ivoa:unit: um
   - name: z28
     "@id": "#ccdvisit1_quicklook.z28"
     datatype: float
-    description: Estimated hexafoil (Z28), in microns.
+    description: Estimated total hexafoil (Z28) in OCS, in microns.
+    ivoa:unit: um
+  - name: z4_intrinsic
+    "@id": "#ccdvisit1_quicklook.z4_intrinsic"
+    datatype: float
+    description: Intrinsic defocus (Z4) in OCS in microns.
+    ivoa:unit: um
+  - name: z11_intrinsic
+    "@id": "#ccdvisit1_quicklook.z11_intrinsic"
+    datatype: float
+    description: Intrinsic primary spherical (Z11) in OCS in microns.
+    ivoa:unit: um
+  - name: z22_intrinsic
+    "@id": "#ccdvisit1_quicklook.z22_intrinsic"
+    datatype: float
+    description: Intrinsic secondary spherical (Z22) in OCS in microns.
     ivoa:unit: um
 - name: ccdexposure_quicklook
   "@id": "#ccdexposure_quicklook"
