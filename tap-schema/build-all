@@ -33,6 +33,7 @@ FELIS_UNIQUE_KEYS=1 ./build idfint-tap ../yml/dp1.yaml ../yml/ivoa_obscore.yaml 
 ./build usdf-dev-sso ../yml/dp03_10yr.yaml ../yml/dp03_1yr.yaml
 
 # PPDB TAP services
+./build idfdev-ppdbtap ../yml/ppdb.yaml
 ./build idfint-ppdbtap ../yml/ppdb.yaml
 
 # ConsDB TAP services
