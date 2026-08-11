@@ -6834,6 +6834,22 @@ tables:
     datatype: float
     ivoa:unit: pixel
     tap:principal: 1
+  - name: psfArea
+    description: Effective area of the PSF model (center of chip)
+    datatype: double
+    ivoa:unit: pixel**2
+  - name: psfIxx
+    description: PSF model second-moments Ixx (center of chip)
+    datatype: double
+    ivoa:unit: pixel**2
+  - name: psfIyy
+    description: PSF model second-moments Iyy (center of chip)
+    datatype: double
+    ivoa:unit: pixel**2
+  - name: psfIxy
+    description: PSF model second-moments Ixy (center of chip)
+    datatype: double
+    ivoa:unit: pixel**2
   - name: psfStarDeltaE1Median
     description: Median E1 residual (starE1 - psfE1) for psf stars
     datatype: double
