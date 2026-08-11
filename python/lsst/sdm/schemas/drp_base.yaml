@@ -6529,12 +6529,14 @@ tables:
       the image difference
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: phot.flux;meta.main
     tap:principal: 1
   - name: psfDiffFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the image difference
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: stat.error;phot.flux;meta.main
     tap:principal: 1
   - name: psfDiffFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
@@ -6546,12 +6548,14 @@ tables:
       the calexp
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: phot.flux
     tap:principal: 1
   - name: psfFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the calexp
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: stat.error;phot.flux
     tap:principal: 1
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
