@@ -2529,6 +2529,7 @@ tables:
       used for multi-band forced photometry
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
   - name: refExtendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended
@@ -5124,6 +5125,7 @@ tables:
       measured. Abstract filter that is not associated with a particular instrument
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
   - name: blendedness_abs
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
       on the absolute value of the pixels to try to obtain a de-noised value.  See
@@ -5391,6 +5393,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
     length: 9
+    ivoa:ucd: meta.id;instr.filter
     votable:arraysize: '9'
   - name: pixelFlags_bad
     description: Bad pixel in the Source footprint
@@ -5540,6 +5543,7 @@ tables:
     description: Abstract filter that is not associated with a particular instrument
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
@@ -5676,6 +5680,7 @@ tables:
     description: Filter band this source was observed with.
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
   - name: bboxSize
     description: Size of the square bounding box that fully contains the detection
       footprint.
@@ -6438,6 +6443,7 @@ tables:
     description: Abstract filter that is not associated with a particular instrument
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
@@ -6632,6 +6638,7 @@ tables:
       Abstract filter that is not associated with a particular instrument.
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
     votable:arraysize: '*'
   - name: dec
@@ -6677,6 +6684,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
     length: 32
+    ivoa:ucd: meta.id;instr.filter
     votable:arraysize: '*'
   - name: ra
     description: Right Ascension of focal plane center.
@@ -6714,6 +6722,7 @@ tables:
       Abstract filter that is not associated with a particular instrument.
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
     votable:arraysize: '*'
   - name: ccdVisitId
@@ -6812,6 +6821,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
     length: 32
+    ivoa:ucd: meta.id;instr.filter
     votable:arraysize: '*'
   - name: pixelScale
     description: Measured detector pixel scale.

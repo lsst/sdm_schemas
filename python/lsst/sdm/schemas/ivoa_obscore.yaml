@@ -296,7 +296,7 @@ tables:
     description: Abstract filter band designation
     datatype: string
     length: 10
-    ivoa:ucd: meta.id;instr.filter
+    ivoa:ucd: meta.id;instr.bandpass
     tap:column_index: 40
     tap:principal: 1
   - name: lsst_filter
