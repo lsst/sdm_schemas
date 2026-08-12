@@ -1,6 +1,6 @@
 name: drp_base
 description: Base schema for defining Data Release Processing column definitions.
-version: 1.0.0
+version: 1.0.1
 tables:
 - name: Object
   description: Descriptions of static astronomical objects (or the static aspects
@@ -6022,7 +6022,7 @@ tables:
     nullable: false
   - name: snr
     description: The signal-to-noise ratio at which this source was detected in the
-      difference image. Ratio of apFlux/apFluxErr.
+      difference image.
     datatype: double
     ivoa:ucd: stat.snr
   - name: ssObjectId
