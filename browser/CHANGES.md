@@ -19,7 +19,8 @@ Changes in [SDM Schemas](https://github.com/lsst/sdm_schemas) are generally orga
 v30.0.11 (2026-08-13)
 =====================
 
-### Data Releases
+Data Releases
+-------------
 
 - Added `CoaddPatches` table to DP2 schema (`dp2.yaml`) ([DM-55392](https://rubinobs.atlassian.net/browse/DM-55392))
 - Added `mpc_orbits` table to DP2 schema ([DM-55438](https://rubinobs.atlassian.net/browse/DM-55438))
@@ -37,7 +38,8 @@ v30.0.11 (2026-08-13)
 - Removed incorrect description of the DiaSource.snr computation from DP1 and drp_base. ([DM-55752](https://rubinobs.atlassian.net/browse/DM-55752))
 - Added overall description text for DP2 schema ([DM-55790](https://rubinobs.atlassian.net/browse/DM-55790))
 
-### Science Pipelines
+Science Pipelines
+-----------------
 
 - IsolatedStarStellarMotions changes:
   - Fixed data types.
