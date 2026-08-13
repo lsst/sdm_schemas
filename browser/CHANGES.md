@@ -15,6 +15,44 @@ Changes in [SDM Schemas](https://github.com/lsst/sdm_schemas) are generally orga
 
 **Miscellaneous** - Catch-all category for changes which are not related to particular schemas, typically involving changes to GitHub workflows, project scripts, etc.
 
+
+v30.0.11 (2026-08-13)
+=====================
+
+Data Releases
+-------------
+
+- Added `CoaddPatches` table to DP2 schema (`dp2.yaml`) ([DM-55392](https://rubinobs.atlassian.net/browse/DM-55392))
+- Added `mpc_orbits` table to DP2 schema ([DM-55438](https://rubinobs.atlassian.net/browse/DM-55438))
+- Hid redundant or unnecessary coord_ra, coord_dec columns ([DM-55508](https://rubinobs.atlassian.net/browse/DM-55508))
+- SSO table changes:
+  - Restored current_identifications and numbered_identifications SSO tables, less array-valued columns
+  - Reordered tables for final EDP2 presentation sequence ([DM-55597](https://rubinobs.atlassian.net/browse/DM-55597))
+- DP2 Object column presentation order:
+  - Restored ugrizy column order throughout
+  - Moved a small number of general columns to the top ([DM-55607](https://rubinobs.atlassian.net/browse/DM-55607))
+- Reordered ObsTAP columns to make DP1/DP2 distinction more visible and moved some standard columns up in the order for clarity ([DM-55637](https://rubinobs.atlassian.net/browse/DM-55637))
+- DP2 presentation changes:
+  - Reordered columns in ForcedSourceOnDiaObject to prioritize the psfDiffFlux
+  - Moved up nDiaSources column in DiaObject to ensure LC length is easily seen ([DM-55661](https://rubinobs.atlassian.net/browse/DM-55661))
+- Removed incorrect description of the DiaSource.snr computation from DP1 and drp_base. ([DM-55752](https://rubinobs.atlassian.net/browse/DM-55752))
+- Added overall description text for DP2 schema ([DM-55790](https://rubinobs.atlassian.net/browse/DM-55790))
+
+Science Pipelines
+-----------------
+
+- IsolatedStarStellarMotions changes:
+  - Fixed data types.
+  - Updated some UCDs.
+  - Removed off-diagonal covariance terms from the `principal` subset.
+  - Documented Gaia DR3 as the reference dataset. ([DM-55449](https://rubinobs.atlassian.net/browse/DM-55449))
+- Improvements to `drp_base`:
+  - Principal columns added to DRP DiaObject base schema
+  - Flux-related UCDs improved for DiaObject, DiaSource, and ForcedSourceOnDiaObject
+  - DiaSource count UCDs improved for DiaObject
+  - Band and filter UCDs applied consistently to all DRP tables and ObsCore ([DM-55661](https://rubinobs.atlassian.net/browse/DM-55661))
+
+
 v30.0.8 (2026-06-10)
 ====================
 
