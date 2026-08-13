@@ -1,6 +1,6 @@
 name: drp_base
 description: Base schema for defining Data Release Processing column definitions.
-version: 1.0.0
+version: 1.0.1
 tables:
 - name: Object
   description: Descriptions of static astronomical objects (or the static aspects
@@ -2529,6 +2529,7 @@ tables:
       used for multi-band forced photometry
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
   - name: refExtendedness
     description: Flux-ratio measure of whether an object is point-like (0) or extended
@@ -5124,6 +5125,7 @@ tables:
       measured. Abstract filter that is not associated with a particular instrument
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
   - name: blendedness_abs
     description: Measure of how much the flux is affected by neighbors, (1 - child_flux/parent_flux).  Operates
       on the absolute value of the pixels to try to obtain a de-noised value.  See
@@ -5391,6 +5393,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
     length: 9
+    ivoa:ucd: meta.id;instr.filter
     votable:arraysize: '9'
   - name: pixelFlags_bad
     description: Bad pixel in the Source footprint
@@ -5540,6 +5543,7 @@ tables:
     description: Abstract filter that is not associated with a particular instrument
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
@@ -5655,12 +5659,12 @@ tables:
   - name: apFlux
     description: Flux in a 12 pixel radius aperture on the difference image.
     datatype: float
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
     ivoa:unit: nJy
   - name: apFluxErr
     description: Estimated uncertainty of apFlux.
     datatype: float
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: apFlux_flag
     description: General aperture flux algorithm failure flag; set if anything went
@@ -5676,6 +5680,7 @@ tables:
     description: Filter band this source was observed with.
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
   - name: bboxSize
     description: Size of the square bounding box that fully contains the detection
       footprint.
@@ -5929,11 +5934,12 @@ tables:
     description: Flux for Point Source model. Note this actually measures the flux
       difference between the template and the visit image.
     datatype: float
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
     ivoa:unit: nJy
   - name: psfFluxErr
     description: Uncertainty of psfFlux.
     datatype: float
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model. Another
@@ -5979,12 +5985,12 @@ tables:
     description: Forced photometry flux for a point source model measured on the visit
       image centered at DiaSource position.
     datatype: float
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
     ivoa:unit: nJy
   - name: scienceFluxErr
     description: Estimated uncertainty of scienceFlux.
     datatype: float
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: shape_flag
     description: General source shape algorithm failure flag; set if anything went
@@ -6007,7 +6013,7 @@ tables:
     nullable: false
   - name: snr
     description: The signal-to-noise ratio at which this source was detected in the
-      difference image. Ratio of apFlux/apFluxErr.
+      difference image.
     datatype: double
     ivoa:ucd: stat.snr
   - name: ssObjectId
@@ -6020,12 +6026,12 @@ tables:
     description: Forced photometry flux for a point source model measured on the template
       image centered at the DiaSource position.
     datatype: float
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
     ivoa:unit: nJy
   - name: templateFluxErr
     description: Uncertainty of templateFlux.
     datatype: float
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: timeProcessedMjdTai
     description: Time when the image was processed and this DiaSource record was generated,
@@ -6103,11 +6109,13 @@ tables:
     nullable: false
     ivoa:ucd: pos.eq.dec;meta.main
     ivoa:unit: deg
+    tap:principal: 1
   - name: diaObjectId
     description: Unique identifier of this DiaObject.
     datatype: long
     nullable: false
-    ivoa:ucd: meta.id;src
+    ivoa:ucd: meta.id;src;meta.main
+    tap:principal: 1
   - name: g_psfFluxErrMean
     description: Mean of the g band flux errors.
     datatype: float
@@ -6115,6 +6123,7 @@ tables:
   - name: g_psfFluxMax
     description: Maximum observed g band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.max
     ivoa:unit: nJy
   - name: g_psfFluxMaxSlope
     description: Maximum slope between g band flux obsevations max(delta_flux/delta_time).
@@ -6123,35 +6132,40 @@ tables:
   - name: g_psfFluxMean
     description: Weighted mean point-source model magnitude for g filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: g_psfFluxMeanErr
     description: Standard error of g_psfFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: g_psfFluxMin
     description: Minimum observed g band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.min
     ivoa:unit: nJy
   - name: g_psfFluxNdata
     description: The number of g-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: g_psfFluxSigma
     description: Standard deviation of the distribution of g_psfFlux.
     datatype: double
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
     ivoa:unit: nJy
   - name: g_scienceFluxMean
     description: Weighted mean forced photometry flux for g filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
   - name: g_scienceFluxMeanErr
     description: Standard error of g_scienceFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: i_psfFluxErrMean
     description: Mean of the i band flux errors.
@@ -6160,6 +6174,7 @@ tables:
   - name: i_psfFluxMax
     description: Maximum observed i band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.max
     ivoa:unit: nJy
   - name: i_psfFluxMaxSlope
     description: Maximum slope between i band flux obsevations max(delta_flux/delta_time).
@@ -6168,40 +6183,47 @@ tables:
   - name: i_psfFluxMean
     description: Weighted mean point-source model magnitude for i filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: i_psfFluxMeanErr
     description: Standard error of i_psfFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: i_psfFluxMin
     description: Minimum observed i band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.min
     ivoa:unit: nJy
   - name: i_psfFluxNdata
     description: The number of i-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: i_psfFluxSigma
     description: Standard deviation of the distribution of i_psfFlux.
     datatype: double
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
     ivoa:unit: nJy
   - name: i_scienceFluxMean
     description: Weighted mean forced photometry flux for i filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
   - name: i_scienceFluxMeanErr
     description: Standard error of i_scienceFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: nDiaSources
     description: Total number of DiaSources associated with this DiaObject.
     datatype: long
     nullable: false
+    ivoa:ucd: meta.number;src
+    tap:principal: 1
   - name: r_psfFluxErrMean
     description: Mean of the r band flux errors.
     datatype: float
@@ -6209,6 +6231,7 @@ tables:
   - name: r_psfFluxMax
     description: Maximum observed r band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.max
     ivoa:unit: nJy
   - name: r_psfFluxMaxSlope
     description: Maximum slope between r band flux obsevations max(delta_flux/delta_time).
@@ -6217,35 +6240,40 @@ tables:
   - name: r_psfFluxMean
     description: Weighted mean point-source model magnitude for r filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: r_psfFluxMeanErr
     description: Standard error of r_psfFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: r_psfFluxMin
     description: Minimum observed r band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.min
     ivoa:unit: nJy
   - name: r_psfFluxNdata
     description: The number of r-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: r_psfFluxSigma
     description: Standard deviation of the distribution of r_psfFlux.
     datatype: double
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
     ivoa:unit: nJy
   - name: r_scienceFluxMean
     description: Weighted mean forced photometry flux for r filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
   - name: r_scienceFluxMeanErr
     description: Standard error of r_scienceFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: ra
     description: Right Ascension coordinate of the position of the DiaObject.
@@ -6253,6 +6281,7 @@ tables:
     nullable: false
     ivoa:ucd: pos.eq.ra;meta.main
     ivoa:unit: deg
+    tap:principal: 1
   - name: u_psfFluxErrMean
     description: Mean of the u band flux errors.
     datatype: float
@@ -6260,6 +6289,7 @@ tables:
   - name: u_psfFluxMax
     description: Maximum observed u band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.max
     ivoa:unit: nJy
   - name: u_psfFluxMaxSlope
     description: Maximum slope between u band flux obsevations max(delta_flux/delta_time).
@@ -6268,35 +6298,40 @@ tables:
   - name: u_psfFluxMean
     description: Weighted mean point-source model magnitude for u filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: u_psfFluxMeanErr
     description: Standard error of u_psfFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: u_psfFluxMin
     description: Minimum observed u band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.min
     ivoa:unit: nJy
   - name: u_psfFluxNdata
     description: The number of u-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: u_psfFluxSigma
     description: Standard deviation of the distribution of u_psfFlux.
     datatype: double
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
     ivoa:unit: nJy
   - name: u_scienceFluxMean
     description: Weighted mean forced photometry flux for u filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
   - name: u_scienceFluxMeanErr
     description: Standard error of u_scienceFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: y_psfFluxErrMean
     description: Mean of the y band flux errors.
@@ -6305,6 +6340,7 @@ tables:
   - name: y_psfFluxMax
     description: Maximum observed y band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.max
     ivoa:unit: nJy
   - name: y_psfFluxMaxSlope
     description: Maximum slope between y band flux obsevations max(delta_flux/delta_time).
@@ -6313,35 +6349,40 @@ tables:
   - name: y_psfFluxMean
     description: Weighted mean point-source model magnitude for y filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: y_psfFluxMeanErr
     description: Standard error of y_psfFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: y_psfFluxMin
     description: Minimum observed y band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.min
     ivoa:unit: nJy
   - name: y_psfFluxNdata
     description: The number of y-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: y_psfFluxSigma
     description: Standard deviation of the distribution of y_psfFlux.
     datatype: double
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
     ivoa:unit: nJy
   - name: y_scienceFluxMean
     description: Weighted mean forced photometry flux for y filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
   - name: y_scienceFluxMeanErr
     description: Standard error of y_scienceFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
   - name: z_psfFluxErrMean
     description: Mean of the z band flux errors.
@@ -6350,6 +6391,7 @@ tables:
   - name: z_psfFluxMax
     description: Maximum observed z band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.max
     ivoa:unit: nJy
   - name: z_psfFluxMaxSlope
     description: Maximum slope between z band flux obsevations max(delta_flux/delta_time).
@@ -6358,35 +6400,40 @@ tables:
   - name: z_psfFluxMean
     description: Weighted mean point-source model magnitude for z filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
+    tap:principal: 1
   - name: z_psfFluxMeanErr
     description: Standard error of z_psfFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+    tap:principal: 1
   - name: z_psfFluxMin
     description: Minimum observed z band fluxes.
     datatype: double
+    ivoa:ucd: phot.flux;stat.min
     ivoa:unit: nJy
   - name: z_psfFluxNdata
     description: The number of z-band data points.
     datatype: int
     nullable: false
+    ivoa:ucd: meta.number;src;instr.filter
+    tap:principal: 1
   - name: z_psfFluxSigma
     description: Standard deviation of the distribution of z_psfFlux.
     datatype: double
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
     ivoa:unit: nJy
   - name: z_scienceFluxMean
     description: Weighted mean forced photometry flux for z filter.
     datatype: double
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     ivoa:unit: nJy
   - name: z_scienceFluxMeanErr
     description: Standard error of z_scienceFluxMean.
     datatype: double
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
 - name: ForcedSourceOnDiaObject
   description: Point-source forced-photometry measurements on individual single-epoch
@@ -6397,6 +6444,7 @@ tables:
     description: Abstract filter that is not associated with a particular instrument
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
   - name: coord_dec
     description: Fiducial ICRS Declination of centroid used for database indexing
@@ -6482,12 +6530,14 @@ tables:
       the image difference
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: phot.flux;meta.main
     tap:principal: 1
   - name: psfDiffFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the image difference
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: stat.error;phot.flux;meta.main
     tap:principal: 1
   - name: psfDiffFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
@@ -6499,12 +6549,14 @@ tables:
       the calexp
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: phot.flux
     tap:principal: 1
   - name: psfFluxErr
     description: Uncertainty on the flux derived from linear least-squares fit of
       psf model forced on the calexp
     datatype: float
     ivoa:unit: nJy
+    ivoa:ucd: stat.error;phot.flux
     tap:principal: 1
   - name: psfFlux_flag
     description: Failure to derive linear least-squares fit of psf model forced on
@@ -6591,6 +6643,7 @@ tables:
       Abstract filter that is not associated with a particular instrument.
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
     votable:arraysize: '*'
   - name: dec
@@ -6636,6 +6689,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
     length: 32
+    ivoa:ucd: meta.id;instr.filter
     votable:arraysize: '*'
   - name: ra
     description: Right Ascension of focal plane center.
@@ -6673,6 +6727,7 @@ tables:
       Abstract filter that is not associated with a particular instrument.
     datatype: char
     length: 1
+    ivoa:ucd: meta.id;instr.bandpass
     tap:principal: 1
     votable:arraysize: '*'
   - name: ccdVisitId
@@ -6771,6 +6826,7 @@ tables:
     description: ID of physical filter, the filter associated with a particular instrument.
     datatype: char
     length: 32
+    ivoa:ucd: meta.id;instr.filter
     votable:arraysize: '*'
   - name: pixelScale
     description: Measured detector pixel scale.

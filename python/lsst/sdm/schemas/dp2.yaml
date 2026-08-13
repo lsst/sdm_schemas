@@ -1,7 +1,10 @@
 ---
 name: dp2
-description: "Data Preview 2"
-version: 1.1.0
+description: "Data Preview 2 (Early) contains catalog products and coadded images
+  from the Rubin Science Pipelines v30 processing of early observations obtained
+  with LSSTCam from April 2025 to January 2026.  Coadded images and catalogs
+  cover ~3000 square degrees; single-epoch catalogs cover ~15,000 square degrees."
+version: 1.1.1
 resources:
   base:
     uri: "drp_base.yaml"
@@ -1639,6 +1642,7 @@ tables:
         diaObjectId:
         ra:
         dec:
+        nDiaSources:
         u_psfFluxMean:
         u_psfFluxMeanErr:
         u_psfFluxSigma:
@@ -1699,7 +1703,6 @@ tables:
         y_psfFluxMax:
         y_psfFluxMaxSlope:
         y_psfFluxErrMean:
-        nDiaSources:
   indexes:
   - name: idx_DiaObject_diaObjectId
     description: Unique index on the diaObjectId column.
@@ -1718,12 +1721,12 @@ tables:
         visit:
         detector:
         band:
-        psfFlux:
-        psfFluxErr:
-        psfFlux_flag:
         psfDiffFlux:
         psfDiffFluxErr:
         psfDiffFlux_flag:
+        psfFlux:
+        psfFluxErr:
+        psfFlux_flag:
         diff_PixelFlags_nodataCenter:
         pixelFlags_bad:
         pixelFlags_cr:
