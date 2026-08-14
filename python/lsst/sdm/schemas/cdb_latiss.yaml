@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LATISS schema contains information for each exposure and visit taken by the instrument, an imaging slitless spectrometer mounted on the Rubin Observatory Auxiliary Telescope.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.7.0"
+  current: "3.7.1"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -574,6 +574,12 @@ tables:
     - "#ccdexposure.day_obs"
     - "#ccdexposure.seq_num"
     - "#ccdexposure.detector"
+  indexes:
+  - name: idx_ccdexposure_camera_ccdexposure_id
+    "@id": "#ccdexposure_camera.idx_ccdexposure_camera_ccdexposure_id"
+    description: Explicit index for single-column ID.
+    columns:
+    - "#ccdexposure_camera.ccdexposure_id"
   columns:
   - name: day_obs
     "@id": "#ccdexposure_camera.day_obs"
@@ -657,6 +663,13 @@ tables:
     description: Flex data key must be listed in the schema.
     columns: ["#ccdexposure_flexdata.key"]
     referencedColumns: ["#ccdexposure_flexdata_schema.key"]
+  indexes:
+  - name: idx_ccdexposure_flexdata_obs_id_key
+    "@id": "#ccdexposure_flexdata.idx_ccdexposure_flexdata_obs_id_key"
+    description: Explicit index for single-column ID.
+    columns:
+    - "#ccdexposure_flexdata.obs_id"
+    - "#ccdexposure_flexdata.key"
   columns:
   - name: day_obs
     "@id": "#ccdexposure_flexdata.day_obs"
@@ -1467,6 +1480,12 @@ tables:
     - "#ccdexposure.day_obs"
     - "#ccdexposure.seq_num"
     - "#ccdexposure.detector"
+  indexes:
+  - name: idx_ccdvisit1_quicklook_ccdvisit_id
+    "@id": "#ccdvisit1_quicklook.idx_ccdvisit1_quicklook_ccdvisit_id"
+    description: Explicit index for single-column ID.
+    columns:
+    - "#ccdvisit1_quicklook.ccdvisit_id"
   columns:
   - name: day_obs
     "@id": "#ccdvisit1_quicklook.day_obs"
@@ -1683,6 +1702,12 @@ tables:
     - "#ccdexposure.day_obs"
     - "#ccdexposure.seq_num"
     - "#ccdexposure.detector"
+  indexes:
+  - name: idx_ccdexposure_quicklook_ccdexposure_id
+    "@id": "#ccdexposure_quicklook.idx_ccdexposure_quicklook_ccdexposure_id"
+    description: Explicit index for single-column ID.
+    columns:
+    - "#ccdexposure_quicklook.ccdexposure_id"
   columns:
   - name: day_obs
     "@id": "#ccdexposure_quicklook.day_obs"
