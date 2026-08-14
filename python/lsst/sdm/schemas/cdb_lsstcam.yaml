@@ -1634,7 +1634,7 @@ tables:
   - name: z5
     "@id": "#visit1_quicklook.z5"
     datatype: float
-    description: Estimated total oblique primary astigmatism (Z5) in OCS, mean estimated across four corners in microns.
+    description: Estimated total horizontal primary astigmatism (Z5) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z6
     "@id": "#visit1_quicklook.z6"
@@ -1689,7 +1689,7 @@ tables:
   - name: z16
     "@id": "#visit1_quicklook.z16"
     datatype: float
-    description: Estimated total oblique secondary coma (Z16) in OCS, mean estimated across four corners in microns.
+    description: Estimated total horizontal secondary coma (Z16) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z17
     "@id": "#visit1_quicklook.z17"
@@ -1724,12 +1724,12 @@ tables:
   - name: z23
     "@id": "#visit1_quicklook.z23"
     datatype: float
-    description: Estimated total tertiary astimgatism (Z23) in OCS, mean estimated across four corners in microns.
+    description: Estimated total tertiary astigmatism (Z23) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z24
     "@id": "#visit1_quicklook.z24"
     datatype: float
-    description: Estimated total tertiary astimgatism (Z24) in OCS, mean estimated across four corners in microns.
+    description: Estimated total tertiary astigmatism (Z24) in OCS, mean estimated across four corners in microns.
     ivoa:unit: um
   - name: z25
     "@id": "#visit1_quicklook.z25"
@@ -2765,12 +2765,12 @@ tables:
   - name: z23
     "@id": "#ccdvisit1_quicklook.z23"
     datatype: float
-    description: Estimated total tertiary astimgatism (Z23) in OCS, in microns.
+    description: Estimated total tertiary astigmatism (Z23) in OCS, in microns.
     ivoa:unit: um
   - name: z24
     "@id": "#ccdvisit1_quicklook.z24"
     datatype: float
-    description: Estimated total tertiary astimgatism (Z24) in OCS, in microns.
+    description: Estimated total tertiary astigmatism (Z24) in OCS, in microns.
     ivoa:unit: um
   - name: z25
     "@id": "#ccdvisit1_quicklook.z25"
