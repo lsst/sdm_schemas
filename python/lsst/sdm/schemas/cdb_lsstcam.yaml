@@ -1391,30 +1391,30 @@ tables:
     datatype: float
     description: PSF sigma bowl.
     ivoa:unit: pixel/deg**2
-  - name: ellipticity_median
-    "@id": "#visit1_quicklook.ellipticity_median"
+  - name: psf_ellipticity_median
+    "@id": "#visit1_quicklook.psf_ellipticity_median"
     datatype: float
     description: Ellipticity median across all detectors.
-  - name: ellipticity_95
-    "@id": "#visit1_quicklook.ellipticity_95"
+  - name: psf_ellipticity_95
+    "@id": "#visit1_quicklook.psf_ellipticity_95"
     datatype: float
     description: Ellipticity 95% across all detectors.
-  - name: ellipticity_05
-    "@id": "#visit1_quicklook.ellipticity_05"
+  - name: psf_ellipticity_05
+    "@id": "#visit1_quicklook.psf_ellipticity_05"
     datatype: float
     description: Ellipticity 5% across all detectors.
-  - name: ellipticity_xgradient
-    "@id": "#visit1_quicklook.ellipticity_xgradient"
+  - name: psf_ellipticity_xgradient
+    "@id": "#visit1_quicklook.psf_ellipticity_xgradient"
     datatype: float
     description: Linear ellipticity X Gradient in CCS.
     ivoa:unit: 1/deg
-  - name: ellipticity_ygradient
-    "@id": "#visit1_quicklook.ellipticity_ygradient"
+  - name: psf_ellipticity_ygradient
+    "@id": "#visit1_quicklook.psf_ellipticity_ygradient"
     datatype: float
     description: Linear ellipticity Y Gradient in CCS.
     ivoa:unit: 1/deg
-  - name: ellipticity_bowl
-    "@id": "#visit1_quicklook.ellipticity_bowl"
+  - name: psf_ellipticity_bowl
+    "@id": "#visit1_quicklook.psf_ellipticity_bowl"
     datatype: float
     description: Ellipticity bowl.
     ivoa:unit: 1/deg**2
@@ -2730,7 +2730,7 @@ tables:
   - name: z16
     "@id": "#ccdvisit1_quicklook.z16"
     datatype: float
-    description: Estimated total oblique secondary coma (Z16) in OCS, in microns.
+    description: Estimated total horizontal secondary coma (Z16) in OCS, in microns.
     ivoa:unit: um
   - name: z17
     "@id": "#ccdvisit1_quicklook.z17"
