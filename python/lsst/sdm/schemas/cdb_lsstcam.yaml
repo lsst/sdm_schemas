@@ -2210,16 +2210,16 @@ tables:
     "@id": "#visit1_quicklook.last_correction_seq_num"
     datatype: int
     description: Sequence number from which the last applied AOS corrections were calculated.
-  - name: ra_version
-    "@id": "#visit1_quicklook.ra_version"
+  - name: ra_package_versions
+    "@id": "#visit1_quicklook.ra_package_versions"
     datatype: text
     postgresql:datatype: JSONB
     description: ts_wep, donut_viz, tarts, danish versions used.
-  - name: mtaos_version
-    "@id": "#visit1_quicklook.mtaos_version"
+  - name: mtaos_package_versions
+    "@id": "#visit1_quicklook.mtaos_package_versions"
     datatype: text
     postgresql:datatype: JSONB
-    description: mtaos version used.
+    description: mtaos package versions used.
 - name: exposure_quicklook
   "@id": "#exposure_quicklook"
   tap:table_index: 150
