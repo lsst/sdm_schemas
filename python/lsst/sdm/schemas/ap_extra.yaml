@@ -26,33 +26,83 @@ tables:
         decErr:
         ra_dec_Cov:
         calibFlux:
+          overrides:
+            datatype: float
         calibFluxErr:
+          overrides:
+            datatype: float
         ap09Flux:
+          overrides:
+            datatype: float
         ap09FluxErr:
+          overrides:
+            datatype: float
         ap09Flux_flag:
         ap12Flux:
+          overrides:
+            datatype: float
         ap12FluxErr:
+          overrides:
+            datatype: float
         ap12Flux_flag:
         ap25Flux:
+          overrides:
+            datatype: float
         ap25FluxErr:
+          overrides:
+            datatype: float
         ap25Flux_flag:
         sky:
+          overrides:
+            datatype: float
         skyErr:
+          overrides:
+            datatype: float
         psfFlux:
+          overrides:
+            datatype: float
         psfFluxErr:
+          overrides:
+            datatype: float
         ixx:
+          overrides:
+            datatype: float
         iyy:
+          overrides:
+            datatype: float
         ixy:
+          overrides:
+            datatype: float
         ixxPSF:
+          overrides:
+            datatype: float
         iyyPSF:
+          overrides:
+            datatype: float
         ixyPSF:
+          overrides:
+            datatype: float
         ixxDebiasedPSF:
+          overrides:
+            datatype: float
         iyyDebiasedPSF:
+          overrides:
+            datatype: float
         ixyDebiasedPSF:
+          overrides:
+            datatype: float
         gaussianFlux:
+          overrides:
+            datatype: float
         gaussianFluxErr:
+          overrides:
+            datatype: float
         extendedness:
+          overrides:
+            datatype: float
         sizeExtendedness:
+          overrides:
+            datatype: float
         extendedness_flag:
         sizeExtendedness_flag:
         footprintArea_value:
