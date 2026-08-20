@@ -7,7 +7,7 @@ Each file should be named like `<JIRA TICKET>.<TYPE>` with a file extension defi
 The `<TYPE>` corresponds to a particular schema category and should be one of:
 
 - `dr`: Data Release (DR) and Data Preview (DP) schemas
-- `sci`: Science Pipelines schemas under continuous development (ImSim and HSC)
+- `sci`: Science Pipelines schemas under continuous development (ImSim and HSC) and SSO base schema
 - `ap`: Alert Production Database (APDB)
 - `cdb`: Consolidated Database of Image Metadata (ConsDB)
 
