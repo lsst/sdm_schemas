@@ -10,7 +10,8 @@ resources:
     uri: "apdb.yaml"
 tables:
 - name: DiaObject
-  description: Astronomical objects detected on one or more difference images
+  description: Astronomical objects detected on one or more difference images,
+    containing only the latest version of each record (i.e., with an open validity interval)
   primaryKey:
   - "#DiaObject.diaObjectId"
   - "#DiaObject.validityStartMjdTai"
@@ -19,7 +20,6 @@ tables:
       DiaObject:
         diaObjectId:
         validityStartMjdTai:
-        validityEndMjdTai:
         ra:
         raErr:
         dec:
