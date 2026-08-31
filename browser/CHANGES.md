@@ -5,11 +5,13 @@ title: Release Notes
 
 Changes in [SDM Schemas](https://github.com/lsst/sdm_schemas) are generally organized by the type of schema which was affected:
 
-**Data Releases** - Data Release and Data Preview schemas, having names that typically start with  `dp` or `dr` (e.g., `dp02_dc2`)
+**Data Releases** - Data Release and Data Preview schemas, having names that typically start with `dp` or `dr` (e.g., `dp02_dc2`)
 
 **Science Pipelines** - Schemas which are managed through continuous integration with the Science Pipelines (`imsim`, `hsc`)
 
-**Alert Production** - Alert Production Database and Prompt Products Database used in nightly data processing (`apdb`)
+**Solar System Production** - Solar System Production schema (e.g., `sso_base`)
+
+**Alert Production and Prompt Products** - Alert Production Database (APDB) and Prompt Products Database (PPDB) used in nightly data processing (`apdb`)
 
 **ConsDB** - Consolidated Database of Image Metadata schema, having names that start with `cdb` (e.g., `cdb_lsstcam`)
 
