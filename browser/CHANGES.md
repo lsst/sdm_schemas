@@ -11,7 +11,7 @@ Changes in [SDM Schemas](https://github.com/lsst/sdm_schemas) are generally orga
 
 **Solar System Production** - Solar System Production schema (e.g., `sso_base`)
 
-**Alert Production** - Alert Production Database and Prompt Products Database used in nightly data processing (`apdb`)
+**Alert Production and Prompt Products** - Alert Production Database (APDB) and Prompt Products Database (PPDB) used in nightly data processing (`apdb`)
 
 **ConsDB** - Consolidated Database of Image Metadata schema, having names that start with `cdb` (e.g., `cdb_lsstcam`)
 

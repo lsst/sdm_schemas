@@ -9,7 +9,7 @@ The `<TYPE>` corresponds to a particular schema category and should be one of:
 - `dr`: Data Release (DR) and Data Preview (DP) schemas
 - `sci`: Science Pipelines schemas under continuous development (ImSim and HSC)
 - `ssp`: Solar System Production schema
-- `ap`: Alert Production Database (APDB)
+- `ap`: Alert Production Database (APDB) and Prompt Products Database (PPDB)
 - `cdb`: Consolidated Database of Image Metadata (ConsDB)
 
 **If the changes affect more than one type of schema, such as both `sci` and `ap`, then a separate fragment should be added for each using the same Jira ticket.**
