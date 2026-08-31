@@ -1,10 +1,8 @@
 ---
-name: "SsoBase"
+name: "sso_base"
 version: "10.0.0"
-description: Column-definition dictionary (not a deployable schema) for the
-  common Solar System tables.
+description: Column-definition dictionary for the common Solar System tables.
 tables:
-
 - name: SSObject
   description: LSST-computed per-object quantities.
   tap:table_index: 110
@@ -405,7 +403,6 @@ tables:
   description: LSST-computed per-source quantities. 1::1 relationship with DiaSource.
   tap:table_index: 120
   primaryKey: '#SSSource.diaSourceId'
-
   columns:
   - name: diaSourceId
     description: Unique identifier of the observation (matching DiaSource.diaSourceId).
