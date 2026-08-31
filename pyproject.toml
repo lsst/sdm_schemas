@@ -68,6 +68,11 @@ where = ["python"]
         showcontent = true
 
     [[tool.towncrier.type]]
+        directory = "ssp"
+        name = "Solar System Production"
+        showcontent = true
+
+    [[tool.towncrier.type]]
         directory = "ap"
         name = "Alert Production"
         showcontent = true
