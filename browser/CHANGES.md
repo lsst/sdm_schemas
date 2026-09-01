@@ -86,7 +86,7 @@ v30.0.0 (2026-01-16)
 Data Releases
 -------------
 
-- Add DP1 schema. ([DM-51047](https://rubinobs.atlassian.net/browse/DM-51047))
+- Added DP1 schema. ([DM-51047](https://rubinobs.atlassian.net/browse/DM-51047))
 - Corrected type of DiaSource.ssObjectReassocTime to match the true Postgres type in DP0.3;
   was causing run-time errors.  Corrected type of DiaSource.ccdVisitId as well, though this
   was a harmless inconsistency. ([DM-51064](https://rubinobs.atlassian.net/browse/DM-51064))
@@ -98,12 +98,12 @@ Data Releases
 - Added foreign key relationships to DP1 schema.
   These do not include the "visit+detector" relationships. ([DM-51415](https://rubinobs.atlassian.net/browse/DM-51415))
 - Propagated DP0.2 table service descriptors to DP1 ([DM-51416](https://rubinobs.atlassian.net/browse/DM-51416))
-- Revise descriptions for Object columns, add principal tags ([DM-51417](https://rubinobs.atlassian.net/browse/DM-51417))
+- Revised descriptions for Object columns and added principal tags ([DM-51417](https://rubinobs.atlassian.net/browse/DM-51417))
 - Added DP1 virtual columns. ([DM-51449](https://rubinobs.atlassian.net/browse/DM-51449))
 - Added DP0.2 ObsCore table to main DP0.2 schema ([DM-51478](https://rubinobs.atlassian.net/browse/DM-51478))
 - Removed arraysize overrides from DP1 ObsCore table ([DM-51506](https://rubinobs.atlassian.net/browse/DM-51506))
 - Added DP1 static ObsCore table; configured only for data-int ([DM-51507](https://rubinobs.atlassian.net/browse/DM-51507))
-- Add the DP1 and IVOA ObsCore schemas to the `idfprod` environment (data.lsst.cloud) ([DM-51511](https://rubinobs.atlassian.net/browse/DM-51511))
+- Added the DP1 and IVOA ObsCore schemas to the `idfprod` environment (data.lsst.cloud) ([DM-51511](https://rubinobs.atlassian.net/browse/DM-51511))
 - Updated DP1 schema and table descriptions for release. ([DM-51541](https://rubinobs.atlassian.net/browse/DM-51541))
 - Removed DP1 static ObsCore table from `dp1` schema (it is only in the `ivoa.ObsCore` table in Qserv now) ([DM-51545](https://rubinobs.atlassian.net/browse/DM-51545))
 - Added obs_title to DP1 ObsCore ([DM-51549](https://rubinobs.atlassian.net/browse/DM-51549))
@@ -123,20 +123,20 @@ Science Pipelines
 - Changed `double` columns to `float`. ([DM-49074](https://rubinobs.atlassian.net/browse/DM-49074))
 - Separated `NO_DATA` from `EDGE` pixel flag in HSC schema. ([DM-49274](https://rubinobs.atlassian.net/browse/DM-49274))
 - Added sky-coordinate moments. ([DM-49710](https://rubinobs.atlassian.net/browse/DM-49710))
-- Add trailFluxErr column to `diaSource` table in imsim.yaml. ([DM-49714](https://rubinobs.atlassian.net/browse/DM-49714))
+- Added trailFluxErr column to `diaSource` table in imsim.yaml. ([DM-49714](https://rubinobs.atlassian.net/browse/DM-49714))
 - Added epoch columns to `Object` table. ([DM-49727](https://rubinobs.atlassian.net/browse/DM-49727))
 - Propagated `noData` flags into `ForcedSource` tables. ([DM-49729](https://rubinobs.atlassian.net/browse/DM-49729))
-- Upgrade mysql to version 8.0.41 for TAP_SCHEMA database ([DM-49876](https://rubinobs.atlassian.net/browse/DM-49876))
-- Change id to column_id in tap_schema columns and Add api_created column to the tap_schema tables table ([DM-50252](https://rubinobs.atlassian.net/browse/DM-50252))
+- Upgraded MySQL to version 8.0.41 for TAP_SCHEMA database ([DM-49876](https://rubinobs.atlassian.net/browse/DM-49876))
+- Changed id to column_id in tap_schema columns and added api_created column to the tap_schema tables table ([DM-50252](https://rubinobs.atlassian.net/browse/DM-50252))
 - Extensive changes to the AP DIAObject and DIASource schemas to remove unpopulated fields. ([DM-50837](https://rubinobs.atlassian.net/browse/DM-50837))
 - Added glint_trail boolean flag column to the imsim schema.
   This new column will now appear in all DiaSource tables. ([DM-50988](https://rubinobs.atlassian.net/browse/DM-50988))
 - Added templateFlux and templateFluxErr to imsim.yaml. ([DM-51823](https://rubinobs.atlassian.net/browse/DM-51823))
-- Convert DIA timestamp fields to MJD TAI and rename them.
+- Converted DIA timestamp fields to MJD TAI and renamed them.
 
   This changes `DiaSource.time_processed` `timeProcessedMjdTai`. ([DM-52215](https://rubinobs.atlassian.net/browse/DM-52215))
-- Add MultiProFit exponential model fit columns to object table ([DM-52462](https://rubinobs.atlassian.net/browse/DM-52462))
-- Add model_extendedness columns
+- Added MultiProFit exponential model fit columns to object table ([DM-52462](https://rubinobs.atlassian.net/browse/DM-52462))
+- Added model_extendedness columns
 
   These columns are a new, continuous classification for whether an object is
   compact or extended. There is one column per band and one with griz combined. ([DM-52667](https://rubinobs.atlassian.net/browse/DM-52667))
@@ -155,8 +155,8 @@ Science Pipelines
   Major update to Solar System table schemas as described in RFC-1138. The
   tables affected are SSObject, SSSource, mpc_orbits, current_identifications
   and numbered_identifications. mpc_orbits now replaces the MPCORB table. ([DM-53310](https://rubinobs.atlassian.net/browse/DM-53310))
-- Add view_target column to TAP_SCHEMA tables table ([DM-53338](https://rubinobs.atlassian.net/browse/DM-53338))
-- Add major/minor/position angle galaxy model ellipse columns
+- Added view_target column to TAP_SCHEMA tables table ([DM-53338](https://rubinobs.atlassian.net/browse/DM-53338))
+- Added major/minor/position angle galaxy model ellipse columns
 
   This implements parts of RFC-1081 and most of RFC-1132. ([DM-53442](https://rubinobs.atlassian.net/browse/DM-53442))
 
@@ -171,12 +171,12 @@ Alert Production
 - To match DP1, removed all MPCORB columns except ssObjectId, mpcH, epoch, a, e, incl, node, peri, M.
   Added q, t_p to include cometary elements. ([DM-51864](https://rubinobs.atlassian.net/browse/DM-51864))
 - Corrected SSSource velocity units from AU to AU/d ([DM-51993](https://rubinobs.atlassian.net/browse/DM-51993))
-- Convert DIA timestamp fields to MJD TAI and rename them.
+- Converted DIA timestamp fields to MJD TAI and renamed them.
 
   This changes `DiaSource` and `DiaForcedSource.time_processed` and `time_withdrawn` to `timeProcessedMjdTai` and `timeWithdrawnMjdTai`.
   `DiaSource.ssObjectReassocTime` becomes `ssObjectReassocTimeMjdTai`.
   Similarly, `DIAObject.validityStart` and `validityEnd` become `validityStartMjdTai` and `validityEndMjdTai`. ([DM-52215](https://rubinobs.atlassian.net/browse/DM-52215))
-- `DiaObjectLast` adds a new column `validityStartMjdTai` which represents the start of the latest validity interval for a `diaObjectId`. ([DM-52827](https://rubinobs.atlassian.net/browse/DM-52827))
+- `DiaObjectLast` added a new column `validityStartMjdTai` which represents the start of the latest validity interval for a `diaObjectId`. ([DM-52827](https://rubinobs.atlassian.net/browse/DM-52827))
 - Updates to Solar System related tables (RFC-1138)
 
   Major update to Solar System table schemas as described in RFC-1138.  The
@@ -207,12 +207,12 @@ Consolidated Database
 Miscellaneous
 -------------
 
-- Remove dependence on the `@id` field from the schema browser.
+- Removed dependence on the `@id` field from the schema browser.
   Felis was changed to generate IDs by default, so these may not be present in the YAML files. ([DM-46240](https://rubinobs.atlassian.net/browse/DM-46240))
 - Moved schema descriptions from browser markdown into YAML files.
   No custom schema descriptions should be present anymore in the schema browser. ([DM-46896](https://rubinobs.atlassian.net/browse/DM-46896))
-- Sort tables by their 'tap:table_index' in the schema browser.
-  Tables without this field are listed alphabetically after those which do. ([DM-46989](https://rubinobs.atlassian.net/browse/DM-46989))
+- Sorted tables by their 'tap:table_index' in the schema browser.
+  Tables without this field were listed alphabetically after those which did. ([DM-46989](https://rubinobs.atlassian.net/browse/DM-46989))
 - Added index details section to each table in the schema browser ([DM-48366](https://rubinobs.atlassian.net/browse/DM-48366))
 - Removed the dependency on the `sdm_tools` repository.
   This is an unwanted extra dependency for projects which will eventually depend on `sdm_schemas`.
@@ -222,8 +222,8 @@ Miscellaneous
   This change affects the arraysize values in the TAP_SCHEMA SQL output that is generated for the Docker images.
   This is a temporary workaround for [astropy Issue #18099](https://github.com/astropy/astropy/issues/18099), which will eventually be reverted once there is a permanent fix. ([DM-50914](https://rubinobs.atlassian.net/browse/DM-50914))
 - Added the IVOA ObsCore schema ('ivoa_obscore.yaml') to the schema browser ([DM-51557](https://rubinobs.atlassian.net/browse/DM-51557))
-- Build for both linux/amd64 and linux/arm64.
-  Add schemas for `idfdemo` environment. ([DM-52731](https://rubinobs.atlassian.net/browse/DM-52731))
+- Added containers for both linux/amd64 and linux/arm64.
+  Added schemas for `idfdemo` environment. ([DM-52731](https://rubinobs.atlassian.net/browse/DM-52731))
 
 v29.0.0 (2025-03-31)
 ====================
@@ -274,7 +274,7 @@ Miscellaneous
 - Added Python packaging with support for resource paths. ([DM-46273](https://rubinobs.atlassian.net/browse/DM-46273))
 - Improved the schema browser. ([DM-41867](https://rubinobs.atlassian.net/browse/DM-41867))
 - Added toggle for table pagination in the schema browser. ([DM-46982](https://rubinobs.atlassian.net/browse/DM-46982))
-- Add EUPS and SCons configuration for resource path support. ([DM-47069](https://rubinobs.atlassian.net/browse/DM-47069))
+- Added EUPS and SCons configuration for resource path support. ([DM-47069](https://rubinobs.atlassian.net/browse/DM-47069))
 - Moved YAML files into Python source tree. ([DM-47147](https://rubinobs.atlassian.net/browse/DM-47147))
 - Fixed problems with GitHub build workflow. ([DM-47403](https://rubinobs.atlassian.net/browse/DM-47403))
 - Added workflow to perform schema comparisons and check for changes to deployed schemas. ([DM-46158](https://rubinobs.atlassian.net/browse/DM-46158))
