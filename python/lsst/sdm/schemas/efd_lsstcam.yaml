@@ -17,7 +17,7 @@ tables:
     "@type": Unique
     description: Ensure exposure_id is unique.
     columns:
-    - "#exposure_efd.exposure_id"
+    - "exposure_id"
   columns:
   - name: day_obs
     "@id": "#exposure_efd.day_obs"
@@ -2931,7 +2931,7 @@ tables:
     "@type": Unique
     description: Ensure visit_id is unique.
     columns:
-    - "#visit1_efd.visit_id"
+    - "visit_id"
   columns:
   - name: day_obs
     "@id": "#visit1_efd.day_obs"
