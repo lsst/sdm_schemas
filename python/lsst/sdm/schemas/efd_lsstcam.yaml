@@ -306,6 +306,870 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
+  - name: mt_salindex123_sonic_temperature_mean
+    "@id": "#exposure_efd.mt_salindex123_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex123_sonic_temperature_stddev
+    "@id": "#exposure_efd.mt_salindex123_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex123_sonic_temperature_stddev_mean
+    "@id": "#exposure_efd.mt_salindex123_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex123_sonic_temperature_stddev_stddev
+    "@id": "#exposure_efd.mt_salindex123_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex123_wind_speed_0_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_0_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_0_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_0_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.mt_salindex123_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_sonic_temperature_mean
+    "@id": "#exposure_efd.mt_salindex124_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex124_sonic_temperature_stddev
+    "@id": "#exposure_efd.mt_salindex124_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex124_sonic_temperature_stddev_mean
+    "@id": "#exposure_efd.mt_salindex124_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex124_sonic_temperature_stddev_stddev
+    "@id": "#exposure_efd.mt_salindex124_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex124_wind_speed_0_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_0_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_0_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_0_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.mt_salindex124_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_sonic_temperature_mean
+    "@id": "#exposure_efd.mt_salindex125_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex125_sonic_temperature_stddev
+    "@id": "#exposure_efd.mt_salindex125_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex125_sonic_temperature_stddev_mean
+    "@id": "#exposure_efd.mt_salindex125_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex125_sonic_temperature_stddev_stddev
+    "@id": "#exposure_efd.mt_salindex125_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex125_wind_speed_0_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_0_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_0_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_0_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.mt_salindex125_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_sonic_temperature_mean
+    "@id": "#exposure_efd.mt_salindex126_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex126_sonic_temperature_stddev
+    "@id": "#exposure_efd.mt_salindex126_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex126_sonic_temperature_stddev_mean
+    "@id": "#exposure_efd.mt_salindex126_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex126_sonic_temperature_stddev_stddev
+    "@id": "#exposure_efd.mt_salindex126_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex126_wind_speed_0_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_0_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_0_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_0_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_mean
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_stddev
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_min
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_max
+    "@id": "#exposure_efd.mt_salindex126_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
   - name: mt_salindex301_airflow_speed_mean
     "@id": "#exposure_efd.mt_salindex301_airflow_speed_mean"
     description: Mean median (mean for some sensors) wind speed (salIndex 301).
@@ -3172,6 +4036,870 @@ tables:
     datatype: float
     ivoa:ucd: meta.ucd;stat.max
     ivoa:unit: m/s
+  - name: mt_salindex123_sonic_temperature_mean
+    "@id": "#visit1_efd.mt_salindex123_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex123_sonic_temperature_stddev
+    "@id": "#visit1_efd.mt_salindex123_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex123_sonic_temperature_stddev_mean
+    "@id": "#visit1_efd.mt_salindex123_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex123_sonic_temperature_stddev_stddev
+    "@id": "#visit1_efd.mt_salindex123_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex123_wind_speed_0_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_0_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_0_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_0_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_1_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_2_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_0_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 0 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_1_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 1 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_stddev_2_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-01-S along axis 2 (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_magnitude_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex123_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.mt_salindex123_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-01-S (salIndex 123).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_sonic_temperature_mean
+    "@id": "#visit1_efd.mt_salindex124_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex124_sonic_temperature_stddev
+    "@id": "#visit1_efd.mt_salindex124_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex124_sonic_temperature_stddev_mean
+    "@id": "#visit1_efd.mt_salindex124_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex124_sonic_temperature_stddev_stddev
+    "@id": "#visit1_efd.mt_salindex124_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex124_wind_speed_0_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_0_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_0_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_0_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_1_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_2_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_0_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 0 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_1_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 1 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_stddev_2_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-02-S along axis 2 (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_magnitude_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex124_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.mt_salindex124_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-02-S (salIndex 124).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_sonic_temperature_mean
+    "@id": "#visit1_efd.mt_salindex125_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex125_sonic_temperature_stddev
+    "@id": "#visit1_efd.mt_salindex125_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex125_sonic_temperature_stddev_mean
+    "@id": "#visit1_efd.mt_salindex125_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex125_sonic_temperature_stddev_stddev
+    "@id": "#visit1_efd.mt_salindex125_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex125_wind_speed_0_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_0_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_0_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_0_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_1_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_2_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_0_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 0 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_1_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 1 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_stddev_2_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-03-P along axis 2 (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_magnitude_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex125_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.mt_salindex125_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-03-P (salIndex 125).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_sonic_temperature_mean
+    "@id": "#visit1_efd.mt_salindex126_sonic_temperature_mean"
+    description: Mean median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex126_sonic_temperature_stddev
+    "@id": "#visit1_efd.mt_salindex126_sonic_temperature_stddev"
+    description: Standard deviation of the median sonic temperature (air temperature measured sonically). Sonic temperature has poor absolute accuracy (it can be off by several degrees) but good time resolution.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex126_sonic_temperature_stddev_mean
+    "@id": "#visit1_efd.mt_salindex126_sonic_temperature_stddev_mean"
+    description: Standard deviation of the mean standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_salindex126_sonic_temperature_stddev_stddev
+    "@id": "#visit1_efd.mt_salindex126_sonic_temperature_stddev_stddev"
+    description: Standard deviation of the standard deviation of sonic temperature (air temperature measured sonically) estimated from quartiles.
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: deg_C
+  - name: mt_salindex126_wind_speed_0_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_0_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_0_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_0_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_0_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_0_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_0_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_0_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_1_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_1_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_1_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_1_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_1_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_2_mean"
+    description: Mean median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_2_stddev"
+    description: Standard deviation of the median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_2_min"
+    description: Minimum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_2_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_2_max"
+    description: Maximum median wind speed (x, y, z) in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_0_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_0_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_0_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_0_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_0_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 0 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_1_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_1_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_1_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_1_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_1_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 1 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_2_mean"
+    description: Mean standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_2_stddev"
+    description: Standard deviation of the standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_2_min"
+    description: Minimum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_stddev_2_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_stddev_2_max"
+    description: Maximum standard deviation of wind speed (x, y, z) estimated from quartiles in TEA-3D-ANEM-04-S along axis 2 (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_magnitude_mean"
+    description: Mean median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_magnitude_stddev"
+    description: Standard deviation of the median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_magnitude_min"
+    description: Minimum median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_magnitude_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_magnitude_max"
+    description: Maximum median wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_mean
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_maxmagnitude_mean"
+    description: Mean maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.mean
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_stddev
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_maxmagnitude_stddev"
+    description: Standard deviation of the maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: stat.stdev
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_min
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_maxmagnitude_min"
+    description: Minimum maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.min
+    ivoa:unit: m/s
+  - name: mt_salindex126_wind_speed_maxmagnitude_max
+    "@id": "#visit1_efd.mt_salindex126_wind_speed_maxmagnitude_max"
+    description: Maximum maximum wind speed magnitude in TEA-3D-ANEM-04-S (salIndex 126).
+    datatype: float
+    ivoa:ucd: meta.ucd;stat.max
+    ivoa:unit: m/s
   - name: mt_salindex301_airflow_speed_mean
     "@id": "#visit1_efd.mt_salindex301_airflow_speed_mean"
     description: Mean median (mean for some sensors) wind speed (salIndex 301).
@@ -5729,6 +7457,66 @@ tables:
   - name: mt_salindex122_temperature_7
     "@id": "#visit1_efd.mt_salindex122_temperature_7"
     description: M2-ESS02, temperature item 7, minus X minus Y Truss Structure
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_x_gradient_mean
+    "@id": "#visit1_efd.mt_m1m3_x_gradient_mean"
+    description: Mean M1M3 temperature gradient along X axis over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_y_gradient_mean
+    "@id": "#visit1_efd.mt_m1m3_y_gradient_mean"
+    description: Mean M1M3 temperature gradient along Y axis over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_z_gradient_mean
+    "@id": "#visit1_efd.mt_m1m3_z_gradient_mean"
+    description: Mean M1M3 temperature gradient along Z axis over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_radial_gradient_mean
+    "@id": "#visit1_efd.mt_m1m3_radial_gradient_mean"
+    description: Mean M1M3 radial temperature gradient over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_x_gradient_error_mean
+    "@id": "#visit1_efd.mt_m1m3_x_gradient_error_mean"
+    description: Mean estimated error of M1M3 temperature gradient along X axis over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_y_gradient_error_mean
+    "@id": "#visit1_efd.mt_m1m3_y_gradient_error_mean"
+    description: Mean estimated error of M1M3 temperature gradient along Y axis over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_z_gradient_error_mean
+    "@id": "#visit1_efd.mt_m1m3_z_gradient_error_mean"
+    description: Mean estimated error of M1M3 temperature gradient along Z axis over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_radial_gradient_error_mean
+    "@id": "#visit1_efd.mt_m1m3_radial_gradient_error_mean"
+    description: Mean estimated error of M1M3 radial temperature gradient over the visit window (2 min lookback).
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.mean
+    ivoa:unit: deg_C
+  - name: mt_m1m3_bulk_temperature_median
+    "@id": "#visit1_efd.mt_m1m3_bulk_temperature_median"
+    description: Median bulk temperature of M1M3 glass from thermocouples (scanners 114-117), with 2 min lookback.
+    datatype: float
+    ivoa:ucd: phys.temperature;stat.median
+    ivoa:unit: deg_C
+  - name: mt_m1m3_bulk_temperature_mean
+    "@id": "#visit1_efd.mt_m1m3_bulk_temperature_mean"
+    description: Mean bulk temperature of M1M3 glass from thermocouples (scanners 114-117), with 2 min lookback.
     datatype: float
     ivoa:ucd: phys.temperature;stat.mean
     ivoa:unit: deg_C
