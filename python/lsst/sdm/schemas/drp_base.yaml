@@ -1,6 +1,6 @@
 name: drp_base
 description: Base schema for defining Data Release Processing column definitions.
-version: 1.0.1
+version: 1.1.0
 tables:
 - name: Object
   description: Descriptions of static astronomical objects (or the static aspects
@@ -7078,6 +7078,18 @@ tables:
       null if this exceeds 60".
     datatype: double
     ivoa:unit: arcsec
+  - name: wcsSIPDeltaSky
+    description: Maximum on-sky difference between the WCS and its FITS TAN-SIP
+      approximation, evaluated by mapping detector pixel positions to sky coordinates
+      using each and comparing.
+    datatype: double
+    ivoa:unit: arcsec
+  - name: wcsSIPDeltaPixel
+    description: Maximum pixel-space difference between the WCS and its FITS TAN-SIP
+      approximation, evaluated by mapping sky coordinates to detector pixel positions
+      using each and comparing.
+    datatype: double
+    ivoa:unit: pixel
   - name: xSize
     description: Number of columns in the image.
     datatype: long
