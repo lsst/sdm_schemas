@@ -1330,11 +1330,6 @@ tables:
     datatype: float
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc
-  - name: diaDistanceRank
-    description: The rank of the diaSourceId-identified source in terms of its closeness to the predicted SSO position.  If
-      diaSourceId is the nearest DiaSource to this SSO prediction, diaSourceDistanceRank=1 would be set. If it is
-      the second nearest, it would be 2, etc.
-    datatype: short
 - name: NearbySSO
   description: For each DiaSource, the nearest known Solar System object whose predicted position (from mpc_orbits)
     is within the matching radius, and whose predicted 1-sigma uncertainty is small enough for the association to
@@ -1390,6 +1385,14 @@ tables:
     datatype: float
     ivoa:unit: arcsec
     ivoa:ucd: pos.angDistance;stat.fit.omc
+  - name: diaDistanceRank
+    description: 'Rank of this DiaSource by its separation from the object''s predicted position, among all DiaSources
+      of the same visit within the matching radius of that prediction: 1 for the nearest, 2 for the next, and so
+      on (ties broken by the lower diaSourceId). A rank above 1 means a closer DiaSource exists, which may be attributed
+      to another object.'
+    datatype: short
+    nullable: false
+    ivoa:ucd: meta.number
   - name: ephVmag
     description: Predicted magnitude in V band, computed from mpc_orbits data including the mpc_orbits-provided
       (H, G) estimates.
