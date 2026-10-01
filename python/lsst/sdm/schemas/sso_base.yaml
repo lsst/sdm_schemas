@@ -1694,8 +1694,8 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;src
   - name: published
-    description: Has this been published yet? i.e. has it been released to the public?
-    datatype: boolean
+    description: Publication status of this identification, as the integer code in the MPC's table (not a boolean; the values 0, 1, 2 and 4 occur).
+    datatype: int
     ivoa:ucd: meta.code.status;meta.dataset
   - name: identifier_ids
     description: This is a set of unique identifier_ids in an array that points to the identification_metadata
