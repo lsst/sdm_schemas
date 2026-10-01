@@ -419,7 +419,6 @@ tables:
         topo_vy:
         topo_vz:
         topo_vtot:
-        diaDistanceRank:
 - name: NearbySSO
   description: For each DiaSource, the nearest known Solar System object whose predicted position (from mpc_orbits) is within the matching radius, and whose predicted 1-sigma uncertainty is small enough for the association to be meaningful. Regenerated daily (RFC-1188).
   tap:table_index: 125
@@ -436,6 +435,7 @@ tables:
         ephDecErr:
         ephRa_ephDec_Cov:
         ephOffset:
+        diaDistanceRank:
         ephVmag:
         ephRateRa:
         ephRateDec:
