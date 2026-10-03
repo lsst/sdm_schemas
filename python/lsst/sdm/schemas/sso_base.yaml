@@ -1235,6 +1235,16 @@ tables:
     datatype: float
     ivoa:unit: deg/d
     ivoa:ucd: pos.pm;pos.eq.dec;pos.ephem
+  - name: ephAntiSunPA
+    description: Predicted position angle of the extended Sun-to-object radius vector (the anti-Sun direction, along which an ion tail points), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAng, but relative to the ICRS pole; from the light-emission-time heliocentric vector (helio_x, helio_y, helio_z). Ill-conditioned near zero phase angle.
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.posAng;pos.ephem
+  - name: ephAntiMotionPA
+    description: Predicted position angle of the negative of the object's heliocentric velocity vector (the direction a dust trail lags towards), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAMV, but relative to the ICRS pole; from the light-emission-time heliocentric velocity (helio_vx, helio_vy, helio_vz).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.posAng;pos.ephem
   - name: ephOffset
     description: Total observed versus predicted angular separation on the sky.
     datatype: float
@@ -1409,6 +1419,16 @@ tables:
     datatype: float
     ivoa:unit: deg/d
     ivoa:ucd: pos.pm;pos.eq.dec;pos.ephem
+  - name: ephAntiSunPA
+    description: Predicted position angle of the extended Sun-to-object radius vector (the anti-Sun direction, along which an ion tail points), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAng, but relative to the ICRS pole; from the light-emission-time heliocentric vector (helio_x, helio_y, helio_z). Ill-conditioned near zero phase angle.
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.posAng;pos.ephem
+  - name: ephAntiMotionPA
+    description: Predicted position angle of the negative of the object's heliocentric velocity vector (the direction a dust trail lags towards), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAMV, but relative to the ICRS pole; from the light-emission-time heliocentric velocity (helio_vx, helio_vy, helio_vz).
+    datatype: float
+    ivoa:unit: deg
+    ivoa:ucd: pos.posAng;pos.ephem
 
 - name: mpc_orbits
   description: Table of orbital elements and related information of known (sun-orbiting and unbound) Solar
