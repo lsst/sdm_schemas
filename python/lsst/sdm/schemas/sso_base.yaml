@@ -1342,7 +1342,8 @@ tables:
     ivoa:ucd: phys.veloc
 - name: NearbySSO
   description: For each DiaSource, the nearest known Solar System object whose predicted position (from mpc_orbits)
-    is within the matching radius, and whose predicted 1-sigma uncertainty is small enough for the association to
+    is within the object's matching radius (5 arcsec; 15 arcsec for comets and interstellar objects, i.e. designations
+    starting C/, P/, D/ or I/), and whose predicted 1-sigma uncertainty is small enough for the association to
     be meaningful. Regenerated daily (RFC-1188).
   tap:table_index: 125
   primaryKey: '#NearbySSO.diaSourceId'
@@ -1397,7 +1398,7 @@ tables:
     ivoa:ucd: pos.angDistance;stat.fit.omc
   - name: diaDistanceRank
     description: 'Rank of this DiaSource by its separation from the object''s predicted position, among all DiaSources
-      of the same visit within the matching radius of that prediction: 1 for the nearest, 2 for the next, and so
+      of the same visit within the object''s matching radius of that prediction: 1 for the nearest, 2 for the next, and so
       on (ties broken by the lower diaSourceId). A rank above 1 means a closer DiaSource exists, which may be attributed
       to another object.'
     datatype: short
