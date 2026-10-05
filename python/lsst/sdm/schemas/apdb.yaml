@@ -2130,17 +2130,17 @@ tables:
     datatype: double
     ivoa:unit: m2.t-1
   - name: a1
-    description: "A1 non-grav components [m^2/ton]"
+    description: "A1 non-grav components [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: 1e-10.au.d-2
   - name: a2
-    description: "A2 non-grav components [m^2/ton]"
+    description: "A2 non-grav components [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: 1e-10.au.d-2
   - name: a3
-    description: "A3 non-grav components [m^2/ton]"
+    description: "A3 non-grav components [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: 1e-10.au.d-2
   - name: dt
     description: DT non-grav component
     datatype: double
@@ -2201,17 +2201,17 @@ tables:
     datatype: double
     ivoa:unit: m2.t-1
   - name: a1_unc
-    description: "Uncertainty on A1 non-grav components [m^2/ton]"
+    description: "Uncertainty on A1 non-grav components [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: 1e-10.au.d-2
   - name: a2_unc
-    description: "Uncertainty on A2 non-grav components [m^2/ton]"
+    description: "Uncertainty on A2 non-grav components [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: 1e-10.au.d-2
   - name: a3_unc
-    description: "Uncertainty on A3 non-grav components [m^2/ton]"
+    description: "Uncertainty on A3 non-grav components [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: 1e-10.au.d-2
   - name: dt_unc
     description: Uncertainty on DT non-grav component
     datatype: double
