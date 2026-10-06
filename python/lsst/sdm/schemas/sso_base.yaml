@@ -514,12 +514,24 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;obs.image
   - name: midpointMjdTai
-    description: Exposure midpoint, TAI MJD. DiaSource midpointMjdTai; on Source rows the visit's exposure midpoint
-      (the export's mjd column). Named mjd_tai in v1.
+    description: Exposure midpoint of this source, TAI MJD, corrected for the shutter's motion across the focal plane
+      (the corrected time differs from the visit's midpoint by up to ~0.24 s, depending on the source's position).
+      Where no correction is available it is the visit's midpoint (the DiaSource's midpointMjdTai, or on Source rows
+      the visit's exposure midpoint), and midpointMjdTai_flag is set. The ephemeris columns are computed at this
+      time. Named mjd_tai in v1.
     datatype: double
     nullable: false
     ivoa:unit: d
     ivoa:ucd: time.epoch
+  - name: midpointMjdTai_flag
+    description: True when midpointMjdTai is the visit's midpoint, not corrected for the shutter's motion (no
+      correction is available for this visit or position).
+    datatype: boolean
+    nullable: false
+  - name: midpointMjdTai_flag_degraded
+    description: True when midpointMjdTai is corrected for the shutter's motion, but with reduced accuracy.
+    datatype: boolean
+    nullable: false
   - name: exposureTime
     description: 'Measured exposure (shutter-open) time of the visit, s: ConsDB exposure.shut_time (= Butler visitInfo.exposureTime),
       looked up by visit in ssp.visit_exposure on every branch. NULL where ConsDB has no value or the table lacks
