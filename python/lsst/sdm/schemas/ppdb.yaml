@@ -232,20 +232,19 @@ tables:
         band:
         timeProcessedMjdTai:
         timeWithdrawnMjdTai:
-- name: SSSource
+- name: SSObservation
   description: 'Solar System source measurements: one row per Rubin observation submitted to and accepted by the MPC (obs_sbn), with the measurement it was submitted from (a DiaSource or a Source, see measuredOn) and its ephemeris from mpc_orbits. Built from the record of submitted measurements, independent of the PPDB DiaSource table (RFC-1188).'
   tap:table_index: 120
-  primaryKey: '#SSSource.obsid'
+  primaryKey: '#SSObservation.obsid'
   columnRefs:
     sso_base:
-      SSSource:
+      SSObservation:
         obsid:
         trksub:
         trkid:
         submission_id:
         status:
         primary:
-        matchMethod:
         ssObjectId:
         designation:
         measuredOn:
@@ -259,7 +258,6 @@ tables:
         detector:
         midpointMjdTai:
         midpointMjdTai_flag:
-        midpointMjdTai_flag_degraded:
         exposureTime:
         ra:
         raErr:
