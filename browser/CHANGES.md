@@ -26,7 +26,7 @@ Data Releases
 
 - Added `CoaddPatches` table to DP2 schema (`dp2.yaml`) ([DM-55392](https://rubinobs.atlassian.net/browse/DM-55392))
 - Added `mpc_orbits` table to DP2 schema ([DM-55438](https://rubinobs.atlassian.net/browse/DM-55438))
-- Hid redundant or unnecessary coord_ra, coord_dec columns ([DM-55508](https://rubinobs.atlassian.net/browse/DM-55508))
+- Hid redundant or unnecessary `coord_ra`, `coord_dec` columns ([DM-55508](https://rubinobs.atlassian.net/browse/DM-55508))
 - SSO table changes:
   - Restored current_identifications and numbered_identifications SSO tables, less array-valued columns
   - Reordered tables for final EDP2 presentation sequence ([DM-55597](https://rubinobs.atlassian.net/browse/DM-55597))
@@ -43,15 +43,15 @@ Data Releases
 Science Pipelines
 -----------------
 
-- IsolatedStarStellarMotions changes:
+- `IsolatedStarStellarMotions` changes:
   - Fixed data types
   - Updated some UCDs
   - Removed off-diagonal covariance terms from the `principal` subset
   - Documented Gaia DR3 as the reference dataset ([DM-55449](https://rubinobs.atlassian.net/browse/DM-55449))
 - Improvements to `drp_base`:
-  - Added principal flag to columns to DRP DiaObject base schema
-  - Improved flux-related UCDs for DiaObject, DiaSource, and ForcedSourceOnDiaObject
-  - Improved DiaSource count UCDs for DiaObject
+  - Added principal flag to columns in `DiaObject`
+  - Improved flux-related UCDs for `DiaObject`, `DiaSource`, and `ForcedSourceOnDiaObject`
+  - Improved `DiaSource` count UCDs for `DiaObject`
   - Applied band and filter UCDs consistently to all DRP tables and ObsCore ([DM-55661](https://rubinobs.atlassian.net/browse/DM-55661))
 
 
@@ -86,72 +86,70 @@ Data Releases
 - DP0.3 type corrections:
   - Corrected type of `DiaSource.ssObjectReassocTime` to match the true Postgres type, as it was causing run-time errors
   - Corrected type of `DiaSource.ccdVisitId` as well, though this was a harmless inconsistency ([DM-51064](https://rubinobs.atlassian.net/browse/DM-51064))
-- Renamed the 'dp02_v2.yaml' schema to 'dp01.yaml' and reformatted it using the `felis dump` command ([DM-51408](https://rubinobs.atlassian.net/browse/DM-51408))
-- Removed the '@id' fields from the dp1.yaml schema for DP1 as they should no longer be needed after updates to Felis ([DM-51410](https://rubinobs.atlassian.net/browse/DM-51410))
+- Renamed `dp02_v2.yaml` to `dp01.yaml` and reformatted using the `felis dump` command ([DM-51408](https://rubinobs.atlassian.net/browse/DM-51408))
+- Removed the `@id` fields from the `dp1.yaml` schema, which should no longer be needed after updates to Felis ([DM-51410](https://rubinobs.atlassian.net/browse/DM-51410))
 - Changed `fits:tunit` values to `ivoa:unit` in DP1 schema ([DM-51411](https://rubinobs.atlassian.net/browse/DM-51411))
 - Assigned an order to the DP1 tables, derived from the DP0.2 order ([DM-51414](https://rubinobs.atlassian.net/browse/DM-51414))
 - Added foreign key relationships to DP1 schema, not including the "visit+detector" relationships ([DM-51415](https://rubinobs.atlassian.net/browse/DM-51415))
 - Propagated DP0.2 table service descriptors to DP1 ([DM-51416](https://rubinobs.atlassian.net/browse/DM-51416))
-- Revised descriptions for Object columns and added principal tags ([DM-51417](https://rubinobs.atlassian.net/browse/DM-51417))
+- Revised descriptions for `Object` columns and added principal flags ([DM-51417](https://rubinobs.atlassian.net/browse/DM-51417))
 - Added DP1 virtual columns ([DM-51449](https://rubinobs.atlassian.net/browse/DM-51449))
 - Added DP0.2 ObsCore table to main DP0.2 schema ([DM-51478](https://rubinobs.atlassian.net/browse/DM-51478))
-- Removed arraysize overrides from DP1 ObsCore table ([DM-51506](https://rubinobs.atlassian.net/browse/DM-51506))
+- Removed `arraysize` overrides from DP1 ObsCore table ([DM-51506](https://rubinobs.atlassian.net/browse/DM-51506))
 - Added DP1 static ObsCore table; configured only for data-int ([DM-51507](https://rubinobs.atlassian.net/browse/DM-51507))
 - Added the DP1 and IVOA ObsCore schemas to the `idfprod` environment (data.lsst.cloud) ([DM-51511](https://rubinobs.atlassian.net/browse/DM-51511))
 - Updated DP1 schema and table descriptions for release ([DM-51541](https://rubinobs.atlassian.net/browse/DM-51541))
-- Removed DP1 static ObsCore table from `dp1` schema (it is only in the `ivoa.ObsCore` table in Qserv now) ([DM-51545](https://rubinobs.atlassian.net/browse/DM-51545))
-- Added obs_title to DP1 ObsCore ([DM-51549](https://rubinobs.atlassian.net/browse/DM-51549))
+- Removed DP1 static ObsCore table from `dp1` schema (It is only in the `ivoa.ObsCore` table in Qserv now.) ([DM-51545](https://rubinobs.atlassian.net/browse/DM-51545))
+- Added `obs_title` to DP1 ObsCore ([DM-51549](https://rubinobs.atlassian.net/browse/DM-51549))
 - Removed `decl` columns from DP1 that had long since been declared deprecated ([DM-51559](https://rubinobs.atlassian.net/browse/DM-51559))
 - Added `CoaddPatches` table ([DM-51560](https://rubinobs.atlassian.net/browse/DM-51560))
 - Added index definitions to the DP1 schema ([DM-51573](https://rubinobs.atlassian.net/browse/DM-51573))
-- Copied `tap:principal` column metadata from DP0.2 to DP1 non-Object tables including ForcedSource, ForcedSourceOnDiaObject, Visit, and CcdVisit
-  Added a few additional principal columns for those which were not present in DP0.2 ([DM-51600](https://rubinobs.atlassian.net/browse/DM-51600))
+- Copied `tap:principal` column metadata from DP0.2 to DP1 for `ForcedSource`, `ForcedSourceOnDiaObject`, `Visit`, and `CcdVisit` and flagged a few additional principal flags to columns which were not present in DP0.2 ([DM-51600](https://rubinobs.atlassian.net/browse/DM-51600))
 - Revised foreign-key descriptions to clarify 1:N relationships ([DM-51604](https://rubinobs.atlassian.net/browse/DM-51604))
 
 
 Science Pipelines
 -----------------
 
-- Added starEMedian and starUnNormalizedEMedian to lsstcam.yaml, hsc.yaml, and imsim.yaml ([DM-48316](https://rubinobs.atlassian.net/browse/DM-48316))
+- Added `starEMedian` and `starUnNormalizedEMedian` to `lsstcam.yaml`, `hsc.yaml`, and `imsim.yaml` ([DM-48316](https://rubinobs.atlassian.net/browse/DM-48316))
 - Changed `double` columns to `float` ([DM-49074](https://rubinobs.atlassian.net/browse/DM-49074))
 - Separated `NO_DATA` from `EDGE` pixel flag in HSC schema ([DM-49274](https://rubinobs.atlassian.net/browse/DM-49274))
 - Added sky-coordinate moments ([DM-49710](https://rubinobs.atlassian.net/browse/DM-49710))
-- Added trailFluxErr column to `DiaSource` table in imsim.yaml ([DM-49714](https://rubinobs.atlassian.net/browse/DM-49714))
+- Added `trailFluxErr` column to `DiaSource` table in imsim.yaml ([DM-49714](https://rubinobs.atlassian.net/browse/DM-49714))
 - Added epoch columns to `Object` table ([DM-49727](https://rubinobs.atlassian.net/browse/DM-49727))
 - Propagated `noData` flags into `ForcedSource` tables ([DM-49729](https://rubinobs.atlassian.net/browse/DM-49729))
 - Upgraded MySQL to version 8.0.41 for TAP_SCHEMA database ([DM-49876](https://rubinobs.atlassian.net/browse/DM-49876))
-- Changed id to column_id in tap_schema columns and added api_created column to the tap_schema tables table ([DM-50252](https://rubinobs.atlassian.net/browse/DM-50252))
-- Extensive changes to the AP DIAObject and DIASource schemas to remove unpopulated fields ([DM-50837](https://rubinobs.atlassian.net/browse/DM-50837))
-- Added glint_trail boolean flag column to the imsim schema, which will now appear in all DiaSource tables ([DM-50988](https://rubinobs.atlassian.net/browse/DM-50988))
-- Added templateFlux and templateFluxErr to imsim.yaml ([DM-51823](https://rubinobs.atlassian.net/browse/DM-51823))
+- Changed `id` to `column_id` in TAP_SCHEMA columns and added `api_created` column to the TAP_SCHEMA `tables` table ([DM-50252](https://rubinobs.atlassian.net/browse/DM-50252))
+- Removed fields from the AP `DIAObject` and `DIASource` tables which were unpopulated ([DM-50837](https://rubinobs.atlassian.net/browse/DM-50837))
+- Added `glint_trail` boolean flag column to `imsim.yaml`, which will now appear in all `DiaSource` tables ([DM-50988](https://rubinobs.atlassian.net/browse/DM-50988))
+- Added `templateFlux` and `templateFluxErr` to `imsim.yaml` ([DM-51823](https://rubinobs.atlassian.net/browse/DM-51823))
 - Converted DIA timestamp fields to MJD TAI and renamed `DiaSource.time_processed` to `timeProcessedMjdTai` ([DM-52215](https://rubinobs.atlassian.net/browse/DM-52215))
 - Added MultiProFit exponential model fit columns to object table ([DM-52462](https://rubinobs.atlassian.net/browse/DM-52462))
-- Added model_extendedness columns, representing a new, continuous classification for whether an object is
+- Added `model_extendedness` columns, representing a new, continuous classification for whether an object is
   compact or extended, with one column per band and one with griz combined ([DM-52667](https://rubinobs.atlassian.net/browse/DM-52667))
 - Removed and renamed columns in the Object table per RFC-1131:
   - Removed GAAP fluxes with apertures >= 1.5 and Optimal
   - Removed reference centroids (x, y) in pixel coords
-  - Renamed reference centroid flag from xy_flag to coord_flag and moved under coord_ra/coord_dec
+  - Renamed reference centroid flag from `xy_flag` to `coord_flag` and moved under `coord_ra`/`coord_dec`
   - Removed per-band centroids in pixel coords
   - Removed calib fluxes
-  - Removed ixyRound et al. ([DM-52922](https://rubinobs.atlassian.net/browse/DM-52922))
-- Added default schema for the LSSTCam DRP pipeline and removed forcedSourceId and forcedSourceOnDiaObjectId from respective schemas ([DM-53027](https://rubinobs.atlassian.net/browse/DM-53027))
+  - Removed `ixyRound` et al. ([DM-52922](https://rubinobs.atlassian.net/browse/DM-52922))
+- Added default schema for the LSSTCam DRP pipeline and removed `forcedSourceId` and `forcedSourceOnDiaObjectId` from respective schemas ([DM-53027](https://rubinobs.atlassian.net/browse/DM-53027))
 - Applied major update to Solar System table schemas as described in RFC-1138:
-  - Affected tables included SSObject, SSSource, mpc_orbits, current_identifications and numbered_identifications.
-  - mpc_orbits replaced MPCORB. ([DM-53310](https://rubinobs.atlassian.net/browse/DM-53310))
-- Added view_target column to TAP_SCHEMA tables table ([DM-53338](https://rubinobs.atlassian.net/browse/DM-53338))
+  - Affected tables included `SSObject`, `SSSource`, `mpc_orbits`, `current_identifications` and `numbered_identifications`.
+  - `mpc_orbits` replaced `MPCORB`. ([DM-53310](https://rubinobs.atlassian.net/browse/DM-53310))
+- Added `view_target` column to TAP_SCHEMA `tables` table ([DM-53338](https://rubinobs.atlassian.net/browse/DM-53338))
 - Added major/minor/position angle galaxy model ellipse columns, implementing parts of RFC-1081 and most of RFC-1132 ([DM-53442](https://rubinobs.atlassian.net/browse/DM-53442))
 
 
 Alert Production
 ----------------
 
-- Added starEMedian and starUnNormalizedEMedian to apdb.yaml ([DM-48316](https://rubinobs.atlassian.net/browse/DM-48316))
-- Extensive changes to the AP DIAObject and DIASource schemas to remove unpopulated fields ([DM-50837](https://rubinobs.atlassian.net/browse/DM-50837))
-- Added glint_trail boolean flag column to the apdb schema, which will now appear in all DiaSource tables ([DM-50988](https://rubinobs.atlassian.net/browse/DM-50988))
-- To match DP1, removed all MPCORB columns except ssObjectId, mpcH, epoch, a, e, incl, node, peri, M.
-  Added q, t_p to include cometary elements ([DM-51864](https://rubinobs.atlassian.net/browse/DM-51864))
-- Corrected SSSource velocity units from AU to AU/d ([DM-51993](https://rubinobs.atlassian.net/browse/DM-51993))
+- Added `starEMedian` and `starUnNormalizedEMedian` to `apdb.yaml` ([DM-48316](https://rubinobs.atlassian.net/browse/DM-48316))
+- Removed unpopulated fields from the AP `DiaObject` and `DiaSource` tables ([DM-50837](https://rubinobs.atlassian.net/browse/DM-50837))
+- Added `glint_trail` boolean flag column to `apdb.yaml`, which will now appear in all DiaSource tables ([DM-50988](https://rubinobs.atlassian.net/browse/DM-50988))
+- To match DP1, removed all `MPCORB` columns except `ssObjectId`, `mpcH`, `epoch`, `a`, `e`, `incl`, `node`, `peri`, and M; added `q` and `t_p` to include cometary elements ([DM-51864](https://rubinobs.atlassian.net/browse/DM-51864))
+- Corrected `SSSource` velocity units from AU to AU/d ([DM-51993](https://rubinobs.atlassian.net/browse/DM-51993))
 - Converted DIA timestamp fields to MJD TAI and renamed them:
   - This changed `time_processed` and `time_withdrawn` to `timeProcessedMjdTai` and
     `timeWithdrawnMjdTai` in `DiaSource` and `DiaForcedSource`.
@@ -159,28 +157,28 @@ Alert Production
   - Similarly, `validityStart` and `validityEnd` became `validityStartMjdTai` and `validityEndMjdTai` in `DIAObject`. ([DM-52215](https://rubinobs.atlassian.net/browse/DM-52215))
 - Added a new column `validityStartMjdTai` to `DiaObjectLast` which represents the start of the latest validity interval for a `diaObjectId` ([DM-52827](https://rubinobs.atlassian.net/browse/DM-52827))
 - Updates to Solar System related tables from RFC-1138:
-  - The tables affected are SSObject, SSSource, mpc_orbits, current_identifications and numbered_identifications.
-  - mpc_orbits replaces the MPCORB table.
-  - current_identifications replaces the MPCDESIGMAP tables. ([DM-53310](https://rubinobs.atlassian.net/browse/DM-53310))
+  - The tables affected are `SSObject`, `SSSource`, `mpc_orbits`, `current_identifications` and `numbered_identifications`.
+  - `mpc_orbits` replaces the `MPCORB` table.
+  - `current_identifications` replaces the `MPCDESIGMAP` tables. ([DM-53310](https://rubinobs.atlassian.net/browse/DM-53310))
 
 
 Consolidated Database
 ---------------------
 
 - Added the Transformed EFD schemas ([DM-43722](https://rubinobs.atlassian.net/browse/DM-43722))
-- Added scheduler_note column to the cdb schemas ([DM-47965](https://rubinobs.atlassian.net/browse/DM-47965))
-- Added can_see_sky column to the cdb schemas ([DM-51051](https://rubinobs.atlassian.net/browse/DM-51051))
-- Added zernikes column to the cdb ccdvisit1_quicklook and visit1_quicklook schema ([DM-51220](https://rubinobs.atlassian.net/browse/DM-51220))
+- Added `scheduler_note` column to the cdb schemas ([DM-47965](https://rubinobs.atlassian.net/browse/DM-47965))
+- Added `can_see_sky` column to the cdb schemas ([DM-51051](https://rubinobs.atlassian.net/browse/DM-51051))
+- Added `zernikes` column to the cdb ccdvisit1_quicklook and visit1_quicklook schema ([DM-51220](https://rubinobs.atlassian.net/browse/DM-51220))
 - New primary key columns were added to the Transformed EFD schemas, modifying the basic structure. IVOA metadata was also added and/or updated. ([DM-51362](https://rubinobs.atlassian.net/browse/DM-51362))
-- Added tap:table_index values for ConsDB schemas:
+- Added `tap:table_index` values for ConsDB schemas:
   - Exposure and related tables come first (100 series), followed by visit tables (200 series).
   - Per-CCD versions of the above follow (300 and 400 series).
   - Last are the flexible metadata schemas that are currently unused (and may not ever become public, if they are used; 800 and 900 series). ([DM-51439](https://rubinobs.atlassian.net/browse/DM-51439))
-- Added aos_fwhm, donut_blur_fwhm and physical_rotator_angle to exposure consdb table
-  Added m1m3 glycol temperatures, salindex 112 temperature sensors, fan coil unit temperatures, m2 ring temperatures and compensation offsets to transformed_efd consdb ([DM-51455](https://rubinobs.atlassian.net/browse/DM-51455))
+- Added `aos_fwhm`, `donut_blur_fwhm` and` physical_rotator_angle` to exposure consdb table
+  Added m1m3 glycol temperatures, salindex 112 temperature sensors, fan coil unit temperatures, m2 ring temperatures and compensation offsets to `transformed_efd` consdb ([DM-51455](https://rubinobs.atlassian.net/browse/DM-51455))
 - Added jitter and image degradation columns for the exposure_quicklook table ([DM-51764](https://rubinobs.atlassian.net/browse/DM-51764))
 - Added guider columns to visit1_quicklook table ([DM-52666](https://rubinobs.atlassian.net/browse/DM-52666))
-- Added even more guider columns to visit1_quicklook table ([OSW-1516](https://rubinobs.atlassian.net/browse/OSW-1516))
+- Added even more guider columns to `visit1_quicklook` table ([OSW-1516](https://rubinobs.atlassian.net/browse/OSW-1516))
 
 
 Miscellaneous
@@ -193,7 +191,7 @@ Miscellaneous
 - Sorted tables by their 'tap:table_index' in the schema browser.
   - Tables without this field were listed alphabetically after those which did. ([DM-46989](https://rubinobs.atlassian.net/browse/DM-46989))
 - Added index details section to each table in the schema browser ([DM-48366](https://rubinobs.atlassian.net/browse/DM-48366))
-- The dependency on the `sdm_tools` repository was removed, as this was an unwanted extra dependency for projects which depend on `sdm_schemas`. The GitHub workflows were updated to install this dependency using `pip` instead. ([DM-49962](https://rubinobs.atlassian.net/browse/DM-49962))
+- The dependency on the `sdm_tools` repository was removed from `pyprojec.toml`. The GitHub workflows were updated to install this dependency using `pip` instead. ([DM-49962](https://rubinobs.atlassian.net/browse/DM-49962))
 - Added `cdb_lsstcam` to the schema browser ([DM-50521](https://rubinobs.atlassian.net/browse/DM-50521))
 - Added ``--force-unbounded-arraysize`` to ``tap-schema/build`` for forcing VOTable arraysize to '*' on columns by default for variable length string types:
   - This change affects the arraysize values in the TAP_SCHEMA SQL output that is generated for the Docker images.
