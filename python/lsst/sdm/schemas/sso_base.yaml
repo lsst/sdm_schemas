@@ -833,7 +833,7 @@ tables:
     ivoa:ucd: stat.error;src.orbital.meanMotion
     ivoa:unit: deg.d-1
   - name: epoch_mjd
-    description: Epoch of the Orbfit-Solution in MJD
+    description: Epoch of the Orbfit-Solution in MJD (TT, not TAI)
     datatype: double
     ivoa:ucd: time.epoch;src.orbital
     ivoa:unit: d

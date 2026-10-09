@@ -7776,7 +7776,7 @@ tables:
     ivoa:ucd: pos.distance;src.orbital
     ivoa:unit: AU
   - name: epoch_mjd
-    description: Epoch of the Orbfit-Solution in MJD
+    description: Epoch of the Orbfit-Solution in MJD (TT, not TAI)
     datatype: double
     ivoa:ucd: time.epoch;src.orbital
     ivoa:unit: d
