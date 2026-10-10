@@ -1,0 +1,461 @@
+---
+name: dp2_prompt
+description: "Prompt products tables from Data Preview 2 for testing in the
+  PPDB BigQuery database."
+version: 1.1.1
+resources:
+  base:
+    uri: "drp_base.yaml"
+tables:
+- name: DiaSource
+  description: "Properties of transient-object detections on the single-epoch difference images."
+  tap:table_index: 50
+  columnRefs:
+    base:
+      DiaSource:
+        diaSourceId:
+        visit:
+        detector:
+        diaObjectId:
+        ssObjectId:
+        parentDiaSourceId:
+        midpointMjdTai:
+        ra:
+        dec:
+        raErr:
+        decErr:
+        ra_dec_Cov:
+        x:
+        xErr:
+        y:
+        yErr:
+        centroid_flag:
+        apFlux:
+        apFluxErr:
+        apFlux_flag:
+        apFlux_flag_apertureTruncated:
+        isNegative:
+        snr:
+        psfFlux:
+        psfFluxErr:
+        psfChi2:
+        psfNdata:
+        psfFlux_flag:
+        psfFlux_flag_edge:
+        psfFlux_flag_noGoodPixels:
+        trailFlux:
+        trailFluxErr:
+        trailRa:
+        trailDec:
+        trailLength:
+        trailAngle:
+        trail_flag_edge:
+        dipoleMeanFlux:
+        dipoleMeanFluxErr:
+        dipoleFluxDiff:
+        dipoleFluxDiffErr:
+        dipoleLength:
+        dipoleAngle:
+        dipoleChi2:
+        dipoleNdata:
+        scienceFlux:
+        scienceFluxErr:
+        forced_PsfFlux_flag:
+        forced_PsfFlux_flag_edge:
+        forced_PsfFlux_flag_noGoodPixels:
+        templateFlux:
+        templateFluxErr:
+        ixx:
+        iyy:
+        ixy:
+        ixxPSF:
+        iyyPSF:
+        ixyPSF:
+        shape_flag:
+        shape_flag_no_pixels:
+        shape_flag_not_contained:
+        shape_flag_parent_source:
+        extendedness:
+        reliability:
+        band:
+        isDipole:
+        dipoleFitAttempted:
+        timeProcessedMjdTai:
+        bboxSize:
+        pixelFlags:
+        pixelFlags_bad:
+        pixelFlags_cr:
+        pixelFlags_crCenter:
+        pixelFlags_edge:
+        pixelFlags_nodata:
+        pixelFlags_nodataCenter:
+        pixelFlags_interpolated:
+        pixelFlags_interpolatedCenter:
+        pixelFlags_offimage:
+        pixelFlags_saturated:
+        pixelFlags_saturatedCenter:
+        pixelFlags_suspect:
+        pixelFlags_suspectCenter:
+        pixelFlags_streak:
+        pixelFlags_streakCenter:
+        pixelFlags_injected:
+        pixelFlags_injectedCenter:
+        pixelFlags_injected_template:
+        pixelFlags_injected_templateCenter:
+        glint_trail:
+- name: DiaObject
+  description: "Properties of time-varying astronomical objects based on association
+    of data from one or more spatially-related DiaSource detections on individual
+    single-epoch difference images."
+  tap:table_index: 40
+  primaryKey: '#DiaObject.diaObjectId'
+  columnRefs:
+    base:
+      DiaObject:
+        diaObjectId:
+        ra:
+        dec:
+        nDiaSources:
+        u_psfFluxMean:
+        u_psfFluxMeanErr:
+        u_psfFluxSigma:
+        u_psfFluxNdata:
+        g_psfFluxMean:
+        g_psfFluxMeanErr:
+        g_psfFluxSigma:
+        g_psfFluxNdata:
+        r_psfFluxMean:
+        r_psfFluxMeanErr:
+        r_psfFluxSigma:
+        r_psfFluxNdata:
+        i_psfFluxMean:
+        i_psfFluxMeanErr:
+        i_psfFluxSigma:
+        i_psfFluxNdata:
+        z_psfFluxMean:
+        z_psfFluxMeanErr:
+        z_psfFluxSigma:
+        z_psfFluxNdata:
+        y_psfFluxMean:
+        y_psfFluxMeanErr:
+        y_psfFluxSigma:
+        y_psfFluxNdata:
+        u_scienceFluxMean:
+        u_scienceFluxMeanErr:
+        g_scienceFluxMean:
+        g_scienceFluxMeanErr:
+        r_scienceFluxMean:
+        r_scienceFluxMeanErr:
+        i_scienceFluxMean:
+        i_scienceFluxMeanErr:
+        z_scienceFluxMean:
+        z_scienceFluxMeanErr:
+        y_scienceFluxMean:
+        y_scienceFluxMeanErr:
+        u_psfFluxMin:
+        u_psfFluxMax:
+        u_psfFluxMaxSlope:
+        u_psfFluxErrMean:
+        g_psfFluxMin:
+        g_psfFluxMax:
+        g_psfFluxMaxSlope:
+        g_psfFluxErrMean:
+        r_psfFluxMin:
+        r_psfFluxMax:
+        r_psfFluxMaxSlope:
+        r_psfFluxErrMean:
+        i_psfFluxMin:
+        i_psfFluxMax:
+        i_psfFluxMaxSlope:
+        i_psfFluxErrMean:
+        z_psfFluxMin:
+        z_psfFluxMax:
+        z_psfFluxMaxSlope:
+        z_psfFluxErrMean:
+        y_psfFluxMin:
+        y_psfFluxMax:
+        y_psfFluxMaxSlope:
+        y_psfFluxErrMean:
+- name: ForcedSourceOnDiaObject
+  description: "Point-source forced-photometry measurements on individual single-epoch
+    visit images and difference images, based on and linked to the entries in the
+    DiaObject table."
+  tap:table_index: 60
+  columnRefs:
+    base:
+      ForcedSourceOnDiaObject:
+        diaObjectId:
+        parentObjectId:
+        visit:
+        detector:
+        band:
+        psfDiffFlux:
+        psfDiffFluxErr:
+        psfDiffFlux_flag:
+        psfFlux:
+        psfFluxErr:
+        psfFlux_flag:
+        diff_PixelFlags_nodataCenter:
+        pixelFlags_bad:
+        pixelFlags_cr:
+        pixelFlags_crCenter:
+        pixelFlags_edge:
+        pixelFlags_interpolated:
+        pixelFlags_interpolatedCenter:
+        pixelFlags_nodata:
+        pixelFlags_saturated:
+        pixelFlags_saturatedCenter:
+        pixelFlags_suspect:
+        pixelFlags_suspectCenter:
+        invalidPsfFlag:
+        tract:
+        patch:
+- name: SSObject
+  description: LSST-computed per-object quantities.
+  tap:table_index: 110
+  primaryKey: '#SSObject.ssObjectId'
+  columnRefs:
+    base:
+      SSObject:
+        ssObjectId:
+        designation:
+        nObs:
+        arc:
+        firstObservationMjdTai:
+        MOIDEarth:
+        MOIDEarthDeltaV:
+        MOIDEarthEclipticLongitude:
+        MOIDEarthTrueAnomaly:
+        MOIDEarthTrueAnomalyObject:
+        tisserand_J:
+        extendednessMax:
+        extendednessMedian:
+        extendednessMin:
+        u_nObs:
+        u_H:
+        u_HErr:
+        u_G12:
+        u_G12Err:
+        u_H_u_G12_Cov:
+        u_nObsUsed:
+        u_Chi2:
+        u_phaseAngleMin:
+        u_phaseAngleMax:
+        u_slope_fit_failed:
+        g_nObs:
+        g_H:
+        g_HErr:
+        g_G12:
+        g_G12Err:
+        g_H_g_G12_Cov:
+        g_nObsUsed:
+        g_Chi2:
+        g_phaseAngleMin:
+        g_phaseAngleMax:
+        g_slope_fit_failed:
+        r_nObs:
+        r_H:
+        r_HErr:
+        r_G12:
+        r_G12Err:
+        r_H_r_G12_Cov:
+        r_nObsUsed:
+        r_Chi2:
+        r_phaseAngleMin:
+        r_phaseAngleMax:
+        r_slope_fit_failed:
+        i_nObs:
+        i_H:
+        i_HErr:
+        i_G12:
+        i_G12Err:
+        i_H_i_G12_Cov:
+        i_nObsUsed:
+        i_Chi2:
+        i_phaseAngleMin:
+        i_phaseAngleMax:
+        i_slope_fit_failed:
+        z_nObs:
+        z_H:
+        z_HErr:
+        z_G12:
+        z_G12Err:
+        z_H_z_G12_Cov:
+        z_nObsUsed:
+        z_Chi2:
+        z_phaseAngleMin:
+        z_phaseAngleMax:
+        z_slope_fit_failed:
+        y_nObs:
+        y_H:
+        y_HErr:
+        y_G12:
+        y_G12Err:
+        y_H_y_G12_Cov:
+        y_nObsUsed:
+        y_Chi2:
+        y_phaseAngleMin:
+        y_phaseAngleMax:
+        y_slope_fit_failed:
+  indexes:
+  - name: idx_SSObject_ssObjectId
+    description: Unique index on the ssObjectId column.
+    columns:
+    - "#SSObject.ssObjectId"
+- name: SSSource
+  description: LSST-computed per-source quantities. 1::1 relationship with DiaSource.
+  tap:table_index: 120
+  primaryKey: '#SSSource.diaSourceId'
+  columnRefs:
+    base:
+      SSSource:
+        diaSourceId:
+        ssObjectId:
+        designation:
+        eclLambda:
+        eclBeta:
+        galLon:
+        galLat:
+        elongation:
+        phaseAngle:
+        topoRange:
+        topoRangeRate:
+        helioRange:
+        helioRangeRate:
+        ephRa:
+        ephDec:
+        ephVmag:
+        ephRate:
+        ephRateRa:
+        ephRateDec:
+        ephOffset:
+        ephOffsetRa:
+        ephOffsetDec:
+        ephOffsetAlongTrack:
+        ephOffsetCrossTrack:
+        helio_x:
+        helio_y:
+        helio_z:
+        helio_vx:
+        helio_vy:
+        helio_vz:
+        helio_vtot:
+        topo_x:
+        topo_y:
+        topo_z:
+        topo_vx:
+        topo_vy:
+        topo_vz:
+        topo_vtot:
+        diaDistanceRank:
+- name: mpc_orbits
+  description: Table of orbital elements and related information of known
+    (sun-orbiting and unbound) Solar System objects. Replicated from the Minor
+    Planet Center (Postgres) database. This schema will generally closely
+    follow the schema of the upstream table, to allow end-users to rerun
+    queries developed elsewhere on the RSP.
+  tap:table_index: 100
+  primaryKey: '#mpc_orbits.id'
+  columnRefs:
+    base:
+      mpc_orbits:
+        id:
+        designation:
+        packed_primary_provisional_designation:
+        unpacked_primary_provisional_designation:
+        mpc_orb_jsonb:
+        created_at:
+        updated_at:
+        orbit_type_int:
+        u_param:
+        nopp:
+        arc_length_total:
+        arc_length_sel:
+        nobs_total:
+        nobs_total_sel:
+        a:
+        q:
+        e:
+        i:
+        node:
+        argperi:
+        peri_time:
+        yarkovsky:
+        srp:
+        a1:
+        a2:
+        a3:
+        dt:
+        mean_anomaly:
+        period:
+        mean_motion:
+        a_unc:
+        q_unc:
+        e_unc:
+        i_unc:
+        node_unc:
+        argperi_unc:
+        peri_time_unc:
+        yarkovsky_unc:
+        srp_unc:
+        a1_unc:
+        a2_unc:
+        a3_unc:
+        dt_unc:
+        mean_anomaly_unc:
+        period_unc:
+        mean_motion_unc:
+        epoch_mjd:
+        h:
+        g:
+        not_normalized_rms:
+        normalized_rms:
+        earth_moid:
+        fitting_datetime:
+- name: current_identifications
+  description: All single-designations, and all identifications between
+    designations. Always uses primary provisional designation (even for
+    numbered objects). Includes all comets and satellites. Replicated from the
+    Minor Planet Center (Postgres) database. This schema will generally closely
+    follow the schema of the upstream table, to allow end-users to rerun
+    queries developed elsewhere on the RSP.
+  tap:table_index: 140
+  primaryKey: '#current_identifications.id'
+  columnRefs:
+    base:
+      current_identifications:
+        id:
+        packed_primary_provisional_designation:
+        packed_secondary_provisional_designation:
+        unpacked_primary_provisional_designation:
+        unpacked_secondary_provisional_designation:
+        published:
+#        identifier_ids:
+        object_type:
+        numbered:
+        created_at:
+        updated_at:
+- name: numbered_identifications
+  description: The numbered identification table contains all the numbered
+    objects (minor planets, comets and natural satellites) with their primary
+    provisional designations. The table is continously updated everytime a new
+    object is numbered. Replicated from the Minor Planet Center (Postgres)
+    database. This schema will generally closely follow the schema of the
+    upstream table, to allow end-users to rerun queries developed elsewhere on
+    the RSP.
+  tap:table_index: 150
+  primaryKey: '#numbered_identifications.id'
+  columnRefs:
+    base:
+      numbered_identifications:
+        id:
+        packed_primary_provisional_designation:
+        unpacked_primary_provisional_designation:
+        permid:
+        iau_designation:
+        iau_name:
+#        numbered_publication_references:
+#        named_publication_references:
+        naming_credit:
+        created_at:
+        updated_at:
