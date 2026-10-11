@@ -425,11 +425,16 @@ tables:
 - name: NearbySSO
   description: For each DiaSource, the nearest known Solar System object whose predicted position (from mpc_orbits) is within the matching radius, and whose predicted 1-sigma uncertainty is small enough for the association to be meaningful. Regenerated daily (RFC-1188).
   tap:table_index: 125
-  primaryKey: '#NearbySSO.diaSourceId'
+  primaryKey:
+  - '#NearbySSO.diaSourceId'
+  - '#NearbySSO.designation'
+  - '#NearbySSO.visit'
   columnRefs:
     sso_base:
       NearbySSO:
         diaSourceId:
+        visit:
+        detector:
         ssObjectId:
         designation:
         ephRa:
