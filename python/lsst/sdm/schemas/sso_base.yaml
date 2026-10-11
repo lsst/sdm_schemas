@@ -414,6 +414,13 @@ tables:
     length: 32
     nullable: false
     ivoa:ucd: meta.id;meta.main
+  - name: obssubid
+    description: 'Observer-assigned identifier of the observation, as submitted (obs_sbn.obssubid), e.g.
+      LSST-<processing>-<id>, with a -A or -B suffix on the two rows of a trailed source. NULL where the MPC
+      record has none.'
+    datatype: char
+    length: 32
+    ivoa:ucd: meta.id
   - name: trksub
     description: Observer-assigned tracklet identifier, as submitted (obs_sbn.trksub).
     datatype: char
