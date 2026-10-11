@@ -1350,15 +1350,31 @@ tables:
   description: For each DiaSource, the nearest known Solar System object whose predicted position (from mpc_orbits)
     is within the object's matching radius (5 arcsec; 15 arcsec for comets and interstellar objects, i.e. designations
     starting C/, P/, D/ or I/), and whose predicted 1-sigma uncertainty is small enough for the association to
-    be meaningful. Regenerated daily (RFC-1188).
+    be meaningful; and, with a NULL diaSourceId, every such prediction that matched no DiaSource but falls on a
+    detector of the visit, or within 30 arcsec of one. Predicted values are evaluated at the shutter-corrected
+    mid-exposure time of the prediction's position on the detector. Regenerated daily (RFC-1188).
   tap:table_index: 125
-  primaryKey: '#NearbySSO.diaSourceId'
+  primaryKey:
+  - '#NearbySSO.diaSourceId'
+  - '#NearbySSO.designation'
+  - '#NearbySSO.visit'
   columns:
   - name: diaSourceId
-    description: Unique identifier of the DiaSource.
+    description: Unique identifier of the matched DiaSource; NULL for a prediction that matched no DiaSource.
+    datatype: long
+    ivoa:ucd: meta.id;obs.image
+  - name: visit
+    description: Id of the visit the prediction is for.
     datatype: long
     nullable: false
-    ivoa:ucd: meta.id;obs.image
+    ivoa:ucd: meta.id;obs
+  - name: detector
+    description: Id of the detector the predicted position falls on, or the nearest detector when it falls in a gap
+      between detectors or just outside the focal plane; for a matched row in a visit without a WCS, the DiaSource's
+      detector.
+    datatype: short
+    nullable: false
+    ivoa:ucd: meta.id;instr.det
   - name: ssObjectId
     description: Id of the SSObject found within a matching radius of this source, if any; NULL if the object has
       no SSObject row.
@@ -1398,7 +1414,8 @@ tables:
     ivoa:unit: deg**2
     ivoa:ucd: stat.covariance;pos.eq;pos.ephem
   - name: ephOffset
-    description: Total observed versus predicted angular separation on the sky.
+    description: Total observed versus predicted angular separation on the sky; NULL for a prediction that matched
+      no DiaSource.
     datatype: float
     ivoa:unit: arcsec
     ivoa:ucd: pos.angDistance;stat.fit.omc
@@ -1406,9 +1423,8 @@ tables:
     description: 'Rank of this DiaSource by its separation from the object''s predicted position, among all DiaSources
       of the same visit within the object''s matching radius of that prediction: 1 for the nearest, 2 for the next, and so
       on (ties broken by the lower diaSourceId). A rank above 1 means a closer DiaSource exists, which may be attributed
-      to another object.'
+      to another object. NULL for a prediction that matched no DiaSource.'
     datatype: short
-    nullable: false
     ivoa:ucd: meta.number
   - name: ephVmag
     description: Predicted magnitude in V band, computed from mpc_orbits data including the mpc_orbits-provided
