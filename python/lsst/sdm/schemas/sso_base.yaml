@@ -1376,8 +1376,7 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;instr.det
   - name: ssObjectId
-    description: Id of the SSObject found within a matching radius of this source, if any; NULL if the object has
-      no SSObject row.
+    description: Id of this row's object in SSObject (SSObject.ssObjectId); NULL if the object has no SSObject row.
     datatype: long
     ivoa:ucd: meta.id;src
   - name: designation
