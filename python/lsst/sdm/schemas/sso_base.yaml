@@ -1347,12 +1347,11 @@ tables:
     ivoa:unit: km/s
     ivoa:ucd: phys.veloc
 - name: NearbySSO
-  description: For each DiaSource, the nearest known Solar System object whose predicted position (from mpc_orbits)
-    is within the object's matching radius (5 arcsec; 15 arcsec for comets and interstellar objects, i.e. designations
-    starting C/, P/, D/ or I/), and whose predicted 1-sigma uncertainty is small enough for the association to
-    be meaningful; and, with a NULL diaSourceId, every such prediction that matched no DiaSource but falls on a
-    detector of the visit, or within 30 arcsec of one. Predicted values are evaluated at the shutter-corrected
-    mid-exposure time of the prediction's position on the detector. Regenerated daily (RFC-1188).
+  description: For each DiaSource, the nearest known Solar System object predicted (from mpc_orbits) within its
+    matching radius (5 arcsec; 15 arcsec for comets and interstellar objects) with an uncertainty small enough for
+    a meaningful association; and, with a NULL diaSourceId, each such prediction that matched no DiaSource but
+    falls on, or within 30 arcsec of, a detector of the visit. Predictions are at the shutter-corrected mid-exposure
+    time on the detector. Regenerated daily (RFC-1188).
   tap:table_index: 125
   primaryKey:
   - '#NearbySSO.diaSourceId'
@@ -1380,7 +1379,8 @@ tables:
     datatype: long
     ivoa:ucd: meta.id;src
   - name: designation
-    description: The primary provisional designation in unpacked form (e.g. 2008 AB).
+    description: The primary provisional designation in unpacked form (e.g. 2008 AB); designations starting C/, P/,
+      D/ or I/ (comets and interstellar objects) are matched within 15 arcsec.
     datatype: char
     length: 16
     nullable: false
