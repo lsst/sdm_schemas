@@ -4749,13 +4749,17 @@ tables:
     datatype: double
     ivoa:unit: deg
   - name: sersic_reff_x
-    description: Effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model fit, prior
-      to convolution with the adjusted (see config) PSF value.
+    description: Effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model fit.
+      For this fit, PSF model sigmas have a value of 0.1 pixels subtracted in quadrature.
+      Due to a bug, this value is also too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_y
-    description: Effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model fit, prior
-      to convolution with the adjusted (see config) PSF value.
+    description: Effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model fit.
+      For this fit, PSF model sigmas have a value of 0.1 pixels subtracted in quadrature.
+      Due to a bug, this value is also too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_rho
@@ -4811,12 +4815,14 @@ tables:
     ivoa:unit: deg
   - name: sersic_reff_xErr
     description: Error on the effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model
-      fit.
+      fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_yErr
     description: Error on the effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model
-      fit.
+      fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_rhoErr

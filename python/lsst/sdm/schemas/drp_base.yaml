@@ -151,37 +151,39 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: exponential_reff_major
-    description: Effective radius (major axis) from the multiband Gaussian mixture exponential approximation model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (major axis) from the multiband Gaussian mixture exponential approximation model fit.
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: exponential_reff_minor
     description: Effective radius (minor axis) from the multiband Gaussian mixture exponential approximation model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: exponential_reff_x
     description: Effective radius (x-axis) from the multiband Gaussian mixture exponential approximation model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_xErr
     description: Error on the effective radius (x-axis) from the multiband Gaussian mixture exponential approximation
-      model fit.
+      model fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to
+      get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_y
     description: Effective radius (y-axis) from the multiband Gaussian mixture exponential approximation model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_yErr
     description: Error on the effective radius (y-axis) from the multiband Gaussian mixture exponential approximation
-      model fit.
+      model fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to
+      get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_rho
@@ -2593,36 +2595,38 @@ tables:
     ivoa:unit: deg**2
   - name: sersic_reff_major
     description: Effective radius (major axis) from the multiband Gaussian mixture Sersic approximation model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: sersic_reff_minor
     description: Effective radius (minor axis) from the multiband Gaussian mixture Sersic approximation model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: sersic_reff_x
-    description: Effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model fit, prior
-      to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_xErr
-    description: Error on the effective radius (x-axis) from the multiband Sersic
-      model fit.
+    description: Error on the effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model
+      fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_y
-    description: Effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model fit, prior
-      to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_yErr
-    description: Error on the effective radius (y-axis) from the multiband Sersic
-      model fit.
+    description: Error on the effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model
+      fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_rho
