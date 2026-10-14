@@ -541,11 +541,11 @@ tables:
     fits:tunit:
   - name: apFlux_flag_apertureTruncated
     datatype: boolean
-    description: Aperture did not fit within measurement image.
+    description: The source is closer to the edge of the measurement image than the aperture radius.
     fits:tunit:
   - name: isNegative
     datatype: boolean
-    description: Source was detected as significantly negative.
+    description: The original peak on the PSF-convolved detection difference image was negative.
     fits:tunit:
   - name: snr
     datatype: float
@@ -741,15 +741,15 @@ tables:
     fits:tunit: arcsec**2
   - name: ixxPSF
     datatype: float
-    description: Adaptive second moment for the PSF.
+    description: Adaptive second moment of the PSF measured at the location of the source.
     fits:tunit: arcsec**2
   - name: iyyPSF
     datatype: float
-    description: Adaptive second moment for the PSF.
+    description: Adaptive second moment of the PSF measured at the location of the source.
     fits:tunit: arcsec**2
   - name: ixyPSF
     datatype: float
-    description: Adaptive second moment for the PSF.
+    description: Adaptive second moment of the PSF measured at the location of the source.
     fits:tunit: arcsec**2
   - name: shape_flag
     datatype: boolean
@@ -757,7 +757,7 @@ tables:
     fits:tunit:
   - name: shape_flag_no_pixels
     datatype: boolean
-    description: No pixels to measure shape.
+    description: No pixels were useable for computing shape measurement.
     fits:tunit:
   - name: shape_flag_not_contained
     datatype: boolean
@@ -858,11 +858,11 @@ tables:
     fits:tunit:
   - name: pixelFlags_suspect
     datatype: boolean
-    description: DiaSource's footprint includes suspect pixels.
+    description: DiaSource's footprint includes pixels masked as SUSPECT that are approaching the saturation threshold.
     fits:tunit:
   - name: pixelFlags_suspectCenter
     datatype: boolean
-    description: Suspect pixel in the 3x3 region around the centroid.
+    description: The 3x3 region around the centroid of the DiaSource includes pixels masked as SUSPECT that are approaching the saturation threshold
     fits:tunit:
   - name: pixelFlags_streak
     datatype: boolean
@@ -874,23 +874,23 @@ tables:
     fits:tunit:
   - name: pixelFlags_injected
     datatype: boolean
-    description: Injection in the DiaSource footprint.
+    description: A pixel in the diaSource footprint contains at least one pixel modified by injecting fake sources.
     fits:tunit:
   - name: pixelFlags_injectedCenter
     datatype: boolean
-    description: Injection in the 3x3 region around the centroid.
+    description: A pixel in the 3x3 region around the centroid contains at least one pixel modified by injecting fake sources.
     fits:tunit:
   - name: pixelFlags_injected_template
     datatype: boolean
-    description: Template injection in the DiaSource footprint.
+    description: A pixel in the diaSource footprint contains at least one pixel modified by injecting fake sources into the template.
     fits:tunit:
   - name: pixelFlags_injected_templateCenter
     datatype: boolean
-    description: Template injection in the 3x3 region around the centroid.
+    description: A pixel in the 3x3 region around the centroid contains at least one pixel modified by injecting fake sources into the template.
     fits:tunit:
   - name: glint_trail
     datatype: boolean
-    description: This flag is set if the source is part of a glint trail.
+    description: This flag is set if the source is likely part of a glint trail from an artifical satellite.
     fits:tunit:
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
