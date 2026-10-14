@@ -1,6 +1,6 @@
 name: drp_base
 description: Base schema for defining Data Release Processing column definitions.
-version: 1.1.0
+version: 1.2.0
 tables:
 - name: Object
   description: Descriptions of static astronomical objects (or the static aspects
@@ -6974,6 +6974,58 @@ tables:
       of the sources used in the shapelet decomposition.
     datatype: double
     ivoa:unit: pixel**2
+  - name: shutterMidpointMjdTai
+    description: Shutter-corrected mid-exposure time at the detector centre, from
+      the shutter blade motions and the beam at the shutter (lsst.ip.isr.shutterTiming).
+      TAI. The time at pixel row y is shutterMidpointMjdTai + sum_k shutterChebyshevCoefficient{k}
+      T_k(u)/86400, with T_k the Chebyshev polynomials and u = (y - shutterChebyshevYCenter)/shutterChebyshevYHalfRange.
+    datatype: double
+    ivoa:ucd: time.epoch;obs.exposure
+    ivoa:unit: d
+  - name: shutterChebyshevCoefficient0
+    description: Chebyshev coefficient 0 of the shutter-corrected mid-exposure time relative
+      to shutterMidpointMjdTai, in the pixel row (see shutterMidpointMjdTai).
+    datatype: double
+    ivoa:unit: s
+  - name: shutterChebyshevCoefficient1
+    description: Chebyshev coefficient 1 of the shutter-corrected mid-exposure time relative
+      to shutterMidpointMjdTai, in the pixel row (see shutterMidpointMjdTai).
+    datatype: double
+    ivoa:unit: s
+  - name: shutterChebyshevCoefficient2
+    description: Chebyshev coefficient 2 of the shutter-corrected mid-exposure time relative
+      to shutterMidpointMjdTai, in the pixel row (see shutterMidpointMjdTai).
+    datatype: double
+    ivoa:unit: s
+  - name: shutterChebyshevCoefficient3
+    description: Chebyshev coefficient 3 of the shutter-corrected mid-exposure time relative
+      to shutterMidpointMjdTai, in the pixel row (see shutterMidpointMjdTai).
+    datatype: double
+    ivoa:unit: s
+  - name: shutterChebyshevCoefficient4
+    description: Chebyshev coefficient 4 of the shutter-corrected mid-exposure time relative
+      to shutterMidpointMjdTai, in the pixel row (see shutterMidpointMjdTai).
+    datatype: double
+    ivoa:unit: s
+  - name: shutterChebyshevCoefficient5
+    description: Chebyshev coefficient 5 of the shutter-corrected mid-exposure time relative
+      to shutterMidpointMjdTai, in the pixel row (see shutterMidpointMjdTai).
+    datatype: double
+    ivoa:unit: s
+  - name: shutterChebyshevYCenter
+    description: Pixel row at which the Chebyshev variable of the shutter-corrected
+      mid-exposure time is 0 (see shutterMidpointMjdTai).
+    datatype: float
+    ivoa:unit: pixel
+  - name: shutterChebyshevYHalfRange
+    description: Pixel rows per unit of the Chebyshev variable of the shutter-corrected
+      mid-exposure time (see shutterMidpointMjdTai).
+    datatype: float
+    ivoa:unit: pixel
+  - name: shutterExposureTime
+    description: Time between the shutter opening and closing at the detector centre.
+    datatype: double
+    ivoa:unit: s
   - name: skyBg
     description: Average sky background.
     datatype: float
