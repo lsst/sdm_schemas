@@ -1,0 +1,29 @@
+# Configuration of the schema browser site, built with
+# `felis browser --config docs/browser/config.yaml`.
+
+# Site title: the first breadcrumb item and the start of every page title.
+title: SDM Schemas
+
+# Site description, shown on the home page above the table of schemas.
+description: "This schema browser presents a curated subset of the Rubin Observatory's database schemas for its user-facing data products, known as the Science Data Model (SDM). It covers the data releases and previews, Data Release Processing, the Alert Production and Prompt Products databases, the Consolidated Database of Image Metadata, and other observatory metadata. For each schema, you can browse its tables, columns, keys and relationships."
+
+# Site icon at the top left of every page, relative to this file.
+icon: rubin-logo.png
+
+# GitHub repository containing the schemas.
+repository: https://github.com/lsst/sdm_schemas
+
+# Stylesheets applied after the built-in one, relative to this file.
+stylesheets:
+  - sdm_schemas.css
+
+# Relationship diagrams on schema pages (drawn by Mermaid from a CDN).
+diagrams: true
+
+# Show every column field, including ones no column in a table sets.
+show_empty_columns: false
+
+# Organization named in the footer.
+maintainer:
+  name: Rubin Observatory
+  url: https://rubinobservatory.org/
