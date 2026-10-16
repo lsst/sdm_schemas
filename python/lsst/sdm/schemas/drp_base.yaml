@@ -100,10 +100,10 @@ tables:
     ivoa:unit: mag
   - name: exponential_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
-      the number of data points) for the multiband exponential model.
+      the number of data points) for the multiband Gaussian mixture exponential approximation model.
     datatype: float
   - name: exponential_dec
-    description: Centroid (declination) from the multiband exponential model fit.
+    description: Centroid (declination) from the multiband Gaussian mixture exponential approximation model fit.
     datatype: double
     ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
@@ -118,11 +118,11 @@ tables:
       the ln-likelihood of a subsequent linear least squares fit.
     datatype: float
   - name: exponential_delta_lnL_fit_ps
-    description: The ln-likelihood of the best-fit exponential model minus the ln-likelihood
-      of a point source with the same centroid and PSF model.
+    description: The ln-likelihood of the best-fit Gaussian mixture exponential approximation model minus the
+      ln-likelihood of a point source with the same centroid and PSF model.
     datatype: float
   - name: exponential_n_eval_jac
-    description: Number of Jacobian evaluations for the multiband exponential model
+    description: Number of Jacobian evaluations for the multiband Gaussian mixture exponential approximation model
       fit.
     datatype: int
   - name: exponential_n_iter
@@ -131,73 +131,75 @@ tables:
     datatype: int
   - name: exponential_no_data_flag
     description: Flag set when there is insufficient data to fit for the multiband
-      exponential model.
+      Gaussian mixture exponential approximation model.
     datatype: boolean
   - name: exponential_ra
-    description: Centroid (right ascension) from the multiband exponential model fit.
+    description: Centroid (right ascension) from the multiband Gaussian mixture exponential approximation model fit.
     datatype: double
     ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: exponential_raErr
-    description: Error on the centroid (right ascension) from the multiband exponential
+    description: Error on the centroid (right ascension) from the multiband Gaussian mixture exponential approximation
       model fit.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: exponential_ra_dec_Cov
-    description: Covariance between right ascension and declination from the multiband
-      exponential model fit.
+    description: Covariance between right ascension and declination from the Gaussian mixture exponential approximation
+      model fit.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: exponential_reff_major
-    description: Effective radius (major axis) from the multiband Sersic model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (major axis) from the multiband Gaussian mixture exponential approximation model fit.
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: exponential_reff_minor
-    description: Effective radius (minor axis) from the multiband Sersic model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (minor axis) from the multiband Gaussian mixture exponential approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: exponential_reff_x
-    description: Effective radius (x-axis) from the multiband exponential model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (x-axis) from the multiband Gaussian mixture exponential approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_xErr
-    description: Error on the effective radius (x-axis) from the multiband exponential
-      model fit.
+    description: Error on the effective radius (x-axis) from the multiband Gaussian mixture exponential approximation
+      model fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to
+      get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_y
-    description: Effective radius (y-axis) from the multiband exponential model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (y-axis) from the multiband Gaussian mixture exponential approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_reff_yErr
-    description: Error on the effective radius (y-axis) from the multiband exponential
-      model fit.
+    description: Error on the effective radius (y-axis) from the multiband Gaussian mixture exponential approximation
+      model fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to
+      get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: exponential_rho
-    description: Ellipse rho (correlation coefficient) from the multiband exponential
+    description: Ellipse rho (correlation coefficient) from the multiband Gaussian mixture exponential approximation
       model fit.
     datatype: float
   - name: exponential_rhoErr
     description: Error on ellipse rho (correlation coefficient) from the multiband
-      exponential model fit.
+      Gaussian mixture exponential approximation model fit.
     datatype: float
   - name: exponential_theta
-    description: Position angle of the multiband Sersic fit ellipse.
+    description: Position angle of the multiband Gaussian mixture exponential approximation model fit ellipse.
     datatype: float
   - name: exponential_unknown_flag
     description: Flag set for failures with an unexpected or unknown cause for the
-      multiband exponential model.
+      multiband Gaussian mixture exponential approximation model.
     datatype: boolean
   - name: footprintArea
     description: Number of pixels in the sources detection footprint. Reference band.
@@ -460,11 +462,11 @@ tables:
     datatype: double
     ivoa:unit: d
   - name: g_exponentialFlux
-    description: g-band flux from the multiband exponential model fit.
+    description: g-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: g_exponentialFluxErr
-    description: Error on the g-band flux from the multiband exponential model fit.
+    description: Error on the g-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: g_extendedness
@@ -742,7 +744,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: g_model_extendedness
-    description: Sersic model flux- and size-based estimate of whether the object is extended
+    description: Gaussian mixture Sersic approximation model flux- and size-based estimate of whether the object is extended
       (resolved) or not, from 0 (compact) to 1 (extended). Uses g-band fluxes; values range from 0 to 1.
     datatype: float
   - name: g_moments_flag
@@ -955,11 +957,11 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: g_sersicFlux
-    description: g-band flux from the multiband Sersic model fit.
+    description: g-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: g_sersicFluxErr
-    description: Error on the g-band flux from the multiband Sersic model fit.
+    description: Error on the g-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: g_sizeExtendedness
@@ -971,7 +973,7 @@ tables:
       on g-band.
     datatype: boolean
   - name: griz_model_extendedness
-    description: Sersic model flux- and size-based estimate of whether the object is extended
+    description: Gaussian mixture Sersic approximation model flux- and size-based estimate of whether the object is extended
       (resolved) or not, from 0 (compact) to 1 (extended). Uses griz-band fluxes; values range from 0 to 1.
     datatype: float
   - name: i_ap03Flux
@@ -1231,11 +1233,11 @@ tables:
     datatype: double
     ivoa:unit: d
   - name: i_exponentialFlux
-    description: i-band flux from the multiband exponential model fit.
+    description: i-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: i_exponentialFluxErr
-    description: Error on the i-band flux from the multiband exponential model fit.
+    description: Error on the i-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: i_extendedness
@@ -1513,7 +1515,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: i_model_extendedness
-    description: Sersic model flux- and size-based estimate of whether the object is extended
+    description: Gaussian mixture Sersic approximation model flux- and size-based estimate of whether the object is extended
       (resolved) or not, from 0 (compact) to 1 (extended). Uses i-band fluxes; values range from 0 to 1.
     datatype: float
   - name: i_moments_flag
@@ -1726,11 +1728,11 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: i_sersicFlux
-    description: i-band flux from the multiband Sersic model fit.
+    description: i-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: i_sersicFluxErr
-    description: Error on the i-band flux from the multiband Sersic model fit.
+    description: Error on the i-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: i_sizeExtendedness
@@ -2014,11 +2016,11 @@ tables:
     datatype: double
     ivoa:unit: d
   - name: r_exponentialFlux
-    description: r-band flux from the multiband exponential model fit.
+    description: r-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: r_exponentialFluxErr
-    description: Error on the r-band flux from the multiband exponential model fit.
+    description: Error on the r-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: r_extendedness
@@ -2296,7 +2298,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: r_model_extendedness
-    description: Sersic model flux- and size-based estimate of whether the object is extended
+    description: Gaussian mixture Sersic approximation model flux- and size-based estimate of whether the object is extended
       (resolved) or not, from 0 (compact) to 1 (extended). Uses r-band fluxes; values range from 0 to 1.
     datatype: float
   - name: r_moments_flag
@@ -2509,11 +2511,11 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: r_sersicFlux
-    description: r-band flux from the multiband Sersic model fit.
+    description: r-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: r_sersicFluxErr
-    description: Error on the r-band flux from the multiband Sersic model fit.
+    description: Error on the r-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: r_sizeExtendedness
@@ -2543,102 +2545,104 @@ tables:
     tap:principal: 1
   - name: sersic_chi2_reduced
     description: Reduced chi-squared of the best-fit model parameters (chi divided
-      the number of data points) for the multiband Sersic model.
+      the number of data points) for the multiband Gaussian mixture Sersic approximation model.
     datatype: float
   - name: sersic_dec
-    description: Centroid (declination) from the multiband Sersic model fit.
+    description: Centroid (declination) from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: double
     ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: sersic_decErr
-    description: Error on the centroid (declination) from the multiband Sersic model
+    description: Error on the centroid (declination) from the multiband Gaussian mixture Sersic approximation model
       fit.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.dec
     ivoa:unit: deg
   - name: sersic_index
-    description: Sersic profile index parameter from the multiband Sersic model fit.
+    description: Sersic profile index parameter from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
   - name: sersic_indexErr
-    description: Error on the Sersic profile index parameter from the multiband Sersic
+    description: Error on the Sersic profile index parameter from the multiband Gaussian mixture Sersic approximation
       model fit.
     datatype: float
   - name: sersic_n_eval_jac
-    description: Number of Jacobian evaluations for the multiband Sersic model fit.
+    description: Number of Jacobian evaluations for the multiband Gaussian mixture Sersic approximation model fit.
     datatype: int
   - name: sersic_n_iter
-    description: Number of iterations in the non-linear fit for the multiband Sersic
-      model.
+    description: Number of iterations in the non-linear fit for the multiband Gaussian mixture Sersic approximation
+      model fit.
     datatype: int
   - name: sersic_no_data_flag
     description: Flag set when there is insufficient data to fit for the multiband
-      Sersic model.
+      Gaussian mixture Sersic approximation model.
     datatype: boolean
   - name: sersic_ra
-    description: Centroid (right ascension) from the multiband Sersic model fit.
+    description: Centroid (right ascension) from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: double
     ivoa:ucd: pos.eq.ra
     ivoa:unit: deg
   - name: sersic_raErr
-    description: Error on the centroid (right ascension) from the multiband Sersic
-      model fit.
+    description: Error on the centroid (right ascension) from the multiband Gaussian mixture Sersic approximation model
+      fit.
     datatype: float
     ivoa:ucd: stat.error;pos.eq.ra
     ivoa:unit: deg
   - name: sersic_ra_dec_Cov
     description: Covariance between right ascension and declination from the multiband
-      Sersic model fit.
+      Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: sersic_reff_major
-    description: Effective radius (major axis) from the multiband Sersic model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (major axis) from the multiband Gaussian mixture Sersic approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: sersic_reff_minor
-    description: Effective radius (minor axis) from the multiband Sersic model fit,
-      prior to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (minor axis) from the multiband Gaussian mixture Sersic approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: arcsec
   - name: sersic_reff_x
-    description: Effective radius (x-axis) from the multiband Sersic model fit, prior
-      to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_xErr
-    description: Error on the effective radius (x-axis) from the multiband Sersic
-      model fit.
+    description: Error on the effective radius (x-axis) from the multiband Gaussian mixture Sersic approximation model
+      fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_y
-    description: Effective radius (y-axis) from the multiband Sersic model fit, prior
-      to convolution with the PSF model (which is shrunk by 0.1 pixels in quadrature
-      by default).
+    description: Effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model fit,
+      prior to convolution with the PSF model. Due to a bug, this value is too small by a factor of 2ln(2) and must be
+      multiplied by that factor to get the correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_reff_yErr
-    description: Error on the effective radius (y-axis) from the multiband Sersic
-      model fit.
+    description: Error on the effective radius (y-axis) from the multiband Gaussian mixture Sersic approximation model
+      fit. Due to a bug, this value is too small by a factor of 2ln(2) and must be multiplied by that factor to get the
+      correct value.
     datatype: float
     ivoa:unit: pixel
   - name: sersic_rho
-    description: Ellipse rho (correlation coefficient) from the multiband Sersic model
+    description: Ellipse rho (correlation coefficient) from the multiband Gaussian mixture Sersic approximation model
       fit.
     datatype: float
   - name: sersic_rhoErr
     description: Error on ellipse rho (correlation coefficient) from the multiband
-      Sersic model fit.
+      Gaussian mixture Sersic approximation model fit.
     datatype: float
   - name: sersic_theta
-    description: Position angle of the multiband Sersic fit ellipse.
+    description: Position angle of the multiband Gaussian mixture Sersic approximation model fit ellipse.
     datatype: float
   - name: sersic_unknown_flag
     description: Flag set for failures with an unexpected or unknown cause for the
-      multiband Sersic model.
+      multiband Gaussian mixture Sersic approximation model.
     datatype: boolean
   - name: shape_flag
     description: General failure flag, set if anything went wrong. Reference band.
@@ -2923,11 +2927,11 @@ tables:
     datatype: double
     ivoa:unit: d
   - name: u_exponentialFlux
-    description: u-band flux from the multiband exponential model fit.
+    description: u-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: u_exponentialFluxErr
-    description: Error on the u-band flux from the multiband exponential model fit.
+    description: Error on the u-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: u_extendedness
@@ -3205,7 +3209,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: u_model_extendedness
-    description: Sersic model flux- and size-based estimate of whether the object is extended
+    description: Gaussian mixture Sersic approximation model flux- and size-based estimate of whether the object is extended
       (resolved) or not, from 0 (compact) to 1 (extended). Uses u-band fluxes; values range from 0 to 1.
     datatype: float
   - name: u_moments_flag
@@ -3418,11 +3422,11 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: u_sersicFlux
-    description: u-band flux from the multiband Sersic model fit.
+    description: u-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: u_sersicFluxErr
-    description: Error on the u-band flux from the multiband Sersic model fit.
+    description: Error on the u-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: u_sizeExtendedness
@@ -3690,11 +3694,11 @@ tables:
     datatype: double
     ivoa:unit: d
   - name: y_exponentialFlux
-    description: y-band flux from the multiband exponential model fit.
+    description: y-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: y_exponentialFluxErr
-    description: Error on the y-band flux from the multiband exponential model fit.
+    description: Error on the y-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: y_extendedness
@@ -3972,7 +3976,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: y_model_extendedness
-    description: Sersic model flux- and size-based estimate of whether the object is extended
+    description: Gaussian mixture Sersic approximation model flux- and size-based estimate of whether the object is extended
       (resolved) or not, from 0 (compact) to 1 (extended). Uses y-band fluxes; values range from 0 to 1.
     datatype: float
   - name: y_moments_flag
@@ -4185,11 +4189,11 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: y_sersicFlux
-    description: y-band flux from the multiband Sersic model fit.
+    description: y-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: y_sersicFluxErr
-    description: Error on the y-band flux from the multiband Sersic model fit.
+    description: Error on the y-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: y_sizeExtendedness
@@ -4457,11 +4461,11 @@ tables:
     datatype: double
     ivoa:unit: d
   - name: z_exponentialFlux
-    description: z-band flux from the multiband exponential model fit.
+    description: z-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: z_exponentialFluxErr
-    description: Error on the z-band flux from the multiband exponential model fit.
+    description: Error on the z-band flux from the multiband Gaussian mixture exponential approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: z_extendedness
@@ -4739,7 +4743,7 @@ tables:
     datatype: float
     ivoa:unit: pixel
   - name: z_model_extendedness
-    description: Sersic model flux- and size-based estimate of whether the object is extended
+    description: Gaussian mixture Sersic approximation model flux- and size-based estimate of whether the object is extended
       (resolved) or not, from 0 (compact) to 1 (extended). Uses z-band fluxes; values range from 0 to 1.
     datatype: float
   - name: z_moments_flag
@@ -4952,11 +4956,11 @@ tables:
     ivoa:ucd: stat.covariance;pos.eq.ra;pos.eq.dec
     ivoa:unit: deg**2
   - name: z_sersicFlux
-    description: z-band flux from the multiband Sersic model fit.
+    description: z-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: z_sersicFluxErr
-    description: Error on the z-band flux from the multiband Sersic model fit.
+    description: Error on the z-band flux from the multiband Gaussian mixture Sersic approximation model fit.
     datatype: float
     ivoa:unit: nJy
   - name: z_sizeExtendedness
