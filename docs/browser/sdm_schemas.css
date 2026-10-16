@@ -1,0 +1,15 @@
+/* Rubin styles for the SDM Schemas browser site. */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-body: "Source Sans Pro", sans-serif;
+  --color-link: #058b8c;
+  --color-surface: #f5f5f5;
+}
+
+/* Header bars in the lightest complementary teal (Pantone 9480 C). */
+.content-header,
+.sidebar-header {
+  background: #d9f7f6;
+}
