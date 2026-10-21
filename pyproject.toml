@@ -53,7 +53,7 @@ where = ["python"]
     package_dir = "python"
     filename = "browser/CHANGES.md"
     directory = "docs/changes"
-    title_format = "{version} ({project_date})"
+    title_format = "# {version} ({project_date})"
     issue_format = "[{issue}](https://rubinobs.atlassian.net/browse/{issue})"
 
 
