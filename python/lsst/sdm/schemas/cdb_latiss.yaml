@@ -5,7 +5,7 @@ description: >
   The Consolidated Database for LATISS schema contains information for each exposure and visit taken by the instrument, an imaging slitless spectrometer mounted on the Rubin Observatory Auxiliary Telescope.
   This includes observatory data from the FITS image header metadata and measurements and metrics from Rapid Analysis and other data processing.
 version:
-  current: "3.7.1"
+  current: "3.7.2"
 tables:
 - name: exposure
   "@id": "#exposure"
@@ -81,9 +81,9 @@ tables:
     "@id": "#exposure.s_ra"
     datatype: double
     description: >-
-      Central Spatial Position in ICRS; right ascension of focal plane center derived from encoder readings and
-      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
-      mount/flexure model, determined without reference to a plate solution.
+      Central Spatial Position in ICRS; right ascension of focal plane center at the start of the exposure,
+      derived from encoder readings and correcting for annual abberation, precession-nutation, earth orientation,
+      atmospheric refraction, and mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.ra
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
@@ -92,9 +92,9 @@ tables:
     "@id": "#exposure.s_dec"
     datatype: double
     description: >-
-      Central Spatial Position in ICRS; declination of focal plane center derived from encoder readings and
-      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
-      mount/flexure model, determined without reference to a plate solution.
+      Central Spatial Position in ICRS; declination of focal plane center at the start of the exposure, derived
+      from encoder readings and correcting for annual abberation, precession-nutation, earth orientation,
+      atmospheric refraction, and mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.dec
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
@@ -102,124 +102,130 @@ tables:
   - name: sky_rotation
     "@id": "#exposure.sky_rotation"
     datatype: double
-    description: Targeted sky rotation angle.
+    description: >-
+      Sky rotation angle at the start of the exposure, computed by the pointing component from the mount and
+      rotator positions.
     ivoa:ucd: pos.posAng
     ivoa:unit: deg
   - name: azimuth_start
     "@id": "#exposure.azimuth_start"
     datatype: float
-    description: Azimuth of focal plane center at the start of the exposure.
+    description: >-
+      Azimuth axis position of the mount at the start of the exposure, as reported by the mount control system.
+      Raw axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth_end
     "@id": "#exposure.azimuth_end"
     datatype: float
-    description: Azimuth of focal plane center at the end of the exposure.
+    description: >-
+      Azimuth axis position of the mount at the end of the exposure, as reported by the mount control system. Raw
+      axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth
     "@id": "#exposure.azimuth"
     datatype: float
-    description: Azimuth of focal plane center at the middle of the exposure.
+    description: Azimuth of focal plane center at the middle of the exposure, computed from s_ra/s_dec at exp_midpt for the observatory location, without refraction. If s_ra/s_dec is unavailable, this is instead the average of the azimuth_start and azimuth_end mount positions.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: altitude_start
     "@id": "#exposure.altitude_start"
     datatype: float
-    description: Altitude of focal plane center at the start of the exposure.
+    description: >-
+      Elevation axis position of the mount at the start of the exposure, as reported by the mount control system.
+      Raw axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude_end
     "@id": "#exposure.altitude_end"
     datatype: float
-    description: Altitude of focal plane center at the end of the exposure.
+    description: >-
+      Elevation axis position of the mount at the end of the exposure, as reported by the mount control system.
+      Raw axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude
     "@id": "#exposure.altitude"
     datatype: float
-    description: Altitude of focal plane center at the middle of the exposure.
+    description: Altitude of focal plane center at the middle of the exposure, computed from s_ra/s_dec at exp_midpt for the observatory location, without refraction. If s_ra/s_dec is unavailable, this is instead the average of the altitude_start and altitude_end mount positions.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: zenith_distance_start
     "@id": "#exposure.zenith_distance_start"
     datatype: float
-    description: Zenith distance at the start of the exposure.
+    description: 90 degrees minus altitude_start.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance_end
     "@id": "#exposure.zenith_distance_end"
     datatype: float
-    description: Zenith distance at the end of the exposure.
+    description: 90 degrees minus altitude_end.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance
     "@id": "#exposure.zenith_distance"
     datatype: float
-    description: Zenith distance at the middle of the exposure.
+    description: Zenith distance at the middle of the exposure, computed from s_ra/s_dec at exp_midpt for the observatory location, without refraction. If s_ra/s_dec is unavailable, this is instead the average of the zenith_distance_start and zenith_distance_end mount positions.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: airmass
     "@id": "#exposure.airmass"
     datatype: float
-    description: Airmass of the observed line of sight at the middle of the exposure.
+    description: Airmass of the target at the start of the exposure, as computed by the telescope pointing component.
     ivoa:ucd: obs.airMass
   - name: exp_midpt
     "@id": "#exposure.exp_midpt"
     datatype: timestamp
     precision: 6
-    description: Midpoint time for exposure at the fiducial center of the focal plane.
-      array. TAI, accurate to 10ms.
+    description: Midpoint between obs_start and obs_end, TAI. Not corrected for shutter motion.
     ivoa:ucd: time.epoch
   - name: exp_midpt_mjd
     "@id": "#exposure.exp_midpt_mjd"
     datatype: double
-    description: Midpoint time for exposure at the fiducial center of the focal plane.
-      array in MJD. TAI, accurate to 10ms.
+    description: Midpoint between obs_start and obs_end, in MJD, TAI. Not corrected for shutter motion.
     ivoa:ucd: time.epoch
     ivoa:unit: d
   - name: obs_start
     "@id": "#exposure.obs_start"
     datatype: timestamp
     precision: 6
-    description: Start time of the exposure at the fiducial center of the focal plane.
-      array, TAI, accurate to 10ms.
+    description: Start of CCD integration (end of the last clear), TAI. Precedes the opening of the shutter.
     ivoa:ucd: time.start
   - name: obs_start_mjd
     "@id": "#exposure.obs_start_mjd"
     datatype: double
-    description: Start of the exposure in MJD, TAI, accurate to 10ms.
+    description: Start of CCD integration (end of the last clear), in MJD, TAI. Precedes the opening of the shutter.
     ivoa:ucd: time.start
     ivoa:unit: d
   - name: obs_end
     "@id": "#exposure.obs_end"
     datatype: timestamp
     precision: 6
-    description: End time of the exposure at the fiducial center of the focal plane.
-      array, TAI, accurate to 10ms.
+    description: Start of CCD readout, TAI. Follows the closing of the shutter.
     ivoa:ucd: time.end
   - name: obs_end_mjd
     "@id": "#exposure.obs_end_mjd"
     datatype: double
-    description: End of the exposure in MJD, TAI, accurate to 10ms.
+    description: Start of CCD readout, in MJD, TAI. Follows the closing of the shutter.
     ivoa:ucd: time.end
     ivoa:unit: d
   - name: exp_time
     "@id": "#exposure.exp_time"
     datatype: float
-    description: Spatially-averaged duration of exposure, accurate to 10ms.
+    description: Requested exposure time.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: shut_time
     "@id": "#exposure.shut_time"
     datatype: float
-    description: Spatially-averaged shutter-open duration, accurate to 10ms.
+    description: Shutter-open duration. Equal to exp_time.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: dark_time
     "@id": "#exposure.dark_time"
     datatype: float
-    description: Duration from last clear to readout, accurate to 10ms.
+    description: Duration from last clear to readout.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: group_id
@@ -807,9 +813,9 @@ tables:
     "@id": "#visit1.s_ra"
     datatype: double
     description: >-
-      Central Spatial Position in ICRS; right ascension of focal plane center derived from encoder readings and
-      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
-      mount/flexure model, determined without reference to a plate solution.
+      Central Spatial Position in ICRS; right ascension of focal plane center at the start of the visit, derived
+      from encoder readings and correcting for annual abberation, precession-nutation, earth orientation,
+      atmospheric refraction, and mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.ra
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C1
@@ -818,9 +824,9 @@ tables:
     "@id": "#visit1.s_dec"
     datatype: double
     description: >-
-      Central Spatial Position in ICRS; declination of focal plane center derived from encoder readings and
-      correcting for annual abberation, precession-nutation, earth orientation, atmospheric refraction, and
-      mount/flexure model, determined without reference to a plate solution.
+      Central Spatial Position in ICRS; declination of focal plane center at the start of the visit, derived from
+      encoder readings and correcting for annual abberation, precession-nutation, earth orientation, atmospheric
+      refraction, and mount/flexure model, determined without reference to a plate solution.
     tap:std: 1
     ivoa:ucd: pos.eq.dec
     votable:utype: Char.SpatialAxis.Coverage.Location.Coord.Position2D.Value2.C2
@@ -828,124 +834,130 @@ tables:
   - name: sky_rotation
     "@id": "#visit1.sky_rotation"
     datatype: double
-    description: Targeted sky rotation angle.
+    description: >-
+      Sky rotation angle at the start of the visit, computed by the pointing component from the mount and rotator
+      positions.
     ivoa:ucd: pos.posAng
     ivoa:unit: deg
   - name: azimuth_start
     "@id": "#visit1.azimuth_start"
     datatype: float
-    description: Azimuth of focal plane center at the start of the visit.
+    description: >-
+      Azimuth axis position of the mount at the start of the visit, as reported by the mount control system. Raw
+      axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth_end
     "@id": "#visit1.azimuth_end"
     datatype: float
-    description: Azimuth of focal plane center at the end of the visit.
+    description: >-
+      Azimuth axis position of the mount at the end of the visit, as reported by the mount control system. Raw
+      axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: azimuth
     "@id": "#visit1.azimuth"
     datatype: float
-    description: Azimuth of focal plane center at the middle of the visit.
+    description: Azimuth of focal plane center at the middle of the visit, computed from s_ra/s_dec at exp_midpt for the observatory location, without refraction. If s_ra/s_dec is unavailable, this is instead the average of the azimuth_start and azimuth_end mount positions.
     ivoa:ucd: pos.az.azi
     ivoa:unit: deg
   - name: altitude_start
     "@id": "#visit1.altitude_start"
     datatype: float
-    description: Altitude of focal plane center at the start of the visit.
+    description: >-
+      Elevation axis position of the mount at the start of the visit, as reported by the mount control system. Raw
+      axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude_end
     "@id": "#visit1.altitude_end"
     datatype: float
-    description: Altitude of focal plane center at the end of the visit.
+    description: >-
+      Elevation axis position of the mount at the end of the visit, as reported by the mount control system. Raw
+      axis reading, not corrected for the pointing model.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: altitude
     "@id": "#visit1.altitude"
     datatype: float
-    description: Altitude of focal plane center at the middle of the visit.
+    description: Altitude of focal plane center at the middle of the visit, computed from s_ra/s_dec at exp_midpt for the observatory location, without refraction. If s_ra/s_dec is unavailable, this is instead the average of the altitude_start and altitude_end mount positions.
     ivoa:ucd: pos.az.alt
     ivoa:unit: deg
   - name: zenith_distance_start
     "@id": "#visit1.zenith_distance_start"
     datatype: float
-    description: Zenith distance at the start of the visit.
+    description: 90 degrees minus altitude_start.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance_end
     "@id": "#visit1.zenith_distance_end"
     datatype: float
-    description: Zenith distance at the end of the visit.
+    description: 90 degrees minus altitude_end.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: zenith_distance
     "@id": "#visit1.zenith_distance"
     datatype: float
-    description: Zenith distance at the middle of the visit.
+    description: Zenith distance at the middle of the visit, computed from s_ra/s_dec at exp_midpt for the observatory location, without refraction. If s_ra/s_dec is unavailable, this is instead the average of the zenith_distance_start and zenith_distance_end mount positions.
     ivoa:ucd: pos.az.zd
     ivoa:unit: deg
   - name: airmass
     "@id": "#visit1.airmass"
     datatype: float
-    description: Airmass of the observed line of sight at the middle of the visit.
+    description: Airmass of the target at the start of the visit, as computed by the telescope pointing component.
     ivoa:ucd: obs.airMass
   - name: exp_midpt
     "@id": "#visit1.exp_midpt"
     datatype: timestamp
     precision: 6
-    description: Midpoint time for visit at the fiducial center of the focal plane.
-      array. TAI, accurate to 10ms.
+    description: Midpoint between obs_start and obs_end, TAI. Not corrected for shutter motion.
     ivoa:ucd: time.epoch
   - name: exp_midpt_mjd
     "@id": "#visit1.exp_midpt_mjd"
     datatype: double
-    description: Midpoint time for visit at the fiducial center of the focal plane.
-      array in MJD. TAI, accurate to 10ms.
+    description: Midpoint between obs_start and obs_end, in MJD, TAI. Not corrected for shutter motion.
     ivoa:ucd: time.epoch
     ivoa:unit: d
   - name: obs_start
     "@id": "#visit1.obs_start"
     datatype: timestamp
     precision: 6
-    description: Start time of the visit at the fiducial center of the focal plane.
-      array, TAI, accurate to 10ms.
+    description: Start of CCD integration (end of the last clear), TAI. Precedes the opening of the shutter.
     ivoa:ucd: time.start
   - name: obs_start_mjd
     "@id": "#visit1.obs_start_mjd"
     datatype: double
-    description: Start of the visit in MJD, TAI, accurate to 10ms.
+    description: Start of CCD integration (end of the last clear), in MJD, TAI. Precedes the opening of the shutter.
     ivoa:ucd: time.start
     ivoa:unit: d
   - name: obs_end
     "@id": "#visit1.obs_end"
     datatype: timestamp
     precision: 6
-    description: End time of the visit at the fiducial center of the focal plane.
-      array, TAI, accurate to 10ms.
+    description: Start of CCD readout, TAI. Follows the closing of the shutter.
     ivoa:ucd: time.end
   - name: obs_end_mjd
     "@id": "#visit1.obs_end_mjd"
     datatype: double
-    description: End of the visit in MJD, TAI, accurate to 10ms.
+    description: Start of CCD readout, in MJD, TAI. Follows the closing of the shutter.
     ivoa:ucd: time.end
     ivoa:unit: d
   - name: exp_time
     "@id": "#visit1.exp_time"
     datatype: float
-    description: Spatially-averaged duration of visit, accurate to 10ms.
+    description: Requested exposure time.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: shut_time
     "@id": "#visit1.shut_time"
     datatype: float
-    description: Spatially-averaged shutter-open duration, accurate to 10ms.
+    description: Shutter-open duration. Equal to exp_time.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: dark_time
     "@id": "#visit1.dark_time"
     datatype: float
-    description: Duration from last clear to readout, accurate to 10ms.
+    description: Duration from last clear to readout.
     ivoa:ucd: time.interval
     ivoa:unit: s
   - name: group_id
