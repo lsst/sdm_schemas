@@ -1910,6 +1910,15 @@ tables:
         psfAdaptiveThresholdValue:
         shapeletsOnlyIqScore:
         nShapeletsStar:
+        detectorMidpointMjdTai:
+        shutterChebyshevCoefficient0:
+        shutterChebyshevCoefficient1:
+        shutterChebyshevCoefficient2:
+        shutterChebyshevCoefficient3:
+        shutterChebyshevCoefficient4:
+        shutterChebyshevCoefficient5:
+        shutterChebyshevYCenter:
+        shutterChebyshevYHalfRange:
   constraints:
   - name: fk_VisitDetector_Visit
     description: Link a Visit to the CCD-level images it contains
