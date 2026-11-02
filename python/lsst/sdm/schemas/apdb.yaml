@@ -896,6 +896,28 @@ tables:
     datatype: boolean
     description: This flag is set if the source is likely part of a glint trail from an artifical satellite.
     fits:tunit:
+  - name: templateMjdMean
+    datatype: double
+    nullable: true
+    description: Weighted mean of the mid-exposure times of the template input images that cover the
+      diaSource centroid, expressed as Modified Julian Date, International Atomic Time. Each input
+      is weighted by its share of the template there, estimated from the coadd weights.
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: templateMjdMin
+    datatype: double
+    nullable: true
+    description: Earliest mid-exposure time of the template input images that cover the diaSource centroid,
+      expressed as Modified Julian Date, International Atomic Time.
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: templateMjdMax
+    datatype: double
+    nullable: true
+    description: Latest mid-exposure time of the template input images that cover the diaSource centroid,
+      expressed as Modified Julian Date, International Atomic Time.
+    fits:tunit: d
+    ivoa:ucd: time.epoch
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
   - name: IDX_DiaSource_visitDetector

@@ -6051,6 +6051,28 @@ tables:
     datatype: float
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+  - name: templateMjdMax
+    description: Latest mid-exposure time of the template input images that cover
+      the diaSource centroid, expressed as Modified Julian Date, International Atomic
+      Time.
+    datatype: double
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+  - name: templateMjdMean
+    description: Weighted mean of the mid-exposure times of the template input images
+      that cover the diaSource centroid, expressed as Modified Julian Date, International
+      Atomic Time. Each input is weighted by its share of the template there, estimated
+      from the coadd weights.
+    datatype: double
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+  - name: templateMjdMin
+    description: Earliest mid-exposure time of the template input images that cover
+      the diaSource centroid, expressed as Modified Julian Date, International Atomic
+      Time.
+    datatype: double
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
   - name: timeProcessedMjdTai
     description: Time when the image was processed and this DiaSource record was generated,
       expressed as Modified Julian Date, International Atomic Time.
