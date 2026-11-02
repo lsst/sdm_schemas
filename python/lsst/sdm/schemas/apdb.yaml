@@ -1,6 +1,6 @@
 ---
 name: "ApdbSchema"
-version: "10.0.0"
+version: "11.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -855,6 +855,10 @@ tables:
   - name: pixelFlags_saturatedCenter
     datatype: boolean
     description: Saturated pixel in the 3x3 region around the centroid.
+    fits:tunit:
+  - name: pixelFlags_spike
+    datatype: boolean
+    description: The diaSource footprint includes pixels on a predicted diffraction spike of a bright star.
     fits:tunit:
   - name: pixelFlags_suspect
     datatype: boolean

@@ -4,7 +4,7 @@ description: |
   The Prompt Products Database stores results from nightly and daily processing
   that detects time-variable astrophysical phenomena, including
   difference-image detections, associated objects, and Solar System objects.
-version: "10.0.0"
+version: "11.0.0"
 resources:
   apdb:
     uri: "apdb.yaml"
@@ -202,6 +202,7 @@ tables:
         pixelFlags_offimage:
         pixelFlags_saturated:
         pixelFlags_saturatedCenter:
+        pixelFlags_spike:
         pixelFlags_suspect:
         pixelFlags_suspectCenter:
         pixelFlags_streak:

@@ -1,6 +1,6 @@
 name: drp_base
 description: Base schema for defining Data Release Processing column definitions.
-version: 1.1.0
+version: 1.2.0
 tables:
 - name: Object
   description: Descriptions of static astronomical objects (or the static aspects
@@ -5917,6 +5917,11 @@ tables:
     nullable: false
   - name: pixelFlags_saturatedCenter
     description: Saturated pixel in the 3x3 region around the centroid.
+    datatype: boolean
+    nullable: false
+  - name: pixelFlags_spike
+    description: The diaSource footprint includes pixels on a predicted diffraction
+      spike of a bright star.
     datatype: boolean
     nullable: false
   - name: pixelFlags_streak
