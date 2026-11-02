@@ -918,6 +918,22 @@ tables:
       expressed as Modified Julian Date, International Atomic Time.
     fits:tunit: d
     ivoa:ucd: time.epoch
+  - name: templateInstrument
+    value: "LSSTCam"
+    datatype: string
+    length: 32
+    nullable: false
+    description: Name of the instrument whose observations were coadded to make the template, or UNKNOWN if it is not known.
+  - name: templateVersion
+    value: 0
+    datatype: int
+    nullable: false
+    description: Version of the template. It is 1 if the template is from a different instrument than the diaSource, and 0 otherwise.
+  - name: mixedInstruments
+    value: false
+    datatype: boolean
+    nullable: false
+    description: Set if the template instrument is known and differs from the instrument that observed the diaSource.
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
   - name: IDX_DiaSource_visitDetector
