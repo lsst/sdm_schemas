@@ -407,7 +407,7 @@ tables:
   - name: nDiaSources
     datatype: int
     nullable: false
-    description: Total number of DiaSources associated with this DiaObject.
+    description: Number of DiaSources associated with this DiaObject within the last 12 months.
   primaryKey:
   - "#DiaObject.diaObjectId"
   - "#DiaObject.validityStartMjdTai"
@@ -1116,7 +1116,7 @@ tables:
   - name: nDiaSources
     datatype: int
     nullable: false
-    description: Total number of DiaSources associated with this DiaObject.
+    description: Number of DiaSources associated with this DiaObject within the last 12 months.
   primaryKey: "#DiaObjectLast.diaObjectId"
 - name: DetectorVisitProcessingSummary
   '@id': '#DetectorVisitProcessingSummary'
