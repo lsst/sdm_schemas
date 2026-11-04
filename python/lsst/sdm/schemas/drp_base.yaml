@@ -1,6 +1,6 @@
 name: drp_base
 description: Base schema for defining Data Release Processing column definitions.
-version: 1.1.0
+version: 1.2.0
 tables:
 - name: Object
   description: Descriptions of static astronomical objects (or the static aspects
@@ -5919,6 +5919,11 @@ tables:
     description: Saturated pixel in the 3x3 region around the centroid.
     datatype: boolean
     nullable: false
+  - name: pixelFlags_spike
+    description: The diaSource footprint includes pixels on a predicted diffraction
+      spike of a bright star.
+    datatype: boolean
+    nullable: false
   - name: pixelFlags_streak
     description: Streak in the DiaSource footprint.
     datatype: boolean
@@ -6046,6 +6051,28 @@ tables:
     datatype: float
     ivoa:ucd: stat.error;phot.flux
     ivoa:unit: nJy
+  - name: templateMjdMax
+    description: Latest mid-exposure time of the template input images that cover
+      the diaSource centroid, expressed as Modified Julian Date, International Atomic
+      Time.
+    datatype: double
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+  - name: templateMjdMean
+    description: Weighted mean of the mid-exposure times of the template input images
+      that cover the diaSource centroid, expressed as Modified Julian Date, International
+      Atomic Time. Each input is weighted by its share of the template there, estimated
+      from the coadd weights.
+    datatype: double
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
+  - name: templateMjdMin
+    description: Earliest mid-exposure time of the template input images that cover
+      the diaSource centroid, expressed as Modified Julian Date, International Atomic
+      Time.
+    datatype: double
+    ivoa:ucd: time.epoch
+    ivoa:unit: d
   - name: timeProcessedMjdTai
     description: Time when the image was processed and this DiaSource record was generated,
       expressed as Modified Julian Date, International Atomic Time.

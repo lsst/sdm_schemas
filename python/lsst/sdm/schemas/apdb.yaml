@@ -1,6 +1,6 @@
 ---
 name: "ApdbSchema"
-version: "10.0.0"
+version: "11.0.0"
 description: The Alert Production Database (APDB) contains the catalogs resulting from
   image differencing during nightly Prompt Processing as well as the results of
   daily Solar System Processing.
@@ -407,7 +407,7 @@ tables:
   - name: nDiaSources
     datatype: int
     nullable: false
-    description: Total number of DiaSources associated with this DiaObject.
+    description: Number of DiaSources associated with this DiaObject within the last 12 months.
   primaryKey:
   - "#DiaObject.diaObjectId"
   - "#DiaObject.validityStartMjdTai"
@@ -856,6 +856,10 @@ tables:
     datatype: boolean
     description: Saturated pixel in the 3x3 region around the centroid.
     fits:tunit:
+  - name: pixelFlags_spike
+    datatype: boolean
+    description: The diaSource footprint includes pixels on a predicted diffraction spike of a bright star.
+    fits:tunit:
   - name: pixelFlags_suspect
     datatype: boolean
     description: DiaSource's footprint includes pixels masked as SUSPECT that are approaching the saturation threshold.
@@ -892,6 +896,44 @@ tables:
     datatype: boolean
     description: This flag is set if the source is likely part of a glint trail from an artifical satellite.
     fits:tunit:
+  - name: templateMjdMean
+    datatype: double
+    nullable: true
+    description: Weighted mean of the mid-exposure times of the template input images that cover the
+      diaSource centroid, expressed as Modified Julian Date, International Atomic Time. Each input
+      is weighted by its share of the template there, estimated from the coadd weights.
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: templateMjdMin
+    datatype: double
+    nullable: true
+    description: Earliest mid-exposure time of the template input images that cover the diaSource centroid,
+      expressed as Modified Julian Date, International Atomic Time.
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: templateMjdMax
+    datatype: double
+    nullable: true
+    description: Latest mid-exposure time of the template input images that cover the diaSource centroid,
+      expressed as Modified Julian Date, International Atomic Time.
+    fits:tunit: d
+    ivoa:ucd: time.epoch
+  - name: templateInstrument
+    value: "LSSTCam"
+    datatype: string
+    length: 32
+    nullable: false
+    description: Name of the instrument whose observations were coadded to make the template, or UNKNOWN if it is not known.
+  - name: templateVersion
+    value: 0
+    datatype: int
+    nullable: false
+    description: Version of the template. It is 1 if the template is from a different instrument than the diaSource, and 0 otherwise.
+  - name: mixedInstruments
+    value: false
+    datatype: boolean
+    nullable: false
+    description: Set if the template instrument is known and differs from the instrument that observed the diaSource.
   primaryKey: "#DiaSource.diaSourceId"
   indexes:
   - name: IDX_DiaSource_visitDetector
@@ -1074,7 +1116,7 @@ tables:
   - name: nDiaSources
     datatype: int
     nullable: false
-    description: Total number of DiaSources associated with this DiaObject.
+    description: Number of DiaSources associated with this DiaObject within the last 12 months.
   primaryKey: "#DiaObjectLast.diaObjectId"
 - name: DetectorVisitProcessingSummary
   '@id': '#DetectorVisitProcessingSummary'
