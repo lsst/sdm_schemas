@@ -1620,6 +1620,7 @@ tables:
         pixelFlags_offimage:
         pixelFlags_saturated:
         pixelFlags_saturatedCenter:
+        pixelFlags_spike:
         pixelFlags_suspect:
         pixelFlags_suspectCenter:
         pixelFlags_streak:
@@ -1629,6 +1630,9 @@ tables:
         pixelFlags_injected_template:
         pixelFlags_injected_templateCenter:
         glint_trail:
+        templateMjdMean:
+        templateMjdMin:
+        templateMjdMax:
 - name: ForcedSourceOnDiaObject
   description: This is dia_object_forced_source in the Butler repo.
   columnRefs:
