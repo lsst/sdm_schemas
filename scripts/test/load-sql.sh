@@ -48,7 +48,7 @@ for yaml_file in yml/*.yaml; do
         echo "SQL file $sql_file does not exist. Skipping."
         continue
     fi
-    db_name=$(yq e '.name' "$yaml_file")
+    db_name=$(print-schema-name.py "$yaml_file")
 
     if [[ "$database" == "mysql" ]]; then
         mysql -e "DROP DATABASE IF EXISTS ${db_name};"
