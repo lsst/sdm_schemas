@@ -15,10 +15,8 @@ runs:
       run: uv pip install --system psycopg2-binary pymysql cryptography
       shell: bash
 
-    - name: Install yq
-      run: sudo snap install yq
-      shell: bash
-
-    - name: Add test script directory to PATH
-      run: echo "$(pwd)/scripts/test" >> $GITHUB_PATH
+    - name: Add script directories to PATH
+      run: |
+        echo "$(pwd)/scripts" >> $GITHUB_PATH
+        echo "$(pwd)/scripts/test" >> $GITHUB_PATH
       shell: bash
