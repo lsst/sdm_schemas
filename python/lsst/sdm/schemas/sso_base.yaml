@@ -42,7 +42,8 @@ tables:
     # time of DP2 release.
     #
     #  - name: discoverySubmissionDate
-    #    description: The date the LSST first submitted the discovery observations to the MPC. NULL if not an LSST discovery. TAI.
+    #    description: The date the LSST first submitted the discovery observations to the MPC. NULL if not an LSST
+    #      discovery. TAI.
     #    datatype: double
     #    ivoa:unit: d
     #    ivoa:ucd: time.epoch
@@ -484,8 +485,8 @@ tables:
     nullable: false
     ivoa:ucd: meta.ref
   - name: diaSourceId
-    description: Identifier of the DiaSource this observation was measured as (DiaSource.diaSourceId in its processing);
-      NULL on Source rows (measuredOn = 'science').
+    description: Identifier of the DiaSource this observation was measured as (DiaSource.diaSourceId in its
+      processing); NULL on Source rows (measuredOn = 'science').
     datatype: long
     ivoa:ucd: meta.id;obs.image
   - name: sourceId
@@ -527,9 +528,9 @@ tables:
     datatype: boolean
     nullable: false
   - name: exposureTime
-    description: 'Measured exposure (shutter-open) time of the visit, s: ConsDB exposure.shut_time (= Butler visitInfo.exposureTime),
-      looked up by visit in ssp.visit_exposure on every branch. NULL where ConsDB has no value or the table lacks
-      the visit; never the requested or nominal time.'
+    description: 'Measured exposure (shutter-open) time of the visit, s: ConsDB exposure.shut_time (= Butler
+      visitInfo.exposureTime), looked up by visit in ssp.visit_exposure on every branch. NULL where ConsDB has no value
+      or the table lacks the visit; never the requested or nominal time.'
     datatype: float
     ivoa:unit: s
     ivoa:ucd: time.interval
@@ -582,7 +583,8 @@ tables:
     ivoa:unit: pixel
     ivoa:ucd: stat.error;pos.cartesian.y
   - name: centroid_flag
-    description: 'General centroid failure flag. DiaSource centroid_flag; Source centroid_flag (AP-S: slot_Centroid_flag).'
+    description: 'General centroid failure flag. DiaSource centroid_flag; Source centroid_flag (AP-S:
+      slot_Centroid_flag).'
     datatype: boolean
   - name: apFlux
     description: 'Flux in the 12 pixel (2.4 arcsec) radius circular aperture, nJy, not aperture-corrected. DiaSource
@@ -610,7 +612,8 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
   - name: apFlux_flag
-    description: 'Failure flag of the 12 px aperture flux. DiaSource apFlux_flag; Source ap12Flux_flag (AP-S: base_CircularApertureFlux_12_0_flag).'
+    description: 'Failure flag of the 12 px aperture flux. DiaSource apFlux_flag; Source ap12Flux_flag (AP-S:
+      base_CircularApertureFlux_12_0_flag).'
     datatype: boolean
   - name: apFlux_flag_apertureTruncated
     description: 'The 12 px aperture did not fit within the image. DiaSource apFlux_flag_apertureTruncated; Source
@@ -624,8 +627,9 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.flux
   - name: ap03FluxErr
-    description: 'Uncertainty of ap03Flux, nJy. Source ap03FluxErr (AP-S: calibrated in full quadrature with base_LocalPhotoCalibErr).
-      Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'Uncertainty of ap03Flux, nJy. Source ap03FluxErr (AP-S: calibrated in full quadrature with
+      base_LocalPhotoCalibErr). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource
+      rows.'
     datatype: float
     ivoa:unit: nJy
     ivoa:ucd: stat.error;phot.flux
@@ -643,14 +647,16 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
   - name: ap03Flux_flag
-    description: 'Failure flag of the 3 px aperture flux. Source ap03Flux_flag (AP-S: base_CircularApertureFlux_3_0_flag).
-      Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'Failure flag of the 3 px aperture flux. Source ap03Flux_flag (AP-S:
+      base_CircularApertureFlux_3_0_flag). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on
+      DiaSource rows.'
     datatype: boolean
     ivoa:ucd: meta.code
   - name: ap03Flux_flag_apertureTruncated
-    description: 'The 3 px aperture did not fit within the image. AP-S base_CircularApertureFlux_3_0_flag_apertureTruncated;
-      NULL on NV-S and DP2-S, whose catalogs carry a truncation flag for the 12 px aperture only. Source-only extra:
-      DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'The 3 px aperture did not fit within the image. AP-S
+      base_CircularApertureFlux_3_0_flag_apertureTruncated; NULL on NV-S and DP2-S, whose catalogs carry a truncation
+      flag for the 12 px aperture only. Source-only extra: DiaSource measures only the 12 px aperture, so NULL on
+      DiaSource rows.'
     datatype: boolean
     ivoa:ucd: meta.code
   - name: ap06Flux
@@ -661,8 +667,9 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.flux
   - name: ap06FluxErr
-    description: 'Uncertainty of ap06Flux, nJy. Source ap06FluxErr (AP-S: calibrated in full quadrature with base_LocalPhotoCalibErr).
-      Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'Uncertainty of ap06Flux, nJy. Source ap06FluxErr (AP-S: calibrated in full quadrature with
+      base_LocalPhotoCalibErr). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource
+      rows.'
     datatype: float
     ivoa:unit: nJy
     ivoa:ucd: stat.error;phot.flux
@@ -680,14 +687,16 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
   - name: ap06Flux_flag
-    description: 'Failure flag of the 6 px aperture flux. Source ap06Flux_flag (AP-S: base_CircularApertureFlux_6_0_flag).
-      Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'Failure flag of the 6 px aperture flux. Source ap06Flux_flag (AP-S:
+      base_CircularApertureFlux_6_0_flag). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on
+      DiaSource rows.'
     datatype: boolean
     ivoa:ucd: meta.code
   - name: ap06Flux_flag_apertureTruncated
-    description: 'The 6 px aperture did not fit within the image. AP-S base_CircularApertureFlux_6_0_flag_apertureTruncated;
-      NULL on NV-S and DP2-S, whose catalogs carry a truncation flag for the 12 px aperture only. Source-only extra:
-      DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'The 6 px aperture did not fit within the image. AP-S
+      base_CircularApertureFlux_6_0_flag_apertureTruncated; NULL on NV-S and DP2-S, whose catalogs carry a truncation
+      flag for the 12 px aperture only. Source-only extra: DiaSource measures only the 12 px aperture, so NULL on
+      DiaSource rows.'
     datatype: boolean
     ivoa:ucd: meta.code
   - name: ap25Flux
@@ -698,8 +707,9 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.flux
   - name: ap25FluxErr
-    description: 'Uncertainty of ap25Flux, nJy. Source ap25FluxErr (AP-S: calibrated in full quadrature with base_LocalPhotoCalibErr).
-      Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'Uncertainty of ap25Flux, nJy. Source ap25FluxErr (AP-S: calibrated in full quadrature with
+      base_LocalPhotoCalibErr). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource
+      rows.'
     datatype: float
     ivoa:unit: nJy
     ivoa:ucd: stat.error;phot.flux
@@ -717,14 +727,16 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
   - name: ap25Flux_flag
-    description: 'Failure flag of the 25 px aperture flux. Source ap25Flux_flag (AP-S: base_CircularApertureFlux_25_0_flag).
-      Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'Failure flag of the 25 px aperture flux. Source ap25Flux_flag (AP-S:
+      base_CircularApertureFlux_25_0_flag). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on
+      DiaSource rows.'
     datatype: boolean
     ivoa:ucd: meta.code
   - name: ap25Flux_flag_apertureTruncated
-    description: 'The 25 px aperture did not fit within the image. AP-S base_CircularApertureFlux_25_0_flag_apertureTruncated;
-      NULL on NV-S and DP2-S, whose catalogs carry a truncation flag for the 12 px aperture only. Source-only extra:
-      DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
+    description: 'The 25 px aperture did not fit within the image. AP-S
+      base_CircularApertureFlux_25_0_flag_apertureTruncated; NULL on NV-S and DP2-S, whose catalogs carry a truncation
+      flag for the 12 px aperture only. Source-only extra: DiaSource measures only the 12 px aperture, so NULL on
+      DiaSource rows.'
     datatype: boolean
     ivoa:ucd: meta.code
   - name: isNegative
@@ -778,8 +790,8 @@ tables:
     description: 'PSF-flux fit failure flag. DiaSource psfFlux_flag; Source psfFlux_flag (AP-S: base_PsfFlux_flag).'
     datatype: boolean
   - name: psfFlux_flag_edge
-    description: 'Too close to the image edge for the full PSF model. DiaSource psfFlux_flag_edge; Source psfFlux_flag_edge
-      (AP-S: base_PsfFlux_flag_edge).'
+    description: 'Too close to the image edge for the full PSF model. DiaSource psfFlux_flag_edge; Source
+      psfFlux_flag_edge (AP-S: base_PsfFlux_flag_edge).'
     datatype: boolean
   - name: psfFlux_flag_noGoodPixels
     description: 'Not enough non-rejected pixels to fit the PSF model. DiaSource psfFlux_flag_noGoodPixels; Source
@@ -865,12 +877,12 @@ tables:
     description: The trailed source extends onto or past edge pixels. DiaSource trail_flag_edge; no Source equivalent.
     datatype: boolean
   - name: trail_flag
-    description: The trailed-source fit failed (DiaSource trail_flag, new in ApdbSchema 10.0.0). Filled on dia_source_prompt_20260708
-      (Prompt Processing from 20260708); NULL on every other table.
+    description: The trailed-source fit failed (DiaSource trail_flag, new in ApdbSchema 10.0.0). Filled on
+      dia_source_prompt_20260708 (Prompt Processing from 20260708); NULL on every other table.
     datatype: boolean
   - name: dipoleMeanFlux
-    description: Maximum-likelihood mean absolute flux of the two lobes of a dipole model, nJy. DiaSource dipoleMeanFlux;
-      no Source equivalent.
+    description: Maximum-likelihood mean absolute flux of the two lobes of a dipole model, nJy. DiaSource
+      dipoleMeanFlux; no Source equivalent.
     datatype: float
     ivoa:unit: nJy
   - name: dipoleMeanFluxErr
@@ -891,8 +903,8 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
   - name: dipoleFluxDiff
-    description: Maximum-likelihood difference of the absolute fluxes of the two dipole lobes, nJy. DiaSource dipoleFluxDiff;
-      no Source equivalent.
+    description: Maximum-likelihood difference of the absolute fluxes of the two dipole lobes, nJy. DiaSource
+      dipoleFluxDiff; no Source equivalent.
     datatype: float
     ivoa:unit: nJy
   - name: dipoleFluxDiffErr
@@ -947,8 +959,8 @@ tables:
       no Source equivalent.
     datatype: boolean
   - name: forced_PsfFlux_flag_edge
-    description: scienceFlux was too close to the image edge for the full PSF model. DiaSource forced_PsfFlux_flag_edge;
-      no Source equivalent.
+    description: scienceFlux was too close to the image edge for the full PSF model. DiaSource
+      forced_PsfFlux_flag_edge; no Source equivalent.
     datatype: boolean
   - name: forced_PsfFlux_flag_noGoodPixels
     description: Not enough non-rejected pixels for scienceFlux. DiaSource forced_PsfFlux_flag_noGoodPixels; no
@@ -978,39 +990,45 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
   - name: ixx
-    description: Adaptive second moment xx of the source, arcsec^2. DiaSource ixx; AP-S ext_shapeHSM_HsmSourceMoments_xx
-      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks ConvertPixelSqToArcsecondsSq
-      does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no local WCS.
+    description: Adaptive second moment xx of the source, arcsec^2. DiaSource ixx; AP-S
+      ext_shapeHSM_HsmSourceMoments_xx converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as
+      pipe_tasks ConvertPixelSqToArcsecondsSq does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2
+      with no local WCS.
     datatype: float
     ivoa:unit: arcsec**2
   - name: iyy
-    description: Adaptive second moment yy of the source, arcsec^2. DiaSource iyy; AP-S ext_shapeHSM_HsmSourceMoments_yy
-      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks ConvertPixelSqToArcsecondsSq
-      does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no local WCS.
+    description: Adaptive second moment yy of the source, arcsec^2. DiaSource iyy; AP-S
+      ext_shapeHSM_HsmSourceMoments_yy converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as
+      pipe_tasks ConvertPixelSqToArcsecondsSq does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2
+      with no local WCS.
     datatype: float
     ivoa:unit: arcsec**2
   - name: ixy
-    description: Adaptive second moment xy of the source, arcsec^2. DiaSource ixy; AP-S ext_shapeHSM_HsmSourceMoments_xy
-      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks ConvertPixelSqToArcsecondsSq
-      does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no local WCS.
+    description: Adaptive second moment xy of the source, arcsec^2. DiaSource ixy; AP-S
+      ext_shapeHSM_HsmSourceMoments_xy converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as
+      pipe_tasks ConvertPixelSqToArcsecondsSq does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2
+      with no local WCS.
     datatype: float
     ivoa:unit: arcsec**2
   - name: ixxPSF
     description: Adaptive second moment xx of the PSF, arcsec^2. DiaSource ixxPSF; AP-S ext_shapeHSM_HsmPsfMoments_xx
-      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks ConvertPixelSqToArcsecondsSq
-      does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no local WCS.
+      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks
+      ConvertPixelSqToArcsecondsSq does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no
+      local WCS.
     datatype: float
     ivoa:unit: arcsec**2
   - name: iyyPSF
     description: Adaptive second moment yy of the PSF, arcsec^2. DiaSource iyyPSF; AP-S ext_shapeHSM_HsmPsfMoments_yy
-      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks ConvertPixelSqToArcsecondsSq
-      does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no local WCS.
+      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks
+      ConvertPixelSqToArcsecondsSq does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no
+      local WCS.
     datatype: float
     ivoa:unit: arcsec**2
   - name: ixyPSF
     description: Adaptive second moment xy of the PSF, arcsec^2. DiaSource ixyPSF; AP-S ext_shapeHSM_HsmPsfMoments_xy
-      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks ConvertPixelSqToArcsecondsSq
-      does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no local WCS.
+      converted from pixels^2 with the local WCS (base_LocalWcs_CDMatrix_*) exactly as pipe_tasks
+      ConvertPixelSqToArcsecondsSq does for DiaSource; NULL on NV-S and DP2-S, whose moments are in pixels^2 with no
+      local WCS.
     datatype: float
     ivoa:unit: arcsec**2
   - name: shape_flag
@@ -1018,8 +1036,8 @@ tables:
       on NV-S and DP2-S.
     datatype: boolean
   - name: shape_flag_no_pixels
-    description: No pixels to measure the moments. DiaSource shape_flag_no_pixels; AP-S ext_shapeHSM_HsmSourceMoments_flag_no_pixels;
-      NULL on NV-S and DP2-S.
+    description: No pixels to measure the moments. DiaSource shape_flag_no_pixels; AP-S
+      ext_shapeHSM_HsmSourceMoments_flag_no_pixels; NULL on NV-S and DP2-S.
     datatype: boolean
   - name: shape_flag_not_contained
     description: Centroid not contained in the footprint's bounding box. DiaSource shape_flag_not_contained; AP-S
@@ -1030,9 +1048,9 @@ tables:
       ext_shapeHSM_HsmSourceMoments_flag_parent_source; NULL on NV-S and DP2-S.
     datatype: boolean
   - name: extendedness
-    description: 'Size-based extendedness classifier (moment-based traced radius vs the PSF''s). DiaSource extendedness;
-      Source sizeExtendedness (AP-S: base_ClassificationSizeExtendedness_value), NOT Source extendedness, which
-      is the model-based classifier.'
+    description: 'Size-based extendedness classifier (moment-based traced radius vs the PSF''s). DiaSource
+      extendedness; Source sizeExtendedness (AP-S: base_ClassificationSizeExtendedness_value), NOT Source extendedness,
+      which is the model-based classifier.'
     datatype: float
   - name: reliability
     description: Probability (0-1) that the detection is astrophysical, from a machine-learning model. DiaSource
@@ -1064,37 +1082,40 @@ tables:
       DiaSource pixelFlags; AP-S base_PixelFlags_flag; NULL on NV-S and DP2-S.'
     datatype: boolean
   - name: pixelFlags_bad
-    description: 'Bad pixel in the footprint. DiaSource pixelFlags_bad; Source pixelFlags_bad (AP-S: base_PixelFlags_flag_bad).'
+    description: 'Bad pixel in the footprint. DiaSource pixelFlags_bad; Source pixelFlags_bad (AP-S:
+      base_PixelFlags_flag_bad).'
     datatype: boolean
   - name: pixelFlags_cr
-    description: 'Cosmic ray in the footprint. DiaSource pixelFlags_cr; Source pixelFlags_cr (AP-S: base_PixelFlags_flag_cr).'
+    description: 'Cosmic ray in the footprint. DiaSource pixelFlags_cr; Source pixelFlags_cr (AP-S:
+      base_PixelFlags_flag_cr).'
     datatype: boolean
   - name: pixelFlags_crCenter
-    description: 'Cosmic ray in the 3x3 region around the centroid. DiaSource pixelFlags_crCenter; Source pixelFlags_crCenter
-      (AP-S: base_PixelFlags_flag_crCenter).'
+    description: 'Cosmic ray in the 3x3 region around the centroid. DiaSource pixelFlags_crCenter; Source
+      pixelFlags_crCenter (AP-S: base_PixelFlags_flag_crCenter).'
     datatype: boolean
   - name: pixelFlags_edge
     description: 'Some of the footprint is outside the usable exposure region (masked EDGE, or centroid off image).
       DiaSource pixelFlags_edge; Source pixelFlags_edge (AP-S: base_PixelFlags_flag_edge).'
     datatype: boolean
   - name: pixelFlags_nodata
-    description: 'NO_DATA pixel in the footprint. DiaSource pixelFlags_nodata (not in pDP1-DS); Source pixelFlags_nodata
-      (AP-S: base_PixelFlags_flag_nodata).'
+    description: 'NO_DATA pixel in the footprint. DiaSource pixelFlags_nodata (not in pDP1-DS); Source
+      pixelFlags_nodata (AP-S: base_PixelFlags_flag_nodata).'
     datatype: boolean
   - name: pixelFlags_nodataCenter
     description: NO_DATA pixel in the 3x3 region around the centroid. DiaSource pixelFlags_nodataCenter (not in
       pDP1-DS); AP-S base_PixelFlags_flag_nodataCenter; NULL on NV-S and DP2-S, whose catalogs do not carry it.
     datatype: boolean
   - name: pixelFlags_interpolated
-    description: 'Interpolated pixel in the footprint. DiaSource pixelFlags_interpolated; Source pixelFlags_interpolated
-      (AP-S: base_PixelFlags_flag_interpolated).'
+    description: 'Interpolated pixel in the footprint. DiaSource pixelFlags_interpolated; Source
+      pixelFlags_interpolated (AP-S: base_PixelFlags_flag_interpolated).'
     datatype: boolean
   - name: pixelFlags_interpolatedCenter
     description: 'Interpolated pixel in the 3x3 region around the centroid. DiaSource pixelFlags_interpolatedCenter;
       Source pixelFlags_interpolatedCenter (AP-S: base_PixelFlags_flag_interpolatedCenter).'
     datatype: boolean
   - name: pixelFlags_offimage
-    description: 'Source center is off image. DiaSource pixelFlags_offimage; Source pixelFlags_offimage (AP-S: base_PixelFlags_flag_offimage).'
+    description: 'Source center is off image. DiaSource pixelFlags_offimage; Source pixelFlags_offimage (AP-S:
+      base_PixelFlags_flag_offimage).'
     datatype: boolean
   - name: pixelFlags_saturated
     description: 'Saturated pixel in the footprint. DiaSource pixelFlags_saturated; Source pixelFlags_saturated
@@ -1129,12 +1150,12 @@ tables:
     description: Template injection in the footprint. DiaSource pixelFlags_injected_template; no Source equivalent.
     datatype: boolean
   - name: pixelFlags_injected_templateCenter
-    description: Template injection in the 3x3 region around the centroid. DiaSource pixelFlags_injected_templateCenter;
-      no Source equivalent.
+    description: Template injection in the 3x3 region around the centroid. DiaSource
+      pixelFlags_injected_templateCenter; no Source equivalent.
     datatype: boolean
   - name: glint_trail
-    description: Part of a satellite glint trail. DiaSource glint_trail (DP2 and PPDB tables; prompt eras from 20250905);
-      no Source equivalent.
+    description: Part of a satellite glint trail. DiaSource glint_trail (DP2 and PPDB tables; prompt eras from
+      20250905); no Source equivalent.
     datatype: boolean
   - name: eclLambda
     description: Ecliptic longitude, converted from the observed coordinates.
@@ -1213,16 +1234,14 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: stat.error;pos.eq.dec;pos.ephem
   - name: ephRa_ephDec_Cov
-    description: Covariance between ephRa (on the sky) and ephDec; with ephRaErr and ephDecErr, the predicted position's
-      error ellipse, in the convention of raErr, decErr and ra_dec_Cov.
+    description: Covariance between ephRa (on the sky) and ephDec; with ephRaErr and ephDecErr, the predicted
+      position's error ellipse, in the convention of raErr, decErr and ra_dec_Cov.
     datatype: float
     ivoa:unit: deg**2
     ivoa:ucd: stat.covariance;pos.eq;pos.ephem
   - name: ephVmag
     description: 'Predicted magnitude in V band, computed from mpc_orbits data including the mpc_orbits-provided
-      (H, G) estimates
-
-      '
+      (H, G) estimates'
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: phot.mag;em.opt.V
@@ -1242,12 +1261,18 @@ tables:
     ivoa:unit: deg/d
     ivoa:ucd: pos.pm;pos.eq.dec;pos.ephem
   - name: ephAntiSunPA
-    description: Predicted position angle of the extended Sun-to-object radius vector (the anti-Sun direction, along which an ion tail points), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAng, but relative to the ICRS pole; from the light-emission-time heliocentric vector (helio_x, helio_y, helio_z). Ill-conditioned near zero phase angle.
+    description: Predicted position angle of the extended Sun-to-object radius vector (the anti-Sun direction, along
+      which an ion tail points), projected on the sky at the object and measured from ICRS north through east, in [0,
+      360). As JPL Horizons' PsAng, but relative to the ICRS pole; from the light-emission-time heliocentric vector
+      (helio_x, helio_y, helio_z). Ill-conditioned near zero phase angle.
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.posAng;pos.ephem
   - name: ephAntiMotionPA
-    description: Predicted position angle of the negative of the object's heliocentric velocity vector (the direction a dust trail lags towards), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAMV, but relative to the ICRS pole; from the light-emission-time heliocentric velocity (helio_vx, helio_vy, helio_vz).
+    description: Predicted position angle of the negative of the object's heliocentric velocity vector (the direction a
+      dust trail lags towards), projected on the sky at the object and measured from ICRS north through east, in [0,
+      360). As JPL Horizons' PsAMV, but relative to the ICRS pole; from the light-emission-time heliocentric velocity
+      (helio_vx, helio_vy, helio_vz).
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.posAng;pos.ephem
@@ -1407,8 +1432,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: stat.error;pos.eq.dec;pos.ephem
   - name: ephRa_ephDec_Cov
-    description: Covariance between ephRa (on the sky) and ephDec; with ephRaErr and ephDecErr, the predicted position's
-      error ellipse, in the convention of raErr, decErr and ra_dec_Cov.
+    description: Covariance between ephRa (on the sky) and ephDec; with ephRaErr and ephDecErr, the predicted
+      position's error ellipse, in the convention of raErr, decErr and ra_dec_Cov.
     datatype: float
     ivoa:unit: deg**2
     ivoa:ucd: stat.covariance;pos.eq;pos.ephem
@@ -1420,9 +1445,9 @@ tables:
     ivoa:ucd: pos.angDistance;stat.fit.omc
   - name: diaDistanceRank
     description: 'Rank of this DiaSource by its separation from the object''s predicted position, among all DiaSources
-      of the same visit within the object''s matching radius of that prediction: 1 for the nearest, 2 for the next, and so
-      on (ties broken by the lower diaSourceId). A rank above 1 means a closer DiaSource exists, which may be attributed
-      to another object. NULL for a prediction that matched no DiaSource.'
+      of the same visit within the object''s matching radius of that prediction: 1 for the nearest, 2 for the next, and
+      so on (ties broken by the lower diaSourceId). A rank above 1 means a closer DiaSource exists, which may be
+      attributed to another object. NULL for a prediction that matched no DiaSource.'
     datatype: short
     ivoa:ucd: meta.number
   - name: ephVmag
@@ -1442,12 +1467,18 @@ tables:
     ivoa:unit: deg/d
     ivoa:ucd: pos.pm;pos.eq.dec;pos.ephem
   - name: ephAntiSunPA
-    description: Predicted position angle of the extended Sun-to-object radius vector (the anti-Sun direction, along which an ion tail points), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAng, but relative to the ICRS pole; from the light-emission-time heliocentric vector (helio_x, helio_y, helio_z). Ill-conditioned near zero phase angle.
+    description: Predicted position angle of the extended Sun-to-object radius vector (the anti-Sun direction, along
+      which an ion tail points), projected on the sky at the object and measured from ICRS north through east, in [0,
+      360). As JPL Horizons' PsAng, but relative to the ICRS pole; from the light-emission-time heliocentric vector
+      (helio_x, helio_y, helio_z). Ill-conditioned near zero phase angle.
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.posAng;pos.ephem
   - name: ephAntiMotionPA
-    description: Predicted position angle of the negative of the object's heliocentric velocity vector (the direction a dust trail lags towards), projected on the sky at the object and measured from ICRS north through east, in [0, 360). As JPL Horizons' PsAMV, but relative to the ICRS pole; from the light-emission-time heliocentric velocity (helio_vx, helio_vy, helio_vz).
+    description: Predicted position angle of the negative of the object's heliocentric velocity vector (the direction a
+      dust trail lags towards), projected on the sky at the object and measured from ICRS north through east, in [0,
+      360). As JPL Horizons' PsAMV, but relative to the ICRS pole; from the light-emission-time heliocentric velocity
+      (helio_vx, helio_vy, helio_vz).
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.posAng;pos.ephem
@@ -1736,7 +1767,8 @@ tables:
     nullable: false
     ivoa:ucd: meta.id;src
   - name: published
-    description: Publication status of this identification, as the integer code in the MPC's table (not a boolean; the values 0, 1, 2 and 4 occur).
+    description: Publication status of this identification, as the integer code in the MPC's table (not a boolean; the
+      values 0, 1, 2 and 4 occur).
     datatype: int
     ivoa:ucd: meta.code.status;meta.dataset
   - name: identifier_ids
