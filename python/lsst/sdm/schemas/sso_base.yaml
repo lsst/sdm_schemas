@@ -825,10 +825,10 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.eq.ra
   - name: trailRaErr
-    description: Uncertainty of trailRa (of RA*cos(Dec)), degrees. DiaSource trailRaErr (prompt and PPDB tables
+    description: Uncertainty of trailRa (of RA*cos(Dec)), arcsec. DiaSource trailRaErr (prompt and PPDB tables
       only); no Source equivalent.
     datatype: float
-    ivoa:unit: deg
+    ivoa:unit: arcsec
     ivoa:ucd: stat.error;pos.eq.ra
   - name: trailDec
     description: Declination of the trailed-model centroid, degrees. DiaSource trailDec; no Source equivalent.
@@ -836,10 +836,10 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.eq.dec
   - name: trailDecErr
-    description: Uncertainty of trailDec, degrees. DiaSource trailDecErr (prompt and PPDB tables only); no Source
+    description: Uncertainty of trailDec, arcsec. DiaSource trailDecErr (prompt and PPDB tables only); no Source
       equivalent.
     datatype: float
-    ivoa:unit: deg
+    ivoa:unit: arcsec
     ivoa:ucd: stat.error;pos.eq.dec
   - name: trailLength
     description: Maximum-likelihood trail length, arcsec. DiaSource trailLength; no Source equivalent.
