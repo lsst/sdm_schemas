@@ -594,8 +594,9 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.count
   - name: apFluxErr
-    description: 'Uncertainty of apFlux, nJy. DiaSource apFluxErr; Source ap12FluxErr (AP-S: calibrated in full
-      quadrature with base_LocalPhotoCalibErr).'
+    description: 'Uncertainty of apFlux, nJy. DiaSource apFluxErr; Source ap12FluxErr (AP-S:
+      base_CircularApertureFlux_12_0_instFluxErr x base_LocalPhotoCalib; the zero-point error is not propagated, as in
+      the LSST pipelines).'
     datatype: float
     ivoa:unit: nJy
     ivoa:ucd: stat.error;phot.count
@@ -606,7 +607,7 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: apMagErr
-    description: 'Uncertainty of apMag: 1.0857*apFluxErr/apFlux, NULL when apFlux <= 0; computed on read. DiaSource
+    description: 'Uncertainty of apMag: 2.5/ln(10)*apFluxErr/apFlux, NULL when apFlux <= 0; computed on read. DiaSource
       (ppdb) apMagErr; Source ap12MagErr.'
     datatype: float
     ivoa:unit: mag
@@ -627,9 +628,9 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.flux
   - name: ap03FluxErr
-    description: 'Uncertainty of ap03Flux, nJy. Source ap03FluxErr (AP-S: calibrated in full quadrature with
-      base_LocalPhotoCalibErr). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource
-      rows.'
+    description: 'Uncertainty of ap03Flux, nJy. Source ap03FluxErr (AP-S: base_CircularApertureFlux_3_0_instFluxErr x
+      base_LocalPhotoCalib; the zero-point error is not propagated, as in the LSST pipelines). Source-only extra:
+      DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
     datatype: float
     ivoa:unit: nJy
     ivoa:ucd: stat.error;phot.flux
@@ -641,7 +642,7 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: ap03MagErr
-    description: 'Uncertainty of ap03Mag: 1.0857*ap03FluxErr/ap03Flux, NULL when ap03Flux <= 0; computed on read.
+    description: 'Uncertainty of ap03Mag: 2.5/ln(10)*ap03FluxErr/ap03Flux, NULL when ap03Flux <= 0; computed on read.
       Source ap03MagErr. Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
     datatype: float
     ivoa:unit: mag
@@ -667,9 +668,9 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.flux
   - name: ap06FluxErr
-    description: 'Uncertainty of ap06Flux, nJy. Source ap06FluxErr (AP-S: calibrated in full quadrature with
-      base_LocalPhotoCalibErr). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource
-      rows.'
+    description: 'Uncertainty of ap06Flux, nJy. Source ap06FluxErr (AP-S: base_CircularApertureFlux_6_0_instFluxErr x
+      base_LocalPhotoCalib; the zero-point error is not propagated, as in the LSST pipelines). Source-only extra:
+      DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
     datatype: float
     ivoa:unit: nJy
     ivoa:ucd: stat.error;phot.flux
@@ -681,7 +682,7 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: ap06MagErr
-    description: 'Uncertainty of ap06Mag: 1.0857*ap06FluxErr/ap06Flux, NULL when ap06Flux <= 0; computed on read.
+    description: 'Uncertainty of ap06Mag: 2.5/ln(10)*ap06FluxErr/ap06Flux, NULL when ap06Flux <= 0; computed on read.
       Source ap06MagErr. Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
     datatype: float
     ivoa:unit: mag
@@ -707,9 +708,9 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.flux
   - name: ap25FluxErr
-    description: 'Uncertainty of ap25Flux, nJy. Source ap25FluxErr (AP-S: calibrated in full quadrature with
-      base_LocalPhotoCalibErr). Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource
-      rows.'
+    description: 'Uncertainty of ap25Flux, nJy. Source ap25FluxErr (AP-S: base_CircularApertureFlux_25_0_instFluxErr x
+      base_LocalPhotoCalib; the zero-point error is not propagated, as in the LSST pipelines). Source-only extra:
+      DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
     datatype: float
     ivoa:unit: nJy
     ivoa:ucd: stat.error;phot.flux
@@ -721,7 +722,7 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: ap25MagErr
-    description: 'Uncertainty of ap25Mag: 1.0857*ap25FluxErr/ap25Flux, NULL when ap25Flux <= 0; computed on read.
+    description: 'Uncertainty of ap25Mag: 2.5/ln(10)*ap25FluxErr/ap25Flux, NULL when ap25Flux <= 0; computed on read.
       Source ap25MagErr. Source-only extra: DiaSource measures only the 12 px aperture, so NULL on DiaSource rows.'
     datatype: float
     ivoa:unit: mag
@@ -755,8 +756,8 @@ tables:
     ivoa:unit: nJy
     ivoa:ucd: phot.count
   - name: psfFluxErr
-    description: 'Uncertainty of psfFlux, nJy. DiaSource psfFluxErr; Source psfFluxErr (AP-S: calibrated in full
-      quadrature with base_LocalPhotoCalibErr).'
+    description: 'Uncertainty of psfFlux, nJy. DiaSource psfFluxErr; Source psfFluxErr (AP-S: base_PsfFlux_instFluxErr
+      x base_LocalPhotoCalib; the zero-point error is not propagated, as in the LSST pipelines).'
     datatype: float
     nullable: false
     ivoa:unit: nJy
@@ -768,8 +769,8 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: psfMagErr
-    description: 'Uncertainty of psfMag: 1.0857*psfFluxErr/psfFlux, NULL when psfFlux <= 0; computed on read. DiaSource
-      (ppdb) psfMagErr; Source psfMagErr.'
+    description: 'Uncertainty of psfMag: 2.5/ln(10)*psfFluxErr/psfFlux, NULL when psfFlux <= 0; computed on read.
+      DiaSource (ppdb) psfMagErr; Source psfMagErr.'
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
@@ -814,7 +815,7 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: trailMagErr
-    description: 'Uncertainty of trailMag: 1.0857*trailFluxErr/trailFlux, NULL when trailFlux <= 0; computed on
+    description: 'Uncertainty of trailMag: 2.5/ln(10)*trailFluxErr/trailFlux, NULL when trailFlux <= 0; computed on
       read. DiaSource (ppdb) trailMagErr; no Source equivalent.'
     datatype: float
     ivoa:unit: mag
@@ -897,7 +898,7 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: dipoleMeanMagErr
-    description: 'Uncertainty of dipoleMeanMag: 1.0857*dipoleMeanFluxErr/dipoleMeanFlux, NULL when dipoleMeanFlux
+    description: 'Uncertainty of dipoleMeanMag: 2.5/ln(10)*dipoleMeanFluxErr/dipoleMeanFlux, NULL when dipoleMeanFlux
       <= 0; computed on read. DiaSource (ppdb) dipoleMeanMagErr; no Source equivalent.'
     datatype: float
     ivoa:unit: mag
@@ -949,8 +950,8 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: scienceMagErr
-    description: 'Uncertainty of scienceMag: 1.0857*scienceFluxErr/scienceFlux, NULL when scienceFlux <= 0; computed
-      on read. DiaSource (ppdb) scienceMagErr; NULL on Source rows.'
+    description: 'Uncertainty of scienceMag: 2.5/ln(10)*scienceFluxErr/scienceFlux, NULL when scienceFlux <= 0;
+      computed on read. DiaSource (ppdb) scienceMagErr; NULL on Source rows.'
     datatype: float
     ivoa:unit: mag
     ivoa:ucd: stat.error;phot.mag
@@ -984,7 +985,7 @@ tables:
     ivoa:unit: mag
     ivoa:ucd: phot.mag
   - name: templateMagErr
-    description: 'Uncertainty of templateMag: 1.0857*templateFluxErr/templateFlux, NULL when templateFlux <= 0;
+    description: 'Uncertainty of templateMag: 2.5/ln(10)*templateFluxErr/templateFlux, NULL when templateFlux <= 0;
       computed on read. DiaSource (ppdb) templateMagErr; no Source equivalent.'
     datatype: float
     ivoa:unit: mag
