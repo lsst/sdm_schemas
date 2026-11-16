@@ -1,0 +1,22 @@
+/* Rubin styles for the SDM Schemas browser site. */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  --font-body: "Source Sans Pro", sans-serif;
+  --color-link: #058b8c;
+  --color-surface: #f5f5f5;
+  --color-focus: #058b8c;
+  --color-icon: #6a6e6e;
+  --color-icon-hover: #1f2121;
+  --color-tag-text: #313333;
+  --font-weight-tag: 600;
+}
+
+/* Header bars and the selected search tab in the lightest complementary
+   teal. */
+.content-header,
+.sidebar-header,
+.search-tab[aria-selected="true"] {
+  background: #d9f7f6;
+}

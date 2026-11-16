@@ -10,6 +10,10 @@ to derived formats including SQL DDL and
 [TAP_SCHEMA](https://www.ivoa.net/documents/TAP/20180830/PR-TAP-1.1-20180830.html#tth_sEc4).
 These schema definitions serve as the "source of truth" for the observatory's core data models.
 
+The documentation is at [sdm-schemas.lsst.io](https://sdm-schemas.lsst.io). This site includes a
+[schema browser](https://sdm-schemas.lsst.io/browser/) and the
+[release notes](https://sdm-schemas.lsst.io/changelog.html).
+
 Schemas
 -------
 
