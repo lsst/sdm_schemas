@@ -137,7 +137,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng;stat.max
   - name: u_slope_fit_failed
-    description: G12 fit failed in u band. G12 contains a fiducial value used to fit H.
+    description: G12 fit failed in u band. G12 contains a fiducial value used to fit H. NULL when
+      u_nObs = 0 (no data in this band).
     datatype: boolean
 
 
@@ -189,7 +190,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng;stat.max
   - name: g_slope_fit_failed
-    description: G12 fit failed in g band. G12 contains a fiducial value used to fit H.
+    description: G12 fit failed in g band. G12 contains a fiducial value used to fit H. NULL when
+      g_nObs = 0 (no data in this band).
     datatype: boolean
 
 
@@ -241,7 +243,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng;stat.max
   - name: r_slope_fit_failed
-    description: G12 fit failed in r band. G12 contains a fiducial value used to fit H.
+    description: G12 fit failed in r band. G12 contains a fiducial value used to fit H. NULL when
+      r_nObs = 0 (no data in this band).
     datatype: boolean
 
 
@@ -293,7 +296,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng;stat.max
   - name: i_slope_fit_failed
-    description: G12 fit failed in i band. G12 contains a fiducial value used to fit H.
+    description: G12 fit failed in i band. G12 contains a fiducial value used to fit H. NULL when
+      i_nObs = 0 (no data in this band).
     datatype: boolean
 
 
@@ -345,7 +349,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng;stat.max
   - name: z_slope_fit_failed
-    description: G12 fit failed in z band. G12 contains a fiducial value used to fit H.
+    description: G12 fit failed in z band. G12 contains a fiducial value used to fit H. NULL when
+      z_nObs = 0 (no data in this band).
     datatype: boolean
 
 
@@ -397,7 +402,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng;stat.max
   - name: y_slope_fit_failed
-    description: G12 fit failed in y band. G12 contains a fiducial value used to fit H.
+    description: G12 fit failed in y band. G12 contains a fiducial value used to fit H. NULL when
+      y_nObs = 0 (no data in this band).
     datatype: boolean
 
 - name: SSObservation
