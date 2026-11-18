@@ -1189,7 +1189,8 @@ tables:
     ivoa:unit: deg
     ivoa:ucd: pos.galactic.lat
   - name: elongation
-    description: Solar elongation of the object at the time of observation.
+    description: Solar elongation of the object at the time of observation. Apparent (aberration-corrected), as JPL
+      Horizons S-O-T.
     datatype: float
     ivoa:unit: deg
     ivoa:ucd: pos.phaseAng
