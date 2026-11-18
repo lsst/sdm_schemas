@@ -25,7 +25,7 @@ tables:
     ivoa:ucd: meta.number;obs
   - name: arc
     description: 'Timespan ("arc") of all LSST observations, t_{last} - t_{first}'
-    datatype: float
+    datatype: double
     nullable: false
     ivoa:unit: d
     ivoa:ucd: time.duration;obs
@@ -1201,7 +1201,7 @@ tables:
     ivoa:ucd: pos.phaseAng
   - name: topoRange
     description: Topocentric distance (delta) at light-emission time.
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.distance
   - name: topoRangeRate
@@ -1212,7 +1212,7 @@ tables:
     ivoa:ucd: phys.veloc
   - name: helioRange
     description: Heliocentric distance (r) at light-emission time.
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.distance;pos.heliocentric
   - name: helioRangeRate
@@ -1291,12 +1291,12 @@ tables:
     ivoa:ucd: pos.angDistance;stat.fit.omc
   - name: ephOffsetRa
     description: Offset between observed and predicted position in the R.A. direction (includes cos(dec) term).
-    datatype: double
+    datatype: float
     ivoa:unit: arcsec
     ivoa:ucd: pos.eq.ra;stat.fit.omc
   - name: ephOffsetDec
     description: Offset between observed and predicted position in declination.
-    datatype: double
+    datatype: float
     ivoa:unit: arcsec
     ivoa:ucd: pos.eq.dec;stat.fit.omc
   - name: ephOffsetAlongTrack
@@ -1311,17 +1311,17 @@ tables:
     ivoa:ucd: pos.angDistance;stat.fit.omc
   - name: helio_x
     description: Cartesian heliocentric X coordinate at light-emission time (ICRS).
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.x;pos.heliocentric
   - name: helio_y
     description: Cartesian heliocentric Y coordinate at light-emission time (ICRS).
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.y;pos.heliocentric
   - name: helio_z
     description: Cartesian heliocentric Z coordinate at light-emission time (ICRS).
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.z;pos.heliocentric
   - name: helio_vx
@@ -1346,17 +1346,17 @@ tables:
     ivoa:ucd: phys.veloc;pos.heliocentric
   - name: topo_x
     description: Cartesian topocentric X coordinate at light-emission time (ICRS).
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.x
   - name: topo_y
     description: Cartesian topocentric Y coordinate at light-emission time (ICRS).
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.y
   - name: topo_z
     description: Cartesian topocentric Z coordinate at light-emission time (ICRS).
-    datatype: float
+    datatype: double
     ivoa:unit: AU
     ivoa:ucd: pos.cartesian.z
   - name: topo_vx
