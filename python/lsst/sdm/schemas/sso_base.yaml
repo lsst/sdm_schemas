@@ -1596,11 +1596,11 @@ tables:
   - name: yarkovsky
     description: "Yarkovsky Component [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: 1e-10.au.d-2
+    ivoa:unit: 1e-10.au.d**-2
   - name: srp
     description: "Solar-Radiation Pressure Component [m^2/ton]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: m**2/t
   - name: a1
     description: "A1 non-grav components [10^(-10)*au/day^2]"
     datatype: double
@@ -1630,7 +1630,7 @@ tables:
     description: "Orbital Mean Motion [degrees per day]"
     datatype: double
     ivoa:ucd: src.orbital.meanMotion
-    ivoa:unit: deg.d-1
+    ivoa:unit: deg/d
   - name: a_unc
     description: "Uncertainty on Semi Major Axis [au]"
     datatype: double
@@ -1667,11 +1667,11 @@ tables:
   - name: yarkovsky_unc
     description: "Uncertainty on Yarkovsky Component [10^(-10)*au/day^2]"
     datatype: double
-    ivoa:unit: 1e-10.au.d-2
+    ivoa:unit: 1e-10.au.d**-2
   - name: srp_unc
     description: "Uncertainty on Solar-Radiation Pressure Component [m^2/ton]"
     datatype: double
-    ivoa:unit: m2.t-1
+    ivoa:unit: m**2/t
   - name: a1_unc
     description: "Uncertainty on A1 non-grav components [10^(-10)*au/day^2]"
     datatype: double
@@ -1701,7 +1701,7 @@ tables:
     description: "Uncertainty on Orbital Mean Motion [degrees per day]"
     datatype: double
     ivoa:ucd: stat.error;src.orbital.meanMotion
-    ivoa:unit: deg.d-1
+    ivoa:unit: deg/d
   - name: epoch_mjd
     description: Epoch of the Orbfit-Solution in MJD (TT, not TAI)
     datatype: double
