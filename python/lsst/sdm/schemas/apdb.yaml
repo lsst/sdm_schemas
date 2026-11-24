@@ -73,17 +73,17 @@ tables:
     datatype: float
     description: Inverse-variance weighted mean of psfFlux of the u-band DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: u_psfFluxMeanErr
     datatype: float
     description: Uncertainty of u_psfFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: u_psfFluxSigma
     datatype: float
     description: Unweighted sample standard deviation of psfFlux of the u-band DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
   - name: u_psfFluxNdata
     datatype: int
     nullable: false
@@ -92,28 +92,28 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for u filter.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: u_fpFluxMeanErr
     datatype: float
     description: Standard error of u_fpFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: g_psfFluxMean
     datatype: float
     description: Inverse-variance weighted mean of psfFlux of the g-band DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: g_psfFluxMeanErr
     datatype: float
     description: Uncertainty of g_psfFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: g_psfFluxSigma
     datatype: float
     description: Unweighted sample standard deviation of psfFlux of the g-band
       DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
   - name: g_psfFluxNdata
     datatype: int
     nullable: false
@@ -122,28 +122,28 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for g filter.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: g_fpFluxMeanErr
     datatype: float
     description: Standard error of g_fpFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: r_psfFluxMean
     datatype: float
     description: Inverse-variance weighted mean of psfFlux of the r-band DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: r_psfFluxMeanErr
     datatype: float
     description: Uncertainty of r_psfFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: r_psfFluxSigma
     datatype: float
     description: Unweighted sample standard deviation of psfFlux of the r-band
       DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
   - name: r_psfFluxNdata
     datatype: int
     nullable: false
@@ -152,28 +152,28 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for r filter.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: r_fpFluxMeanErr
     datatype: float
     description: Standard error of r_fpFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: i_psfFluxMean
     datatype: float
     description: Inverse-variance weighted mean of psfFlux of the i-band DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: i_psfFluxMeanErr
     datatype: float
     description: Uncertainty of i_psfFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: i_psfFluxSigma
     datatype: float
     description: Unweighted sample standard deviation of psfFlux of the i-band
       DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
   - name: i_psfFluxNdata
     datatype: int
     nullable: false
@@ -182,28 +182,28 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for i filter.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: i_fpFluxMeanErr
     datatype: float
     description: Standard error of i_fpFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: z_psfFluxMean
     datatype: float
     description: Inverse-variance weighted mean of psfFlux of the z-band DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: z_psfFluxMeanErr
     datatype: float
     description: Uncertainty of z_psfFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: z_psfFluxSigma
     datatype: float
     description: Unweighted sample standard deviation of psfFlux of the z-band
       DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
   - name: z_psfFluxNdata
     datatype: int
     nullable: false
@@ -212,28 +212,28 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for z filter.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: z_fpFluxMeanErr
     datatype: float
     description: Standard error of z_fpFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: y_psfFluxMean
     datatype: float
     description: Inverse-variance weighted mean of psfFlux of the y-band DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: y_psfFluxMeanErr
     datatype: float
     description: Uncertainty of y_psfFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: y_psfFluxSigma
     datatype: float
     description: Unweighted sample standard deviation of psfFlux of the y-band
       DiaSources.
     fits:tunit: nJy
-    ivoa:ucd: stat.stdev
+    ivoa:ucd: stat.stdev;phot.flux
   - name: y_psfFluxNdata
     datatype: int
     nullable: false
@@ -242,174 +242,198 @@ tables:
     datatype: float
     description: Weighted mean forced photometry flux for y filter.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
   - name: y_fpFluxMeanErr
     datatype: float
     description: Standard error of y_fpFluxMean.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: u_scienceFluxMean
     datatype: float
     description: Inverse-variance weighted mean of scienceFlux of the u-band DiaSources.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     fits:tunit: nJy
   - name: u_scienceFluxMeanErr
     datatype: float
     description: Uncertainty of u_scienceFluxMean, sqrt(1/sum(scienceFluxErr**-2)).
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: g_scienceFluxMean
     datatype: float
     description: Inverse-variance weighted mean of scienceFlux of the g-band DiaSources.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     fits:tunit: nJy
   - name: g_scienceFluxMeanErr
     datatype: float
     description: Uncertainty of g_scienceFluxMean, sqrt(1/sum(scienceFluxErr**-2)).
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: r_scienceFluxMean
     datatype: float
     description: Inverse-variance weighted mean of scienceFlux of the r-band DiaSources.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     fits:tunit: nJy
   - name: r_scienceFluxMeanErr
     datatype: float
     description: Uncertainty of r_scienceFluxMean, sqrt(1/sum(scienceFluxErr**-2)).
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: i_scienceFluxMean
     datatype: float
     description: Inverse-variance weighted mean of scienceFlux of the i-band DiaSources.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     fits:tunit: nJy
   - name: i_scienceFluxMeanErr
     datatype: float
     description: Uncertainty of i_scienceFluxMean, sqrt(1/sum(scienceFluxErr**-2)).
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: z_scienceFluxMean
     datatype: float
     description: Inverse-variance weighted mean of scienceFlux of the z-band DiaSources.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     fits:tunit: nJy
   - name: z_scienceFluxMeanErr
     datatype: float
     description: Uncertainty of z_scienceFluxMean, sqrt(1/sum(scienceFluxErr**-2)).
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: y_scienceFluxMean
     datatype: float
     description: Inverse-variance weighted mean of scienceFlux of the y-band DiaSources.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux;stat.mean
     fits:tunit: nJy
   - name: y_scienceFluxMeanErr
     datatype: float
     description: Uncertainty of y_scienceFluxMean, sqrt(1/sum(scienceFluxErr**-2)).
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: u_psfFluxMin
     datatype: float
     description: Minimum psfFlux of the u-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.min
   - name: u_psfFluxMax
     datatype: float
     description: Maximum psfFlux of the u-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.max
   - name: u_psfFluxMaxSlope
     datatype: float
     description: Largest amplitude of change of psfFlux between consecutive u-band
       DiaSources, max(delta_flux/delta_time); positive values are brightening.
     fits:tunit: nJy/d
+    ivoa:ucd: arith.rate;phot.flux;stat.max
   - name: u_psfFluxErrMean
     datatype: float
     description: Unweighted mean of psfFluxErr of the u-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux;stat.mean
   - name: g_psfFluxMin
     datatype: float
     description: Minimum psfFlux of the g-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.min
   - name: g_psfFluxMax
     datatype: float
     description: Maximum psfFlux of the g-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.max
   - name: g_psfFluxMaxSlope
     datatype: float
     description: Largest amplitude of change of psfFlux between consecutive g-band
       DiaSources, max(delta_flux/delta_time); positive values are brightening.
     fits:tunit: nJy/d
+    ivoa:ucd: arith.rate;phot.flux;stat.max
   - name: g_psfFluxErrMean
     datatype: float
     description: Unweighted mean of psfFluxErr of the g-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux;stat.mean
   - name: r_psfFluxMin
     datatype: float
     description: Minimum psfFlux of the r-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.min
   - name: r_psfFluxMax
     datatype: float
     description: Maximum psfFlux of the r-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.max
   - name: r_psfFluxMaxSlope
     datatype: float
     description: Largest amplitude of change of psfFlux between consecutive r-band
       DiaSources, max(delta_flux/delta_time); positive values are brightening.
     fits:tunit: nJy/d
+    ivoa:ucd: arith.rate;phot.flux;stat.max
   - name: r_psfFluxErrMean
     datatype: float
     description: Unweighted mean of psfFluxErr of the r-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux;stat.mean
   - name: i_psfFluxMin
     datatype: float
     description: Minimum psfFlux of the i-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.min
   - name: i_psfFluxMax
     datatype: float
     description: Maximum psfFlux of the i-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.max
   - name: i_psfFluxMaxSlope
     datatype: float
     description: Largest amplitude of change of psfFlux between consecutive i-band
       DiaSources, max(delta_flux/delta_time); positive values are brightening.
     fits:tunit: nJy/d
+    ivoa:ucd: arith.rate;phot.flux;stat.max
   - name: i_psfFluxErrMean
     datatype: float
     description: Unweighted mean of psfFluxErr of the i-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux;stat.mean
   - name: z_psfFluxMin
     datatype: float
     description: Minimum psfFlux of the z-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.min
   - name: z_psfFluxMax
     datatype: float
     description: Maximum psfFlux of the z-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.max
   - name: z_psfFluxMaxSlope
     datatype: float
     description: Largest amplitude of change of psfFlux between consecutive z-band
       DiaSources, max(delta_flux/delta_time); positive values are brightening.
     fits:tunit: nJy/d
+    ivoa:ucd: arith.rate;phot.flux;stat.max
   - name: z_psfFluxErrMean
     datatype: float
     description: Unweighted mean of psfFluxErr of the z-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux;stat.mean
   - name: y_psfFluxMin
     datatype: float
     description: Minimum psfFlux of the y-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.min
   - name: y_psfFluxMax
     datatype: float
     description: Maximum psfFlux of the y-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;stat.max
   - name: y_psfFluxMaxSlope
     datatype: float
     description: Largest amplitude of change of psfFlux between consecutive y-band
       DiaSources, max(delta_flux/delta_time); positive values are brightening.
     fits:tunit: nJy/d
+    ivoa:ucd: arith.rate;phot.flux;stat.max
   - name: y_psfFluxErrMean
     datatype: float
     description: Unweighted mean of psfFluxErr of the y-band DiaSources.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux;stat.mean
   - name: firstDiaSourceMjdTai
     datatype: double
     description: midpointMjdTai of the earliest DiaSource associated with this object,
@@ -551,12 +575,12 @@ tables:
     datatype: float
     description: Flux in a 12 pixel radius aperture on the difference image.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
   - name: apFluxErr
     datatype: float
     description: Estimated uncertainty of apFlux.
     fits:tunit: nJy
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
   - name: apFlux_flag
     datatype: boolean
     description: General aperture flux algorithm failure flag; set if anything went wrong when measuring aperture fluxes. Another apFlux flag field should also be set to provide more information.
@@ -577,11 +601,12 @@ tables:
     datatype: float
     description: Flux of a point-source (PSF) model fit to the difference image at the diaSource centroid.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
   - name: psfFluxErr
     datatype: float
     description: Uncertainty of psfFlux.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux
   - name: psfLnL
     datatype: float
     description: Natural log likelihood of the observed data given the point source
@@ -613,11 +638,13 @@ tables:
     description: Flux of a trailed source model on the difference image. If the model
       flux can't be computed, this is the aperture flux.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux
   - name: trailFluxErr
     datatype: float
     description: Uncertainty of trailFlux, propagated from the centroid, trail length and
       angle uncertainties only. NULL when trailFlux is the aperture flux.
     fits:tunit: nJy
+    ivoa:ucd: stat.error;phot.flux
   - name: trailRa
     datatype: double
     description: Right ascension coordinate of the trailed source model centroid.
@@ -683,22 +710,24 @@ tables:
       modeled at the positive-lobe position in the visit image and at the negative-lobe
       position in the template, fit jointly to the difference, visit and template images.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux
   - name: dipoleMeanFluxErr
     datatype: float
     description: Uncertainty of dipoleMeanFlux.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux
   - name: dipoleFluxDiff
     datatype: float
     description: Difference of the absolute fluxes of the positive and negative lobes of
       the dipole model. 0 for every fitted dipole, because the fit uses one flux
       for both lobes.
     fits:tunit: nJy
+    ivoa:ucd: phot.flux;arith.diff
   - name: dipoleFluxDiffErr
     datatype: float
     description: Uncertainty of dipoleFluxDiff.
     fits:tunit: nJy
-    ivoa:ucd: stat.error
+    ivoa:ucd: stat.error;phot.flux;arith.diff
   - name: dipoleLength
     datatype: float
     description: Separation of the two lobes of the dipole fit.
@@ -724,12 +753,12 @@ tables:
     description: Forced PSF flux on the visit image at the diaSource centroid. Unlike
       psfFlux, it is not aperture corrected.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
   - name: scienceFluxErr
     datatype: float
     description: Estimated uncertainty of scienceFlux.
     fits:tunit: nJy
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
   - name: forced_PsfFlux_flag
     datatype: boolean
     description: Forced PSF photometry on the visit image failed. Another forced_PsfFlux flag field
@@ -746,12 +775,12 @@ tables:
   - name: templateFlux
     datatype: float
     description: Forced PSF flux on the PSF-matched template at the diaSource centroid.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
     fits:tunit: nJy
   - name: templateFluxErr
     datatype: float
     description: Uncertainty of templateFlux.
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: ixx
     datatype: float
@@ -1021,12 +1050,12 @@ tables:
     description: Forced PSF flux on the difference image at the DiaObject position.
       Positive if the source is brighter in the visit image than in the template.
     fits:tunit: nJy
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
   - name: psfFluxErr
     datatype: float
     description: Uncertainty of psfFlux.
     fits:tunit: nJy
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
   - name: midpointMjdTai
     datatype: double
     nullable: false
@@ -1038,12 +1067,12 @@ tables:
     datatype: float
     description: Forced PSF flux on the visit image at the DiaObject position. Unlike
       psfFlux, it includes the flux of any static source and background.
-    ivoa:ucd: phot.count
+    ivoa:ucd: phot.flux
     fits:tunit: nJy
   - name: scienceFluxErr
     datatype: float
     description: Uncertainty of scienceFlux.
-    ivoa:ucd: stat.error;phot.count
+    ivoa:ucd: stat.error;phot.flux
     fits:tunit: nJy
   - name: band
     datatype: char
