@@ -6094,8 +6094,8 @@ tables:
     ivoa:ucd: pos.eq.dec
     ivoa:unit: deg
   - name: trailFlux
-    description: Flux for a trailed source model. Note this actually measures the
-      flux difference between the template and the visit image.
+    description: Flux of a trailed source model on the difference image.
+      Falls back to the aperture flux if the model flux can't be computed.
     datatype: float
     ivoa:unit: nJy
   - name: trailFluxErr
